@@ -1,0 +1,680 @@
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+"Object" model in the new program:
+===================================
+(Note, "object" is a misnomer because classes will be only minimally used.)
+
+global const TECHCODE_ANY_000u_USER_INPUT = 0
+global const TECHCODE_ANY_991d_DB911 = 991
+global const TECHCODE_ANY_992d_DB801 = 992
+
+global const PROPCODE_000_MOLEC_WEIGHT = 0
+global const TECHCODE_000_002e_UNIFAC = 2
+
+global const PROPCODE_001_LIQDENS_298K = 1
+global const TECHCODE_001_003e_BHIRUDS_1978 = 3
+global const TECHCODE_001_004e_RACKETT_1978 = 4
+
+global const PROPCODE_002_LIQDENS_FOFT = 2
+
+global const PROPCODE_003_MELTING_POINT = 3
+global const TECHCODE_003_005e_TAFT_STAREK_1930 = 5
+global const TECHCODE_003_006e_LORENZ_HERZ_1922 = 6
+
+global const PROPCODE_004_NBP = 4
+
+global const PROPCODE_005_VP_298K = 5
+
+global const PROPCODE_006_VP_FOFT = 6
+global const TECHCODE_006_007d_ANTOINELIKE_EXPRESSION = 7
+
+global const PROPCODE_007_HEAT_FORMATION = 7
+
+global const PROPCODE_008_LIQUID_HEAT_CAPACITY = 8
+
+global const PROPCODE_009_VAPOR_HEAT_CAPACITY = 9
+
+global const PROPCODE_010_HEAT_OF_VAPORIZATION_298K = 10
+global const TECHCODE_010_008e_WATSON = 8
+
+global const PROPCODE_011_HEAT_OF_VAPORIZATION_NBP = 11
+global const TECHCODE_011_009e_KLEIN_1949 = 9
+global const TECHCODE_011_010e_CHEN_PITZER_1965 = 10
+
+global const PROPCODE_012_HEAT_OF_VAPORIZATION_FOFT = 12
+
+global const PROPCODE_013_CRITICAL_T = 13
+
+global const PROPCODE_014_CRITICAL_P = 14
+
+global const PROPCODE_038_CRITICAL_V = 38
+
+global const PROPCODE_015_DIFFUSIVITY_H2O = 15
+global const TECHCODE_015_011e_HAYDUK_MINHAS_1982 = 11
+global const TECHCODE_015_012e_HAYDUK_LAUDIE_1974 = 12
+global const TECHCODE_015_013e_WILKE_CHANG = 13
+
+global const PROPCODE_016_DIFFUSIVITY_AIR = 16
+global const TECHCODE_016_014e_WILKE_LEE_MOD = 14
+
+global const PROPCODE_017_SURFACE_TENSION_298K = 17
+global const TECHCODE_017_015e_BROCK_BIRD_1983 = 15
+
+global const PROPCODE_018_SURFACE_TENSION_FOFT = 18
+
+global const PROPCODE_019_VAPOR_VISCOSITY_FOFT = 19
+
+global const PROPCODE_020_LIQUID_VISCOSITY_FOFT = 20
+
+global const PROPCODE_021_LIQUID_THERMAL_CONDUC_FOFT = 21
+
+global const PROPCODE_022_VAPOR_THERMAL_CONDUC_FOFT = 22
+
+global const PROPCODE_034_AC_CHEM_IN_H2O = 34
+global const TECHCODE_034_016e_UNIFAC = 16
+global const TECHCODE_034_017e_HANSCH_1968 = 17
+
+global const PROPCODE_032_AC_H2O_IN_CHEM = 32
+global const TECHCODE_032_018e_UNIFAC = 18
+
+global const PROPCODE_033_HENRY_CONSTANT = 33
+
+global const PROPCODE_039_SOL_LIMIT_CHEM_IN_H2O = 39
+global const TECHCODE_039_019e_UNIFAC = 19
+global const TECHCODE_039_020d_YAWS = 20
+global const TECHCODE_039_021e_YALKOWSKY_1990 = 21
+
+global const PROPCODE_035_LOG_KOW = 35
+global const TECHCODE_035_022e_KENAGA_GORING_1978 = 22
+
+global const PROPCODE_036_LOG_KOC = 36
+global const TECHCODE_036_023e_BAKER_1994 = 23
+
+global const PROPCODE_037_BIOCONC_FACTOR = 37
+global const TECHCODE_037_024e_KOBAYSHI_1981 = 24
+global const TECHCODE_037_025e_KENAGA_GORING_1980 = 25
+
+global const PROPCODE_023_UF_LIMIT = 23
+global const TECHCODE_023_026d_MTU_FIREEXP_DATA = 26
+global const TECHCODE_023_027d_MTU_GROUP_CONTRIB = 27
+global const TECHCODE_023_028d_MTU_COMBUSTION_RXN = 28
+global const TECHCODE_023_029d_PENN_GROUP_CONTRIB = 29
+
+global const PROPCODE_024_LF_LIMIT = 24
+global const TECHCODE_024_030d_MTU_FIREEXP_DATA = 30
+global const TECHCODE_024_031d_MTU_GROUP_CONTRIB = 31
+global const TECHCODE_024_032d_PENN_GROUP_CONTRIB = 32
+global const TECHCODE_024_033d_MTU_COMBUSTION_RXN = 33
+global const TECHCODE_024_034d_MTU_FLASHPOINT_METH = 34
+
+global const PROPCODE_025_FLASH_POINT = 25
+global const TECHCODE_025_035d_MTU_FIREEXP_DATA = 35
+global const TECHCODE_025_036d_LFL_DATA = 36
+global const TECHCODE_025_037d_MTU_LFL_GROUP_CONTRIB = 37
+global const TECHCODE_025_038d_PENN_GROUP_CONTRIB = 38
+global const TECHCODE_025_039d_MTU_LFL_COMBUSTION_RXN = 39
+
+global const PROPCODE_026_AUTOIGNITION_T = 26
+global const TECHCODE_026_040d_MTU_FIREEXP_DATA = 40
+global const TECHCODE_026_041d_MTU_LOG_METHOD = 41
+global const TECHCODE_026_042d_MTU_LINEAR_METHOD = 42
+
+global const PROPCODE_027_COMBUSTION_HEAT = 27
+
+global const PROPCODE_028_CARBON_THOD = 28
+
+global const PROPCODE_029_COMBINED_THOD = 29
+
+global const PROPCODE_030_COD = 30
+global const TECHCODE_030_043e_MTU_DIPPR = 43
+
+global const PROPCODE_031_BCOD = 31
+
+global const PROPCODE_041_FMINNOW_48H_EC50 = 41
+
+global const PROPCODE_042_FMINNOW_96H_EC50 = 42
+
+global const PROPCODE_043_FMINNOW_24H_LC50 = 43
+
+global const PROPCODE_044_FMINNOW_48H_LC50 = 44
+
+global const PROPCODE_045_FMINNOW_96H_LC50 = 45
+
+global const PROPCODE_046_SALMONIDAE_24H_LC50 = 46
+
+global const PROPCODE_047_SALMONIDAE_48H_LC50 = 47
+
+global const PROPCODE_048_SALMONIDAE_96H_LC50 = 48
+
+global const PROPCODE_049_DMAGNA_24H_EC50 = 49
+
+global const PROPCODE_050_DMAGNA_48H_EC50 = 50
+
+global const PROPCODE_051_DMAGNA_24H_LC50 = 51
+
+global const PROPCODE_052_DMAGNA_48H_LC50 = 52
+
+global const PROPCODE_053_MYSID_96H_LC50 = 53
+
+global const PROPCODE_054_ALTERNATE_SPECIES = 54
+
+
+
+
+
+type PropertyOrder_Type
+  Property_Code as long          'Uses the PROPCODE_* constants
+  Technique_Code() as Long       'Uses the TECHCODE_* constants
+end type
+type PropertySheetOrder_Type
+  PropertyOrder() as PropertyOrder_Type
+end type
+type UserHierarchy_Type
+  PropertySheetOrder() as PropertySheetOrder_Type
+end type
+
+
+type TechniqueData_Type
+  '
+  ' Important note: The value actually reported by the program
+  ' on the main window is the first technique (ordered by
+  ' NowProj.UserHierarchy) that has .IsAvail=true.
+  '
+  Technique_Code as Long       'Uses the TECHCODE_* constants
+  Value as double
+  IsAvail as boolean
+  Error_Code as string
+      ' Error_Code could be anything ranging from "Not in database" to
+      ' "The temperature is outside the valid range" to
+      ' "A run-time error #134 occurred: `Whatever this error message
+      ' can be translated as.`"  It's important to note that if a
+      ' run-time error occurs during the calculation of a given technique,
+      ' the code records this fact and continues on to attempt to 
+      ' calculate the next techinque.
+end type
+type PropertyData_Type
+  '
+  ' MISCELLANEOUS PROPERTY DATA.
+  '
+  User_Note as string
+  '
+  ' MAIN DATA SET.
+  '
+  UnitDisplayed as string
+  Property_Code as long          'Uses the PROPCODE_* constants
+  TechniqueData() as TechniqueData_Type
+end type
+type UserChemical_Type
+  '
+  ' MISCELLANEOUS CHEMICAL DATA.
+  '
+  User_Note as string
+  '
+  ' MAIN DATA SET.
+  '
+  Name as string
+  CAS as string
+  SMILES as string
+  Formula as string
+  Family as string
+  Source as string
+  PropertyData() as PropertyData_Type
+end type
+type Project_Type
+  '
+  ' MISCELLANEOUS FILE DATA.
+  '
+  File_Note as string
+  '
+  ' HIERARCHY RELATED DATA.
+  '
+  UserHierarchy as UserHierarchy_Type
+  '
+  ' MAIN DATA SET.
+  '
+  Op_T as double      'K
+  Op_P as double      'Pa
+  UserChemicals() as UserChemical_Type
+end type
+
+global NowProj as Project_Type
+
+
+'
+'for each chemical:
+'- user note for this chemical
+'- for each property:
+'  - property code
+'  - unit of display
+'  - user note for this property
+'  - for each hard-coded technique:
+'    - technique code
+'    - value
+'    - IsAvail: boolean stating whether value is available
+'    - error_code:
+'      - Could be anything ranging from "Not in database" to
+'        "The temperature is outside the valid range" to
+'        "A run-time error #134 occurred: `Whatever this error message
+'        can be translated as.`"
+'    - Important note: The value actually reported by the program
+'      on the main window is the first technique (ordered by
+'      NowProj.UserHierarchy) that has .IsAvail=true.
+'
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Control Design of Main Window:
+==================================
+- Master Chemical List (to left)
+- User Chemical List (to right)
+- The standard ">", "<", and "<<" buttons (add help-tip texts!)
+- The standard "Recalculate" button (also F9 accessible)
+- The operating temperature and pressure (with variable units) will now be
+  placed outside of the property sheet grid!
+- Additional chemical buttons:
+  - Button marked "Find"
+  - Button marked "Create" (help-tip text = "Create new chemical record in 
+    user chemical list")
+    - The most important properties of a newly created chemical are
+      the name and the SMILES string, to permit SMILES-based estimations
+    - [ Important question: What is Formula, Family, and Source used for? ]
+- Scrollable divider between chemical lists and property sheets
+- When entire window is resized, scrollable divider moves proportionally
+- Grayed (pseudo-HYSYS-style) list of property sheets (to left)
+- Currently selected property sheet (to right):
+  - Grid with following columns:
+    - Property name
+    - Property value (note, if property not available, display "Not Available")
+    - Property units
+- Menu System:
+  - File
+    - New
+    - Open ...
+    - Save
+    - Save As ...
+    - Select Printer ...
+    - Print ...
+    - Export ...
+    - Last-few-files list
+    - Exit
+  - Edit
+    - Select Chemical
+    - Recalculate
+    - Find ...
+    - Create New Chemical ...
+    - Unselect Chemical
+    - Unselect All Chemicals
+    - ---
+    - View/Edit File Note ...
+    - Refresh
+    - ---
+    - Sort
+      - Chemical List
+        - Ascending
+        - Descending
+      - User List
+        - Ascending
+        - Descending
+  - Property
+    - Change Units ...
+    - View Techniques Window ...
+  - Plot
+    - New Plot ...
+  - Options
+    - Environment Preferences ...
+    - File Preferences ...
+    - Customize ... (*)
+  - Help
+    - Contents ...
+    - About ...
+
+(*) The customize window allows the following actions:
+===========================================================
+- For a list of all property sheets:
+  - Add new property sheet
+  - Delete property sheet
+  - Move down property sheet
+  - Move up property sheet
+  - Important note:
+    - There is a property sheet named "Basic Chemical Info"
+      which cannot be deleted or renamed!  This property sheet contains a fixed
+      set of information: Name, CAS, SMILES, Formula, Family, Source.
+    - There is a property sheet named "Chemical Note"
+      which cannot be deleted or renamed!  This property sheet contains an
+      optional note entered by the user in multi-line, normal text (non-RTF) format.
+  - Edit property sheet:
+    - Name: Can be modified
+    - Edit properties on this property sheet:
+      - Name: Cannot be modified
+      - Add new property (from the hard-coded list)
+      - Delete property
+      - Move down property
+      - Move up property
+- For a list of all unique properties (no repetition!):
+  - Edit property:
+    - Add new technique
+    - Delete technique
+    - Move down technique
+    - Move up technique
+    - Note: Whenever the techniques in a given property are modified,
+      these modifications are copied to all of the other properties that have
+      identical property codes.
+- Note: When the editing is complete, the PropertyData_InitializeAll_OneChemical()
+  subroutine is called, and Recalculate_All() is called.
+
+
+
+      '- Edit property
+      '  - Name: Cannot be modified
+      '  - For techniques:
+      '    - Add new technique (from the hard-coded list)
+      '    - Delete technique 
+      '    - Move down technique 
+      '    - Move up technique 
+      '    - Edit technique
+      '      - Name: Cannot be modified
+
+
+Code Design of Main Window:
+==================================
+- Re-population code routines:
+  - frmMain_Populate_lstUser: 
+    - redisplays lstUser, keeping old selection (if any)
+  - frmMain_Populate_lstPropSheets: 
+    - redisplays lstPropSheets, keeping old selection (if any)
+  - frmMain_PopulateFirstTime_lvMain:
+    - sets up all of the first-time links
+  - frmMain_Populate_lvMain:
+    - if there's no selection in lstPropSheets, make lvMain invisible and exit
+    - if there's no selection in lstUser, make lvMain invisible and exit
+    - redisplays lvMain, keeping old selection (if any)
+  - frmMain_Refresh:
+    - redisplays txtChemNote
+    - redisplays txtData(*)
+- When clicking on lstUser:
+  - Call frmMain_Populate_lvMain
+  - Call frmMain_Refresh
+- When clicking on lstPropSheets:
+  - Call frmMain_Populate_lvMain
+  - Call frmMain_Refresh
+- When clicking on lvMain:
+  - { launch frmTechniques; the code on this window takes care of
+      calling the re-calculation code }
+  - Call frmMain_Populate_lvMain
+  - Call frmMain_Refresh
+- For Edit--Select Chemical:
+  - Add to .UserChemicals() array
+  - Call frmMain_Populate_lstUser
+  - Call frmMain_Refresh
+- For File--New:
+  - Re-init all variables
+  - Call frmMain_Populate_lstUser
+  - Call frmMain_Populate_lstPropSheets
+  - Call frmMain_Populate_lvMain
+  - Call frmMain_Refresh
+- For File--Open:
+  - Load all variables
+  - Call frmMain_Populate_lstUser
+  - Call frmMain_Populate_lstPropSheets
+  - Call frmMain_Populate_lvMain
+  - Call frmMain_Refresh
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Design of Technique Hierarchy Window:
+========================================
+- Grayed (pseudo-HYSYS-style) list of tabs (to left)
+  - This list includes the following:
+    - List of Techniques
+    - DIPPR911 Data
+    - DIPPR801 Data
+    - Property Note
+- Currently selected tab (to right):
+  - In the case that the tab "List of Techniques" is selected:
+    - Grid toward the top, resized:
+      - Grid Columns:
+        - Used (either "Override" or "Default" or blank)
+        - Type (User, Data, Est)
+        - Technique Name (e.g. 911 Database, User Input, Hayduk and Laudie, etc.)
+        - Value
+        - Units
+      - If a technique is unavailable, Value = "Not Available"
+      - Unlike the old version, the user cannot directly select their desired 
+        technique.  Instead, they must re-order the hierarchy of techniques
+        using the Customize window.
+    - Resizing bar between top and bottom
+    - Improved large "method information" textbox (grayed) for selected technique (to right, resized with window)
+    - A textbox to display the error for selected technique (to right, resized similar to method info textbox)
+    - Temperature-dependent variable set (to left, not resized)
+    - Improved "property links" scrollbox for selected technique (LOW PRIORITY)
+    - A scrollbox for type of UNIFAC parameters used
+  - In the case that the tab "DIPPR911 Data" is selected:
+    - Display everything that frm911DBInfo currently displays
+    - If the currently selected technique is NOT the DIPPR911 data,
+      display a large red-backgrounded message stating this!
+    - If the DIPPR911 data is unavailable, make every field blank, and
+      display a large red-backgrounded message stating this!
+    - Every textbox should be grayed
+  - In the case that the tab "DIPPR801 Data" is selected:
+    - Display everything that frm911DBInfo currently displays
+    - If the currently selected technique is NOT the DIPPR801 data,
+      display a large red-backgrounded message stating this!
+    - If the DIPPR801 data is unavailable, make every field blank, and
+      display a large red-backgrounded message stating this!
+    - Every textbox should be grayed
+  - Note: The same frame is shared for DIPPR911 and DIPPR801 data
+- Label stating "Click on `Not Available` to see the error message, if any."
+- ''''Button marked "View DIPPR 911 Properties"  'replaced by DIPPR911 tab
+- Button marked "Accept"
+- Button marked "Cancel"
+'- Menu System:
+'  - Technique
+- Button marked "Toggle Override of Hierarchy"
+
+
+Code Design of Technique Hierarchy Window:
+===============================================
+- Re-population code routines:
+  - frmTechniques_PopulateFirstTime_SeveralControls:
+    - Sets up frmTechniques.lvMain, among other stuff
+  - frmTechniques_Populate_lstPropSheets:
+    - redisplays lstPropSheets, keeping old selection (if any)
+  - frmTechniques_Populate_CurrentDataTab:
+    - if there's no selection in lstPropSheets, make all tabs invisible and exit
+      (tab controls include: sspTech, sspDipprData, sspPropertyNote)
+    - if sspTech visible: redisplays sspTech, keeping old selection (if any)
+  - frmTechniques_Refresh:
+    - redisplays txtData(*)
+    - redisplays txtPropertyNote
+- In Form_Load:
+  - Call frmTechniques_PopulateFirstTime_SeveralControls
+  - Call frmTechniques_Populate_lstPropSheets
+  - Call frmTechniques_Populate_CurrentDataTab
+  - Call frmTechniques_Populate_DataDetails
+- When clicking on lstPropSheets:
+  - Call frmTechniques_Populate_CurrentDataTab
+  - Call frmTechniques_Refresh
+- When clicking on lvMain:
+  - Call frmTechniques_Populate_DataDetails
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+DESCRIPTION OF EACH FILE IN THE PROJECT.
+============================================
+
+FILES IN VBASIC DIRECTORY:
+================================
+  Calc_Main - Main calculation routine
+  Calc_Mod_DIPPR911 - Calculation code for DIPPR911 database imports
+  Calc_Mod_DIPPR801 - Calculation code for DIPPR801 database imports
+  Calc_Mod_Block5 - Calculation code for Fire and Explosion properties 
+      (UFL, LFL, flash point, autoignition temp, etc.); {modblock5}
+  Calc_Mod_UNIFAC - Calculation code for UNIFAC estimation techniques
+  Calc_Mod_Misc - Calculation code for miscellaneous estimation techniques
+  Calc_Mod_Techniques - Calculation code for techniques and properties
+  (*) DataEntry.bas - Text-editing stuff
+  (*) FileIO.bas - File new, open, save, etc.
+  (*) FileIO_LatestMDB.bas - Load/save routines for user chemical file
+  (*) inifiles.bas - Processing for .INI files
+  (*) LaunchFileVia.bas - Code for launching files, e.g. Acrobat .PDF files
+  (*) licdata.bas - License-checking handlers
+  (*) main.bas - Main routine called during start-up
+  (*) mdb_stuff.bas - Miscellaneous MSAccess97 file manipulation routines
+  (*) miscui.bas - Miscellaneous GUI code
+  (*) Refresh.bas - Code to refresh memory data onto each window
+  (*) Structs.bas - Main data structures
+  (*) StructsDo.bas - Main routines to set default data values
+  (*) unitsys0.bas - Main unit GUI and conversion handler (linear multipliers only)
+  (*) units_local.bas - Secondary unit conversion handler (non-linear multipliers)
+
+FILES IN VFORM DIRECTORY:
+================================
+  (*) About.frm - Displays license data and other info
+  (*) Main.frm - Main window
+  (*) splash.frm - Simple splash window
+  Techniques.frm - View/edit window for techniques {frmmethod}
+  PlotSettings.frm - Data-entry window for plot settings {frmgraphSet}
+  Plot.frm - Viewable and printable plot {frmgraph}
+  ExportSettings.frm - Export window {frmexport}
+  OptionsPreferences.frm - Misc user preferences stored in .PRL file {frmpreferences}
+  PrintSettings.frm - Print window {frmprint}
+
+FILES IN VCLASS DIRECTORY:
+================================
+  Plugin_PPMS.cls - Immediate start-up class called from external programs
+
+FILES IN DLLS DIRECTORY:
+================================
+  stepp.dll - Main UNIFAC calculation module
+
+FILES IN DBASE DIRECTORY:
+================================
+  (*) misc1.dat - Required to run the software
+  (*) template.prl - Template used whenever saving a new .PRL file
+  (*) readme.txt - Version history file
+
+FILES IN EXAMPLES DIRECTORY:
+================================
+  (*) example1.prl - Template used whenever saving a new .PRL file
+
+  (*) = Derived from MSVB6 template on 1999.05.18
+  {name} = Some of the code or design can be obtained from this module name
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Dr. Rogers:
+ 
+On Wednesday (to repeat to the non-attendees), we had a detailed discussion of
+a rewrite of the PPMS code.  At the time, I stated that when I rewrite
+a program, I don't like to involve any other programmers until the first version is
+complete and tested.  I was a bit premature in making this statement.
+ 
+Actually, there are many parts of programming that I can't stand, which
+would be good things for your programming team to work on.  This list
+includes things such as:
+ 
+- Write code to print reports
+- Write code to perform searches
+- Construct online help
+- The "DCUT" routine that sloshes data from one format to another
+- Making splash windows
+- Other items that slip my mind at this time
+ 
+My planned main focus will be as follows:
+ 
+- Construct shell application that loads/saves user property files (what
+  you are currently calling "user databases")
+- Ensure the shell application is designed such that future versions will allows
+  invisible or visible calls from external programs; this implies that the entire
+  program must be constructed as an ActiveX DLL that must be called
+  from a front-end program (similar to how EFRAT is called from SCENE) 
+- Display the "master database" link on the main window for user-modification
+- Construct calculation code to be as modular as possible
+- Provide user-customizable property sheets; the defaults will be the current
+  "General 1", "Transport", etc.
+- Ensure the hierarchy for the techniques used for each property are 
+  user-customizable; the default hierarchy will include (from order of first-used 
+  to last-used): user data, database data, best estimation technique, second-best 
+  estimation technique, ..... , worst estimation technique
+- Code each calculation technique; only ONE set of units will be internally used
+- Numerically verify each StEPP-similar estimation technique versus StEPP
+- Numerically verify each non-StEPP-similar estimation technique versus literature
+- Make spot-checks of each database technique
+ 
+The most time-consuming tasks here will be the final four tasks listed 
+above, of course.  A partial list of lower priority tasks are as follows:
+ 
+- Code the unit-conversion calculations for display and user entry
+- Code the general temperature-dependent plotting routine
+- Based on serial number, parts of the software will be crippled; i.e. the CenCITT
+  people don't get the DIPPR 911 data, but they do get the DIPPR 801 data;
+  and various other things
+- Many other things that slip my mind right now (but are written down on paper
+  at my office)
+ 
+My main objective is to produce a stable property server that we can link
+into SCENE to provide our required EFRAT properties.  Once we have a stable
+property server, then we can play the game of developing additional QSARs
+for estimating the properties in EFRAT that we don't have yet.  Hopefully, we
+can produce a final version of PPMS that can link with SCENE to estimate 
+all of its EFRAT properties from SMILES, if the data for the properties 
+does not exist.  (Perhaps we could even merge the small existing EFRAT 
+database into PPMS, but that's a minor issue.)
+ 
+In any case, we shall see how far I can get on this PPMS rewrite before your
+summer programmers come on-line.  At that time, we'll figure out where to
+go from there.
+ 
+Have a good one,
+Eric
+ 
+ 
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+MISC. CODE SNIPPET #1 -- SETTING COLUMN TEXT AND WIDTHS FOR MSFLEXGRID CONTROL.
+========================================================================================
+
+    'Set up grid
+    FRM!GRDDataSources.Row = 0
+    FRM!GRDDataSources.Col = 1
+    FRM!GRDDataSources.Text = "Method Name"
+    FRM!GRDDataSources.Col = 2
+    FRM!GRDDataSources.Text = "Value"
+    FRM!GRDDataSources.Col = 3
+    FRM!GRDDataSources.Text = "Units"
+    FRM!GRDDataSources.ColWidth(0) = 200
+    FRM!GRDDataSources.ColWidth(1) = 3590
+    FRM!GRDDataSources.ColWidth(2) = 1800
+    FRM!GRDDataSources.ColWidth(3) = 1800
+
+
+
+

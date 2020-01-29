@@ -1,0 +1,10 @@
+[SCC]
+SCC=This is a source code control file
+
+[conversion_tests.vbp]
+SCC_Project_Name=this project is not under source code control
+SCC_Aux_Path=<This is an empty string for the mssccprj.scc file>
+
+[CONVER~1.VBP]
+SCC_Project_Name=this project is not under source code control
+SCC_Aux_Path=<This is an empty string for the mssccprj.scc file>

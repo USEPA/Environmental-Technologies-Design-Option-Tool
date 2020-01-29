@@ -1,0 +1,94 @@
+Line 44: Class Threed.SSCheck of control chkTortuosity_Corr was not a loaded control class.
+Line 65: Class Threed.SSFrame of control SSFrame1 was not a loaded control class.
+Line 86: Class Threed.SSOption of control optKF_old was not a loaded control class.
+Line 109: Class Threed.SSOption of control optKF_old was not a loaded control class.
+Line 132: Class Threed.SSOption of control optDS_old was not a loaded control class.
+Line 155: Class Threed.SSOption of control optDS_old was not a loaded control class.
+Line 178: Class Threed.SSOption of control optDP_old was not a loaded control class.
+Line 201: Class Threed.SSOption of control optDP_old was not a loaded control class.
+Line 261: Class Threed.SSFrame of control fraKP was not a loaded control class.
+Line 385: Class Threed.SSFrame of control fraKP was not a loaded control class.
+Line 509: Class Threed.SSFrame of control fraKP was not a loaded control class.
+Line 671: Class Threed.SSCommand of control cmdCancelOK was not a loaded control class.
+Line 695: Class Threed.SSCommand of control cmdCancelOK was not a loaded control class.
+Line 719: Class Threed.SSPanel of control SSPanel2 was not a loaded control class.
+Line 741: Class Threed.SSPanel of control sspanel_Dirty was not a loaded control class.
+Line 765: Class Threed.SSPanel of control sspanel_Status was not a loaded control class.
+Line 50: The property name _Version in chkTortuosity_Corr is invalid.
+Line 51: The property name _ExtentX in chkTortuosity_Corr is invalid.
+Line 52: The property name _ExtentY in chkTortuosity_Corr is invalid.
+Line 53: The property name _StockProps in chkTortuosity_Corr is invalid.
+Line 54: The property name Caption in chkTortuosity_Corr is invalid.
+Line 72: The property name _Version in SSFrame1 is invalid.
+Line 73: The property name _ExtentX in SSFrame1 is invalid.
+Line 74: The property name _ExtentY in SSFrame1 is invalid.
+Line 75: The property name _StockProps in SSFrame1 is invalid.
+Line 76: The property name Caption in SSFrame1 is invalid.
+Line 94: The property name _Version in optKF_old is invalid.
+Line 95: The property name _ExtentX in optKF_old is invalid.
+Line 96: The property name _ExtentY in optKF_old is invalid.
+Line 97: The property name _StockProps in optKF_old is invalid.
+Line 117: The property name _Version in optKF_old is invalid.
+Line 118: The property name _ExtentX in optKF_old is invalid.
+Line 119: The property name _ExtentY in optKF_old is invalid.
+Line 120: The property name _StockProps in optKF_old is invalid.
+Line 140: The property name _Version in optDS_old is invalid.
+Line 141: The property name _ExtentX in optDS_old is invalid.
+Line 142: The property name _ExtentY in optDS_old is invalid.
+Line 143: The property name _StockProps in optDS_old is invalid.
+Line 163: The property name _Version in optDS_old is invalid.
+Line 164: The property name _ExtentX in optDS_old is invalid.
+Line 165: The property name _ExtentY in optDS_old is invalid.
+Line 166: The property name _StockProps in optDS_old is invalid.
+Line 186: The property name _Version in optDP_old is invalid.
+Line 187: The property name _ExtentX in optDP_old is invalid.
+Line 188: The property name _ExtentY in optDP_old is invalid.
+Line 189: The property name _StockProps in optDP_old is invalid.
+Line 209: The property name _Version in optDP_old is invalid.
+Line 210: The property name _ExtentX in optDP_old is invalid.
+Line 211: The property name _ExtentY in optDP_old is invalid.
+Line 212: The property name _StockProps in optDP_old is invalid.
+Line 268: The property name _Version in fraKP is invalid.
+Line 269: The property name _ExtentX in fraKP is invalid.
+Line 270: The property name _ExtentY in fraKP is invalid.
+Line 271: The property name _StockProps in fraKP is invalid.
+Line 272: The property name Caption in fraKP is invalid.
+Line 282: The property name Alignment in fraKP is invalid.
+Line 392: The property name _Version in fraKP is invalid.
+Line 393: The property name _ExtentX in fraKP is invalid.
+Line 394: The property name _ExtentY in fraKP is invalid.
+Line 395: The property name _StockProps in fraKP is invalid.
+Line 396: The property name Caption in fraKP is invalid.
+Line 406: The property name Alignment in fraKP is invalid.
+Line 516: The property name _Version in fraKP is invalid.
+Line 517: The property name _ExtentX in fraKP is invalid.
+Line 518: The property name _ExtentY in fraKP is invalid.
+Line 519: The property name _StockProps in fraKP is invalid.
+Line 520: The property name Caption in fraKP is invalid.
+Line 530: The property name Alignment in fraKP is invalid.
+Line 680: The property name _Version in cmdCancelOK is invalid.
+Line 681: The property name _ExtentX in cmdCancelOK is invalid.
+Line 682: The property name _ExtentY in cmdCancelOK is invalid.
+Line 683: The property name _StockProps in cmdCancelOK is invalid.
+Line 684: The property name Caption in cmdCancelOK is invalid.
+Line 704: The property name _Version in cmdCancelOK is invalid.
+Line 705: The property name _ExtentX in cmdCancelOK is invalid.
+Line 706: The property name _ExtentY in cmdCancelOK is invalid.
+Line 707: The property name _StockProps in cmdCancelOK is invalid.
+Line 708: The property name Caption in cmdCancelOK is invalid.
+Line 726: The property name _Version in SSPanel2 is invalid.
+Line 727: The property name _ExtentX in SSPanel2 is invalid.
+Line 728: The property name _ExtentY in SSPanel2 is invalid.
+Line 729: The property name _StockProps in SSPanel2 is invalid.
+Line 747: The property name _Version in sspanel_Dirty is invalid.
+Line 748: The property name _ExtentX in sspanel_Dirty is invalid.
+Line 749: The property name _ExtentY in sspanel_Dirty is invalid.
+Line 750: The property name _StockProps in sspanel_Dirty is invalid.
+Line 751: The property name Caption in sspanel_Dirty is invalid.
+Line 763: The property name BevelOuter in sspanel_Dirty is invalid.
+Line 771: The property name _Version in sspanel_Status is invalid.
+Line 772: The property name _ExtentX in sspanel_Status is invalid.
+Line 773: The property name _ExtentY in sspanel_Status is invalid.
+Line 774: The property name _StockProps in sspanel_Status is invalid.
+Line 775: The property name Caption in sspanel_Status is invalid.
+Line 787: The property name BevelOuter in sspanel_Status is invalid.

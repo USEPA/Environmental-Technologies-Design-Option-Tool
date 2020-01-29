@@ -1,0 +1,27 @@
+3                    N, number of CSTRs, unitless
+1                    NSF, step feed option (0=no step feed, 1=step feed)
+0.30000D+00          FFRACT(i), i=1...n, feed fraction #i, unitless
+0.30000D+00          FFRACT(i), i=1...n, feed fraction #i, unitless
+0.40000D+00          FFRACT(i), i=1...n, feed fraction #i, unitless
+1                    NPC, number of primary clarifiers, unitless
+1                    NAB, number of aeration basins, unitless
+1                    NSC, number of secondary clarifiers, unitless
+4.00000D+05          Q0, influent flow rate, L/day
+1.00000D+02          QW1, wastage flow rate from each primary clarifier, L/day
+3.00000D+03          QW, wastage flow rate from each secondary clarifier, L/day
+3.00000D+05          QR, recycle flow rate, L/day
+1.00000D+01          XSC, effluent solids concentration, mg/L
+8.00000D-01          RE, solids removal efficiency in primary clarifier, fractional units (range of 0-1)
+2.00000D+04          V(i), i=1...n, volume #i, liters
+2.00000D+04          V(i), i=1...n, volume #i, liters
+2.00000D+04          V(i), i=1...n, volume #i, liters
+4.00000D-01          MUM, maximum growth rate constant, day^(-1)
+3.00000D+01          KS, half velocity rate, mg/(L BOD5)
+6.00000D-02          KD, decay coefficient, day^(-1)
+6.00000D-01          Y, yield coefficient, (mg VSS)/(mg BOD5)
+2.00000D+02          S0, substrate concentration, mg/L
+1.50000D+02          X0, influent solid concentration, mg/L
+1000                 ITMAX, maximum iteration count, unitless
+1.00000D-05          ERRREL, convergence criteria, unitless
+
+

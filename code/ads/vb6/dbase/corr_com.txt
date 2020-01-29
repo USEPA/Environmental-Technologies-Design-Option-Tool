@@ -1,0 +1,11 @@
+10
+"Halogenated alkanes",1.2,-.2
+"Halogenated alkenes",1,0
+"Trihalomethanes",1,0
+"Aromatics",.9,.1
+"Nitro Compounds",.75,.25
+"Chlorinated Hydrocarbons",.59,.41
+"Acids",.65,.35
+"PNAs",.32,.68
+"Pesticides",0,.05
+"New Compound Correlation",1,0

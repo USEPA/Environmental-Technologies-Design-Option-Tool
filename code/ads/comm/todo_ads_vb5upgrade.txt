@@ -1,0 +1,119 @@
+Things to do: AdDesignS Upgrade to VB5
+======================================
+
+IS5 ISSUES:
+===========
+x- Reset link to "adss.exe" to "ads.exe" instead
+x- Run VB5-SetupWiz and copy system files into ads\win32
+x- Link ETDOT/CPAS install software with extravb\data_acc\setup
+  in an automated manner
+x- Test on 864 and 820 test machines
+- Setup ETDOT front-end as pseudo-copy of CPAS front-end
+
+
+MENU ITEMS:
+===========
+- options - fouling of GAC  [DONE]
+  - Perhaps frmFouling should be modified to avoid the
+    weird GPF-type errors I have seen when using it,
+    plus the weird visibility troubles
+
+
+BUTTONS:
+========
+- add / edit
+  - frmCompoProp [DONE]
+*todo>>>    - frmCompoProp:{Test K and 1/n warning message}
+    - frmCompoProp:frmFreundlich [90% DONE]
+      - User Input [DONE]
+      - Isotherm Database [DONE]
+      - IPE Calculator [20% DONE]
+        - VB [99% DONE]
+        - FORTRAN [70% DONE]
+          - ADLIQ [DONE & VERIFIED]
+          - SPEQ [DONE & VERIFIED]
+          - HOFMAN [DONE, BUT STILL NEEDS TO BE VERIFIED]
+
+
+TESTING ITEMS:
+==============
+- Test all print-to-file and print-to-printer options, and
+  all print-graph options.
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+COMPLETED ITEMS:
+================
+
+MENU ITEMS:
+===========
+- file - open  
+- file - save  
+- file - save-as  
+- file - {last few files list}
+- file - print - to printer
+- file - print - to file
+- run - psdm
+  - FORTRAN
+  - VB
+- run - cphsdm
+  - FORTRAN  
+  - VB
+    - Display in Excel
+- run - ecm
+  - FORTRAN  
+  - VB  
+- results - psdm
+  - Display in Excel
+- results - cphsdm 
+  - Display in Excel
+- results - ecm 
+- results - compare PSDM results to data
+- results - compare CPHSDM results to data
+- options - fouling of GAC
+- options - influent concentrations
+- options - effluent concentrations
+- databases - adsorbent database 
+  - during transfer, ensure that ALL important (used) values
+    are non-zero; otherwise, fail the transfer. 
+- databases - isotherm database 
+- databases - adsorber database 
+
+BUTTONS:
+========
+- add / edit
+  - frmCompoProp 
+    - frmCompoProp:Chemical selection scrollbox 
+    - frmCompoProp:frmKinetic 
+    - frmCompoProp:frmFreundlich [50% DONE]
+      - User Input 
+      - Isotherm Database 
+      - IPE Calculator [20% DONE]
+- delete 
+- Polanyi Parameters 
+- Dimensionless Groups 
+- Correlations (water/air) 
+
+MISC:
+=====
+- STATUS-BAR HELP TIP LABELS 
+- Add calculation time display to all Run-* commands.
+- Password protect the .MDB file access
+- Add "Overwrite this file?" checker to every file-save dialog.
+
+FORTRAN LINK:
+=============
+- Add in deletion of temporary link files.
+
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+

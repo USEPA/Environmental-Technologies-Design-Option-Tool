@@ -1,0 +1,59 @@
+X-Sender: keli@pop.cee.mtu.edu
+X-Mailer: QUALCOMM Windows Eudora Light Version 3.0.6 (32)
+Date: Thu, 27 Jun 2002 09:39:05 -0400
+To: Dave Hokanson <drhokans@mtu.edu>
+From: Ke Li <keli@mtu.edu>
+Subject: Re: bug in AdOx 
+Cc: drhokans@mtu.edu, jcmansfe@mtu.edu
+
+Dave,
+
+Please tell me a time that I can use the computer today. 
+
+I will make a folder G:\luke\adox_for\Forcode\z020627_modified_by_luke (main code) to make the change.  
+
+I will modify the calculation of TIC from alkalinity as CaCO3 eqv mg/L.  The calculation is in the main function adoxtis.f.  It was originally assumed that HCO3- was the predominant TIC species in the water thus TIC~=[HCO3-] and alkalinity was caused only by HCO3-.   As a result, TIC was calculated as  
+
+(alkalinity as CaCO3 eqv mg/L) / eqv weight of CaCO3
+
+However, the above assumption is only correct in a limited pH range.  For general case, the equations below should be used to calculate the TIC. 
+
+[HCO3-] = (Alkalinity+10E(-pH)-10E(pH-14))/(1+2*10E(pH-pKa2))
+TIC =  [HCO3-] *(1+10E(pKa1-pH) + 10E(pH-pKa2) )
+
+I will change the TIC calculation to the general case above.  
+
+luke
+
+
+At 08:35 AM 6/27/02 -0400, Dave Hokanson wrote:
+>Luke:
+>
+>Please copy the Fortran code to a new folder:
+>
+>    z020627_modified_by_luke (main code)
+>
+>before making any changes.  Please document any changes made in a response 
+>to this email.  I have installed Fortran Powerstation on computer named 
+>"cen-off1" in cubicle 2 of the cencitt office.  Please coordinate with me 
+>before making the changes as I am also using said PC to have Chris 
+>Mansfeldt burn some CDs for me.
+>
+>Thanks,
+>Dave
+>
+>
+>At 09:32 PM 6/26/2002 -0400, you wrote:
+>>Dave,
+>>
+>>Thanks Dom for his carefulness, he found a bug of AdOx, mainly related to 
+>>the calculation of TIC from alkalinity.  I need to revise the FORTRAN code 
+>>on this part.  Could you let me know which computer I can use to do the 
+>>revision by FORTRAN PowerStation?  It should be less than 30mins.  I will 
+>>revise based on the FORTRAN code in folder"z000719_modified_by_luke (main 
+>>code)". Thanks,
+>>
+>>luke
+>
+>
+

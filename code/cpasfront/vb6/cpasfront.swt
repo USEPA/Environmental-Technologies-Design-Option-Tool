@@ -1,0 +1,58 @@
+[Setup Wizard Template]
+TemplateDate=8/8/98 6:36:08 PM
+
+[Select Project and Options]
+txtProjFile=X:\cpas10\code\cpasfront\vb5\CpasFront.vbp
+chkProjRebuild=0
+optBldSetup=False
+chkIncludeDEP=0
+optInternet=False
+optDEPOnly=True
+
+[Distribution Method]
+optFloppyTarg=False
+optSingleDirTarg=False
+optMultDirTarg=False
+
+[Internet Package]
+optRemoteSite=True
+optLocalSite=False
+txtLocalSite=
+
+[Data Access]
+chkUseJet=1
+chkUseODBC=0
+Isam0=
+
+[ActiveX Server Components]
+File1=
+
+[Confirm Dependencies]
+File1="C:\WINNT\System32\TABCTL32.OCX",True,32764
+File2="C:\WINNT\System32\COMCTL32.OCX",True,32764
+File3="C:\WINNT\System32\THREED32.OCX",True,32764
+File4="C:\WINNT\System32\COMDLG32.OCX",True,32764
+File5=
+
+[Shared ActiveX Application]
+optDeployApplication=True
+optDeployShared=False
+optRemoteServer1=True
+optRemoteServer0=False
+
+[File Summary]
+File1="C:\WINNT\System32\MSVBVM50.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File2="D:\develop\vb5\SETUPKIT\KITFIL32\SYS32\StdOle2.tlb",True,"$(WinSysPathSysFile)",$(TLBRegister),False
+File3="D:\develop\vb5\SETUPKIT\KITFIL32\SYS32\OleAut32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File4="D:\develop\vb5\SETUPKIT\KITFIL32\SYS32\OlePro32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File5="D:\develop\vb5\SETUPKIT\KITFIL32\SYS32\AsycFilt.dll",True,"$(WinSysPathSysFile)",,False
+File6="D:\develop\vb5\SETUPKIT\KITFIL32\SYS32\Ctl3d32.dll",True,"$(WinSysPathSysFile)",,False
+File7="D:\develop\vb5\SETUPKIT\KITFIL32\SYS32\ComCat.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File8="C:\WINNT\System32\TABCTL32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File9="C:\WINNT\System32\COMCTL32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File10="C:\WINNT\System32\THREED32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File11="D:\develop\vb5\SETUPKIT\KITFIL32\SYS32\MFC40.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File12="D:\develop\vb5\SETUPKIT\KITFIL32\SYS32\MSVCRT40.dll",True,"$(WinSysPathSysFile)",,False
+File13="C:\WINNT\System32\COMDLG32.OCX",False,"$(WinSysPath)",$(DLLSelfRegister),True
+File14="X:\cpas10\code\cpasfront\vb5\CpasFront.exe",True,"$(AppPath)",,False
+File15="X:\cpas10\code\cpasfront\vb5\CpasFront.DEP",True,"$(AppPath)",,False

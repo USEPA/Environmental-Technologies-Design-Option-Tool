@@ -1,0 +1,12 @@
+#define FRM_PL 1000
+#define OVERVIEW 1500
+#define FRM_IW 2000
+#define FRM_GC 3000
+#define FRM_PC 4000
+#define FRM_PW 5000
+#define FRM_AB 6000
+#define FRM_CSTR 7000
+#define FRM_BM 8000
+#define FRM_SC 9000
+#define FRM_SW 10000
+#define FRM_CHEM 11000

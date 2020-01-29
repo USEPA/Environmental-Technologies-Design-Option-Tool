@@ -1,0 +1,67 @@
+Microsoft (R) COFF Binary File Dumper Version 3.00.5270
+Copyright (C) Microsoft Corp 1992-1995. All rights reserved.
+
+
+Dump of file stepconv.dll
+
+File Type: DLL
+
+         Section contains the following Exports for stepconv.dll
+
+                   0 characteristics
+            363004A0 time date stamp Fri Oct 23 00:22:56 1998
+                0.00 version
+                   1 ordinal base
+                  40 number of functions
+                  40 number of names
+
+            ordinal hint   name
+
+                  1    0   ACCONV  (000010AF)
+                  2    1   ACENSI  (00001037)
+                  3    2   ADENENSI  (00001019)
+                  4    3   ADENSCNV  (00001082)
+                  5    4   AQSCONV  (0000107D)
+                  6    5   AQSENSI  (0000101E)
+                  7    6   AVISCCNV  (00001064)
+                  8    7   AVISENSI  (00001078)
+                  9    8   GDIFENSI  (00001014)
+                 10    9   GDIFFCNV  (0000104B)
+                 11    A   H2OSTCNV  (0000105A)
+                 12    B   HCCONV  (0000108C)
+                 13    C   HCENSI  (0000109B)
+                 14    D   KOWCONV  (000010BE)
+                 15    E   KOWENSI  (00001028)
+                 16    F   LDENENSI  (000010A0)
+                 17   10   LDENSCNV  (0000100A)
+                 18   11   LDIFENSI  (0000100F)
+                 19   12   LDIFFCNV  (0000105F)
+                 20   13   MVBPENSI  (0000103C)
+                 21   14   MVNBPCNV  (00001041)
+                 22   15   MVOPTCNV  (00001046)
+                 23   16   MVOTENSI  (000010B4)
+                 24   17   MWCONV  (00001005)
+                 25   18   MWENSI  (00001023)
+                 26   19   NBPCONV  (00001096)
+                 27   1A   NBPENSI  (000010A5)
+                 28   1B   PRESENSI  (000010B9)
+                 29   1C   PRESSCNV  (00001000)
+                 30   1D   RICONV  (000010AA)
+                 31   1E   RIENSI  (00001050)
+                 32   1F   TEMPCNV  (00001055)
+                 33   20   TEMPENSI  (00001073)
+                 34   21   VPCONV  (0000102D)
+                 35   22   VPENSI  (0000106E)
+                 36   23   WDENENSI  (00001032)
+                 37   24   WDENSCNV  (00001091)
+                 38   25   WSTENSI  (000010C3)
+                 39   26   WVISCCNV  (00001069)
+                 40   27   WVISENSI  (00001087)
+
+     Summary
+
+        5000 .data
+        1000 .idata
+        1000 .rdata
+        1000 .reloc
+        C000 .text

@@ -1,0 +1,211 @@
+********************************************************************************
+
+   Programmer: David R. Hokanson
+         Date: 16-May-2000
+         File: x:\etdot10\code\stepp\comm\z00516_saveas_problem_v1019\
+                  etdot10_stepp_v1019_development.txt
+               x: = \\cen-server\srcsafe
+
+********************************************************************************
+
+   Programming Time Required for This Change:
+      3.0 hours
+
+   Log of Hokanson Programming Time:
+      See x:\hokanson_programming_time_log.xls
+          x: = \\cen-server\srcsafe
+
+********************************************************************************
+
+        *** Archive of Previous Version of the ETDOT10 StEPP Code ***
+        *** Previous Version 1.00.18 ***
+
+The X:\ETDOT10\StEPP folder containing all the visual basic StEPP code etc.
+used to create Version 1.00.18 of the StEPP is archived as a zip
+file to the following location:
+
+Hokanson Desktop PC (HOKANSON)
+   C:\_backup\x_etdot10_code_StEPP\x_etdot10_code_StEPP_v1018.zip
+
+
+********************************************************************************
+
+        *** Version 1.00.19 ***
+        *** Description of Changes Required to ETDOT10 StEPP Code ***
+
+Version 1.0.19 modifies version 1.0.18 such that the File ... Save As 
+works properly. When the DemoMode was created in Fall 1999, StEPP was
+set up to incorrectly call a subroutine with an improper name. The incorrect
+call was 
+
+   "Call Call frmmain.frmMain_Reset_DemoVersionDisablings". 
+
+The correct call for StEPP should read 
+
+   "Call contam_prop_form.frmMain_Reset_DemoVersionDisablings".
+
+********************************************************************************
+
+     Summary of Changes
+
+(1) VB Code Changes
+    (a) Module "FileOptMod" (fileopt.bas)
+        (i) General Sub "LoadStEPPDesign"
+    (b) Module "FileOptMod" (fileopt.bas)
+        (i) General Sub "SaveStEPPDesign"
+    (c) Module "AddChemMod" (addchem.bas)
+        (i) General Sub "addtolist"
+
+
+(2) Updates
+    (a) List Changes Required to Version History File
+    (b) Archive appropriately then update STEPP.exe to version 1.00.19
+    (c) Update Version History file (x:\etdot10\code\stepp\vb6\dbase\
+        readme.txt) to reflect changes in (2) (a)
+    (d) Make sure updated files (STEPP.exe, readme.txt (version history)) 
+        get placed in all appropriate directories as needed by click-update.
+        (i) STEPP.exe
+       (ii) readme.txt (Version History)
+
+
+     Changes Required to STEPP VB Code to Make Change Above
+
+(1) VB Code Changes
+    (a) Module "FileOptMod" (fileopt.bas)
+        (i) General Sub "LoadStEPPDesign"
+
+    Original Code
+
+       Call frmmain.frmMain_Reset_DemoVersionDisablings
+
+    Replacement Code
+
+'*** Modification v1019 by David R. Hokanson (16may2000)
+'       Call frmmain.frmMain_Reset_DemoVersionDisablings
+       Call contam_prop_form.frmMain_Reset_DemoVersionDisablings
+'*** End Modification v1019 by David R. Hokanson (16may2000)
+
+
+(1) VB Code Changes
+    (b) Module "FileOptMod" (fileopt.bas)
+        (i) General Sub "SaveStEPPDesign"
+
+    Original Code
+
+       Call frmmain.frmMain_Reset_DemoVersionDisablings
+
+    Replacement Code
+
+'*** Modification v1019 by David R. Hokanson (16may2000)
+'       Call frmmain.frmMain_Reset_DemoVersionDisablings
+       Call contam_prop_form.frmMain_Reset_DemoVersionDisablings
+'*** End Modification v1019 by David R. Hokanson (16may2000)
+
+
+(1) VB Code Changes
+    (c) Module "AddChemMod" (addchem.bas)
+        (i) General Sub "addtolist"
+
+    Original Code
+
+       Call frmmain.frmMain_Reset_DemoVersionDisablings
+
+    Replacement Code
+
+'*** Modification v1019 by David R. Hokanson (16may2000)
+'       Call frmmain.frmMain_Reset_DemoVersionDisablings
+       Call contam_prop_form.frmMain_Reset_DemoVersionDisablings
+'*** End Modification v1019 by David R. Hokanson (16may2000)
+
+(2) Updates
+    (a) List Changes Required to Version History File 
+
+      Changes Required to Version History
+
+---------------- Version 01.10.19 (16-May-2000) ----------------------
+(16-May-2000)
+- Version 1.0.19 modifies version 1.0.18 such that the File ... Save As 
+  works properly. When the DemoMode was created in Fall 1999, StEPP was
+  set up to incorrectly call a subroutine with an improper name. 
+  The incorrect call was 
+
+     "Call Call frmmain.frmMain_Reset_DemoVersionDisablings". 
+
+  The correct call for StEPP should read 
+
+     "Call contam_prop_form.frmMain_Reset_DemoVersionDisablings".
+
+This will be updated into the Version History file in step
+(2) (c) below.
+
+
+(2) Updates
+    (b) Archive appropriately then update STEPP.exe to version 1.00.19
+
+Copied old STEPP.exe from
+   x:\etdot10\code\stepp\vb6\
+and Version History (1.00.18) from
+   x:\etdot10\code\stepp\vb6\dbase\
+
+to:
+   x:\etdot10\code\stepp\exe_archive\1_0_18_(first Mansfeldt Version)
+
+Compile STEPP.exe following these guidelines:
+   3.2. How to recompile VB code (from ejoman_software_procedures_v31.doc)
+This may seem rather simple, but there are a few mistakes possible here. 
+Follow the procedure listed below to avoid the mistakes:
+- Ensure the application is opened within the VB environment.
+- Select from the menu: File
+  -Make {whatever}.exe.
+- On the "Make Project" window that appears, select Options.
+- On the "Project Properties" window that appears, 
+  - Select the "Make" tab. 
+    - Ensure that the "Auto Increment" option is checked. 
+    - Remember that the version number listed is the same 
+      one that you will list in the version history (refer to 
+      section 3.4 below). 
+  - Select the "Compile" tab. 
+    - Ensure that the option "Compile to P-Code" is selected. 
+      (Why? I’m glad you asked. Compilation to native code is 
+      supposed to create faster and more reliable code at the 
+      added expense of a larger EXE file, according to the 
+      documentation. In reality, I have encountered many strange 
+      and difficult-to-debug problems when compiling to native 
+      code. If you want to save yourself days of wasted time, 
+      compile to P-code instead.) 
+  - Click on the OK button.
+- Double-check that the proper EXE will be overwritten, and 
+  - click on OK to start the compile.
+- Within Windows Explorer, look at the check-out directory 
+  and confirm the date/time of the new EXE that you just compiled. 
+  Remember, you will be checking this EXE back into SourceSafe later.
+
+
+(2) Updates
+    (c) Update Version History file (x:\etdot10\code\stepp\vb6\dbase\
+        readme.txt) to reflect changes in (2) (a)
+
+(2) Updates
+    (d) Make sure updated files (STEPP.exe, readme.txt (version history)) 
+        get placed in all appropriate directories as needed by click-update.
+
+        (i) STEPP.exe
+ 
+Copy STEPP.exe from
+   x:\etdot10\code\stepp\vb6\
+to
+   x:\etdot10\programs_vb6\stepp\stepp\
+
+       (ii) readme.txt (Version History)
+
+Copy readme.txt from
+   x:\etdot10\code\stepp\vb6\dbase\
+to
+   x:\etdot10\programs_vb6\stepp\stepp\dbase\
+   \\cen-server\www_site\homes\cpas\etdot\version_history\stepp_readme.txt
+
+
+////////////////////////////////////////////////////////////////////////////////
+        10        20        30        40        50        60        70        80
+12345678901234567890123456789012345678901234567890123456789012345678901234567890
+////////////////////////////////////////////////////////////////////////////////

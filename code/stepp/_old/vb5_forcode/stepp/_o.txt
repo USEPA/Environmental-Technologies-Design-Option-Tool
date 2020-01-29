@@ -1,0 +1,3332 @@
+!CC************************************************************
+!CC
+!CC                      ACCALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutines to get activity coefficient values
+!CC
+!CC Output Variables:
+!CC    VAL =      Activity coefficient value (dimensionless)
+!CC    SRCSHT =   Source of the value (Short Version)
+!CC    SRCLNG =   Source of the value (Long Version)
+!CC    ERRORF =   Error Flag
+!CC    TEMPUN =   Temperature of the activity coefficient value
+!CC    FGRPER =   Error flag from call to subroutine FGRPCALL
+!CC
+!CC Input Variables:
+!CC    TEMPOP =   Operating temperature (C)
+!CC    MX =       Maximum number of UNIFAC groups
+!CC    INPMS =    Input array of UNIFAC groups in compound
+!CC
+!CC Variables Internal to Subroutine ACCALL:
+!CC    MS =       Array of UNIFAC groups needed to do calculations in
+!CC               COMMON.  It holds same values as INPMS, but could not
+!CC               be input directly due to use of MS in a COMMON block.
+!CC    MDL =      Choice of UNIFAC parameter set:  3=Environmental VLE,
+!CC               2=Liquid-Liquid Equilibrium (LLE), or 1=Vapor-Liquid
+!CC               Equilibrium (VLE)
+!CC    GAMMA =    Activity coefficient value
+!CC    NC =
+!CC    NG =
+!CC    TT =       Operating temperature (K)
+!CC    NDIF =
+!CC    XX =
+!CC    ACT =
+!CC    DACT =
+!CC    TACT =
+!CC
+!CC Author:  D. Hokanson (4/3/94)
+!CC
+!CC************************************************************
+       
+      SUBROUTINE ACCALL(VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,TEMPOP,FGRPER,MX,INPMS,MDL)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ACCALL
+!MS$ ATTRIBUTES ALIAS:'_ACCALL':: ACCALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,TEMPOP,FGRPER,MX,INPMS,MDL
+
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)      
+         PARAMETER(MA=53,NA=96,NC=2,ND=10)
+         COMMON /ACTCO/ AI(MA,MA),RI(NA),QI(NA),FMW(NA),FVB(NA),MGSG(NA)
+         COMMON /GROUP/ MS(10,10,2),NMAX
+         COMMON /UNI/ RT(10,10),QT(10,10),TAU(10,10),S(10,10),F(10),Q(10),R(10),P(10,10)
+         COMMON /LIMITS/ TOL,IMAX
+         COMMON /INIT/ XX(10), NG, NDIF
+         DIMENSION ACT(ND),TACT(ND),DACT(10,10)
+         
+         DOUBLE PRECISION VAL,TEMPUN,TEMPOP
+         INTEGER SRCSHT,SRCLNG,ERRORF,FGRPER
+         DIMENSION  NGM(10),NY(10,20),JH(NA),IH(20)
+         DIMENSION INPMS(10,10,2)
+
+         ERRORF = 0
+         SRCSHT = 7
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *       Set variables needed by COMMONS:  MS            *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       DO 3, I = 1,10
+          DO 3, J=1,10
+             DO 3, K=1,2
+                MS(I,J,K) = INPMS(I,J,K)
+ 3     CONTINUE
+
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *                Initialize Variables                   *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       CALL INITVS(MX)  
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *          Load UNIFAC binary interaction parameters    *
+!CC      *    Use MDL passed in from Visual Basic Code to        *
+!CC      *    choose which database                              *
+!CC      *                                                       *
+!CC      *       MDL       Database                              *
+!CC      *                                                       *
+!CC      *        1 = Original UNIFAC VLE (AVLE.DAT)             *
+!CC      *        2 = UNIFAC LLE (ALLE.DAT)                      *
+!CC      *        3 = Environmental VLE (AENV.DAT)               *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       CALL BINPAR(MDL,MGSG,AI,RI,QI,FMW,FVB)
+
+
+!CC      ******************************************************
+!CC      *                                                    *
+!CC      *           Reorder the functional groups            *
+!CC      *                                                    *
+!CC      ******************************************************
+
+       CALL FGRPCALL(FGRPER)
+
+         IF (FGRPER.EQ.-2) THEN
+            ERRORF = -2
+         ELSE IF (FGRPER.EQ.-3) THEN
+            ERRORF = -3
+         ELSE
+
+            TT = TEMPOP + 273.15D0
+            CALL GETGAM(GAMMA,NC,NG,TT,NDIF,XX,ACT,DACT,TACT)
+            VAL = GAMMA
+            TEMPUN = TEMPOP
+         
+         END IF
+      RETURN
+      END
+
+!CC************************************************************
+
+!C**************************************************************
+!CC
+!CC                     AIRDENS
+!CC
+!CC Description:  This subroutine will estimate the air
+!CC               density using an equation developed assuming
+!CC               air is an ideal gas.
+!CC
+!CC Output Variables:
+!CC    DG =       Air Density (kg/m^3)
+!CC    ERRORF =
+!CC    SRCSHT =
+!CC    SRCLNG =
+!CC    DGTEMP =
+!CC
+!CC Input Variables:
+!CC    TEMPOP =   Temperature of the calculation (C)
+!CC    PRESOP =   Operating pressure (N/m2)
+!CC
+!CC Variables Internal to Subroutine AIRDENS:
+!CC    MWAVG =    Average molecular weight of air
+!CC    R =        Universal Gas Constant
+!CC    TEMP =     Temperature of the calculation (K)
+!CC    PRES =     Pressure of the calculation (atm)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC           Modified by D. Hokanson (4/5/94)
+!CC
+!C**************************************************************
+
+      SUBROUTINE AIRDENS(DG,TEMPOP,PRESOP,ERRORF,SRCSHT,SRCLNG,DGTEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AIRDENS
+!MS$ ATTRIBUTES ALIAS:'_AIRDENS':: AIRDENS
+!MS$ ATTRIBUTES REFERENCE::DG,TEMPOP,PRESOP,ERRORF,SRCSHT,SRCLNG,DGTEMP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DG,TEMP,R,MWAVG,PRES,TEMPOP 
+      INTEGER ERRORF,SRCSHT,SRCLNG
+      
+         ERRORF = 0
+         SRCSHT = 16
+         DGTEMP = TEMPOP
+         TEMP = TEMPOP + 273.15D0
+         PRES = PRESOP / 1.01325D+05
+         MWAVG = 28.95D0
+         R = 0.08205D0
+         DG = ((MWAVG)*(PRES))/((R)*(TEMP))
+
+      END
+
+!C**************************************************************
+
+
+!C***************************************************************
+!CC
+!CC                       AIRVISC
+!CC
+!CC Description:   This subroutine will calculate the air viscosity
+!CC                given temperature.  The correlation comes from
+!CC                a paper presented by Cummins and Westrick (1983)
+!CC
+!CC Output Variables:
+!CC    VG =         Air viscosity value (kg/m/sec)
+!CC    ERRORF =     Error flag
+!CC    SRCSHT =     Source of this value (Short Version)
+!CC    SRCLNG =     Source of this value (Long Version)
+!CC    VGTEMP =     Temperature of this value
+!CC
+!CC Input Variables:
+!CC    TEMPOP =     Temperature of calculation (C)
+!CC
+!CC Variables Internal to Subroutine AIRVISC:
+!CC    TEMP =       Temperature of the calculation (K)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC           Modified by D. Hokanson (4/5/94)
+!CC
+!C***************************************************************
+
+      SUBROUTINE AIRVISC(VG,TEMPOP,ERRORF,SRCSHT,SRCLNG,VGTEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AIRVISC
+!MS$ ATTRIBUTES ALIAS:'_AIRVISC':: AIRVISC
+!MS$ ATTRIBUTES REFERENCE::VG,TEMPOP,ERRORF,SRCSHT,SRCLNG,VGTEMP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION VG,TEMP
+      INTEGER ERRORF,SRCSHT,SRCLNG
+
+         ERRORF = 0
+         SRCSHT = 15
+         VGTEMP = TEMPOP
+         TEMP = TEMPOP + 273.15D0
+         VG = (1.7D-7)*(TEMP**0.818)
+
+      END
+
+!C***************************************************************
+
+
+!CC************************************************************
+!CC
+!CC                      AQSCALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutines to unifac solubility at given TEMP
+!CC
+!CC Output Variables:
+!CC    VAL =      Aqueous solubility value (PPMw)
+!CC    SRCSHT =   Source of this value (Short Version)
+!CC    SRCLNG =   Source of this value (Long Version)
+!CC    ERRORF =   Error flag
+!CC    TEMPUN =   Temeprature of this value (C)
+!CC
+!CC Input Variables:
+!CC    TEMP =     Temperature of calculation (C)
+!CC    MX =       Maximum number of UNIFAC groups
+!CC    INPMS =    Input array of UNIFAC groups in compound
+!CC    XMW =
+!CC
+!CC Variables Internal to Subroutine AQSCALL:
+!CC    MS =       Array of UNIFAC groups needed to do calculations in
+!CC               COMMON.  It holds same values as INPMS, but could not
+!CC               be input directly due to use of MS in a COMMON block.
+!CC    MDL =      Choice of UNIFAC parameter set:  3=Environmental VLE,
+!CC               2=Liquid-Liquid Equilibrium (LLE), or 1=Vapor-Liquid
+!CC               Equilibrium (VLE)
+!CC    FGRPER =   Error flag for call to FGRPCALL
+!CC    TT =       Temperature of this calculation (K)
+!CC    IIERR =    Error flag from call to AQSOL
+!CC    SOLUB =    Solubility of organic in the water phase (PPMw)
+!CC    TIE =      Solubility of water in the organic phase (PPMw)
+!CC    NC =
+!CC    NG =
+!CC
+!CC Author:  D. Hokanson (4/5/94)
+!CC
+!CC************************************************************
+       
+      SUBROUTINE AQSCALL(VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,TEMP,MX,INPMS,XMW,MDL)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AQSCALL
+!MS$ ATTRIBUTES ALIAS:'_AQSCALL':: AQSCALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,TEMP,MX,INPMS,XMW,MDL
+
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+         PARAMETER(MA=53,NA=96,NC=2,ND=10)
+         DOUBLE PRECISION VAL,TEMPUN,TEMP
+         INTEGER SRCSHT,SRCLNG,ERRORF,FGRPER
+         COMMON /ACTCO/ AI(MA,MA),RI(NA),QI(NA),FMW(NA),FVB(NA),MGSG(NA)
+         COMMON /GROUP/ MS(10,10,2),NMAX
+         COMMON /UNI/ RT(10,10),QT(10,10),TAU(10,10),S(10,10),F(10),Q(10),R(10),P(10,10)
+         COMMON /INIT/ XX(10), NG, NDIF   
+         COMMON /LIMITS/ TOL,IMAX
+         DIMENSION INPMS(10,10,2),XMW(ND)            
+
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *       Set variables needed by COMMONS:  MS            *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       DO 3, I = 1,10
+          DO 3, J=1,10
+             DO 3, K=1,2
+                MS(I,J,K) = INPMS(I,J,K)
+ 3     CONTINUE
+
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *                Initialize Variables                   *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       CALL INITVS(MX)  
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *          Load UNIFAC binary interaction parameters    *
+!CC      *    Use MDL supplied from Visual Basic to correspond   *
+!CC      *    to currently selected UNIFAC parameter set         *
+!CC      *                                                       *
+!CC      *       MDL       Database                              *
+!CC      *                                                       *
+!CC      *        1 = Original UNIFAC VLE (AVLE.DAT)             *
+!CC      *        2 = UNIFAC LLE (ALLE.DAT)                      *
+!CC      *        3 = Environmental VLE (AENV.DAT)               *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       CALL BINPAR(MDL,MGSG,AI,RI,QI,FMW,FVB)
+
+
+!CC      ******************************************************
+!CC      *                                                    *
+!CC      *           Reorder the functional groups            *
+!CC      *                                                    *
+!CC      ******************************************************
+
+       CALL FGRPCALL(FGRPER)
+
+         IF (FGRPER.EQ.-2) THEN
+            ERRORF = -2
+         ELSE IF (FGRPER.EQ.-3) THEN
+            ERRORF = -3
+         ELSE       
+
+            ERRORF = 0
+            TT = TEMP + 273.15D0
+            CALL AQSOL(NC,NG,TT,SOLUB,TIE,IIERR,XMW)
+            IF (IIERR.EQ.-1) THEN
+               ERRORF = -18
+            ELSE IF (IIERR.EQ.-2) THEN
+               ERRORF = -19
+            ELSE IF (IIERR.EQ.-3) THEN
+               ERRORF = -20
+            ELSE IF (IIERR.EQ.-4) THEN
+               ERRORF = -21
+            ELSE  
+               TEMPUN = TEMP
+               VAL = SOLUB
+               SRCSHT = 7
+            END IF
+
+
+         END IF
+
+      END
+
+!CC************************************************************
+
+
+
+!CC*********************************************************************
+!CC
+!CC                           AQSFIT
+!CC
+!CC Description:  This subroutine will do a fit of the aqueous
+!CC               solubility from the database with the value
+!CC               from UNIFAC at the operating T.  It is done by
+!CC               using an offset.
+!CC
+!CC Output Variables:
+!CC    AQSOLFIT =      Solubility from UNIFAC Fit (PPMw)
+!CC    IAQSOLFITSHT =  Source of this value (Short Version)
+!CC    IAQSOLFITLNG =  Source of this value (Long Version)
+!CC    IAQSOLFITERR =  Error flag
+!CC    AQSOLFITTMP =   Temperature of this value (C)
+!CC
+!CC Input Variables:
+!CC    AQSOLUNDBT =    UNIFAC aqueous solubility at database T (PPMw)
+!CC    AQSOLUNDBTTMP = Temperature of above value (C)
+!CC    AQSOLUNOPT =    UNIFAC aqueous solubility at operating T (PPMw)
+!CC    AQSOL =         Database aqueous solubility (PPMw)
+!CC    AQSOLTMP =      Temperature of database aqueous solubility (C)
+!CC    TEMPOP =        Operating Temperature (C)
+!CC
+!CC Variables Internal to Subroutine AQSFIT:
+!CC    OFFSET =        Value to offset operating T UNIFAC aqueous
+!CC                    solubility by to achieve a fit using a data point
+!CC
+!CC Author:  D. Hokanson (4/5/94)
+!CC
+!CC*********************************************************************
+
+
+      SUBROUTINE AQSFIT(AQSOLFIT,IAQSOLFITSHT,IAQSOLFITLNG,IAQSOLFITERR,AQSOLFITTMP,AQSOLUNDBT,AQSOLUNDBTTMP,AQSOLUNOPT,AQSOL,AQSOLTMP,TEMPOP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AQSFIT
+!MS$ ATTRIBUTES ALIAS:'_AQSFIT':: AQSFIT
+!MS$ ATTRIBUTES REFERENCE::AQSOLFIT,IAQSOLFITSHT,IAQSOLFITLNG,IAQSOLFITERR,AQSOLFITTMP,AQSOLUNDBT,AQSOLUNDBTTMP,AQSOLUNOPT,AQSOL,AQSOLTMP,TEMPOP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+
+         IAQSOLFITSHT = 19
+      
+         OFFSET = AQSOLUNDBT - AQSOL
+         AQSOLFIT = AQSOLUNOPT - OFFSET
+         AQSOLFITTMP = TEMPOP
+
+      END
+
+
+!CC*********************************************************************
+!CC
+!CC                                   AQSOL
+!CC                        CALCULATE AQEOUS SOLUBILITY
+!CC
+!CC Output Variables:
+!CC    SOLUB =    Aqueous solubility (PPMw)
+!CC    TIE =      Solubility of water in the organic phase (PPMw)
+!CC    IIERR =    Error flag for this routine
+!CC
+!CC Input Variables:
+!CC    NC =
+!CC    NG =
+!CC    TT =       Temperature of calculation (K)
+!CC    XMW =
+!CC
+!CC Authors:  M. Miller, T. Rogers, and D. Hokanson (4/5/94)
+!CC
+!CC*********************************************************************
+
+      SUBROUTINE AQSOL (NC,NG,TT,SOLUB,TIE,IIERR,XMW)  
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AQSOL
+!MS$ ATTRIBUTES ALIAS:'_AQSOL@28':: AQSOL
+!MS$ ATTRIBUTES REFERENCE::NC,NG,TT,SOLUB,TIE,IIERR,XMW
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      DIMENSION XGUESS(2),XSOLN(2),FF(2),XMW(10)
+      DIMENSION X1(10),X2(10),XE(2),IE(2)
+
+      COMMON /LIMITS/ TOL,IMAX
+      COMMON /ERR/ ERRMAT(30),ERRNUM
+
+
+!CC    -- INITIALIZE VARIABLES
+
+      TIE = 0.0D0
+      KSAV = 0 
+      XGUESS(1) = 1.0D+00
+      XGUESS(2) = 0.0D+00
+      FF(1) = 0.0D0
+      FF(2) = 0.0D0
+      XSOLN(1) = 0.0D0
+      XSOLN(2) = 0.0D0
+      IIERR = 0
+      IERR = 0
+
+      CALL NEWTON (NC,TT,NG,IMAX,TOL,XGUESS,XSOLN,FF,IERR)
+
+      IF (IERR.EQ.-1) THEN
+
+           IIERR = -1
+           GOTO 30
+
+      ELSE IF (IRR.EQ.-2) THEN
+           IIERR = -2
+           GOTO 30
+
+      END IF 
+
+!CC    -- SORT COMPOSITION (DESCENDING ORDER)
+
+      DO 10 I=1,NC
+
+           IF (XSOLN(I).LE.0) THEN
+
+               IIERR = -3
+               GOTO 30
+
+           END IF
+
+           IE(I) = 1
+
+           DO 10 J=1,NC
+
+                IF (J.EQ.I) GOTO 10
+    
+                DIFF = DABS((XSOLN(J)-XSOLN(I))/XSOLN(I))*100.0D0
+
+                IF (DIFF.LE.0.1) THEN
+
+                     IIERR = -4
+                     GOTO 30
+ 
+                END IF
+ 
+                IF (XSOLN(I).LT.XSOLN(J)) IE(I)=IE(I)+1
+
+  10  CONTINUE
+
+      DO 20 I=1,NC
+
+           XE(I) = XSOLN(IE(I))
+
+  20  CONTINUE
+
+      X1(1) = XE(1)
+      X1(2) = 1.0D0 - X1(1)
+      X2(1) = XE(2)
+      X2(2) = 1.0D0 - X2(1)
+
+!CC    -- CONVERT MOLE FRACTION TO "PPMW" --
+
+      XMF = 1.0D0 - XE(1)
+      XE(1) = 1.0D+06/(1.0D0+((1.0D0/XE(2))-1.0D0)*XMW(2)/XMW(1))
+      XE(2) = 1.0D+06/(1.0D0+((1.0D0/XMF)-1.0D0)*XMW(1)/XMW(2))
+      SOLUB = XE(2)
+      TIE = XE(1)
+
+  30  IF ((SOLUB.LE.TOL).AND.(KSAV.EQ.0).AND.(IIERR.GE.0)) THEN
+         IIERR = -4
+      END IF
+
+      IF (IIERR.LT.0) THEN
+           CALL ERROR (ERRMAT,ERRNUM,9)
+           RETURN
+      END IF
+
+      END
+
+
+!CC  ****************************************************************************
+!CC  *                                                                          *
+!CC  *               LOADS UNIFAC BINARY INTERACTION PARAMETERS                 *
+!CC  *                                                                          *
+!CC  ****************************************************************************
+
+      SUBROUTINE BINPAR (MDL,MGSG,AI,RI,QI,FMW,FVB)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::BINPAR
+!MS$ ATTRIBUTES ALIAS:'_BINPAR@28':: BINPAR
+!MS$ ATTRIBUTES REFERENCE::MDL,MGSG,AI,RI,QI,FMW,FVB
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      PARAMETER (LA=32,MA=53,NA=96)
+
+      DIMENSION AI(MA,MA),RI(NA),QI(NA),MGSG(NA),IJTR(NA)
+      DIMENSION FMW(NA),FML(NA),FVB(NA),BB(LA)
+
+!CC      OPEN (UNIT = 9, FILE = 'C:\STEPP\RANDQ.DAT')
+      OPEN (UNIT = 9, FILE = 'RANDQ.DAT')
+
+      DO 10 J=1,NA
+
+           READ(9,*) MGSG(J),IJTR(J),RI(J),QI(J),FMW(J),FML(J),FVB(J)
+
+  10  CONTINUE
+
+      IF (MDL-2) 20,30,70
+
+!CC  20  OPEN (UNIT = 10, FILE = 'C:\STEPP\AVLE.DAT')
+  20  OPEN (UNIT = 10, FILE = 'AVLE.DAT')
+
+      GOTO 80
+
+!CC  30  OPEN (UNIT = 10, FILE = 'C:\STEPP\ALLE.DAT')
+  30  OPEN (UNIT = 10, FILE = 'ALLE.DAT')
+  
+      DO 40 J=1,MA
+ 
+           DO 40 K=1,MA
+
+                AI(J,K) = 99999.0D0
+
+                IF (K.NE.J) GOTO 40
+
+                AI(J,J) = 0.0D0
+
+  40  CONTINUE
+
+      DO 50 J=1,LA
+
+            READ(10,*) (BB(L),L=1,LA)
+
+            DO 50 K=1,LA
+  
+                 IF (K.EQ.J) GOTO 50
+
+                 AI(IJTR(J),IJTR(K))=BB(K)
+
+  50  CONTINUE
+
+      GOTO 100
+
+!CC  70  OPEN (UNIT = 10, FILE = 'C:\STEPP\AENV.DAT')
+  70  OPEN (UNIT = 10, FILE = 'AENV.DAT')
+
+  80  DO 90 I=1,MA
+
+           READ(10,*) (AI(I,J),J=1,MA)
+
+  90  CONTINUE
+
+ 100  CLOSE(9)
+      CLOSE(10)
+
+      END
+
+
+!C**************************************************************
+!CC
+!CC                     DBDENS
+!CC
+!CC Description:  This subroutine will calculate the liquid
+!CC               density of the chemical using information
+!CC               from the DIPPR 801 database.
+!CC
+!CC Output Variable:
+!CC    DBDEN =    Liquid Density of chemical (kg/m^3)
+!CC
+!CC Input Variables:
+!CC    A,B,C,D =  Coefficients for DIPPR 801 equation
+!CC    TT =       Operating temperature (K)
+!CC    TEMP =     Operating temperature (C)
+!CC    FWT =      Molecular weight of the compound
+!CC    TMIN =     Minimum temp. at which DIPPR 801 correlation valid
+!CC    TMAX =     Maximum temp. at which DIPPR 801 correlation valid
+!CC
+!CC Author:  D. Hokanson (4/5/94)
+!CC
+!C**************************************************************
+
+      SUBROUTINE DBDENS(DBDEN,A,B,C,D,TT,TMIN,TMAX,FWT,NTRGE)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DBDENS
+!MS$ ATTRIBUTES ALIAS:'_DBDENS@40':: DBDENS
+!MS$ ATTRIBUTES REFERENCE::DBDEN,A,B,C,D,TT,TMIN,TMAX,FWT,NTRGE
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DBDEN,A,B,C,D,TT,TEMP
+
+         DBDEN = A/(B**(1.0D0+((1.0D0-TT/C)**D)))
+         DBDEN = DBDEN*FWT
+
+         TEMP = TT - 273.15D0
+         IF ((TMIN.GT.(-273.15D0)).AND.((TEMP.LE.TMIN).OR.(TEMP.GE.TMAX))) THEN
+            NTRGE = -1 
+         END IF
+
+      END
+
+!C**************************************************************
+
+
+!C**************************************************************
+!CC
+!CC                   DIFGWL
+!CC
+!CC Description:  This subroutine will calculate the gas
+!CC               diffusivity using the Wilke-Lee modification
+!CC               of the Hirschfelder-Bird-Spotz method.
+!CC
+!CC Output Variables:
+!CC    DIFG =     Gas Diffusivity value (m^2/sec)
+!CC    ERRORF =   Error flag
+!CC    SRCSHT =   Source of this value (Short Version)
+!CC    SRCLNG =   Source of this value (Long Version)
+!CC    DIFGT =    Temperature of this calculation (C)
+!CC
+!CC Input Variables:
+!CC    MW =       Molecular weight of compound
+!CC    VB =       Molar volume of compound (m^3/kmol) at
+!CC               normal boiling point
+!CC    TNBP =     Boiling point temperature of compound (C)
+!CC    TEMPOP =   Temperature of the calculation (C)
+!CC    PRES =     Operating pressure (N/m2)
+!CC
+!CC Variables internal to Subroutine DIFGWL:
+!CC    MA =       Molecular weight of air
+!CC    MB =       Molecular weight of compound
+!CC    RA =       Molecular radius of air
+!CC    RB =       Molecular radius of compound
+!CC    RAB =      Molecular separation at collision (nm)
+!CC    EKB =      Eb/k
+!CC    EKA =      Ea/k
+!CC    EKEAB =    Energy of molecular attraction / Boltzmann's
+!CC               constant
+!CC    TKEAB =    kT/Eab
+!CC    EE =       Temporary value = log(TKEAB)
+!CC    YVAL =     f(kT/Eab) = Collision function
+!CC    TEMP =     Temeprature of the calculation (K)
+!CC    TEMPB =    Boiling point temp. of compound (K)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC           Modified by D. Hokanson (4/5/94)
+!CC
+!C**************************************************************
+
+      SUBROUTINE DIFGWL(DIFG,MW,VB,TNBP,TEMPOP,PRES,ERRORF,SRCSHT,SRCLNG,DIFGT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFGWL
+!MS$ ATTRIBUTES ALIAS:'_DIFGWL':: DIFGWL
+!MS$ ATTRIBUTES REFERENCE::DIFG,MW,VB,TNBP,TEMPOP,PRES,ERRORF,SRCSHT,SRCLNG,DIFGT
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DIFG,MW,VB,TEMPB,TEMP,PRES,MB,MA,RB
+      DOUBLE PRECISION RA,RAB,EKB,EKA,EKEAB,TKEAB,EE,YVAL,SQM
+      DOUBLE PRECISION PT,TNBP,TEMPOP
+      INTEGER ERRORF,SRCSHT,SRCLNG
+
+         TEMP = TEMPOP + 273.15D0
+         TEMPB = TNBP + 273.15D0
+         ERRORF = 0
+         SRCSHT = 13
+         DIFGT = TEMPOP
+         MB = MW
+         MA = 28.95D0                                            
+         RB = 1.18D0*((VB)**0.33333)                          
+         RA = 0.3711D0                                       
+         RAB = (RA+RB)/2.0D0                                  
+         EKB = 1.21D0*TEMPB
+         EKA = 78.6D0                                           
+         EKEAB = (EKB*EKA)**0.5                                
+         TKEAB = TEMP/EKEAB
+         EE = LOG(TKEAB)/2.303D0
+         YVAL = 10**(-0.14329D0-0.48343D0*(EE)+0.1939D0*(EE)**2 + 0.13612D0*(EE)**3 - 0.20578D0*(EE)**4 + 0.083899D0*(EE)**5 - 0.011491D0*(EE)**6)
+         SQM = (1/MA+1/MB)**0.5  
+         DIFG = (0.0001D0*(1.084D0-(0.249D0*SQM))*(TEMP**1.5)*SQM)/(PRES*RAB*YVAL*RAB)
+
+      END
+
+!C**************************************************************
+
+
+!C*************************************************************
+!CC
+!CC                    DIFLHL
+!CC
+!CC Description:  This subroutine will calculate liquid diffusivity
+!CC               for compounds.  It is generally valid for
+!CC               molecular weight < 1000 and molar
+!CC               volumes between 0.015 and 0.5 m^3/kmol.  It uses
+!CC               the Hayduk and Laudie correlation.
+!CC
+!CC Output Variables:
+!CC    DIFL =     Liquid diffusivity (m^2/sec) of compound
+!CC    ERRORF =   Error flag
+!CC    SRCSHT =   Source of this value (Short version)
+!CC    SRCLNG =   Source of this value (Long version)
+!CC    DIFLT =    Temperature of this calculation (C)
+!CC
+!CC Input Variables:
+!CC    VB =       Molar volume at normal boiling point (m^3/kmol)
+!CC    TEMPOP =   Temperature of the calculation (C)
+!CC    MW =       Molecular weight (kg/kmol)
+!CC
+!CC Variables Internal to Subroutine DIFLHL:
+!CC    VL =       Liquid viscosity (kg/m/sec)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC           Modified by D. Hokanson (4/5/94)
+!CC
+!C*************************************************************
+
+
+      SUBROUTINE DIFLHL(DIFL,VB,TEMPOP,MW,ERRORF,SRCSHT,SRCLNG,DIFLT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFLHL
+!MS$ ATTRIBUTES ALIAS:'_DIFLHL':: DIFLHL
+!MS$ ATTRIBUTES REFERENCE::DIFL,VB,TEMPOP,MW,ERRORF,SRCSHT,SRCLNG,DIFLT
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DIFL,VL,VB,TEMPOP,MW
+      INTEGER ERRORF,SRCSHT,SRCLNG
+
+         ERRORF = 0
+         DIFLT = TEMPOP
+         SRCSHT = 10
+
+         CALL H2OVISC(VL,TEMPOP,MERR,IDUMSHT,IDUMLNG,DUMTMP)
+         DIFL = (1.326D-4)/(((VL*1000.0D0)**1.14)*((VB*1000.0D0)**0.589))/(100.0D0**2)
+         IF ((MW.GT.1000).AND.(VB.LT.(0.015))) THEN
+            ERRORF = 5
+         ELSE IF ((MW.GT.1000).AND.(VB.GT.(0.5))) THEN
+            ERRORF = 6
+         ELSE IF (MW.GT.1000) THEN
+            ERRORF = 7
+         ELSE IF (VB.LT.(0.015)) THEN
+            ERRORF = 8
+         ELSE IF (VB.GT.(0.5)) THEN
+            ERRORF = 9
+         END IF
+
+      END
+
+!C*************************************************************
+
+
+!C*************************************************************
+!CC
+!CC                    DIFLPOL
+!CC
+!CC Description:  This subroutine will calculate liquid diffusivity
+!CC               for compounds.  It is generally valid for
+!CC               molecular weight > 1000.  It uses the method of
+!CC               Polson, 1950.
+!CC
+!CC Output Variables:
+!CC    DIFL =     Liquid diffusivity value (m^2/sec)
+!CC    ERRORF =   Error flag
+!CC    SRCSHT =   Source of this value (Short Version)
+!CC    SRCLNG =   Source of this value (Long Version)
+!CC    DIFLT =    Temperature of this calculation (C)
+!CC
+!CC Input Variables:
+!CC    MW =       Molecular weight of compound
+!CC    TEMPOP     Temperature of this calculation (C)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC           Modified by D. Hokanson (4/5/94)
+!CC
+!C*************************************************************
+
+      SUBROUTINE DIFLPOL(DIFL,MW,ERRORF,SRCSHT,SRCLNG,DIFLT,TEMPOP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFLPOL
+!MS$ ATTRIBUTES ALIAS:'_DIFLPOL':: DIFLPOL
+!MS$ ATTRIBUTES REFERENCE::DIFL,MW,ERRORF,SRCSHT,SRCLNG,DIFLT,TEMPOP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DIFL,MW
+      INTEGER ERRORF,SRCSHT,SRCLNG
+
+         ERRORF = 0
+         SRCSHT = 11
+         DIFLT = TEMPOP
+         DIFL = (2.74D-5)*(MW**(-1.0D0/3.0D0))            
+         IF (MW.LT.1000) THEN
+            ERRORF = 4
+         END IF
+      END
+
+!C*************************************************************
+
+
+!C*************************************************************
+!CC
+!CC                    DIFLWC
+!CC
+!CC Description:  This subroutine will calculate liquid diffusivity
+!CC               for compounds using the Wilke-Chang correlation.
+!CC               It is valid in for a solute in very dilute solution
+!CC               of solvent.
+!CC
+!CC Output Variables:
+!CC    DIFL =     Liquid diffusivity value (m^2/sec) of compound
+!CC    ERRORF =   Error flag
+!CC    SRCSHT =   Source of this value (Short Version)
+!CC    SRCLNG =   Source of this value (Long Version)
+!CC    DIFLT =    Temperature of this calculation (C)
+!CC
+!CC Input Variables:
+!CC    VB =       Molar volume of compound at normal boiling
+!CC               point (m^3/kmol)
+!CC    TEMPOP =   Temperature of the calculation (C)
+!CC
+!CC Variables Internal to Subroutine DIFLWC
+!CC    MWT =      Molecular Weight of Solvent (water)
+!CC    VL =       Viscosity of solution (kg/m/sec)
+!CC    PHI =      Association parameter of solvent
+!CC               = 2.26 for water
+!CC    TT =       Temperature of the calculation (K)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (10/19/93)
+!CC           Modified by D. Hokanson (4/5/94)
+!CC
+!C*************************************************************
+
+      SUBROUTINE DIFLWC(DIFL,VB,TEMPOP,ERRORF,SRCSHT,SRCLNG,DIFLT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFLWC
+!MS$ ATTRIBUTES ALIAS:'_DIFLWC':: DIFLWC
+!MS$ ATTRIBUTES REFERENCE::DIFL,VB,TEMPOP,ERRORF,SRCSHT,SRCLNG,DIFLT
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DIFL,VL,VB,TEMP,MWT,TEMPOP,PHI
+      INTEGER ERRORF,SRCSHT,SRCLNG
+
+         ERRORF = 0
+         SRCSHT = 12
+         DIFLT = TEMPOP
+         TT = DIFLT + 273.15D0
+         CALL H2OVISC(VL,TEMPOP,MERR,IDUMSHT,IDUMLNG,DUMTMP)
+         MWT = 18.02D0                                        
+         PHI = 2.26D0
+         DIFL = (117.3D-18)*((PHI*MWT)**0.5)*TT/VL/(VB**0.6)
+
+      END
+
+!C*************************************************************
+
+!CC *****************************************************************************
+!CC *                                                                           *
+!CC *                   ERROR AND WARNING HANDLING SUBROUTINE                   *
+!CC *                                                                           *
+!CC *****************************************************************************
+
+      SUBROUTINE ERROR (ERRMAT,ERRNUM,CODE)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ERROR
+!MS$ ATTRIBUTES ALIAS:'_ERROR@12':: ERROR
+!MS$ ATTRIBUTES REFERENCE::ERRMAT,ERRNUM,CODE
+
+      DOUBLE PRECISION ERRNUM,ERRMAT 
+
+      INTEGER CODE
+
+      DIMENSION ERRMAT(30)
+
+      ERRNUM = ERRNUM + 1
+
+      ERRMAT(ERRNUM) = CODE
+
+      END
+
+
+!CC****************************************************************************
+!CC
+!CC                                  FGRP
+!CC                          ORDER FUNCTIONAL GROUPS
+!CC
+!CC Output Variables:
+!CC    JERR =     Error Flag
+!CC
+!CC Input Variables:
+!CC    NC =
+!CC    NG =
+!CC
+!CC Authors:  M. Miller, T. Rogers, D. Hokanson (4/4/94)
+!CC
+!CC****************************************************************************
+
+      SUBROUTINE FGRP (NC,NG,JERR)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::FGRP
+!MS$ ATTRIBUTES ALIAS:'_FGRP@12':: FGRP
+!MS$ ATTRIBUTES REFERENCE::NC,NG,JERR
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      PARAMETER  (MA=53,NA=96,ND=10)
+
+      DIMENSION  NGM(10),NY(10,20),JH(NA),IH(20)
+
+      COMMON /ACTCO/ AI(MA,MA),RI(NA),QI(NA),FMW(NA),FVB(NA),MGSG(NA)
+      COMMON /GROUP/ MS(10,10,2),NMAX
+      COMMON /UNI/ RT(10,10),QT(10,10),TAU(10,10),S(10,10),F(10),Q(10),R(10),P(10,10)
+      COMMON /LIMITS/ TOL,IMAX
+      COMMON /ERR/ ERRMAT(30),ERRNUM
+
+!CC    -- INITIALIZE VARIABLES
+
+      IC = 1
+      NK = NC
+
+      DO 10 I=1,10
+
+           DO 10 J=1,NK
+
+                QT(I,J) = 0.0D0
+                RT(I,J) = 0.0D0
+
+  10  CONTINUE
+
+      DO 90 I=1,NA
+
+           JH(I) = 0
+
+  90  CONTINUE
+
+      DO 160 I=1,NK
+
+           DO 150 J=1,NMAX
+
+                IF (MS(I,J,1).EQ.0) GOTO 160
+
+                IH(IC) = MS(I,J,1)
+
+                IF (IC.EQ.1) GOTO 140
+
+                IF (IH(IC).EQ.IH(IC-1)) GOTO 150
+
+                IF (IH(IC).GT.IH(IC-1)) GOTO 140
+
+                IF (IC.GT.2) GOTO 110
+
+                IHH = IH(1)
+                IH(1) = IH(2)
+                IH(2) = IHH
+
+                GOTO 140
+
+ 110            I1 = IC-1
+
+                DO 130 I2=1,I1
+
+                     IF (IH(IC).GT.IH(I2)) GOTO 130
+
+                     IF (IH(IC).EQ.IH(I2)) GOTO 150
+
+                     I4 = IC-I2
+
+                     DO 120 I3=1,I4
+
+                          IH(IC+1-I3) = IH(IC-I3)
+
+ 120                 CONTINUE
+
+                     IH(I2) = MS(I,J,1)
+ 
+ 130            CONTINUE
+
+ 140            IC = IC+1
+
+                IF (IC.GT.20) THEN
+ 
+                     JERR = -1
+                     CALL ERROR (ERRMAT,ERRNUM,5)
+                     RETURN
+
+                END IF 
+
+ 150       CONTINUE
+
+ 160  CONTINUE
+
+      IC = IC-1
+
+      DO 170 I=1,IC
+
+           JH(IH(I)) = I
+
+ 170  CONTINUE
+
+      DO 180 I=1,10
+
+           DO 180 J=1,20
+
+                NY(I,J) = 0
+
+ 180  CONTINUE
+
+      DO 200 I=1,NK
+
+           DO 190 J=1,10
+
+                IF (MS(I,J,1).EQ.0) GOTO 200 
+
+                N1 = MS(I,J,1)
+                N2 = MS(I,J,2)
+
+                IF (N1.EQ.0) GOTO 200
+
+                N3 = JH(N1)
+                NY(I,N3) = N2
+
+ 190       CONTINUE
+
+ 200  CONTINUE
+
+      I = 0
+      NGMGL = 0
+
+      DO 210 K=1,IC
+
+           NSG = IH(K)
+           NGMNY = MGSG(NSG)
+           IF (NGMNY.NE.NGMGL) I=I+1
+           NGM(I) = NGMNY
+           NGMGL = NGMNY
+
+      DO 210 J=1,NK
+
+           RT(I,J) = RT(I,J)+DBLE(NY(J,K))*RI(NSG)
+           QT(I,J) = QT(I,J)+DBLE(NY(J,K))*QI(NSG)
+
+ 210  CONTINUE
+
+      NG = I
+
+      DO 220 I=1,NG
+
+           DO 220 J=1,NG
+
+                NI = NGM(I)
+                NJ = NGM(J)
+                AVAL = AI(NI,NJ)
+
+                IF (DABS(AVAL).GT.(9.0E+04)) THEN 
+
+                     JERR = -1
+                     CALL ERROR (ERRMAT,ERRNUM,6)
+                     RETURN
+
+                END IF
+
+                P(I,J) = AVAL
+
+ 220       CONTINUE
+
+ 250  CONTINUE
+
+      DO 260 I=1,NK
+
+         Q(I) = 0
+         R(I) = 0
+
+           DO 260 K=1,NG
+
+                Q(I) = Q(I)+QT(K,I)
+                R(I) = R(I)+RT(K,I)
+
+ 260  CONTINUE
+
+      END
+
+
+!CC************************************************************
+!CC
+!CC                      FGRPCALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutines to order the UNIFAC functional
+!CC   groups
+!CC
+!CC Output variables:
+!CC    ERRORF =    Error flag
+!CC
+!CC Variables Internal to Subroutine FGRPCALL:
+!CC    JERR =      Error flag returned from subroutine FGRP
+!CC    NC =
+!CC    NG =
+!CC
+!CC************************************************************
+       
+      SUBROUTINE FGRPCALL(ERRORF)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::FGRPCALL
+!MS$ ATTRIBUTES ALIAS:'_FGRPCALL@4':: FGRPCALL
+!MS$ ATTRIBUTES REFERENCE::ERRORF
+
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)      
+         
+         PARAMETER (NC=2,ND=10)
+         COMMON /INIT/ XX(10), NG, NDIF     
+         COMMON /ERR/ ERRMAT(30),ERRNUM
+         INTEGER ERRORF
+
+         ERRORF = 0
+         JERR = 0
+         CALL FGRP(NC,NG,JERR)
+
+         IF (JERR.EQ.-1) THEN
+            ERRORF = -2
+         ELSE IF (JERR.EQ.-2) THEN
+            ERRORF = -3
+         END IF  
+      END
+
+!CC************************************************************
+
+!CC****************************************************************
+!CC
+!CC                             GETGAM
+!CC         CALCULATE INFINITE DILUTION ACTIVITY COEFFICIENT
+!CC
+!CC Description:  This subroutine will calculate the infinite dilution
+!CC               activity coefficient at a given temperature from
+!CC               UNIFAC.
+!CC
+!CC Output Variable:
+!CC    GAMMA =    Infinite dilution activity coefficent (-)
+!CC
+!CC Input Variables:
+!CC    NC =
+!CC    NG =
+!CC    TT =       Operating temperature (K)
+!CC    NDIF =
+!CC    XX =
+!CC    ACT =
+!CC    DACT =
+!CC    TACT =
+!CC
+!CC Variables Internal to Subroutine GETGAM:
+!CC    NACT =
+!CC
+!CC****************************************************************
+
+      SUBROUTINE GETGAM(GAMMA,NC,NG,TT,NDIF,XX,ACT,DACT,TACT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETGAM
+!MS$ ATTRIBUTES ALIAS:'_GETGAM@36':: GETGAM
+!MS$ ATTRIBUTES REFERENCE::GAMMA,NC,NG,TT,NDIF,XX,ACT,DACT,TACT
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         PARAMETER (ND=10)
+         DIMENSION XX(10),ACT(ND),DACT(ND),TACT(ND)       
+         DOUBLE PRECISION GAMMA
+        
+         NACT = 0
+         CALL PARMS(NC,NG,TT)
+         CALL UNIMOD(NDIF,NACT,NC,NG,TT,XX,ACT,DACT,TACT)  
+         GAMMA = ACT(2)
+
+         RETURN
+
+      END
+ 
+!CC****************************************************************
+
+!C**************************************************************
+!CC
+!CC                     H2ODENS
+!CC
+!CC Description:  This subroutine will estimate the liquid
+!CC               density using a routine created by Tony Rogers.
+!CC
+!CC Output Variable:
+!CC    DL =       Liquid Density value (kg/m^3)
+!CC    ERRORF =   Error flag
+!CC    SRCSHT =   Source of this value (Short Version)
+!CC    SRCLNG =   Source of this value (Long Version)
+!CC    DLTEMP =   Temperature of the calculation (C)
+!CC
+!CC Input Variable:
+!CC    TEMPOP =   Temperature of the Calculation (C)
+!CC
+!CC Variables Internal to Subroutine H2ODENS:
+!CC     A1,A2,A3,A4,A5 = Constants used in polynomial fit
+!CC     XAVG,FAVG,XN,FN = Variables used to calculate DL
+!CC     FX = Liquid Density of Water (g/cm^3)
+!CC     TEMP =     Temperature of the calculation (K)
+!CC
+!CC Author:  T. Rogers and D. Hokanson (4/5/94)
+!CC
+!C**************************************************************
+
+	  SUBROUTINE H2ODENS(DL,TEMPOP,ERRORF,SRCSHT,SRCLNG,DLTEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::H2ODENS
+!MS$ ATTRIBUTES ALIAS:'_H2ODENS@24':: H2ODENS
+!MS$ ATTRIBUTES REFERENCE::DL,TEMPOP,ERRORF,SRCSHT,SRCLNG,DLTEMP
+
+	  IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+	  DOUBLE PRECISION A1,A2,A3,A4,A5,XAVG,FAVG,XN,TEMP,FN,FX,DL
+	  INTEGER ERRORF,SRCSHT,SRCLNG
+	  
+		 ERRORF = 0
+                 SRCSHT = 14
+                 DLTEMP = TEMPOP
+		 TEMP = TEMPOP + 273.15D0
+		 A1 = -1.4176800403D+00
+		 A2 =  8.9766515240D+00
+		 A3 = -1.2275501969D+01
+		 A4 =  7.4584410413D+00
+		 A5 = -1.7384916050D+00
+		 XAVG = 324.65D+00    
+		 FAVG = 0.98396D+00  
+		 XN = TEMP/XAVG       
+		 FN = A1 + A2*(XN) + A3*(XN)**2 + A4*(XN)**3 + A5*(XN)**4  
+		 FX = FN*FAVG                                             
+		 DL = FX * 1000.0D0
+
+	  END
+
+!C**************************************************************
+
+
+!C*****************************************************************
+!CC
+!CC                          H2OST
+!CC
+!CC Description:  This subroutine will calculate the surface
+!CC               tension of water, given temperature.  The
+!CC               correlation comes from a routine presented by
+!CC               Cummins and Westrick (1983)
+!CC
+!CC Output Variables:
+!CC    ST =       Value of surface tension of water (kg/sec^2)
+!CC    ERRORF =   Error flag
+!CC    SRCSHT =   Source of this value (Short Version)
+!CC    SRCLNG =   Source of this value (Long Version)
+!CC    STTEMP =   Temperature of this value (C)
+!CC
+!CC Input Variable:
+!CC    TEMPOP =   Temperature of this calculation (C)
+!CC
+!CC Variables Internal to Subroutine H2OST:
+!CC    TEMP =     Temperature of the calculation (K)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC           Modified by D. Hokanson (4/5/94)
+!CC
+!C*****************************************************************
+
+      SUBROUTINE H2OST(ST,TEMPOP,ERRORF,SRCSHT,SRCLNG,STTEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::H2OST
+!MS$ ATTRIBUTES ALIAS:'_H2OST':: H2OST
+!MS$ ATTRIBUTES REFERENCE::ST,TEMPOP,ERRORF,SRCSHT,SRCLNG,STTEMP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION ST,TEMP
+      INTEGER ERRORF,SRCSHT,SRCLNG
+
+         ERRORF = 0
+         SRCSHT = 15
+         STTEMP = TEMPOP
+         TEMP = TEMPOP + 273.15D0
+         ST = (7.558301D-2) - (1.3143D-4)*(TEMP-273.15D0) - (4.7616D-7)*((TEMP-273.15D0)**2)
+
+      END
+
+!C*****************************************************************
+
+                      
+!C*****************************************************************
+!CC
+!CC                      H2OVISC
+!CC
+!CC Description:  This subroutine will calculate the viscosity of
+!CC               liquid water using a routine from Yaws, et. al. (1976)
+!CC
+!CC Output Variable:
+!CC    VL =       Water viscosity value (kg/m/sec)
+!CC    ERRORF =   Error Flag
+!CC    SRCSHT =   Source of this value (Short Version)
+!CC    SRCLNG =   Source of this value (Long Version)
+!CC    VLTEMP =   Temperature of this value (C)
+!CC
+!CC Input Variables:
+!CC    TEMPOP =   Temperature of the calculation (C)
+!CC
+!CC Variables Internal to Subroutine H2OVISC:
+!CC    TEMP =     Temperature of the calculation (K)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC           Modified by D. Hokanson (4/5/94)
+!CC
+!C*****************************************************************
+
+      SUBROUTINE H2OVISC(VL,TEMPOP,ERRORF,SRCSHT,SRCLNG,VLTEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::H2OVISC
+!MS$ ATTRIBUTES ALIAS:'_H2OVISC@24':: H2OVISC
+!MS$ ATTRIBUTES REFERENCE::VL,TEMPOP,ERRORF,SRCSHT,SRCLNG,VLTEMP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION VL,TEMP,TEMPOP
+      INTEGER ERRORF,SRCSHT,SRCLNG
+
+         ERRORF = 0
+         SRCSHT = 1
+         VLTEMP = TEMPOP
+         TEMP = TEMPOP + 273.15D0
+         VL = EXP(-24.71D0+(4209.0D0/TEMP)+(.04527D0*TEMP) - (3.376D-5) * (TEMP**2))
+         VL = VL/1000.0D0
+
+      END
+
+!C*****************************************************************
+
+
+!CC*********************************************************************
+!CC
+!CC                      HC1CALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutines to get the UNIFAC value of Henry's
+!CC   Constant at the operating T.
+!CC
+!CC Output Variables:
+!CC    VAL =       Henry's constant value (-)
+!CC    SRCSHT =    Source of the value (Short Version)
+!CC    SRCLNG =    Source of the value (Long Version)
+!CC    ERRORF =    Error Flag
+!CC    TEMPUN =    Temperature of the value (C)
+!CC
+!CC Input Variables:
+!CC    TEMPOP =    Operating temperature (C)
+!CC    GAMMA =     Activity Coefficient (-)
+!CC    PVAP =      Vapor pressure (N/m2)
+!CC
+!CC Variables Internal to Subroutine HC1CALL:
+!CC    VP =        Vapor pressure (mm Hg)
+!CC    GAMMA =     Activity coefficient (-)
+!CC    TT =        Operating temperature (K)
+!CC    HLC =       Henry's constant value returned from subroutine HENRY
+!CC    PSAT =      Saturation pressure (atm)
+!CC
+!CC Author:  D. Hokanson (4/4/94)
+!CC
+!CC*********************************************************************
+       
+      SUBROUTINE HC1CALL(VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,TEMPOP,GAMMA,PVAP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::HC1CALL
+!MS$ ATTRIBUTES ALIAS:'_HC1CALL':: HC1CALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,TEMPOP,GAMMA,PVAP
+
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)      
+         PARAMETER(MA=53,NA=96,NC=2,ND=10)
+         COMMON /INIT/ XX(10), NG, NDIF
+         
+         DOUBLE PRECISION VAL,TEMPUN,TEMPOP,GAMMA,PVAP,AC,VP
+         INTEGER SRCSHT,SRCLNG,ERRORF
+
+         ERRORF = 0
+         SRCSHT = 7
+         TEMPUN = TEMPOP
+
+         TT = TEMPUN + 273.15D0
+         AC = GAMMA * 1.0D0
+         VP = PVAP * 760.0D0 / 1.01325D+05
+         CALL HENRY(TT,HLC,AC,VP,NG,PSAT)
+         VAL = HLC
+         IF (PSAT.GT.(1.0D0)) THEN 
+           ERRORF = 10
+         ENDIF
+
+         END
+
+!CC************************************************************
+
+
+!CC********************************************************************
+!CC
+!CC                      HC2CALL
+!CC    Calculate Henry's constant at operating T by regressing data
+!CC    points in the database.
+!CC
+!CC Output Variables:
+!CC    VAL =        Henry's constant regression value (dimensionless)
+!CC    SRCSHT =     Source of the value (Short Version)
+!CC    SRCLNG =     Source of the value (Long Version)
+!CC    ERRORF =     Error flag
+!CC    TEMPREG =    Temperature of regression value (C)
+!CC
+!CC Input Variables:
+!CC    HCDB =       Array of database Henry's constant values (-)
+!CC    HCDBTMP =    Array of database temperatures (C)
+!CC    TEMPOP =     Operating temperature (C)
+!CC    NUMDBHCS =   Number of Henry's constant data points in database
+!CC
+!CC Variables Internal to Subroutine HC2CALL:
+!CC    TT =         Operating temperature (K)
+!CC    HCDBATM =    Array of Henry's constant values (atm)
+!CC
+!CC Author:  D. Hokanson (4/4/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE HC2CALL(VAL,SRCSHT,SRCLNG,ERRORF,TEMPREG,HCDB,HCDBTMP,TEMPOP,NUMDBHCS)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::HC2CALL
+!MS$ ATTRIBUTES ALIAS:'_HC2CALL':: HC2CALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,TEMPREG,HCDB,HCDBTMP,TEMPOP,NUMDBHCS
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      PARAMETER (NUMHCS = 20)
+      DIMENSION HCDB(NUMHCS), HCDBTMP(NUMHCS), HCDBATM(NUMHCS)
+      INTEGER ERRORF,SRCSHT,SRCLNG
+
+         ERRORF = 0
+         SRCSHT = 17
+         TEMPREG = TEMPOP
+      
+         IF (NUMDBHCS.LT.2) THEN
+            ERRORF = -35
+         ELSE
+            TT = TEMPOP + 273.15D0
+            DO 10, I = 1,NUMDBHCS
+                HCDBATM(I) = HCDB(I)*0.082054D0*TT*1000.0D0/18.015D0
+ 10         CONTINUE 
+            CALL REGRESS(TT,HCDBATM,HCDBTMP,VAL,NUMDBHCS)
+            VAL = VAL*(18.015D0/1000.0D0)/(0.082054D0*TT)
+         END IF
+
+      END
+
+!CC********************************************************************
+
+
+!CC*********************************************************************
+!CC
+!CC                                 HCDBCONV
+!CC      CONVERT DATABASE HENRY'S CONSTANTS INTO DIMENSIONLESS UNITS
+!CC
+!CC Output Variable:
+!CC    HCDB =     Henry's constant database values array (-)
+!CC
+!CC Input Variables:
+!CC    HCDB =     Henry's constant database values array
+!CC                (units = atm if Yaws or RTI, atm-m3/mol if Superfund)
+!CC    HCDBTMP =  Array of Henry's constant temperatures
+!CC    NUMDBHCS = Number of database Henry's constants
+!CC    SRCSHT =   Source of the Henry's constant values
+!CC
+!CC Variables Internal to Subroutine HCDBCONV
+!CC    TEMP =     Temperature of current conversion (K)
+!CC
+!CC Author:  D. Hokanson (4/4/94)
+!CC
+!CC*********************************************************************
+
+      SUBROUTINE HCDBCONV(HCDB,HCDBTMP,NUMDBHCS,SRCSHT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::HCDBCONV
+!MS$ ATTRIBUTES ALIAS:'_HCDBCONV':: HCDBCONV
+!MS$ ATTRIBUTES REFERENCE::HCDB,HCDBTMP,NUMDBHCS,SRCSHT
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      PARAMETER (NUMHCS=20)
+      DIMENSION HCDB(NUMHCS),HCDBTMP(NUMHCS)
+      INTEGER SRCSHT,NUMDBHCS
+
+         IF (SRCSHT.EQ.2) THEN
+!CC           *** SUPERFUND (Convert atm-m3/mol to dimensionless)
+            DO 10, I = 1,NUMDBHCS
+               TEMP = HCDBTMP(I) + 273.15D0
+               HCDB(I) = HCDB(I) * 1000.0D0 / 0.082054D0 / TEMP
+ 10         CONTINUE
+         ELSE
+!CC           *** YAWS OR RTI (Convert atm to dimensionless)
+            DO 20, I = 1,NUMDBHCS
+               TEMP = HCDBTMP(I) + 273.15D0
+               HCDB(I) = HCDB(I)*(18.015D0/1000.0D0)/0.082054D0/TEMP
+ 20         CONTINUE
+         END IF
+
+      END
+
+
+!CC********************************************************************
+!CC
+!CC                      HENFIT
+!CC
+!CC Description:  This subroutine will calculate Henry's constant by
+!CC               fitting a data point from the database to the
+!CC               UNIFAC curve.  It makes use of an offset, taking
+!CC               advantage of Henry's constant's linear dependence on
+!CC               ln(T).  Only one data point is used to calculate the
+!CC               offset.  If more than one data point is available,
+!CC               the data point used is the one at the temperature
+!CC               closest to the operating temperature.
+!CC
+!CC Output Variables:
+!CC    HCFIT =     Henry's constant from UNIFAC fit (dimensionless)
+!CC    IHCFITSHT = Source of this value (Short Version)
+!CC    IHCFITLNG = Source of this value (Long Version)
+!CC    IHCFITERR = Error Flag
+!CC    HCFITTMP =  Temperature of Interest (C)
+!CC
+!CC Input Variables:
+!CC    HCDB =        Array of database Henry's constants (-)
+!CC    HCDBTMP =     Array of DB Henry's constant temperatures (C)
+!CC    HCUNOPT =     UNIFAC Henry's constant value at operating T (-)
+!CC    HCUNVAL =     Array of UNIFAC Henry's constants at DB T's (-)
+!CC    IHCUNERR =    Array of UNIFAC Henry's constant errors
+!CC    TEMPOP =      Operating Temperature (C)
+!CC    NUMDBHCS =    Number of Henry's constant data points in DB
+!CC
+!CC Variables Internal to Subroutine HENFIT:
+!CC    CURRDIFF =    Variable used to find closest temp. to operating T
+!CC    PERMDIFF =    Same definition as CURRDIFF
+!CC    CLOSEHC =     Current Henry's constant closest to operating temp.
+!CC    HCDATAPT =    HC in database at T closest to operating T (atm)
+!CC    HCDATAPTTMP = Temperature of this point (C)
+!CC    HCUNPT =      UNIFAC HC at T closest to database T (atm)
+!CC    HCUNPTTMP =   Temperature of this point (C)
+!CC    HCUNOPTPT =   UNIFAC HC at operating T (atm)
+!CC
+!CC Author:  D. Hokanson (4/4/94)
+!CC
+!CC********************************************************************
+
+
+      SUBROUTINE HENFIT(HCFIT,IHCFITSHT,IHCFITLNG,IHCFITERR,HCFITTMP,HCDB,HCDBTMP,HCUNOPT,HCUNVAL,IHCUNERR,TEMPOP,NUMDBHCS)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::HENFIT
+!MS$ ATTRIBUTES ALIAS:'_HENFIT':: HENFIT
+!MS$ ATTRIBUTES REFERENCE::HCFIT,IHCFITSHT,IHCFITLNG,IHCFITERR,HCFITTMP,HCDB,HCDBTMP,HCUNOPT,HCUNVAL,IHCUNERR,TEMPOP,NUMDBHCS
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      PARAMETER (NUMHCS = 20)
+      DOUBLE PRECISION HCDATAPT,HCDATAPTTMP,HCDB(NUMHCS)
+      DOUBLE PRECISION HCDBTMP(NUMHCS),HCUNVAL(NUMHCS)
+      DOUBLE PRECISION HCUNPT,HCUNPTTMP,HCUNOPTPT
+      DOUBLE PRECISION OFFSET,LNHCFIT
+      INTEGER CLOSEHC, IHCUNERR(NUMHCS)
+   
+         IHCFITSHT = 18
+      
+!CC*********** find point in database closest to operating temp. if
+!CC*********** more than one data point is available
+
+         IF (NUMDBHCS.EQ.1) THEN
+            HCDATAPT = HCDB(1)
+            HCDATAPTTMP = HCDBTMP(1)
+            HCUNPT = HCUNVAL(1)
+            HCUNPTTMP = HCDBTMP(1)
+         ELSE
+            I = 1
+ 10         IF (IHCUNERR(I).GE.0) THEN
+               PERMDIFF = TEMPOP - HCDBTMP(I)
+               CLOSEHC = I
+               NUM = I+1
+               GOTO 15
+            ELSE
+               I = I + 1
+               GOTO 10   
+            END IF
+ 15         DO 20, I=NUM,NUMDBHCS
+               IF (IHCUNERR(I).LT.0) GOTO 20
+               CURRDIFF = TEMPOP - HCDBTMP(I)
+               IF (DABS(CURRDIFF).LT.DABS(PERMDIFF)) THEN
+                  CLOSEHC = I
+                  PERMDIFF = CURRDIFF
+               END IF      
+ 20         CONTINUE
+            HCDATAPT = HCDB(CLOSEHC)
+            HCDATAPTTMP = HCDBTMP(CLOSEHC)
+            HCUNPT = HCUNVAL(CLOSEHC)
+            HCUNPTTMP = HCDBTMP(CLOSEHC)
+         END IF
+
+         HCUNOPTPT = HCUNOPT
+
+!CC********* convert values to units of atmospheres
+
+         HCDATAPT = HCDATAPT*(HCDATAPTTMP+273.15D0)*0.082054D0*55.5D0
+         HCUNPT = HCUNPT * (HCUNPTTMP+273.15D0) * 0.082054D0 * 55.5D0
+         HCUNOPTPT = HCUNOPTPT * (TEMPOP+273.15D0) * 0.082054D0*55.5D0
+
+
+         OFFSET = DLOG(HCUNPT) - DLOG(HCDATAPT)
+         LNHCFIT = DLOG(HCUNOPTPT) - OFFSET
+         HCFIT = DEXP(LNHCFIT)
+
+         HCFITTMP = TEMPOP
+
+         HCFIT = HCFIT / 0.082054D0 / (TEMPOP+273.15D0) / 55.5D0
+
+      END
+
+
+!CC***************************************************************************
+!CC
+!CC                                 HENRY
+!CC                       CALCULATE HENRY'S CONSTANT
+!CC
+!CC Output Variables:
+!CC    HLC =      Henry's constant (-)
+!CC
+!CC Input Variables:
+!CC    GAMMA =    Activity coefficient (-)
+!CC    PVAP =     Vapor pressure (mm Hg)
+!CC    TEMP =     Temperature of calculation (K)
+!CC    PSAT =     Saturation pressure (atm)
+!CC
+!CC Variables Internal to Subroutine HENRY:
+!CC    HATM =      Henry's constant (atm)
+!CC
+!CC Authors:  M. Miller, T. Rogers, D. Hokanson
+!CC
+!CC **************************************************************************
+
+      SUBROUTINE HENRY (TEMP,HLC,GAMMA,PVAP,NG,PSAT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::HENRY
+!MS$ ATTRIBUTES ALIAS:'_HENRY@24':: HENRY
+!MS$ ATTRIBUTES REFERENCE::TEMP,HLC,GAMMA,PVAP,NG,PSAT
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      PSAT = PVAP/760.0D0
+      HATM = GAMMA*PSAT
+      HLC = HATM*(18.015D0/1000.0D0)/(0.082054D0*TEMP)
+
+      END
+
+
+!CC*****************************************************************
+!CC
+!CC                  INITVS
+!CC             INITIALIZE VARIABLES
+!CC
+!CC Description:  This subroutine will initialize the variables needed
+!CC               for the STEPP program.
+!CC
+!CC Output Variables:
+!CC    TOL =      Tolerance in Newton-Raphson algorithm
+!CC    IMAX =     Maximum number of iterations in Newton-Raphson
+!CC    MS =       Array of UNIFAC groups
+!CC    NMAX =     Maximum number of UNIFAC groups
+!CC    XX =       Initial guess for solution of Newton-Raphson
+!CC    NG =
+!CC    NDIF =
+!CC
+!CC Input Variables:
+!CC    MX =       Maximum number of UNIFAC groups
+!CC
+!CC Author:  D. Hokanson (4/4/94)
+!CC
+!CC*****************************************************************
+
+      SUBROUTINE INITVS(MX)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::INITVS
+!MS$ ATTRIBUTES ALIAS:'_INITVS@4':: INITVS
+!MS$ ATTRIBUTES REFERENCE::MX
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      PARAMETER (ND = 10)
+      COMMON /LIMITS/ TOL, IMAX
+      COMMON /GROUP/ MS(10,10,2), NMAX
+      COMMON /INIT/ XX(10), NG, NDIF
+ 
+         TOL = 1.0D-10
+         IMAX = 250
+         MS(1,1,1)=17
+         MS(1,1,2)=1 
+         NMAX=MX
+         XX(1)=1.0D0
+         XX(2)=0.0D0
+         NG=0 
+         NDIF=0 
+
+      END
+
+!CC*****************************************************************
+
+!CC************************************************************
+!CC
+!CC                      KOWCALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutines to calculate unifac log octanol water
+!CC   partition coefficient (log Kow) at given TEMP
+!CC
+!CC Output Variables:
+!CC    VAL =      log Kow value (-)
+!CC    SRCSHT =   Source of this value (Short Version)
+!CC    SRCLNG =   Source of this value (Long Version)
+!CC    ERRORF =   Error flag
+!CC    TEMPUN =   Temperature of this value (C)
+!CC    IFGRPERR = Error flag from call to FGRPCALL
+!CC
+!CC Input Variables:
+!CC    TEMP =     Temperature of calculation (C)
+!CC    MX =       Maximum number of UNIFAC groups
+!CC    INPMS =    Input array of UNIFAC groups in compound
+!CC
+!CC Variables Internal to Subroutine KOWCALL:
+!CC    MS =       Array of UNIFAC groups needed to do calculations in
+!CC               COMMON.  It holds same values as INPMS, but could not
+!CC               be input directly due to use of MS in a COMMON block.
+!CC    MDL =      Choice of UNIFAC parameter set:  3=Environmental VLE,
+!CC               2=Liquid-Liquid Equilibrium (LLE), or 1=Vapor-Liquid
+!CC               Equilibrium (VLE)
+!CC    TT =       Temperature of calculation (K)
+!CC    OCTDEN =
+!CC    WATDEN =
+!CC    JJERR =    Error Flag from call to PARTC
+!CC    XKOW =     Octanol water partition coefficient (-)
+!CC    XLGK =     log Kow (-)
+!CC    NG =
+!CC
+!CC Author:  D. Hokanson (4/5/94)
+!CC
+!CC************************************************************
+       
+      SUBROUTINE KOWCALL(VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,TEMP,IFGRPERR,MX,INPMS,MDL)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::KOWCALL
+!MS$ ATTRIBUTES ALIAS:'_KOWCALL':: KOWCALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,TEMP,IFGRPERR,MX,INPMS,MDL
+
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+         PARAMETER(MA=53,NA=96,NC=2,ND=10)
+         DOUBLE PRECISION VAL,TEMPUN,TEMPOP
+         INTEGER SRCSHT,SRCLNG,ERRORF
+         COMMON /ACTCO/ AI(MA,MA),RI(NA),QI(NA),FMW(NA),FVB(NA),MGSG(NA)
+         COMMON /GROUP/ MS(10,10,2),NMAX
+         COMMON /UNI/ RT(10,10),QT(10,10),TAU(10,10),S(10,10),F(10),Q(10),R(10),P(10,10)
+         COMMON /INIT/ XX(10), NG, NDIF   
+         COMMON /LIMITS/ TOL,IMAX
+         DIMENSION INPMS(10,10,2)
+
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *       Set variables needed by COMMONS:  MS            *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       DO 3, I = 1,10
+          DO 3, J=1,10
+             DO 3, K=1,2
+                MS(I,J,K) = INPMS(I,J,K)
+ 3     CONTINUE
+
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *                Initialize Variables                   *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       CALL INITVS(MX)  
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *          Load UNIFAC binary interaction parameters    *
+!CC      *    Use MDL supplied from Visual Basic corresponding   *
+!CC      *    to user's choice of UNIFAC database                *
+!CC      *                                                       *
+!CC      *       MDL       Database                              *
+!CC      *                                                       *
+!CC      *        1 = Original UNIFAC VLE (AVLE.DAT)             *
+!CC      *        2 = UNIFAC LLE (ALLE.DAT)                      *
+!CC      *        3 = Environmental VLE (AENV.DAT)               *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       CALL BINPAR(MDL,MGSG,AI,RI,QI,FMW,FVB)
+
+
+!CC      ******************************************************
+!CC      *                                                    *
+!CC      *           Reorder the functional groups            *
+!CC      *                                                    *
+!CC      ******************************************************
+
+       CALL FGRPCALL(IFGRPERR)
+
+         IF (IFGRPERR.EQ.-2) THEN
+            ERRORF = -2
+         ELSE IF (IFGRPERR.EQ.-3) THEN
+            ERRORF = -3
+         ELSE
+            ERRORF = 0
+            SRCSHT = 7
+            TT = TEMP + 273.15D0
+            OCTDEN = 6.36D0
+            WATDEN = 55.5D0
+            CALL PARTC(TT,OCTDEN,WATDEN,XKOW,XLGK,NG,JJERR)
+
+!CC           ***** Set functional groups back to there original ordering
+
+            CALL FGRPCALL(IFGRPERR)
+  
+            IF (JJERR.EQ.-1) THEN
+               ERRORF = -23
+            ELSE IF (JJERR.EQ.-2) THEN
+               ERRORF = -24
+            ELSE IF (JJERR.EQ.-3) THEN
+               ERRORF = -25
+            ELSE IF (JJERR.EQ.-4) THEN
+               ERRORF = -26
+            ELSE IF (JJERR.EQ.-5) THEN
+               ERRORF = -27
+            ELSE IF (JJERR.EQ.-6) THEN
+               ERRORF = -28
+            ELSE IF (JJERR.EQ.-7) THEN
+               ERRORF = -29
+            ELSE IF (JJERR.EQ.-8) THEN
+               ERRORF = -30
+            ELSE
+               VAL = XLGK
+               TEMPUN = TEMP
+            END IF
+         END IF
+      END
+
+!CC************************************************************
+
+!CC************************************************************
+!CC
+!CC                      LDDBCALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutines to get liquid density values
+!CC   from the equation given in the database
+!CC
+!CC Output Variables:
+!CC     VAL =      Database liquid density value (kg/m3)
+!CC     SRCSHT =   Source of this value (Short Version)
+!CC     SRCLNG =   Source of this value (Long Version)
+!CC     ERRORF =   Error flag
+!CC     TMIN =     Minimum temp. at which correlation valid (C)
+!CC     TMAX =     Maximum temp. at which correlation valid (C)
+!CC
+!CC Input Variables:
+!CC     NEQN =     Equation number from database
+!CC     TEMPDB =   Temperature at which this liquid density calculated
+!CC     TMIN =     Minimum temp. at which correlation valid (K)
+!CC     TMAX =     Maximum temp. at which correlation valid (K)
+!CC     A =        Database liquid density coefficient A
+!CC     B =        Database liquid density coefficient B
+!CC     C =        Database liquid density coefficient C
+!CC     D =        Database liquid density coefficient D
+!CC     FWT =      Molecular weight (kg/kmol)
+!CC     TEMPOP =   Operating temperature (C)
+!CC
+!CC Variables Internal to Subroutine LDDBCALL:
+!CC    TT =        Operating temperature (K)
+!CC    DBDEN =     Database liquid density (kg/m3)
+!CC    NTRGE =     Error flag telling whether temp. in range
+!CC
+!CC Author:  D. Hokanson (4/5/94)
+!CC
+!CC************************************************************
+       
+      SUBROUTINE LDDBCALL(VAL,SRCSHT,SRCLNG,ERRORF,NEQN,TEMPDB,TMIN,TMAX,A,B,C,D,FWT,TEMPOP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::LDDBCALL
+!MS$ ATTRIBUTES ALIAS:'_LDDBCALL':: LDDBCALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,NEQN,TEMPDB,TMIN,TMAX,A,B,C,D,FWT,TEMPOP
+
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+         DOUBLE PRECISION VAL,TEMPDB,TMIN,TMAX,A,B,C,D,FWT,TEMPOP
+         INTEGER SRCSHT,SRCLNG,ERRORF,NEQN
+
+         ERRORF = 0
+         
+         IF (NEQN.EQ.105) THEN
+            TEMPDB = TEMPOP
+            TT = TEMPDB + 273.15D0  
+            NTRGE = 0
+            CALL DBDENS(DBDEN,A,B,C,D,TT,TMIN,TMAX,FWT,NTRGE)
+            VAL = DBDEN
+            IF (NTRGE.EQ.-1) THEN
+               ERRORF = 3
+            END IF
+         ELSE IF (NEQN.LT.0) THEN
+            ERRORF = -12
+         ELSE 
+            ERRORF = -11
+         END IF   
+         
+      END
+
+!CC************************************************************
+
+!CC************************************************************
+!CC
+!CC                      LDGCCALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutines to get liquid density values
+!CC   from the Group Contribution Method related to Schroeder's
+!CC   method.
+!CC
+!CC Output Variables:
+!CC    VAL =       Liquid density value (kg/m3)
+!CC    SRCSHT =    Source of this value (Short Version)
+!CC    SRCLNG =    Source of this value (Long Version)
+!CC    ERRORF =    Error flag
+!CC    TEMPUN =    Temperature of this value (C)
+!CC
+!CC Input Variables:
+!CC    FWT =       Molecular weight (kg/kmol)
+!CC    VBMNBP =    Molar volume at the normal boiling point (m3/kmol)
+!CC    TEMPOP =    Operating temperature (C)
+!CC
+!CC Variables Internal to Subroutine LDGCALL:
+!CC    DLH2O =     Density of water (kg/m3)
+!CC    MERR =      Error flag from water density calculation
+!CC    IDUMSHT =   Dummy source variable for water density calculation
+!CC    IDUMLNG =   Dummy source variable for water density calculation
+!CC    DUMTMP =    Dummy temp. variable for water density calculation
+!CC    ORGDEN =    Liquid density of the chemical (kg/m3)
+!CC
+!CC Author:  D. Hokanson (4/5/94)
+!CC
+!CC************************************************************
+       
+      SUBROUTINE LDGCCALL(VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,FWT,VBMNBP,TEMPOP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::LDGCCALL
+!MS$ ATTRIBUTES ALIAS:'_LDGCCALL':: LDGCCALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,TEMPUN,FWT,VBMNBP,TEMPOP
+
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+         DOUBLE PRECISION VAL,TEMPUN,TEMPOP,FWT,VBMNBP
+         INTEGER SRCSHT,SRCLNG,ERRORF
+
+         ERRORF = 0
+         SRCSHT = 9
+
+         TEMPUN = TEMPOP
+
+         CALL H2ODENS(DLH2O,TEMPUN,MERR,IDUMSHT,IDUMLNG,DUMTMP)
+         CALL ORGDENS(ORGDEN,FWT,VBMNBP,DLH2O)
+         VAL = ORGDEN
+         
+      END
+
+!CC************************************************************
+
+
+!CC***************************************************************************
+!CC
+!CC                                  MOLWT
+!CC                     CALCULATE UNIFAC MOLECULAR WEIGHT
+!CC
+!CC Output Variables:
+!CC    FWT =      Molecular weight value (kg/kmol)
+!CC    XMW =
+!CC    NERR =     Error flag
+!CC
+!CC Input Variables:
+!CC    NC =
+!CC
+!CC Authors:      M. Miller, T. Rogers, D. Hokanson
+!CC
+!CC***************************************************************************
+
+      SUBROUTINE MOLWT (FWT,NC,XMW,NERR)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::MOLWT
+!MS$ ATTRIBUTES ALIAS:'_MOLWT@16':: MOLWT
+!MS$ ATTRIBUTES REFERENCE::FWT,NC,XMW,NERR
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      PARAMETER (MA=53,NA=96,ND=10)
+
+      DIMENSION XMW(ND),XTW(ND)
+
+      COMMON /ACTCO/ AI(MA,MA),RI(NA),QI(NA),FMW(NA),FVB(NA),MGSG(NA)
+      COMMON /LIMITS/ TOL,IMAX
+      COMMON /GROUP/ MS(10,10,2),NMAX
+      COMMON /ERR/ ERRMAT(30),ERRNUM
+
+      NK = NC
+
+      DO 103 KO=1,3
+
+           XMW(KO) = 0.0D0
+
+ 103  CONTINUE
+
+      XMW(1) = 18.015D0
+      XMW(NK) = FWT
+
+      DO 107 LP=1,NK
+
+           XTW(LP) = 0.0D0
+
+           DO 105 JP=1,NMAX
+
+                IDG = MS(LP,JP,1)
+
+                IF (IDG.EQ.0) GOTO 105
+
+                XTS = FMW(IDG)
+
+                IF (XTS.LE.0.D0) GOTO 107
+
+                XTW(LP) = XTW(LP)+XTS*DBLE(MS(LP,JP,2))
+
+ 105       CONTINUE
+
+           IF(XTW(LP).GT.TOL) XMW(LP)=XTW(LP)
+
+ 107  CONTINUE
+
+      FWT = XMW(NK)
+
+ 109  IF (FWT.LE.TOL) THEN
+
+           NERR = -1
+           CALL ERROR (ERRMAT,ERRNUM,7)
+           RETURN
+
+      END IF
+ 
+      END
+
+
+!CC************************************************************
+!CC
+!CC                      MWTCALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutine to get molecular weight value
+!CC
+!CC Output Variables:
+!CC    VAL =      Molecular weight value (kg/kmol)
+!CC    SRCSHT =   Source of the value (Short Version)
+!CC    SRCLNG =   Source of the value (Long Version)
+!CC    ERRORF =   Error flag
+!CC    XMW =
+!CC
+!CC Input Variables:
+!CC    MX =       Maximum number of UNIFAC groups
+!CC    INPMS =    Input array of UNIFAC groups in compound
+!CC
+!CC Variables Internal to Subroutine MWTCALL:
+!CC    MS =       Array of UNIFAC groups needed to do calculations in
+!CC               COMMON.  It holds same values as INPMS, but could not
+!CC               be input directly due to use of MS in a COMMON block.
+!CC    MDL =      Choice of UNIFAC parameter set:  3=Environmental VLE,
+!CC               2=Liquid-Liquid Equilibrium (LLE), or 1=Vapor-Liquid
+!CC               Equilibrium (VLE)
+!CC
+!CC Author:  D. Hokanson (4/4/94)
+!CC
+!CC************************************************************
+       
+      SUBROUTINE MWTCALL(VAL,SRCSHT,SRCLNG,ERRORF,MX,INPMS,XMW)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::MWTCALL
+!MS$ ATTRIBUTES ALIAS:'_MWTCALL':: MWTCALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,MX,INPMS,XMW
+      
+         PARAMETER  (MA=53, NA=96, ND=10)
+         PARAMETER  (NC = 2)
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+         DOUBLE PRECISION VAL
+         INTEGER SRCSHT,ERRORF,SRCLNG,FGRPER
+         COMMON /LIMITS/ TOL,IMAX
+         COMMON /GROUP/ MS(10,10,2), NMAX
+         COMMON /INIT/ XX(10), NG, NDIF
+         COMMON /ACTCO/ AI(MA,MA),RI(NA),QI(NA),FMW(NA),FVB(NA),MGSG(NA)
+      COMMON /UNI/ RT(10,10),QT(10,10),TAU(10,10),S(10,10),F(10),Q(10),R(10),P(10,10)
+         DIMENSION INPMS(10,10,2), XMW(ND)
+
+
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *       Set variables needed by COMMONS:  MS            *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       DO 3, I = 1,10
+          DO 3, J=1,10
+             DO 3, K=1,2
+                MS(I,J,K) = INPMS(I,J,K)
+ 3     CONTINUE
+
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *                Initialize Variables                   *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       CALL INITVS(MX)  
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *          Load UNIFAC binary interaction parameters    *
+!CC      *    Use MDL = 3 --> Environmental VLE for Henry's      *
+!CC      *                    Constant calculation               *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       MDL = 3
+       CALL BINPAR(MDL,MGSG,AI,RI,QI,FMW,FVB)
+
+
+            ERRORF = 0
+            SRCSHT = 7
+            FWT = 0.0D0
+            CALL MOLWT(FWT,NC,XMW,NERR)     
+            IF (NERR.EQ.-1) THEN
+               ERRORF = -6
+            ELSE
+               VAL = FWT
+            END IF
+           
+      END
+
+!CC************************************************************
+
+
+!CC*********************************************************************
+!CC
+!CC     NEWTON-RAPHSON ALGORITHM (GAUSS-JORDAN MAXIMUM PIVOT STRATEGY)
+!CC   ------------------------------------------------------------------
+!CC   THIS IS A SUBROUTINE TO IMPLEMENT THE NEWTON-RAPHSON ALGORITHM FOR
+!CC   SOLVING SYSTEMS OF NONLINEAR ALGEBRAIC EQUATIONS.  A VARIATION OF
+!CC   THE GAUSS-JORDAN MAXIMUM PIVOT STRATEGY IS EMPLOYED TO DETERMINE
+!CC   THE INVERSE OF THE JACOBIAN MATRIX.  THE CORRECTION FACTORS ARE
+!CC   CALCULATED IN AN ITERATIVE MANNER TO BRING THE ADJUSTABLE
+!CC   VARIABLES WITHIN A SPECIFIED TOLERANCE.
+!CC
+!CC                   MM = NUMBER OF COLUMNS IN MATRIX C
+!CC                   NN = NUMBER OF ROWS IN MATRIX C
+!CC
+!CC Output Variables:
+!CC    XX =
+!CC    FF =
+!CC    IERR =      Error flag from this routine
+!CC
+!CC Input Variables:
+!CC    NN =
+!CC    TT =        Temperature of the calculation (K)
+!CC    NG =
+!CC    MAXIT =     Maximum number of iterations
+!CC    TOL =       Tolerance
+!CC    XGUESS =    Initial guesses array
+!CC
+!CC Authors:  M. Miller and T. Rogers (4/5/94)
+!CC
+!CC*********************************************************************
+
+      SUBROUTINE NEWTON (NN,TT,NG,MAXIT,TOL,XGUESS,XX,FF,IERR)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::NEWTON
+!MS$ ATTRIBUTES ALIAS:'_NEWTON@36':: NEWTON
+!MS$ ATTRIBUTES REFERENCE::NN,TT,NG,MAXIT,TOL,XGUESS,XX,FF,IERR
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      DIMENSION CC(2,3),IR(2),DX(2),XOLD(2),XX(2)
+      DIMENSION FOLD(2),FF(2),XGUESS(2),X1(10),X2(10)
+      DIMENSION ACT1(10),DACT1(10,10),TACT1(10)
+      DIMENSION ACT2(10),DACT2(10,10),TACT2(10)
+
+      COMMON /ERR/ ERRMAT(30),ERRNUM
+
+
+!CC    -- SET WIDTH OF JACOBIAN MATRIX
+
+      MM = NN + 1
+
+!CC    -- INITIALIZATION (CC, DX, XX, XOLD, FOLD)
+
+      DO 30 L=1,NN
+
+           XX(L) = XGUESS(L)
+           XOLD(L) = XGUESS(L)
+           FF(L) = 0.0D0
+           FOLD(L) = 0.0D0
+           DX(L) = 0.0D0
+
+           DO 20 LL=1,MM
+
+                CC(L,LL) = 0.0D0
+
+  20       CONTINUE
+
+  30  CONTINUE
+
+      NDIF = 1
+      NACT = 0
+
+      CALL PARMS (NN,NG,TT)
+
+!CC    -- START OF NEWTON-RAPHSON ITERATION LOOP
+
+      IMAX = MAXIT + 1
+
+      DO 180 ITER=1,IMAX
+
+           INDEX = ITER - 1
+
+!CC    -- EVALUATE FUNCTION VECTOR (FF)
+
+           X1(1) = XX(1)
+           X1(2) = 1.0D0 - X1(1)
+           X2(1) = XX(2)
+           X2(2) = 1.0D0 - X2(1)
+
+           CALL UNIMOD (NDIF,NACT,NN,NG,TT,X1,ACT1,DACT1,TACT1)
+           CALL UNIMOD (NDIF,NACT,NN,NG,TT,X2,ACT2,DACT2,TACT2)
+
+!CC    -- CALCULATE ROOT-MEAN-SQUARE ERROR (RMSE)
+
+           LOGIC = 0
+           RMSE1 = 0.0D0
+           RMSE2 = 0.0D0
+           RMSE3 = 0.0D0
+
+           DO 40 J=1,NN
+ 
+                FF(J) = X1(J)*ACT1(J) - X2(J)*ACT2(J)
+
+                IF (DABS(FF(J)).GE.TOL) LOGIC = -1
+
+                DIF1 = FF(J) - FOLD(J)
+                DIF2 = XX(J) - XOLD(J)
+                RMSE1 = RMSE1 + FF(J)**2
+                RMSE2 = RMSE2 + (DIF1)**2
+                RMSE3 = RMSE3 + (DIF2)**2
+
+  40       CONTINUE
+
+           IF (LOGIC.EQ.INDEX) GOTO 200
+
+           RMSE1 = DSQRT(RMSE1/DBLE(NN))
+           RMSE2 = DSQRT(RMSE2/DBLE(NN))
+           RMSE3 = DSQRT(RMSE3/DBLE(NN))
+
+!CC    -- TEST FOR CONVERGENCE OF SOLUTION
+
+           IF (RMSE1.GE.TOL) GOTO 50
+
+           IF (RMSE2.GE.TOL) GOTO 50
+
+           IF (RMSE3.GE.TOL) GOTO 50
+
+           IF (LOGIC.EQ.-1)  GOTO 50
+
+           GOTO 200
+
+!CC    -- SAVE PREVIOUS ITERATION
+
+  50       DO 60 I=1,NN
+
+                FOLD(I) = FF(I)
+                XOLD(I) = XX(I)
+
+  60       CONTINUE
+
+!CC    -- LOAD PARTIAL DERIVATIVES IN JACOBIAN
+
+           CC(1,1) =  ACT1(1) + XX(1)*DACT1(1,1)
+           CC(1,2) = -ACT2(1) - XX(2)*DACT2(1,1)
+           CC(2,1) = -ACT1(2) + (1.0D0 - XX(1))*DACT1(2,1)
+           CC(2,2) =  ACT2(2) - (1.0D0 - XX(2))*DACT2(2,1)
+
+!CC    -- FINISH LOADING "CC" MATRIX WITH "FF" VECTOR
+
+           DO 70 I=1,NN
+
+                CC(I,MM) = -FF(I)
+
+  70       CONTINUE
+
+!CC    -- GAUSS-JORDAN ALGORITHM
+!CC    -- INITIALIZE ALL VECTORS AND MATRICES
+
+           DO 80 I=1,NN
+
+                DX(I) = 0.0D0
+                IR(I) = 0
+                JJ = 0
+                JM = 0
+
+  80       CONTINUE
+
+           DO 140 K=1,NN
+
+                PK = 0.0D0
+
+!CC    -- LOCATE PIVOT ELEMENT
+
+                DO 100 I=1,NN
+              
+                     IF (I.EQ.IR(I)) GOTO 100
+
+                     DO 90 IK=1,NN
+
+                          PP = DABS(CC(I,IK))
+
+                          IF (PP.LT.PK) GOTO 90
+
+                          PK = PP
+                          JJ = I
+                          JM = IK
+
+  90                 CONTINUE
+
+ 100            CONTINUE
+        
+                IR(JJ) = JJ
+
+!CC    -- NORMALIZATION STEP
+
+                DO 110 JR=1,MM
+
+                     IF (JM.EQ.JR) GOTO 110
+
+                     IF (DABS(CC(JJ,JM)).LE.1.0D-25) THEN
+
+                          IERR = -2
+                          CALL ERROR (ERRMAT,ERRNUM,23)
+                          RETURN
+      
+                     END IF 
+
+                     CC(JJ,JR) = CC(JJ,JR)/CC(JJ,JM)
+
+ 110            CONTINUE
+
+                CC(JJ,JM) = 1.0D0
+
+!CC    -- REDUCTION STEP
+
+                DO 130 I=1,NN
+
+                     IF (I.EQ.JJ) GOTO 130
+
+                     DO 120 JR=1,MM
+
+                          IF (JR.EQ.JM) GOTO 120
+
+                          CC(I,JR) = CC(I,JR) - CC(I,JM) * CC(JJ,JR)
+
+ 120                 CONTINUE
+
+                     CC(I,JM) = 0.0D0
+
+ 130            CONTINUE
+
+ 140       CONTINUE
+
+!CC    -- END OF GAUSS-JORDAN MAXIMUM PIVOT ROUTINE
+!CC    -- RECOVER THE SOLUTION VECTOR
+
+           DO 160 I=1,NN
+
+                DO 150 J=1,NN
+
+                     IF((CC(I,J).LT.1).OR.(CC(I,J).GT.1)) GOTO 150
+
+                     DX(J) = CC(I,MM)
+
+ 150            CONTINUE
+
+ 160       CONTINUE
+
+!CC    -- CORRECT ELEMENTS OF THE "XX" VECTOR
+
+           DO 170 I=1,NN
+
+                 XX(I) = XX(I) + DX(I)
+
+                 IF(XX(I).LT.0.D0) XX(I) = 0.0D0
+
+                 IF(XX(I).GT.1.D0) XX(I) = 1.0D0
+
+ 170       CONTINUE
+
+ 180  CONTINUE
+
+!CC    -- END OF ITERATION LOOP
+
+!CC    -- CONVERGENCE FAILURE MESSAGE (MAXIT REACHED)
+
+ 190  IERR = -1
+      CALL ERROR (ERRMAT,ERRNUM,22)
+
+ 200  END
+
+
+!C**************************************************************
+!CC
+!CC                     ORGDENS
+!CC
+!CC Description:  This subroutine will estimate the liquid
+!CC               density of any organic chemical making use of
+!CC               group contribution method with Tony Rogers'
+!CC               manipulation of Schroeder's molar volume.
+!CC
+!CC Output Variable:
+!CC    ORGDEN =   Liquid Density (kg/m^3)
+!CC
+!CC Input Variables:
+!CC    FWT =      Molecular weight of the compound
+!CC    VBM =      Molar volume at the normal boiling point (m^3/kmol)
+!CC    DLH2O =    Density of water at the temperature of interest (kg/m^3)
+!CC
+!CC Variables Internal to Subroutine ORGDENS:
+!CC    PW =
+!CC
+!CC Author:  D. Hokanson, T. Rogers (4/5/94)
+!CC
+!C**************************************************************
+
+      SUBROUTINE ORGDENS(ORGDEN,FWT,VBM,DLH2O)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ORGDENS
+!MS$ ATTRIBUTES ALIAS:'_ORGDENS@16':: ORGDENS
+!MS$ ATTRIBUTES REFERENCE::ORGDEN,FWT,VBM,DLH2O
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION ORGDEN,FWT,VBM,DLH2O
+
+         PW =  0.95D0
+         ORGDEN = PW*(DLH2O/1000.0D0)*(FWT/(VBM*1000.0D0)) / (18.015D0/21.D0)
+         ORGDEN = ORGDEN * 1000.0D0
+
+      END
+
+!C**************************************************************
+
+
+!CC***************************************************************************
+!CC
+!CC                                  PARMS
+!CC                      CALCULATE PARAMETERS FOR UNIMOD
+!CC
+!CC Input Variables:
+!CC    NC =
+!CC    NG =
+!CC    T =        Operating temperature (K)
+!CC
+!CC Authors:  M. Miller, T. Rogers, D. Hokanson (4/4/94)
+!CC
+!CC***************************************************************************
+
+      SUBROUTINE PARMS (NC,NG,T)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PARMS
+!MS$ ATTRIBUTES ALIAS:'_PARMS@12':: PARMS
+!MS$ ATTRIBUTES REFERENCE::NC,NG,T
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      COMMON /UNI/ RT(10,10),QT(10,10),TAU(10,10),S(10,10),F(10),Q(10),R(10),P(10,10)
+
+      DO 10 I=1,NG
+
+           DO 10 J=1,NG
+           
+                TAU(I,J) = DEXP(-P(I,J)/T)
+
+  10  CONTINUE
+
+      DO 20 I=1,NC
+
+           DO 20 K=1,NG
+    
+                S(K,I) = 0
+
+                     DO 20 M=1,NG
+
+                          S(K,I) = S(K,I)+QT(M,I)*TAU(M,K)
+  20  CONTINUE
+
+      DO 30 I=1,NC
+
+           F(I) = 1
+
+           DO 30 J=1,NG
+       
+                F(I) = F(I)+QT(J,I)*DLOG(S(J,I))
+
+  30  CONTINUE
+
+      END
+
+
+!CC*********************************************************************
+!CC
+!CC                                PARTC
+!CC             CALCULATE OCTANOL/WATER PARTITION COEFFICIENT
+!CC
+!CC Output Variables:
+!CC    XKOW =      Octanol water partition coefficient (-)
+!CC    XLGK =      log Kow (-)
+!CC    JJERR =     Error flag from this routine
+!CC
+!CC Input Variables:
+!CC    TT =        Temperature of calculation (K)
+!CC    OCTDEN =
+!CC    WATDEN =
+!CC    NG =
+!CC
+!CC Authors:  M. Miller, T. Rogers, D. Hokanson (4/5/94)
+!CC
+!CC*********************************************************************
+
+      SUBROUTINE PARTC (TT,OCTDEN,WATDEN,XKOW,XLGK,NG,JJERR)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PARTC
+!MS$ ATTRIBUTES ALIAS:'_PARTC@28':: PARTC
+!MS$ ATTRIBUTES REFERENCE::TT,OCTDEN,WATDEN,XKOW,XLGK,NG,JJERR
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      DIMENSION XGUESS(2),XSOLN(2),FF(2)
+      DIMENSION X1(10),X2(10),XE(2),IE(2),MI(10,2)
+      DIMENSION ACT1(10),DACT1(10,10),TACT1(10)
+      DIMENSION ACT2(10),DACT2(10,10),TACT2(10)
+      DOUBLE PRECISION OCTDEN, WATDEN, XKOW, TT
+
+      COMMON /GROUP/ MS(10,10,2),NMAX
+      COMMON /LIMITS/ TOL,IMAX
+      COMMON /ERR/ ERRMAT(30),ERRNUM
+
+!CC    -- INITIALIZE VARIABLES
+   
+      XKOW = 0.0D0
+      XLGK = 0.0D0
+      NDIF = 0
+      NACT = 0
+      NC = 2
+      NI = NMAX
+
+      DO 10 J=1,10
+
+           DO 10 K=1,2
+           
+                MI(J,K) = MS(2,J,K)
+
+                     DO 10 I=1,3
+
+                MS(I,J,K) = 0
+
+  10  CONTINUE
+
+!CC    -- DEFINE ARRAYS FOR UNIFAC GROUPS {[1]-WATER AND [2]-OCTANOL}
+
+      NMAX = 3
+
+      MS(1,1,1) = 17
+      MS(1,1,2) = 1
+
+      MS(2,1,1) = 1
+      MS(2,1,2) = 1
+      MS(2,2,1) = 2
+      MS(2,2,2) = 7
+      MS(2,3,1) = 15
+      MS(2,3,2) = 1
+
+!CC    -- FIND OCTANOL/WATER EQUILIBRIUM
+    
+      CALL FGRP (NC,NG,JERR)
+
+      IF (JERR.EQ.-1) THEN
+
+           JJERR = -1
+           CALL ERROR (ERRMAT,ERRNUM,10)
+           RETURN
+
+      END IF 
+
+      XGUESS(1)=1.0D0
+      XGUESS(2)=0.0D0
+
+      CALL NEWTON (NC,TT,NG,IMAX,TOL,XGUESS,XSOLN,FF,IERR)
+
+      IF (IERR.EQ.-1) THEN
+ 
+           JJERR = -1
+           CALL ERROR (ERRMAT,ERRNUM,10)
+           RETURN
+
+      END IF
+
+!CC    -- SORT COMPOSITION (DESCENDING ORDER)
+
+      DO 20 I=1,NC
+
+           IF (XSOLN(I).LE.0) THEN
+
+                JJERR = -1
+                CALL ERROR (ERRMAT,ERRNUM,10)
+                RETURN
+
+           END IF
+
+           IE(I) = 1
+
+           DO 20 J=1,NC
+   
+                IF (J.EQ.I) GOTO 20
+
+                DIFF = DABS((XSOLN(J)-XSOLN(I))/XSOLN(I))*100.0D0
+
+                IF (DIFF.LE.0.1) THEN 
+
+                     JJERR = -1
+                     CALL ERROR (ERRMAT,ERRNUM,10)
+                     RETURN
+
+                END IF
+
+                IF (XSOLN(I).LT.XSOLN(J)) IE(I)=IE(I)+1
+
+  20  CONTINUE
+
+      DO 30 I=1,NC
+
+           XE(I) = XSOLN(IE(I))
+
+  30  CONTINUE
+
+!CC    -- MOLE FRACTIONS (INFINITE DILUTION OF CHEMICAL [3])
+
+      X1(1) = XE(1)
+      X1(2) = 1.0D0 - X1(1)
+      X1(3) = 0.0D0
+      X2(1) = XE(2)
+      X2(2) = 1.0D0 - X2(1)
+      X2(3) = 0.0D0
+
+!CC    -- PARTITIONING FOR DISTRIBUTED CHEMICAL
+
+      NC = 3
+
+      IF (NI.GT.NMAX) NMAX = NI
+
+      DO 35 J=1,10
+
+           DO 35 K=1,2
+
+                MS(NC,J,K) = MI(J,K)
+
+  35  CONTINUE
+  
+      CALL FGRP (NC,NG,JERR)
+
+      IF (JERR.EQ.-1) THEN
+
+           JJERR = -1
+           CALL ERROR (ERRMAT,ERRNUM,10)
+           RETURN
+
+      END IF
+
+      CALL PARMS (NC,NG,TT)
+      CALL UNIMOD (NDIF,NACT,NC,NG,TT,X1,ACT1,DACT1,TACT1)
+      CALL UNIMOD (NDIF,NACT,NC,NG,TT,X2,ACT2,DACT2,TACT2)
+
+!CC    -- XKOW = PARTITION COEFFICIENT
+!CC    -- XLGK = BASE-10 LOGARITHM OF XKOW
+ 
+      PHASEW = 1.0D0/(X1(1)/WATDEN + X1(2)/OCTDEN)
+
+      PHASEO = 1.0D0/(X2(1)/WATDEN + X2(2)/OCTDEN)
+       
+      XKOW = (PHASEO/PHASEW)*(ACT1(3)/ACT2(3))
+      XLGK = DLOG10(XKOW)
+
+!CC    -- RESET ORIGINAL "MS" VALUES
+
+      NC = 2
+      NMAX = NI
+      MS(1,1,1) = 17
+      MS(1,1,2) = 1
+
+      DO 60 J=1,10
+
+           DO 60 K=1,2
+             
+                MS(NC,J,K) = MI(J,K)
+
+  60  CONTINUE
+  
+      END
+
+
+
+!CC*********************************************************************
+!CC
+!CC                               REGRESS
+!CC                      HENRY'S CONSTANT REGRESSION
+!CC
+!CC Output Variable:
+!CC    HR =        Henry's constant regression value (atm)
+!CC
+!CC Input Variables:
+!CC    TT =        Temperature at which regression value desired (K)
+!CC    HC =        Array of Henry's constant values in database (atm)
+!CC    TMP1 =      Array of Henry's constant temperature pts in database
+!CC    NUMDBHCS =  Number of Henry's constant data points in database
+!CC
+!CC Variables Internal to Subroutine REGRESS:
+!CC    SUMXY =
+!CC    SUMY =
+!CC    SUMX =
+!CC    SUMX2 =
+!CC    CEPT =
+!CC    SLOPE =
+!CC    TMPHR =
+!CC
+!CC Authors:  M. Miller and T. Rogers (4/4/94)
+!CC
+!CC*********************************************************************
+
+      SUBROUTINE REGRESS (TT,HC,TMP1,HR,NUMDBHCS)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::REGRESS
+!MS$ ATTRIBUTES ALIAS:'_REGRESS@20':: REGRESS
+!MS$ ATTRIBUTES REFERENCE::TT,HC,TMP1,HR,NUMDBHCS
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      PARAMETER (ND=20)
+
+      DIMENSION HC(ND),TMP1(ND)
+
+!CC    -- THIS REGRESSION WAS DONE BY PLOTTING LN OF HENRY'S DATA VS 1/T
+!CC    -- INITIALIZE VARIABLES
+
+      SUMXY = 0.0D0
+      SUMY = 0.0D0
+      SUMX = 0.0D0
+      SUMX2 = 0.0D0
+      CEPT = 0.0D0
+      SLOPE = 0.0D0
+      TMPHR = 0.0D0
+
+!CC    -- FIND SUMS TO DO REGRESSION --
+
+      DO 10 I=1, NUMDBHCS
+
+           SUMXY = SUMXY + DLOG(HC(I))*(1.0D0/(TMP1(I)+273.15D0))
+           SUMY = SUMY + DLOG(HC(I))
+           SUMX = SUMX + 1.0D0/(TMP1(I)+273.15D0)
+           SUMX2 = SUMX2 + (1.0D0/(TMP1(I)+273.15D0))**2
+          
+10    CONTINUE
+
+!CC    -- CALCULATE MEANS, SLOPE, AND INTERCEPT --
+
+      RMEANX = SUMX/NUMDBHCS
+      RMEANY = SUMY/NUMDBHCS
+
+      SLOPE = ((NUMDBHCS*SUMXY)-(SUMX*SUMY))/((NUMDBHCS*SUMX2)-SUMX**2)
+      CEPT =  RMEANY - SLOPE*RMEANX
+
+!CC    -- FIND NEW HENRY'S CONSTANT AT OPERATING T --
+
+      TMPHR = SLOPE*(1.0D0/TT) + CEPT
+      HR = DEXP(TMPHR)
+
+      END
+
+
+!CC***************************************************************************
+!CC
+!CC                               UNIMOD
+!CC                    CALCULATE ACTIVITY COEFFICIENTS
+!CC
+!CC Output Variables:
+!CC    ACT =
+!CC    DACT = ]
+!CC    TACT =
+!CC
+!CC Input Variables;
+!CC    NC =
+!CC    NG =
+!CC    T =        Operating temperature (K)
+!CC    X =
+!CC
+!CC Authors:  M. Miller, T. Rogers, D. Hokanson
+!CC
+!CC***************************************************************************
+
+      SUBROUTINE UNIMOD (NDIF,NACT,NC,NG,T,X,ACT,DACT,TACT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::UNIMOD
+!MS$ ATTRIBUTES ALIAS:'_UNIMOD@36':: UNIMOD
+!MS$ ATTRIBUTES REFERENCE::NDIF,NACT,NC,NG,T,X,ACT,DACT,TACT
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+      COMMON /UNI/ RT(10,10),QT(10,10),TAU(10,10),S(10,10),F(10),Q(10),R(10),P(10,10)
+
+      DIMENSION X(10),GAM(10),ACT(10),DACT(10,10),THETA(10)
+      DIMENSION PHI(10),RI(10),QI(10),QIL(10),RIL(10)
+      DIMENSION QID(10),ETAL(10),TACT(10),U(10,10),V(10,10)
+      DIMENSION DETA(10),DS(10,10),ETA(10),TETAR(10),H3(10,10)
+
+      ZCOORD = 10.0D0
+      THETS = 0.0D0
+      PHS = 0.0D0
+
+      DO 10 I=1,NC
+
+           THETA(I) = X(I)*Q(I)
+           PHI(I) = R(I)*X(I)
+           THETS = THETS+THETA(I)
+           PHS = PHS+PHI(I)
+
+  10  CONTINUE
+
+      DO 20 I=1,NC
+
+         THETA(I) = THETA(I)/THETS
+         PHI(I) = PHI(I)/PHS
+         RI(I) = R(I)/PHS
+         RIL(I) = DLOG(RI(I))
+         QI(I) = Q(I)/THETS
+         QID(I) = 1.0D0-RI(I)/QI(I)
+         QIL(I) = DLOG(QI(I))
+
+  20  CONTINUE
+
+      DO 30 I=1,NC
+
+         XX = F(I)+Q(I)*(1.0D0-QIL(I))-RI(I)+RIL(I)
+         XX = XX-(ZCOORD/2.0D0)*Q(I)*(QID(I)+RIL(I)-QIL(I))
+         GAM(I) = XX
+
+  30  CONTINUE
+
+      DO 50 I=1,NG
+
+         TETAR(I) = 0.0D0
+         ETA(I) = 0.0D0
+
+         DO 40 J=1,NC
+
+            ETA(I) = ETA(I)+S(I,J)*X(J)
+            TETAR(I) = TETAR(I)+QT(I,J)*X(J)
+
+  40     CONTINUE
+
+         ETAL(I) = DLOG(ETA(I))
+
+  50  CONTINUE
+
+      DO 70 I=1,NC
+
+         DO 60 J=1,NG
+
+            U(J,I) = S(J,I)/ETA(J)
+            V(J,I) = U(J,I)*TETAR(J)
+            GAM(I) = GAM(I)-V(J,I)-QT(J,I)*ETAL(J)
+
+  60     CONTINUE
+
+         ACT(I) = DEXP(GAM(I))
+         IF(NACT.EQ.1) ACT(I) = ACT(I)*X(I)
+
+  70  CONTINUE
+
+      IF (NDIF.EQ.0) GOTO 160
+
+      IF (NDIF.EQ.2) GOTO 110
+
+      DO 90 I=1,NC
+
+           DO 90 J=1,NC
+
+                XX = Q(I)*QI(J)*(1.0D0-(ZCOORD/2.0D0)*QID(I)*QID(J))+(1.0D0-RI(I))*(1.0D0-RI(J))
+
+                DO 80 K=1,NG
+ 
+                     XX = XX+U(K,I)*(V(K,J)-QT(K,J))-U(K,J)*QT(K,I)
+
+  80            CONTINUE
+
+           DACT(I,J) = XX
+           DACT(J,I) = XX
+
+           IF (NACT.EQ.1) GOTO 90
+
+           DACT(I,J) = DACT(I,J)*ACT(I)
+
+           IF (J.EQ.I) GOTO 90
+
+           DACT(J,I) = DACT(J,I)*ACT(J)
+
+  90  CONTINUE
+
+      IF (NACT.EQ.0) GOTO 110
+
+      DO 100 I=1,NC
+     
+           DO 100 J=1,NC
+
+                DACT(I,J) = ACT(I)*(DACT(I,J)-1)
+      
+                IF (J.EQ.I) DACT(I,J) = DACT(I,J)+DEXP(GAM(I))
+
+ 100  CONTINUE
+
+ 110  IF (NDIF.EQ.1) GOTO 160
+
+      DO 130 K=1,NG
+
+           DETA(K) = 0
+
+      DO 130 I=1,NC
+
+           DS(K,I) = 0
+
+           DO 120 M=1,NG
+
+                 IF (QT(M,I).EQ.0) GOTO 120
+
+                 DS(K,I) = DS(K,I)-QT(M,I)*DLOG(TAU(M,K))*TAU(M,K)/T
+
+ 120       CONTINUE
+
+           DETA(K) = DETA(K)+DS(K,I)*X(I)
+
+ 130  CONTINUE
+
+      DO 150 I=1,NC
+
+           TACT(I) = 0
+
+           DO 140 K=1,NG
+
+                H3(K,I) = (-S(K,I)*DETA(K)/ETA(K)+DS(K,I))/ETA(K)
+                HH = H3(K,I)*(TETAR(K)-QT(K,I)*ETA(K)/S(K,I))
+                TACT(I) = TACT(I)-HH
+
+ 140       CONTINUE
+
+           TACT(I) = TACT(I)*ACT(I)
+
+ 150  CONTINUE
+
+ 160  END
+
+
+!CC****************************************************************
+!CC
+!CC                       VAPORP
+!CC               DETERMINE VAPOR PRESSURE
+!CC
+!CC Description:  This subroutine will determine the vapor pressure
+!CC               for the compound of interest at the temperature
+!CC               of interest.
+!CC
+!CC Output Variables:
+!CC    PVAP =     Vapor pressure of compound at temperature TT
+!CC                  (Units:  N/m2 if source is DIPPR801
+!CC                           mm Hg if source is Yaws)
+!CC
+!CC Input Variables:
+!CC    TT =       Temperature of interest (K)
+!CC    ANTA
+!CC    ANTB
+!CC    ANTC =      Coefficients for the vapor pressure correlation
+!CC    ANTD
+!CC    ANTE
+!CC    NOVPT =     Whether vapor pressure value out of temp. range
+!CC    NEQN =      Number of Vapor Pressure equation
+!CC    TMIN =      Minimum valid temperature for correlation (C)
+!CC    TMAX =      Maximum valid temperature for correlation (C)
+!CC    ISRC =      Source of the value (DIPPR801 or Yaws)
+!CC
+!CC Variables Internal to Subroutine VAPORP:
+!CC    TEMP =      Temperature for calculation (C for Yaws,
+!CC                K for DIPPR801)
+!CC
+!CC Author:  D. Hokanson (4/3/94)
+!CC
+!CC****************************************************************
+
+      SUBROUTINE VAPORP(PVAP,TT,ANTA,ANTB,ANTC,ANTD,ANTE,NOVPT,NEQN,TMIN,TMAX,ISRC)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VAPORP
+!MS$ ATTRIBUTES ALIAS:'_VAPORP@48':: VAPORP
+!MS$ ATTRIBUTES REFERENCE::PVAP,TT,ANTA,ANTB,ANTC,ANTD,ANTE,NOVPT,NEQN,TMIN,TMAX,ISRC
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION PVAP,TT,ANTA,ANTB,ANTC,ANTD,ANTE,TEMP
+
+         IF (ISRC.EQ.1) THEN
+!CC           *** Yaws
+            TEMP=TT-273.15D0
+         ELSE
+!CC           *** DIPPR801
+            TEMP=TT
+         ENDIF
+
+         IF (NEQN.EQ.101) THEN
+!CC           *** DIPPR801
+            PVAP=DEXP(ANTA+(ANTB/TEMP)+(ANTC*DLOG(TEMP))+(ANTD*(TEMP**ANTE)))
+         ELSE IF (NEQN.LT.0) THEN
+!CC           *** Yaws
+            PVAP=DEXP(ANTA-ANTB/(TEMP+ANTC))
+         ENDIF
+         
+         TEMP = TT - 273.15D0          
+         IF (((TMIN+273.15D0).GT.0).AND.((TEMP.LE.TMIN).OR.(TEMP.GE.TMAX))) THEN
+            NOVPT = -1 
+         END IF
+         
+      END
+
+!CC****************************************************************
+
+!CC************************************************************
+!CC
+!CC                      VBBPCALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutine to get molar volume at normal boiling point
+!CC
+!CC Output Variables:
+!CC    VAL =      Molar volume at the normal boiling point (m3/kmol)
+!CC    SRCSHT =   Source of the value (Short Version)
+!CC    SRCLNG =   Source of the value (Long Version)
+!CC    ERRORF =   Error flag
+!CC    TEMPSC =   Temp. of molar volume at NBP = NBP (C)
+!CC
+!CC Input Variables:
+!CC    TEMPBP =   Boiling point temperature (C)
+!CC    MX =       Maximum number of UNIFAC groups
+!CC    INPMS =    Input array of UNIFAC groups in compound
+!CC    IRNG =     Number of rings in compound
+!CC
+!CC Variables Internal to Subroutine VBBPCALL:
+!CC
+!CC
+!CC Author:  D. Hokanson (4/5/94)
+!CC
+!CC************************************************************
+       
+      SUBROUTINE VBBPCALL(VAL,SRCSHT,SRCLNG,ERRORF,TEMPSC,TEMPBP,MX,INPMS,IRNG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VBBPCALL
+!MS$ ATTRIBUTES ALIAS:'_VBBPCALL':: VBBPCALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,TEMPSC,TEMPBP,MX,INPMS,IRNG
+      
+         PARAMETER  (NC = 2)
+         PARAMETER  (MA=53, NA=96, ND=10)
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+         DIMENSION INPMS(10,10,2)
+         DOUBLE PRECISION VAL,TEMPSC,TEMPBP
+         INTEGER SRCSHT,ERRORF,SRCLNG
+      COMMON /ACTCO/ AI(MA,MA),RI(NA),QI(NA),FMW(NA),FVB(NA),MGSG(NA)
+      COMMON /LIMITS/ TOL,IMAX
+      COMMON /GROUP/ MS(10,10,2),NMAX
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *       Set variables needed by COMMONS:  MS            *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       DO 3, I = 1,10
+          DO 3, J=1,10
+             DO 3, K=1,2
+                MS(I,J,K) = INPMS(I,J,K)
+ 3     CONTINUE
+
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *                Initialize Variables                   *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       CALL INITVS(MX)  
+
+!CC      *********************************************************
+!CC      *                                                       *
+!CC      *          Load UNIFAC binary interaction parameters    *
+!CC      *    Use MDL = 3 --> Environmental VLE for Henry's      *
+!CC      *                    Constant calculation               *
+!CC      *                                                       *
+!CC      *********************************************************
+
+       MDL = 3
+       CALL BINPAR(MDL,MGSG,AI,RI,QI,FMW,FVB)
+
+
+         ERRORF = 0
+         SRCSHT = 8
+         TEMPSC = TEMPBP
+         CALL VBMSCH(NC,VBM,IRNG,MERR)
+         VBM = VBM / 1000.0D0           
+         IF (NERR.EQ.-1) THEN
+            ERRORF = -7
+         ELSE
+            VAL = VBM
+         END IF
+           
+      END
+
+!CC************************************************************
+
+!CC*********************************************************************
+!CC
+!CC                           VBMATT
+!CC         CALCULATE MOLAR VOLUME AS INVERSE OF LIQUID DENSITY
+!CC
+!CC Description:  This subroutine will calculate molar volume at the
+!CC               temperature of interest by taking the inverse of
+!CC               the liquid density at the temp. of interest.
+!CC
+!CC Output Variable:
+!CC    VBMTMP =   Molar volume at the temperature of interest (m^3/kmol)
+!CC
+!CC Input Variables:
+!CC    LIQDEN =   Liquid density of chemical at temp. of interest (kg/m^3)
+!CC    FWT =      Molecular weight of the compound
+!CC
+!CC Author:  D. Hokanson (4/5/94)
+!CC
+!CC*********************************************************************
+
+      SUBROUTINE VBMATT(VBMTMP,LIQDEN,FWT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VBMATT
+!MS$ ATTRIBUTES ALIAS:'_VBMATT':: VBMATT
+!MS$ ATTRIBUTES REFERENCE::VBMTMP,LIQDEN,FWT
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION VBMTMP,LIQDEN,FWT
+
+         VBMTMP = (1.0D0/LIQDEN)*FWT
+
+      RETURN
+      END
+
+!CC********************************************************************
+
+!CC******************************************************************
+!CC
+!CC                                 VBMSCH
+!CC                  CALCULATE SCHROEDER'S MOLAR VOLUME
+!CC
+!CC Output Variablss:
+!CC    VBM =      Molar volume at the normal boiling point (cc/gmol)
+!CC    MERR =     Error flag
+!CC
+!CC Input Variables:
+!CC    NC =
+!CC    IRNG =
+!CC
+!CC Variables Internal to Subroutine VBMSCH:
+!CC    VTM =
+!CC    XTS =
+!CC
+!CC Authors:  M. Miller, T. Rogers, D. Hokanson
+!CC
+!CC******************************************************************
+
+      SUBROUTINE VBMSCH (NC,VBM,IRNG,MERR)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VBMSCH
+!MS$ ATTRIBUTES ALIAS:'_VBMSCH@16':: VBMSCH
+!MS$ ATTRIBUTES REFERENCE::NC,VBM,IRNG,MERR
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      PARAMETER  (MA=53,NA=96,ND=10)
+
+      COMMON /ACTCO/ AI(MA,MA),RI(NA),QI(NA),FMW(NA),FVB(NA),MGSG(NA)
+      COMMON /LIMITS/ TOL,IMAX
+      COMMON /GROUP/ MS(10,10,2),NMAX
+      COMMON /ERR/ ERRMAT(30),ERRNUM
+
+      NK = NC
+      VTM = 0.0D0
+
+      DO 108 KJ=1,NMAX
+
+           IDG = MS(NK,KJ,1)
+
+           IF (IDG.EQ.0) GOTO 108
+
+           XTS = FVB(IDG)
+
+           IF (XTS.LE.0) GOTO 109
+
+           VTM = VTM+XTS*DBLE(MS(NK,KJ,2))
+
+ 108  CONTINUE
+
+      VBM = VTM
+
+      IF ((NMAX.EQ.1).AND.(MS(NK,NMAX,2).EQ.1)) GOTO 109
+
+      VBM = (VBM-(DBLE(IRNG)*7.0D0))
+
+ 109  IF (VBM.LE.TOL) THEN
+
+           MERR = -1
+           CALL ERROR (ERRMAT,ERRNUM,8)
+           RETURN
+
+      END IF
+
+      END
+
+
+!CC************************************************************
+!CC
+!CC                      VPRCALL
+!CC
+!CC   Fortran subroutine to handle calling the appropriate
+!CC   Fortran subroutines to get vapor pressure values
+!CC
+!CC Output Variables:
+!CC    VAL =        Vapor Pressure value (N/m^2)
+!CC    SRCSHT =     Source of the value (Short Version)
+!CC    SRCLNG =     Source of the value (Long Version)
+!CC    ERRORF =     Error Flag
+!CC    TEMPDB =     Temperature of the database Value from DIPPR801
+!CC                 or Yaws (C)
+!CC    TMIN =       Minimum valid database temperature for DIPPR801
+!CC                 or Yaws (C)
+!CC    TMAX =       Maximum valid database temperature for DIPPR801
+!CC                 or Yaws (C)
+!CC
+!CC Input Variables:
+!CC    NEQN =       Number of the Vapor Pressure equation (database)
+!CC    ANTA =       Database Vapor Pressure correlation coefficient A
+!CC    ANTB =       Database Vapor Pressure correlation coefficient B
+!CC    ANTC =       Database Vapor Pressure correlation coefficient C
+!CC    ANTD =       Database Vapor Pressure correlation coefficient D
+!CC    ANTE =       Database Vapor Pressure correlation coefficient E
+!CC    VPSF =       Database Vapor Pressure (from Superfund)
+!CC    TEMPSF =     Database Vapor Pressure (from Superfund)
+!CC    TEMPOP =     Operating temperature (C)
+!CC
+!CC Variables Internal to Subroutine VPRCALL:
+!CC    PVAP =       Vapor pressure returned from subroutine VAPORP
+!CC                 (units vary) for Database DIPPR801 or Yaws
+!CC    TT =         Operating temperature (K)
+!CC
+!CC Author:  D. Hokanson (4/3/94)
+!CC
+!CC************************************************************
+       
+      SUBROUTINE VPRCALL(VAL,SRCSHT,SRCLNG,ERRORF,NEQN,TEMPDB,TMIN,TMAX,ANTA,ANTB,ANTC,ANTD,ANTE,VPSF,TEMPSF,TEMPOP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VPRCALL
+!MS$ ATTRIBUTES ALIAS:'_VPRCALL':: VPRCALL
+!MS$ ATTRIBUTES REFERENCE::VAL,SRCSHT,SRCLNG,ERRORF,NEQN,TEMPDB,TMIN,TMAX,ANTA,ANTB,ANTC,ANTD,ANTE,VPSF,TEMPSF,TEMPOP
+
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+         DOUBLE PRECISION VAL,TEMPDB,TMIN,TMAX,ANTA,ANTB,ANTC,ANTD,ANTE,VPSF,TEMPSF,TEMPOP
+         INTEGER SRCSHT,SRCLNG,ERRORF,NEQN
+
+         ERRORF = 0
+         TT = TEMPOP + 273.15D0
+         IF ((ANTA.LT.0).AND.(VPSF.LT.0)) THEN
+            ERRORF = -1
+         ELSE IF (ANTA.LT.0) THEN 
+            VAL = VPSF * 1.01325D+05 / 760.0D0
+            ERRORF = 2
+            TEMPDB = TEMPSF
+         ELSE IF ((NEQN.NE.101).AND.(NEQN.NE.-1)) THEN
+            ERRORF = -8
+         ELSE
+            NOVPT = 0
+            CALL VAPORP(PVAP,TT,ANTA,ANTB,ANTC,ANTD,ANTE,NOVPT,NEQN,TMIN,TMAX,SRCSHT)
+
+            IF (NOVPT.EQ.-1) THEN
+               ERRORF = 1
+            END IF
+            
+            IF (SRCSHT.EQ.4) THEN
+!CC              *** DIPPR801
+               VAL = PVAP
+            ELSE
+!CC              *** YAWS
+               VAL = PVAP * 1.01325D+05 / 760.0D0
+            END IF   
+               
+            TEMPDB = TEMPOP
+         END IF
+           
+        RETURN
+      END
+
+!CC************************************************************
+

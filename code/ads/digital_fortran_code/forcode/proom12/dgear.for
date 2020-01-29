@@ -1,0 +1,784 @@
+      SUBROUTINE DGEAR (N,T0,H0,Y0,TOUT,EPS,MF,INDEX,NFLAG,PW,N_PW)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+C
+C----- N_EQU is the maximum number of equations
+C----- WKSPSZ (= WorKSPace SiZe) is the workspace required
+C      by DGEAR
+C----- These parameters must be changed in DGEAR,NGE002,NGE004
+      INTEGER*2 N_EQU
+      INTEGER*4 WKSPSZ,N_PW
+      DOUBLE PRECISION PW(N_PW) 
+      PARAMETER (N_EQU=750,WKSPSZ=145000)
+C
+      INTEGER*2 NFLAG
+      INTEGER N,MF,INDEX
+      INTEGER NC,MFC,KFLAG,JSTART,IPIV,NSQ,NQUSED,NSTEP,NFE,NJE 
+      INTEGER LOUT,I,N0,NHCUT,KGO
+   
+      DOUBLE PRECISION T0,H0,Y0,TOUT,EPS
+      DOUBLE PRECISION T,H,HMIN,HMAX,EPSC,UROUND,YMAX,ERROR,SAVE1
+      DOUBLE PRECISION SAVE2,EPSJ,HUSED 
+      DOUBLE PRECISION Y,TOUTP,AYI,D
+      COMMON /GEAR1/ T,H,HMIN,HMAX,EPSC,UROUND,NC,MFC,KFLAG,JSTART  
+      COMMON /GEAR2/ YMAX(N_EQU)  
+      COMMON /GEAR3/ ERROR(N_EQU) 
+      COMMON /GEAR4/ SAVE1(N_EQU) 
+      COMMON /GEAR5/ SAVE2(N_EQU) 
+C      COMMON /GEAR6/ PW(WKSPSZ)  
+      COMMON /GEAR7/ IPIV(N_EQU)  
+      COMMON /GEAR8/ EPSJ,NSQ   
+      COMMON /GEAR9/ HUSED,NQUSED,NSTEP,NFE,NJE 
+      DIMENSION Y0(N)   
+      DIMENSION Y(N_EQU,6)
+
+      INTEGER*2 DEBUGM
+      DOUBLE PRECISION LAST_T
+      COMMON /DEBUG/ LAST_T, DEBUGM
+
+      DATA LOUT/6/ 
+
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Entry with:'
+        WRITE(4,*) 'N =', N
+        WRITE(4,*) 'T0 =', T0
+        WRITE(4,*) 'H0 =', H0
+        WRITE(4,*) 'Y0 =', (Y0(I), I=1, N)
+        WRITE(4,*) 'TOUT =', TOUT
+        WRITE(4,*) 'EPS =', EPS
+        WRITE(4,*) 'MF =', MF
+        WRITE(4,*) 'INDEX =', INDEX
+      END IF
+
+      IF (INDEX.EQ.0) GO TO 20  
+      IF (INDEX.EQ.2) GO TO 25  
+      IF (INDEX.EQ.-1) GO TO 30 
+      IF (INDEX.EQ.3) GO TO 40  
+      IF (INDEX.NE.1) GO TO 430 
+      IF (EPS.LE.0.0D0) GO TO 400  
+      IF (N.LE.0) GO TO 410 
+
+      IF ((T0-TOUT)*H0.GE.0.0D0) GO TO 420 
+      UROUND=.10842D-18
+
+      DO 10 I=1,N   
+        YMAX(I)=ABS(Y0(I))  
+        IF (YMAX(I).EQ.0.0D0) YMAX(I)=1.0D0   
+   10   Y(I,1)=Y0(I)
+      NC=N  
+      T=T0  
+      H=H0  
+      IF ((T+H).EQ.T) NFLAG=15
+      HMIN=ABS(H0)  
+      HMAX=ABS(T0-TOUT)*10.0D0 
+      EPSC=EPS  
+      MFC=MF
+      JSTART=0  
+      N0=N  
+      NSQ=N0*N0 
+      EPSJ=SQRT(UROUND) 
+      NHCUT=0
+   
+      GO TO 50  
+   20 HMAX=ABS(TOUT-TOUTP)*10.0D0
+  
+      GO TO 80  
+   25 HMAX=ABS(TOUT-TOUTP)*10.0D0  
+      IF ((T-TOUT)*H.GE.0.0D0) GO TO 500
+   
+      GO TO 85  
+C   
+   30 IF ((T-TOUT)*H.GE.0.0D0) GO TO 440   
+      JSTART=-1 
+      NC=N  
+      EPSC=EPS  
+      MFC=MF
+C   
+   40 IF ((T+H).EQ.T) NFLAG=15
+C   
+   50 CALL NGE002 (Y,N0,PW,N_PW)
+C   
+      KGO=1-KFLAG   
+      GO TO (60,100,200,300), KGO   
+C  KFLAG  =   0,  -1,  -2,  -3  
+C   
+   60 CONTINUE  
+      D=0.0D0  
+      DO 70 I=1,N   
+        AYI=ABS(Y(I,1)) 
+        YMAX(I)=DMAX1(YMAX(I),AYI)  
+   70   D=D+(AYI/YMAX(I))**2
+      D=D*(UROUND/EPS)**2   
+      IF (D.GT.FLOAT(N)) GO TO 250  
+      IF (INDEX.EQ.3) GO TO 500 
+      IF (INDEX.EQ.2) GO TO 85  
+   80 IF ((T-TOUT)*H.LT.0.0D0) GO TO 40
+C                                 CALL INTERP   
+      CALL NGE001 (TOUT,Y,N0,Y0)
+      GO TO 520 
+   85 IF (((T+H)-TOUT)*H.LE.0.0D0) GO TO 40
+      IF (ABS(T-TOUT).LE.100.0D0*UROUND*HMAX) GO TO 500
+      IF ((T-TOUT)*H.GE.0.0D0) GO TO 500   
+      H=(TOUT-T)*(1.0D0-4.0D0*UROUND) 
+      JSTART=-1 
+      GO TO 40  
+  100 NFLAG=105 
+  110 IF (NHCUT.EQ.10) GO TO 150
+      NHCUT=NHCUT+1 
+      HMIN=HMIN*.10D0  
+      H=H*.10D0
+      NFLAG=115
+      JSTART=-1 
+      GO TO 40  
+C   
+  150 NFLAG=155  
+      GO TO 500 
+C   
+  200 NFLAG=205  
+      GO TO 500 
+C   
+  250 NFLAG=255
+      KFLAG=-2  
+      GO TO 500 
+C   
+  300 NFLAG=305
+      GO TO 110 
+C   
+  400 NFLAG=405 
+      INDEX=-4  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 400'
+      END IF
+      RETURN
+C   
+  410 NFLAG=415  
+      INDEX=-4  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 410'
+      END IF
+      RETURN
+C   
+  420 NFLAG=425  
+      INDEX=-4  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 420'
+      END IF
+      RETURN
+C   
+  430 NFLAG=435
+      INDEX=-4  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 430'
+      END IF
+      RETURN
+C   
+  440 NFLAG=445 
+C                                 CALL INTERP   
+      CALL NGE001 (TOUT,Y,N0,Y0)
+      INDEX=-5  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 440'
+      END IF
+      RETURN
+C   
+  500 TOUT=T
+      DO 510 I=1,N  
+  510   Y0(I)=Y(I,1)
+  520 INDEX=KFLAG   
+      TOUTP=TOUT
+      H0=HUSED  
+      IF (KFLAG.NE.0) H0=H  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 520'
+      END IF
+      RETURN
+C   
+   15 FORMAT (35H WARNING..  T + H = T ON NEXT STEP.)   
+  105 FORMAT (//35H KFLAG = -1 FROM INTEGRATOR AT T = ,E16.8/39H  ERROR 
+     1TEST FAILED WITH DABS(H) = HMIN/) 
+  115 FORMAT (24H  H HAS BEEN REDUCED TO ,E16.8,26H  AND STEP WILL BE RE
+     1TRIED//)  
+  155 FORMAT (//44H PROBLEM APPEARS UNSOLVABLE WITH GIVEN INPUT//)  
+  205 FORMAT (//35H KFLAG = -2 FROM INTEGRATOR AT T = ,E16.8,5H  H =,E16
+     1.8/52H  THE REQUESTED ERROR IS SMALLER THAN CAN BE HANDLED//) 
+  255 FORMAT (//37H INTEGRATION HALTED BY DRIVER AT T = ,E16.8/56H  EPS 
+     1TOO SMALL TO BE ATTAINED FOR THE MACHINE PRECISION/)  
+  305 FORMAT (//35H KFLAG = -3 FROM INTEGRATOR AT T = ,E16.8/45H  CORREC
+     1TOR CONVERGENCE COULD NOT BE ACHIEVED/)   
+  405 FORMAT (//28H ILLEGAL INPUT.. EPS .LE. 0.//)  
+  415 FORMAT (//25H ILLEGAL INPUT.. N .LE. 0//) 
+  425 FORMAT (//36H ILLEGAL INPUT.. (T0-TOUT)*H .GE. 0.//)  
+  435 FORMAT (//24H ILLEGAL INPUT.. INDEX =,I5//)   
+  445 FORMAT (//44H INDEX = -1 ON INPUT WITH (T-TOUT)*H .GE. 0./4H T =,E
+     116.8,9H   TOUT =,E16.8,6H   H =,E16.8/44H INTERPOLATION WAS DONE A
+     2S ON NORMAL RETURN./41H DESIRED PARAMETER CHANGES WERE NOT MADE.) 
+      END   
+      SUBROUTINE NGE001 (TOUT,Y,N0,Y0)  
+C   
+C  THIS IS CALLED BY "GEAR". IT WAS "INTERP" IN THE DISTRIBUTED VERSION.
+C   
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)  
+      INTEGER N0,N,IDUMMY,JSTART,I,L,J    
+      DOUBLE PRECISION TOUT,Y,Y0,T,H,DUMMY,S,S1 
+      COMMON /GEAR1/ T,H,DUMMY(4),N,IDUMMY(2),JSTART
+      DIMENSION Y0(N0), Y(N0,6) 
+      DO 10 I=1,N   
+   10   Y0(I)=Y(I,1)
+      L=JSTART+1
+      S=(TOUT-T)/H  
+      S1=1.0D0 
+      DO 30 J=2,L   
+        S1=S1*S 
+        DO 20 I=1,N 
+   20     Y0(I)=Y0(I)+S1*Y(I,J) 
+   30   CONTINUE
+      RETURN
+      END   
+      SUBROUTINE NGE002 (Y,N0,PW,N_PW)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)  
+C----- N_EQU is the maximum number of equations
+C----- WKSPSZ (= WorKSPace SiZe) is the workspace required
+C      by DGEAR
+C----- These parameters must be changed in DGEAR,NGE002,NGE004
+      INTEGER*2 N_EQU
+      INTEGER*4 WKSPSZ, N_PW
+      DOUBLE PRECISION PW(N_PW)
+      PARAMETER (N_EQU=750,WKSPSZ=145000)
+
+C
+      INTEGER N0,N,MF,KFLAG,JSTART,IPIV,NQUSED,NSTEP,NFE,NJE
+      INTEGER I,METH,MITER,NQ,L,IDOUB,MFOLD,NOLD,IRET,MEO,MIO,IWEVAL,MAX
+     1DER,LMAX,IREDO,J,NSTEPJ,J1,J2,M,IER,NEWQ  
+      DOUBLE PRECISION Y,T,H,HMIN,HMAX,EPS,UROUND,YMAX,ERROR,SAVE1
+      DOUBLE PRECISION SAVE2,HUSED   
+      DOUBLE PRECISION EL,OLDL0,TOLD,RMAX,RC,CRATE,EPSOLD,HOLD,FN,EDN,
+     1E,EUP,BND,RH,R1,CON,R,HL0,R0,D,PHL0,PR3,D1,ENQ3,ENQ2,PR2,PR1,ENQ1   
+      DOUBLE PRECISION TQ   
+      COMMON /GEAR1/ T,H,HMIN,HMAX,EPS,UROUND,N,MF,KFLAG,JSTART 
+      COMMON /GEAR2/ YMAX(N_EQU)
+      COMMON /GEAR3/ ERROR(N_EQU)   
+      COMMON /GEAR4/ SAVE1(N_EQU)   
+      COMMON /GEAR5/ SAVE2(N_EQU)   
+C      COMMON /GEAR6/ PW(WKSPSZ)  
+      COMMON /GEAR7/ IPIV(N_EQU)
+      COMMON /GEAR9/ HUSED,NQUSED,NSTEP,NFE,NJE 
+      DIMENSION Y(N0,6) 
+      DIMENSION EL(13), TQ(4)   
+      DATA EL(2)/1.0D0/,OLDL0/1.0D0/  
+      KFLAG=0   
+      TOLD=T
+      IF (JSTART.GT.0) GO TO 200
+      IF (JSTART.NE.0) GO TO 120
+      CALL DIFFUN (N,T,Y,SAVE1) 
+      DO 110 I=1,N  
+  110   Y(I,2)=H*SAVE1(I)   
+      METH=MF/10
+      MITER=MF-10*METH  
+      NQ=1  
+      L=2   
+      IDOUB=3   
+      RMAX=1.D+04   
+      RC=0.0D0 
+      CRATE=1.0D0  
+      EPSOLD=EPS
+      HOLD=H
+      MFOLD=MF
+      NOLD=N
+      NSTEP=0   
+      NSTEPJ=0  
+      NFE=1 
+      NJE=0 
+      IRET=1
+      GO TO 130 
+  120 IF (MF.EQ.MFOLD) GO TO 150
+      MEO=METH  
+      MIO=MITER 
+      METH=MF/10
+      MITER=MF-10*METH  
+      MFOLD=MF  
+      IF (MITER.NE.MIO) IWEVAL=MITER
+      IF (METH.EQ.MEO) GO TO 150
+      IDOUB=L+1 
+      IRET=1
+  130 CALL NGE003 (METH,NQ,EL,TQ,MAXDER)
+      LMAX=MAXDER+1 
+      RC=RC*EL(1)/OLDL0 
+      OLDL0=EL(1)   
+  140 FN=FLOAT(N)   
+      EDN=FN*(DBLE(TQ(1))*EPS)**2   
+      E=FN*(DBLE(TQ(2))*EPS)**2 
+      EUP=FN*(DBLE(TQ(3))*EPS)**2   
+      BND=FN*(DBLE(TQ(4))*EPS)**2   
+      GO TO (160,170,200), IRET 
+  150 IF ((EPS.EQ.EPSOLD).AND.(N.EQ.NOLD)) GO TO 160
+      EPSOLD=EPS
+      NOLD=N
+      IRET=1
+      GO TO 140 
+  160 IF (H.EQ.HOLD) GO TO 200  
+      RH=H/HOLD 
+      H=HOLD
+      IREDO=3   
+      GO TO 175 
+  170 RH=DMAX1(RH,HMIN/ABS(H))  
+  175 RH=DMIN1(RH,HMAX/ABS(H),RMAX) 
+      R1=1.0D0 
+      DO 180 J=2,L  
+        R1=R1*RH
+        DO 180 I=1,N
+  180   Y(I,J)=Y(I,J)*R1
+      H=H*RH
+      RC=RC*RH  
+      IDOUB=L+1 
+      IF (IREDO.EQ.0) GO TO 690 
+  200 IF (ABS(RC-1.0D0).GT.0.30D0) IWEVAL=MITER   
+      IF (NSTEP.GE.NSTEPJ+20) IWEVAL=MITER  
+      T=T+H 
+      DO 210 J1=1,NQ
+        DO 210 J2=J1,NQ 
+        J=(NQ+J1)-J2
+        DO 210 I=1,N
+  210   Y(I,J)=Y(I,J)+Y(I,J+1)  
+  220 DO 230 I=1,N  
+  230   ERROR(I)=0.0D0 
+      M=0   
+      CALL DIFFUN (N,T,Y,SAVE2) 
+      NFE=NFE+1 
+      IF (IWEVAL.LE.0) GO TO 290
+      IWEVAL=0  
+      RC=1. 
+      NJE=NJE+1 
+      NSTEPJ=NSTEP  
+      GO TO (250,240,260), MITER
+  240 NFE=NFE+N 
+  250 CON=-H*EL(1)  
+C                                 CALL PSET 
+      CALL NGE004 (Y,N0,CON,MITER,IER,PW,N_PW)  
+      IF (IER.NE.0) GO TO 420   
+      GO TO 350 
+  260 R=EL(1)*.10D0
+      DO 270 I=1,N  
+  270   PW(I)=Y(I,1)+R*(H*SAVE2(I)-Y(I,2))  
+      CALL DIFFUN (N,T,PW,SAVE1)
+      NFE=NFE+1 
+      HL0=H*EL(1)   
+      DO 280 I=1,N  
+        R0=H*SAVE2(I)-Y(I,2)
+        PW(I)=1.0D0
+        D=.10D0*R0-H*(SAVE1(I)-SAVE2(I))   
+        SAVE1(I)=0.0D0 
+        IF (ABS(R0).LT.UROUND*YMAX(I)) GO TO 280
+        IF (ABS(D).EQ.0.0D0) GO TO 420 
+        PW(I)=.10D0*R0/D   
+        SAVE1(I)=PW(I)*R0   
+  280   CONTINUE
+      GO TO 370 
+  290 IF (MITER.NE.0) GO TO (350,350,310), MITER
+      D=0.0D0  
+      DO 300 I=1,N  
+        R=H*SAVE2(I)-Y(I,2) 
+        D=D+((R-ERROR(I))/YMAX(I))**2   
+        SAVE1(I)=Y(I,1)+EL(1)*R 
+  300   ERROR(I)=R  
+      GO TO 400 
+C-----------------------------------------------------------------------
+  310 PHL0=HL0  
+      HL0=H*EL(1)   
+      IF (HL0.EQ.PHL0) GO TO 330
+      R=HL0/PHL0
+      DO 320 I=1,N  
+        D=1.0D0-R*(1.0D0-1.0D0/PW(I))
+        IF (ABS(D).EQ.0.0D0) GO TO 440 
+  320   PW(I)=1.0D0/D  
+  330 DO 340 I=1,N  
+  340   SAVE1(I)=PW(I)*(H*SAVE2(I)-(Y(I,2)+ERROR(I)))   
+      GO TO 370 
+  350 DO 360 I=1,N  
+  360   SAVE1(I)=H*SAVE2(I)-(Y(I,2)+ERROR(I))   
+C                                 CALL SOL  
+      CALL NGE006 (N,N0,PW,SAVE1,IPIV)  
+  370 D=0.0D0  
+      DO 380 I=1,N  
+        ERROR(I)=ERROR(I)+SAVE1(I)  
+        D=D+(SAVE1(I)/YMAX(I))**2   
+  380   SAVE1(I)=Y(I,1)+EL(1)*ERROR(I)  
+C-----------------------------------------------------------------------
+  400 IF (M.NE.0) CRATE=DMAX1(.90D0*CRATE,D/D1)
+      IF ((D*DMIN1(1.0D0,2.0D0*CRATE)).LE.BND) GO TO 450  
+      D1=D  
+      M=M+1 
+      IF (M.EQ.3) GO TO 410 
+      CALL DIFFUN (N,T,SAVE1,SAVE2) 
+      GO TO 290 
+C-----------------------------------------------------------------------
+  410 NFE=NFE+2 
+      IF (IWEVAL.EQ.-1) GO TO 440   
+  420 T=TOLD
+      RMAX=2.0D0   
+      DO 430 J1=1,NQ
+        DO 430 J2=J1,NQ 
+        J=(NQ+J1)-J2
+        DO 430 I=1,N
+  430   Y(I,J)=Y(I,J)-Y(I,J+1)  
+      IF (ABS(H).LE.HMIN*1.000010D0) GO TO 680 
+      RH=.250D0
+      IREDO=1   
+      GO TO 170 
+  440 IWEVAL=MITER  
+      GO TO 220 
+  450 IF (MITER.NE.0) IWEVAL=-1 
+      NFE=NFE+M 
+      D=0.0D0  
+      DO 460 I=1,N  
+  460   D=D+(ERROR(I)/YMAX(I))**2   
+      IF (D.GT.E) GO TO 500 
+      KFLAG=0   
+      IREDO=0   
+      NSTEP=NSTEP+1 
+      HUSED=H   
+      NQUSED=NQ 
+      DO 470 J=1,L  
+        DO 470 I=1,N
+  470   Y(I,J)=Y(I,J)+EL(J)*ERROR(I)
+      IF (IDOUB.EQ.1) GO TO 520 
+      IDOUB=IDOUB-1 
+      IF (IDOUB.GT.1) GO TO 700 
+      IF (L.EQ.LMAX) GO TO 700  
+      DO 490 I=1,N  
+  490   Y(I,LMAX)=ERROR(I)  
+      GO TO 700 
+  500 KFLAG=KFLAG-1 
+      T=TOLD
+      DO 510 J1=1,NQ
+        DO 510 J2=J1,NQ 
+        J=(NQ+J1)-J2
+        DO 510 I=1,N
+  510   Y(I,J)=Y(I,J)-Y(I,J+1)  
+      RMAX=2.0D0   
+      IF (ABS(H).LE.HMIN*1.000010D0) GO TO 660 
+      IF (KFLAG.LE.-3) GO TO 640
+      IREDO=2   
+      PR3=1.D20 
+      GO TO 540 
+  520 PR3=1.D20 
+      IF (L.EQ.LMAX) GO TO 540  
+      D1=0.0D0 
+      DO 530 I=1,N  
+  530   D1=D1+((ERROR(I)-Y(I,LMAX))/YMAX(I))**2 
+      ENQ3=.50D0/FLOAT(L+1)
+      PR3=((D1/EUP)**ENQ3)*1.40D0+1.4D-06  
+  540 ENQ2=.50D0/FLOAT(L)  
+      PR2=((D/E)**ENQ2)*1.20D0+1.2D-06 
+      PR1=1.D20 
+      IF (NQ.EQ.1) GO TO 560
+      D=0.0D0  
+      DO 550 I=1,N  
+  550   D=D+(Y(I,L)/YMAX(I))**2 
+      ENQ1=.50D0/FLOAT(NQ) 
+      PR1=((D/EDN)**ENQ1)*1.30D0+1.3D-06   
+  560 IF (PR2.LE.PR3) GO TO 570 
+      IF (PR3.LT.PR1) GO TO 590 
+      GO TO 580 
+  570 IF (PR2.GT.PR1) GO TO 580 
+      NEWQ=NQ   
+      RH=1.0D0/PR2 
+      GO TO 620 
+  580 NEWQ=NQ-1 
+      RH=1.0D0/PR1 
+      GO TO 620 
+  590 NEWQ=L
+      RH=1.0D0/PR3 
+      IF (RH.LT.1.10D0) GO TO 610  
+      DO 600 I=1,N  
+  600   Y(I,NEWQ+1)=ERROR(I)*EL(L)/FLOAT(L) 
+      GO TO 630 
+  610 IDOUB=10  
+      GO TO 700 
+  620 IF ((KFLAG.EQ.0).AND.(RH.LT.1.10D0)) GO TO 610   
+      IF (NEWQ.EQ.NQ) GO TO 170 
+  630 NQ=NEWQ   
+      L=NQ+1
+      IRET=2
+      GO TO 130 
+  640 IF (KFLAG.EQ.-7) GO TO 670
+      RH=.10D0 
+      RH=DMAX1(HMIN/ABS(H),RH)  
+      H=H*RH
+      CALL DIFFUN (N,T,Y,SAVE1) 
+      NFE=NFE+1 
+      DO 650 I=1,N  
+  650   Y(I,2)=H*SAVE1(I)   
+      IWEVAL=MITER  
+      IDOUB=10  
+      IF (NQ.EQ.1) GO TO 200
+      NQ=1  
+      L=2   
+      IRET=3
+      GO TO 130 
+  660 KFLAG=-1  
+      GO TO 700 
+  670 KFLAG=-2  
+      GO TO 700 
+  680 KFLAG=-3  
+      GO TO 700 
+  690 RMAX=10.0D0  
+  700 HOLD=H
+      JSTART=NQ 
+      RETURN
+      END   
+      SUBROUTINE NGE003 (METH,NQ,EL,TQ,MAXDER)  
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)   
+      INTEGER METH,NQ,MAXDER,K  
+      DOUBLE PRECISION EL   
+      DOUBLE PRECISION TQ,PERTST
+      DIMENSION PERTST(12,2,3), EL(13), TQ(4)   
+      DATA PERTST/1.0D0,1.0D0,2.0D0,1.0D0,.31580D0,.074070D0,.013910D0,
+     $.0021820D0,.00029450D0,.000034920D0,.0000036920D0,.00000035240D0,
+     $1.0D0,1.0D0,.50D0,.16670D0,.041670D0,1.0D0,1.0D0,1.0D0,1.0D0,
+     $1.0D0,1.0D0,1.0D0,2.0D0,12.0D0,24.0D0,37.890D0,53.330D0,70.080D0,
+     $87.970D0,106.90D0,126.70D0,147.40D0,168.80D0,191.0D0,2.0D0,4.50D0,
+     $7.3330D0,10.420D0,13.70D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,
+     $1.0D0,12.0D0,24.0D0,37.890D0,53.330D0,70.080D0,87.970D0,106.90D0,
+     $126.70D0,147.40D0,168.80D0,191.0D0,1.0D0,3.0D0,6.0D0,9.1670D0,
+     $12.50D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0/  
+      GO TO (1,2), METH 
+    1 MAXDER=12 
+      GO TO (101,102,103,104,105,106,107,108,109,110,111,112), NQ   
+    2 MAXDER=5  
+      GO TO (201,202,203,204,205), NQ   
+  101 EL(1)=1.0D0 
+      GO TO 900 
+  102 EL(1)=0.50D0 
+      EL(3)=0.50D0 
+      GO TO 900 
+  103 EL(1)=4.1666666666666667D-01  
+      EL(3)=0.750D0
+      EL(4)=1.6666666666666667D-01  
+      GO TO 900 
+  104 EL(1)=0.3750D0   
+      EL(3)=9.1666666666666667D-01  
+      EL(4)=3.3333333333333333D-01  
+      EL(5)=4.1666666666666667D-02  
+      GO TO 900 
+  105 EL(1)=3.4861111111111111D-01  
+      EL(3)=1.04166666666666670D0  
+      EL(4)=4.8611111111111111D-01  
+      EL(5)=1.0416666666666667D-01  
+      EL(6)=8.3333333333333333D-03  
+      GO TO 900 
+  106 EL(1)=3.2986111111111111D-01  
+      EL(3)=1.14166666666666670D0  
+      EL(4)=0.6250D0   
+      EL(5)=1.7708333333333333D-01  
+      EL(6)=0.0250D0   
+      EL(7)=1.3888888888888889D-03  
+      GO TO 900 
+  107 EL(1)=3.1559193121693122D-01  
+      EL(3)=1.2250D0   
+      EL(4)=7.5185185185185185D-01  
+      EL(5)=2.5520833333333333D-01  
+      EL(6)=4.8611111111111111D-02  
+      EL(7)=4.8611111111111111D-03  
+      EL(8)=1.9841269841269841D-04  
+      GO TO 900 
+  108 EL(1)=3.0422453703703704D-01  
+      EL(3)=1.29642857142857140D0  
+      EL(4)=8.6851851851851852D-01  
+      EL(5)=3.3576388888888889D-01  
+      EL(6)=7.7777777777777778D-02  
+      EL(7)=1.0648148148148148D-02  
+      EL(8)=7.9365079365079365D-04  
+      EL(9)=2.4801587301587302D-05  
+      GO TO 900 
+  109 EL(1)=2.9486800044091711D-01  
+      EL(3)=1.35892857142857140D0  
+      EL(4)=9.7655423280423280D-01  
+      EL(5)=0.41718750D0   
+      EL(6)=1.1135416666666667D-01  
+      EL(7)=0.018750D0 
+      EL(8)=1.9345238095238095D-03  
+      EL(9)=1.1160714285714286D-04  
+      EL(10)=2.7557319223985891D-06 
+      GO TO 900 
+  110 EL(1)=2.8697544642857143D-01  
+      EL(3)=1.4144841269841270D0  
+      EL(4)=1.07721560846560850D0  
+      EL(5)=4.9856701940035273D-01  
+      EL(6)=0.14843750D0   
+      EL(7)=2.9060570987654321D-02  
+      EL(8)=3.7202380952380952D-03  
+      EL(9)=2.9968584656084656D-04  
+      EL(10)=1.3778659611992945D-05 
+      EL(11)=2.7557319223985891D-07 
+      GO TO 900 
+  111 EL(1)=2.8018959644393672D-01  
+      EL(3)=1.4644841269841270D0  
+      EL(4)=1.17151455026455030D0  
+      EL(5)=5.7935819003527337D-01  
+      EL(6)=1.8832286155202822D-01  
+      EL(7)=4.1430362654320988D-02  
+      EL(8)=6.2111441798941799D-03  
+      EL(9)=6.2520667989417989D-04  
+      EL(10)=4.0417401528512640D-05 
+      EL(11)=1.5156525573192240D-06 
+      EL(12)=2.5052108385441719D-08 
+      GO TO 900 
+  112 EL(1)=2.7426554003159906D-01  
+      EL(3)=1.50993867243867240D0  
+      EL(4)=1.2602711640211640D0  
+      EL(5)=6.5923418209876543D-01  
+      EL(6)=2.3045800264550265D-01  
+      EL(7)=5.5697246105232216D-02  
+      EL(8)=9.4394841269841270D-03  
+      EL(9)=1.1192749669312169D-03  
+      EL(10)=9.0939153439153439D-05 
+      EL(11)=4.8225308641975309D-06 
+      EL(12)=1.5031265031265031D-07 
+      EL(13)=2.0876756987868099D-09 
+      GO TO 900 
+C   
+  201 EL(1)=1.0D0 
+      GO TO 900 
+  202 EL(1)=6.6666666666666667D-01  
+      EL(3)=3.3333333333333333D-01  
+      GO TO 900 
+  203 EL(1)=5.4545454545454545D-01  
+      EL(3)=EL(1)   
+      EL(4)=9.0909090909090909D-02  
+      GO TO 900 
+  204 EL(1)=0.480D0
+      EL(3)=0.70D0 
+      EL(4)=0.20D0 
+      EL(5)=0.020D0
+      GO TO 900 
+  205 EL(1)=4.3795620437956204D-01  
+      EL(3)=8.2116788321167883D-01  
+      EL(4)=3.1021897810218978D-01  
+      EL(5)=5.4744525547445255D-02  
+      EL(6)=3.6496350364963504D-03  
+C   
+  900 DO 910 K=1,3  
+  910   TQ(K)=PERTST(NQ,METH,K) 
+      TQ(4)=.50D0*TQ(2)/FLOAT(NQ+2)
+      RETURN
+      END   
+      SUBROUTINE NGE004 (Y,N0,CON,MITER,IER,PW,N_PW)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)   
+C
+C----- N_EQU is the maximum number of equations
+C----- WKSPSZ (= WorKSPace SiZe) is the workspace required
+C      by DGEAR
+C----- These parameters must be changed in DGEAR,NGE002,NGE004
+      INTEGER*2 N_EQU
+      INTEGER*4 WKSPSZ,N_PW
+      DOUBLE PRECISION PW(N_PW)
+      PARAMETER (N_EQU=750,WKSPSZ=145000)
+C
+      INTEGER N0,MITER,IER,N,IDUMMY,IPIV,NSQ,I,J1,J 
+      DOUBLE PRECISION Y,CON,T,H,DUMMY,UROUND,YMAX,SAVE1,SAVE2
+      DOUBLE PRECISION EPSJ,D,R0,YJ,R
+      DIMENSION Y(N0,6) 
+      COMMON /GEAR1/ T,H,DUMMY(3),UROUND,N,IDUMMY(3)
+      COMMON /GEAR2/ YMAX(N_EQU)
+      COMMON /GEAR4/ SAVE1(N_EQU)   
+      COMMON /GEAR5/ SAVE2(N_EQU)   
+C      COMMON /GEAR6/ PW(WKSPSZ)  
+      COMMON /GEAR7/ IPIV(N_EQU)
+      COMMON /GEAR8/ EPSJ,NSQ   
+      IF (MITER.EQ.2) GO TO 20  
+      CALL PEDERV (N,T,Y,PW,N0) 
+      DO 10 I=1,NSQ 
+   10   PW(I)=PW(I)*CON 
+      GO TO 60  
+   20 D=0.0D0  
+      DO 30 I=1,N   
+   30   D=D+SAVE2(I)**2 
+      R0=ABS(H)*SQRT(D)*1.D+03*UROUND   
+      J1=0  
+      DO 50 J=1,N   
+        YJ=Y(J,1)   
+        R=EPSJ*YMAX(J)  
+        R=DMAX1(R,R0)   
+        Y(J,1)=Y(J,1)+R 
+        D=CON/R 
+        CALL DIFFUN (N,T,Y,SAVE1)   
+        DO 40 I=1,N 
+   40     PW(I+J1)=(SAVE1(I)-SAVE2(I))*D
+        Y(J,1)=YJ   
+        J1=J1+N0
+   50   CONTINUE
+   60 J=1   
+      DO 70 I=1,N   
+        PW(J)=PW(J)+1.  
+   70   J=J+(N0+1)  
+      CALL NGE005 (N,N0,PW,IPIV,IER)
+      RETURN
+      END   
+      SUBROUTINE NGE005 (N,NDIM,A,IP,IER)   
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)    
+      INTEGER N,NDIM,IP,IER,NM1,K,KP1,M,I,J 
+      DOUBLE PRECISION  A,T  
+      DIMENSION A(NDIM,N), IP(N)
+      IER=0 
+      IP(N)=1   
+      IF (N.EQ.1) GO TO 70  
+      NM1=N-1   
+      DO 60 K=1,NM1 
+        KP1=K+1 
+        M=K 
+        DO 10 I=KP1,N   
+   10     IF (ABS(A(I,K)).GT.ABS(A(M,K))) M=I   
+        IP(K)=M 
+        T=A(M,K)
+        IF (M.EQ.K) GO TO 20
+        IP(N)=-IP(N)
+        A(M,K)=A(K,K)   
+        A(K,K)=T
+   20   IF (T.EQ.0.0D0) GO TO 80   
+        T=1.0D0/T  
+        DO 30 I=KP1,N   
+   30     A(I,K)=-A(I,K)*T  
+        DO 50 J=KP1,N   
+          T=A(M,J)  
+          A(M,J)=A(K,J) 
+          A(K,J)=T  
+          IF (T.EQ.0.0D0) GO TO 50 
+          DO 40 I=KP1,N 
+   40       A(I,J)=A(I,J)+A(I,K)*T  
+   50     CONTINUE  
+   60   CONTINUE
+   70 K=N   
+      IF (A(N,N).EQ.0.0D0) GO TO 80
+      RETURN
+   80 IER=K 
+      IP(N)=0   
+      RETURN
+      END   
+      SUBROUTINE NGE006 (N,NDIM,A,B,IP) 
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)   
+      INTEGER N,NDIM,IP,NM1,K,KP1,M,I,KB,KM1
+      DOUBLE PRECISION A,B,T
+      DIMENSION A(NDIM,N), B(N), IP(N)  
+      IF (N.EQ.1) GO TO 50  
+      NM1=N-1   
+      DO 20 K=1,NM1 
+        KP1=K+1 
+        M=IP(K) 
+        T=B(M)  
+        B(M)=B(K)   
+        B(K)=T  
+        DO 10 I=KP1,N   
+   10     B(I)=B(I)+A(I,K)*T
+   20   CONTINUE
+      DO 40 KB=1,NM1
+        KM1=N-KB
+        K=KM1+1 
+        B(K)=B(K)/A(K,K)
+        T=-B(K) 
+        DO 30 I=1,KM1   
+   30     B(I)=B(I)+A(I,K)*T
+   40   CONTINUE
+   50 B(1)=B(1)/A(1,1)  
+      RETURN
+      END   
+

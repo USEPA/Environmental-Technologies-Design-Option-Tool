@@ -1,0 +1,26 @@
+
+
+Meeting Issues for PEARLS Meeting (990518 @ 18:15)
+======================================================
+
+- Obtain verbal agreement points for use of PEARLS (renamed or not)
+  within the SCENE software, and other ETDOT software
+
+
+- An important topic is how we can supply DIPPR911 data (encapsulated
+  into PEARLS) with SCENE or the ETDOT software; how much would this cost?
+  Note we mostly want SMILES-based estimation techniques, because not
+  every chemical out there will be in the DIPPR911 database anyway.
+
+
+- Ensure everyone knows I plan to construct a paper agreement
+  for us all to sign
+
+
+- What is this window supposed to do: "Fitting and Units Conversion - 
+  Antoine Coefficients"?  (frmantoine)
+
+
+
+
+

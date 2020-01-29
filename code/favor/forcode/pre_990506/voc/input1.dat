@@ -1,0 +1,159 @@
+
+***************** PLANT INFLUENT
+
+Plant Flow Rate (Q, L/day)
+ 3.81000D+05
+Solids Influent Concentration (X0, mg/L)
+ 1.00000D+00
+
+***************** PLANT INFLUENT
+
+Barometric Pressure (PB, kPa)
+ 9.78000D+01
+Temperature (T, C)
+ 1.50000D+01
+Wind Velocity 10 meters above plant (WNDVRI, m/s)
+ 2.00000D-01
+Name of Contaminant (NAME) tetra
+1 
+Contaminant Influent Concentration (CO1, ug/L)
+ 2.55000D+02
+Biodegradation Rate Constant (KB, L/(mg*day))
+ 2.30000D-01
+Log Octanol Water Coefficient For Contaminant (LOGKOW)
+ 2.88000D+00
+Henry's Constant (H)
+ 5.00000D-01
+Molecular Weight (MW, g/mol)
+ 5.10000D+01
+Diffusivity of Contaminant (VOCDIF, cm2/sec)
+ 0.94000D-05
+Gas Phase Contaminant Diffusivity (VOCDFG, cm2/sec)
+ 7.00000D-02
+Oxygen Saturation Concentration at Effective Depth (CSAT, mg/L)
+ 9.17000D+00
+Henry's Constant for Oxygen (HOXY)
+ 3.00000D+01
+Diffusivity of Oxygen (OXYDIF, cm2/sec)
+ 2.42000D-05
+Density of Water (H2ODEN, kg/m3)
+ 9.99000D+02
+Viscosity of Water (H2OVIS, kg/(m*s))
+ 1.00500D-03
+Vapor Pressure (PV, kPa)
+ 1.65000D+00
+Process Water Correction (ALPHA)
+ 7.00000D-01
+Density of Air (AIRDEN, kg/m3)
+ 1.21000D+00
+Viscosity of Air (AIRVIS, kg/(m*s))
+ 1.70000D-05
+
+***************** PRIMARY CLARIFIERS
+
+Number of Primary Clarifiers being Modeled (NPC)
+ 1
+Covered Primary Carifier Option (CBPC, 0=off -1=on)
+ 0
+Primary Clarifier Ventilation Air Flow Rate for each Clarifier (QVPC, L/min)
+ 2.00000D+05
+Primary Clarifier Basin Depth for each (PCD, m)
+ 4.00000D+00
+Primary Clarifier Volume for each (PV1, L)
+ 2.73000D+04
+Primary Wastage Flow Rate from each Clarifier  (QW1, L/day)
+ 1.00000D+02
+Primary Sorption Mechanism (PSM, 1=Dobbs 2=Matter Muller)
+ 1
+Primary Volitalization Mechanism (PVM 1=Mackay&Yeun 2=KLA)
+ 1
+
+***************** INFLUENT WEIR
+
+Option for Influent Weir Drop (W1, 0=off -1=on)
+ 0
+Influent Weir Mechanism (WM1, 1=NAPPE 2=POOL)
+ 2
+Width of Weir Channel (WW1, m)
+ 3.000000D+00
+Distance Between Water Levels Above and Below Weir (Z1, m)
+ 5.00000D-01
+Gas Flow Rate Leaving the Tailwater per Unit Weir Length (QG1, m3/(m*h))
+ 6.00000D-01
+
+***************** PRIMARY CLARIFIER WEIR
+
+0ption for Primary Effluent Weir Drop (W2, 0=off -1=on)
+ 0
+Primary Effluent Weir Mechanism (WM2, 1=NAPPE 2=POOL)
+ 2
+Length of the Weir Channel (WW2, m)
+ 2.50000D+01
+Distance Between the Water Levels Above and Below Weir (Z2, m)
+ 5.00000D-01
+Gas Flow Rate Leaving the Tailwater per Unit Weir Length (QG2, m3/(m*h))
+ 6.00000D-01
+
+***************** SECONDARY CLARIFIER WEIR
+
+Option for Effluent Drop (W3, 0=off -1=on)
+ 0
+Effluent Weir Mechanism (WM3, 1=NAPPE 2=POOL)
+ 2
+Length of the Weir Channel (WW3, m)
+ 2.50000D+01
+Distance Between Water Levels Above and Below Weir (Z3, m)
+ 5.00000D-01
+Gas Flow Rate Leaving Tailwater per Unit Weir Length (QG3, m3/(m*h))
+ 6.00000D-01
+
+***************** AERATED GRIT CHAMBER
+
+Option for Modeling of Aerated Grit Chamber (GC, 0=off -1=on)
+ 0
+Number of Aerated Grit Chambers being modeled (NAGC)
+ 1 
+Covered Aerated Grit Chamber Option (CBAGC, 0=off -1=on)
+ 0
+Aerated Grit Total Ventilation Air Flow Rate for each Chamber (QVAGC, )
+ 4.00000D+03
+Aerated Grit Chamber Depth for each (AGCD, m)
+ 4.00000D+00
+Aerated Grit Chamber Volume for each (AGCV, L)
+ 1.00000D+06
+Gas Flow Rate for each Aerated Grit Chamber (QGGC, L/min)
+ 2.00000D+03
+SOTR For Bubble Aeration in Aerated Grit Chamber (AGBSOT, kg/hr)
+ 1.00000D+02
+
+***************** AERATION BASINS
+
+Number of Aeration Tanks being Modeled (NAB)
+ 1
+Covered Aeration Basin Option (CBAB, 0=off -1=on)
+ 0 
+Ventilation Air Flow Rate for each Aeration Basin (QV, )
+ 2.80000D+05
+Aeration Basin Depth for each (ABD, m)
+ 4.00000D+00
+Sludge Wastage From Each Secondary Clarifer, SQW (L/day)
+ 1.00000D+03
+Recycle Flow Rate from each Secondary Clarifier (QR, L/day)
+ 3.00000D+05
+Secondary Aeration Mechanism (SAM, 1=SURFACE 3=DIFFUSED BUBBLE)
+ 3
+SOTR in Aeration Basin (ABBSOT or SUFSOR, kg/hr)
+ 1.00000D+02
+
+***************** SECONDARY CLARIFIERS
+
+Number of Secondary Clarifiers being Modeled (NSC)
+ 1
+Covered Secondary Clarifier Option (CBSC, 0=off -1=on)
+ 0
+Secondary Clarifier Ventilation Air Flow Rate for each Clarifier (QVSC, L/min)
+ 0.00000D+05
+Secondary Clarifier Basin Depth for each (SCBD, m)
+ 4.00000D+00
+Secondary Clarifier Basin Volume for each (SCBV, L)
+ 4.10000D+04

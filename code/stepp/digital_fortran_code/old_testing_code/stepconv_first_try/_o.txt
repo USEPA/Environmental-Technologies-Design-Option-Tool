@@ -1,0 +1,1392 @@
+!CC********************************************************************
+!CC
+!CC                             ACCONV
+!CC          CONVERT ACTIVITY COEFFICIENT UNITS FROM (-) TO (-).
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for activity coefficient.  Right now, the units
+!CC               are dimensionless in both cases so there is no
+!CC               conversion performed.  However, the routine is
+!CC               included in case we are manipulating different
+!CC               units in the future.
+!CC
+!CC Output Variables:
+!CC    ACENG =    Activity Coefficient (-)
+!CC
+!CC Input Variables:
+!CC    ACSI =     Activity Coefficient (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE ACCONV(ACENG,ACSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ACCONV
+!MS$ ATTRIBUTES ALIAS:'_ACCONV'::ACCONV
+!MS$ ATTRIBUTES REFERENCE::ACENG,ACSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION ACENG, ACSI
+
+         ACENG = ACSI * 1.0D0                 
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                               ACENSI
+!CC             CONVERT ACTIVITY COEFFICIENT UNITS FROM (-) TO (-)
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for activity coefficient.  Right now, the units are
+!CC               dimensionless in both cases so there is no conversion
+!CC               performed.  However, the routine is included in case
+!CC               we are manipulating different units in the future.
+!CC
+!CC Output Variables:
+!CC    ACSI =     Activity Coefficient (-)
+!CC
+!CC Input Variables:
+!CC    ACENG =    Activity Coefficient (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE ACENSI(ACSI,ACENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ACENSI
+!MS$ ATTRIBUTES ALIAS:'_ACENSI'::ACENSI
+!MS$ ATTRIBUTES REFERENCE::ACSI,ACENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION ACENG, ACSI  
+        ACSI = ACENG * 1.0D0                   
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC*******************************************************************
+!CC
+!CC                                ADENENSI
+!CC               CONVERT AIR DENSITY UNITS FROM LBm/Ft3 TO Kg/m3
+!CC
+!CC Description:  This SUBROUTINE will convert air density from units
+!CC               of LBm/Ft3 to units of Kg/m3
+!CC
+!CC Output Variables:
+!CC    ADSI =     Air Density Kg/m3
+!CC
+!CC Input Variables:
+!CC    ADENG =    Air Density LBm/Ft3
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE ADENENSI(ADSI,ADENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ADENENSI
+!MS$ ATTRIBUTES ALIAS:'_ADENENSI'::ADENENSI
+!MS$ ATTRIBUTES REFERENCE::ADSI,ADENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION ADENG, ADSI
+        ADSI = ADENG * 35.3145D0 / 2.20462D0
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             ADENSCNV
+!CC              AIR DENSITY UNITS FROM Kg/m3 TO LBm/Ft3
+!CC
+!CC Description:  This SUBROUTINE will convert Air Density from
+!CC               units of Kg/m3 to units of LBm/Ft3.
+!CC
+!CC Output Variables:
+!CC    ADENG =    Air Density (LBm/Ft3)
+!CC
+!CC Input Variables:
+!CC    ADSI =     Air Density (Kg/m3)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE ADENSCNV(ADENG,ADSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ADENSCNV
+!MS$ ATTRIBUTES ALIAS:'_ADENSCNV'::ADENSCNV
+!MS$ ATTRIBUTES REFERENCE::ADENG,ADSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION ADENG, ADSI
+
+         ADENG = ADSI * 2.20462D0/35.3145D0  
+
+      END
+
+!CC********************************************************************
+
+
+!CC********************************************************************
+!CC
+!CC                             AQSCONV
+!CC          CONVERT AQUEOUS SOLUBILITY UNITS FROM (-) TO (-).
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for aqueous solubility.  Right now, the units
+!CC               are dimensionless in both cases so there is no
+!CC               conversion performed.  However, the routine is
+!CC               included in case we are manipulating different
+!CC               units in the future.
+!CC
+!CC Output Variables:
+!CC    ASENG =    aqueous solubility (-)
+!CC
+!CC Input Variables:
+!CC    ASSI =     aqueous solubility (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE AQSCONV(ASENG,ASSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AQSCONV
+!MS$ ATTRIBUTES ALIAS:'_AQSCONV'::AQSCONV
+!MS$ ATTRIBUTES REFERENCE::ASENG,ASSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION ASENG, ASSI
+
+         ASENG = ASSI * 1.0D0                 
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                               AQSENSI
+!CC             CONVERT AQUEOUS SOLUBILITY UNITS FROM (-) TO (-)
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for aqueous solubility.  Right now, the units are
+!CC               dimensionless in both cases so there is no conversion
+!CC               performed.  However, the routine is included in case
+!CC               we are manipulating different units in the future.
+!CC
+!CC Output Variables:
+!CC    AQSSI =     Aqueous Solubility (-)
+!CC
+!CC Input Variables:
+!CC    AQSENG =    Aqueous Solubility (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE AQSENSI(AQSSI,AQSENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AQSENSI
+!MS$ ATTRIBUTES ALIAS:'_AQSENSI'::AQSENSI
+!MS$ ATTRIBUTES REFERENCE::AQSSI,AQSENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION AQSENG, AQSSI  
+        AQSSI = AQSENG * 1.0D0                   
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             AVISCCNV
+!CC            AIR VISCOSITY UNITS FROM Kg/m-sec To LBm/Ft-sec
+!CC
+!CC Description:  This SUBROUTINE will convert Air Viscosity from
+!CC               units of Kg/m-sec to units of LBm/Ft-sec.
+!CC
+!CC Output Variables:
+!CC    AVENG =    Air Viscosity (LBm/Ft-sec)
+!CC
+!CC Input Variables:
+!CC    AVSI =     Air Viscosity (Kg/m-sec)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE AVISCCNV(AVENG,AVSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AVISCCNV
+!MS$ ATTRIBUTES ALIAS:'_AVISCCNV'::AVISCCNV
+!MS$ ATTRIBUTES REFERENCE::AVENG,AVSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION AVENG, AVSI
+
+         AVENG = AVSI * 2.20462D0/3.2808D0   
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                                AVISENSI
+!CC          CONVERT AIR VISCOSITY  FROM LBm/Ft-sec TO Kg/m-sec
+!CC
+!CC
+!CC Description:  This SUBROUTINE will convert air viscosity from
+!CC               units of LBm/Ft-sec to Kg/m-sec.
+!CC
+!CC Output Variables:
+!CC    AVSI =     Air Viscosity (Kg/m-sec)
+!CC
+!CC Input Variables:
+!CC    AVENG =    Air Viscosity (LBm/Ft-sec)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE AVISENSI(AVSI,AVENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AVISENSI
+!MS$ ATTRIBUTES ALIAS:'_AVISENSI'::AVISENSI
+!MS$ ATTRIBUTES REFERENCE::AVSI,AVENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION AVENG, AVSI
+        AVSI = AVENG * 3.2808D0 / 2.20462D0                             
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC*******************************************************************
+!CC
+!CC                                GDIFENSI
+!CC          CONVERT GAS DIFFUSIVITY FROM Ft2/sec to m2/sec
+!CC
+!CC
+!CC Description:  This SUBROUTINE will convert gas diffusivity
+!CC               from units of Ft2/sec to m2/sec
+!CC
+!CC Output Variables:
+!CC    GDSI =     Gas Diffusivity (m2/sec)
+!CC
+!CC Input Variables:
+!CC    GDENG =    Gas Diffusivity (Ft2/sec)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE GDIFENSI(GDSI,GDENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GDIFENSI
+!MS$ ATTRIBUTES ALIAS:'_GDIFENSI'::GDIFENSI
+!MS$ ATTRIBUTES REFERENCE::GDSI,GDENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION GDENG, GDSI
+        GDSI = GDENG / (3.2808D0**2)                       
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             GDIFFCNV
+!CC          CONVERT GAS DIFFUSIVITY UNITS FROM m2/sec TO ft2/sec
+!CC
+!CC Description:  This SUBROUTINE will convert gas diffusivity from
+!CC               units of Pa to units of psi.
+!CC
+!CC Output Variables:
+!CC    GDIFENG =  Gas Diffusivity (ft2/sec)
+!CC
+!CC Input Variables:
+!CC    GDIFSI =   Gas Diffusivity (m2/sec)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/16/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE GDIFFCNV(GDIFENG,GDIFSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GDIFFCNV
+!MS$ ATTRIBUTES ALIAS:'_GDIFFCNV'::GDIFFCNV
+!MS$ ATTRIBUTES REFERENCE::GDIFENG,GDIFSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION GDIFENG,GDIFSI
+
+         GDIFENG = GDIFSI * (3.2808D0**2)
+
+      END
+
+!CC********************************************************************
+
+
+!CC********************************************************************
+!CC
+!CC                             H2OSTCNV
+!CC            WATER SURFACE TENSION UNITS FROM N/m To LBf/Ft
+!CC
+!CC Description:  This SUBROUTINE will convert water surface tension from
+!CC               units of N/m to units of LBf/Ft.
+!CC
+!CC Output Variables:
+!CC    WSTENG =    Water Surface Tension (LBf/Ft)
+!CC
+!CC Input Variables:
+!CC    WSTSI =     Water Surface Tension (N/m)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE H2OSTCNV(WSTENG,WSTSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::H2OSTCNV
+!MS$ ATTRIBUTES ALIAS:'_H2OSTCNV'::H2OSTCNV
+!MS$ ATTRIBUTES REFERENCE::WSTENG,WSTSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION WSTENG, WSTSI
+
+         WSTENG = WSTSI * 0.22481D0/3.2808D0   
+
+      END
+
+!CC********************************************************************
+
+
+!CC********************************************************************
+!CC
+!CC                             HCCONV
+!CC          CONVERT HENRY'S CONSTANT UNITS FROM (-) TO (-).
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for Henry's constant.  Right now, the units
+!CC               are dimensionless in both cases so there is no
+!CC               conversion performed.  However, the routine is
+!CC               included in case we are manipulating different
+!CC               units in the future.
+!CC
+!CC Output Variables:
+!CC    HCENG =    Henry's Constant (-)
+!CC
+!CC Input Variables:
+!CC    HCSI =     Henry's Constant (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE HCCONV(HCENG,HCSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::HCCONV
+!MS$ ATTRIBUTES ALIAS:'_HCCONV'::HCCONV
+!MS$ ATTRIBUTES REFERENCE::HCENG,HCSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION HCENG, HCSI
+
+         HCENG = HCSI * 1.0D0                 
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                               HCENSI
+!CC             CONVERT HENRY'S CONSTANT UNITS FROM (-) TO (-)
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for Henry's Constant.  Right now, the units are
+!CC               dimensionless in both cases so there is no conversion
+!CC               performed.  However, the routine is included in case
+!CC               we are manipulating different units in the future.
+!CC
+!CC Output Variables:
+!CC    HCSI =     Henry's Constant (-)
+!CC
+!CC Input Variables:
+!CC    HCENG =    Henry's Constant (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE HCENSI(HCSI,HCENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::HCENSI
+!MS$ ATTRIBUTES ALIAS:'_HCENSI'::HCENSI
+!MS$ ATTRIBUTES REFERENCE::HCSI,HCENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION HCENG, HCSI  
+        HCSI = HCENG * 1.0D0                   
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             KOWCONV
+!CC          CONVERT OCTANOL WATER PARTITION COEF UNITS FROM (-) TO (-).
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for octanol water partition coef.  Right now, the
+!CC               units are dimensionless in both cases so there is no
+!CC               conversion performed.  However, the routine is
+!CC               included in case we are manipulating different
+!CC               units in the future.
+!CC
+!CC Output Variables:
+!CC    OWENG =    octanol water partition coef (-)
+!CC
+!CC Input Variables:
+!CC    OWSI =     octanol water partition coef (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE KOWCONV(OWENG,OWSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::KOWCONV
+!MS$ ATTRIBUTES ALIAS:'_KOWCONV'::KOWCONV
+!MS$ ATTRIBUTES REFERENCE::OWENG,OWSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION OWENG, OWSI
+
+         OWENG = OWSI * 1.0D0                 
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                               KOWENSI
+!CC             CONVERT OCTANOL WATER PARTITION COEFF FROM (-) TO (-)
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for octanol water partition coeff.  Right now, the
+!CC               units are dimensionless in both cases so there is no
+!CC               conversion performed.  However, the routine is included
+!CC               incase we are manipulating different units in the future
+!CC
+!CC Output Variables:
+!CC    KOWSI =     Octanol Water Partition Coeff (-)
+!CC
+!CC Input Variables:
+!CC    KOWENG =    Octanol Water Partition Coeff (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE KOWENSI(KOWSI,KOWENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::KOWENSI
+!MS$ ATTRIBUTES ALIAS:'_KOWENSI'::KOWENSI
+!MS$ ATTRIBUTES REFERENCE::KOWSI,KOWENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION KOWENG, KOWSI  
+        KOWSI = KOWENG * 1.0D0                   
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC*******************************************************************
+!CC
+!CC                                LDENENSI
+!CC               CONVERT LIQUID DENSITY UNITS FROM LBm/Ft3 TO Kg/m3
+!CC
+!CC Description:  This SUBROUTINE will convert liquid density from units
+!CC               of LBm/Ft3 to units of Kg/m3
+!CC
+!CC Output Variables:
+!CC    LDSI =     Liquid Density Kg/m3
+!CC
+!CC Input Variables:
+!CC    LDENG =    Liquid Density LBm/Ft3
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE LDENENSI(LDSI,LDENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::LDENENSI
+!MS$ ATTRIBUTES ALIAS:'_LDENENSI'::LDENENSI
+!MS$ ATTRIBUTES REFERENCE::LDSI,LDENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION LDENG, LDSI
+        LDSI = LDENG * 35.3145D0 / 2.20462D0
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             LDENSCNV
+!CC            LIQUID DENSITY UNITS FROM Kg/m3 TO LBm/Ft3
+!CC
+!CC Description:  This SUBROUTINE will convert Liquid Density from
+!CC               units of Kg/m3 to units of LBm/Ft3.
+!CC
+!CC Output Variables:
+!CC    LDENG =    Liquid Density (LBm/Ft3)
+!CC
+!CC Input Variables:
+!CC    LDSI =     Liquid Density (Kg/m3)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE LDENSCNV(LDENG,LDSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::LDENSCNV
+!MS$ ATTRIBUTES ALIAS:'_LDENSCNV'::LDENSCNV
+!MS$ ATTRIBUTES REFERENCE::LDENG,LDSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION LDENG, LDSI
+
+         LDENG = LDSI * 2.20462D0/35.3145D0  
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                                LDIFENSI
+!CC          CONVERT LIQUID DIFFUSIVITY FROM Ft2/sec to m2/sec
+!CC
+!CC
+!CC Description:  This SUBROUTINE will convert liquid diffusivity
+!CC               from units of Ft2/sec to m2/sec
+!CC
+!CC Output Variables:
+!CC    LDSI =     Liquid Diffusivity (m2/sec)
+!CC
+!CC Input Variables:
+!CC    LDENG =    Liquid Diffusivity (Ft2/sec)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE LDIFENSI(LDSI,LDENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::LDIFENSI
+!MS$ ATTRIBUTES ALIAS:'_LDIFENSI'::LDIFENSI
+!MS$ ATTRIBUTES REFERENCE::LDSI,LDENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION LDENG, LDSI
+        LDSI = LDENG / (3.2808D0**2)                       
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             LDIFFCNV
+!CC          CONVERT LIQUID DIFFUSIVITY UNITS FROM m2/sec TO ft2/sec
+!CC
+!CC Description:  This SUBROUTINE will convert liquid diffusivity from
+!CC               units of Pa to units of psi.
+!CC
+!CC Output Variables:
+!CC    LDIFENG =  Liquid Diffusivity (ft2/sec)
+!CC
+!CC Input Variables:
+!CC    LDIFSI =   Liquid Diffusivity (m2/sec)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/16/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE LDIFFCNV(LDIFENG,LDIFSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::LDIFFCNV
+!MS$ ATTRIBUTES ALIAS:'_LDIFFCNV'::LDIFFCNV
+!MS$ ATTRIBUTES REFERENCE::LDIFENG,LDIFSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION LDIFENG,LDIFSI
+
+         LDIFENG = LDIFSI * (3.2808D0**2)
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                                MVBPENSI
+!CC          CONVERT MOLAR VOLUME AT NORMAL BOILING POINT FROM LBm/Ft3
+!CC               Kg/m3
+!CC
+!CC Description:  This SUBROUTINE will convert molar volume at normal
+!CC               boiling point from units of LBm/Ft3 to Kg/m3.
+!CC
+!CC Output Variables:
+!CC    MVBSI =     Molar Volume at Normal Boiling Point (Kg/m3)
+!CC
+!CC Input Variables:
+!CC    MVBENG =    Molar Volume at Normal Boiling Point (LBm/Ft3)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE MVBPENSI(MVBSI,MVBENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::MVBPENSI
+!MS$ ATTRIBUTES ALIAS:'_MVBPENSI'::MVBPENSI
+!MS$ ATTRIBUTES REFERENCE::MVBSI,MVBENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION MVBENG, MVBSI
+        MVBSI = MVBENG * 2.20462D0 / 35.3145D0              
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             MVNBPCNV
+!CC          CONVERT MOLAR VOLUME AT NORMAL BOILING TEMP FROM M3/KMOL TO
+!CC          FT3/LBm-MOL
+!CC
+!CC Description:  This SUBROUTINE will convert molar volume at
+!CC               normal boiling point units from m3/Kmol to Ft3/LBm-mol.
+!CC
+!CC Output Variables:
+!CC    MVNENG =    Molar Volume at Normal Boiling Pt (Ft3/LBm-mol)
+!CC
+!CC Input Variables:
+!CC    MVNSI =     Molar Volume at Normal Boiling Pt (m3/Kmol)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE MVNBPCNV(MVNENG,MVNSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::MVNBPCNV
+!MS$ ATTRIBUTES ALIAS:'_MVNBPCNV'::MVNBPCNV
+!MS$ ATTRIBUTES REFERENCE::MVNENG,MVNSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION MVNENG, MVNSI
+
+         MVNENG = MVNSI * 35.3145D0/2.20462D0           
+
+      END
+
+!CC********************************************************************
+
+
+!CC********************************************************************
+!CC
+!CC                             MVOPTCNV
+!CC          CONVERT MOLAR VOLUME AT OPERATING TEMP FROM M3/KMOL TO
+!CC          FT3/LBm-MOL
+!CC
+!CC Description:  This SUBROUTINE will convert molar volume at
+!CC               operating temp units from m3/Kmol to Ft3/LBm-mol.
+!CC
+!CC Output Variables:
+!CC    MVOENG =    Molar Volume at Operating Temp (Ft3/LBm-mol)
+!CC
+!CC Input Variables:
+!CC    MVOSI =     Molar Volume at Operating Temp (m3/Kmol)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE MVOPTCNV(MVOENG,MVOSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::MVOPTCNV
+!MS$ ATTRIBUTES ALIAS:'_MVOPTCNV'::MVOPTCNV
+!MS$ ATTRIBUTES REFERENCE::MVOENG,MVOSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION MVOENG, MVOSI
+
+         MVOENG = MVOSI * 35.3145D0/2.20462D0           
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                                MVOTENSI
+!CC               CONVERT MOLAR VOLUME AT OPERATING TEMP FROM LBm/Ft3
+!CC               Kg/m3
+!CC
+!CC Description:  This SUBROUTINE will convert molar volume at operating
+!CC               temp from units of LBm/Ft3 to Kg/m3
+!CC
+!CC Output Variables:
+!CC    MVOSI =     Molar Volume at Operating Temp (Kg/m3)
+!CC
+!CC Input Variables:
+!CC    MVOENG =    Molar Volume at Operating Temp (LBm/Ft3)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE MVOTENSI(MVOSI,MVOENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::MVOTENSI
+!MS$ ATTRIBUTES ALIAS:'_MVOTENSI'::MVOTENSI
+!MS$ ATTRIBUTES REFERENCE::MVOSI,MVOENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION MVOENG, MVOSI
+        MVOSI = MVOENG * 2.20462D0 / 35.3145D0              
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             MWCONV
+!CC          CONVERT MOLECULAR WEIGHT UNITS FROM (-) TO (-).
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for molecular weight.  Right now, the units
+!CC               are dimensionless in both cases so there is no
+!CC               conversion performed.  However, the routine is
+!CC               included in case we are manipulating different
+!CC               units in the future.
+!CC
+!CC Output Variables:
+!CC    MWENG =    molecular weight (-)
+!CC
+!CC Input Variables:
+!CC    MWSI =     molecular weight (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE MWCONV(MWENG,MWSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::MWCONV
+!MS$ ATTRIBUTES ALIAS:'_MWCONV'::MWCONV
+!MS$ ATTRIBUTES REFERENCE::MWENG,MWSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION MWENG, MWSI
+
+         MWENG = MWSI * 1.0D0                 
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                               MWENSI
+!CC             CONVERT MOLECULAR WEIGHT UNITS FROM (-) TO (-)
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for molecular weight.  Right now, the units are
+!CC               dimensionless in both cases so there is no conversion
+!CC               performed.  However, the routine is included in case
+!CC               we are manipulating different units in the future.
+!CC
+!CC Output Variables:
+!CC    MWSI =     Molecular Weight (-)
+!CC
+!CC Input Variables:
+!CC    MWENG =    Molecular Weight (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE MWENSI(MWSI,MWENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::MWENSI
+!MS$ ATTRIBUTES ALIAS:'_MWENSI'::MWENSI
+!MS$ ATTRIBUTES REFERENCE::MWSI,MWENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION MWENG, MWSI  
+        MWSI = MWENG * 1.0D0                   
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             NBPCONV
+!CC          CONVERT NORMAL BOILING POINT UNITS FROM C TO F
+!CC
+!CC Description:  This SUBROUTINE will convert normal boiling point
+!CC               from units of C to units of F.
+!CC
+!CC Output Variables:
+!CC    NBPENG =    Normal Boiling Point (F)
+!CC
+!CC Input Variables:
+!CC    NBPSI =     Normal Boiling Point (C)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE NBPCONV(NBPENG,NBPSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::NBPCONV
+!MS$ ATTRIBUTES ALIAS:'_NBPCONV'::NBPCONV
+!MS$ ATTRIBUTES REFERENCE::NBPENG,NBPSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION NBPENG, NBPSI
+
+         NBPENG = NBPSI * (9.0D0/5.0D0) + 32.0D0         
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                              NBPENSI
+!CC             CONVERT NORMAL BOILING POINT UNITS FROM F TO C
+!CC
+!CC Description:  This SUBROUTINE will convert normal boiling point from
+!CC               units of F to units of C.
+!CC
+!CC Output Variables:
+!CC    NBPSI =     Normal Boiling Point (C)
+!CC
+!CC Input Variables:
+!CC    NBPENG =    Normal Boiling Point (F)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE NBPENSI(NBPSI,NBPENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::NBPENSI
+!MS$ ATTRIBUTES ALIAS:'_NBPENSI'::NBPENSI
+!MS$ ATTRIBUTES REFERENCE::NBPSI,NBPENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION NBPENG, NBPSI
+        NBPSI = (NBPENG - 32D0) * 5D0 / 9D0
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             PRESENSI
+!CC             CONVERT PRESSURE UNITS FROM psi TO Pa
+!CC
+!CC Description:  This SUBROUTINE will convert pressure from
+!CC               units of psi to units of Pa.
+!CC
+!CC Output Variables:
+!CC    PRESSSI =     Vapor Pressure (Pa)
+!CC
+!CC Input Variables:
+!CC    PRESSENG =    Vapor Pressure (psi)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/21/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE PRESENSI(PRESSSI,PRESSENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PRESENSI
+!MS$ ATTRIBUTES ALIAS:'_PRESENSI'::PRESENSI
+!MS$ ATTRIBUTES REFERENCE::PRESSSI,PRESSENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION PRESSENG, PRESSSI
+
+         PRESSSI = PRESSENG * 1.01325D+05 / 14.696D0
+
+      END
+
+!CC********************************************************************
+
+
+!CC********************************************************************
+!CC
+!CC                             PRESSCNV
+!CC             CONVERT PRESSURE UNITS FROM Pa TO psi
+!CC
+!CC Description:  This SUBROUTINE will convert pressure from
+!CC               units of Pa to units of psi.
+!CC
+!CC Output Variables:
+!CC    PRESSENG =    Vapor Pressure (psi)
+!CC
+!CC Input Variables:
+!CC    PRESSSI =     Vapor Pressure (Pa)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/21/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE PRESSCNV(PRESSENG,PRESSSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PRESSCNV
+!MS$ ATTRIBUTES ALIAS:'_PRESSCNV'::PRESSCNV
+!MS$ ATTRIBUTES REFERENCE::PRESSENG,PRESSSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION PRESSENG, PRESSSI
+
+         PRESSENG = PRESSSI * 14.696D0 / 1.01325D+05
+
+      END
+
+!CC********************************************************************
+
+
+!CC********************************************************************
+!CC
+!CC                             RICONV
+!CC          CONVERT REFRACTIVE INDEX UNITS FROM (-) TO (-).
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for refractive index.  Right now, the units
+!CC               are dimensionless in both cases so there is no
+!CC               conversion performed.  However, the routine is
+!CC               included in case we are manipulating different
+!CC               units in the future.
+!CC
+!CC Output Variables:
+!CC    RIENG =    refractive index (-)
+!CC
+!CC Input Variables:
+!CC    RISI =     refractive index (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE RICONV(RIENG,RISI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::RICONV
+!MS$ ATTRIBUTES ALIAS:'_RICONV'::RICONV
+!MS$ ATTRIBUTES REFERENCE::RIENG,RISI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION RIENG, RISI
+
+         RIENG = RISI * 1.0D0                 
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                               RIENSI
+!CC             CONVERT REFRACTIVE INDEX UNITS FROM (-) TO (-)
+!CC
+!CC Description:  This SUBROUTINE will handle the conversion of units
+!CC               for refractive index.  Right now, the units are
+!CC               dimensionless in both cases so there is no conversion
+!CC               performed.  However, the routine is included in case
+!CC               we are manipulating different units in the future.
+!CC
+!CC Output Variables:
+!CC    RISI =     Refractive Index (-)
+!CC
+!CC Input Variables:
+!CC    RIENG =    Refractive Index (-)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE RIENSI(RISI,RIENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::RIENSI
+!MS$ ATTRIBUTES ALIAS:'_RIENSI'::RIENSI
+!MS$ ATTRIBUTES REFERENCE::RISI,RIENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION RIENG, RISI  
+        RISI = RIENG * 1.0D0                   
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             TEMPCNV
+!CC              CONVERT TEMPERATURE UNITS FROM C TO F
+!CC
+!CC Description:  This SUBROUTINE will convert a temperature
+!CC               from units of C to units of F.
+!CC
+!CC Output Variables:
+!CC    TEMPENG =  Temperature (F)
+!CC
+!CC Input Variables:
+!CC    TEMPSI =   Temperature (C)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE TEMPCNV(TEMPENG,TEMPSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::TEMPCNV
+!MS$ ATTRIBUTES ALIAS:'_TEMPCNV'::TEMPCNV
+!MS$ ATTRIBUTES REFERENCE::TEMPENG,TEMPSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION TEMPENG, TEMPSI
+
+         TEMPENG = TEMPSI * (9.0D0/5.0D0) + 32.0D0         
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                              TEMPENSI
+!CC               CONVERT TEMPERATURE UNITS FROM F TO C
+!CC
+!CC Description:  This SUBROUTINE will convert temperature from units of
+!CC               F to units of C.
+!CC
+!CC Output Variables:
+!CC    TEMPSI =     Temperature  (C)
+!CC
+!CC Input Variables:
+!CC    TEMPENG =    Temperature (F)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE TEMPENSI(TEMPSI,TEMPENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::TEMPENSI
+!MS$ ATTRIBUTES ALIAS:'_TEMPENSI'::TEMPENSI
+!MS$ ATTRIBUTES REFERENCE::TEMPSI,TEMPENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION TEMPENG, TEMPSI
+        TEMPSI = (TEMPENG - 32D0) * 5D0 / 9D0
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             VPCONV
+!CC          CONVERT VAPOR PRESSURE UNITS FROM Pa TO psi
+!CC
+!CC Description:  This SUBROUTINE will convert vapor pressure from
+!CC               units of Pa to units of psi.
+!CC
+!CC Output Variables:
+!CC    VPENG =    Vapor Pressure (psi)
+!CC
+!CC Input Variables:
+!CC    VPSI =     Vapor Pressure (Pa)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE VPCONV(VPENG,VPSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VPCONV
+!MS$ ATTRIBUTES ALIAS:'_VPCONV'::VPCONV
+!MS$ ATTRIBUTES REFERENCE::VPENG,VPSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION VPENG, VPSI
+
+         VPENG = VPSI * 14.696D0 / 1.01325D+05
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                               VPENSI
+!CC             CONVERT VAPOR PRESSURE UNITS FROM psi TO PA
+!CC
+!CC Description:  This SUBROUTINE will convert vapor pressure from units
+!CC               psi to units of PA.
+!CC
+!CC Output Variables:
+!CC    VPSI =     Vapor Pressure (PA)
+!CC
+!CC Input Variables:
+!CC    VPENG =    Vapor Pressure (psi)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE VPENSI(VPSI,VPENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VPENSI
+!MS$ ATTRIBUTES ALIAS:'_VPENSI'::VPENSI
+!MS$ ATTRIBUTES REFERENCE::VPSI,VPENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION VPENG, VPSI  
+        VPSI = VPENG *1.01325D+05 / 14.696D0
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC*******************************************************************
+!CC
+!CC                                WDENENSI
+!CC               CONVERT WATER DENSITY UNITS FROM LBm/Ft3 TO Kg/m3
+!CC
+!CC Description:  This SUBROUTINE will convert water density from units
+!CC               of LBm/Ft3 to units of Kg/m3
+!CC
+!CC Output Variables:
+!CC    WDSI =     Water Density Kg/m3
+!CC
+!CC Input Variables:
+!CC    WDENG =    Water Density LBm/Ft3
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE WDENENSI(WDSI,WDENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::WDENENSI
+!MS$ ATTRIBUTES ALIAS:'_WDENENSI'::WDENENSI
+!MS$ ATTRIBUTES REFERENCE::WDSI,WDENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION WDENG, WDSI
+        WDSI = WDENG * 35.3145D0 / 2.20462D0
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             WDENSCNV
+!CC            WATER DENSITY UNITS FROM Kg/m3 TO LBm/Ft3
+!CC
+!CC Description:  This SUBROUTINE will convert Water Density from
+!CC               units of Kg/m3 to units of LBm/Ft3.
+!CC
+!CC Output Variables:
+!CC    WDENG =    Water Density (LBm/Ft3)
+!CC
+!CC Input Variables:
+!CC    WDSI =     Water Density (Kg/m3)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE WDENSCNV(WDENG,WDSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::WDENSCNV
+!MS$ ATTRIBUTES ALIAS:'_WDENSCNV'::WDENSCNV
+!MS$ ATTRIBUTES REFERENCE::WDENG,WDSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION WDENG, WDSI
+
+         WDENG = WDSI * 2.20462D0/35.3145D0  
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                                WSTENSI
+!CC            CONVERT WATER SURFACE TENSION FROM LBf/Ft to N/m
+!CC
+!CC
+!CC Description:  This SUBROUTINE will convert water surface tension
+!CC               from units of LBf/Ft to N/m.
+!CC
+!CC Output Variables:
+!CC    WSTSI =     Water Surface Tension (N/m)
+!CC
+!CC Input Variables:
+!CC    WSTENG =    Water Surface Tension (LBf/Ft)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE WSTENSI(WSTSI,WSTENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::WSTENSI
+!MS$ ATTRIBUTES ALIAS:'_WSTENSI'::WSTENSI
+!MS$ ATTRIBUTES REFERENCE::WSTSI,WSTENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION WSTENG, WSTSI
+        WSTSI = WSTENG * 3.2808D0 / 0.22481D0                             
+      END
+ 
+!CC*******************************************************************
+
+
+       
+!CC********************************************************************
+!CC
+!CC                             WVISCCNV
+!CC            WATER VISCOSITY UNITS FROM Kg/m-sec To LBm/Ft-sec
+!CC
+!CC Description:  This SUBROUTINE will convert Water Viscosity from
+!CC               units of Kg/m-sec to units of LBm/Ft-sec.
+!CC
+!CC Output Variables:
+!CC    WVENG =    Water Viscosity (LBm/Ft-sec)
+!CC
+!CC Input Variables:
+!CC    WVSI =     Water Viscosity (Kg/m-sec)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/14/94)
+!CC
+!CC********************************************************************
+
+      SUBROUTINE WVISCCNV(WVENG,WVSI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::WVISCCNV
+!MS$ ATTRIBUTES ALIAS:'_WVISCCNV'::WVISCCNV
+!MS$ ATTRIBUTES REFERENCE::WVENG,WVSI
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION WVENG, WVSI
+
+         WVENG = WVSI * 2.20462D0/3.2808D0   
+
+      END
+
+!CC********************************************************************
+
+
+!CC*******************************************************************
+!CC
+!CC                                WVISENSI
+!CC          CONVERT WATER VISCOSITY  FROM LBm/Ft-sec TO Kg/m-sec
+!CC
+!CC
+!CC Description:  This SUBROUTINE will convert water viscosity from
+!CC               units of LBm/Ft-sec to Kg/m-sec.
+!CC
+!CC Output Variables:
+!CC    WVSI =     Water Viscosity (Kg/m-sec)
+!CC
+!CC Input Variables:
+!CC    WVENG =    Water Viscosity (LBm/Ft-sec)
+!CC
+!CC History:
+!CC    Function written by D. Hokanson (6/23/94)
+!CC
+!CC*******************************************************************
+
+      SUBROUTINE WVISENSI(WVSI,WVENG)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::WVISENSI
+!MS$ ATTRIBUTES ALIAS:'_WVISENSI'::WVISENSI
+!MS$ ATTRIBUTES REFERENCE::WVSI,WVENG
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION WVENG, WVSI
+        WVSI = WVENG * 3.2808D0 / 2.20462D0                             
+      END
+ 
+!CC*******************************************************************
+
+
+       

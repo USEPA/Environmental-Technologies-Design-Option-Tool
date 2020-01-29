@@ -1,0 +1,33 @@
+// MAKEHELP.BAT generated Help Map file.  Used by UPPMEM.HPJ. 
+ 
+// Commands (ID_* and IDM_*) 
+HID_MECH_SAVE                           0x103F6
+HID_EMP_SAVE                            0x10445
+HID_MODEL_MECH                          0x18009
+HID_MODEL_EMP                           0x1800A
+HID_MODEL_DESIGN                        0x1800B
+HID_MODEL_RUN                           0x1800C
+ 
+// Prompts (IDP_*) 
+ 
+// Resources (IDR_*) 
+HIDR_MAINFRAME                          0x20080
+HIDR_UPPMEMTYPE                         0x20081
+ 
+// Dialogs (IDD_*) 
+HIDD_ABOUTBOX                           0x20064
+HIDD_MECHANISTIC                        0x20083
+HIDD_EMPIRICAL                          0x20084
+HIDD_DESIGN                             0x20085
+HIDD_RUN                                0x20087
+HIDD_PARAM_RANGE                        0x20089
+HIDD_ADDTL_PARAMS                       0x2008B
+HIDD_PREDEF_MEMB                        0x2008D
+HIDD_DISTRIB                            0x2008E
+HIDD_ERROR                              0x2008F
+HIDD_EMP_DATA_ENTER                     0x20090
+HIDD_EMP_PICK_MODEL                     0x20092
+HIDD_FLUX_RANGE                         0x20093
+HIDD_PERM_PART_DISTRIB_DLG              0x20096
+ 
+// Frame Controls (IDW_*) 

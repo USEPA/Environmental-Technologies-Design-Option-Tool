@@ -1,0 +1,10 @@
+Line 20: Class SSPanel of control Label1 was not a loaded control class.
+Line 36: Class SSPanel of control Panel3D1 was not a loaded control class.
+Line 52: Class SSCommand of control cmdContinue was not a loaded control class.
+Line 60: Class SSCommand of control cmdExit was not a loaded control class.
+Line 21: The property name Caption in Label1 is invalid.
+Line 22: The property name FloodColor in Label1 is invalid.
+Line 37: The property name Caption in Panel3D1 is invalid.
+Line 38: The property name FloodColor in Panel3D1 is invalid.
+Line 53: The property name Caption in cmdContinue is invalid.
+Line 61: The property name Caption in cmdExit is invalid.

@@ -1,0 +1,5 @@
+Line 27: Class TabDlg.SSTab of control sstab_Main was not a loaded control class.
+Line 143: Class ComctlLib.ImageList of control il_Icons was not a loaded control class.
+Line 152: Class ComctlLib.ImageList of control il_SmallIcons was not a loaded control class.
+Line 176: Class ComctlLib.ListView of control lvGroup was not a loaded control class.
+Line 218: Class ComctlLib.StatusBar of control StatusBar_Main was not a loaded control class.

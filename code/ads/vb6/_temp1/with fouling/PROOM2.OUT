@@ -1,0 +1,44 @@
+
+
+
+
+NUMBER OF COMPONENTS, NCOMP............... =               1
+NUMBER OF RADIAL COLLOCATION POINTS, NC... =               7
+NUMBER OF AXIAL COLLOCATION POINTS, MC.... =              16
+CURRENT AXIAL ELEMENT, NUMBED............. =               1
+TOTAL NO. OF DIFFERENTIAL EQUATIONS, NEQ.. =             128
+ERROR FLAG FROM DGEAR, NFLAG.............. =               0
+RADIUS OF ADSORBENT PARTICLE, RAD (CM) ... =     0.3220000000    
+APPARENT DENSITY OF ADSORBENT, RHOP (G/ML) =     0.8030000000    
+ADSORBENT PARTICLE POROSITY, EPOR......... =     0.6000000000    
+BED LENGTH, L, (CM)....................... =      3.175006350    
+BED DIAMETER, DIA, (CM)................... =      41.14800000    
+ADSORBENT WEIGHT, WT (G).................. =      1200.000000    
+FLOWRATE, FLRT (ML/MIN)................... =      6371290.483    
+BED POROSITY, EBED........................ =     0.6460566486    
+PACKED BED CONTACT TIME, TAU (SEC)........ =     0.2568776896E-01
+EMPTY BED CONTACT TIME, EBCT (MIN)........ =     0.6626810258E-03
+
+
+ (*) Note K units are (umol/g)*(L/umol)^(1/n)
+
+ PARAMETERS FOR                               ?
+    MOLAR VOLUME AT BOILING PT.,VB (ML/GMOL). =      36.90000000    
+    MOLECULAR WEIGHT, XWT (DALTON)........... =      30.03000000    
+    INITIAL BULK CONCENTRATION, CBO (UMOL/L). =     0.1225441225E-01
+    FREUNDLICH K, XK, (*).................... =      269.7251832    
+    FREUNDLICH 1/N, XN....................... =     0.3340000000    
+    FILM TRANSFER COEFF., KF, (CM/SEC)....... =      3.588841190    
+    SURFACE DIFFUSION COEFF., DS, (CM^2/SEC). =     0.1249410664E-27
+    PORE DIFFUSION COEFF., DP, (CM^2/SEC).... =     0.8460347549E-01
+    TORTUOSITY CONSTANT, TOR................. =      2.000000000    
+    DS OVER DP, D............................ =     0.1476784088E-26
+    STANTON NUMBER, ST....................... =     0.1568512247    
+    SURFACE SOLUTE DIST. PARAMETER, DGS...... =      2225857.743    
+    SURFACE BIOT NUMBER, BIS................. =     0.2276515743E+22
+    SURFACE DIFFUSION MODULUS, EDS........... =     0.6889968813E-22
+    PORE DIFFUSION MODULUS, EDP.............. =     0.6889968813E-02
+    PORE SOLUTE DIST. PARAMETER, DGP......... =     0.3287111298    
+    PORE BIOT NUMBER, BIP.................... =      22.76515743    
+
+

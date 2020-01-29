@@ -1,0 +1,131 @@
+
+
+
+
+
+
+
+   Begin VB.Data Data2 
+   Begin VB.Data Data1 
+   Begin MSComDlg.CommonDialog CODFilePath 
+   Begin VB.CommandButton Calculate_button 
+   Begin VB.CommandButton CMDRemoveAll 
+   Begin VB.CommandButton CMDRemove 
+   Begin VB.CommandButton CMDAdd 
+   Begin MSDBCtls.DBList LSTUserList 
+   Begin MSDBCtls.DBList LSTSelList 
+   Begin vsOcx6LibCtl.vsIndexTab TABViewProp 
+      Begin vsOcx6LibCtl.vsElastic VideoSoftElastic1 
+         Index           =   0
+         Begin VB.Label PNLPropName 
+         Begin VB.Label PNLPropUnits 
+         Begin VB.Label PNLPropVal 
+             :
+             :
+             :
+             :
+      End
+      Begin vsOcx6LibCtl.vsElastic VSElastic2 
+         Begin VB.TextBox TXTFamily 
+         Begin VB.TextBox TXTSMILES 
+         Begin VB.TextBox TXTOpP 
+         Begin VB.TextBox TXTOpT 
+         Begin VB.TextBox TXTSource 
+         Begin VB.TextBox TXTFormula 
+         Begin VB.TextBox TXTCAS 
+         Begin VB.TextBox TXTName 
+         Begin VB.Label PNLPropName 
+         Begin VB.Label PNLPropName 
+             :
+             :
+             :
+      End
+      Begin vsOcx6LibCtl.vsElastic VSElastic1 
+         Index           =   5
+         Begin VB.Label PNLPropVal 
+         Begin VB.Label PNLPropVal 
+             :
+             :
+             :
+      End
+      Begin vsOcx6LibCtl.vsElastic VSElastic1 
+         Index           =   4
+         Begin VB.Label PNLPropVal 
+         Begin VB.Label PNLPropVal 
+             :
+             :
+             :
+      End
+      Begin vsOcx6LibCtl.vsElastic VSElastic1 
+         Index           =   3
+         Begin VB.Label PNLPropVal 
+         Begin VB.Label PNLPropVal 
+             :
+             :
+             :
+      End
+      Begin vsOcx6LibCtl.vsElastic VSElastic1 
+         Index           =   1
+         Begin VB.Label PNLPropVal 
+         Begin VB.Label PNLPropVal 
+             :
+             :
+             :
+      End
+      Begin vsOcx6LibCtl.vsElastic VSElastic1 
+         Index           =   0
+         Begin VB.Label PNLPropVal 
+         Begin VB.Label PNLPropVal 
+             :
+             :
+             :
+      End
+      Begin vsOcx6LibCtl.vsElastic VideoSoftElastic1 
+         Index           =   1
+         Begin VB.Label PNLPropVal 
+         Begin VB.Label PNLPropVal 
+             :
+             :
+             :
+      End
+      Begin vsOcx6LibCtl.vsElastic VSElastic1 
+         Index           =   2
+         Begin VB.Label PNLPropVal 
+         Begin VB.Label PNLPropVal 
+             :
+             :
+             :
+      End
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            Caption         =   "Fathead Minnow, 96h, EC50"
+            Caption         =   "Operating Pressure"
+            Caption         =   "Bioconcentration Factor"
+            Caption         =   "Biochemical Oxygen Demand"
+            Caption         =   "Lower Flamibility Limit"  (*)
+            Caption         =   "Critical Pressure"
+            Caption         =   "Heat of Formation"
+            Caption         =   "Daphnia Magna, 48h, LC50"
+            Caption         =   "Diffusivity in Water"
+
+
+
+
+
+
+'// REMOVED.
+

@@ -1,0 +1,17 @@
+Line 17: Class SSFrame of control Frame3D1 was not a loaded control class.
+Line 43: Class CommonDialog of control CMDialog1 was not a loaded control class.
+Line 47: Class SSCommand of control cdmEdit was not a loaded control class.
+Line 56: Class SSCommand of control cdmEdit was not a loaded control class.
+Line 65: Class SSCommand of control cdmEdit was not a loaded control class.
+Line 74: Class SSCommand of control cdmEdit was not a loaded control class.
+Line 83: Class SSCommand of control cmdOK was not a loaded control class.
+Line 100: Class Grid of control Grid1 was not a loaded control class.
+Line 107: Class SSCommand of control cmdCancel was not a loaded control class.
+Line 18: The property name Caption in Frame3D1 is invalid.
+Line 22: The property name ShadowColor in Frame3D1 is invalid.
+Line 48: The property name Caption in cdmEdit is invalid.
+Line 57: The property name Caption in cdmEdit is invalid.
+Line 66: The property name Caption in cdmEdit is invalid.
+Line 75: The property name Caption in cdmEdit is invalid.
+Line 84: The property name Caption in cmdOK is invalid.
+Line 108: The property name Caption in cmdCancel is invalid.

@@ -1,0 +1,8 @@
+ MS-PART .TXT                 < MEMBRANE SYSTEMS >                  04/23/1998
+
+                           PARTICLE SIZE DISTRIBUTION
+
+                        Size Class (æm)                Number/mL
+               [ 1]                .050               **********
+               [ 2]                .500               **********
+               [ 3]               5.000                   10000.

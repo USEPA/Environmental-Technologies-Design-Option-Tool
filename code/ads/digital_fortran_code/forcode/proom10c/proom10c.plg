@@ -1,0 +1,60 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: proom10c - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP674.tmp" with contents
+[
+/compile_only /include:".\Release/" /include:"Release/" /math_library:fast /nologo /module:".\Release/" /object:".\Release/" 
+"X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\dgear.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\diffun.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\front.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\psdm10b.for"
+]
+Creating command line "link.exe kernel32.lib /nologo /subsystem:console /incremental:no /pdb:".\Release/proom10c.pdb" /machine:I386 /out:".\Release/proom10c.exe"  .\Release\psdm10b.obj .\Release\front.obj .\Release\diffun.obj .\Release\dgear.obj .\imsllib.lib "
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\dgear.for
+df: info: Some interprocedural optimizations may be disabled when compiling into separate object files
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\diffun.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\diffun.for(69) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_VOL]
+      DOUBLE PRECISION ROOM_VOL
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\diffun.for(70) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_FLOWRATE]
+      DOUBLE PRECISION ROOM_FLOWRATE
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\diffun.for(71) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_C0]
+      DOUBLE PRECISION ROOM_C0(1:MXCOMP)
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\diffun.for(72) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_EMIT]
+      DOUBLE PRECISION ROOM_EMIT(1:MXCOMP)
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\front.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\psdm10b.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\psdm10b.for(206) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_VOL]
+      DOUBLE PRECISION ROOM_VOL
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\psdm10b.for(207) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_FLOWRATE]
+      DOUBLE PRECISION ROOM_FLOWRATE
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\psdm10b.for(208) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_C0]
+      DOUBLE PRECISION ROOM_C0(1:MXCOMP)
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\psdm10b.for(209) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_EMIT]
+      DOUBLE PRECISION ROOM_EMIT(1:MXCOMP)
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom10c\psdm10b.for(324) : Warning: Variable ERROR is used before its value has been defined
+      IF (error.NE.0) GOTO 9999
+----------^
+Linking...
+
+
+
+<h3>Results</h3>
+proom10c.exe - 0 error(s), 9 warning(s)
+</pre>
+</body>
+</html>

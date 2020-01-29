@@ -1,0 +1,70 @@
+Input data for the Equilibrium Colum Model
+
+From Data File : x:\cpas10\code\ads\vb5_internal\forcode\verify\ecm5\manual_8g\ecm_vb5.dat
+Date/time stamp: 09-03-1998 14:41:57
+
+Component                    K*      1/n    Init. Conc.   MW
+                                      -        mg/L      g/mol
+TETRACHLOROETHYLENE         245.600 0.458      0.20      165.83
+TOLUENE                     84.820  0.384      0.20      92.14
+TRICHLOROETHYLENE           60.100  0.416      0.20      131.39
+
+* K in (mg/g)*(L/mg)^(1/n)
+
+Bed Data:
+    Bed Length:            1.800E+00 m
+    Bed Diameter:          3.658E+00 m
+    Weight of GAC:         8.500E+03 kg
+    Inlet Flowrate:        3.156E-02 m³/s
+    EBCT:                  9.990E+00 mn
+
+    Temperature:           10.00 C
+    Water Density:         0.9998 g/cm³
+    Water Viscosity:       1.31E-02 g/cm.s
+
+Carbon Properties:
+    Name:                  Calgon F400 (12x40)
+    Apparent Density:      0.803 g/cm³
+    Particle Radius:       0.051300 cm
+    Porosity:              0.641
+    Shape Factor:          1.500
+
+
+Results for the Equilibrium Column Model
+
+Zone    Component                 BVF      Wave Vel. TC       Breakthrough
+                                            cm/s     m3/kg    days
+Zone 1  TETRACHLOROETHYLENE       1.88E+05  1.60E-06 4.18E+02 1.30E+03
+Zone 2  TOLUENE                   8.45E+04  3.55E-06 1.88E+02 5.86E+02
+Zone 3  TRICHLOROETHYLENE         4.77E+04  6.29E-06 1.06E+02 3.31E+02
+
+TC (Treatment Capacity) is in m³  / kg of GAC
+
+TETRACHLOROETHYLENE
+Zone    C/Co      C (mg/L)  Q (mg/L)
+Zone 1  1.00      0.20      83.64
+Zone 2  0.00E+00  0.00E+00  0.00E+00
+Zone 3  0.00E+00  0.00E+00  0.00E+00
+
+TOLUENE
+Zone    C/Co      C (mg/L)  Q (mg/L)
+Zone 1  1.00      0.20      26.33
+Zone 2  1.25      0.25      46.87
+Zone 3  0.00E+00  0.00E+00  0.00E+00
+
+TRICHLOROETHYLENE
+Zone    C/Co      C (mg/L)  Q (mg/L)
+Zone 1  1.00      0.20      5.54
+Zone 2  1.03      0.21      7.68
+Zone 3  1.89      0.38      40.06
+
+
+
+Mass Balance Results
+
+Component                    Percent Err.
+                             (%)
+TETRACHLOROETHYLENE          3.679E-04
+TOLUENE                      3.679E-04
+TRICHLOROETHYLENE            3.679E-04
+

@@ -1,0 +1,16 @@
+1                          MODULE_VERSION
+2                          NX, number of components
+0.440019951368801          VOID_I, bed void fraction, dim'less
+0.449663979050853          DEN_I, bed density, g/cm^3
+7.21962142908963           FLRT_I, superficial flow rate, gal/min-ft^2
+1                          INDEX_I(1), component index
+93.6063330463801           XK_I(1), Freundlich K, (umol/g)*(L/umol)^(1/n)
+0.4696                     XN_I(1), Freundlich 1/n, dim'less
+50000                      C0_I(1), influent concentration, ug/L
+131.39                     XMW_I(1), molecular weight, g/gmol
+2                          INDEX_I(2), component index
+33.5058093036729           XK_I(2), Freundlich K, (umol/g)*(L/umol)^(1/n)
+0.53                       XN_I(2), Freundlich 1/n, dim'less
+50000                      C0_I(2), influent concentration, ug/L
+133.4                      XMW_I(2), molecular weight, g/gmol
+123456                     EOFTESTMARKER

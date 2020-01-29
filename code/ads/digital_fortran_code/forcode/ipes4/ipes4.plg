@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ipes4 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP85E.tmp" with contents
+[
+/compile_only /include:"ipes4___Win32_Release/" /nologo /warn:nofileopt /module:"ipes4___Win32_Release/" /object:"ipes4___Win32_Release/" 
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\speq.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\hofman.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\FRONT.FOR"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\error.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\adliq.for"
+]
+Creating temporary file "C:\TEMP\RSP85F.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"ipes4___Win32_Release/ipes4.pdb" /machine:I386 /out:"ipes4___Win32_Release/ipes4.exe" 
+.\ipes4___Win32_Release\adliq.obj
+.\ipes4___Win32_Release\error.obj
+.\ipes4___Win32_Release\FRONT.OBJ
+.\ipes4___Win32_Release\hofman.obj
+.\ipes4___Win32_Release\speq.obj
+]
+Creating command line "link.exe @C:\TEMP\RSP85F.tmp"
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\speq.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\hofman.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\FRONT.FOR
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\error.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes4\adliq.for
+Linking...
+
+
+
+<h3>Results</h3>
+ipes4.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

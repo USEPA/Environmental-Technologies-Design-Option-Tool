@@ -1,0 +1,159 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: stepp - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP621.tmp" with contents
+[
+/compile_only /include:".\Release/" /include:"Release/" /math_library:fast /nologo /threads /module:".\Release/" /object:".\Release/" 
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\ACCALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\AIRDENS.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\AIRVISC.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\AQSCALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\AQSFIT.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\AQSOL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\BINPAR.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\DBDENS.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\DIFGWL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\DIFLHL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\DIFLPOL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\DIFLWC.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\ERROR.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\FGRP.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\FGRPCALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\GETGAM.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\H2ODENS.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\H2OST.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\H2OVISC.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\HC1CALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\HC2CALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\HCDBCONV.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\HENFIT.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\HENRY.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\INITVS.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\KOWCALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\LDDBCALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\LDGCCALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\MOLWT.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\MWTCALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\NEWTON.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\ORGDENS.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\PARMS.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\PARTC.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\REGRESS.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\UNIMOD.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\VAPORP.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\VBBPCALL.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\VBMATT.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\VBMSCH.F90"
+"X:\etdot10\code\stepp\digital_fortran_code\stepp\VPRCALL.F90"
+]
+Creating temporary file "C:\TEMP\RSP622.tmp" with contents
+[
+kernel32.lib /nologo /subsystem:windows /dll /incremental:no /pdb:".\Release/stepp.pdb" /machine:I386 /out:".\Release/stepp.dll" /implib:".\Release/stepp.lib" 
+.\Release\VPRCALL.OBJ
+.\Release\VBMSCH.OBJ
+.\Release\VBMATT.OBJ
+.\Release\VBBPCALL.OBJ
+.\Release\VAPORP.OBJ
+.\Release\UNIMOD.OBJ
+.\Release\REGRESS.OBJ
+.\Release\PARTC.OBJ
+.\Release\PARMS.OBJ
+.\Release\ORGDENS.OBJ
+.\Release\NEWTON.OBJ
+.\Release\MWTCALL.OBJ
+.\Release\MOLWT.OBJ
+.\Release\LDGCCALL.OBJ
+.\Release\LDDBCALL.OBJ
+.\Release\KOWCALL.OBJ
+.\Release\INITVS.OBJ
+.\Release\HENRY.OBJ
+.\Release\HENFIT.OBJ
+.\Release\HCDBCONV.OBJ
+.\Release\HC2CALL.OBJ
+.\Release\HC1CALL.OBJ
+.\Release\H2OVISC.OBJ
+.\Release\H2OST.OBJ
+.\Release\H2ODENS.OBJ
+.\Release\GETGAM.OBJ
+.\Release\FGRPCALL.OBJ
+.\Release\FGRP.OBJ
+.\Release\ERROR.OBJ
+.\Release\DIFLWC.OBJ
+.\Release\DIFLPOL.OBJ
+.\Release\DIFLHL.OBJ
+.\Release\DIFGWL.OBJ
+.\Release\DBDENS.OBJ
+.\Release\BINPAR.OBJ
+.\Release\AQSOL.OBJ
+.\Release\AQSFIT.OBJ
+.\Release\AQSCALL.OBJ
+.\Release\AIRVISC.OBJ
+.\Release\AIRDENS.OBJ
+.\Release\ACCALL.OBJ
+]
+Creating command line "link.exe @C:\TEMP\RSP622.tmp"
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\stepp\digital_fortran_code\stepp\ACCALL.F90
+df: info: Some interprocedural optimizations may be disabled when compiling into separate object files
+X:\etdot10\code\stepp\digital_fortran_code\stepp\AIRDENS.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\AIRVISC.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\AQSCALL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\AQSFIT.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\AQSOL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\AQSOL.F90(55) : Warning: Variable IRR is used before its value has been defined
+      ELSE IF (IRR.EQ.-2) THEN
+---------------^
+X:\etdot10\code\stepp\digital_fortran_code\stepp\BINPAR.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\DBDENS.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\DIFGWL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\DIFLHL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\DIFLPOL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\DIFLWC.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\ERROR.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\FGRP.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\FGRPCALL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\GETGAM.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\H2ODENS.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\H2OST.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\H2OVISC.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\HC1CALL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\HC2CALL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\HCDBCONV.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\HENFIT.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\HENRY.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\INITVS.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\KOWCALL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\LDDBCALL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\LDGCCALL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\MOLWT.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\MWTCALL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\NEWTON.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\ORGDENS.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\PARMS.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\PARTC.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\REGRESS.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\UNIMOD.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\VAPORP.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\VBBPCALL.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\VBBPCALL.F90(81) : Warning: Variable NERR is used before its value has been defined
+         IF (NERR.EQ.-1) THEN
+-------------^
+X:\etdot10\code\stepp\digital_fortran_code\stepp\VBMATT.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\VBMSCH.F90
+X:\etdot10\code\stepp\digital_fortran_code\stepp\VPRCALL.F90
+Linking...
+   Creating library .\Release/stepp.lib and object .\Release/stepp.exp
+
+
+
+<h3>Results</h3>
+stepp.dll - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

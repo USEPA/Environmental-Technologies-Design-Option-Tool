@@ -1,0 +1,1343 @@
+
+
+
+
+
+4:35 PM 6/17/99  ----  Made this copy:
+- File = isotherm.mdb
+- Source Directory = X:\etdot10\code\ads\comm\990617_conversion_of_isotherm_database\vb6\data\in
+- Destination Directory = X:\etdot10\code\ads\comm\990617_conversion_of_isotherm_database\vb6\data\out
+
+
+
+
+
+
+
+
+6/17/99 4:35:35 PM: Started Scan_Isotherms_Table().
+6/17/99 4:35:35 PM: `Succeeded`,1112,`Acifluorofen`,`0`,1112,`Acifluorofen`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,1113,`Acifluorofen`,`0`,1113,`Acifluorofen`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,1114,`Acifluorofen`,`0`,1114,`Acifluorofen`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,1127,`1,1,1-Trichloropropanone`,`0`,1127,`1,1,1-Trichloropropanone`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,872,`1,1-DIMETHYLCYCLOPENTANE`,`0`,872,`1,1-DIMETHYLCYCLOPENTANE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,840,`1,2-PENTADIENE`,`0`,840,`1,2-PENTADIENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,857,`1-METHYLCYCLOPENTENE`,`0`,857,`1-METHYLCYCLOPENTENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,838,`1-PENTENE-3-YNE`,`0`,838,`1-PENTENE-3-YNE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,839,`1-PENTENE-4-YNE`,`0`,839,`1-PENTENE-4-YNE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,843,`2,3-PENTADIENE`,`0`,843,`2,3-PENTADIENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,877,`2-ETHYL-1-PENTENE`,`0`,877,`2-ETHYL-1-PENTENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,878,`3-ETHYL-1-PENTENE`,`0`,878,`3-ETHYL-1-PENTENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,844,`3-METHYL-1-BUTYNE`,`0`,844,`3-METHYL-1-BUTYNE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,879,`3-METHYL-1-HEXENE`,`0`,879,`3-METHYL-1-HEXENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,865,`3-METHYL-CIS-2-PENTENE`,`0`,865,`3-METHYL-CIS-2-PENTENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,858,`3-METHYLCYCLOPENTENE`,`0`,858,`3-METHYLCYCLOPENTENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,880,`4-METHYL-1-HEXENE`,`0`,880,`4-METHYL-1-HEXENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,866,`4-METHYL-TRANS-2-PENTENE`,`0`,866,`4-METHYL-TRANS-2-PENTENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,859,`4-METHYLCYCLOPENTENE`,`0`,859,`4-METHYLCYCLOPENTENE`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,881,`5-METHYL-1-HEXANOL`,`0`,881,`5-METHYL-1-HEXANOL`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,1116,`Acifluorofen`,`0`,1116,`Acifluorofen`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,701,`Azosulfamide`,`0`,701,`Azosulfamide`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,700,`Azosulfamide`,`0`,700,`Azosulfamide`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,699,`Azosulfamide`,`0`,699,`Azosulfamide`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,698,`Azosulfamide`,`0`,698,`Azosulfamide`,`0`
+6/17/99 4:35:35 PM: `Succeeded`,703,`Azosulfamide`,`0`,703,`Azosulfamide`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,704,`Azosulfamide`,`0`,704,`Azosulfamide`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,705,`Azosulfamide`,`0`,705,`Azosulfamide`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,697,`Azosulfamide`,`0`,697,`Azosulfamide`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,696,`Azosulfamide`,`0`,696,`Azosulfamide`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,702,`Azosulfamide`,`0`,702,`Azosulfamide`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,870,`BUTYL-ETHYLSULFIDE`,`0`,870,`BUTYL-ETHYLSULFIDE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,852,`BUTYL-METHYLSULFIDE`,`0`,852,`BUTYL-METHYLSULFIDE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,1117,`Chloral hydrate`,`0`,1117,`Chloral hydrate`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,1118,`Chloropicrin`,`0`,1118,`Chloropicrin`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,586,`Chromium(III)`,`0`,586,`Chromium(III)`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,860,`CIS,TRANS-2,4-HEXADIENE`,`0`,860,`CIS,TRANS-2,4-HEXADIENE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,873,`CIS-1,2-DIMETHYLCYCLOPENTANE`,`0`,873,`CIS-1,2-DIMETHYLCYCLOPENTANE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,875,`CIS-1,3-DIMETHYLCYCLOPENTANE`,`0`,875,`CIS-1,3-DIMETHYLCYCLOPENTANE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,841,`CIS-1,3-PENTADIENE`,`0`,841,`CIS-1,3-PENTADIENE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,863,`CIS-2-HEXENE`,`0`,863,`CIS-2-HEXENE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,864,`CIS-3-HEXENE`,`0`,864,`CIS-3-HEXENE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,1119,`Dichloroacetic acid`,`0`,1119,`Dichloroacetic acid`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,1120,`Dichloroacetonitrile`,`0`,1120,`Dichloroacetonitrile`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,709,`Dichlorophenol`,`0`,709,`Dichlorophenol`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,800,`Diquat`,`0`,800,`Diquat`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,1122,`Endothall`,`0`,1122,`Endothall`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,580,`EO 12.5 oleyl ether`,`0`,580,`EO 12.5 oleyl ether`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,582,`EO 31.0 oleyl ether`,`0`,582,`EO 31.0 oleyl ether`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,853,`ETHYL-PROPYLSULFIDE`,`0`,853,`ETHYL-PROPYLSULFIDE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,850,`ETHYLENE GLYCOL MONO-PROPYL ETHER`,`0`,850,`ETHYLENE GLYCOL MONO-PROPYL ETHER`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,1123,`Ethylene thiourea`,`0`,1123,`Ethylene thiourea`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,405,`Humic acids`,`0`,405,`Humic acids`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,406,`Humic acids`,`0`,406,`Humic acids`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,404,`Humic acids`,`0`,404,`Humic acids`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,407,`Humic acids`,`0`,407,`Humic acids`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,587,`Mercuric(II)`,`0`,587,`Mercuric(II)`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,1124,`Methomyl`,`0`,1124,`Methomyl`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,1129,`Methyl ethyl ketone`,`0`,1129,`Methyl ethyl ketone`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,849,`METHYL ISOBUTYL ETHER`,`0`,849,`METHYL ISOBUTYL ETHER`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,845,`METHYL ISOPROPENYL KETONE`,`0`,845,`METHYL ISOPROPENYL KETONE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,848,`METHYL SEC-BUTYL ETHER`,`0`,848,`METHYL SEC-BUTYL ETHER`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,868,`METHYL TERT-PENTYL ETHER`,`0`,868,`METHYL TERT-PENTYL ETHER`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,856,`METHYLCYCLOPENTADIENE`,`0`,856,`METHYLCYCLOPENTADIENE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,869,`N-HEXYLMERCAPTAN`,`0`,869,`N-HEXYLMERCAPTAN`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,846,`N-METHYL-2-PYRROLIDONE`,`0`,846,`N-METHYL-2-PYRROLIDONE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,867,`N-PENTYL FORMATE`,`0`,867,`N-PENTYL FORMATE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,851,`N-PENTYL MERCAPTAN`,`0`,851,`N-PENTYL MERCAPTAN`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,854,`N-PENTYLAMINE`,`0`,854,`N-PENTYLAMINE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,862,`N-PROPYL ACRYLATE`,`0`,862,`N-PROPYL ACRYLATE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,871,`N-PROPYL METHACRYLATE`,`0`,871,`N-PROPYL METHACRYLATE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,493,`Perseitol`,`0`,493,`Perseitol`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,745,`SCMT`,`0`,745,`SCMT`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,855,`THENYL MERCAPTAN`,`0`,855,`THENYL MERCAPTAN`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,847,`THIACYCLOHEXANE`,`0`,847,`THIACYCLOHEXANE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,861,`TRANS,TRANS-2,4-HEXADIENE`,`0`,861,`TRANS,TRANS-2,4-HEXADIENE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,874,`TRANS-1,2-DIMETHYLCYCLOPENTANE`,`0`,874,`TRANS-1,2-DIMETHYLCYCLOPENTANE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,876,`TRANS-1,3-DIMETHYLCYCLOPENTANE`,`0`,876,`TRANS-1,3-DIMETHYLCYCLOPENTANE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,842,`TRANS-1,3-PENTADIENE`,`0`,842,`TRANS-1,3-PENTADIENE`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,1126,`Trichloroacetic acid`,`0`,1126,`Trichloroacetic acid`,`0`
+6/17/99 4:35:36 PM: `Succeeded`,114,`DDT`,`50293`,114,`DDT`,`50293`
+6/17/99 4:35:36 PM: `Succeeded`,73,`Benzo(a)pyrene`,`50328`,73,`Benzo(a)pyrene`,`50328`
+6/17/99 4:35:36 PM: `Succeeded`,341,`5-Bromo-uracil`,`51207`,341,`5-Bromo-uracil`,`51207`
+6/17/99 4:35:36 PM: `Succeeded`,342,`5-Bromo-uracil`,`51207`,342,`5-Bromo-uracil`,`51207`
+6/17/99 4:35:36 PM: `Succeeded`,345,`5-Fluoro-uracil`,`51218`,345,`5-Fluoro-uracil`,`51218`
+6/17/99 4:35:36 PM: `Succeeded`,346,`5-Fluoro-uracil`,`51218`,346,`5-Fluoro-uracil`,`51218`
+6/17/99 4:35:36 PM: `Succeeded`,239,`2,4-Dinitro-phenol`,`51285`,239,`2,4-Dinitro-phenol`,`51285`
+6/17/99 4:35:36 PM: `Succeeded`,242,`2,4-Dinitro-phenol`,`51285`,242,`2,4-Dinitro-phenol`,`51285`
+6/17/99 4:35:36 PM: `Succeeded`,240,`2,4-Dinitro-phenol`,`51285`,240,`2,4-Dinitro-phenol`,`51285`
+6/17/99 4:35:36 PM: `Succeeded`,241,`2,4-Dinitro-phenol`,`51285`,241,`2,4-Dinitro-phenol`,`51285`
+6/17/99 4:35:36 PM: `Succeeded`,103,`Dibenzo(a,h)anthrazene`,`53703`,103,`Dibenzo(a,h)anthrazene`,`53703`
+6/17/99 4:35:36 PM: `Succeeded`,159,`2-Acetamino-fluorene`,`53963`,159,`2-Acetamino-fluorene`,`53963`
+6/17/99 4:35:36 PM: `Succeeded`,630,`Carbon tetrachloride`,`56235`,630,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,410,`Carbon tetrachloride`,`56235`,410,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,409,`Carbon tetrachloride`,`56235`,409,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,762,`Carbon tetrachloride`,`56235`,762,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,408,`Carbon tetrachloride`,`56235`,408,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,424,`Carbon tetrachloride`,`56235`,424,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,426,`Carbon tetrachloride`,`56235`,426,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,425,`Carbon tetrachloride`,`56235`,425,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,411,`Carbon tetrachloride`,`56235`,411,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,422,`Carbon tetrachloride`,`56235`,422,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,423,`Carbon tetrachloride`,`56235`,423,`Carbon tetrachloride`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,175,`Tetrachloro-methane`,`56235`,175,`Tetrachloro-methane`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,178,`Tetrachloro-methane`,`56235`,178,`Tetrachloro-methane`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,177,`Tetrachloro-methane`,`56235`,177,`Tetrachloro-methane`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,176,`Tetrachloro-methane`,`56235`,176,`Tetrachloro-methane`,`56235`
+6/17/99 4:35:36 PM: `Succeeded`,545,`Glycine`,`56406`,545,`Glycine`,`56406`
+6/17/99 4:35:36 PM: `Succeeded`,555,`L-Serine`,`56451`,555,`L-Serine`,`56451`
+6/17/99 4:35:36 PM: `Succeeded`,488,`Glycerol`,`56815`,488,`Glycerol`,`56815`
+6/17/99 4:35:36 PM: `Succeeded`,559,`L-Aspartic acid`,`56848`,559,`L-Aspartic acid`,`56848`
+6/17/99 4:35:36 PM: `Succeeded`,550,`L-Glutamine`,`56859`,550,`L-Glutamine`,`56859`
+6/17/99 4:35:36 PM: `Succeeded`,556,`L-Glutamic acid`,`56860`,556,`L-Glutamic acid`,`56860`
+6/17/99 4:35:36 PM: `Succeeded`,536,`D-(-)-Fructose`,`57487`,536,`D-(-)-Fructose`,`57487`
+6/17/99 4:35:36 PM: `Succeeded`,542,`(+)-Sucrose`,`57501`,542,`(+)-Sucrose`,`57501`
+6/17/99 4:35:36 PM: `Succeeded`,505,`1,2-Propanediol`,`57556`,505,`1,2-Propanediol`,`57556`
+6/17/99 4:35:36 PM: `Succeeded`,95,`Chlordan`,`57749`,95,`Chlordan`,`57749`
+6/17/99 4:35:36 PM: `Succeeded`,531,`D-(+)-Xylose`,`58866`,531,`D-(+)-Xylose`,`58866`
+6/17/99 4:35:36 PM: `Succeeded`,805,`Lindane`,`58899`,805,`Lindane`,`58899`
+6/17/99 4:35:36 PM: `Succeeded`,806,`Lindane`,`58899`,806,`Lindane`,`58899`
+6/17/99 4:35:36 PM: `Succeeded`,98,`Lindane`,`58899`,98,`Lindane`,`58899`
+6/17/99 4:35:36 PM: `Succeeded`,167,`Lindane`,`58899`,167,`Lindane`,`58899`
+6/17/99 4:35:36 PM: `Succeeded`,537,`D-(+)-Galactose`,`59234`,537,`D-(+)-Galactose`,`59234`
+6/17/99 4:35:36 PM: `Succeeded`,332,`2-Chloro-5-hydroxy-toluene`,`59507`,332,`2-Chloro-5-hydroxy-toluene`,`59507`
+6/17/99 4:35:36 PM: `Succeeded`,331,`2-Chloro-5-hydroxy-toluene`,`59507`,331,`2-Chloro-5-hydroxy-toluene`,`59507`
+6/17/99 4:35:36 PM: `Succeeded`,333,`2-Chloro-5-hydroxy-toluene`,`59507`,333,`2-Chloro-5-hydroxy-toluene`,`59507`
+6/17/99 4:35:36 PM: `Succeeded`,28,`4-Dimethyl-amino-azobenzene`,`60117`,28,`4-Dimethyl-amino-azobenzene`,`60117`
+6/17/99 4:35:36 PM: `Succeeded`,549,`L-Tyrosine`,`60184`,549,`L-Tyrosine`,`60184`
+6/17/99 4:35:36 PM: `Succeeded`,474,`Diethyl ether`,`60297`,474,`Diethyl ether`,`60297`
+6/17/99 4:35:36 PM: `Succeeded`,430,`Dieldrin`,`60571`,430,`Dieldrin`,`60571`
+6/17/99 4:35:36 PM: `Succeeded`,431,`Dieldrin`,`60571`,431,`Dieldrin`,`60571`
+6/17/99 4:35:36 PM: `Succeeded`,104,`Dieldrin`,`60571`,104,`Dieldrin`,`60571`
+6/17/99 4:35:36 PM: `Succeeded`,546,`L-Leucine`,`61905`,546,`L-Leucine`,`61905`
+6/17/99 4:35:36 PM: `Succeeded`,657,`p-Nitrobenzoic acid`,`62237`,657,`p-Nitrobenzoic acid`,`62237`
+6/17/99 4:35:36 PM: `Succeeded`,656,`p-Nitrobenzoic acid`,`62237`,656,`p-Nitrobenzoic acid`,`62237`
+6/17/99 4:35:36 PM: `Succeeded`,655,`p-Nitrobenzoic acid`,`62237`,655,`p-Nitrobenzoic acid`,`62237`
+6/17/99 4:35:36 PM: `Succeeded`,654,`p-Nitrobenzoic acid`,`62237`,654,`p-Nitrobenzoic acid`,`62237`
+6/17/99 4:35:36 PM: `Succeeded`,652,`p-Nitrobenzoic acid`,`62237`,652,`p-Nitrobenzoic acid`,`62237`
+6/17/99 4:35:36 PM: `Succeeded`,653,`p-Nitrobenzoic acid`,`62237`,653,`p-Nitrobenzoic acid`,`62237`
+6/17/99 4:35:36 PM: `Succeeded`,308,`Phenylmercury acetate`,`62384`,308,`Phenylmercury acetate`,`62384`
+6/17/99 4:35:36 PM: `Succeeded`,309,`Phenylmercury acetate`,`62384`,309,`Phenylmercury acetate`,`62384`
+6/17/99 4:35:36 PM: `Succeeded`,964,`ANILINE`,`62533`,964,`ANILINE`,`62533`
+6/17/99 4:35:36 PM: `Succeeded`,509,`Aniline`,`62533`,509,`Aniline`,`62533`
+6/17/99 4:35:36 PM: `Succeeded`,196,`N-Dimethylnitrosamine`,`62759`,196,`N-Dimethylnitrosamine`,`62759`
+6/17/99 4:35:36 PM: `Succeeded`,561,`L-Methionine`,`63683`,561,`L-Methionine`,`63683`
+6/17/99 4:35:36 PM: `Succeeded`,547,`L-Phenylalanine`,`63912`,547,`L-Phenylalanine`,`63912`
+6/17/99 4:35:36 PM: `Succeeded`,733,`Ethanol`,`64175`,733,`Ethanol`,`64175`
+6/17/99 4:35:36 PM: `Succeeded`,124,`Ethanol`,`64175`,124,`Ethanol`,`64175`
+6/17/99 4:35:36 PM: `Succeeded`,727,`Ethanol`,`64175`,727,`Ethanol`,`64175`
+6/17/99 4:35:36 PM: `Succeeded`,739,`Ethanol`,`64175`,739,`Ethanol`,`64175`
+6/17/99 4:35:36 PM: `Succeeded`,712,`Ethanol`,`64175`,712,`Ethanol`,`64175`
+6/17/99 4:35:36 PM: `Succeeded`,721,`Ethanol`,`64175`,721,`Ethanol`,`64175`
+6/17/99 4:35:36 PM: `Succeeded`,347,`5-Methyl-uracil`,`65714`,347,`5-Methyl-uracil`,`65714`
+6/17/99 4:35:36 PM: `Succeeded`,65,`Benzoic acid`,`65850`,65,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,57,`Benzoic acid`,`65850`,57,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,56,`Benzoic acid`,`65850`,56,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,64,`Benzoic acid`,`65850`,64,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,67,`Benzoic acid`,`65850`,67,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,58,`Benzoic acid`,`65850`,58,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,711,`Benzoic acid`,`65850`,711,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,66,`Benzoic acid`,`65850`,66,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,507,`Benzoic acid`,`65850`,507,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,61,`Benzoic acid`,`65850`,61,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,62,`Benzoic acid`,`65850`,62,`Benzoic acid`,`65850`
+6/17/99 4:35:36 PM: `Succeeded`,63,`Benzoic acid`,`65850`,63,`Benzoic acid`,`65850`
+6/17/99 4:35:37 PM: `Succeeded`,59,`Benzoic acid`,`65850`,59,`Benzoic acid`,`65850`
+6/17/99 4:35:37 PM: `Succeeded`,60,`Benzoic acid`,`65850`,60,`Benzoic acid`,`65850`
+6/17/99 4:35:37 PM: `Succeeded`,340,`Uracil`,`66228`,340,`Uracil`,`66228`
+6/17/99 4:35:37 PM: `Succeeded`,1000,`1-HEXANAL`,`66251`,1000,`1-HEXANAL`,`66251`
+6/17/99 4:35:37 PM: `Succeeded`,94,`Choline chloride`,`67481`,94,`Choline chloride`,`67481`
+6/17/99 4:35:37 PM: `Succeeded`,376,`Acetone`,`67641`,376,`Acetone`,`67641`
+6/17/99 4:35:37 PM: `Succeeded`,476,`Acetone`,`67641`,476,`Acetone`,`67641`
+6/17/99 4:35:37 PM: `Succeeded`,616,`Acetone`,`67641`,616,`Acetone`,`67641`
+6/17/99 4:35:37 PM: `Succeeded`,617,`Acetone`,`67641`,617,`Acetone`,`67641`
+6/17/99 4:35:37 PM: `Succeeded`,378,`Acetone`,`67641`,378,`Acetone`,`67641`
+6/17/99 4:35:37 PM: `Succeeded`,377,`Acetone`,`67641`,377,`Acetone`,`67641`
+6/17/99 4:35:37 PM: `Succeeded`,615,`Acetone`,`67641`,615,`Acetone`,`67641`
+6/17/99 4:35:37 PM: `Succeeded`,767,`Chloroform`,`67663`,767,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,632,`Chloroform`,`67663`,632,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,628,`Chloroform`,`67663`,628,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,633,`Chloroform`,`67663`,633,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,610,`Chloroform`,`67663`,610,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,766,`Chloroform`,`67663`,766,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,600,`Chloroform`,`67663`,600,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,663,`Chloroform`,`67663`,663,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,607,`Chloroform`,`67663`,607,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,388,`Chloroform`,`67663`,388,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,357,`Chloroform`,`67663`,357,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,358,`Chloroform`,`67663`,358,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,359,`Chloroform`,`67663`,359,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,360,`Chloroform`,`67663`,360,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,361,`Chloroform`,`67663`,361,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,362,`Chloroform`,`67663`,362,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,356,`Chloroform`,`67663`,356,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,355,`Chloroform`,`67663`,355,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,363,`Chloroform`,`67663`,363,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,395,`Chloroform`,`67663`,395,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,597,`Chloroform`,`67663`,597,`Chloroform`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,186,`Trichloro-methane`,`67663`,186,`Trichloro-methane`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,185,`Trichloro-methane`,`67663`,185,`Trichloro-methane`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,184,`Trichloro-methane`,`67663`,184,`Trichloro-methane`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,183,`Trichloro-methane`,`67663`,183,`Trichloro-methane`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,182,`Trichloro-methane`,`67663`,182,`Trichloro-methane`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,181,`Trichloro-methane`,`67663`,181,`Trichloro-methane`,`67663`
+6/17/99 4:35:37 PM: `Succeeded`,115,`Hexachloro-ethane`,`67721`,115,`Hexachloro-ethane`,`67721`
+6/17/99 4:35:37 PM: `Succeeded`,491,`D-(-)-Mannitol`,`69658`,491,`D-(-)-Mannitol`,`69658`
+6/17/99 4:35:37 PM: `Succeeded`,523,`o-Hydroxybenzoic acid`,`69727`,523,`o-Hydroxybenzoic acid`,`69727`
+6/17/99 4:35:37 PM: `Succeeded`,560,`L-Asparagine`,`70473`,560,`L-Asparagine`,`70473`
+6/17/99 4:35:37 PM: `Succeeded`,548,`L-Histidine`,`71001`,548,`L-Histidine`,`71001`
+6/17/99 4:35:37 PM: `Succeeded`,444,`1-Propanol`,`71238`,444,`1-Propanol`,`71238`
+6/17/99 4:35:37 PM: `Succeeded`,102,`Cytosine`,`71307`,102,`Cytosine`,`71307`
+6/17/99 4:35:37 PM: `Succeeded`,445,`1-Butanol`,`71363`,445,`1-Butanol`,`71363`
+6/17/99 4:35:37 PM: `Succeeded`,943,`1-PENTANOL`,`71410`,943,`1-PENTANOL`,`71410`
+6/17/99 4:35:37 PM: `Succeeded`,446,`1-Pentanol`,`71410`,446,`1-Pentanol`,`71410`
+6/17/99 4:35:37 PM: `Succeeded`,420,`Benzene`,`71432`,420,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,415,`Benzene`,`71432`,415,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,414,`Benzene`,`71432`,414,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,413,`Benzene`,`71432`,413,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,412,`Benzene`,`71432`,412,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,421,`Benzene`,`71432`,421,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,961,`BENZENE`,`71432`,961,`BENZENE`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,381,`Benzene`,`71432`,381,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,383,`Benzene`,`71432`,383,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,380,`Benzene`,`71432`,380,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,636,`Benzene`,`71432`,636,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,620,`Benzene`,`71432`,620,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,619,`Benzene`,`71432`,619,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,618,`Benzene`,`71432`,618,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,390,`Benzene`,`71432`,390,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,31,`Benzene`,`71432`,31,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,29,`Benzene`,`71432`,29,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,753,`Benzene`,`71432`,753,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,379,`Benzene`,`71432`,379,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,30,`Benzene`,`71432`,30,`Benzene`,`71432`
+6/17/99 4:35:37 PM: `Succeeded`,392,`1,1,1-TCA`,`71556`,392,`1,1,1-TCA`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,385,`1,1,1-TCA`,`71556`,385,`1,1,1-TCA`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,117,`1,1,1-Trichloro-ethane`,`71556`,117,`1,1,1-Trichloro-ethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,118,`1,1,1-Trichloro-ethane`,`71556`,118,`1,1,1-Trichloro-ethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,119,`1,1,1-Trichloro-ethane`,`71556`,119,`1,1,1-Trichloro-ethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,120,`1,1,1-Trichloro-ethane`,`71556`,120,`1,1,1-Trichloro-ethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,121,`1,1,1-Trichloro-ethane`,`71556`,121,`1,1,1-Trichloro-ethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,824,`1,1,1-Trichloroethane`,`71556`,824,`1,1,1-Trichloroethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,825,`1,1,1-Trichloroethane`,`71556`,825,`1,1,1-Trichloroethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,827,`1,1,1-Trichloroethane`,`71556`,827,`1,1,1-Trichloroethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,826,`1,1,1-Trichloroethane`,`71556`,826,`1,1,1-Trichloroethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,123,`1,1,2-Trichloro-ethane`,`71556`,123,`1,1,2-Trichloro-ethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,122,`1,1,2-Trichloro-ethane`,`71556`,122,`1,1,2-Trichloro-ethane`,`71556`
+6/17/99 4:35:37 PM: `Succeeded`,553,`L-Threonine`,`72195`,553,`L-Threonine`,`72195`
+6/17/99 4:35:37 PM: `Succeeded`,109,`Endrin`,`72208`,109,`Endrin`,`72208`
+6/17/99 4:35:37 PM: `Succeeded`,128,`DDE`,`72559`,128,`DDE`,`72559`
+6/17/99 4:35:37 PM: `Succeeded`,554,`L-Tryptophan`,`73223`,554,`L-Tryptophan`,`73223`
+6/17/99 4:35:37 PM: `Succeeded`,323,`6-Amino-purine`,`73245`,323,`6-Amino-purine`,`73245`
+6/17/99 4:35:37 PM: `Succeeded`,322,`6-Amino-purine`,`73245`,322,`6-Amino-purine`,`73245`
+6/17/99 4:35:37 PM: `Succeeded`,557,`L-Isoleucine`,`73325`,557,`L-Isoleucine`,`73325`
+6/17/99 4:35:37 PM: `Succeeded`,161,`Guanine`,`73405`,161,`Guanine`,`73405`
+6/17/99 4:35:37 PM: `Succeeded`,160,`Guanine`,`73405`,160,`Guanine`,`73405`
+6/17/99 4:35:37 PM: `Succeeded`,110,`1-Chloroethane`,`75003`,110,`1-Chloroethane`,`75003`
+6/17/99 4:35:37 PM: `Succeeded`,1032,`ACETAL`,`75070`,1032,`ACETAL`,`75070`
+6/17/99 4:35:37 PM: `Succeeded`,460,`Acetaldehyde`,`75070`,460,`Acetaldehyde`,`75070`
+6/17/99 4:35:37 PM: `Succeeded`,171,`Dichloro-methane`,`75092`,171,`Dichloro-methane`,`75092`
+6/17/99 4:35:37 PM: `Succeeded`,172,`Dichloro-methane`,`75092`,172,`Dichloro-methane`,`75092`
+6/17/99 4:35:37 PM: `Succeeded`,397,`Methylene chloride`,`75092`,397,`Methylene chloride`,`75092`
+6/17/99 4:35:37 PM: `Succeeded`,396,`Methylene chloride`,`75092`,396,`Methylene chloride`,`75092`
+6/17/99 4:35:37 PM: `Succeeded`,398,`Methylene chloride`,`75092`,398,`Methylene chloride`,`75092`
+6/17/99 4:35:37 PM: `Succeeded`,399,`Methylene chloride`,`75092`,399,`Methylene chloride`,`75092`
+6/17/99 4:35:37 PM: `Succeeded`,807,`Methylene chloride`,`75092`,807,`Methylene chloride`,`75092`
+6/17/99 4:35:37 PM: `Succeeded`,757,`Bromoform`,`75252`,757,`Bromoform`,`75252`
+6/17/99 4:35:37 PM: `Succeeded`,612,`Bromoform`,`75252`,612,`Bromoform`,`75252`
+6/17/99 4:35:37 PM: `Succeeded`,602,`Bromoform`,`75252`,602,`Bromoform`,`75252`
+6/17/99 4:35:37 PM: `Succeeded`,596,`Bromoform`,`75252`,596,`Bromoform`,`75252`
+6/17/99 4:35:37 PM: `Succeeded`,609,`Bromoform`,`75252`,609,`Bromoform`,`75252`
+6/17/99 4:35:37 PM: `Succeeded`,756,`Bromoform`,`75252`,756,`Bromoform`,`75252`
+6/17/99 4:35:37 PM: `Succeeded`,662,`Bromoform`,`75252`,662,`Bromoform`,`75252`
+6/17/99 4:35:37 PM: `Succeeded`,179,`Tribromo-methane`,`75252`,179,`Tribromo-methane`,`75252`
+6/17/99 4:35:37 PM: `Succeeded`,180,`Tribromo-methane`,`75252`,180,`Tribromo-methane`,`75252`
+6/17/99 4:35:37 PM: `Succeeded`,631,`Bromodichloromethane`,`75274`,631,`Bromodichloromethane`,`75274`
+6/17/99 4:35:37 PM: `Succeeded`,755,`Bromodichloromethane`,`75274`,755,`Bromodichloromethane`,`75274`
+6/17/99 4:35:37 PM: `Succeeded`,365,`Dichlorobromo-methane`,`75274`,365,`Dichlorobromo-methane`,`75274`
+6/17/99 4:35:37 PM: `Succeeded`,369,`Dichlorobromo-methane`,`75274`,369,`Dichlorobromo-methane`,`75274`
+6/17/99 4:35:37 PM: `Succeeded`,368,`Dichlorobromo-methane`,`75274`,368,`Dichlorobromo-methane`,`75274`
+6/17/99 4:35:37 PM: `Succeeded`,174,`Dichlorobromo-methane`,`75274`,174,`Dichlorobromo-methane`,`75274`
+6/17/99 4:35:37 PM: `Succeeded`,366,`Dichlorobromo-methane`,`75274`,366,`Dichlorobromo-methane`,`75274`
+6/17/99 4:35:37 PM: `Succeeded`,364,`Dichlorobromo-methane`,`75274`,364,`Dichlorobromo-methane`,`75274`
+6/17/99 4:35:37 PM: `Succeeded`,367,`Dichlorobromo-methane`,`75274`,367,`Dichlorobromo-methane`,`75274`
+6/17/99 4:35:37 PM: `Succeeded`,112,`1,1-Dichloro-ethane`,`75343`,112,`1,1-Dichloro-ethane`,`75343`
+6/17/99 4:35:37 PM: `Succeeded`,784,`1,1-Dichloroethane`,`75343`,784,`1,1-Dichloroethane`,`75343`
+6/17/99 4:35:37 PM: `Succeeded`,127,`1,1-Dichloro-ethene`,`75354`,127,`1,1-Dichloro-ethene`,`75354`
+6/17/99 4:35:37 PM: `Succeeded`,786,`1,1-Dichloroethene`,`75354`,786,`1,1-Dichloroethene`,`75354`
+6/17/99 4:35:37 PM: `Succeeded`,450,`2-Methyl-2-propanol`,`75650`,450,`2-Methyl-2-propanol`,`75650`
+6/17/99 4:35:37 PM: `Succeeded`,187,`Trichlorofluor-methane`,`75694`,187,`Trichlorofluor-methane`,`75694`
+6/17/99 4:35:37 PM: `Succeeded`,1019,`2,2-DIMETHYLBUTANE`,`75832`,1019,`2,2-DIMETHYLBUTANE`,`75832`
+6/17/99 4:35:37 PM: `Succeeded`,454,`2,2-Dimethyl-1-propanol`,`75843`,454,`2,2-Dimethyl-1-propanol`,`75843`
+6/17/99 4:35:37 PM: `Succeeded`,940,`2-METHYL-2-BUTANOL`,`75854`,940,`2-METHYL-2-BUTANOL`,`75854`
+6/17/99 4:35:37 PM: `Succeeded`,455,`2-Methyl-2-butanol`,`75854`,455,`2-Methyl-2-butanol`,`75854`
+6/17/99 4:35:37 PM: `Succeeded`,9,`Acetone cyanohydrin`,`75865`,9,`Acetone cyanohydrin`,`75865`
+6/17/99 4:35:37 PM: `Succeeded`,771,`Dalapon`,`75990`,771,`Dalapon`,`75990`
+6/17/99 4:35:37 PM: `Succeeded`,163,`Heptachlor`,`76448`,163,`Heptachlor`,`76448`
+6/17/99 4:35:37 PM: `Succeeded`,101,`Hexachlor-cyclopentadiene`,`77474`,101,`Hexachlor-cyclopentadiene`,`77474`
+6/17/99 4:35:37 PM: `Succeeded`,803,`Hexachlorocyclopentadiene`,`77474`,803,`Hexachlorocyclopentadiene`,`77474`
+6/17/99 4:35:37 PM: `Succeeded`,882,`HEXACHLOROCYCLOPENTADIENE`,`77474`,882,`HEXACHLOROCYCLOPENTADIENE`,`77474`
+6/17/99 4:35:37 PM: `Succeeded`,1043,`TRIETHYL PHOSPHATE`,`78400`,1043,`TRIETHYL PHOSPHATE`,`78400`
+6/17/99 4:35:37 PM: `Succeeded`,166,`Isophorone`,`78591`,166,`Isophorone`,`78591`
+6/17/99 4:35:37 PM: `Succeeded`,804,`Isophorone`,`78591`,804,`Isophorone`,`78591`
+6/17/99 4:35:37 PM: `Succeeded`,936,`ISOPENTANE`,`78784`,936,`ISOPENTANE`,`78784`
+6/17/99 4:35:37 PM: `Succeeded`,895,`2-METHYL-1,3-BUTADIENE`,`78795`,895,`2-METHYL-1,3-BUTADIENE`,`78795`
+6/17/99 4:35:37 PM: `Succeeded`,893,`ISOPRENE`,`78795`,893,`ISOPRENE`,`78795`
+6/17/99 4:35:37 PM: `Succeeded`,886,`2-METHYL-1-BUTENE-3-YNE`,`78808`,886,`2-METHYL-1-BUTENE-3-YNE`,`78808`
+6/17/99 4:35:37 PM: `Succeeded`,448,`2-Methyl-1-propanol`,`78831`,448,`2-Methyl-1-propanol`,`78831`
+6/17/99 4:35:37 PM: `Succeeded`,314,`1,2-Dichloro-propane`,`78875`,314,`1,2-Dichloro-propane`,`78875`
+6/17/99 4:35:37 PM: `Succeeded`,315,`1,2-Dichloro-propane`,`78875`,315,`1,2-Dichloro-propane`,`78875`
+6/17/99 4:35:37 PM: `Succeeded`,794,`1,2-Dichloropropane`,`78875`,794,`1,2-Dichloropropane`,`78875`
+6/17/99 4:35:37 PM: `Succeeded`,793,`1,2-Dichloropropane`,`78875`,793,`1,2-Dichloropropane`,`78875`
+6/17/99 4:35:37 PM: `Succeeded`,795,`1,2-Dichloropropane`,`78875`,795,`1,2-Dichloropropane`,`78875`
+6/17/99 4:35:37 PM: `Succeeded`,449,`2-Butanol`,`78922`,449,`2-Butanol`,`78922`
+6/17/99 4:35:37 PM: `Succeeded`,477,`2-Butanone`,`78933`,477,`2-Butanone`,`78933`
+6/17/99 4:35:37 PM: `Succeeded`,829,`1,1,2-Trichloroethane`,`79005`,829,`1,1,2-Trichloroethane`,`79005`
+6/17/99 4:35:37 PM: `Succeeded`,828,`1,1,2-Trichloroethane`,`79005`,828,`1,1,2-Trichloroethane`,`79005`
+6/17/99 4:35:37 PM: `Succeeded`,722,`TCE`,`79016`,722,`TCE`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,728,`TCE`,`79016`,728,`TCE`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,734,`TCE`,`79016`,734,`TCE`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,740,`TCE`,`79016`,740,`TCE`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,715,`TCE`,`79016`,715,`TCE`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,144,`Trichloro-ethene`,`79016`,144,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,139,`Trichloro-ethene`,`79016`,139,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,147,`Trichloro-ethene`,`79016`,147,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,141,`Trichloro-ethene`,`79016`,141,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,146,`Trichloro-ethene`,`79016`,146,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,143,`Trichloro-ethene`,`79016`,143,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,149,`Trichloro-ethene`,`79016`,149,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,142,`Trichloro-ethene`,`79016`,142,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,137,`Trichloro-ethene`,`79016`,137,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,145,`Trichloro-ethene`,`79016`,145,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,148,`Trichloro-ethene`,`79016`,148,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,140,`Trichloro-ethene`,`79016`,140,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,150,`Trichloro-ethene`,`79016`,150,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,138,`Trichloro-ethene`,`79016`,138,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,151,`Trichloro-ethene`,`79016`,151,`Trichloro-ethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,668,`Trichloroethene`,`79016`,668,`Trichloroethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,667,`Trichloroethene`,`79016`,667,`Trichloroethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,660,`Trichloroethene`,`79016`,660,`Trichloroethene`,`79016`
+6/17/99 4:35:37 PM: `Succeeded`,830,`Trichloroethene`,`79016`,830,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,831,`Trichloroethene`,`79016`,831,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,641,`Trichloroethene`,`79016`,641,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,639,`Trichloroethene`,`79016`,639,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,640,`Trichloroethene`,`79016`,640,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,637,`Trichloroethene`,`79016`,637,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,611,`Trichloroethene`,`79016`,611,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,594,`Trichloroethene`,`79016`,594,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,638,`Trichloroethene`,`79016`,638,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,605,`Trichloroethene`,`79016`,605,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,608,`Trichloroethene`,`79016`,608,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,601,`Trichloroethene`,`79016`,601,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,604,`Trichloroethene`,`79016`,604,`Trichloroethene`,`79016`
+6/17/99 4:35:38 PM: `Succeeded`,482,`Propionic acid`,`79094`,482,`Propionic acid`,`79094`
+6/17/99 4:35:38 PM: `Succeeded`,468,`Methyl acetate`,`79209`,468,`Methyl acetate`,`79209`
+6/17/99 4:35:38 PM: `Succeeded`,1020,`2,3-DIMETHYLBUTANE`,`79298`,1020,`2,3-DIMETHYLBUTANE`,`79298`
+6/17/99 4:35:38 PM: `Succeeded`,116,`1,1,2,2-Tetrachloro-ethane`,`79345`,116,`1,1,2,2-Tetrachloro-ethane`,`79345`
+6/17/99 4:35:38 PM: `Succeeded`,903,`METHYL METHACRYLATE`,`80626`,903,`METHYL METHACRYLATE`,`80626`
+6/17/99 4:35:38 PM: `Succeeded`,2,`Acenaphtene`,`83329`,2,`Acenaphtene`,`83329`
+6/17/99 4:35:38 PM: `Succeeded`,310,`Phthalic acid-diethylester`,`84662`,310,`Phthalic acid-diethylester`,`84662`
+6/17/99 4:35:38 PM: `Succeeded`,311,`Phthalic acid-di-n-butylester`,`84742`,311,`Phthalic acid-di-n-butylester`,`84742`
+6/17/99 4:35:38 PM: `Succeeded`,198,`Phenanthrene`,`85018`,198,`Phenanthrene`,`85018`
+6/17/99 4:35:38 PM: `Succeeded`,20,`N-Nitrosodiphenyl-amine`,`86306`,20,`N-Nitrosodiphenyl-amine`,`86306`
+6/17/99 4:35:38 PM: `Succeeded`,158,`Fluorene`,`86737`,158,`Fluorene`,`86737`
+6/17/99 4:35:38 PM: `Succeeded`,92,`Hexachlorobutadiene`,`87683`,92,`Hexachlorobutadiene`,`87683`
+6/17/99 4:35:38 PM: `Succeeded`,813,`Pentachlorophenol`,`87865`,813,`Pentachlorophenol`,`87865`
+6/17/99 4:35:38 PM: `Succeeded`,811,`Pentachlorophenol`,`87865`,811,`Pentachlorophenol`,`87865`
+6/17/99 4:35:38 PM: `Succeeded`,812,`Pentachlorophenol`,`87865`,812,`Pentachlorophenol`,`87865`
+6/17/99 4:35:38 PM: `Succeeded`,303,`Pentachlorophenol`,`87865`,303,`Pentachlorophenol`,`87865`
+6/17/99 4:35:38 PM: `Succeeded`,301,`Pentachlorophenol`,`87865`,301,`Pentachlorophenol`,`87865`
+6/17/99 4:35:38 PM: `Succeeded`,302,`Pentachlorophenol`,`87865`,302,`Pentachlorophenol`,`87865`
+6/17/99 4:35:38 PM: `Succeeded`,304,`Pentachlorophenol`,`87865`,304,`Pentachlorophenol`,`87865`
+6/17/99 4:35:38 PM: `Succeeded`,492,`myo-Inositol`,`87898`,492,`myo-Inositol`,`87898`
+6/17/99 4:35:38 PM: `Succeeded`,490,`D-Xylitol`,`87990`,490,`D-Xylitol`,`87990`
+6/17/99 4:35:38 PM: `Succeeded`,305,`2,4,6-Trichlorophenol`,`88062`,305,`2,4,6-Trichlorophenol`,`88062`
+6/17/99 4:35:38 PM: `Succeeded`,306,`2,4,6-Trichlorophenol`,`88062`,306,`2,4,6-Trichlorophenol`,`88062`
+6/17/99 4:35:38 PM: `Succeeded`,307,`2,4,6-Trichlorophenol`,`88062`,307,`2,4,6-Trichlorophenol`,`88062`
+6/17/99 4:35:38 PM: `Succeeded`,1013,`2-ETHYL BUTYRIC ACID`,`88095`,1013,`2-ETHYL BUTYRIC ACID`,`88095`
+6/17/99 4:35:38 PM: `Succeeded`,1061,`O-NITROTOLUENE`,`88722`,1061,`O-NITROTOLUENE`,`88722`
+6/17/99 4:35:38 PM: `Succeeded`,33,`1-Chloro-2-nitro-benzene`,`88733`,33,`1-Chloro-2-nitro-benzene`,`88733`
+6/17/99 4:35:38 PM: `Succeeded`,245,`2-Nitrophenol`,`88755`,245,`2-Nitrophenol`,`88755`
+6/17/99 4:35:38 PM: `Succeeded`,243,`2-Nitrophenol`,`88755`,243,`2-Nitrophenol`,`88755`
+6/17/99 4:35:38 PM: `Succeeded`,244,`2-Nitrophenol`,`88755`,244,`2-Nitrophenol`,`88755`
+6/17/99 4:35:38 PM: `Succeeded`,514,`o-Nitrophenol`,`88755`,514,`o-Nitrophenol`,`88755`
+6/17/99 4:35:38 PM: `Succeeded`,799,`Dinoseb`,`88857`,799,`Dinoseb`,`88857`
+6/17/99 4:35:38 PM: `Succeeded`,590,`2-Ethylphenol`,`90006`,590,`2-Ethylphenol`,`90006`
+6/17/99 4:35:38 PM: `Succeeded`,1057,`SALICYLALDEHYDE`,`90028`,1057,`SALICYLALDEHYDE`,`90028`
+6/17/99 4:35:38 PM: `Succeeded`,22,`2-Methoxy-aniline`,`90040`,22,`2-Methoxy-aniline`,`90040`
+6/17/99 4:35:38 PM: `Succeeded`,23,`2-Methoxy-aniline`,`90040`,23,`2-Methoxy-aniline`,`90040`
+6/17/99 4:35:38 PM: `Succeeded`,592,`o-Methoxy-phenol`,`90051`,592,`o-Methoxy-phenol`,`90051`
+6/17/99 4:35:38 PM: `Succeeded`,511,`o-Methoxyphenol`,`90051`,511,`o-Methoxyphenol`,`90051`
+6/17/99 4:35:38 PM: `Succeeded`,194,`1-Hydroxy-naphthalene`,`90153`,194,`1-Hydroxy-naphthalene`,`90153`
+6/17/99 4:35:38 PM: `Succeeded`,732,`Naphthalene`,`91203`,732,`Naphthalene`,`91203`
+6/17/99 4:35:38 PM: `Succeeded`,738,`Naphthalene`,`91203`,738,`Naphthalene`,`91203`
+6/17/99 4:35:38 PM: `Succeeded`,719,`Naphthalene`,`91203`,719,`Naphthalene`,`91203`
+6/17/99 4:35:38 PM: `Succeeded`,189,`Naphthalene`,`91203`,189,`Naphthalene`,`91203`
+6/17/99 4:35:38 PM: `Succeeded`,744,`Naphthalene`,`91203`,744,`Naphthalene`,`91203`
+6/17/99 4:35:38 PM: `Succeeded`,726,`Naphthalene`,`91203`,726,`Naphthalene`,`91203`
+6/17/99 4:35:38 PM: `Succeeded`,193,`2-Chloro-naphthalene`,`91587`,193,`2-Chloro-naphthalene`,`91587`
+6/17/99 4:35:38 PM: `Succeeded`,192,`2-Amino-naphthalene`,`91598`,192,`2-Amino-naphthalene`,`91598`
+6/17/99 4:35:38 PM: `Succeeded`,87,`4,4'-Diamino-3,3'-dichlorobiphenyl`,`91941`,87,`4,4'-Diamino-3,3'-dichlorobiphenyl`,`91941`
+6/17/99 4:35:38 PM: `Succeeded`,84,`4-Amino-biphenyl`,`92671`,84,`4-Amino-biphenyl`,`92671`
+6/17/99 4:35:38 PM: `Succeeded`,88,`4-Nitro-biphenyl`,`92933`,88,`4-Nitro-biphenyl`,`92933`
+6/17/99 4:35:38 PM: `Succeeded`,832,`2,4,5-Trichlorophenoxy acetic acid`,`93765`,832,`2,4,5-Trichlorophenoxy acetic acid`,`93765`
+6/17/99 4:35:38 PM: `Succeeded`,83,`Benzothiazole`,`95169`,83,`Benzothiazole`,`95169`
+6/17/99 4:35:38 PM: `Succeeded`,43,`1,2-Dimethylbenzene`,`95476`,43,`1,2-Dimethylbenzene`,`95476`
+6/17/99 4:35:38 PM: `Succeeded`,393,`o-Xylene`,`95476`,393,`o-Xylene`,`95476`
+6/17/99 4:35:38 PM: `Succeeded`,386,`o-Xylene`,`95476`,386,`o-Xylene`,`95476`
+6/17/99 4:35:38 PM: `Succeeded`,591,`o-Cresol`,`95487`,591,`o-Cresol`,`95487`
+6/17/99 4:35:38 PM: `Succeeded`,520,`o-Cresol`,`95487`,520,`o-Cresol`,`95487`
+6/17/99 4:35:38 PM: `Succeeded`,351,`o-Cresol  - oxic`,`95487`,351,`o-Cresol  - oxic`,`95487`
+6/17/99 4:35:38 PM: `Succeeded`,352,`o-Cresol - anoxic`,`95487`,352,`o-Cresol - anoxic`,`95487`
+6/17/99 4:35:38 PM: `Succeeded`,1059,`O-CHLOROTOLUENE`,`95498`,1059,`O-CHLOROTOLUENE`,`95498`
+6/17/99 4:35:38 PM: `Succeeded`,768,`o-Chlorotoluene`,`95498`,768,`o-Chlorotoluene`,`95498`
+6/17/99 4:35:38 PM: `Succeeded`,34,`1,2-Dichlorobenzene`,`95501`,34,`1,2-Dichlorobenzene`,`95501`
+6/17/99 4:35:38 PM: `Succeeded`,37,`1,2-Dichlorobenzene`,`95501`,37,`1,2-Dichlorobenzene`,`95501`
+6/17/99 4:35:38 PM: `Succeeded`,35,`1,2-Dichlorobenzene`,`95501`,35,`1,2-Dichlorobenzene`,`95501`
+6/17/99 4:35:38 PM: `Succeeded`,36,`1,2-Dichlorobenzene`,`95501`,36,`1,2-Dichlorobenzene`,`95501`
+6/17/99 4:35:38 PM: `Succeeded`,781,`o-Dichlorobenzene`,`95501`,781,`o-Dichlorobenzene`,`95501`
+6/17/99 4:35:38 PM: `Succeeded`,782,`o-Dichlorobenzene`,`95501`,782,`o-Dichlorobenzene`,`95501`
+6/17/99 4:35:38 PM: `Succeeded`,954,`O-DICHLOROBENZENE`,`95501`,954,`O-DICHLOROBENZENE`,`95501`
+6/17/99 4:35:38 PM: `Succeeded`,1070,`O-TOLUIDINE`,`95534`,1070,`O-TOLUIDINE`,`95534`
+6/17/99 4:35:38 PM: `Succeeded`,835,`o-Xylene`,`95534`,835,`o-Xylene`,`95534`
+6/17/99 4:35:38 PM: `Succeeded`,215,`2-Chlorophenol`,`95578`,215,`2-Chlorophenol`,`95578`
+6/17/99 4:35:38 PM: `Succeeded`,706,`o-Chlorophenol`,`95578`,706,`o-Chlorophenol`,`95578`
+6/17/99 4:35:38 PM: `Succeeded`,517,`o-Chlorophenol`,`95578`,517,`o-Chlorophenol`,`95578`
+6/17/99 4:35:38 PM: `Succeeded`,957,`O-CHLOROPHENOL`,`95578`,957,`O-CHLOROPHENOL`,`95578`
+6/17/99 4:35:38 PM: `Succeeded`,1055,`2,4-DICHLOROTOLUENE`,`95738`,1055,`2,4-DICHLOROTOLUENE`,`95738`
+6/17/99 4:35:38 PM: `Succeeded`,980,`DIETHYL OXALATE`,`95921`,980,`DIETHYL OXALATE`,`95921`
+6/17/99 4:35:38 PM: `Succeeded`,313,`1,2-Dibromo-3-chloro-propane`,`96128`,313,`1,2-Dibromo-3-chloro-propane`,`96128`
+6/17/99 4:35:38 PM: `Succeeded`,775,`Dibromochloropropane`,`96128`,775,`Dibromochloropropane`,`96128`
+6/17/99 4:35:38 PM: `Succeeded`,776,`Dibromochloropropane`,`96128`,776,`Dibromochloropropane`,`96128`
+6/17/99 4:35:38 PM: `Succeeded`,773,`Dibromochloropropane`,`96128`,773,`Dibromochloropropane`,`96128`
+6/17/99 4:35:38 PM: `Succeeded`,774,`Dibromochloropropane`,`96128`,774,`Dibromochloropropane`,`96128`
+6/17/99 4:35:38 PM: `Succeeded`,1023,`3-METHYLPENTANE`,`96140`,1023,`3-METHYLPENTANE`,`96140`
+6/17/99 4:35:38 PM: `Succeeded`,316,`1,2,3-Trichloro-propane`,`96184`,316,`1,2,3-Trichloro-propane`,`96184`
+6/17/99 4:35:38 PM: `Succeeded`,833,`1,2,3-Trichloropropane`,`96184`,833,`1,2,3-Trichloropropane`,`96184`
+6/17/99 4:35:38 PM: `Succeeded`,834,`1,2,3-Trichloropropane`,`96184`,834,`1,2,3-Trichloropropane`,`96184`
+6/17/99 4:35:38 PM: `Succeeded`,917,`DIETHYL KETONE`,`96220`,917,`DIETHYL KETONE`,`96220`
+6/17/99 4:35:38 PM: `Succeeded`,992,`METHYLCYCLOPENTANE`,`96377`,992,`METHYLCYCLOPENTANE`,`96377`
+6/17/99 4:35:38 PM: `Succeeded`,456,`Cyclopentanol`,`96413`,456,`Cyclopentanol`,`96413`
+6/17/99 4:35:38 PM: `Succeeded`,890,`N-METHYLPYRROLE`,`96548`,890,`N-METHYLPYRROLE`,`96548`
+6/17/99 4:35:38 PM: `Succeeded`,539,`a-Methyl D-glucoside`,`97303`,539,`a-Methyl D-glucoside`,`97303`
+6/17/99 4:35:38 PM: `Succeeded`,1009,`ETHYL ISOBUTYRATE`,`97621`,1009,`ETHYL ISOBUTYRATE`,`97621`
+6/17/99 4:35:38 PM: `Succeeded`,978,`ETHYL METHACRYLATE`,`97632`,978,`ETHYL METHACRYLATE`,`97632`
+6/17/99 4:35:38 PM: `Succeeded`,1073,`N-BUTYL METHACRYLATE`,`97881`,1073,`N-BUTYL METHACRYLATE`,`97881`
+6/17/99 4:35:38 PM: `Succeeded`,1024,`2-ETHYL-1-BUTANOL`,`97950`,1024,`2-ETHYL-1-BUTANOL`,`97950`
+6/17/99 4:35:38 PM: `Succeeded`,927,`TETRAHYDROFURFURYL ALCOHOL`,`97994`,927,`TETRAHYDROFURFURYL ALCOHOL`,`97994`
+6/17/99 4:35:38 PM: `Succeeded`,887,`FURFURYL ALCOHOL`,`98000`,887,`FURFURYL ALCOHOL`,`98000`
+6/17/99 4:35:38 PM: `Succeeded`,883,`FURFURAL`,`98011`,883,`FURFURAL`,`98011`
+6/17/99 4:35:38 PM: `Succeeded`,1051,`BENZOTRIFLUORIDE`,`98088`,1051,`BENZOTRIFLUORIDE`,`98088`
+6/17/99 4:35:38 PM: `Succeeded`,1049,`3-NITROBENZOTRIFLUORIDE`,`98464`,1049,`3-NITROBENZOTRIFLUORIDE`,`98464`
+6/17/99 4:35:38 PM: `Succeeded`,1048,`P-CHLOROBENZOTRIFLUORIDE`,`98566`,1048,`P-CHLOROBENZOTRIFLUORIDE`,`98566`
+6/17/99 4:35:38 PM: `Succeeded`,82,`4-Hydroxy-benzenesulfonic acid`,`98679`,82,`4-Hydroxy-benzenesulfonic acid`,`98679`
+6/17/99 4:35:38 PM: `Succeeded`,81,`4-Hydroxy-benzenesulfonic acid`,`98679`,81,`4-Hydroxy-benzenesulfonic acid`,`98679`
+6/17/99 4:35:38 PM: `Succeeded`,8,`Acetophenone`,`98862`,8,`Acetophenone`,`98862`
+6/17/99 4:35:38 PM: `Succeeded`,1054,`BENZYL DICHLORIDE`,`98873`,1054,`BENZYL DICHLORIDE`,`98873`
+6/17/99 4:35:38 PM: `Succeeded`,1050,`BENZOYL CHLORIDE`,`98884`,1050,`BENZOYL CHLORIDE`,`98884`
+6/17/99 4:35:38 PM: `Succeeded`,677,`Nitrobenzene`,`98953`,677,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,685,`Nitrobenzene`,`98953`,685,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,960,`NITROBENZENE`,`98953`,960,`NITROBENZENE`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,50,`Nitrobenzene`,`98953`,50,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,695,`Nitrobenzene`,`98953`,695,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,694,`Nitrobenzene`,`98953`,694,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,693,`Nitrobenzene`,`98953`,693,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,692,`Nitrobenzene`,`98953`,692,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,691,`Nitrobenzene`,`98953`,691,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,690,`Nitrobenzene`,`98953`,690,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,689,`Nitrobenzene`,`98953`,689,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,688,`Nitrobenzene`,`98953`,688,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,675,`Nitrobenzene`,`98953`,675,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,686,`Nitrobenzene`,`98953`,686,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,670,`Nitrobenzene`,`98953`,670,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,678,`Nitrobenzene`,`98953`,678,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,671,`Nitrobenzene`,`98953`,671,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,672,`Nitrobenzene`,`98953`,672,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,673,`Nitrobenzene`,`98953`,673,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,674,`Nitrobenzene`,`98953`,674,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,687,`Nitrobenzene`,`98953`,687,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,676,`Nitrobenzene`,`98953`,676,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,684,`Nitrobenzene`,`98953`,684,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,679,`Nitrobenzene`,`98953`,679,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,680,`Nitrobenzene`,`98953`,680,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,681,`Nitrobenzene`,`98953`,681,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,682,`Nitrobenzene`,`98953`,682,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,683,`Nitrobenzene`,`98953`,683,`Nitrobenzene`,`98953`
+6/17/99 4:35:38 PM: `Succeeded`,524,`m-Hydroxybenzoic acid`,`99069`,524,`m-Hydroxybenzoic acid`,`99069`
+6/17/99 4:35:38 PM: `Succeeded`,588,`4-Isopropylphenol`,`99898`,588,`4-Isopropylphenol`,`99898`
+6/17/99 4:35:38 PM: `Succeeded`,527,`p-Hydroxyacetophenone`,`99934`,527,`p-Hydroxyacetophenone`,`99934`
+6/17/99 4:35:38 PM: `Succeeded`,68,`4-Hydroxy-benzoic acid`,`99967`,68,`4-Hydroxy-benzoic acid`,`99967`
+6/17/99 4:35:38 PM: `Succeeded`,70,`4-Hydroxy-benzoic acid`,`99967`,70,`4-Hydroxy-benzoic acid`,`99967`
+6/17/99 4:35:38 PM: `Succeeded`,69,`4-Hydroxy-benzoic acid`,`99967`,69,`4-Hydroxy-benzoic acid`,`99967`
+6/17/99 4:35:38 PM: `Succeeded`,71,`4-Hydroxy-benzoic acid`,`99967`,71,`4-Hydroxy-benzoic acid`,`99967`
+6/17/99 4:35:38 PM: `Succeeded`,525,`p-Hydroxybenzoic acid`,`99967`,525,`p-Hydroxybenzoic acid`,`99967`
+6/17/99 4:35:38 PM: `Succeeded`,24,`4-Nitroaniline`,`100016`,24,`4-Nitroaniline`,`100016`
+6/17/99 4:35:38 PM: `Succeeded`,260,`4-Nitrophenol`,`100027`,260,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,259,`4-Nitrophenol`,`100027`,259,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,286,`4-Nitrophenol`,`100027`,286,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,258,`4-Nitrophenol`,`100027`,258,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,261,`4-Nitrophenol`,`100027`,261,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,257,`4-Nitrophenol`,`100027`,257,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,247,`4-Nitrophenol`,`100027`,247,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,254,`4-Nitrophenol`,`100027`,254,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,256,`4-Nitrophenol`,`100027`,256,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,248,`4-Nitrophenol`,`100027`,248,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,250,`4-Nitrophenol`,`100027`,250,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,251,`4-Nitrophenol`,`100027`,251,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,252,`4-Nitrophenol`,`100027`,252,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,253,`4-Nitrophenol`,`100027`,253,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,255,`4-Nitrophenol`,`100027`,255,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,246,`4-Nitrophenol`,`100027`,246,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,291,`4-Nitrophenol`,`100027`,291,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,281,`4-Nitrophenol`,`100027`,281,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,282,`4-Nitrophenol`,`100027`,282,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,283,`4-Nitrophenol`,`100027`,283,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,285,`4-Nitrophenol`,`100027`,285,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,287,`4-Nitrophenol`,`100027`,287,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,288,`4-Nitrophenol`,`100027`,288,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,284,`4-Nitrophenol`,`100027`,284,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,290,`4-Nitrophenol`,`100027`,290,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,278,`4-Nitrophenol`,`100027`,278,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,292,`4-Nitrophenol`,`100027`,292,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,293,`4-Nitrophenol`,`100027`,293,`4-Nitrophenol`,`100027`
+6/17/99 4:35:38 PM: `Succeeded`,294,`4-Nitrophenol`,`100027`,294,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,295,`4-Nitrophenol`,`100027`,295,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,296,`4-Nitrophenol`,`100027`,296,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,297,`4-Nitrophenol`,`100027`,297,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,289,`4-Nitrophenol`,`100027`,289,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,271,`4-Nitrophenol`,`100027`,271,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,263,`4-Nitrophenol`,`100027`,263,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,264,`4-Nitrophenol`,`100027`,264,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,265,`4-Nitrophenol`,`100027`,265,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,266,`4-Nitrophenol`,`100027`,266,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,267,`4-Nitrophenol`,`100027`,267,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,268,`4-Nitrophenol`,`100027`,268,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,280,`4-Nitrophenol`,`100027`,280,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,270,`4-Nitrophenol`,`100027`,270,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,279,`4-Nitrophenol`,`100027`,279,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,272,`4-Nitrophenol`,`100027`,272,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,273,`4-Nitrophenol`,`100027`,273,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,274,`4-Nitrophenol`,`100027`,274,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,275,`4-Nitrophenol`,`100027`,275,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,276,`4-Nitrophenol`,`100027`,276,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,277,`4-Nitrophenol`,`100027`,277,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,262,`4-Nitrophenol`,`100027`,262,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,269,`4-Nitrophenol`,`100027`,269,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,249,`4-Nitrophenol`,`100027`,249,`4-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,648,`p-Nitrophenol`,`100027`,648,`p-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,644,`p-Nitrophenol`,`100027`,644,`p-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,645,`p-Nitrophenol`,`100027`,645,`p-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,516,`p-Nitrophenol`,`100027`,516,`p-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,650,`p-NItrophenol`,`100027`,650,`p-NItrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,646,`p-Nitrophenol`,`100027`,646,`p-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,647,`p-Nitrophenol`,`100027`,647,`p-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,649,`p-Nitrophenol`,`100027`,649,`p-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,651,`p-Nitrophenol`,`100027`,651,`p-Nitrophenol`,`100027`
+6/17/99 4:35:39 PM: `Succeeded`,801,`Ethyl benzene`,`100414`,801,`Ethyl benzene`,`100414`
+6/17/99 4:35:39 PM: `Succeeded`,47,`Ethylbenzene`,`100414`,47,`Ethylbenzene`,`100414`
+6/17/99 4:35:39 PM: `Succeeded`,325,`Styrene`,`100425`,325,`Styrene`,`100425`
+6/17/99 4:35:39 PM: `Succeeded`,326,`Styrene`,`100425`,326,`Styrene`,`100425`
+6/17/99 4:35:39 PM: `Succeeded`,818,`Styrene`,`100425`,818,`Styrene`,`100425`
+6/17/99 4:35:39 PM: `Succeeded`,1058,`BENZYL CHLORIDE`,`100447`,1058,`BENZYL CHLORIDE`,`100447`
+6/17/99 4:35:39 PM: `Succeeded`,1066,`BENZYLAMINE`,`100469`,1066,`BENZYLAMINE`,`100469`
+6/17/99 4:35:39 PM: `Succeeded`,1052,`BENZONITRILE`,`100470`,1052,`BENZONITRILE`,`100470`
+6/17/99 4:35:39 PM: `Succeeded`,1064,`BENZYL ALCOHOL`,`100516`,1064,`BENZYL ALCOHOL`,`100516`
+6/17/99 4:35:39 PM: `Succeeded`,1056,`BENZALDEHYDE`,`100527`,1056,`BENZALDEHYDE`,`100527`
+6/17/99 4:35:39 PM: `Succeeded`,1098,`N-METHYLCYCLOHEXYLAMINE`,`100607`,1098,`N-METHYLCYCLOHEXYLAMINE`,`100607`
+6/17/99 4:35:39 PM: `Succeeded`,1068,`N-METHYLANILINE`,`100618`,1068,`N-METHYLANILINE`,`100618`
+6/17/99 4:35:39 PM: `Succeeded`,1063,`ANISOLE`,`100663`,1063,`ANISOLE`,`100663`
+6/17/99 4:35:39 PM: `Succeeded`,510,`Anisole`,`100663`,510,`Anisole`,`100663`
+6/17/99 4:35:39 PM: `Succeeded`,173,`3,3-Dichloro-4,4-diamino-diphenyl-methane`,`101144`,173,`3,3-Dichloro-4,4-diamino-diphenyl-methane`,`101144`
+6/17/99 4:35:39 PM: `Succeeded`,154,`4-Bromo-phenyl phenyl ether`,`101553`,154,`4-Bromo-phenyl phenyl ether`,`101553`
+6/17/99 4:35:39 PM: `Succeeded`,1041,`TRIETHANOLAMINE`,`102716`,1041,`TRIETHANOLAMINE`,`102716`
+6/17/99 4:35:39 PM: `Succeeded`,19,`Triethanolamine`,`102716`,19,`Triethanolamine`,`102716`
+6/17/99 4:35:39 PM: `Succeeded`,1053,`PHENYL ISOCYANATE`,`103719`,1053,`PHENYL ISOCYANATE`,`103719`
+6/17/99 4:35:39 PM: `Succeeded`,5,`Phenylacetic acid`,`103822`,5,`Phenylacetic acid`,`103822`
+6/17/99 4:35:39 PM: `Succeeded`,6,`Phenylacetic acid`,`103822`,6,`Phenylacetic acid`,`103822`
+6/17/99 4:35:39 PM: `Succeeded`,7,`Phenylacetic acid`,`103822`,7,`Phenylacetic acid`,`103822`
+6/17/99 4:35:39 PM: `Succeeded`,3,`Phenylacetic acid`,`103822`,3,`Phenylacetic acid`,`103822`
+6/17/99 4:35:39 PM: `Succeeded`,4,`Phenylacetic acid`,`103822`,4,`Phenylacetic acid`,`103822`
+6/17/99 4:35:39 PM: `Succeeded`,1027,`2-METHYL-1-PENTANOL`,`105306`,1027,`2-METHYL-1-PENTANOL`,`105306`
+6/17/99 4:35:39 PM: `Succeeded`,920,`ETHYL PROPIONATE`,`105373`,920,`ETHYL PROPIONATE`,`105373`
+6/17/99 4:35:39 PM: `Succeeded`,905,`METHYL ACETOACETATE`,`105453`,905,`METHYL ACETOACETATE`,`105453`
+6/17/99 4:35:39 PM: `Succeeded`,1006,`SEC-BUTYL ACETATE`,`105464`,1006,`SEC-BUTYL ACETATE`,`105464`
+6/17/99 4:35:39 PM: `Succeeded`,1074,`DIETHYL MALONATE`,`105533`,1074,`DIETHYL MALONATE`,`105533`
+6/17/99 4:35:39 PM: `Succeeded`,1008,`ETHYL N-BUTYRATE`,`105544`,1008,`ETHYL N-BUTYRATE`,`105544`
+6/17/99 4:35:39 PM: `Succeeded`,891,`ETHYL-CYANOACETATE`,`105566`,891,`ETHYL-CYANOACETATE`,`105566`
+6/17/99 4:35:39 PM: `Succeeded`,928,`DIETHYL CARBONATE`,`105588`,928,`DIETHYL CARBONATE`,`105588`
+6/17/99 4:35:39 PM: `Succeeded`,977,`EPSILON-CAPROLACTONE`,`105602`,977,`EPSILON-CAPROLACTONE`,`105602`
+6/17/99 4:35:39 PM: `Succeeded`,1095,`N-PROPYL N-BUTYRATE`,`105668`,1095,`N-PROPYL N-BUTYRATE`,`105668`
+6/17/99 4:35:39 PM: `Succeeded`,238,`2,4-Dimethyl-phenol`,`105679`,238,`2,4-Dimethyl-phenol`,`105679`
+6/17/99 4:35:39 PM: `Succeeded`,236,`2,4-Dimethyl-phenol`,`105679`,236,`2,4-Dimethyl-phenol`,`105679`
+6/17/99 4:35:39 PM: `Succeeded`,237,`2,4-Dimethyl-phenol`,`105679`,237,`2,4-Dimethyl-phenol`,`105679`
+6/17/99 4:35:39 PM: `Succeeded`,1011,`N-PROPYL PROPIONATE`,`106365`,1011,`N-PROPYL PROPIONATE`,`106365`
+6/17/99 4:35:39 PM: `Succeeded`,529,`p-Bromophenol`,`106412`,529,`p-Bromophenol`,`106412`
+6/17/99 4:35:39 PM: `Succeeded`,45,`1,4-Dimethylbenzene`,`106423`,45,`1,4-Dimethylbenzene`,`106423`
+6/17/99 4:35:39 PM: `Succeeded`,46,`1,4-Dimethylbenzene`,`106423`,46,`1,4-Dimethylbenzene`,`106423`
+6/17/99 4:35:39 PM: `Succeeded`,837,`p-Xylene`,`106423`,837,`p-Xylene`,`106423`
+6/17/99 4:35:39 PM: `Succeeded`,836,`p-Xylene`,`106423`,836,`p-Xylene`,`106423`
+6/17/99 4:35:39 PM: `Succeeded`,769,`p-Chlorotoluene`,`106434`,769,`p-Chlorotoluene`,`106434`
+6/17/99 4:35:39 PM: `Succeeded`,1060,`P-CHLOROTOLUENE`,`106434`,1060,`P-CHLOROTOLUENE`,`106434`
+6/17/99 4:35:39 PM: `Succeeded`,522,`p-Cresol`,`106445`,522,`p-Cresol`,`106445`
+6/17/99 4:35:39 PM: `Succeeded`,39,`1,4-Dichlorobenzene`,`106467`,39,`1,4-Dichlorobenzene`,`106467`
+6/17/99 4:35:39 PM: `Succeeded`,41,`1,4-Dichlorobenzene`,`106467`,41,`1,4-Dichlorobenzene`,`106467`
+6/17/99 4:35:39 PM: `Succeeded`,40,`1,4-Dichlorobenzene`,`106467`,40,`1,4-Dichlorobenzene`,`106467`
+6/17/99 4:35:39 PM: `Succeeded`,428,`p-Dichlorobenzene`,`106467`,428,`p-Dichlorobenzene`,`106467`
+6/17/99 4:35:39 PM: `Succeeded`,427,`p-Dichlorobenzene`,`106467`,427,`p-Dichlorobenzene`,`106467`
+6/17/99 4:35:39 PM: `Succeeded`,783,`p-Dichlorobenzene`,`106467`,783,`p-Dichlorobenzene`,`106467`
+6/17/99 4:35:39 PM: `Succeeded`,227,`4-Chlorophenol`,`106489`,227,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,219,`4-Chlorophenol`,`106489`,219,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,218,`4-Chlorophenol`,`106489`,218,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,222,`4-Chlorophenol`,`106489`,222,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,220,`4-Chlorophenol`,`106489`,220,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,225,`4-Chlorophenol`,`106489`,225,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,226,`4-Chlorophenol`,`106489`,226,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,216,`4-Chlorophenol`,`106489`,216,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,221,`4-Chlorophenol`,`106489`,221,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,224,`4-Chlorophenol`,`106489`,224,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,223,`4-Chlorophenol`,`106489`,223,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,217,`4-Chlorophenol`,`106489`,217,`4-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,519,`p-Chlorophenol`,`106489`,519,`p-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,584,`p-Chlorophenol`,`106489`,584,`p-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,708,`p-Chlorophenol`,`106489`,708,`p-Chlorophenol`,`106489`
+6/17/99 4:35:39 PM: `Succeeded`,664,`1,2-Dibromoethane`,`106934`,664,`1,2-Dibromoethane`,`106934`
+6/17/99 4:35:39 PM: `Succeeded`,777,`1,2-Dibromoethane`,`106934`,777,`1,2-Dibromoethane`,`106934`
+6/17/99 4:35:39 PM: `Succeeded`,778,`1,2-Dibromoethane`,`106934`,778,`1,2-Dibromoethane`,`106934`
+6/17/99 4:35:39 PM: `Succeeded`,598,`1,2-Dibromoethane`,`106934`,598,`1,2-Dibromoethane`,`106934`
+6/17/99 4:35:39 PM: `Succeeded`,320,`Propenal`,`107028`,320,`Propenal`,`107028`
+6/17/99 4:35:39 PM: `Succeeded`,113,`1,2-Dichloro-ethane`,`107062`,113,`1,2-Dichloro-ethane`,`107062`
+6/17/99 4:35:39 PM: `Succeeded`,429,`1,2-Dichloroethane`,`107062`,429,`1,2-Dichloroethane`,`107062`
+6/17/99 4:35:39 PM: `Succeeded`,785,`1,2-Dichloroethane`,`107062`,785,`1,2-Dichloroethane`,`107062`
+6/17/99 4:35:39 PM: `Succeeded`,629,`1,2-Dichloroethane`,`107062`,629,`1,2-Dichloroethane`,`107062`
+6/17/99 4:35:39 PM: `Succeeded`,464,`Propylamine`,`107108`,464,`Propylamine`,`107108`
+6/17/99 4:35:39 PM: `Succeeded`,321,`Propenic acid nitril`,`107131`,321,`Propenic acid nitril`,`107131`
+6/17/99 4:35:39 PM: `Succeeded`,111,`1,2-Diamino-ethane`,`107153`,111,`1,2-Diamino-ethane`,`107153`
+6/17/99 4:35:39 PM: `Succeeded`,1045,`HEXAMETHYLDISILOXANE`,`107460`,1045,`HEXAMETHYLDISILOXANE`,`107460`
+6/17/99 4:35:39 PM: `Succeeded`,1022,`2-METHYLPENTANE`,`107835`,1022,`2-METHYLPENTANE`,`107835`
+6/17/99 4:35:39 PM: `Succeeded`,931,`1-CHLORO-3-METHYBUTANE`,`107846`,931,`1-CHLORO-3-METHYBUTANE`,`107846`
+6/17/99 4:35:39 PM: `Succeeded`,478,`2-Pentanone`,`107879`,478,`2-Pentanone`,`107879`
+6/17/99 4:35:39 PM: `Succeeded`,483,`Butyric acid`,`107926`,483,`Butyric acid`,`107926`
+6/17/99 4:35:39 PM: `Succeeded`,1101,`2,4-DIMETHYLPENTANE`,`108087`,1101,`2,4-DIMETHYLPENTANE`,`108087`
+6/17/99 4:35:39 PM: `Succeeded`,1125,`METHYL ISOBUTYL KETONE`,`108101`,1125,`METHYL ISOBUTYL KETONE`,`108101`
+6/17/99 4:35:39 PM: `Succeeded`,1004,`METHYL ISOBUTYL KETONE`,`108101`,1004,`METHYL ISOBUTYL KETONE`,`108101`
+6/17/99 4:35:39 PM: `Succeeded`,1028,`4-METHYL-2-PENTANOL`,`108112`,1028,`4-METHYL-2-PENTANOL`,`108112`
+6/17/99 4:35:39 PM: `Succeeded`,1037,`DIISOPROPYLAMINE`,`108189`,1037,`DIISOPROPYLAMINE`,`108189`
+6/17/99 4:35:39 PM: `Succeeded`,1030,`DIISOPROPYL ETHER`,`108203`,1030,`DIISOPROPYL ETHER`,`108203`
+6/17/99 4:35:39 PM: `Succeeded`,922,`ISOPROPYL ACETATE`,`108214`,922,`ISOPROPYL ACETATE`,`108214`
+6/17/99 4:35:39 PM: `Succeeded`,472,`Isopropyl acetate`,`108214`,472,`Isopropyl acetate`,`108214`
+6/17/99 4:35:39 PM: `Succeeded`,952,`M-DIBROMOBENZENE`,`108361`,952,`M-DIBROMOBENZENE`,`108361`
+6/17/99 4:35:39 PM: `Succeeded`,44,`1,3-Dimethylbenzene`,`108383`,44,`1,3-Dimethylbenzene`,`108383`
+6/17/99 4:35:39 PM: `Succeeded`,736,`m-Xylene`,`108383`,736,`m-Xylene`,`108383`
+6/17/99 4:35:39 PM: `Succeeded`,742,`m-Xylene`,`108383`,742,`m-Xylene`,`108383`
+6/17/99 4:35:39 PM: `Succeeded`,730,`m-Xylene`,`108383`,730,`m-Xylene`,`108383`
+6/17/99 4:35:39 PM: `Succeeded`,717,`m-Xylene`,`108383`,717,`m-Xylene`,`108383`
+6/17/99 4:35:39 PM: `Succeeded`,1128,`m-Xylene`,`108383`,1128,`m-Xylene`,`108383`
+6/17/99 4:35:39 PM: `Succeeded`,724,`m-Xylene`,`108383`,724,`m-Xylene`,`108383`
+6/17/99 4:35:39 PM: `Succeeded`,521,`m-Cresol`,`108394`,521,`m-Cresol`,`108394`
+6/17/99 4:35:39 PM: `Succeeded`,1065,`M-CRESOL`,`108394`,1065,`M-CRESOL`,`108394`
+6/17/99 4:35:39 PM: `Succeeded`,962,`M-CHLOROANILINE`,`108429`,962,`M-CHLOROANILINE`,`108429`
+6/17/99 4:35:39 PM: `Succeeded`,518,`m-Chlorophenol`,`108430`,518,`m-Chlorophenol`,`108430`
+6/17/99 4:35:39 PM: `Succeeded`,707,`m-Chlorophenol`,`108430`,707,`m-Chlorophenol`,`108430`
+6/17/99 4:35:39 PM: `Succeeded`,1069,`M-TOLUIDINE`,`108441`,1069,`M-TOLUIDINE`,`108441`
+6/17/99 4:35:39 PM: `Succeeded`,1067,`2,6-DIMETHYLPYRIDINE`,`108485`,1067,`2,6-DIMETHYLPYRIDINE`,`108485`
+6/17/99 4:35:39 PM: `Succeeded`,1092,`ETHYL ISOVALERATE`,`108645`,1092,`ETHYL ISOVALERATE`,`108645`
+6/17/99 4:35:39 PM: `Succeeded`,823,`1,3,5-Trichlorobenzene`,`108703`,823,`1,3,5-Trichlorobenzene`,`108703`
+6/17/99 4:35:39 PM: `Succeeded`,53,`1,3,5-Trichlorobenzene`,`108703`,53,`1,3,5-Trichlorobenzene`,`108703`
+6/17/99 4:35:39 PM: `Succeeded`,955,`BROMOBENZENE`,`108861`,955,`BROMOBENZENE`,`108861`
+6/17/99 4:35:39 PM: `Succeeded`,754,`Bromobenzene`,`108861`,754,`Bromobenzene`,`108861`
+6/17/99 4:35:39 PM: `Succeeded`,1082,`METHYLCYCLOHEXANE`,`108872`,1082,`METHYLCYCLOHEXANE`,`108872`
+6/17/99 4:35:39 PM: `Succeeded`,822,`Toluene`,`108883`,822,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,330,`Toluene`,`108883`,330,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,735,`Toluene`,`108883`,735,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,821,`Toluene`,`108883`,821,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,741,`Toluene`,`108883`,741,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,389,`Toluene`,`108883`,389,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,329,`Toluene`,`108883`,329,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,716,`Toluene`,`108883`,716,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,634,`Toluene`,`108883`,634,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,723,`Toluene`,`108883`,723,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,1062,`TOLUENE`,`108883`,1062,`TOLUENE`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,403,`Toluene`,`108883`,403,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,328,`Toluene`,`108883`,328,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,402,`Toluene`,`108883`,402,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,400,`Toluene`,`108883`,400,`Toluene`,`108883`
+6/17/99 4:35:39 PM: `Succeeded`,401,`Toluene`,`108883`,401,`Toluene`,`108883`
+6/17/99 4:35:40 PM: `Succeeded`,382,`Toluene`,`108883`,382,`Toluene`,`108883`
+6/17/99 4:35:40 PM: `Succeeded`,729,`Toluene`,`108883`,729,`Toluene`,`108883`
+6/17/99 4:35:40 PM: `Succeeded`,966,`4-METHYLPYRIDINE`,`108894`,966,`4-METHYLPYRIDINE`,`108894`
+6/17/99 4:35:40 PM: `Succeeded`,32,`Chlorobenzene`,`108907`,32,`Chlorobenzene`,`108907`
+6/17/99 4:35:40 PM: `Succeeded`,764,`Chlorobenzene`,`108907`,764,`Chlorobenzene`,`108907`
+6/17/99 4:35:40 PM: `Succeeded`,506,`Chlorobenzene`,`108907`,506,`Chlorobenzene`,`108907`
+6/17/99 4:35:40 PM: `Succeeded`,763,`Chlorobenzene`,`108907`,763,`Chlorobenzene`,`108907`
+6/17/99 4:35:40 PM: `Succeeded`,765,`Chlorobenzene`,`108907`,765,`Chlorobenzene`,`108907`
+6/17/99 4:35:40 PM: `Succeeded`,956,`MONOCHLOROBENZENE`,`108907`,956,`MONOCHLOROBENZENE`,`108907`
+6/17/99 4:35:40 PM: `Succeeded`,99,`Amino-cyclohexane`,`108918`,99,`Amino-cyclohexane`,`108918`
+6/17/99 4:35:40 PM: `Succeeded`,1017,`CYCLOHEXYLAMINE`,`108918`,1017,`CYCLOHEXYLAMINE`,`108918`
+6/17/99 4:35:40 PM: `Succeeded`,999,`CYCLOHEXANOL`,`108930`,999,`CYCLOHEXANOL`,`108930`
+6/17/99 4:35:40 PM: `Succeeded`,457,`Cyclohexanol`,`108930`,457,`Cyclohexanol`,`108930`
+6/17/99 4:35:40 PM: `Succeeded`,481,`Cyclohexanone`,`108941`,481,`Cyclohexanone`,`108941`
+6/17/99 4:35:40 PM: `Succeeded`,100,`Cyclohexanone`,`108941`,100,`Cyclohexanone`,`108941`
+6/17/99 4:35:40 PM: `Succeeded`,975,`CYCLOHEXANONE`,`108941`,975,`CYCLOHEXANONE`,`108941`
+6/17/99 4:35:40 PM: `Succeeded`,583,`Phenol`,`108952`,583,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,209,`Phenol`,`108952`,209,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,963,`PHENOL`,`108952`,963,`PHENOL`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,589,`Phenol`,`108952`,589,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,214,`Phenol`,`108952`,214,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,207,`Phenol`,`108952`,207,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,200,`Phenol`,`108952`,200,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,201,`Phenol`,`108952`,201,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,202,`Phenol`,`108952`,202,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,203,`Phenol`,`108952`,203,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,204,`Phenol`,`108952`,204,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,205,`Phenol`,`108952`,205,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,199,`Phenol`,`108952`,199,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,206,`Phenol`,`108952`,206,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,508,`Phenol`,`108952`,508,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,208,`Phenol`,`108952`,208,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,210,`Phenol`,`108952`,210,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,211,`Phenol`,`108952`,211,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,212,`Phenol`,`108952`,212,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,213,`Phenol`,`108952`,213,`Phenol`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,350,`Phenol - anoxic`,`108952`,350,`Phenol - anoxic`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,349,`Phenol - oxic`,`108952`,349,`Phenol - oxic`,`108952`
+6/17/99 4:35:40 PM: `Succeeded`,965,`2-METHYLPYRIDINE`,`109068`,965,`2-METHYLPYRIDINE`,`109068`
+6/17/99 4:35:40 PM: `Succeeded`,484,`Valeric acid`,`109524`,484,`Valeric acid`,`109524`
+6/17/99 4:35:40 PM: `Succeeded`,926,`VALERIC ACID`,`109524`,926,`VALERIC ACID`,`109524`
+6/17/99 4:35:40 PM: `Succeeded`,923,`N-PROPYL ACETATE`,`109604`,923,`N-PROPYL ACETATE`,`109604`
+6/17/99 4:35:40 PM: `Succeeded`,470,`Propyl acetate`,`109604`,470,`Propyl acetate`,`109604`
+6/17/99 4:35:40 PM: `Succeeded`,938,`N-PENTANE`,`109660`,938,`N-PENTANE`,`109660`
+6/17/99 4:35:40 PM: `Succeeded`,911,`1-PENTENE`,`109671`,911,`1-PENTENE`,`109671`
+6/17/99 4:35:40 PM: `Succeeded`,91,`1-Aminobutane`,`109739`,91,`1-Aminobutane`,`109739`
+6/17/99 4:35:40 PM: `Succeeded`,465,`Butylamine`,`109739`,465,`Butylamine`,`109739`
+6/17/99 4:35:40 PM: `Succeeded`,1090,`5-METHYL-2-HEXANONE`,`110123`,1090,`5-METHYL-2-HEXANONE`,`110123`
+6/17/99 4:35:40 PM: `Succeeded`,1010,`ISOBUTYL ACETATE`,`110190`,1010,`ISOBUTYL ACETATE`,`110190`
+6/17/99 4:35:40 PM: `Succeeded`,473,`Isobutyl acetate`,`110190`,473,`Isobutyl acetate`,`110190`
+6/17/99 4:35:40 PM: `Succeeded`,1021,`N-HEXANE`,`110543`,1021,`N-HEXANE`,`110543`
+6/17/99 4:35:40 PM: `Succeeded`,466,`Pentylamine`,`110587`,466,`Pentylamine`,`110587`
+6/17/99 4:35:40 PM: `Succeeded`,906,`VALERONITRILE`,`110598`,906,`VALERONITRILE`,`110598`
+6/17/99 4:35:40 PM: `Succeeded`,463,`Valeraldehyde`,`110623`,463,`Valeraldehyde`,`110623`
+6/17/99 4:35:40 PM: `Succeeded`,918,`VALERALDEHYDE`,`110623`,918,`VALERALDEHYDE`,`110623`
+6/17/99 4:35:40 PM: `Succeeded`,486,`1,4-Butanediol`,`110634`,486,`1,4-Butanediol`,`110634`
+6/17/99 4:35:40 PM: `Succeeded`,155,`2-Chloro-ethyl-ethenyl-ether`,`110758`,155,`2-Chloro-ethyl-ethenyl-ether`,`110758`
+6/17/99 4:35:40 PM: `Succeeded`,497,`2-Ethoxyethanol`,`110805`,497,`2-Ethoxyethanol`,`110805`
+6/17/99 4:35:40 PM: `Succeeded`,984,`CYCLOHEXANE`,`110827`,984,`CYCLOHEXANE`,`110827`
+6/17/99 4:35:40 PM: `Succeeded`,969,`CYCLOHEXENE`,`110838`,969,`CYCLOHEXENE`,`110838`
+6/17/99 4:35:40 PM: `Succeeded`,884,`PYRIDINE`,`110861`,884,`PYRIDINE`,`110861`
+6/17/99 4:35:40 PM: `Succeeded`,934,`PIPERIDINE`,`110894`,934,`PIPERIDINE`,`110894`
+6/17/99 4:35:40 PM: `Succeeded`,188,`Morpholine`,`110918`,188,`Morpholine`,`110918`
+6/17/99 4:35:40 PM: `Succeeded`,1015,`2-ETHOXYETHYL ACETATE`,`111159`,1015,`2-ETHOXYETHYL ACETATE`,`111159`
+6/17/99 4:35:40 PM: `Succeeded`,467,`Hexylamine`,`111262`,467,`Hexylamine`,`111262`
+6/17/99 4:35:40 PM: `Succeeded`,1039,`N-HEXYLAMINE`,`111262`,1039,`N-HEXYLAMINE`,`111262`
+6/17/99 4:35:40 PM: `Succeeded`,1025,`1-HEXANOL`,`111273`,1025,`1-HEXANOL`,`111273`
+6/17/99 4:35:40 PM: `Succeeded`,447,`1-Hexanol`,`111273`,447,`1-Hexanol`,`111273`
+6/17/99 4:35:40 PM: `Succeeded`,998,`BUTYL VINYL ETHER`,`111342`,998,`BUTYL VINYL ETHER`,`111342`
+6/17/99 4:35:40 PM: `Succeeded`,907,`N-BUTYL ISOCYANATE`,`111364`,907,`N-BUTYL ISOCYANATE`,`111364`
+6/17/99 4:35:40 PM: `Succeeded`,494,`Diethanolamine`,`111422`,494,`Diethanolamine`,`111422`
+6/17/99 4:35:40 PM: `Succeeded`,1031,`DI-N-PROPYL ETHER`,`111433`,1031,`DI-N-PROPYL ETHER`,`111433`
+6/17/99 4:35:40 PM: `Succeeded`,475,`Dipropyl ether`,`111433`,475,`Dipropyl ether`,`111433`
+6/17/99 4:35:40 PM: `Succeeded`,152,`Bis(2-chloroethyl)ether`,`111444`,152,`Bis(2-chloroethyl)ether`,`111444`
+6/17/99 4:35:40 PM: `Succeeded`,500,`Diethylene glycol`,`111466`,500,`Diethylene glycol`,`111466`
+6/17/99 4:35:40 PM: `Succeeded`,105,`Diethyleneglycol`,`111466`,105,`Diethyleneglycol`,`111466`
+6/17/99 4:35:40 PM: `Succeeded`,1036,`PROPYL SULFIDE`,`111477`,1036,`PROPYL SULFIDE`,`111477`
+6/17/99 4:35:40 PM: `Succeeded`,1018,`HEXAMETHYLENEIMINE`,`111499`,1018,`HEXAMETHYLENEIMINE`,`111499`
+6/17/99 4:35:40 PM: `Succeeded`,981,`ETHYLENE GLYCOLDIACETATE`,`111557`,981,`ETHYLENE GLYCOLDIACETATE`,`111557`
+6/17/99 4:35:40 PM: `Succeeded`,1111,`1-AMINOHEPTANE`,`111682`,1111,`1-AMINOHEPTANE`,`111682`
+6/17/99 4:35:40 PM: `Succeeded`,1108,`1-HEPTANOL`,`111706`,1108,`1-HEPTANOL`,`111706`
+6/17/99 4:35:40 PM: `Succeeded`,1087,`1-HEPTANAL`,`111717`,1087,`1-HEPTANAL`,`111717`
+6/17/99 4:35:40 PM: `Succeeded`,1033,`2-BUTOXYETHANOL`,`111762`,1033,`2-BUTOXYETHANOL`,`111762`
+6/17/99 4:35:40 PM: `Succeeded`,498,`2-Butoxyethanol`,`111762`,498,`2-Butoxyethanol`,`111762`
+6/17/99 4:35:40 PM: `Succeeded`,948,`2-(2-METHOXYETHOXY) ETHANOL`,`111773`,948,`2-(2-METHOXYETHOXY) ETHANOL`,`111773`
+6/17/99 4:35:40 PM: `Succeeded`,1035,`2-(2-ETHOXY-ETHOXY)ETHANOL`,`111900`,1035,`2-(2-ETHOXY-ETHOXY)ETHANOL`,`111900`
+6/17/99 4:35:40 PM: `Succeeded`,501,`2-(2-Ethoxyethoxy)ethanol`,`111900`,501,`2-(2-Ethoxyethoxy)ethanol`,`111900`
+6/17/99 4:35:40 PM: `Succeeded`,168,`Bis(2-chloroethoxy)-methane`,`111911`,168,`Bis(2-chloroethoxy)-methane`,`111911`
+6/17/99 4:35:40 PM: `Succeeded`,1034,`DIETHYLENE GLYCOL DIMETHYL ETHER`,`111966`,1034,`DIETHYLENE GLYCOL DIMETHYL ETHER`,`111966`
+6/17/99 4:35:40 PM: `Succeeded`,569,`Octadecyltrimethyl-ammonium chloride`,`112038`,569,`Octadecyltrimethyl-ammonium chloride`,`112038`
+6/17/99 4:35:40 PM: `Succeeded`,499,`2-(Hexyloxy)ethanol`,`112254`,499,`2-(Hexyloxy)ethanol`,`112254`
+6/17/99 4:35:40 PM: `Succeeded`,503,`Triethylene glycol`,`112276`,503,`Triethylene glycol`,`112276`
+6/17/99 4:35:40 PM: `Succeeded`,502,`2-(2-Butoxyethoxy)ethanol`,`112345`,502,`2-(2-Butoxyethoxy)ethanol`,`112345`
+6/17/99 4:35:40 PM: `Succeeded`,504,`Tetraethylene glycol`,`112607`,504,`Tetraethylene glycol`,`112607`
+6/17/99 4:35:40 PM: `Succeeded`,750,`Aldicarb`,`116063`,750,`Aldicarb`,`116063`
+6/17/99 4:35:40 PM: `Succeeded`,749,`Aldicarb`,`116063`,749,`Aldicarb`,`116063`
+6/17/99 4:35:40 PM: `Succeeded`,16,`Aldicarb`,`116063`,16,`Aldicarb`,`116063`
+6/17/99 4:35:40 PM: `Succeeded`,48,`Hexachlorobenzene`,`118741`,48,`Hexachlorobenzene`,`118741`
+6/17/99 4:35:40 PM: `Succeeded`,526,`o-Hydroxyacetophenone`,`118934`,526,`o-Hydroxyacetophenone`,`118934`
+6/17/99 4:35:40 PM: `Succeeded`,327,`Tetraline`,`119642`,327,`Tetraline`,`119642`
+6/17/99 4:35:40 PM: `Succeeded`,25,`Anthracene`,`120127`,25,`Anthracene`,`120127`
+6/17/99 4:35:40 PM: `Succeeded`,530,`o-Dihydroxybenzene`,`120809`,530,`o-Dihydroxybenzene`,`120809`
+6/17/99 4:35:40 PM: `Succeeded`,731,`1,2,4-TCB`,`120821`,731,`1,2,4-TCB`,`120821`
+6/17/99 4:35:40 PM: `Succeeded`,743,`1,2,4-TCB`,`120821`,743,`1,2,4-TCB`,`120821`
+6/17/99 4:35:40 PM: `Succeeded`,737,`1,2,4-TCB`,`120821`,737,`1,2,4-TCB`,`120821`
+6/17/99 4:35:40 PM: `Succeeded`,718,`1,2,4-TCB`,`120821`,718,`1,2,4-TCB`,`120821`
+6/17/99 4:35:40 PM: `Succeeded`,725,`1,2,4-TCB`,`120821`,725,`1,2,4-TCB`,`120821`
+6/17/99 4:35:40 PM: `Succeeded`,52,`1,2,4-Trichlorobenzene`,`120821`,52,`1,2,4-Trichlorobenzene`,`120821`
+6/17/99 4:35:40 PM: `Succeeded`,951,`1,2,4-TRICHLOROBENZENE`,`120821`,951,`1,2,4-TRICHLOROBENZENE`,`120821`
+6/17/99 4:35:40 PM: `Succeeded`,51,`1,2,4-Trichlorobenzene`,`120821`,51,`1,2,4-Trichlorobenzene`,`120821`
+6/17/99 4:35:40 PM: `Succeeded`,230,`2,4-Dichlorophenol`,`120832`,230,`2,4-Dichlorophenol`,`120832`
+6/17/99 4:35:40 PM: `Succeeded`,228,`2,4-Dichlorophenol`,`120832`,228,`2,4-Dichlorophenol`,`120832`
+6/17/99 4:35:40 PM: `Succeeded`,229,`2,4-Dichlorophenol`,`120832`,229,`2,4-Dichlorophenol`,`120832`
+6/17/99 4:35:40 PM: `Succeeded`,235,`2,4-Dichlorophenol`,`120832`,235,`2,4-Dichlorophenol`,`120832`
+6/17/99 4:35:40 PM: `Succeeded`,231,`2,4-Dichlorophenol`,`120832`,231,`2,4-Dichlorophenol`,`120832`
+6/17/99 4:35:40 PM: `Succeeded`,232,`2,4-Dichlorophenol`,`120832`,232,`2,4-Dichlorophenol`,`120832`
+6/17/99 4:35:40 PM: `Succeeded`,233,`2,4-Dichlorophenol`,`120832`,233,`2,4-Dichlorophenol`,`120832`
+6/17/99 4:35:40 PM: `Succeeded`,234,`2,4-Dichlorophenol`,`120832`,234,`2,4-Dichlorophenol`,`120832`
+6/17/99 4:35:40 PM: `Succeeded`,899,`CYCLOPENTANONE`,`120923`,899,`CYCLOPENTANONE`,`120923`
+6/17/99 4:35:40 PM: `Succeeded`,480,`Cyclopentanone`,`120923`,480,`Cyclopentanone`,`120923`
+6/17/99 4:35:40 PM: `Succeeded`,933,`N-METHYLPYRROLIDINE`,`120945`,933,`N-METHYLPYRROLIDINE`,`120945`
+6/17/99 4:35:40 PM: `Succeeded`,334,`2,4-Dinitro-toluene`,`121142`,334,`2,4-Dinitro-toluene`,`121142`
+6/17/99 4:35:40 PM: `Succeeded`,798,`2,4-Dinitrotoluene`,`121142`,798,`2,4-Dinitrotoluene`,`121142`
+6/17/99 4:35:40 PM: `Succeeded`,1047,`4-CHLORO-3-NITROBENZOTRIFLUORIDE`,`121175`,1047,`4-CHLORO-3-NITROBENZOTRIFLUORIDE`,`121175`
+6/17/99 4:35:40 PM: `Succeeded`,495,`Triethanolamine`,`121448`,495,`Triethanolamine`,`121448`
+6/17/99 4:35:40 PM: `Succeeded`,1040,`TRIETHYLAMINE`,`121448`,1040,`TRIETHYLAMINE`,`121448`
+6/17/99 4:35:40 PM: `Succeeded`,815,`Simazine`,`122349`,815,`Simazine`,`122349`
+6/17/99 4:35:40 PM: `Succeeded`,324,`Simazine`,`122349`,324,`Simazine`,`122349`
+6/17/99 4:35:41 PM: `Succeeded`,816,`Simazine`,`122349`,816,`Simazine`,`122349`
+6/17/99 4:35:41 PM: `Succeeded`,817,`Simazine`,`122349`,817,`Simazine`,`122349`
+6/17/99 4:35:41 PM: `Succeeded`,18,`Diphenylamine`,`122394`,18,`Diphenylamine`,`122394`
+6/17/99 4:35:41 PM: `Succeeded`,42,`1,4-Dihydroxybenzene`,`123319`,42,`1,4-Dihydroxybenzene`,`123319`
+6/17/99 4:35:41 PM: `Succeeded`,461,`Propionaldehyde`,`123386`,461,`Propionaldehyde`,`123386`
+6/17/99 4:35:41 PM: `Succeeded`,1012,`DIACETONE ALCOHOL`,`123422`,1012,`DIACETONE ALCOHOL`,`123422`
+6/17/99 4:35:41 PM: `Succeeded`,941,`3-METHYL-1-BUTANOL`,`123513`,941,`3-METHYL-1-BUTANOL`,`123513`
+6/17/99 4:35:41 PM: `Succeeded`,451,`3-Methyl-1-butanol`,`123513`,451,`3-Methyl-1-butanol`,`123513`
+6/17/99 4:35:41 PM: `Succeeded`,900,`ACETYLACETONE`,`123546`,900,`ACETYLACETONE`,`123546`
+6/17/99 4:35:41 PM: `Succeeded`,979,`PROPIONIC ANHYDRIDE`,`123626`,979,`PROPIONIC ANHYDRIDE`,`123626`
+6/17/99 4:35:41 PM: `Succeeded`,1016,`PARALDEHYDE`,`123637`,1016,`PARALDEHYDE`,`123637`
+6/17/99 4:35:41 PM: `Succeeded`,462,`Butyraldehyde`,`123728`,462,`Butyraldehyde`,`123728`
+6/17/99 4:35:41 PM: `Succeeded`,471,`Butyl acetate`,`123864`,471,`Butyl acetate`,`123864`
+6/17/99 4:35:41 PM: `Succeeded`,1005,`N-BUTYL ACETATE`,`123864`,1005,`N-BUTYL ACETATE`,`123864`
+6/17/99 4:35:41 PM: `Succeeded`,496,`1,4-Dioxane`,`123911`,496,`1,4-Dioxane`,`123911`
+6/17/99 4:35:41 PM: `Succeeded`,1093,`ISOPENTYL ACETATE`,`123922`,1093,`ISOPENTYL ACETATE`,`123922`
+6/17/99 4:35:41 PM: `Succeeded`,14,`Adipic acid`,`124049`,14,`Adipic acid`,`124049`
+6/17/99 4:35:41 PM: `Succeeded`,13,`Adipic acid`,`124049`,13,`Adipic acid`,`124049`
+6/17/99 4:35:41 PM: `Succeeded`,162,`1,6-Diamino-hexane`,`124094`,162,`1,6-Diamino-hexane`,`124094`
+6/17/99 4:35:41 PM: `Succeeded`,573,`EO 50 stearyl amine`,`124301`,573,`EO 50 stearyl amine`,`124301`
+6/17/99 4:35:41 PM: `Succeeded`,373,`Dibromochloro-methane`,`124481`,373,`Dibromochloro-methane`,`124481`
+6/17/99 4:35:41 PM: `Succeeded`,372,`Dibromochloro-methane`,`124481`,372,`Dibromochloro-methane`,`124481`
+6/17/99 4:35:41 PM: `Succeeded`,371,`Dibromochloro-methane`,`124481`,371,`Dibromochloro-methane`,`124481`
+6/17/99 4:35:41 PM: `Succeeded`,375,`Dibromochloro-methane`,`124481`,375,`Dibromochloro-methane`,`124481`
+6/17/99 4:35:41 PM: `Succeeded`,374,`Dibromochloro-methane`,`124481`,374,`Dibromochloro-methane`,`124481`
+6/17/99 4:35:41 PM: `Succeeded`,169,`Dibromochloro-methane`,`124481`,169,`Dibromochloro-methane`,`124481`
+6/17/99 4:35:41 PM: `Succeeded`,370,`Dibromochloro-methane`,`124481`,370,`Dibromochloro-methane`,`124481`
+6/17/99 4:35:41 PM: `Succeeded`,170,`Dibromochloro-methane`,`124481`,170,`Dibromochloro-methane`,`124481`
+6/17/99 4:35:41 PM: `Succeeded`,772,`Dibromochloromethane`,`124481`,772,`Dibromochloromethane`,`124481`
+6/17/99 4:35:41 PM: `Succeeded`,384,`PCE`,`127184`,384,`PCE`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,391,`PCE`,`127184`,391,`PCE`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,135,`Tetrachloro-ethene`,`127184`,135,`Tetrachloro-ethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,129,`Tetrachloro-ethene`,`127184`,129,`Tetrachloro-ethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,130,`Tetrachloro-ethene`,`127184`,130,`Tetrachloro-ethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,134,`Tetrachloro-ethene`,`127184`,134,`Tetrachloro-ethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,131,`Tetrachloro-ethene`,`127184`,131,`Tetrachloro-ethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,132,`Tetrachloro-ethene`,`127184`,132,`Tetrachloro-ethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,136,`Tetrachloro-ethene`,`127184`,136,`Tetrachloro-ethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,133,`Tetrachloro-ethene`,`127184`,133,`Tetrachloro-ethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,820,`Tetrachloroethene`,`127184`,820,`Tetrachloroethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,595,`Tetrachloroethene`,`127184`,595,`Tetrachloroethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,661,`Tetrachloroethene`,`127184`,661,`Tetrachloroethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,642,`Tetrachloroethene`,`127184`,642,`Tetrachloroethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,669,`Tetrachloroethene`,`127184`,669,`Tetrachloroethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,606,`Tetrachloroethene`,`127184`,606,`Tetrachloroethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,643,`Tetrachloroethene`,`127184`,643,`Tetrachloroethene`,`127184`
+6/17/99 4:35:41 PM: `Succeeded`,312,`Phthalic acid-dimethylester`,`131113`,312,`Phthalic acid-dimethylester`,`131113`
+6/17/99 4:35:41 PM: `Succeeded`,190,`1-Amino-naphthalene`,`134327`,190,`1-Amino-naphthalene`,`134327`
+6/17/99 4:35:41 PM: `Succeeded`,191,`1-Amino-naphthalene`,`134327`,191,`1-Amino-naphthalene`,`134327`
+6/17/99 4:35:41 PM: `Succeeded`,195,`2-Hydroxy-naphthalene`,`135193`,195,`2-Hydroxy-naphthalene`,`135193`
+6/17/99 4:35:41 PM: `Succeeded`,12,`Acridine yellow`,`135499`,12,`Acridine yellow`,`135499`
+6/17/99 4:35:41 PM: `Succeeded`,11,`Acridine yellow`,`135499`,11,`Acridine yellow`,`135499`
+6/17/99 4:35:41 PM: `Succeeded`,939,`2-METHYL-1-BUTANOL`,`137326`,939,`2-METHYL-1-BUTANOL`,`137326`
+6/17/99 4:35:41 PM: `Succeeded`,458,`2-Methyl-1-butanol`,`137326`,458,`2-Methyl-1-butanol`,`137326`
+6/17/99 4:35:41 PM: `Succeeded`,1042,`N-AMINOETHYL PIPERAZINE`,`140318`,1042,`N-AMINOETHYL PIPERAZINE`,`140318`
+6/17/99 4:35:41 PM: `Succeeded`,49,`1-Methoxy-4-propenylbenzene`,`140670`,49,`1-Methoxy-4-propenylbenzene`,`140670`
+6/17/99 4:35:41 PM: `Succeeded`,902,`ETHYL ACRYLATE`,`140885`,902,`ETHYL ACRYLATE`,`140885`
+6/17/99 4:35:41 PM: `Succeeded`,469,`Ethyl acetate`,`141786`,469,`Ethyl acetate`,`141786`
+6/17/99 4:35:41 PM: `Succeeded`,976,`MESITYL OXIDE`,`141797`,976,`MESITYL OXIDE`,`141797`
+6/17/99 4:35:41 PM: `Succeeded`,796,`1,3-Dichloropropane`,`142289`,796,`1,3-Dichloropropane`,`142289`
+6/17/99 4:35:41 PM: `Succeeded`,892,`CYCLOPENTENE`,`142290`,892,`CYCLOPENTENE`,`142290`
+6/17/99 4:35:41 PM: `Succeeded`,485,`Hexanoic acid`,`142621`,485,`Hexanoic acid`,`142621`
+6/17/99 4:35:41 PM: `Succeeded`,1014,`N-HEXANOIC ACID`,`142621`,1014,`N-HEXANOIC ACID`,`142621`
+6/17/99 4:35:41 PM: `Succeeded`,1104,`N-HEPTANE`,`142825`,1104,`N-HEPTANE`,`142825`
+6/17/99 4:35:41 PM: `Succeeded`,1038,`DI-N-PROPYLAMINE`,`142847`,1038,`DI-N-PROPYLAMINE`,`142847`
+6/17/99 4:35:41 PM: `Succeeded`,197,`Oxalic acid`,`144627`,197,`Oxalic acid`,`144627`
+6/17/99 4:35:41 PM: `Succeeded`,551,`L-Proline`,`147853`,551,`L-Proline`,`147853`
+6/17/99 4:35:41 PM: `Succeeded`,489,`meso-Erythritol`,`149326`,489,`meso-Erythritol`,`149326`
+6/17/99 4:35:41 PM: `Succeeded`,512,`m-Methoxyphenol`,`150196`,512,`m-Methoxyphenol`,`150196`
+6/17/99 4:35:41 PM: `Succeeded`,513,`p-Methoxyphenol`,`150765`,513,`p-Methoxyphenol`,`150765`
+6/17/99 4:35:41 PM: `Succeeded`,585,`SDS`,`151213`,585,`SDS`,`151213`
+6/17/99 4:35:41 PM: `Succeeded`,125,`1,2-cis-Dichloro-ethene`,`156592`,125,`1,2-cis-Dichloro-ethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,387,`cis-1,2-DCE`,`156592`,387,`cis-1,2-DCE`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,394,`cis-1,2-DCE`,`156592`,394,`cis-1,2-DCE`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,790,`cis-1,2-Dichloroethene`,`156592`,790,`cis-1,2-Dichloroethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,635,`cis-1,2-Dichloroethene`,`156592`,635,`cis-1,2-Dichloroethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,789,`cis-1,2-Dichloroethene`,`156592`,789,`cis-1,2-Dichloroethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,788,`cis-1,2-Dichloroethene`,`156592`,788,`cis-1,2-Dichloroethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,787,`cis-1,2-Dichloroethene`,`156592`,787,`cis-1,2-Dichloroethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,593,`cis-Dichloroethene`,`156592`,593,`cis-Dichloroethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,659,`cis-Dichloroethene`,`156592`,659,`cis-Dichloroethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,603,`cis-Dichloroethene`,`156592`,603,`cis-Dichloroethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,666,`cis-Dichloroethene`,`156592`,666,`cis-Dichloroethene`,`156592`
+6/17/99 4:35:41 PM: `Succeeded`,791,`trans-1,2-Dichloroethene`,`156605`,791,`trans-1,2-Dichloroethene`,`156605`
+6/17/99 4:35:41 PM: `Succeeded`,792,`trans-1,2-Dichloroethene`,`156605`,792,`trans-1,2-Dichloroethene`,`156605`
+6/17/99 4:35:41 PM: `Succeeded`,72,`Benzo(ghi)perylene`,`191242`,72,`Benzo(ghi)perylene`,`191242`
+6/17/99 4:35:41 PM: `Succeeded`,54,`Benzo(b)fluoranthene`,`205992`,54,`Benzo(b)fluoranthene`,`205992`
+6/17/99 4:35:41 PM: `Succeeded`,157,`Fluoranthene`,`206440`,157,`Fluoranthene`,`206440`
+6/17/99 4:35:41 PM: `Succeeded`,55,`Benzo(k)fluoranthene`,`207089`,55,`Benzo(k)fluoranthene`,`207089`
+6/17/99 4:35:41 PM: `Succeeded`,1,`Acenaphthylene`,`208968`,1,`Acenaphthylene`,`208968`
+6/17/99 4:35:41 PM: `Succeeded`,908,`CYCLOPENTANE`,`287923`,908,`CYCLOPENTANE`,`287923`
+6/17/99 4:35:41 PM: `Succeeded`,1075,`CYCLOHEPTANE`,`291645`,1075,`CYCLOHEPTANE`,`291645`
+6/17/99 4:35:41 PM: `Succeeded`,558,`D,L-Alanine`,`302727`,558,`D,L-Alanine`,`302727`
+6/17/99 4:35:41 PM: `Succeeded`,75,`4-Diazo-benzenesulfonic acid`,`305806`,75,`4-Diazo-benzenesulfonic acid`,`305806`
+6/17/99 4:35:41 PM: `Succeeded`,74,`4-Diazo-benzenesulfonic acid`,`305806`,74,`4-Diazo-benzenesulfonic acid`,`305806`
+6/17/99 4:35:41 PM: `Succeeded`,17,`Aldrin`,`309002`,17,`Aldrin`,`309002`
+6/17/99 4:35:41 PM: `Succeeded`,96,`1,2,3,4,5,6-Hexachloro-a-cyclohexane`,`319846`,96,`1,2,3,4,5,6-Hexachloro-a-cyclohexane`,`319846`
+6/17/99 4:35:41 PM: `Succeeded`,97,`1,2,3,4,5,6-Hexachloro-b-cyclohexane`,`319857`,97,`1,2,3,4,5,6-Hexachloro-b-cyclohexane`,`319857`
+6/17/99 4:35:41 PM: `Succeeded`,665,`Chlorodibromoethane`,`353559`,665,`Chlorodibromoethane`,`353559`
+6/17/99 4:35:41 PM: `Succeeded`,599,`Chlorodibromomethane`,`353559`,599,`Chlorodibromomethane`,`353559`
+6/17/99 4:35:41 PM: `Succeeded`,613,`Chlorodibromomethane`,`353559`,613,`Chlorodibromomethane`,`353559`
+6/17/99 4:35:41 PM: `Succeeded`,950,`HEXAFLUOROBENZENE`,`392563`,950,`HEXAFLUOROBENZENE`,`392563`
+6/17/99 4:35:41 PM: `Succeeded`,958,`FLUOROBENZENE`,`462066`,958,`FLUOROBENZENE`,`462066`
+6/17/99 4:35:41 PM: `Succeeded`,937,`NEOPENTANE`,`463821`,937,`NEOPENTANE`,`463821`
+6/17/99 4:35:41 PM: `Succeeded`,1107,`2,2,3-TRIMETHYL-BUTANE`,`464062`,1107,`2,2,3-TRIMETHYL-BUTANE`,`464062`
+6/17/99 4:35:41 PM: `Succeeded`,534,`D-(+)-Glucose`,`492626`,534,`D-(+)-Glucose`,`492626`
+6/17/99 4:35:41 PM: `Succeeded`,925,`ISOVALERIC ACID`,`503742`,925,`ISOVALERIC ACID`,`503742`
+6/17/99 4:35:41 PM: `Succeeded`,544,`Raffinose`,`512696`,544,`Raffinose`,`512696`
+6/17/99 4:35:41 PM: `Succeeded`,910,`2-METHYL-2-BUTENE`,`513359`,910,`2-METHYL-2-BUTENE`,`513359`
+6/17/99 4:35:41 PM: `Succeeded`,970,`2,3-DIMETHYL-1,3-BUTADIENE`,`513815`,970,`2,3-DIMETHYL-1,3-BUTADIENE`,`513815`
+6/17/99 4:35:41 PM: `Succeeded`,552,`D,L-Valine`,`516063`,552,`D,L-Valine`,`516063`
+6/17/99 4:35:41 PM: `Succeeded`,165,`1,1-Diphenyl-hydrazine`,`530507`,165,`1,1-Diphenyl-hydrazine`,`530507`
+6/17/99 4:35:41 PM: `Succeeded`,86,`Diamino-biphenyl-dihydrochloride`,`531851`,86,`Diamino-biphenyl-dihydrochloride`,`531851`
+6/17/99 4:35:41 PM: `Succeeded`,85,`Diamino-biphenyl-dihydrochloride`,`531851`,85,`Diamino-biphenyl-dihydrochloride`,`531851`
+6/17/99 4:35:41 PM: `Succeeded`,533,`2-Desoxy-D-ribose`,`533675`,533,`2-Desoxy-D-ribose`,`533675`
+6/17/99 4:35:41 PM: `Succeeded`,339,`3,5-Dinitro-6-hydroxy-toluene`,`534521`,339,`3,5-Dinitro-6-hydroxy-toluene`,`534521`
+6/17/99 4:35:41 PM: `Succeeded`,338,`3,5-Dinitro-6-hydroxy-toluene`,`534521`,338,`3,5-Dinitro-6-hydroxy-toluene`,`534521`
+6/17/99 4:35:41 PM: `Succeeded`,337,`3,5-Dinitro-6-hydroxy-toluene`,`534521`,337,`3,5-Dinitro-6-hydroxy-toluene`,`534521`
+6/17/99 4:35:41 PM: `Succeeded`,126,`1,2-trans-Dichloro-ethene`,`540590`,126,`1,2-trans-Dichloro-ethene`,`540590`
+6/17/99 4:35:41 PM: `Succeeded`,1007,`TERT-BUTYL ACETATE`,`540885`,1007,`TERT-BUTYL ACETATE`,`540885`
+6/17/99 4:35:41 PM: `Succeeded`,38,`1,3-Dichlorobenzene`,`541731`,38,`1,3-Dichlorobenzene`,`541731`
+6/17/99 4:35:41 PM: `Succeeded`,1121,`M-DICHLOROBENZENE`,`541731`,1121,`M-DICHLOROBENZENE`,`541731`
+6/17/99 4:35:41 PM: `Succeeded`,953,`M-DICHLOROBENZENE`,`541731`,953,`M-DICHLOROBENZENE`,`541731`
+6/17/99 4:35:41 PM: `Succeeded`,982,`ETHYLIDENE DIACETATE`,`542109`,982,`ETHYLIDENE DIACETATE`,`542109`
+6/17/99 4:35:41 PM: `Succeeded`,921,`ISOBUTYL FORMATE`,`542552`,921,`ISOBUTYL FORMATE`,`542552`
+6/17/99 4:35:41 PM: `Succeeded`,885,`CYCLOPENTADIENE`,`542927`,885,`CYCLOPENTADIENE`,`542927`
+6/17/99 4:35:41 PM: `Succeeded`,1109,`2-HEPTANOL`,`543497`,1109,`2-HEPTANOL`,`543497`
+6/17/99 4:35:41 PM: `Succeeded`,930,`1-CHLOROPENTANE`,`543599`,930,`1-CHLOROPENTANE`,`543599`
+6/17/99 4:35:41 PM: `Succeeded`,888,`2-METHYLTHIOPHENE`,`554143`,888,`2-METHYLTHIOPHENE`,`554143`
+6/17/99 4:35:41 PM: `Succeeded`,515,`m-Nitrophenol`,`554847`,515,`m-Nitrophenol`,`554847`
+6/17/99 4:35:41 PM: `Succeeded`,987,`3,3-DIMETHYL-1-BUTENE`,`558372`,987,`3,3-DIMETHYL-1-BUTENE`,`558372`
+6/17/99 4:35:41 PM: `Succeeded`,1102,`3,3-DIMETHYLPENTANE`,`562492`,1102,`3,3-DIMETHYLPENTANE`,`562492`
+6/17/99 4:35:41 PM: `Succeeded`,909,`2-METHYL-1-BUTENE`,`563462`,909,`2-METHYL-1-BUTENE`,`563462`
+6/17/99 4:35:41 PM: `Succeeded`,319,`1,2-Dichloro-propene`,`563542`,319,`1,2-Dichloro-propene`,`563542`
+6/17/99 4:35:41 PM: `Succeeded`,797,`1,1-Dichloropropene`,`563586`,797,`1,1-Dichloropropene`,`563586`
+6/17/99 4:35:41 PM: `Succeeded`,985,`2,3-DIMETHYL-1-BUTENE`,`563780`,985,`2,3-DIMETHYL-1-BUTENE`,`563780`
+6/17/99 4:35:41 PM: `Succeeded`,986,`2,3-DIMETHYL-2-BUTENE`,`563791`,986,`2,3-DIMETHYL-2-BUTENE`,`563791`
+6/17/99 4:35:41 PM: `Succeeded`,916,`2-PENTANONE`,`563804`,916,`2-PENTANONE`,`563804`
+6/17/99 4:35:41 PM: `Succeeded`,915,`METHYL ISOPROPYL KETONE`,`563804`,915,`METHYL ISOPROPYL KETONE`,`563804`
+6/17/99 4:35:42 PM: `Succeeded`,1100,`2,3-DIMETHYLPENTANE`,`565593`,1100,`2,3-DIMETHYLPENTANE`,`565593`
+6/17/99 4:35:42 PM: `Succeeded`,1001,`ETHYL ISOPROPYL KETONE`,`565695`,1001,`ETHYL ISOPROPYL KETONE`,`565695`
+6/17/99 4:35:42 PM: `Succeeded`,1085,`DIISOPROPYL KETONE`,`565800`,1085,`DIISOPROPYL KETONE`,`565800`
+6/17/99 4:35:42 PM: `Succeeded`,453,`3-Pentanol`,`584021`,453,`3-Pentanol`,`584021`
+6/17/99 4:35:42 PM: `Succeeded`,945,`3-PENTANOL`,`584021`,945,`3-PENTANOL`,`584021`
+6/17/99 4:35:42 PM: `Succeeded`,1106,`3-METHYLHEXANE`,`589344`,1106,`3-METHYLHEXANE`,`589344`
+6/17/99 4:35:42 PM: `Succeeded`,1003,`3-HEXANONE`,`589688`,1003,`3-HEXANONE`,`589688`
+6/17/99 4:35:42 PM: `Succeeded`,1091,`N-BUTYL PROPIONATE`,`590012`,1091,`N-BUTYL PROPIONATE`,`590012`
+6/17/99 4:35:42 PM: `Succeeded`,1099,`2,2-DIMETHYLPENTANE`,`590352`,1099,`2,2-DIMETHYLPENTANE`,`590352`
+6/17/99 4:35:42 PM: `Succeeded`,528,`m-Aminophenol`,`591275`,528,`m-Aminophenol`,`591275`
+6/17/99 4:35:42 PM: `Succeeded`,959,`IODOBENZENE`,`591504`,959,`IODOBENZENE`,`591504`
+6/17/99 4:35:42 PM: `Succeeded`,1105,`2-METHYLHEXANE`,`591764`,1105,`2-METHYLHEXANE`,`591764`
+6/17/99 4:35:42 PM: `Succeeded`,1002,`2-HEXANONE`,`591786`,1002,`2-HEXANONE`,`591786`
+6/17/99 4:35:42 PM: `Succeeded`,479,`2-Hexanone`,`591786`,479,`2-Hexanone`,`591786`
+6/17/99 4:35:42 PM: `Succeeded`,901,`ALLYL ACETATE`,`591877`,901,`ALLYL ACETATE`,`591877`
+6/17/99 4:35:42 PM: `Succeeded`,896,`1,4-PENTADIENE`,`591935`,896,`1,4-PENTADIENE`,`591935`
+6/17/99 4:35:42 PM: `Succeeded`,971,`1,5-HEXADIENE`,`592427`,971,`1,5-HEXADIENE`,`592427`
+6/17/99 4:35:42 PM: `Succeeded`,967,`1,3-CYCLOHEXADIENE`,`592574`,967,`1,3-CYCLOHEXADIENE`,`592574`
+6/17/99 4:35:42 PM: `Succeeded`,1077,`1-HEPTENE`,`592767`,1077,`1-HEPTENE`,`592767`
+6/17/99 4:35:42 PM: `Succeeded`,919,`N-BUTYL FORMATE`,`592847`,919,`N-BUTYL FORMATE`,`592847`
+6/17/99 4:35:42 PM: `Succeeded`,932,`2-CHLORO-2-METHYLBUTANE`,`594365`,932,`2-CHLORO-2-METHYLBUTANE`,`594365`
+6/17/99 4:35:42 PM: `Succeeded`,1084,`2,3,3-TRIMETHYL-1-BUTENE`,`594569`,1084,`2,3,3-TRIMETHYL-1-BUTENE`,`594569`
+6/17/99 4:35:42 PM: `Succeeded`,894,`3-METHYL-1,2-BUTADIENE`,`598254`,894,`3-METHYL-1,2-BUTADIENE`,`598254`
+6/17/99 4:35:42 PM: `Succeeded`,459,`3-Methyl-2-butanol`,`598754`,459,`3-Methyl-2-butanol`,`598754`
+6/17/99 4:35:42 PM: `Succeeded`,942,`3-METHYL-2-BUTANOL`,`598754`,942,`3-METHYL-2-BUTANOL`,`598754`
+6/17/99 4:35:42 PM: `Succeeded`,710,`b-Chloropropionic acid`,`598787`,710,`b-Chloropropionic acid`,`598787`
+6/17/99 4:35:42 PM: `Succeeded`,335,`2,6-Dinitro-toluene`,`606202`,335,`2,6-Dinitro-toluene`,`606202`
+6/17/99 4:35:42 PM: `Succeeded`,336,`3,4-Dinitro-toluene`,`610399`,336,`3,4-Dinitro-toluene`,`610399`
+6/17/99 4:35:42 PM: `Succeeded`,889,`3-METHYLTHIOPHENE`,`616444`,889,`3-METHYLTHIOPHENE`,`616444`
+6/17/99 4:35:42 PM: `Succeeded`,540,`a-Methyl D-mannoside`,`617049`,540,`a-Methyl D-mannoside`,`617049`
+6/17/99 4:35:42 PM: `Succeeded`,1103,`3-ETHYLPENTANE`,`617787`,1103,`3-ETHYLPENTANE`,`617787`
+6/17/99 4:35:42 PM: `Succeeded`,317,`2-Phenyl-2-propanol`,`617947`,317,`2-Phenyl-2-propanol`,`617947`
+6/17/99 4:35:42 PM: `Succeeded`,318,`2-Phenyl-2-propanol`,`617947`,318,`2-Phenyl-2-propanol`,`617947`
+6/17/99 4:35:42 PM: `Succeeded`,354,`3-Ethylphenol - anoxic`,`620177`,354,`3-Ethylphenol - anoxic`,`620177`
+6/17/99 4:35:42 PM: `Succeeded`,353,`3-Ethylphenol - oxic`,`620177`,353,`3-Ethylphenol - oxic`,`620177`
+6/17/99 4:35:42 PM: `Succeeded`,21,`N-Nitrosodi-n-propyl-amine`,`621647`,21,`N-Nitrosodi-n-propyl-amine`,`621647`
+6/17/99 4:35:42 PM: `Succeeded`,924,`METHYL N-BUTYRATE`,`623427`,924,`METHYL N-BUTYRATE`,`623427`
+6/17/99 4:35:42 PM: `Succeeded`,968,`DIMETHYL MALEATE`,`624486`,968,`DIMETHYL MALEATE`,`624486`
+6/17/99 4:35:42 PM: `Succeeded`,994,`2-METHYL-2-PENTENE`,`625274`,994,`2-METHYL-2-PENTENE`,`625274`
+6/17/99 4:35:42 PM: `Succeeded`,1026,`2-HEXANOL`,`626937`,1026,`2-HEXANOL`,`626937`
+6/17/99 4:35:42 PM: `Succeeded`,897,`1-PENTYNE`,`627190`,897,`1-PENTYNE`,`627190`
+6/17/99 4:35:42 PM: `Succeeded`,912,`CIS-2-PENTENE`,`627203`,912,`CIS-2-PENTENE`,`627203`
+6/17/99 4:35:42 PM: `Succeeded`,898,`2-PENTYNE`,`627214`,898,`2-PENTYNE`,`627214`
+6/17/99 4:35:42 PM: `Succeeded`,947,`ETHYL PROPYL ETHER`,`628320`,947,`ETHYL PROPYL ETHER`,`628320`
+6/17/99 4:35:42 PM: `Succeeded`,1094,`N-PENTYL ACETATE`,`628637`,1094,`N-PENTYL ACETATE`,`628637`
+6/17/99 4:35:42 PM: `Succeeded`,1072,`1-HEPTYNE`,`628717`,1072,`1-HEPTYNE`,`628717`
+6/17/99 4:35:42 PM: `Succeeded`,983,`HEXANENITRILE`,`628739`,983,`HEXANENITRILE`,`628739`
+6/17/99 4:35:42 PM: `Succeeded`,914,`1,5-DICHLOROPENTANE`,`628762`,914,`1,5-DICHLOROPENTANE`,`628762`
+6/17/99 4:35:42 PM: `Succeeded`,1029,`N-BUTYL ETHYL ETHER`,`628819`,1029,`N-BUTYL ETHYL ETHER`,`628819`
+6/17/99 4:35:42 PM: `Succeeded`,1097,`1-BROMOHEPTANE`,`629049`,1097,`1-BROMOHEPTANE`,`629049`
+6/17/99 4:35:42 PM: `Succeeded`,819,`1,1,1,2-Tetrachloroethane`,`630206`,819,`1,1,1,2-Tetrachloroethane`,`630206`
+6/17/99 4:35:42 PM: `Succeeded`,913,`TRANS-2-PENTENE`,`646048`,913,`TRANS-2-PENTENE`,`646048`
+6/17/99 4:35:42 PM: `Succeeded`,1044,`HEXAMETHYL PHOSPHORAMIDE`,`680319`,1044,`HEXAMETHYL PHOSPHORAMIDE`,`680319`
+6/17/99 4:35:42 PM: `Succeeded`,929,`ETHYL (S)-(-)-LACTATE`,`687478`,929,`ETHYL (S)-(-)-LACTATE`,`687478`
+6/17/99 4:35:42 PM: `Succeeded`,996,`4-METHYL-1-PENTENE`,`691372`,996,`4-METHYL-1-PENTENE`,`691372`
+6/17/99 4:35:42 PM: `Succeeded`,997,`4-METHYL-CIS-2-PENTENE`,`691383`,997,`4-METHYL-CIS-2-PENTENE`,`691383`
+6/17/99 4:35:42 PM: `Succeeded`,972,`1-HEXYNE`,`693027`,972,`1-HEXYNE`,`693027`
+6/17/99 4:35:42 PM: `Succeeded`,988,`2-ETHYL-1-BUTENE`,`760214`,988,`2-ETHYL-1-BUTENE`,`760214`
+6/17/99 4:35:42 PM: `Succeeded`,993,`2-METHYL-1-PENTENE`,`763291`,993,`2-METHYL-1-PENTENE`,`763291`
+6/17/99 4:35:42 PM: `Succeeded`,1096,`ETHYL-3-ETHOXYPROPIONATE`,`763699`,1096,`ETHYL-3-ETHOXYPROPIONATE`,`763699`
+6/17/99 4:35:42 PM: `Succeeded`,973,`2-HEXYNE`,`764352`,973,`2-HEXYNE`,`764352`
+6/17/99 4:35:42 PM: `Succeeded`,989,`1-HEXENE`,`767099`,989,`1-HEXENE`,`767099`
+6/17/99 4:35:42 PM: `Succeeded`,904,`2-HYDROXYETHYL ACRYLATE`,`818611`,904,`2-HYDROXYETHYL ACRYLATE`,`818611`
+6/17/99 4:35:42 PM: `Succeeded`,974,`3-HEXYNE`,`928494`,974,`3-HEXYNE`,`928494`
+6/17/99 4:35:42 PM: `Succeeded`,106,`a-Endosulfan`,`959988`,106,`a-Endosulfan`,`959988`
+6/17/99 4:35:42 PM: `Succeeded`,1046,`HEXAMETHYLDISILAZANE`,`999973`,1046,`HEXAMETHYLDISILAZANE`,`999973`
+6/17/99 4:35:42 PM: `Succeeded`,164,`Heptachlor epoxide`,`1024573`,164,`Heptachlor epoxide`,`1024573`
+6/17/99 4:35:42 PM: `Succeeded`,538,`L-(+)-Rhamnose`,`1030850`,538,`L-(+)-Rhamnose`,`1030850`
+6/17/99 4:35:42 PM: `Succeeded`,108,`Endosulfansulfate`,`1031078`,108,`Endosulfansulfate`,`1031078`
+6/17/99 4:35:42 PM: `Succeeded`,802,`Glyphosate`,`1071836`,802,`Glyphosate`,`1071836`
+6/17/99 4:35:42 PM: `Succeeded`,572,`EO 19 sorbitan mono stearate`,`1338416`,572,`EO 19 sorbitan mono stearate`,`1338416`
+6/17/99 4:35:42 PM: `Succeeded`,760,`Carbofuran`,`1563662`,760,`Carbofuran`,`1563662`
+6/17/99 4:35:42 PM: `Succeeded`,93,`Carbofuran`,`1563662`,93,`Carbofuran`,`1563662`
+6/17/99 4:35:42 PM: `Succeeded`,759,`Carbofuran`,`1563662`,759,`Carbofuran`,`1563662`
+6/17/99 4:35:42 PM: `Succeeded`,761,`Carbofuran`,`1563662`,761,`Carbofuran`,`1563662`
+6/17/99 4:35:42 PM: `Succeeded`,946,`METHYL TERT-BUTYL ETHER`,`1634044`,946,`METHYL TERT-BUTYL ETHER`,`1634044`
+6/17/99 4:35:42 PM: `Succeeded`,758,`tert-Butyl-methyl ether`,`1634044`,758,`tert-Butyl-methyl ether`,`1634044`
+6/17/99 4:35:42 PM: `Succeeded`,1110,`N-HEPTYL MERCAPTAN`,`1639094`,1110,`N-HEPTYL MERCAPTAN`,`1639094`
+6/17/99 4:35:42 PM: `Succeeded`,1076,`ETHYLCYCLOPENTANE`,`1640897`,1076,`ETHYLCYCLOPENTANE`,`1640897`
+6/17/99 4:35:42 PM: `Succeeded`,949,`2-METHYL-2-BUTANETHIOL`,`1679090`,949,`2-METHYL-2-BUTANETHIOL`,`1679090`
+6/17/99 4:35:42 PM: `Succeeded`,344,`5-Chloro-uracil`,`1820811`,344,`5-Chloro-uracil`,`1820811`
+6/17/99 4:35:42 PM: `Succeeded`,343,`5-Chloro-uracil`,`1820811`,343,`5-Chloro-uracil`,`1820811`
+6/17/99 4:35:42 PM: `Succeeded`,27,`Atrazine`,`1912249`,27,`Atrazine`,`1912249`
+6/17/99 4:35:42 PM: `Succeeded`,751,`Atrazine`,`1912249`,751,`Atrazine`,`1912249`
+6/17/99 4:35:42 PM: `Succeeded`,26,`Atrazine`,`1912249`,26,`Atrazine`,`1912249`
+6/17/99 4:35:42 PM: `Succeeded`,752,`Atrazine`,`1912249`,752,`Atrazine`,`1912249`
+6/17/99 4:35:42 PM: `Succeeded`,780,`Dicamba`,`1918009`,780,`Dicamba`,`1918009`
+6/17/99 4:35:42 PM: `Succeeded`,814,`Pichloram`,`1918021`,814,`Pichloram`,`1918021`
+6/17/99 4:35:42 PM: `Succeeded`,566,`Sodium dodecanesulfonate`,`2386530`,566,`Sodium dodecanesulfonate`,`2386530`
+6/17/99 4:35:42 PM: `Succeeded`,935,`TERT-BUTYL-FORMAMIDE`,`2425743`,935,`TERT-BUTYL-FORMAMIDE`,`2425743`
+6/17/99 4:35:42 PM: `Succeeded`,1071,`CYCLOHEXYL ISOCYANATE`,`3173533`,1071,`CYCLOHEXYL ISOCYANATE`,`3173533`
+6/17/99 4:35:42 PM: `Succeeded`,535,`D-(+)-Mannose`,`3458284`,535,`D-(+)-Mannose`,`3458284`
+6/17/99 4:35:42 PM: `Succeeded`,990,`TRANS-2-HEXENE`,`4050457`,990,`TRANS-2-HEXENE`,`4050457`
+6/17/99 4:35:42 PM: `Succeeded`,1086,`2-HEPTANONE`,`4352958`,1086,`2-HEPTANONE`,`4352958`
+6/17/99 4:35:42 PM: `Succeeded`,578,`EO 11.7 dodecyl ether`,`4542578`,578,`EO 11.7 dodecyl ether`,`4542578`
+6/17/99 4:35:42 PM: `Succeeded`,562,`Sodium octanesulfonate`,`5324855`,562,`Sodium octanesulfonate`,`5324855`
+6/17/99 4:35:42 PM: `Succeeded`,570,`EO 12.6 tetradecyl ether`,`5412986`,570,`EO 12.6 tetradecyl ether`,`5412986`
+6/17/99 4:35:42 PM: `Succeeded`,567,`Sodium tridecanesulfonate`,`5802891`,567,`Sodium tridecanesulfonate`,`5802891`
+6/17/99 4:35:42 PM: `Succeeded`,565,`Sodium undecanesulfonate`,`5838346`,565,`Sodium undecanesulfonate`,`5838346`
+6/17/99 4:35:42 PM: `Succeeded`,543,`(+)-Lactose`,`5989811`,543,`(+)-Lactose`,`5989811`
+6/17/99 4:35:42 PM: `Succeeded`,452,`2-Pentanol`,`6032297`,452,`2-Pentanol`,`6032297`
+6/17/99 4:35:42 PM: `Succeeded`,944,`2-PENTANOL`,`6032297`,944,`2-PENTANOL`,`6032297`
+6/17/99 4:35:42 PM: `Succeeded`,1083,`2-METHYL-1-HEXENE`,`6094026`,1083,`2-METHYL-1-HEXENE`,`6094026`
+6/17/99 4:35:42 PM: `Succeeded`,579,`EO 12.7 stearyl ether`,`6297036`,579,`EO 12.7 stearyl ether`,`6297036`
+6/17/99 4:35:42 PM: `Succeeded`,581,`EO 31.1 stearyl ether`,`6297036`,581,`EO 31.1 stearyl ether`,`6297036`
+6/17/99 4:35:42 PM: `Succeeded`,541,`(+)-Maltose`,`6363537`,541,`(+)-Maltose`,`6363537`
+6/17/99 4:35:42 PM: `Succeeded`,1078,`CIS-2-HEPTENE`,`6443921`,1078,`CIS-2-HEPTENE`,`6443921`
+6/17/99 4:35:42 PM: `Succeeded`,156,`4-Chlorophenyl-phenyl ether`,`7005723`,156,`4-Chlorophenyl-phenyl ether`,`7005723`
+6/17/99 4:35:42 PM: `Succeeded`,1089,`TRANS-2-METHYLCYCLOHEXANOL`,`7443529`,1089,`TRANS-2-METHYLCYCLOHEXANOL`,`7443529`
+6/17/99 4:35:42 PM: `Succeeded`,1088,`CIS-2-METHYLCYCLOHEXANOL`,`7443701`,1088,`CIS-2-METHYLCYCLOHEXANOL`,`7443701`
+6/17/99 4:35:42 PM: `Succeeded`,1080,`CIS-3-HEPTENE`,`7642106`,1080,`CIS-3-HEPTENE`,`7642106`
+6/17/99 4:35:42 PM: `Succeeded`,10,`Acridine orange`,`10127023`,10,`Acridine orange`,`10127023`
+6/17/99 4:35:42 PM: `Succeeded`,434,`PCB (Aroclor 1254)`,`11097691`,434,`PCB (Aroclor 1254)`,`11097691`
+6/17/99 4:35:42 PM: `Succeeded`,435,`PCB (Aroclor 1254)`,`11097691`,435,`PCB (Aroclor 1254)`,`11097691`
+6/17/99 4:35:42 PM: `Succeeded`,89,`PCB 1221`,`11104282`,89,`PCB 1221`,`11104282`
+6/17/99 4:35:42 PM: `Succeeded`,90,`PCB 1232`,`11141165`,90,`PCB 1232`,`11141165`
+6/17/99 4:35:42 PM: `Succeeded`,433,`PCB (Aroclor 1016)`,`12674112`,433,`PCB (Aroclor 1016)`,`12674112`
+6/17/99 4:35:42 PM: `Succeeded`,432,`PCB (Aroclor 1016)`,`12674112`,432,`PCB (Aroclor 1016)`,`12674112`
+6/17/99 4:35:42 PM: `Succeeded`,419,`PCB (Aroclor 1016)`,`12674112`,419,`PCB (Aroclor 1016)`,`12674112`
+6/17/99 4:35:42 PM: `Succeeded`,418,`PCB (Aroclor 1016)`,`12674112`,418,`PCB (Aroclor 1016)`,`12674112`
+6/17/99 4:35:42 PM: `Succeeded`,417,`PCB (Aroclor 1016)`,`12674112`,417,`PCB (Aroclor 1016)`,`12674112`
+6/17/99 4:35:42 PM: `Succeeded`,416,`PCB (Aroclor 1016)`,`12674112`,416,`PCB (Aroclor 1016)`,`12674112`
+6/17/99 4:35:42 PM: `Succeeded`,991,`TRANS-3-HEXENE`,`13269528`,991,`TRANS-3-HEXENE`,`13269528`
+6/17/99 4:35:42 PM: `Succeeded`,564,`Sodium decanesulfonate`,`13419619`,564,`Sodium decanesulfonate`,`13419619`
+6/17/99 4:35:42 PM: `Succeeded`,995,`(+-)-3-METHYL-1-PENTENE`,`13643022`,995,`(+-)-3-METHYL-1-PENTENE`,`13643022`
+6/17/99 4:35:42 PM: `Succeeded`,1079,`TRANS-2-HEPTENE`,`14686136`,1079,`TRANS-2-HEPTENE`,`14686136`
+6/17/99 4:35:42 PM: `Succeeded`,1081,`TRANS-3-HEPTENE`,`14686147`,1081,`TRANS-3-HEPTENE`,`14686147`
+6/17/99 4:35:42 PM: `Succeeded`,748,`Alachlor`,`15972608`,748,`Alachlor`,`15972608`
+6/17/99 4:35:42 PM: `Succeeded`,747,`Alachlor`,`15972608`,747,`Alachlor`,`15972608`
+6/17/99 4:35:42 PM: `Succeeded`,746,`Alachlor`,`15972608`,746,`Alachlor`,`15972608`
+6/17/99 4:35:42 PM: `Succeeded`,15,`Alachlor`,`15972608`,15,`Alachlor`,`15972608`
+6/17/99 4:35:42 PM: `Succeeded`,809,`Metribuzin`,`21087649`,809,`Metribuzin`,`21087649`
+6/17/99 4:35:42 PM: `Succeeded`,770,`Cyanazine`,`21725462`,770,`Cyanazine`,`21725462`
+6/17/99 4:35:42 PM: `Succeeded`,779,`Dibromomethane`,`22117868`,779,`Dibromomethane`,`22117868`
+6/17/99 4:35:42 PM: `Succeeded`,810,`Oxamyl`,`23135220`,810,`Oxamyl`,`23135220`
+6/17/99 4:35:42 PM: `Succeeded`,298,`4-Nonylphenol`,`25154523`,298,`4-Nonylphenol`,`25154523`
+6/17/99 4:35:42 PM: `Succeeded`,299,`4-Nonylphenol`,`25154523`,299,`4-Nonylphenol`,`25154523`
+6/17/99 4:35:43 PM: `Succeeded`,300,`4-Nonylphenol`,`25154523`,300,`4-Nonylphenol`,`25154523`
+6/17/99 4:35:43 PM: `Succeeded`,76,`Dodecyl-benzenesulfonic acid`,`25155300`,76,`Dodecyl-benzenesulfonic acid`,`25155300`
+6/17/99 4:35:43 PM: `Succeeded`,79,`Dodecyl-benzenesulfonic acid`,`25155300`,79,`Dodecyl-benzenesulfonic acid`,`25155300`
+6/17/99 4:35:43 PM: `Succeeded`,78,`Dodecyl-benzenesulfonic acid`,`25155300`,78,`Dodecyl-benzenesulfonic acid`,`25155300`
+6/17/99 4:35:43 PM: `Succeeded`,80,`Dodecyl-benzenesulfonic acid`,`25155300`,80,`Dodecyl-benzenesulfonic acid`,`25155300`
+6/17/99 4:35:43 PM: `Succeeded`,77,`Dodecyl-benzenesulfonic acid`,`25155300`,77,`Dodecyl-benzenesulfonic acid`,`25155300`
+6/17/99 4:35:43 PM: `Succeeded`,568,`Sodium dodecyl-benzenesulfonate`,`25155300`,568,`Sodium dodecyl-benzenesulfonate`,`25155300`
+6/17/99 4:35:43 PM: `Succeeded`,658,`Polyethylene glycol,  PEG-400`,`25322683`,658,`Polyethylene glycol,  PEG-400`,`25322683`
+6/17/99 4:35:43 PM: `Succeeded`,487,`1,2-Butanediol`,`26171835`,487,`1,2-Butanediol`,`26171835`
+6/17/99 4:35:43 PM: `Succeeded`,532,`D-(-)-Arabinose`,`28697532`,532,`D-(-)-Arabinose`,`28697532`
+6/17/99 4:35:43 PM: `Succeeded`,107,`b-Endosulfan`,`33213659`,107,`b-Endosulfan`,`33213659`
+6/17/99 4:35:43 PM: `Succeeded`,563,`Sodium nonanesulfonate`,`35192746`,563,`Sodium nonanesulfonate`,`35192746`
+6/17/99 4:35:43 PM: `Succeeded`,574,`EO 13.7 nonylphenyl ether`,`36588315`,574,`EO 13.7 nonylphenyl ether`,`36588315`
+6/17/99 4:35:43 PM: `Succeeded`,575,`EO 30.5 nonylphenyl ether`,`36588315`,575,`EO 30.5 nonylphenyl ether`,`36588315`
+6/17/99 4:35:43 PM: `Succeeded`,576,`EO 49.9 nonylphenyl ether`,`36588315`,576,`EO 49.9 nonylphenyl ether`,`36588315`
+6/17/99 4:35:43 PM: `Succeeded`,577,`EO 83.8 nonylphenyl ether`,`36588315`,577,`EO 83.8 nonylphenyl ether`,`36588315`
+6/17/99 4:35:43 PM: `Succeeded`,571,`EO 15 glycol mono stearate`,`37221980`,571,`EO 15 glycol mono stearate`,`37221980`
+6/17/99 4:35:43 PM: `Succeeded`,808,`Metolachlor`,`51218452`,808,`Metolachlor`,`51218452`
+6/17/99 4:35:43 PM: `Succeeded`,153,`Bis(2-chloroisopropyl)ether`,`54460967`,153,`Bis(2-chloroisopropyl)ether`,`54460967`
+6/17/99 4:35:45 PM: Ended Scan_Isotherms_Table().
+
+
+
+
+
+
+
+
+
+
+
+
+
+6/17/99 5:03:04 PM: Started Convert_Isotherms_Table().
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#175 from `Tetrachloro-methane` to `Carbon tetrachloride`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#178 from `Tetrachloro-methane` to `Carbon tetrachloride`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#177 from `Tetrachloro-methane` to `Carbon tetrachloride`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#176 from `Tetrachloro-methane` to `Carbon tetrachloride`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#186 from `Trichloro-methane` to `Chloroform`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#185 from `Trichloro-methane` to `Chloroform`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#184 from `Trichloro-methane` to `Chloroform`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#183 from `Trichloro-methane` to `Chloroform`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#182 from `Trichloro-methane` to `Chloroform`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#181 from `Trichloro-methane` to `Chloroform`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#392 from `1,1,1-TCA` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#385 from `1,1,1-TCA` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#117 from `1,1,1-Trichloro-ethane` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#118 from `1,1,1-Trichloro-ethane` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#119 from `1,1,1-Trichloro-ethane` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#120 from `1,1,1-Trichloro-ethane` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#121 from `1,1,1-Trichloro-ethane` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#123 from `1,1,2-Trichloro-ethane` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#122 from `1,1,2-Trichloro-ethane` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#1032 from `ACETAL` to `Acetaldehyde`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#171 from `Dichloro-methane` to `Methylene chloride`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#172 from `Dichloro-methane` to `Methylene chloride`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#757 from `Bromoform` to `Tribromo-methane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#612 from `Bromoform` to `Tribromo-methane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#602 from `Bromoform` to `Tribromo-methane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#596 from `Bromoform` to `Tribromo-methane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#609 from `Bromoform` to `Tribromo-methane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#756 from `Bromoform` to `Tribromo-methane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#662 from `Bromoform` to `Tribromo-methane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#365 from `Dichlorobromo-methane` to `Bromodichloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#369 from `Dichlorobromo-methane` to `Bromodichloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#368 from `Dichlorobromo-methane` to `Bromodichloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#174 from `Dichlorobromo-methane` to `Bromodichloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#366 from `Dichlorobromo-methane` to `Bromodichloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#364 from `Dichlorobromo-methane` to `Bromodichloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#367 from `Dichlorobromo-methane` to `Bromodichloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#112 from `1,1-Dichloro-ethane` to `1,1-Dichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#127 from `1,1-Dichloro-ethene` to `1,1-Dichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#101 from `Hexachlor-cyclopentadiene` to `HEXACHLOROCYCLOPENTADIENE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#893 from `ISOPRENE` to `2-METHYL-1,3-BUTADIENE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#314 from `1,2-Dichloro-propane` to `1,2-Dichloropropane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#315 from `1,2-Dichloro-propane` to `1,2-Dichloropropane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#722 from `TCE` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#728 from `TCE` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#734 from `TCE` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#740 from `TCE` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#715 from `TCE` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#144 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#139 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#147 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#141 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#146 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#143 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#149 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#142 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#137 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#145 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#148 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#140 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#150 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#138 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#151 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#514 from `o-Nitrophenol` to `2-Nitrophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#592 from `o-Methoxy-phenol` to `o-Methoxyphenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#393 from `o-Xylene` to `1,2-Dimethylbenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#386 from `o-Xylene` to `1,2-Dimethylbenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#351 from `o-Cresol  - oxic` to `o-Cresol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#352 from `o-Cresol - anoxic` to `o-Cresol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#781 from `o-Dichlorobenzene` to `1,2-Dichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#782 from `o-Dichlorobenzene` to `1,2-Dichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#835 from `o-Xylene` to `O-TOLUIDINE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#706 from `o-Chlorophenol` to `2-Chlorophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#517 from `o-Chlorophenol` to `2-Chlorophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#775 from `Dibromochloropropane` to `1,2-Dibromo-3-chloro-propane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#776 from `Dibromochloropropane` to `1,2-Dibromo-3-chloro-propane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#773 from `Dibromochloropropane` to `1,2-Dibromo-3-chloro-propane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#774 from `Dibromochloropropane` to `1,2-Dibromo-3-chloro-propane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#316 from `1,2,3-Trichloro-propane` to `1,2,3-Trichloropropane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#648 from `p-Nitrophenol` to `4-Nitrophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#644 from `p-Nitrophenol` to `4-Nitrophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#645 from `p-Nitrophenol` to `4-Nitrophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#516 from `p-Nitrophenol` to `4-Nitrophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#646 from `p-Nitrophenol` to `4-Nitrophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#647 from `p-Nitrophenol` to `4-Nitrophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#649 from `p-Nitrophenol` to `4-Nitrophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#651 from `p-Nitrophenol` to `4-Nitrophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#801 from `Ethyl benzene` to `Ethylbenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#428 from `p-Dichlorobenzene` to `1,4-Dichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#427 from `p-Dichlorobenzene` to `1,4-Dichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#783 from `p-Dichlorobenzene` to `1,4-Dichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#519 from `p-Chlorophenol` to `4-Chlorophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#584 from `p-Chlorophenol` to `4-Chlorophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#708 from `p-Chlorophenol` to `4-Chlorophenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#113 from `1,2-Dichloro-ethane` to `1,2-Dichloroethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#44 from `1,3-Dimethylbenzene` to `m-Xylene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#32 from `Chlorobenzene` to `MONOCHLOROBENZENE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#764 from `Chlorobenzene` to `MONOCHLOROBENZENE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#506 from `Chlorobenzene` to `MONOCHLOROBENZENE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#763 from `Chlorobenzene` to `MONOCHLOROBENZENE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#765 from `Chlorobenzene` to `MONOCHLOROBENZENE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#99 from `Amino-cyclohexane` to `CYCLOHEXYLAMINE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#350 from `Phenol - anoxic` to `Phenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#349 from `Phenol - oxic` to `Phenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#470 from `Propyl acetate` to `N-PROPYL ACETATE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#91 from `1-Aminobutane` to `Butylamine`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#467 from `Hexylamine` to `1-HEXYLAMINE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#1039 from `N-HEXYLAMINE` to `1-HEXYLAMINE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#1031 from `DI-N-PROPYL ETHER` to `Dipropyl ether`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#105 from `Diethyleneglycol` to `Diethylene glycol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#1035 from `2-(2-ETHOXY-ETHOXY)ETHANOL` to `2-(2-ETHOXYETHOXY)ETHANOL`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#501 from `2-(2-Ethoxyethoxy)ethanol` to `2-(2-ETHOXYETHOXY)ETHANOL`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#731 from `1,2,4-TCB` to `1,2,4-Trichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#743 from `1,2,4-TCB` to `1,2,4-Trichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#737 from `1,2,4-TCB` to `1,2,4-Trichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#718 from `1,2,4-TCB` to `1,2,4-Trichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#725 from `1,2,4-TCB` to `1,2,4-Trichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#334 from `2,4-Dinitro-toluene` to `2,4-Dinitrotoluene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#495 from `Triethanolamine` to `TRIETHYLAMINE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#471 from `Butyl acetate` to `N-BUTYL ACETATE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#373 from `Dibromochloro-methane` to `Dibromochloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#372 from `Dibromochloro-methane` to `Dibromochloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#371 from `Dibromochloro-methane` to `Dibromochloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#375 from `Dibromochloro-methane` to `Dibromochloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#374 from `Dibromochloro-methane` to `Dibromochloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#169 from `Dibromochloro-methane` to `Dibromochloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#370 from `Dibromochloro-methane` to `Dibromochloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#170 from `Dibromochloro-methane` to `Dibromochloromethane`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#384 from `PCE` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#391 from `PCE` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#135 from `Tetrachloro-ethene` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#129 from `Tetrachloro-ethene` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#130 from `Tetrachloro-ethene` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#134 from `Tetrachloro-ethene` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#131 from `Tetrachloro-ethene` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#132 from `Tetrachloro-ethene` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#136 from `Tetrachloro-ethene` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#133 from `Tetrachloro-ethene` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#1014 from `N-HEXANOIC ACID` to `Hexanoic acid`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#125 from `1,2-cis-Dichloro-ethene` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#387 from `cis-1,2-DCE` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#394 from `cis-1,2-DCE` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#593 from `cis-Dichloroethene` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#659 from `cis-Dichloroethene` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#603 from `cis-Dichloroethene` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#666 from `cis-Dichloroethene` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#1121 from `M-DICHLOROBENZENE` to `1,3-Dichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#953 from `M-DICHLOROBENZENE` to `1,3-Dichlorobenzene`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#916 from `2-PENTANONE` to `METHYL ISOPROPYL KETONE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#354 from `3-Ethylphenol - anoxic` to `3-Ethylphenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#353 from `3-Ethylphenol - oxic` to `3-Ethylphenol`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#758 from `tert-Butyl-methyl ether` to `METHYL TERT-BUTYL ETHER`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#76 from `Dodecyl-benzenesulfonic acid` to `SODIUM DODECYLBENZENESULFONATE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#79 from `Dodecyl-benzenesulfonic acid` to `SODIUM DODECYLBENZENESULFONATE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#78 from `Dodecyl-benzenesulfonic acid` to `SODIUM DODECYLBENZENESULFONATE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#80 from `Dodecyl-benzenesulfonic acid` to `SODIUM DODECYLBENZENESULFONATE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#77 from `Dodecyl-benzenesulfonic acid` to `SODIUM DODECYLBENZENESULFONATE`
+6/17/99 5:03:05 PM: [Isotherms]: Changed name of ID#568 from `Sodium dodecyl-benzenesulfonate` to `SODIUM DODECYLBENZENESULFONATE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#109 from `Tetrachloro-methane` to `Carbon tetrachloride`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#111 from `Trichloro-methane` to `Chloroform`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#302 from `1,1,1-TCA` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#80 from `1,1,1-Trichloro-ethane` to `1,1,1-Trichloroethane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#521 from `ACETAL` to `Acetaldehyde`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#106 from `Dichloro-methane` to `Methylene chloride`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#311 from `Bromoform` to `Tribromo-methane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#108 from `Dichlorobromo-methane` to `Bromodichloromethane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#75 from `1,1-Dichloro-ethane` to `1,1-Dichloroethane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#85 from `1,1-Dichloro-ethene` to `1,1-Dichloroethene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#64 from `Hexachlor-cyclopentadiene` to `HEXACHLOROCYCLOPENTADIENE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#406 from `ISOPRENE` to `2-METHYL-1,3-BUTADIENE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#140 from `1,2-Dichloro-propane` to `1,2-Dichloropropane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#88 from `Trichloro-ethene` to `Trichloroethene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#337 from `o-Dichlorobenzene` to `1,2-Dichlorobenzene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#165 from `o-Xylene` to `O-TOLUIDINE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#334 from `Dibromochloropropane` to `1,2-Dibromo-3-chloro-propane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#141 from `1,2,3-Trichloro-propane` to `1,2,3-Trichloropropane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#308 from `p-Dichlorobenzene` to `1,4-Dichlorobenzene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#76 from `1,2-Dichloro-ethane` to `1,2-Dichloroethane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#29 from `1,3-Dimethylbenzene` to `m-Xylene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#23 from `Chlorobenzene` to `MONOCHLOROBENZENE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#62 from `Amino-cyclohexane` to `CYCLOHEXYLAMINE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#192 from `Propyl acetate` to `N-PROPYL ACETATE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#54 from `1-Aminobutane` to `Butylamine`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#189 from `Hexylamine` to `1-HEXYLAMINE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#527 from `N-HEXYLAMINE` to `1-HEXYLAMINE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#520 from `DI-N-PROPYL ETHER` to `Dipropyl ether`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#68 from `Diethyleneglycol` to `Diethylene glycol`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#523 from `2-(2-ETHOXY-ETHOXY)ETHANOL` to `2-(2-ETHOXYETHOXY)ETHANOL`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#220 from `2-(2-Ethoxyethoxy)ethanol` to `2-(2-ETHOXYETHOXY)ETHANOL`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#153 from `2,4-Dinitro-toluene` to `2,4-Dinitrotoluene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#193 from `Butyl acetate` to `N-BUTYL ACETATE`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#105 from `Dibromochloro-methane` to `Dibromochloromethane`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#301 from `PCE` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#87 from `Tetrachloro-ethene` to `Tetrachloroethene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#504 from `N-HEXANOIC ACID` to `Hexanoic acid`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#83 from `1,2-cis-Dichloro-ethene` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#303 from `cis-1,2-DCE` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#310 from `cis-Dichloroethene` to `cis-1,2-Dichloroethene`
+6/17/99 5:03:05 PM: [Chemicals]: Changed name of ID#453 from `M-DICHLOROBENZENE` to `1,3-Dichlorobenzene`
+6/17/99 5:03:06 PM: [Chemicals]: Changed name of ID#329 from `tert-Butyl-methyl ether` to `METHYL TERT-BUTYL ETHER`
+6/17/99 5:03:06 PM: [Chemicals]: Changed name of ID#45 from `Dodecyl-benzenesulfonic acid` to `SODIUM DODECYLBENZENESULFONATE`
+6/17/99 5:03:06 PM: [Chemicals]: Changed name of ID#279 from `Sodium dodecyl-benzenesulfonate` to `SODIUM DODECYLBENZENESULFONATE`
+6/17/99 5:03:08 PM: Ended Convert_Isotherms_Table().

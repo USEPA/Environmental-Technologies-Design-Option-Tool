@@ -1,0 +1,29 @@
+Line 17: Class SSFrame of control Frame3D4 was not a loaded control class.
+Line 35: Class SSFrame of control Frame3D3 was not a loaded control class.
+Line 53: Class SSCommand of control cmdFile was not a loaded control class.
+Line 62: Class SSFrame of control Frame3D2 was not a loaded control class.
+Line 70: Class SSOption of control optType was not a loaded control class.
+Line 79: Class SSOption of control optType was not a loaded control class.
+Line 88: Class SSOption of control optType was not a loaded control class.
+Line 98: Class SSFrame of control Frame3D1 was not a loaded control class.
+Line 108: Class SSCommand of control cmdTreat was not a loaded control class.
+Line 396: Class SSCommand of control cmdExcel was not a loaded control class.
+Line 404: Class SSCommand of control cmdSave was not a loaded control class.
+Line 412: Class CommonDialog of control CMDialog1 was not a loaded control class.
+Line 416: Class SSCommand of control cmdSelect was not a loaded control class.
+Line 440: Class GRAPH of control grpBreak was not a loaded control class.
+Line 18: The property name Caption in Frame3D4 is invalid.
+Line 22: The property name ShadowColor in Frame3D4 is invalid.
+Line 36: The property name Caption in Frame3D3 is invalid.
+Line 40: The property name ShadowColor in Frame3D3 is invalid.
+Line 54: The property name Caption in cmdFile is invalid.
+Line 63: The property name Caption in Frame3D2 is invalid.
+Line 71: The property name Caption in optType is invalid.
+Line 80: The property name Caption in optType is invalid.
+Line 89: The property name Caption in optType is invalid.
+Line 99: The property name Caption in Frame3D1 is invalid.
+Line 103: The property name ShadowColor in Frame3D1 is invalid.
+Line 109: The property name Caption in cmdTreat is invalid.
+Line 397: The property name Caption in cmdExcel is invalid.
+Line 405: The property name Caption in cmdSave is invalid.
+Line 417: The property name Caption in cmdSelect is invalid.

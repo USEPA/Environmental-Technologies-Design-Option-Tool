@@ -1,0 +1,28 @@
+
+ Volume in drive C is MS-DOS_6   
+ Directory of C:\FIT\RUNPRED
+
+[.]           	[..]          	a.err       	ac601ws.xls 	addcoeff.for
+addcoeff.exe	addcoeff.obj	alde.out    	badchem.out 	chk1.xls    
+coeff.out   	coeffmod.log	coeffref.log	compile.bat 	cval1.log   
+cval2.log   	cval600.xls 	cvalac.601  	cvalac.600  	cvalue.d    
+cvalue.dat  	cval_ac.600 	cyclos.dat  	cyc_l12.xls 	dipcoeff.600
+dipprlst.txt	exclude.dat 	exclude.d   	famgroup.dat	famgroup.d  
+fit1-14.exe 	fit1-14.for 	fit108.for  	fit108.exe  	fit115.exe  
+fit115.for  	fit3-17.for 	fitt.out    	fitt95b.dat 	fitt95b.d   
+fittr.ref   	fragment.dat	fragment.d  	hvalue.dat  	l14.log     
+linpac.for  	linpac.obj  	list.com    	list        	mod1dipp.xls
+mod2dipp.xls	mod3dipp.xls	mod4dipp.xls	nbp.dat     	param.for   
+predabs.exe 	predabs.for 	predict.out 	predict.1   	predref.obj 
+predref.exe 	predref.for 	pred_l13.xls	p_ac600.xls 	p_ac601.xls 
+p_rseq.100  	ref1.dat    	refstat.txt 	reserve.dat 	restart.log 
+results.out 	rseq100.txt 	seed.dat    	seed-10.l13 	seed-2.l13  
+seed-4.l13  	seed-6.l13  	seed-8.l13  	seedab1.log 	seedab2.log 
+seedac.601  	seedac.602  	seedrseq.100	settings.for	simp_dp.obj 
+simp_dp.for 	simp_new.for	single.dat  	singleac.600	singlers.100
+stat2.out   	statac.601  	statrseq.100	stats.out   	stats.l13   
+tseed216.d  	tseed216.l8 	tseed216.l13	tseed216.dat	tseed_ac.600
+uni3.out    	uni4.out    	unifacr.ref 	unifact.dat 	unifact.out 
+unifact.d   	unifact.108 	unifact.115 	vpc.dat     
+      109 file(s)     10,135,366 bytes
+                     316,506,112 bytes free

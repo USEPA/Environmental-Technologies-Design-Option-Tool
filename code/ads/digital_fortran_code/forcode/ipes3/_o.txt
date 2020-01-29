@@ -1,0 +1,1308 @@
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CC
+CC  Program Name:       LIQUID-PHASE ADSORPTION ISOTHERM CALCULATOR
+CC  Author:             Michigan Tech University - 1994
+CC  Intended Platform:  Compiled with Microsoft FORTRAN and linked
+CC                      to the Visual Basic code of the Adsorption
+CC                      Simulation Software.
+CC
+CC  Modification History:
+CC  =====================
+CC  03/11/1994: Fred Gobin (?)
+CC  - Modified for DLL
+CC  06/28/1996: Eric Oman
+CC  - Added code to output LNCPTS and LNQPTS for output graph
+CC    (Note maximum of 200 regression points.)
+CC  09/02/1998: Eric Oman
+CC  - Removed LNCPTS,LNQPTS,NUMPTS parameters.
+CC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+C---- List of Input and Output Parameters ------------------
+C
+C     BB     : Polanyi Parameter                    Input      
+C     CBEG   : Correlation lower bound (ug/l)       Ouput
+C     CBULK  : Bulk Concentration (ug/l)            I
+C     CEND   : Correlation upper bound (ug/l)       O
+C     CSAV   : Average bulk concentration (ug/l)    O
+C     FWT    : Molecular weight (g/mol)             I
+C     GM     : ????                                 I
+C     NL     : Number of regression points (?)      I
+C     OMAG   : Order of magnitude (?)               I
+C     ORGDEN : Density g/cm3                        I
+C     QSAV   : Polanyi Adsorption Capacity (ug/g)   O
+C     RMSE   : Root Mean Square Error               O
+C     RSQD   : Regression R-Squared                 O
+C     SOLUB  : Solubility (mg/l)                    I
+C     TT     : Temperature (Kelvin)                 I
+C     XK1    : Freundlich K in  (ug/g)...           O
+C     XK2    : Freundlich K in (umol/g)...          O
+C     XNF    : Freundlich 1/n                       O
+C     W0     : Polanyi parameter                    I
+C     ----------------------------------------------------------
+C     ALERR  : Error flag for ADLIQ                 O
+C     ERRMAT : Matrix of error flags                O
+C     ----------------------------------------------------------
+C     Note :
+C      The integers passed as parameters must be INTEGER*2 if declared as Integer
+C      in Visual Basic app., or as INTEGER*4 if declared as Long in VB app.
+
+C      SUBROUTINE ADLIQ (BB,W0,GM,CBULK,ORGDEN,TT,FWT,SOLUB,NL,OMAG,
+C     &                  CSAV,QSAV,XK1,XK2,XNF,CBEG,CEND,RSQD,RMSE,
+C     &                  ERRMAT,ALERR,LNCPTS,LNQPTS,NUMPTS)
+      SUBROUTINE ADLIQ (BB,W0,GM,CBULK,ORGDEN,TT,FWT,SOLUB,NL,OMAG,
+     &                  CSAV,QSAV,XK1,XK2,XNF,CBEG,CEND,RSQD,RMSE,
+     &                  ERRMAT,ALERR)
+
+      IMPLICIT NONE
+C
+C------ PARAMETERS FOR ADLIQ CALCULATION MODULE.
+C
+      DOUBLE PRECISION BB
+      DOUBLE PRECISION W0
+      DOUBLE PRECISION GM
+      DOUBLE PRECISION CBULK
+      DOUBLE PRECISION ORGDEN
+      DOUBLE PRECISION TT
+      DOUBLE PRECISION FWT
+      DOUBLE PRECISION SOLUB
+      INTEGER*2 NL
+      DOUBLE PRECISION OMAG
+      DOUBLE PRECISION CSAV
+      DOUBLE PRECISION QSAV
+      DOUBLE PRECISION XK1
+      DOUBLE PRECISION XK2
+      DOUBLE PRECISION XNF
+      DOUBLE PRECISION CBEG
+      DOUBLE PRECISION CEND
+      DOUBLE PRECISION RSQD
+      DOUBLE PRECISION RMSE
+      INTEGER*2 ERRMAT(30)
+      INTEGER*2 ALERR
+C      DOUBLE PRECISION LNCPTS(200)
+C      DOUBLE PRECISION LNQPTS(200)
+C      INTEGER*2 NUMPTS
+C
+C------ LOCAL VARIABLES.
+C
+      DOUBLE PRECISION ADSP,B0,B1,CINC,CLNC,CONC,CS,CZERO,DENS,DIFF,
+     &                 DP,QLNQ,QCAL,QCAP,RGAS,RHOM,SUMX,SUMY,SUMYY,
+     &                 SUMXX,SUMXY,VOLM
+      INTEGER*2 ERRNUM
+      INTEGER J,K,NJ
+      INTEGER I
+C      COMMON /INITIAL/ W0,BB,GM,CBULK,ORGDEN,OMAG,NL
+C      COMMON /ADSORB/ CSAV,QSAV,XK1,XK2,XNF,CBEG,CEND,RSQD,RMSE
+C      COMMON /ERR/ ERRMAT(30),ERRNUM
+
+      ERRNUM = 0
+      DO 14 I=1,30
+        ERRMAT(I) = 0
+  14  CONTINUE
+
+
+C    -- INITIALIZE VARIABLES
+      DIFF = SOLUB-(CBULK/1000)
+
+      IF (DIFF.LE.0) THEN
+        ALERR = -1
+        CALL ERROR (ERRMAT,ERRNUM,11)
+        RETURN
+      END IF
+
+      DENS = ORGDEN
+
+C    -- POLANYI GENERALIZED ISOTHERM 
+C    -- CS AND CZERO IN {umol/L}  
+
+      CZERO = CBULK/FWT
+      CS = (SOLUB*1000)/FWT
+      VOLM = FWT/DENS
+      RHOM = (DENS*1.0E+06)/FWT
+      RGAS = 1.987
+      NL = NL+1
+      NJ = NL/2
+      NL = 2*NJ
+      DP = DBLE(NL)
+      OMAG = OMAG/2
+      CBEG = DLOG(CZERO/10**OMAG)
+      CEND = DLOG(CZERO*10**OMAG)
+      DIFF = CS-DEXP(CEND)
+
+      IF (DIFF.LE.0) THEN
+        CEND = DLOG(0.99*CS)
+        CALL ERROR (ERRMAT,ERRNUM,12)
+      END IF
+
+      IF (CBEG.GE.CEND) THEN
+        ALERR = -1
+        CALL ERROR (ERRMAT,ERRNUM,13)
+        RETURN 
+      END IF
+
+      CINC = (CEND-CBEG)/DP
+      CSAV = 0
+      QSAV = 0
+      SUMX = 0
+      SUMY = 0
+      SUMXX = 0
+      SUMYY = 0
+      SUMXY = 0
+
+      DO 20 K=1,NL
+        CLNC = CBEG+DBLE(K)*CINC
+        CONC = DEXP(CLNC)
+        ADSP = (RGAS*TT)*DLOG(CS/CONC)
+        QCAP = (RHOM*W0)*DEXP(-BB*(ADSP/VOLM)**GM)
+        QLNQ = DLOG(QCAP)
+Cc
+Cc Code added on 6/28/96 to output ln(C) and ln(Q) for analysis.
+Cc
+C           LNCPTS(K) = CLNC
+C           LNQPTS(K) = QLNQ
+Cc
+        SUMX = SUMX+CLNC
+        SUMY = SUMY+QLNQ
+        SUMXX = SUMXX+(CLNC)**2
+        SUMYY = SUMYY+(QLNQ)**2
+        SUMXY = SUMXY+(CLNC*QLNQ)
+        IF (K.EQ.NJ) THEN
+          CSAV = CONC*FWT
+          QSAV = QCAP*FWT
+        END IF
+  20  CONTINUE
+Cc
+Cc Code added on 6/28/96 to output ln(C) and ln(Q) for analysis.
+Cc
+C      IF (NL .LT. 200) THEN
+C        LNCPTS(NL+1) = 0D0
+C        LNQPTS(NL+1) = 0D0
+C        NUMPTS = NL
+C      ELSE
+C        NUMPTS = 200
+C      END IF
+Cc
+
+C    -- CALCULATE FREUNDLICH "K" AND "1/n" BY LINEAR REGRESSION 
+C    -- FREUNDLICH "K" (XK1) IS IN {ug/gm} OR {(L/ug)**(1/n)}
+
+      B0 = (SUMY/DP)-(DP*SUMX*SUMXY-SUMX**2*SUMY)/DP/(DP*SUMXX-SUMX**2)
+      B1 = (DP*SUMXY-SUMX*SUMY)/(DP*SUMXX-SUMX**2)
+      XNF = B1
+      XK2 = DEXP(B0)
+      XK1 = (XK2*FWT)*(1/FWT)**XNF
+      RSQD = 1-(SUMYY-B0*SUMY-B1*SUMXY)/((DP*SUMYY-SUMY**2)/DP)
+
+C    -- CALCULATE THE ROOT MEAN SQUARE ERROR (RMSE) 
+
+      RMSE = 0
+
+      DO 30 J=1,NL
+        CLNC = CBEG+DBLE(J)*CINC
+        CONC = DEXP(CLNC)
+        ADSP = (RGAS*TT)*DLOG(CS/CONC)
+        QCAP = (RHOM*W0)*DEXP(-BB*(ADSP/VOLM)**GM)
+        QCAL = XK2*(CONC)**XNF
+        RMSE = RMSE+((QCAL-QCAP)/QCAP)**2
+  30  CONTINUE
+
+      RMSE = DSQRT(RMSE/DP)*100
+      CBEG = DEXP(CBEG)*FWT
+      CEND = DEXP(CEND)*FWT
+C      OPEN(UNIT=12,FILE='check2.txt')
+C      WRITE(12,*) 'RMSE=',RMSE
+C      WRITE(12,*) 'XK1=',XK1
+C      WRITE(12,*) 'XK2=',XK2
+C      CLOSE(12)
+ 9999 CONTINUE
+      RETURN
+      END
+
+
+
+
+
+C                                                                              *
+C234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567
+C-----789012345678901234567890123456789012345678901234567890123456789012CCCCCCCC-----------------
+
+      INTEGER ALLOW_SCREENIO
+      PARAMETER (ALLOW_SCREENIO = 1)
+
+      CHARACTER*200 FN_IN_MAIN
+      CHARACTER*200 FN_OUT_SUCCESSFLAG
+      CHARACTER*200 FN_OUT_MAIN
+      COMMON /BLOCK1/ FN_IN_MAIN,FN_OUT_SUCCESSFLAG,FN_OUT_MAIN
+
+
+
+
+
+C *****************************************************************************
+C *                                                                           *
+C *                   ERROR AND WARNING HANDLING SUBROUTINE                   *
+C *                                                                           *
+C *****************************************************************************
+
+      SUBROUTINE ERROR (ERRMAT,ERRNUM,CODE)
+      IMPLICIT NONE
+      INTEGER*2 ERRNUM,ERRMAT(30),CODE 
+      
+      ERRNUM = ERRNUM + 1
+
+      ERRMAT(ERRNUM) = CODE
+
+      END
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C     MODULE NAME: IPES3
+C
+C     DESCRIPTION: THIS PROGRAM PERFORMS THE ISOTHERM PARAMETER
+C         ESTIMATION (IPE) CALCULATIONS.
+C
+C     PLATFORM: MICROSOFT FORTRAN POWERSTATION V4.0
+C
+C     HISTORY:
+C         1998-SEP-02 - OMAN - CONVERTED DLL FORTRAN CODE FOR USE AS
+C                              AN EXE CONNECTED TO THE ADDESIGNS FRONT-END.
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C                                                                              *
+C234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567
+C-----789012345678901234567890123456789012345678901234567890123456789012CCCCCCCC-----------------
+
+      PROGRAM IPES3
+      IMPLICIT NONE
+C
+C------ LOCAL VARIABLES.
+C
+      INTEGER MODULE_CODE
+      INTEGER FOUND_MODULE
+C
+C------ COMMON VARIABLES.
+C
+      INCLUDE 'COMMON.FI'
+C
+C------ START OF CODE.
+C
+C
+C------ READ PATH FILE.
+C
+      OPEN(UNIT=11,FILE='IPES1.IN',STATUS='OLD')
+      READ(11,*) MODULE_CODE
+      READ(11,*) FN_IN_MAIN
+      READ(11,*) FN_OUT_SUCCESSFLAG
+      READ(11,*) FN_OUT_MAIN
+	CLOSE(11)
+C
+C------ CALL SUBROUTINE FOR SPECIFIC CALCULATION MODULE.
+C
+      FOUND_MODULE = 0
+      IF (MODULE_CODE.EQ.1) THEN
+        CALL PROCESS_ADLIQ
+        FOUND_MODULE = 1
+      ENDIF
+      IF (MODULE_CODE.EQ.4) THEN
+        CALL PROCESS_SPEQ
+        FOUND_MODULE = 1
+      ENDIF
+      IF (MODULE_CODE.EQ.5) THEN
+        CALL PROCESS_HOFMAN
+        FOUND_MODULE = 1
+      ENDIF
+      IF (FOUND_MODULE.EQ.0) THEN
+        PRINT *, 'INVALID MODULE CODE (', MODULE_CODE, ').'
+        CALL TERMINATE_MODEL
+      ENDIF
+      END
+
+
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C     SUBROUTINE NAME: PROCESS_ADLIQ
+C
+C     PURPOSE:
+C         - READ INPUT DATA.
+C         - CALL CALCULATION MODULE.
+C         - WRITE OUTPUT DATA.
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C                                                                              *
+C234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567
+C-----789012345678901234567890123456789012345678901234567890123456789012CCCCCCCC-----------------
+      SUBROUTINE PROCESS_ADLIQ
+      IMPLICIT NONE
+C
+C------ LOCAL VARIABLES.
+C
+      DOUBLE PRECISION VERSION_CHECK
+      DOUBLE PRECISION EOFTESTMARKER
+      INTEGER I
+C
+C------ COMMON VARIABLES.
+C
+      INCLUDE 'COMMON.FI'
+C
+C------ PARAMETERS PASSED TO ADLIQ CALCULATION MODULE.
+C
+      DOUBLE PRECISION BB
+      DOUBLE PRECISION W0
+      DOUBLE PRECISION GM
+      DOUBLE PRECISION CBULK
+      DOUBLE PRECISION ORGDEN
+      DOUBLE PRECISION TT
+      DOUBLE PRECISION FWT
+      DOUBLE PRECISION SOLUB
+      INTEGER*2 NL
+      DOUBLE PRECISION OMAG
+      DOUBLE PRECISION CSAV
+      DOUBLE PRECISION QSAV
+      DOUBLE PRECISION XK1
+      DOUBLE PRECISION XK2
+      DOUBLE PRECISION XNF
+      DOUBLE PRECISION CBEG
+      DOUBLE PRECISION CEND
+      DOUBLE PRECISION RSQD
+      DOUBLE PRECISION RMSE
+      INTEGER*2 ERRMAT(30)
+      INTEGER*2 ALERR
+C
+C------ START OF CODE.
+C
+C
+C------ READ MAIN INPUT FILE.
+C
+      OPEN(UNIT=11,FILE=FN_IN_MAIN,STATUS='OLD')
+      READ(11,*) VERSION_CHECK
+      IF (DABS((VERSION_CHECK+0.000001D0)/
+     &    1.00D0-1.00D0).LE.0.001D0) THEN
+C
+C------ VERSION CHECK SUCCESSFUL; DO NOTHING.
+C      
+      ELSE
+        PRINT *, 'INVALID INPUT FILE FORMAT (VERSION CODE).'
+        CALL TERMINATE_MODEL
+      ENDIF
+      READ(11,*) BB
+      READ(11,*) W0
+      READ(11,*) GM
+      READ(11,*) CBULK
+      READ(11,*) ORGDEN
+      READ(11,*) TT
+      READ(11,*) FWT
+      READ(11,*) SOLUB
+      READ(11,*) NL
+      READ(11,*) OMAG
+      READ(11,*) EOFTESTMARKER
+      IF (DABS((EOFTESTMARKER+0.000001D0)/
+     &    123456.0D0-1.0D0).LE.0.001D0) THEN
+C
+C------ EOF TEST MARKER CHECK SUCCESSFUL; DO NOTHING.
+C      
+      ELSE
+        PRINT *, 'INVALID INPUT FILE FORMAT (EOF MARKER).'
+        CALL TERMINATE_MODEL
+      ENDIF
+      CLOSE(11)
+C
+C------ CALL THE CALCULATION ROUTINE.
+C      
+      CALL ADLIQ(BB,W0,GM,CBULK,ORGDEN,TT,FWT,SOLUB,NL,OMAG,
+     &           CSAV,QSAV,XK1,XK2,XNF,CBEG,CEND,RSQD,RMSE,
+     &           ERRMAT,ALERR)
+C
+C------ WRITE SUCCESS FLAG OUTPUT FILE.
+C
+      OPEN(UNIT=12,FILE=FN_OUT_SUCCESSFLAG)
+      WRITE(12,*) 'ALERR, ERROR FLAG FOR IPE MODULE:'
+      WRITE(12,*) ALERR
+      CLOSE(12)
+C
+C------ WRITE MAIN OUTPUT FILE.
+C
+      OPEN(UNIT=12,FILE=FN_OUT_MAIN)
+      WRITE(12,*) 'CSAV, average bulk concentration, ug/L'
+      WRITE(12,*) CSAV
+      WRITE(12,*) 'QSAV, Polanyi adsorption capacity, ug/g'
+      WRITE(12,*) QSAV
+      WRITE(12,*) 'XK1, Freundlich K, (ug/g)*(L/ug)^(1/n)'
+      WRITE(12,*) XK1
+      WRITE(12,*) 'XK2, Freundlich K, (umol/g)*(L/umol)^(1/n)'
+      WRITE(12,*) XK2
+      WRITE(12,*) 'XNF, Freundlich 1/n, dimless'
+      WRITE(12,*) XNF
+      WRITE(12,*) 'CBEG, correlation lower bound, ug/L'
+      WRITE(12,*) CBEG
+      WRITE(12,*) 'CEND, correlation upper bound, ug/L'
+      WRITE(12,*) CEND
+      WRITE(12,*) 'RSQD, regression R-squared, dimless'
+      WRITE(12,*) RSQD
+      WRITE(12,*) 'RMSE, root mean square error, dimless?'
+      WRITE(12,*) RMSE
+      WRITE(12,*) 'ERRMAT, error matrix'
+      DO I=1, 30
+        WRITE(12,*) ERRMAT(I)
+      ENDDO
+      WRITE(12,*) 'ALERR, has any error occurred (0=no)?'
+      WRITE(12,*) ALERR
+      WRITE(12,*) 'EOFTESTMARKER:'
+      WRITE(12,*) 123456.0D0
+      CLOSE(12)
+      RETURN
+      END
+
+
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C     SUBROUTINE NAME: PROCESS_SPEQ
+C
+C     PURPOSE:
+C         - READ INPUT DATA.
+C         - CALL CALCULATION MODULE.
+C         - WRITE OUTPUT DATA.
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C                                                                              *
+C234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567
+C-----789012345678901234567890123456789012345678901234567890123456789012CCCCCCCC-----------------
+      SUBROUTINE PROCESS_SPEQ
+      IMPLICIT NONE
+C
+C------ LOCAL VARIABLES.
+C
+      DOUBLE PRECISION VERSION_CHECK
+      DOUBLE PRECISION EOFTESTMARKER
+      INTEGER I
+C
+C------ COMMON VARIABLES.
+C
+      INCLUDE 'COMMON.FI'
+C
+C------ PARAMETERS FOR SPEQ CALCULATION MODULE.
+C
+C...INPUTS...:
+      DOUBLE PRECISION IN_DATA(10)
+      INTEGER*2 NL
+      INTEGER*2 XERR
+C...OUTPUTS...:
+      DOUBLE PRECISION CSAV
+      DOUBLE PRECISION QSAV
+      DOUBLE PRECISION XK1
+      DOUBLE PRECISION XK2
+      DOUBLE PRECISION XNF
+      DOUBLE PRECISION CBEG
+      DOUBLE PRECISION CEND
+      INTEGER*2 ERRMAT(30)
+      INTEGER*2 SQERR
+C
+C------ START OF CODE.
+C
+C
+C------ READ MAIN INPUT FILE.
+C
+      OPEN(UNIT=11,FILE=FN_IN_MAIN,STATUS='OLD')
+      READ(11,*) VERSION_CHECK
+      IF (DABS((VERSION_CHECK+0.000001D0)/
+     &    1.00D0-1.00D0).LE.0.001D0) THEN
+C
+C------ VERSION CHECK SUCCESSFUL; DO NOTHING.
+C      
+      ELSE
+        PRINT *, 'INVALID INPUT FILE FORMAT (VERSION CODE).'
+        CALL TERMINATE_MODEL
+      ENDIF
+      DO I=1,10
+        READ(11,*) IN_DATA(I)
+      ENDDO
+      READ(11,*) NL
+      READ(11,*) XERR
+      READ(11,*) EOFTESTMARKER
+      IF (DABS((EOFTESTMARKER+0.000001D0)/
+     &    123456.0D0-1.0D0).LE.0.001D0) THEN
+C
+C------ EOF TEST MARKER CHECK SUCCESSFUL; DO NOTHING.
+C      
+      ELSE
+        PRINT *, 'INVALID INPUT FILE FORMAT (EOF MARKER).'
+        CALL TERMINATE_MODEL
+      ENDIF
+      CLOSE(11)
+C
+C------ CALL THE CALCULATION ROUTINE.
+C      
+      CALL SPEQ(IN_DATA,NL,
+     &          CSAV,QSAV,XK1,XK2,XNF,CBEG,CEND,
+     &          ERRMAT,XERR,SQERR)
+C
+C------ WRITE SUCCESS FLAG OUTPUT FILE.
+C
+      OPEN(UNIT=12,FILE=FN_OUT_SUCCESSFLAG)
+      WRITE(12,*) 'SQERR, ERROR FLAG FOR IPE MODULE:'
+      WRITE(12,*) SQERR
+      CLOSE(12)
+C
+C------ WRITE MAIN OUTPUT FILE.
+C
+      OPEN(UNIT=12,FILE=FN_OUT_MAIN)
+      WRITE(12,*) 'CSAV, average bulk concentration, ug/L'
+      WRITE(12,*) CSAV
+      WRITE(12,*) 'QSAV, Polanyi adsorption capacity, ug/g'
+      WRITE(12,*) QSAV
+      WRITE(12,*) 'XK1, Freundlich K, (ug/g)*(L/ug)^(1/n)'
+      WRITE(12,*) XK1
+      WRITE(12,*) 'XK2, Freundlich K, (umol/g)*(L/umol)^(1/n)'
+      WRITE(12,*) XK2
+      WRITE(12,*) 'XNF, Freundlich 1/n, dimless'
+      WRITE(12,*) XNF
+      WRITE(12,*) 'CBEG, correlation lower bound, ug/L'
+      WRITE(12,*) CBEG
+      WRITE(12,*) 'CEND, correlation upper bound, ug/L'
+      WRITE(12,*) CEND
+      WRITE(12,*) 'ERRMAT, error matrix'
+      DO I=1, 30
+        WRITE(12,*) ERRMAT(I)
+      ENDDO
+      WRITE(12,*) 'SQERR, has any error occurred (0=no)?'
+      WRITE(12,*) SQERR
+      WRITE(12,*) 'EOFTESTMARKER:'
+      WRITE(12,*) 123456.0D0
+      CLOSE(12)
+      RETURN
+      END
+
+
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C     SUBROUTINE NAME: PROCESS_HOFMAN
+C
+C     PURPOSE:
+C         - READ INPUT DATA.
+C         - CALL CALCULATION MODULE.
+C         - WRITE OUTPUT DATA.
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C                                                                              *
+C234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567
+C-----789012345678901234567890123456789012345678901234567890123456789012CCCCCCCC-----------------
+      SUBROUTINE PROCESS_HOFMAN
+      IMPLICIT NONE
+C
+C------ LOCAL VARIABLES.
+C
+      DOUBLE PRECISION VERSION_CHECK
+      DOUBLE PRECISION EOFTESTMARKER
+      INTEGER I
+C
+C------ COMMON VARIABLES.
+C
+      INCLUDE 'COMMON.FI'
+C
+C------ PARAMETERS FOR HOFMAN CALCULATION MODULE.
+C
+C...INPUTS...:
+      DOUBLE PRECISION IN_DATA(11)
+      INTEGER*2 NL
+C...OUTPUTS...:
+      DOUBLE PRECISION CSAV
+      DOUBLE PRECISION QSAV
+      DOUBLE PRECISION XK1
+      DOUBLE PRECISION XK2
+      DOUBLE PRECISION XNF
+      DOUBLE PRECISION CBEG
+      DOUBLE PRECISION CEND
+      DOUBLE PRECISION RSQD
+      DOUBLE PRECISION RMSE
+      INTEGER*2 ERRMAT(30)
+      INTEGER*2 HOERR
+C
+C------ START OF CODE.
+C
+C
+C------ READ MAIN INPUT FILE.
+C
+      OPEN(UNIT=11,FILE=FN_IN_MAIN,STATUS='OLD')
+      READ(11,*) VERSION_CHECK
+      IF (DABS((VERSION_CHECK+0.000001D0)/
+     &    1.00D0-1.00D0).LE.0.001D0) THEN
+C
+C------ VERSION CHECK SUCCESSFUL; DO NOTHING.
+C      
+      ELSE
+        PRINT *, 'INVALID INPUT FILE FORMAT (VERSION CODE).'
+        CALL TERMINATE_MODEL
+      ENDIF
+      DO I=1,11
+        READ(11,*) IN_DATA(I)
+      ENDDO
+      READ(11,*) NL
+      READ(11,*) EOFTESTMARKER
+      IF (DABS((EOFTESTMARKER+0.000001D0)/
+     &    123456.0D0-1.0D0).LE.0.001D0) THEN
+C
+C------ EOF TEST MARKER CHECK SUCCESSFUL; DO NOTHING.
+C      
+      ELSE
+        PRINT *, 'INVALID INPUT FILE FORMAT (EOF MARKER).'
+        CALL TERMINATE_MODEL
+      ENDIF
+      CLOSE(11)
+C
+C------ CALL THE CALCULATION ROUTINE.
+C      
+      CALL HOFMAN(IN_DATA,NL,CSAV,QSAV,
+     &            XK1,XK2,XNF,CBEG,CEND,RSQD,RMSE,
+     &            ERRMAT,HOERR)
+C
+C------ WRITE SUCCESS FLAG OUTPUT FILE.
+C
+      OPEN(UNIT=12,FILE=FN_OUT_SUCCESSFLAG)
+      WRITE(12,*) 'HOERR, ERROR FLAG FOR IPE MODULE:'
+      WRITE(12,*) HOERR
+      CLOSE(12)
+C
+C------ WRITE MAIN OUTPUT FILE.
+C
+      OPEN(UNIT=12,FILE=FN_OUT_MAIN)
+      WRITE(12,*) 'CSAV, average bulk concentration, ug/L'
+      WRITE(12,*) CSAV
+      WRITE(12,*) 'QSAV, Polanyi adsorption capacity, ug/g'
+      WRITE(12,*) QSAV
+      WRITE(12,*) 'XK1, Freundlich K, (ug/g)*(L/ug)^(1/n)'
+      WRITE(12,*) XK1
+      WRITE(12,*) 'XK2, Freundlich K, (umol/g)*(L/umol)^(1/n)'
+      WRITE(12,*) XK2
+      WRITE(12,*) 'XNF, Freundlich 1/n, dimless'
+      WRITE(12,*) XNF
+      WRITE(12,*) 'CBEG, correlation lower bound, ug/L'
+      WRITE(12,*) CBEG
+      WRITE(12,*) 'CEND, correlation upper bound, ug/L'
+      WRITE(12,*) CEND
+      WRITE(12,*) 'RSQD, regression R-squared, dimless'
+      WRITE(12,*) RSQD
+      WRITE(12,*) 'RMSE, root mean square error, dimless?'
+      WRITE(12,*) RMSE
+      WRITE(12,*) 'ERRMAT, error matrix'
+      DO I=1, 30
+        WRITE(12,*) ERRMAT(I)
+      ENDDO
+      WRITE(12,*) 'HOERR, has any error occurred (0=no)?'
+      WRITE(12,*) HOERR
+      WRITE(12,*) 'EOFTESTMARKER:'
+      WRITE(12,*) 123456.0D0
+      CLOSE(12)
+      RETURN
+      END
+
+
+
+      SUBROUTINE TERMINATE_MODEL
+      IMPLICIT NONE
+CC------ COMMON VARIABLES.
+C      INCLUDE 'COMMON.FI'
+      PAUSE 'Press Enter to terminate model.'
+      STOP
+      RETURN
+	END
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CC
+CC  Program Name:       LIQUID-PHASE ADSORPTION ISOTHERM CALCULATOR
+CC                      USING MANES/HOFER MODEL
+CC  Author:             Michigan Tech University - 1994
+CC  Intended Platform:  Compiled with Microsoft FORTRAN and linked
+CC                      to the Visual Basic code of the Adsorption
+CC                      Simulation Software.
+CC
+CC  Modification History:
+CC  =====================
+CC  03/11/1994: Fred Gobin (?)
+CC  - Modified for DLL
+CC  06/28/1996: Eric Oman
+CC  - Added code to output LNCPTS and LNQPTS for output graph
+CC    (Note maximum of 200 regression points.)
+CC  09/02/1998: Eric Oman
+CC  - Removed LNCPTS,LNQPTS,NUMPTS parameters.
+CC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+C---- List of Input and Output Parameters ------------------
+C
+C     BB     : Polanyi Parameter                    Input      
+C     CBEG   : Correlation lower bound (ug/l)       Ouput
+C     CBULK  : Bulk Concentration (ug/l)            I
+C     CEND   : Correlation upper bound (ug/l)       O
+C     CSAV   : Average bulk concentration (ug/l)    O
+C     FWT    : Molecular weight (g/mol)             I
+C     GM     : ????                                 I
+C     NL     : Number of regression points (?)      I
+C     OMAG   : Order of magnitude (?)               I
+C     ORGDEN : Density g/cm3                        I
+C     PVAP   : Vapor Pressure (mm Hg)               I
+C     QSAV   : Polanyi Adsorption Capacity (ug/g)   O
+C     RMSE   : Root Mean Square Error               O
+C     RNDX   : Refractive Index                     I
+C     RSQD   : Regression R-Squared                 O
+C     SOLUB  : Solubility (mg/l)                    I
+C     TT     : Temperature (Kelvin)                 I
+C     XK1    : Freundlich K in  (ug/g)...           O
+C     XK2    : Freundlich K in (umol/g)...          O
+C     XNF    : Freundlich 1/n                       O
+C     W0     : Polanyi parameter                    I
+C     ----------------------------------------------------------
+C     HOERR  : Error flag for HOFMAN
+C     ERRMAT : Matrix of error flags
+C     ----------------------------------------------------------
+C     Note 1:
+C     All Double Precision Input parameters are stored in the In_Data Array
+C     Note 2:
+C      The integers passed as parameters must be INTEGER*2 if declared as Integer
+C      in Visual Basic app., or as INTEGER*4 if declared as Long in VB app.
+
+C      SUBROUTINE HOFMAN(IN_DATA,NL,CSAV,QSAV,
+C     &                  XK1,XK2,XNF,CBEG,CEND,RSQD,RMSE,
+C     &                  ERRMAT,HOERR,LNCPTS,LNQPTS,NUMPTS)
+      SUBROUTINE HOFMAN(IN_DATA,NL,CSAV,QSAV,
+     &                  XK1,XK2,XNF,CBEG,CEND,RSQD,RMSE,
+     &                  ERRMAT,HOERR)
+      IMPLICIT NONE
+C
+C------ PARAMETERS FOR HOFMAN CALCULATION MODULE.
+C
+C...INPUTS...:
+      DOUBLE PRECISION IN_DATA(11)
+      INTEGER*2 NL
+C...OUTPUTS...:
+      DOUBLE PRECISION CSAV
+      DOUBLE PRECISION QSAV
+      DOUBLE PRECISION XK1
+      DOUBLE PRECISION XK2
+      DOUBLE PRECISION XNF
+      DOUBLE PRECISION CBEG
+      DOUBLE PRECISION CEND
+      DOUBLE PRECISION RSQD
+      DOUBLE PRECISION RMSE
+      INTEGER*2 ERRMAT(30)
+      INTEGER*2 HOERR
+C
+C------ LOCAL VARIABLES.
+C
+      DOUBLE PRECISION ADSP,ADSPRF,B0,B1,BB,CBULK,CINC,
+     &                 CLNC,CONC,CS,CSS,CZERO,DENS,DIFF,DP
+      DOUBLE PRECISION FWT,GAMMA,GM,ORGDEN,OMAG,OREF,PS,PVAP
+      DOUBLE PRECISION QCAP,QCAL
+      DOUBLE PRECISION QLNQ,REFDEN,REFMW,REFVOL,RGAS,RHOM,RIREF
+      DOUBLE PRECISION RNDX,
+     &                 SOLUB,SUMX,SUMY,SUMXX,SUMYY,SUMXY,
+     &                 TT,VOLAD,VOLM,W0
+
+      INTEGER I,J,K,NJ
+      INTEGER*2 ERRNUM
+
+C      DOUBLE PRECISION LNCPTS(200),LNQPTS(200)
+C      INTEGER*2 NUMPTS
+
+
+C    -- INITIALIZE VARIABLES
+      ERRNUM = 0 
+      DO I=1, 30
+        ERRMAT(I) = 0
+      ENDDO
+
+      BB    =IN_DATA(1)
+      W0    = IN_DATA(2)
+      TT    = IN_DATA(3)
+      CBULK = IN_DATA(4)
+      ORGDEN= IN_DATA(5)
+      FWT   = IN_DATA(6)
+      PVAP  = IN_DATA(7)
+      SOLUB = IN_DATA(8)
+      RNDX  = IN_DATA(9)
+      GM    = IN_DATA(10)
+      OMAG  = IN_DATA(11)
+
+      CSAV=0
+      QSAV=0
+      SUMX=0
+      SUMY=0
+      SUMXX=0
+      SUMYY=0
+      SUMXY=0
+      
+      DIFF = SOLUB-(CBULK/1000)
+      
+      IF (DIFF.LE.0) THEN
+
+           HOERR = -1
+           CALL ERROR (ERRMAT,ERRNUM,11)
+           GOTO 9999
+
+      END IF
+
+      DENS = ORGDEN
+
+C    -- CS AND CZERO IN {uM/L}
+
+      CZERO = CBULK/FWT
+      CS = (SOLUB*1000)/FWT
+      VOLM = FWT/DENS
+      RHOM = (DENS*1.0E+06)/FWT
+      RGAS = 1.987
+      NL = NL+1
+      NJ = NL/2
+      NL = 2*NJ
+      DP = DBLE(NL)
+      OMAG = OMAG/2
+      CBEG = DLOG(CZERO/10**OMAG)
+      CEND = DLOG(CZERO*10**OMAG)
+      DIFF = CS-DEXP(CEND)
+
+      IF (DIFF.LE.0) THEN
+
+           CEND = DLOG(0.99*CS)
+           CALL ERROR (ERRMAT,ERRNUM,12)
+
+      END IF
+
+      IF (CBEG.GE.CEND) THEN
+
+           HOERR = -1
+           CALL ERROR (ERRMAT,ERRNUM,13)
+           GOTO 9999
+
+      END IF
+
+      CINC = (CEND-CBEG)/DP
+
+      PS = PVAP/760
+
+      CSS = (PS/0.08206/TT)*1.0E+06
+      DIFF = (CSS*FWT)-CBULK
+
+      IF (DIFF.LE.0) THEN
+
+           HOERR = -1
+           CALL ERROR (ERRMAT,ERRNUM,18)
+           GOTO 9999
+
+      END IF
+
+C    -- GAS PHASE D-R CORRELATION
+
+C    -- REFERENCE CHEMICAL: TOLUENE
+
+C    --               MW = 92.140 {g/gmol}
+C    --          DENSITY = 0.8623 {g/cc}
+C    -- REFRACTIVE INDEX = 1.4941
+
+      REFMW = 92.14
+      REFDEN = 0.8623
+      REFVOL = REFMW/REFDEN
+      RIREF = 1.4941
+      OREF = (RIREF**2-1)/(RIREF**2+2)
+
+C    -- CORRELATING DIVISOR FOR WATER VAPOR ISOTHERM IS 0.28
+
+      GAMMA = ((RNDX**2-1)/(RNDX**2+2))/OREF-0.28
+
+      DO 10 K=1,NL
+
+           CLNC = CBEG+DBLE(K)*CINC
+           CONC = DEXP(CLNC)
+           ADSP = (RGAS*TT)*DLOG(CS/CONC)
+           ADSPRF = (ADSP/VOLM)*REFVOL/GAMMA
+
+C    -- CHECK FOR DEXP BOUNDARY
+
+           IF ((-BB*(ADSPRF)**GM).LT.-710) THEN
+
+                HOERR = -1
+                CALL ERROR (ERRMAT,ERRNUM,14)
+                GOTO 9999
+
+           END IF
+
+           VOLAD = W0*DEXP(-BB*(ADSPRF)**GM)
+           QCAP = RHOM*VOLAD
+
+           IF (QCAP.LE.1.0E-03) THEN
+       
+                HOERR = -1
+                CALL ERROR (ERRMAT,ERRNUM,21)
+                GOTO 9999
+
+           END IF
+ 
+           QLNQ = DLOG(QCAP)
+Cc
+Cc Code added on 6/28/96 to output ln(C) and ln(Q) for analysis.
+Cc
+C           LNCPTS(K) = CLNC
+C           LNQPTS(K) = QLNQ
+Cc
+           SUMX = SUMX+CLNC
+           SUMY = SUMY+QLNQ
+           SUMXX = SUMXX+(CLNC)**2
+           SUMYY = SUMYY+(QLNQ)**2
+           SUMXY = SUMXY+(CLNC*QLNQ)
+        
+           IF (K.EQ.NJ) THEN
+
+                CSAV = CONC*FWT
+                QSAV = QCAP*FWT
+    
+           END IF
+
+  10  CONTINUE
+
+Cc
+Cc Code added on 6/28/96 to output ln(C) and ln(Q) for analysis.
+Cc
+C      IF (NL .LT. 200) THEN
+C           LNCPTS(NL+1) = 0D0
+C           LNQPTS(NL+1) = 0D0
+C           NUMPTS = NL
+C      ELSE
+C           NUMPTS = 200
+C      END IF
+Cc
+
+C    -- CALCULATE FREUNDLICH "K" AND 1/n BY LINEAR REGRESSION
+C    -- FREUNDLICH "K" (XK1) IS IN {(ug/g)(L/ug)**(1/n)}
+
+      B0 = (SUMY/DP)-(DP*SUMX*SUMXY-SUMX**2*SUMY)/DP/(DP*SUMXX-SUMX**2)
+      B1 = (DP*SUMXY-SUMX*SUMY)/(DP*SUMXX-SUMX**2)
+      XNF = B1
+      XK2 = DEXP(B0)
+      XK1 = (XK2*FWT)*(1/FWT)**XNF
+      RSQD = 1-(SUMYY-B0*SUMY-B1*SUMXY)/((DP*SUMYY-SUMY**2)/DP)
+
+C    -- CALCULATE ROOT-MEAN-SQUARE ERROR (RMSE)
+
+      RMSE = 0
+
+      DO 20 J=1,NL
+
+           CLNC = CBEG+DBLE(K)*CINC
+           CONC = DEXP(CLNC)
+           ADSP = (RGAS*TT)*DLOG(CS/CONC)
+           ADSPRF = (ADSP/VOLM)*REFVOL/GAMMA
+           VOLAD = W0*DEXP(-BB*(ADSPRF)**GM)
+           QCAP = RHOM*VOLAD
+           QCAL = XK2*(CONC)**XNF
+           RMSE = RMSE+((QCAL-QCAP)/QCAP)**2
+
+  20  CONTINUE
+
+      RMSE = DSQRT(RMSE/DP)**100
+      CBEG = DEXP(CBEG)*FWT
+      CEND = DEXP(CEND)*FWT
+ 9999 CONTINUE
+      RETURN
+      END
+C *****************************************************************************
+C *                                                                           *
+C *                    CALCULATE FREUNDLICH PARAMETERS                        *
+C *                                                                           *
+C *    ALGORITHM DEVELOPED BY:  RANDY D. CORTRIGHT, GRADUATE STUDENT          *
+C *                             DAVID W. HAND, SENIOR RESEARCH ENGINEER       *
+C *                             [ June 1985 ]                                 *
+C *                                                                           *
+C *               MODIFIED BY:  TONY N. ROGERS, CHE GRADUATE STUDENT          *
+C *                             [ July 1991 ]                                 *
+C *               Last Modified 03/15/94 for DLL (F.Gobin)                    *
+C *****************************************************************************
+C     BB     : Polanyi Parameter                    Input 
+C     CBULK  : bulk conc. (ug/l)                    I     
+C     CBEG   : Correlation lower bound (ug/l)       Ouput
+C     CEND   : Correlation upper bound (ug/l)       O
+C     CSAV   : Average bulk concentration (ug/l)    O
+C     FWT    : Molecular weight (g/mol)             I
+C     GM     : ????                                 I
+C     NL     : Number of regression points (?)      I
+C     ORGDEN : Density g/cm3                        I
+C     PVAP   : Vapor Pressure (mm Hg)               I
+C     QSAV   : Polanyi Adsorption Capacity (ug/g)   O
+C     RNDX   : Refractive Index                     I
+C     TOL    : Tolerance                            I
+C     TT     : Temperature (Kelvin)                 I
+C     XK1    : Freundlich K in  (ug/g)...           O
+C     XK2    : Freundlich K in (umol/g)...          O
+C     XNF    : Freundlich 1/n                       O
+C     W0     : Polanyi parameter                    I
+C     ----------------------------------------------------------
+C     XERR  : Error flag for ??                     O
+C     SQERR  : Error FLag for ??                    O
+C     ERRMAT : Matrix of error flags                O
+C     ----------------------------------------------------------
+C     Note 1:
+C     All Double Precision Input parameters are stored in the In_Data Array
+C     Note 2:
+C      The integers passed as parameters must be INTEGER*2 if declared as Integer
+C      in Visual Basic app., or as INTEGER*4 if declared as Long in VB app.
+
+      SUBROUTINE SPEQ (IN_DATA,NL,
+     &               CSAV,QSAV,XK1,XK2,XNF,CBEG,CEND,
+     &               ERRMAT,XERR,SQERR)
+      IMPLICIT NONE
+C
+C------ PARAMETERS FOR SPEQ CALCULATION MODULE.
+C
+C...INPUTS...:
+      DOUBLE PRECISION IN_DATA(10)
+      INTEGER*2 NL
+      INTEGER*2 XERR
+C...OUTPUTS...:
+      DOUBLE PRECISION CSAV
+      DOUBLE PRECISION QSAV
+      DOUBLE PRECISION XK1
+      DOUBLE PRECISION XK2
+      DOUBLE PRECISION XNF
+      DOUBLE PRECISION CBEG
+      DOUBLE PRECISION CEND
+      INTEGER*2 ERRMAT(30)
+      INTEGER*2 SQERR
+C
+C------ COMMON VARIABLES.
+C
+      INCLUDE 'COMMON.FI'
+C
+C------ LOCAL VARIABLES.
+C
+      DOUBLE PRECISION TT,FWT,PVAP,RNDX,SPRD,BETA
+      DOUBLE PRECISION TOL,W0,BB,CBULK,ORGDEN,GM
+      DOUBLE PRECISION RGAS,DENS,PS,CS,DIFF,REFMW,REFDEN,RIREF,OREF,
+     &                 QMIN,YMIN,PMAX,QMAX,SSAV,XSTEP,SUMY,QVAL,YVAL,
+     &                 ARG,VALUE,PI,WEIGHT,YMAX,CONC,CINC,
+     &                 QTST,QINT
+      INTEGER*2 ERRNUM
+      INTEGER ITST,NM,JMAX,ICOUNT,IFCN
+      INTEGER I
+C      COMMON /LIMITS/ TOL
+C      COMMON /INITIAL/ W0,BB,GM,CBULK,ORGDEN,OMAG,NL
+C      COMMON /ADSORB/ CSAV,QSAV,XK1,XK2,XNF,CBEG,CEND,RSQD,RMSE
+C      COMMON /ERR/ ERRMAT(30),ERRNUM
+
+C
+C------ INITIALIZE ERROR PARAMETERS.
+C
+      ERRNUM = 0
+      DO I=1,30
+        ERRMAT(I) = 0
+      ENDDO
+
+C    -- PARAMETERS IN D-R EQUATION
+      BB    = IN_DATA(1)
+      W0    = IN_DATA(2)
+      TT    = IN_DATA(3)
+      CBULK = IN_DATA(4)
+      ORGDEN= IN_DATA(5)
+      FWT   = IN_DATA(6)
+      PVAP  = IN_DATA(7)
+      RNDX  = IN_DATA(8)
+      GM    = IN_DATA(9)
+      TOL   = IN_DATA(10)
+
+      SPRD = 0
+      RGAS = 1.987
+      NM = IDINT(GM)
+      DENS = ORGDEN
+
+      PS = PVAP/760
+
+C    -- CS AND CBULK IN {ug/L}
+
+      CS = (PS/0.08206/TT)*(FWT*1.0E+06)
+      DIFF = CS-CBULK
+
+      IF (DIFF.LE.0) THEN
+        SQERR = -1
+        CALL ERROR (ERRMAT,ERRNUM,18)
+        GOTO 9999
+      END IF
+
+C    -- DUBININ-RADUSKEVICH (D-R) CORRELATION
+
+C    -- CALCULATE REFRACTIVE INDEX "SCALE FACTOR"
+
+C    -- REFERENCE CHEMICAL : TOLUENE
+
+C    --               MW = 92.140 {g/gmol}
+C    --          DENSITY = 0.8623 {g/cc}
+C    -- REFRACTIVE INDEX = 1.4941
+
+      REFMW = 92.14
+      REFDEN = 0.8623
+      RIREF = 1.4941
+      OREF = (REFMW/REFDEN)*(RIREF**2-1)/(RIREF**2+2)
+      BETA = (FWT/DENS)*(RNDX**2-1)/(RNDX**2+2)/OREF
+
+C    -- CALCULATE UPPER LIMIT OF SURFACE LOADING
+
+      QMIN = 0
+      YMIN = 0
+      PMAX = (CBULK*1.0E-06/FWT)*(0.08206*TT)
+
+C    -- CHECK FOR DEXP BOUNDARY
+
+      IF ((-BB*((RGAS*TT/BETA)*DLOG(PS/PMAX))**NM).LT.-710) THEN
+        SQERR = -1
+        CALL ERROR (ERRMAT,ERRNUM,14)
+        GOTO 9999
+      END IF
+
+      QMAX = W0*(1.0E+06*DENS/FWT)
+     &    *DEXP(-BB*((RGAS*TT/BETA)*DLOG(PS/PMAX))**NM)
+
+      IF (ALLOW_SCREENIO.EQ.1) THEN
+        PRINT *, '- PERFORMING NUMERICAL INTEGRATION'
+      ENDIF
+
+C    -- NUMERICAL INTEGRATION BY SIMPSON'S RULE
+C    -- NOTE: STEP SIZE IS REDUCED UNTIL AREA CONVERGES
+         
+      JMAX = NL+1
+      JMAX = (JMAX/2)*2
+
+      IF (JMAX.LE.0) JMAX=2
+
+      SSAV = 0
+
+   5  XSTEP = (QMAX-QMIN)/DBLE(JMAX)
+      ICOUNT = 0
+      IFCN = 0
+      SUMY = 0
+      QVAL = QMIN
+      YVAL = YMIN
+
+  10  IF (ICOUNT.LE.JMAX) THEN
+        IF(ICOUNT.EQ.0) GOTO 15
+C
+C    -- CALCULATE THE VALUE OF d{ln C}/d{ln q} AT THE GAS CONCENTRATION
+C    -- THIS IS EQUAL TO THE FREUNDLICH "N"
+C
+        QVAL = QVAL+XSTEP
+        ARG = QVAL/W0/(1.0E+06*DENS/FWT)
+        VALUE = DLOG(ARG*1.0D+25)-DLOG(1.0D+25)
+        PI = PS*DEXP(-DSQRT(VALUE/(-BB*(RGAS*TT/BETA)**NM)))
+        YVAL = 1/((2*BB)*DLOG(PS/PI)*(RGAS*TT/BETA)**NM)
+
+  15    ICOUNT = ICOUNT+1
+        ITST = ((ICOUNT/2)*2)/ICOUNT
+        ITST = 2*(ITST+1)
+        IFCN = IFCN+ITST
+        WEIGHT = DBLE(ITST)
+        SUMY = SUMY+(WEIGHT*YVAL)
+      
+        GOTO 10
+      END IF
+
+      YMAX = YVAL
+      QMAX = QVAL
+      IFCN = IFCN-2
+      SUMY = SUMY-YMIN-YMAX
+      SUMY = (SUMY/DBLE(IFCN))*(QMAX-QMIN)
+
+      IF (DABS((SSAV-SUMY)/SUMY).GT.TOL) THEN
+        JMAX = JMAX*2
+        SSAV = SUMY
+
+        IF (ALLOW_SCREENIO.EQ.1) THEN
+          PRINT *, '  JMAX = ', JMAX
+        ENDIF
+        
+        GOTO 5
+      END IF
+
+      SPRD = SUMY
+
+      IF (JMAX.LE.100000) THEN
+        NL = JMAX
+      ELSE
+        NL = 0
+      END IF
+
+C    -- CALCULATE FREUNDLICH PARAMETERS
+C    -- FREUNDLICH "K" (XK1) IS IN {(ug/gm) OR (L/ug)**(1/n)}
+
+      IF (ALLOW_SCREENIO.EQ.1) THEN
+        PRINT *, '- CALCULATING FREUNDLICH PARAMETERS'
+      ENDIF
+      XNF = QMAX/SPRD
+      XK2 = QMAX/(CBULK/FWT)**XNF
+      XK1 = (XK2*FWT)*(1.D0/FWT)**XNF
+      CSAV = (PI/0.08206D0/TT)*(FWT*1.D06)
+      QSAV = XK1*(CSAV)**XNF
+
+C    -- LOWEST CONC. WHERE ERROR IS LESS THAN (XERR*100) PERCENT
+C    -- BETWEEN THE D-R AND FREUNDLICH PREDICTIONS
+
+      CONC = CSAV
+      CINC = CONC*TOL
+      QTST = QSAV
+      QINT = QMAX*FWT
+
+  20  IF (DABS((QTST-QINT)/QINT).LE.XERR) THEN
+        CONC = CONC-CINC
+        PI = (CONC*1.0E-06/FWT)*(0.08206*TT)
+        QINT = W0*(1.0E+06*DENS)
+     &     *DEXP(-BB*((RGAS*TT/BETA)*DLOG(PS/PI))**NM)
+        QTST = XK1*(CONC)**XNF
+
+        GOTO 20
+      END IF
+
+      CBEG = CONC
+
+C    -- HIGHEST CONC. WHERE ERROR IS LESS THAN (XERR*100) PERCENT
+C    -- BETWEEN THE D-R AND FREUNDLICH PREDICTIONS
+
+      CONC = CSAV
+      CINC = CONC*TOL
+      QTST = QSAV
+      QINT = QMAX*FWT
+
+  30  IF (DABS((QTST-QINT)/QINT).LE.XERR) THEN
+        CONC = CONC+CINC
+        PI = (CONC*1.0E-06/FWT)*(0.08206*TT)
+        QINT = W0*(1.0E+06*DENS)
+     &       *DEXP(-BB*((RGAS*TT/BETA)*DLOG(PS/PI))**NM)
+        QTST = XK1*(CONC)**XNF
+
+        GOTO 30
+      END IF
+
+      CEND = CONC
+
+C    -- CHECK VALIDITY OF ISOTHERM LIMITS
+      
+      DIFF = CS-CEND
+      CS = CS/1000
+
+      IF (DIFF.LE.0.D0) THEN
+        SQERR = -1
+        CALL ERROR (ERRMAT,ERRNUM,19)
+        GOTO 9999
+      END IF
+
+C
+C------ COMMENTED OUT BY EJOMAN ON 9/3/98.
+C
+C      IF (CBEG.GE.CEND) THEN
+C        SQERR = -1
+C        CALL ERROR (ERRMAT,ERRNUM,13)
+C        GOTO 9999
+C      END IF
+C
+C------ END COMMENTED OUT BLOCK.
+C
+
+      IF (ALLOW_SCREENIO.EQ.1) THEN
+        PRINT *, '- IPE MODULE CALCULATIONS COMPLETE'
+      ENDIF
+ 
+ 9999 RETURN     
+      END

@@ -1,0 +1,12 @@
+Line 18: Class Threed.SSFrame of control SSFrame1 was not a loaded control class.
+Line 39: Class MSComDlg.CommonDialog of control CommonDialog1 was not a loaded control class.
+Line 47: Class VCIF1Lib.F1Book of control f1book was not a loaded control class.
+Line 25: The property name _Version in SSFrame1 is invalid.
+Line 26: The property name _ExtentX in SSFrame1 is invalid.
+Line 27: The property name _ExtentY in SSFrame1 is invalid.
+Line 28: The property name _StockProps in SSFrame1 is invalid.
+Line 29: The property name Caption in SSFrame1 is invalid.
+Line 42: The property name _ExtentX in CommonDialog1 is invalid.
+Line 43: The property name _ExtentY in CommonDialog1 is invalid.
+Line 44: The property name _Version in CommonDialog1 is invalid.
+Line 50: The property name OleObjectBlob in f1book is invalid.

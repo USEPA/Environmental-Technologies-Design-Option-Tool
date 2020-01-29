@@ -1,0 +1,14 @@
+X-Sender: keli@pop.cee.mtu.edu
+X-Mailer: QUALCOMM Windows Eudora Light Version 3.0.6 (32)
+Date: Wed, 26 Jun 2002 21:32:56 -0400
+To: drhokans@mtu.edu
+From: Ke Li <keli@mtu.edu>
+Subject: bug in AdOx 
+Cc: ssanongr@mtu.edu
+
+Dave,
+
+Thanks Dom for his carefulness, he found a bug of AdOx, mainly related to the calculation of TIC from alkalinity.  I need to revise the FORTRAN code on this part.  Could you let me know which computer I can use to do the revision by FORTRAN PowerStation?  It should be less than 30mins.  I will revise based on the FORTRAN code in folder"z000719_modified_by_luke (main code)". Thanks, 
+
+luke 
+

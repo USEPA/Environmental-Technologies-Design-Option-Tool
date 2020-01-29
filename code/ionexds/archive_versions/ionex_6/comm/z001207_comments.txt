@@ -1,0 +1,27 @@
+12/7/00 KAM
+
+Converted open and save process to use Access Database.  
+
+The only existing file that was converted at this point is H_NA_77.iex.  To convert other files, the text file needs
+to be printed out and each value put into a record in an Access database.  Some of the lines in the text file
+contain multiple values.  H_NA_77.iex can be viewed in Access and used as an example.  Text in the first column 
+(field names) MUST be exactly the same as H_NA_77.iex, so copying this file and putting in the new values might
+be the best way.  Or re-creating the sample files by using the application, changing the values and saving it 
+into the correct name.
+
+Still unresolved:
+
+In the View Kinetic Parameters screen, "In Model, use diffusivity from:" frame, some of the Correlation and 
+User Input values calculate differently than what's saved.
+
+The old dll's don't work in this version; they need to be converted to exe's.  In order to view the screens, 
+I changed the code that disables the Results screens until after the Run.  Unfortunately, without Running, I don't 
+have results data that I can use to test the other screens.
+
+The Graph class was copied into this app, but the code hasn't been changed to use it.  The old graphs didn't 
+convert to VB6.
+
+Formula One spreadsheets replaced the old Grid controls on all forms, but without the values created when the 
+dll's are run, there was no way to test them.  
+
+When a field value changes, the 'Data Changed' message changes but system doesn't ask to save when the file is closed.

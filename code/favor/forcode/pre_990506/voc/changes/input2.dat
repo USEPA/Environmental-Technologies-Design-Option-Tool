@@ -1,0 +1,20 @@
+Step Feed Modeling (SF, 0=off -1=on)
+ 0
+Number of Tanks Being Modeled (NTK)
+ 1
+Biomass Concentration For A Particular Tank (XBM(IC), mg/L)
+ 1.83130D+03
+Aeration Tank Volume For A Particular Tank (ATV(IC), L)
+ 3.00000D+04
+Gas Flow Rate For A Particular Tank (QG(IC), L/min)
+ 2.80000D+04
+Fraction of Plant Influent Directly Entering CSTR 1 (FFRACT(1))
+ 5.00000D-01
+Biomass Concentration For A Particular Tank (XBM(IC), mg/L)
+ 1.84980D+03
+Aeration Tank Volume For A Particular Tank (ATV(IC), L)
+ 3.00000D+04
+Gas Flow Rate For A Particular Tank (QG(IC), L/min)
+ 2.80000D+04
+Fraction of Plant Influent Directly Entering CSTR 2 (FFRACT(2))
+ 5.00000D-01

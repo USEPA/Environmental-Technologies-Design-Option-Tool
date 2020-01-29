@@ -1,0 +1,29 @@
+:Base Uppmem.hlp
+1 Menus
+2 File menu=menu_file
+2 Edit menu=menu_edit
+2 View menu=menu_view
+2 Model menu=menu_model
+2 Help menu=menu_help
+1 Flux Models
+2 General=menu_PickModel
+2 Mechanistic Models
+3 Song and Elimelech=menu_MechSE
+3 Memsys=menu_MechMemsys
+3 Gel Polarization=menu_MechGel
+3 Resistance=menu_MechRes
+2 Empirical Models
+3 Surface Renewal=menu_EmpSurf
+3 Fouling Resistance=menu_EmpFoul
+3 Gel Polarization=menu_EmpGel
+3 Resistance=menu_EmpRes
+1 What are these variables?
+2 Mechanistic model variables=menu_Mech
+2 Additional model parameters=menu_AddMemParam
+2 Membrane variables=menu_PreDefMem
+2 Empirical model variables=menu_Emp
+2 Data entry variables=menu_EmpEnter
+1 How do I...
+2 Model a membrane?=menu_model
+2 Select a membrane?=menu_PreDefMem
+2 Pick a flux model?=menu_PickModel

@@ -1,0 +1,25 @@
+Line 55: Class TabDlg.SSTab of control sstab_main was not a loaded control class.
+Line 61: The property name _ExtentX in sstab_main is invalid.
+Line 62: The property name _ExtentY in sstab_main is invalid.
+Line 63: The property name _Version in sstab_main is invalid.
+Line 64: The property name Style in sstab_main is invalid.
+Line 65: The property name TabHeight in sstab_main is invalid.
+Line 75: The property name TabCaption(0) in sstab_main is invalid.
+Line 76: The property name TabPicture(0) in sstab_main is invalid.
+Line 77: The property name Tab(0).ControlCount in sstab_main is invalid.
+Line 78: The property name Tab(0).ControlEnabled in sstab_main is invalid.
+Line 79: The property name Tab(0).Control(0) in sstab_main is invalid.
+Line 80: The property name Tab(0).Control(1) in sstab_main is invalid.
+Line 81: The property name Tab(0).Control(2) in sstab_main is invalid.
+Line 82: The property name TabCaption(1) in sstab_main is invalid.
+Line 83: The property name TabPicture(1) in sstab_main is invalid.
+Line 84: The property name Tab(1).ControlCount in sstab_main is invalid.
+Line 85: The property name Tab(1).ControlEnabled in sstab_main is invalid.
+Line 86: The property name Tab(1).Control(0) in sstab_main is invalid.
+Line 87: The property name Tab(1).Control(1) in sstab_main is invalid.
+Line 88: The property name TabCaption(2) in sstab_main is invalid.
+Line 89: The property name TabPicture(2) in sstab_main is invalid.
+Line 90: The property name Tab(2).ControlCount in sstab_main is invalid.
+Line 91: The property name Tab(2).ControlEnabled in sstab_main is invalid.
+Line 92: The property name Tab(2).Control(0) in sstab_main is invalid.
+Line 93: The property name Tab(2).Control(1) in sstab_main is invalid.

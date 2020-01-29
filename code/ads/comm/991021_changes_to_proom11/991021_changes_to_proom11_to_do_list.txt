@@ -1,0 +1,30 @@
+
+
+
+
+
+- Restructure proom11 as follows:
+  - Permit user to operate model in single-reactor mode
+
+- Restructure VB as follows:
+  - When run in [PSDM] mode:
+    - Keep current functionality
+    - Display PSDM.BMP on the results window
+  - When run in [PSDMR in Room] mode:
+    - Send appropriate model flag to proom11 (IS_IN_ROOM=1)
+    - Note Results.int_Which_PSDMR_Model = PSDMR_MODE_INROOM
+    - Display PSDMR_IN_ROOM.BMP on the results window
+  - When run in [PSDMR Alone] mode:
+    - Send appropriate model flag to proom11 (IS_IN_ROOM=0)
+    - Note Results.int_Which_PSDMR_Model = PSDMR_MODE_ALONE
+    - Display PSDMR_ALONE.BMP on the results window
+
+
+
+C////////// Note change by Eric Oman on 10/21/99 below.
+
+
+
+{C/Co}*CBO(I) = umol/L
+
+c

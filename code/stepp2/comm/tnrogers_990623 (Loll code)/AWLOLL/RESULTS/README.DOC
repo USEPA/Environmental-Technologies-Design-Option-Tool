@@ -1,0 +1,13 @@
+2/4/96
+
+SIMP_NEW.FOR has been updated this morning with a new FORMAT statement to 
+allow me to utilize the RESTART capabilities.  It is saved on the V.P. Model
+Work disk in the PROGRAMS directory.
+
+The *.DAT files with cas# labels may have either a 'p2' pr 'p3' designation
+corresponding to 2 parameter(A, B) or 3 parameter (A, B, C).
+
+6/23/96
+
+The file FITT95B.DAT contains the 819 chemicals in the FORTRAN formatted 
+input file from DIPPR95B.DAT.

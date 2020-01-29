@@ -1,0 +1,1055 @@
+Attribute VB_Name = "MODExtract"
+Global DBTXTFilePath As String
+Global TemplatePath As String
+Global DBDestPath As String
+ 
+Sub Extract911()
+
+    Dim db As Database
+    Dim db2 As Database
+    Dim db3 As Database
+    Dim DBTbl As Recordset
+    Dim DBTbl2 As Recordset
+    Dim DBTbl3 As Recordset
+    Dim CNum As Double
+    Dim CAS As Double
+    Dim PropCode As String
+    Dim DBDef As TableDef
+    Dim PrimaryIndex As Index
+    Dim Field1 As Field
+    Dim Field2 As Field
+    Dim Counter As Double
+    
+    Dim extractedTemp As String
+    
+    FRMMain!label1.Caption = "Extracting Data..."
+    FRMMain.Refresh
+    
+    On Error Resume Next
+
+    Counter = 0
+    
+    Set db = OpenDatabase(App.Path & "\master.mdb", False, False)
+    Set DBTbl = db.OpenRecordset("DIPPR911", dbOpenTable)
+    
+    Set db2 = OpenDatabase(DBTXTFilePath, False, True, "Paradox 3.x;")
+    Set DBTbl2 = db2.OpenRecordset("valuesf", dbOpenTable)
+    Set DBTbl3 = db2.OpenRecordset("chemical", dbOpenSnapshot)
+     
+    'Delete current records in table
+    DBTbl.MoveFirst
+    Do While Not DBTbl.EOF
+        DBTbl.Delete
+        DBTbl.MoveNext
+    Loop
+            
+    DBTbl2.MoveFirst
+    Do While Not DBTbl2.EOF
+        CNum = DBTbl2("C #")
+        PropCode = DBTbl2("Property Code")
+        DBTbl3.FindFirst "[C#] =" & CNum
+        CAS = DBTbl3("CAS #")
+        DBTbl.AddNew
+        DBTbl("C #") = CNum
+        DBTbl("CAS #") = CAS
+        DBTbl("Property Code") = PropCode
+        DBTbl("PEARLS Code") = GetPropCode(PropCode)
+        DBTbl("Key Rating") = DBTbl2("Key Rating")
+        DBTbl("Article #") = DBTbl2("Article #")
+        DBTbl("Rating") = DBTbl2("Rating")
+        DBTbl("Desc/Method") = DBTbl2("Desc/Method")
+        DBTbl("Keywords") = DBTbl2("Keywords")
+        DBTbl("Value") = DBTbl2("Value")
+        DBTbl("Units") = DBTbl2("Units")
+        
+        extractedTemp = DBTbl2("Temperature")
+         DBTbl("Temperature") = GetTemperature(extractedTemp)
+        'DBTbl("Temperature") = DBTbl2("Temperature")
+        DBTbl("Equation") = DBTbl2("Equation")
+        DBTbl("Coef1") = DBTbl2("Coef1")
+        DBTbl("Coef2") = DBTbl2("Coef2")
+        DBTbl("Coef3") = DBTbl2("Coef3")
+        DBTbl("Coef4") = DBTbl2("Coef4")
+        DBTbl("Coef5") = DBTbl2("Coef5")
+        DBTbl("Ref2") = DBTbl2("Ref2")
+        DBTbl("Ref3") = DBTbl2("Ref3")
+        DBTbl("FootN") = DBTbl2("FootN")
+        DBTbl("Pressure") = DBTbl2("Pressure")
+        DBTbl("Comment") = DBTbl2("Comment")
+        DBTbl("Default Multiplier") = DBTbl2("Default Multiplier")
+        DBTbl("Default Addend") = DBTbl2("Default Addend")
+        DBTbl.Update
+        Counter = Counter + 0.007
+        FRMMain!SSPanel1.FloodPercent = Counter
+        DBTbl2.MoveNext
+    Loop
+    
+    DBTbl.Close
+    DBTbl2.Close
+    DBTbl3.Close
+    
+    Set DBDef = db.TableDefs("DIPPR911")
+    Set PrimaryIndex = DBDef.CreateIndex("PrimaryKey1")
+    PrimaryIndex.Primary = False
+    PrimaryIndex.Unique = False
+    Set Field1 = PrimaryIndex.CreateField("Cas #")
+    PrimaryIndex.Fields.Append Field1
+    DBDef.Indexes.Append PrimaryIndex
+        
+    Set PrimaryIndex = DBDef.CreateIndex("PrimaryKey2")
+    PrimaryIndex.Primary = False
+    PrimaryIndex.Unique = False
+    Set Field1 = PrimaryIndex.CreateField("Cas #")
+    Set Field2 = PrimaryIndex.CreateField("PEARLS Code")
+    PrimaryIndex.Fields.Append Field1
+    PrimaryIndex.Fields.Append Field2
+    DBDef.Indexes.Append PrimaryIndex
+    
+    Set DBTbl = db.OpenRecordset("CITATION", dbOpenTable)
+    Set DBTbl2 = db2.OpenRecordset("CITATION", dbOpenTable)
+        
+    'Delete current records in table
+    DBTbl.MoveFirst
+    Do While Not DBTbl.EOF
+        DBTbl.Delete
+        DBTbl.MoveNext
+    Loop
+        
+    DBTbl2.MoveFirst
+    Do While Not DBTbl2.EOF
+        DBTbl.AddNew
+        DBTbl("Paper #") = DBTbl2("Paper #")
+        DBTbl("Title") = DBTbl2("Title")
+        DBTbl("Author") = DBTbl2("Author")
+        DBTbl("Journal") = DBTbl2("Journal")
+        DBTbl("Date") = DBTbl2("Date")
+        DBTbl("Volume") = DBTbl2("Volume")
+        DBTbl("Number") = DBTbl2("Number")
+        DBTbl("Pages") = DBTbl2("Pages")
+        DBTbl("PCode1") = DBTbl2("PCode1")
+        DBTbl("PCode2") = DBTbl2("PCode2")
+        DBTbl("PCode3") = DBTbl2("PCode3")
+        DBTbl("PCode4") = DBTbl2("PCode4")
+        DBTbl("PCode5") = DBTbl2("PCode5")
+        DBTbl("PCode6") = DBTbl2("PCode6")
+        DBTbl("Date Assigned") = DBTbl2("Date Assigned")
+        DBTbl.Update
+        Counter = Counter + 0.007
+        FRMMain!SSPanel1.FloodPercent = Counter
+        DBTbl2.MoveNext
+    Loop
+    
+    DBTbl.Close
+    DBTbl2.Close
+    
+    Set DBDef = db.TableDefs("CITATION")
+    Set PrimaryIndex = DBDef.CreateIndex("PrimaryKey")
+    PrimaryIndex.Primary = False
+    PrimaryIndex.Unique = False
+    Set Field1 = PrimaryIndex.CreateField("Paper #")
+    PrimaryIndex.Fields.Append Field1
+    DBDef.Indexes.Append PrimaryIndex
+           
+    'Turn on DIPPR911 switch
+    Set db = OpenDatabase(App.Path & "\dbsave.mdb", False, False)
+    Set DBTbl = db.OpenRecordset("PrefDatabases", dbOpenTable)
+    
+    DBTbl.MoveFirst
+    DBTbl.MoveNext
+    DBTbl.Edit
+    DBTbl("Available") = True
+    DBTbl.Update
+    DBTbl.Close
+    
+    Exit Sub
+
+Get911DataError:
+    
+    If Err = 94 Then Resume Next
+    MsgBox "Error converting data from 911 database", 48, "Error"
+    
+End Sub
+Public Function GetPropCode(Code As String) As Integer
+
+    Select Case Code
+        Case "1a"
+            GetPropCode = 31
+        Case "1b"
+            GetPropCode = 30
+        Case "1cc"
+            GetPropCode = 28
+        Case "1cn"
+            GetPropCode = 29
+        Case "2a"
+            GetPropCode = 35
+        Case "2c"
+            GetPropCode = 36
+        Case "2d"
+            GetPropCode = 37
+        Case "3a"
+            GetPropCode = 0
+        Case "3b"
+            GetPropCode = 1
+        Case "3bt"
+            GetPropCode = 2
+        Case "3c"
+            GetPropCode = 39
+        Case "3d"
+            GetPropCode = 3
+        Case "3e"
+            GetPropCode = 4
+        Case "3f"
+            GetPropCode = 5
+        Case "3g"
+            GetPropCode = 6
+        Case "3h"
+            GetPropCode = 16
+        Case "3i"
+            GetPropCode = 15
+        Case "3j"
+            GetPropCode = 19
+        Case "3k"
+            GetPropCode = 20
+        Case "3l"
+            GetPropCode = 17
+        Case "3lt"
+            GetPropCode = 18
+        Case "3ml"
+            GetPropCode = 21
+        Case "3mv"
+            GetPropCode = 22
+        Case "3n"
+            GetPropCode = 7
+        Case "3o"
+            GetPropCode = 8
+        Case "3p"
+            GetPropCode = 9
+        Case "3q"
+            GetPropCode = 13
+        Case "3r"
+            GetPropCode = 14
+        Case "3s"
+            GetPropCode = 38
+        Case "3t"
+            GetPropCode = 10
+        Case "3tt"
+            GetPropCode = 12
+        Case "3tz"
+            GetPropCode = 11
+        Case "4a"
+            GetPropCode = 34
+        Case "4b"
+            GetPropCode = 32
+        Case "4c"
+            GetPropCode = 33
+        Case "5al"
+            GetPropCode = 24
+        Case "5au"
+            GetPropCode = 23
+        Case "5b"
+            GetPropCode = 25
+        Case "5c"
+            GetPropCode = 26
+        Case "5d"
+            GetPropCode = 27
+        Case Else
+            GetPropCode = -1
+    End Select
+    
+End Function
+
+Sub FindTemplate()
+
+   Dim Response As Integer
+        
+   Screen.MousePointer = 11
+   Select Case FRMMain!combo1.List(FRMMain!combo1.ListIndex)
+      Case "DIPPR801 Database"
+            Response = MsgBox("This process takes approximately 30 minutes.  Extract using the specified paths?", 4, "Begin Extraction")
+            If Response = 6 Then
+                DBTXTFilePath = DBTXTFilePath + "src"
+                Call Extract801
+                FRMMain!label1.Caption = ""
+                FRMMain.Refresh
+            Else
+                Screen.MousePointer = 1
+                Exit Sub
+            End If
+      Case "DIPPR911 Database"
+            Response = MsgBox("This process takes approximately 30 minutes.  Extract using the specified paths?", 4, "Begin Extraction")
+            If Response = 6 Then
+                Call Extract911
+                FRMMain!label1.Caption = ""
+                FRMMain.Refresh
+            Else
+                Screen.MousePointer = 1
+                Exit Sub
+            End If
+   End Select
+   FRMMain!SSPanel1.FloodPercent = 100
+   MsgBox "Extraction Complete", 0, "Extraction Done"
+   Screen.MousePointer = 1
+   
+End Sub
+
+Sub Extract801()
+   
+   Dim db As Database
+   Dim db2 As Database
+   Dim DBTbl As Recordset
+   Dim DBTbl2 As Recordset
+   Dim Info As Variant
+   Dim Text As String
+   Dim DNUM As String
+   Dim ONUM As String
+   Dim LDNUM As String
+   Dim Start As Integer
+   Dim Size As Long
+   Dim LinesDone As Long
+   Dim filenum As String
+   Dim I As Integer
+   Dim TmpFormula As String
+   Dim TmpFamily As String
+   Dim TmpName As String
+   Dim TmpCAS As Double
+   Dim DBDef As TableDef
+   Dim PrimaryIndex As Index
+   Dim Field1 As Field
+   
+   'Open DBDestPath + "db801.lst" For Output As #2
+   
+   FRMMain!label1.Caption = "Extracting Data..."
+   FRMMain.Refresh
+       
+   'Select Case FRMMain!combo1.List(FRMMain!combo1.ListIndex)
+   '   Case "DIPPR801 Database"
+   '      On Error Resume Next
+   '      Kill DBDestPath + "db801.mdb"
+   '      On Error GoTo 0
+   '      FileCopy App.Path + "\temp801.mdb", DBDestPath + "db801.mdb"
+   '      TemplatePath = DBDestPath + "db801.mdb"
+   'End Select
+   
+   FRMMain!SSPanel1.FloodPercent = 0
+   LinesDone = 0
+   Call GetFileSize(Size, I)
+   
+   On Error Resume Next
+   
+   Set db = OpenDatabase(App.Path & "\master.mdb", False, False)
+   
+   Set DBDef = db.TableDefs("DIPPR801")
+   Set PrimaryIndex = DBDef.CreateIndex("PrimaryKey")
+   PrimaryIndex.Primary = False
+   PrimaryIndex.Unique = False
+   Set Field1 = PrimaryIndex.CreateField("CAS")
+   PrimaryIndex.Fields.Append Field1
+   DBDef.Indexes.Append PrimaryIndex
+      
+   Set DBTbl = db.OpenRecordset("DIPPR801", dbOpenTable)
+      
+   'Delete current records in table
+   DBTbl.MoveFirst
+   Do While Not DBTbl.EOF
+      DBTbl.Delete
+      DBTbl.MoveNext
+   Loop
+    
+   On Error GoTo 0
+               
+   file = 1
+
+   filenum = Trim$(Str$(file))
+   If file < 10 Then filenum = "0" + Trim$(Str$(file))
+   Open DBTXTFilePath + filenum + ".dat" For Input As #1
+
+   Start = True
+
+ReadNext:
+
+   If EOF(1) = True Then
+      'Write #2, TmpCAS, TmpName, "DIPPR801", TmpFamily, TmpFormula, ""
+      DBTbl.Update
+      Close #1
+      file = file + 1
+      If file > I - 1 Then
+         DBTbl.Close
+         'Turn on DIPPR801 switch
+         Set db = OpenDatabase(App.Path & "\dbsave.mdb", False, False)
+         Set DBTbl = db.OpenRecordset("PrefDatabases", dbOpenTable)
+         DBTbl.MoveFirst
+         DBTbl.Edit
+         DBTbl("Available") = True
+         DBTbl.Update
+         DBTbl.Close
+         FRMMain!label1.Caption = ""
+         'Close #2
+         Exit Sub
+      End If
+      filenum = Trim$(Str$(file))
+      If file < 10 Then filenum = "0" + Trim$(Str$(file))
+      Open DBTXTFilePath + filenum + ".dat" For Input As #1
+      Start = True
+   End If
+
+   Line Input #1, Text
+
+   LinesDone = LinesDone + 1
+
+   FRMMain!SSPanel1.FloodPercent = Int(100 * (LinesDone / Int(Size / 80)))
+   
+   DNUM = Mid$(Text, 1, 4)
+         
+   If Start = True Then
+      LDNUM = DNUM
+      Start = False
+      DBTbl.AddNew
+   End If
+
+   If LDNUM <> DNUM Then
+      LDNUM = DNUM
+      'Write #2, TmpCAS, TmpName, "DIPPR801", TmpFamily, TmpFormula, ""
+      DBTbl.Update
+      DBTbl.AddNew
+   End If
+
+Check:
+
+   If Mid$(Text, 5, 4) = "FORM" Then
+      Info = Mid$(Text, 11, 60)
+      DBTbl("FORM") = Info
+      TmpFormula = Info
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "NAME" Then
+      Info = Mid$(Text, 9, 2)
+      DBTbl("Family") = Info
+      TmpFamily = Info
+      Info = Mid$(Text, 11, 60)
+      DBTbl("NAME") = Info
+      TmpName = Info
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "CNAM" Then
+      Info = Mid$(Text, 11, 60)
+      DBTbl("CNAM") = Info
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "INAM" Then
+      Info = Mid$(Text, 11, 60)
+      DBTbl("INAM") = Info
+      GoTo ReadNext:
+   End If
+   
+   If Mid$(Text, 5, 4) = "CASN" Then
+      Info = Mid$(Text, 11, 60)
+      DBTbl("CAS") = Val(Info)
+      TmpCAS = Val(Info)
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "STRU" Then
+      Info = Mid$(Text, 11, 60)
+      DBTbl("STRU") = Info
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "MW  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("MW") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "TC  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("TC") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+   
+   If Mid$(Text, 5, 4) = "PC  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("PC") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "VC  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("VC") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "ZC  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("ZC") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "MP  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("MP") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "TPT " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("TPT") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "TPP " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("TPP") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "NBP " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("NBP") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "LVOL" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("LVOL") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+   
+   If Mid$(Text, 5, 4) = "HFOR" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("HFOR") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "GFOR" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("GFOR") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "ENT " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("ENT") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "HFUS" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("HFUS") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+   
+   If Mid$(Text, 5, 4) = "HCOM" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("HCOM") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "ACEN" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("ACEN") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "RG  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("RG") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "SOLP" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("SOLP") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "DM  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("DM") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "VDWV" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("VDWV") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "VDWA" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("VDWA") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "RI  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("RI") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+   
+   If Mid$(Text, 5, 4) = "FP  " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("FP") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "FLML" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("FLML") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "FLMU" Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("FLMU") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "AIT " Then
+      Info = Mid$(Text, 11, 12)
+      If Mid$(Text, 44, 1) = "A" Then
+         DBTbl("AIT") = Val(Info)
+      End If
+      GoTo ReadNext:
+   End If
+   
+   If Mid$(Text, 5, 4) = "SDNC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("SDNEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("SDNNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("SDNA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("SDNB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("SDNC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("SDND") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("SDNE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "SDNC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("SDNTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("SDNTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "LDNC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("LDNEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("LDNNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("LDNA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("LDNB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("LDNC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("LDND") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("LDNE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "LDNC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("LDNTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("LDNTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "VP C" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("VPEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("VPNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("VPA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("VPB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("VPC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("VPD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("VPE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "VP C" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("VPTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("VPTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "HVPC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("HVPEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("HVPNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("HVPA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("HVPB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("HVPC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("HVPD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("HVPE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "HVPC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("HVPTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("HVPTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "SCPC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("SCPEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("SCPNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("SCPA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("SCPB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("SCPC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("SCPD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("SCPE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "SCPC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("SCPTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("SCPTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "LCPC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("LCPEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("LCPNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("LCPA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("LCPB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("LCPC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("LCPD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("LCPE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "LCPC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("LCPTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("LCPTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "ICPC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("ICPEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("ICPNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("ICPA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("ICPB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("ICPC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("ICPD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("ICPE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "ICPC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("ICPTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("ICPTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "SVRC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("SVREQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("SVRNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("SVRA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("SVRB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("SVRC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("SVRD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("SVRE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "SVRC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("SVRTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("SVRTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+   
+   If Mid$(Text, 5, 4) = "LVSC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("LVSEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("LVSNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("LVSA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("LVSB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("LVSC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("LVSD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("LVSE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "LVSC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("LVSTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("LVSTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "VVSC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("VVSEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("VVSNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("VVSA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("VVSB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("VVSC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("VVSD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("VVSE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "VVSC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("VVSTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("VVSTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "LTCC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("LTCEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("LTCNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("LTCA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("LTCB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("LTCC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("LTCD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("LTCE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "LTCC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("LTCTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("LTCTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   If Mid$(Text, 5, 4) = "VTCC" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("VTCEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("VTCNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("VTCA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("VTCB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("VTCC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("VTCD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("VTCE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "VTCC" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("VTCTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("VTCTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+   
+   If Mid$(Text, 5, 4) = "ST C" Then
+      Info = Mid$(Text, 12, 3)
+      DBTbl("STEQN") = Val(Info)
+      Info = Mid$(Text, 16, 2)
+      DBTbl("STNUM") = Val(Info)
+      Info = Mid$(Text, 20, 11)
+      DBTbl("STA") = Val(Info)
+      Info = Mid$(Text, 32, 11)
+      DBTbl("STB") = Val(Info)
+      Info = Mid$(Text, 44, 11)
+      DBTbl("STC") = Val(Info)
+      Info = Mid$(Text, 56, 11)
+      DBTbl("STD") = Val(Info)
+      Info = Mid$(Text, 68, 11)
+      DBTbl("STE") = Val(Info)
+      Line Input #1, Text
+      LinesDone = LinesDone + 1
+      If Mid$(Text, 5, 4) = "ST C" Then
+         Info = Mid$(Text, 10, 7)
+         DBTbl("STTMIN") = Val(Info)
+         Info = Mid$(Text, 30, 7)
+         DBTbl("STTMAX") = Val(Info)
+      Else
+         GoTo Check:
+      End If
+      GoTo ReadNext:
+   End If
+
+   GoTo ReadNext:
+      
+End Sub
+Sub GetFileSize(Size As Long, I As Integer)
+        
+    I = 1
+GetFileSize:
+    On Error GoTo StartExt:
+    filenum = Trim$(Str$(I))
+    If I < 10 Then filenum = "0" + Trim$(Str$(I))
+    Size = Size + FileLen(DBTXTFilePath + filenum + ".dat")
+    I = I + 1
+    GoTo GetFileSize:
+   
+StartExt:
+    
+End Sub
+
+
+Public Function GetTemperature(temp As String) As Integer
+
+    GetTemperature = Val(temp)
+
+End Function

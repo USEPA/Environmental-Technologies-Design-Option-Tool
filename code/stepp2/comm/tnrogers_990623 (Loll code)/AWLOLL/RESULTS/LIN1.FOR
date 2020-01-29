@@ -1,0 +1,174 @@
+
+C***********************SUBROUTINE:  LINREF  *****************
+
+C  THIS SUBROUTINE CALCULATES THE PARAMETER COEFFICIENTS WHICH WILL
+C  BE FED INTO MLR.  THE LOG10(Psat) VALUES ARE ASSIGNED TO Y(NY) AND
+C  THE OTHER COEFFICIENTS ON THE RHS TO XL(NZ,NY)
+      
+      SUBROUTINE LINREF(FRAGLIN,TVAL,AA,BB)
+      IMPLICIT INTEGER (A-G, M-P)
+      IMPLICIT DOUBLE PRECISION (H-L,Q-Z)
+      INTEGER FRAGLIN(830,115),NPOINT,CMAX,I,J,K,IBIG,JBIG,FRAGMENT(115)
+      CHARACTER*2 FMGRP(830)
+      CHARACTER*6 RUNA
+      CHARACTER*9 RUNCHAR
+      DOUBLE PRECISION TP,ALDE,TVAL(830) 
+      INCLUDE 'param.for'
+      COMMON /C/ TP(830, 900), NPOINT(830, 2), CMAX
+      COMMON /E/ FMGRP, CS(830)
+      COMMON /M/ MAXFRG, FRAGMENT, NOFRG(115),MPMAX
+      DOUBLE PRECISION C(PP,PP),B(PP),A(PP),IPVT(PP),XSUM,YSUM,STD,
+     &                 STDTOT,AA(115),BB(115)
+      EXTERNAL LINPAC
+
+      INCLUDE 'settings.for'
+
+      OPEN (81, FILE='c.out', STATUS='UNKNOWN', 
+     &          ACCESS='SEQUENTIAL', FORM='FORMATTED')
+C      OPEN (82, FILE='b.out', STATUS='UNKNOWN', 
+C     &          ACCESS='SEQUENTIAL', FORM='FORMATTED')
+
+C
+C  THE FOLLOWING BLOCK INITIALIZES AND WRITES DESCRIPTIVE INFO FOR THE 
+C  CURRENT RUN.
+C
+
+      PRINT *, 'Name of run: '
+C      READ '(A)',RUNA
+C      BZ = INDEX(RUNA, ' ')
+C      BZ=BZ-1
+C      RUNCHAR = RUNA(:BZ) // '.log'
+      OPEN (84, FILE='ls1.log' , STATUS='UNKNOWN', 
+     &          ACCESS='SEQUENTIAL', FORM='FORMATTED')
+C      OPEN (84, FILE=RUNCHAR , STATUS='UNKNOWN', 
+C     &          ACCESS='SEQUENTIAL', FORM='FORMATTED')
+
+      WRITE (84,*) 'The results of Run #  ',RUNA,' are:'
+      WRITE(84,*)
+      WRITE(84,*) '# of chemicals:  ',CMAX
+      WRITE(84,*) '# of Fragments:  ',MAXFRG
+      DPMAX = 0
+      DO 4830, K=1,CMAX
+	 DPMAX = DPMAX + NPOINT(K,2)
+4830  CONTINUE
+      WRITE(84,*) '# of Datapoints:  ',DPMAX
+      WRITE(84,*)
+C      DO 4820, I=1,MAXFRG
+C       WRITE(84,*) '   Fragment #:  ',FRAGMENT(I)
+C4820  CONTINUE
+
+C*********************** B CONST, FIT A ****************************
+C**  THIS SECTION IS THE LINEAR COEFFICIENT MATRIX BUILD SECTION FOR 
+C    HOLDING B CONSTANT AND FITTING A.
+
+C  THIS BLOCK SUMS UP THE DIFFERENTIAL MATRIX COEFFICIENTS ON THE LHS.
+      
+C      PRINT *, MAXFRG
+      NZ = 0
+      DO 4700, I=1,MAXFRG
+	 DO 4710, J=1,MAXFRG
+	    XSUM = 0.
+	    DO 4720, K=1,CMAX
+	       G = RP(CSET(K))
+	       DO 4730, L=1,NPOINT(K,2)*2-1,2
+		  NZ=NZ+1
+		  XSUM=(DFLOAT(FRAGLIN(K,I)))-B1/B0*DFLOAT(FRAGLIN(G,I))
+     &                 *(DFLOAT(FRAGLIN(K,J))-B1/B0*DFLOAT(FRAGLIN(G,J))
+     &                  )+XSUM
+4730           CONTINUE 
+4720        CONTINUE
+	    C(I,J)=XSUM
+4710     CONTINUE
+	 PRINT *,' (C)PAR: ',I
+4700  CONTINUE
+      DO 4800, I=1,MAXFRG
+C        WRITE (81,*) (C(I,J),J=1,FMAX)
+C         WRITE (81,4201) (C(I,J),J=1,FMAX)
+4800  CONTINUE
+C 4801  FORMAT(1X,PP(2X,D10.3))
+      CLOSE (81)
+
+C  THIS BLOCK SUMS UP THE RHS COEFFICIENTS.
+
+      DO 4740, I = 1,MAXFRG 
+	 YSUM = 0.
+	 DO 4750, K= 1, CMAX
+	    DO 4760, J=2,NPOINT(K,2)*2,2
+               YSUM=DLOG10(DFLOAT(TP(K,J)))-B1/B0*PREF
+C                  WRITE(82,*) I,K,FRAGLIN(K,IBIG),ALOG10(FLOAT(TP(K,J))
+C     &                ),FLOAT(TP(K,J-1)),YSUM
+C                  WRITE(82,*) I,K,-FRAGLIN(K,IBIG)/FLOAT(TP(K,J-1)),
+C     &                 ALOG10(FLOAT(TP(K,J)))
+	       END IF
+4760        CONTINUE
+4750     CONTINUE
+	 B(I) = YSUM
+	 PRINT *, 'I: ',I,' B(I): ',B(I)
+C         WRITE(82,*) 'B(I): ',B(I)
+4740  CONTINUE
+
+C      WRITE(82,*) (B(K),K=1,MAXFRG)
+C4802  FORMAT(1X,PP(2X,D10.3))
+C      CLOSE(82) 
+      PRINT *, 'GOING IN...'
+
+      CALL LINPAC(MAXFRG, C, B, A, IPVT)      
+      PRINT *, 'COMING OUT!!'
+
+C  THE FOLLOWING BLOCK CALCULATES THE STANDARD ERROR OF REGRESSION
+
+      OPEN (83, FILE='ff.out', STATUS='UNKNOWN', 
+     &          ACCESS='SEQUENTIAL', FORM='FORMATTED')
+      OPEN (88, FILE='linseed.out', STATUS='UNKNOWN', 
+     &          ACCESS='SEQUENTIAL', FORM='FORMATTED')
+
+      NS = 0
+      DO 4900, I = 1,CMAX
+	 WRITE(83,*) NPOINT(I,1)
+         G = RP(CSET(I))
+	 DO 4910, J = 2, NPOINT(I,2)*2, 2
+	    XSUM = B1/B0*PREF
+	    NS = NS + 1
+	    DO 4920, K = 1,MAXFRG
+               XSUM=XSUM+A(K)*(-B1/B0*FRAGLIN(G,K)+FRAGLIN(I,K))
+4920        CONTINUE
+	    ALDE = ABS(ALOG10(FLOAT(TP(I,J)))-XSUM)
+	    STD = STD + (ALOG10(FLOAT(TP(I,J))) - XSUM)**2
+C            WRITE(83,*) NPOINT(I,1),TP(I,J)
+	    WRITE(83, *) TP(I,J-1),ALOG10(TP(I,J)),XSUM,ALDE
+4910     CONTINUE
+4900  CONTINUE
+      PRINT *, STD,'  ',FLOAT(NS)
+      STDTOT = DSQRT(STD/(FLOAT(NS)))
+C      STDTOT = DSQRT(STD/(FLOAT(NS-MAXFRG-1)))
+      WRITE(84,*)'The parameter values are:'
+      PRINT *,'The parameter values are:'
+      DO 4930, BC=1,MAXFRG
+	 AA(FRAGMENT(BC)) = A(BC)
+	 BB(FRAGMENT(BC)) = A(BC+MAXFRG)/100. 
+4930  CONTINUE
+      DO 4940, BD=1,MPMAX
+	 AA(NOFRG(BD)) = 0.0
+	 BB(NOFRG(BD)) = 0.0
+4940  CONTINUE
+      DO 4950, BE=1,115
+	 WRITE(84,*) BE,'A: ', AA(BE), '   B: ',BB(BE)
+	 WRITE(88,*) AA(BE), ',',BB(BE)
+C        PRINT *, BE,'A: ', AA(BE), '   B: ',BB(BE)
+4950  CONTINUE
+      DO 4960, BF=1,CMAX
+	 DO 4970, BG = 1, BF-1
+	    IF (CS(BG).EQ.CS(BF)) THEN
+	       GOTO 4960
+	    END IF
+4970     CONTINUE
+	 WRITE(84,*) 'FAMGRP#: ',CS(BF),'  =  ',TVAL(BF)
+4960  CONTINUE
+      WRITE(84,*) 'The standard error of regression is: ',STDTOT
+      PRINT *, 'The standard error of regression is: ',STDTOT
+      CLOSE(83)
+      CLOSE(84)
+      CLOSE(88)
+      RETURN
+      END
+ 

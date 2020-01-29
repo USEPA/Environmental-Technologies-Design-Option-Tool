@@ -1,0 +1,112 @@
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Short Description of Data in All Tables (MASTER.MDB):
+============================================================
+*Log - Badly outdated log, probably maintained by Hokanson or Miller (?)
+*Version - Badly outdated version number, probably maintained by Hokanson or Miller (?)
+801refs - 
+801TempDepend - 
+AENV - UNIFAC data file (?), temporarily unused after revert back to StEPP code
+AGLB - UNIFAC data file (?), temporarily unused after revert back to StEPP code
+ALLE - UNIFAC data file (?), temporarily unused after revert back to StEPP code
+Antoine List - Antoine coefficients for vapor pressure as f(T)
+AVLE - UNIFAC data file (?), temporarily unused after revert back to StEPP code
+Benson - 
+Chemical Name - Main chemical name vs CAS list
+CITATION - 
+DIPPR801 - 
+DIPPR911 - Very large collection of property data
+Family - Family vs CAS list
+Formula - Formula vs CAS list
+HC Ashworth - 
+HC ASPEN (AENV) - 
+HC Chen and Wagner - 
+HC Gmehling - 
+HC Hwang - 
+HC Persichetti - 
+HC RTI - 
+HC Stephenson - 
+HC Superfund - 
+HC Yaws - 
+Hine & Mookerje - List of Hine & Mookerje fragments
+Kow@25 Superfund - 
+Lydersen - 
+MTU Fire and Explosion - Outdated (?), replaced by BLOCK5.MDB tables
+Othmer fragments - 
+PEARLS List - Collection of several tables into one: Chemical Name, Source, Family, 
+    Formula, SMILES Indices
+Pintar - 
+reference chemicals - 
+SB@25 Superfund - 
+SB@25 Yaws - Yaws database values for Solubility Limit of Chemical in Water
+Schroeder Values - 
+SMILES Indices - SMILES string vs CAS list
+Source - Source vs CAS list
+Synonym List - Synonym vs CAS list
+UNIFAC - 
+UNIFAC Groups - Similar to [Rogers/Miller] table in stepp_db.mdb
+Unit Conversions - An odd idea some programmer had about unit conversions
+VP Yaws - Imported during GetMasterData() subroutine
+VP@25 Superfund - 
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Short Description of Data in All Tables (BLOCK5.MDB):
+============================================================
+AITAINO - 
+AITAORG - 
+AITBINO - 
+AITBORG - 
+AITHINO - 
+AITHORG - 
+fexp2 - 
+LFLHINO - 
+LFLHORG - 
+UFLHINO - 
+UFLHORG - 
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Short Description of Data in All Tables ({USER}.MDB):
+============================================================
+Block5pref - 
+Group Fragments - 
+Last CAS - 
+PrefBIPHierarchy - 
+PrefDatabases -
+PrefDefaultUnits - 
+PrefFormatting - 
+PrintTable1 - 
+PrintTable2 - 
+SaveTable1 - 
+SaveTable2 - 
+User List - 
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+

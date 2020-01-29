@@ -1,0 +1,27 @@
+11/29/2000 KAM
+
+- All development code prior to these changes for ADS is in 
+	X:\_backups\z001129_ads\ads_old.zip
+
+- Added a command button to most screens to enable the user to print the screen 
+	to printer.  I added a module to the app called PrintScreen.bas that 
+	contains code I found using the Microsoft Support KnowledgeBase. 
+	(www.microsoft.com, choose the support tab, then go to the Searchable
+	KnowledgeBase).  I searched for any articles containing 'Print Screen' with 
+	Visual Basic as the product.
+
+	This code contains other tools that could be used for related purposes
+	in other apps, so it has been also added to the generic app.
+
+	To use this module, the OLE Automation object must be added:  
+	Go to Project, References and click on OLE Automation.
+
+- Copied new executable to ..programs so Tech personnel could use ETDOT Update, 
+	then I renamed it in x:\etdot10\code\ads\vb6 to ads_new.exe.
+	I then copied the old ads.exe from backup into the development directory
+	as ads_old.exe and into ..programs as ads.exe so that any InstallShield 
+	compiles would contain the old code. 
+
+
+
+

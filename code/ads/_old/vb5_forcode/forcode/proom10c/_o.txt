@@ -1,0 +1,2865 @@
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C     MODULE NAME: COMMON.FI
+C
+C     DESCRIPTION: THIS MODULE CONTAINS ALL OF THE COMMON VARIABLES.
+C
+C     PLATFORM: MICROSOFT FORTRAN POWERSTATION V4.0
+C
+C     HISTORY:
+C         1998-NOV-22 - OMAN - FIRST CREATION.
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C                                                                              *
+C234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567
+C-----789012345678901234567890123456789012345678901234567890123456789012CCCCCCCC-----------------
+
+C
+C------ ALLOW SCREEN OUTPUT TO OCCUR.
+C
+      INTEGER ALLOW_SCREENIO
+      PARAMETER (ALLOW_SCREENIO = 1)
+C
+C------ DEBUG MODES.
+C
+      INTEGER DEBUGMODE_OC
+      PARAMETER (DEBUGMODE_OC = 0)
+      INTEGER DEBUGMODE_DGEAR_INPUTS
+      PARAMETER (DEBUGMODE_DGEAR_INPUTS = 0)
+      INTEGER DEBUGMODE_SHOW_ANALYT_SOLN
+      PARAMETER (DEBUGMODE_SHOW_ANALYT_SOLN = 0)
+      INTEGER DEBUGMODE_Y0_DUMP
+      PARAMETER (DEBUGMODE_Y0_DUMP = 0)
+      DOUBLE PRECISION Y0_DUMP_LASTTIME
+      COMMON /DEBUG1/ Y0_DUMP_LASTTIME
+C
+C------ FILENAMES IN USE.
+C
+      INTEGER PROOM_MODE
+      CHARACTER*200 FN_IN_FILELIST
+      CHARACTER*200 FN_IN_MAIN
+      CHARACTER*200 FN_OUT_SUCCESSFLAG
+      CHARACTER*200 FN_OUT_MAIN
+      CHARACTER*200 FN_OUT_CVST
+      CHARACTER*200 FN_OUT_SS_RESULTS
+      COMMON /FN1/ 
+     &  PROOM_MODE,FN_IN_FILELIST,FN_IN_MAIN,
+     &  FN_OUT_SUCCESSFLAG,FN_OUT_MAIN,FN_OUT_CVST,
+     &  FN_OUT_SS_RESULTS
+
+
+      SUBROUTINE DGEAR (N,T0,H0,Y0,TOUT,EPS,MF,INDEX,NFLAG,PW,N_PW)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+C
+C----- N_EQU is the maximum number of equations
+C----- WKSPSZ (= WorKSPace SiZe) is the workspace required
+C      by DGEAR
+C----- These parameters must be changed in DGEAR,NGE002,NGE004
+      INTEGER*2 N_EQU
+      INTEGER*4 WKSPSZ,N_PW
+      DOUBLE PRECISION PW(N_PW) 
+      PARAMETER (N_EQU=750,WKSPSZ=145000)
+C
+      INTEGER*2 NFLAG
+      INTEGER N,MF,INDEX
+      INTEGER NC,MFC,KFLAG,JSTART,IPIV,NSQ,NQUSED,NSTEP,NFE,NJE 
+      INTEGER LOUT,I,N0,NHCUT,KGO
+   
+      DOUBLE PRECISION T0,H0,Y0,TOUT,EPS
+      DOUBLE PRECISION T,H,HMIN,HMAX,EPSC,UROUND,YMAX,ERROR,SAVE1
+      DOUBLE PRECISION SAVE2,EPSJ,HUSED 
+      DOUBLE PRECISION Y,TOUTP,AYI,D
+      COMMON /GEAR1/ T,H,HMIN,HMAX,EPSC,UROUND,NC,MFC,KFLAG,JSTART  
+      COMMON /GEAR2/ YMAX(N_EQU)  
+      COMMON /GEAR3/ ERROR(N_EQU) 
+      COMMON /GEAR4/ SAVE1(N_EQU) 
+      COMMON /GEAR5/ SAVE2(N_EQU) 
+C      COMMON /GEAR6/ PW(WKSPSZ)  
+      COMMON /GEAR7/ IPIV(N_EQU)  
+      COMMON /GEAR8/ EPSJ,NSQ   
+      COMMON /GEAR9/ HUSED,NQUSED,NSTEP,NFE,NJE 
+      DIMENSION Y0(N)   
+      DIMENSION Y(N_EQU,6)
+
+      INTEGER*2 DEBUGM
+      DOUBLE PRECISION LAST_T
+      COMMON /DEBUG/ LAST_T, DEBUGM
+
+      DATA LOUT/6/ 
+
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Entry with:'
+        WRITE(4,*) 'N =', N
+        WRITE(4,*) 'T0 =', T0
+        WRITE(4,*) 'H0 =', H0
+        WRITE(4,*) 'Y0 =', (Y0(I), I=1, N)
+        WRITE(4,*) 'TOUT =', TOUT
+        WRITE(4,*) 'EPS =', EPS
+        WRITE(4,*) 'MF =', MF
+        WRITE(4,*) 'INDEX =', INDEX
+      END IF
+
+      IF (INDEX.EQ.0) GO TO 20  
+      IF (INDEX.EQ.2) GO TO 25  
+      IF (INDEX.EQ.-1) GO TO 30 
+      IF (INDEX.EQ.3) GO TO 40  
+      IF (INDEX.NE.1) GO TO 430 
+      IF (EPS.LE.0.0D0) GO TO 400  
+      IF (N.LE.0) GO TO 410 
+
+      IF ((T0-TOUT)*H0.GE.0.0D0) GO TO 420 
+      UROUND=.10842D-18
+
+      DO 10 I=1,N   
+        YMAX(I)=ABS(Y0(I))  
+        IF (YMAX(I).EQ.0.0D0) YMAX(I)=1.0D0   
+   10   Y(I,1)=Y0(I)
+      NC=N  
+      T=T0  
+      H=H0  
+      IF ((T+H).EQ.T) NFLAG=15
+      HMIN=ABS(H0)  
+      HMAX=ABS(T0-TOUT)*10.0D0 
+      EPSC=EPS  
+      MFC=MF
+      JSTART=0  
+      N0=N  
+      NSQ=N0*N0 
+      EPSJ=SQRT(UROUND) 
+      NHCUT=0
+   
+      GO TO 50  
+   20 HMAX=ABS(TOUT-TOUTP)*10.0D0
+  
+      GO TO 80  
+   25 HMAX=ABS(TOUT-TOUTP)*10.0D0  
+      IF ((T-TOUT)*H.GE.0.0D0) GO TO 500
+   
+      GO TO 85  
+C   
+   30 IF ((T-TOUT)*H.GE.0.0D0) GO TO 440   
+      JSTART=-1 
+      NC=N  
+      EPSC=EPS  
+      MFC=MF
+C   
+   40 IF ((T+H).EQ.T) NFLAG=15
+C   
+   50 CALL NGE002 (Y,N0,PW,N_PW)
+C   
+      KGO=1-KFLAG   
+      GO TO (60,100,200,300), KGO   
+C  KFLAG  =   0,  -1,  -2,  -3  
+C   
+   60 CONTINUE  
+      D=0.0D0  
+      DO 70 I=1,N   
+        AYI=ABS(Y(I,1)) 
+        YMAX(I)=DMAX1(YMAX(I),AYI)  
+   70   D=D+(AYI/YMAX(I))**2
+      D=D*(UROUND/EPS)**2   
+      IF (D.GT.FLOAT(N)) GO TO 250  
+      IF (INDEX.EQ.3) GO TO 500 
+      IF (INDEX.EQ.2) GO TO 85  
+   80 IF ((T-TOUT)*H.LT.0.0D0) GO TO 40
+C                                 CALL INTERP   
+      CALL NGE001 (TOUT,Y,N0,Y0)
+      GO TO 520 
+   85 IF (((T+H)-TOUT)*H.LE.0.0D0) GO TO 40
+      IF (ABS(T-TOUT).LE.100.0D0*UROUND*HMAX) GO TO 500
+      IF ((T-TOUT)*H.GE.0.0D0) GO TO 500   
+      H=(TOUT-T)*(1.0D0-4.0D0*UROUND) 
+      JSTART=-1 
+      GO TO 40  
+  100 NFLAG=105 
+  110 IF (NHCUT.EQ.10) GO TO 150
+      NHCUT=NHCUT+1 
+      HMIN=HMIN*.10D0  
+      H=H*.10D0
+      NFLAG=115
+      JSTART=-1 
+      GO TO 40  
+C   
+  150 NFLAG=155  
+      GO TO 500 
+C   
+  200 NFLAG=205  
+      GO TO 500 
+C   
+  250 NFLAG=255
+      KFLAG=-2  
+      GO TO 500 
+C   
+  300 NFLAG=305
+      GO TO 110 
+C   
+  400 NFLAG=405 
+      INDEX=-4  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 400'
+      END IF
+      RETURN
+C   
+  410 NFLAG=415  
+      INDEX=-4  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 410'
+      END IF
+      RETURN
+C   
+  420 NFLAG=425  
+      INDEX=-4  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 420'
+      END IF
+      RETURN
+C   
+  430 NFLAG=435
+      INDEX=-4  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 430'
+      END IF
+      RETURN
+C   
+  440 NFLAG=445 
+C                                 CALL INTERP   
+      CALL NGE001 (TOUT,Y,N0,Y0)
+      INDEX=-5  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 440'
+      END IF
+      RETURN
+C   
+  500 TOUT=T
+      DO 510 I=1,N  
+  510   Y0(I)=Y(I,1)
+  520 INDEX=KFLAG   
+      TOUTP=TOUT
+      H0=HUSED  
+      IF (KFLAG.NE.0) H0=H  
+      IF (DEBUGM .EQ. 1) THEN
+        WRITE(4,*) '***** DGEAR Exit Point 520'
+      END IF
+      RETURN
+C   
+   15 FORMAT (35H WARNING..  T + H = T ON NEXT STEP.)   
+  105 FORMAT (//35H KFLAG = -1 FROM INTEGRATOR AT T = ,E16.8/39H  ERROR 
+     1TEST FAILED WITH DABS(H) = HMIN/) 
+  115 FORMAT (24H  H HAS BEEN REDUCED TO ,E16.8,26H  AND STEP WILL BE RE
+     1TRIED//)  
+  155 FORMAT (//44H PROBLEM APPEARS UNSOLVABLE WITH GIVEN INPUT//)  
+  205 FORMAT (//35H KFLAG = -2 FROM INTEGRATOR AT T = ,E16.8,5H  H =,E16
+     1.8/52H  THE REQUESTED ERROR IS SMALLER THAN CAN BE HANDLED//) 
+  255 FORMAT (//37H INTEGRATION HALTED BY DRIVER AT T = ,E16.8/56H  EPS 
+     1TOO SMALL TO BE ATTAINED FOR THE MACHINE PRECISION/)  
+  305 FORMAT (//35H KFLAG = -3 FROM INTEGRATOR AT T = ,E16.8/45H  CORREC
+     1TOR CONVERGENCE COULD NOT BE ACHIEVED/)   
+  405 FORMAT (//28H ILLEGAL INPUT.. EPS .LE. 0.//)  
+  415 FORMAT (//25H ILLEGAL INPUT.. N .LE. 0//) 
+  425 FORMAT (//36H ILLEGAL INPUT.. (T0-TOUT)*H .GE. 0.//)  
+  435 FORMAT (//24H ILLEGAL INPUT.. INDEX =,I5//)   
+  445 FORMAT (//44H INDEX = -1 ON INPUT WITH (T-TOUT)*H .GE. 0./4H T =,E
+     116.8,9H   TOUT =,E16.8,6H   H =,E16.8/44H INTERPOLATION WAS DONE A
+     2S ON NORMAL RETURN./41H DESIRED PARAMETER CHANGES WERE NOT MADE.) 
+      END   
+      SUBROUTINE NGE001 (TOUT,Y,N0,Y0)  
+C   
+C  THIS IS CALLED BY "GEAR". IT WAS "INTERP" IN THE DISTRIBUTED VERSION.
+C   
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)  
+      INTEGER N0,N,IDUMMY,JSTART,I,L,J    
+      DOUBLE PRECISION TOUT,Y,Y0,T,H,DUMMY,S,S1 
+      COMMON /GEAR1/ T,H,DUMMY(4),N,IDUMMY(2),JSTART
+      DIMENSION Y0(N0), Y(N0,6) 
+      DO 10 I=1,N   
+   10   Y0(I)=Y(I,1)
+      L=JSTART+1
+      S=(TOUT-T)/H  
+      S1=1.0D0 
+      DO 30 J=2,L   
+        S1=S1*S 
+        DO 20 I=1,N 
+   20     Y0(I)=Y0(I)+S1*Y(I,J) 
+   30   CONTINUE
+      RETURN
+      END   
+      SUBROUTINE NGE002 (Y,N0,PW,N_PW)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)  
+C----- N_EQU is the maximum number of equations
+C----- WKSPSZ (= WorKSPace SiZe) is the workspace required
+C      by DGEAR
+C----- These parameters must be changed in DGEAR,NGE002,NGE004
+      INTEGER*2 N_EQU
+      INTEGER*4 WKSPSZ, N_PW
+      DOUBLE PRECISION PW(N_PW)
+      PARAMETER (N_EQU=750,WKSPSZ=145000)
+
+C
+      INTEGER N0,N,MF,KFLAG,JSTART,IPIV,NQUSED,NSTEP,NFE,NJE
+      INTEGER I,METH,MITER,NQ,L,IDOUB,MFOLD,NOLD,IRET,MEO,MIO,IWEVAL,MAX
+     1DER,LMAX,IREDO,J,NSTEPJ,J1,J2,M,IER,NEWQ  
+      DOUBLE PRECISION Y,T,H,HMIN,HMAX,EPS,UROUND,YMAX,ERROR,SAVE1
+      DOUBLE PRECISION SAVE2,HUSED   
+      DOUBLE PRECISION EL,OLDL0,TOLD,RMAX,RC,CRATE,EPSOLD,HOLD,FN,EDN,
+     1E,EUP,BND,RH,R1,CON,R,HL0,R0,D,PHL0,PR3,D1,ENQ3,ENQ2,PR2,PR1,ENQ1   
+      DOUBLE PRECISION TQ   
+      COMMON /GEAR1/ T,H,HMIN,HMAX,EPS,UROUND,N,MF,KFLAG,JSTART 
+      COMMON /GEAR2/ YMAX(N_EQU)
+      COMMON /GEAR3/ ERROR(N_EQU)   
+      COMMON /GEAR4/ SAVE1(N_EQU)   
+      COMMON /GEAR5/ SAVE2(N_EQU)   
+C      COMMON /GEAR6/ PW(WKSPSZ)  
+      COMMON /GEAR7/ IPIV(N_EQU)
+      COMMON /GEAR9/ HUSED,NQUSED,NSTEP,NFE,NJE 
+      DIMENSION Y(N0,6) 
+      DIMENSION EL(13), TQ(4)   
+      DATA EL(2)/1.0D0/,OLDL0/1.0D0/  
+      KFLAG=0   
+      TOLD=T
+      IF (JSTART.GT.0) GO TO 200
+      IF (JSTART.NE.0) GO TO 120
+      CALL DIFFUN (N,T,Y,SAVE1) 
+      DO 110 I=1,N  
+  110   Y(I,2)=H*SAVE1(I)   
+      METH=MF/10
+      MITER=MF-10*METH  
+      NQ=1  
+      L=2   
+      IDOUB=3   
+      RMAX=1.D+04   
+      RC=0.0D0 
+      CRATE=1.0D0  
+      EPSOLD=EPS
+      HOLD=H
+      MFOLD=MF
+      NOLD=N
+      NSTEP=0   
+      NSTEPJ=0  
+      NFE=1 
+      NJE=0 
+      IRET=1
+      GO TO 130 
+  120 IF (MF.EQ.MFOLD) GO TO 150
+      MEO=METH  
+      MIO=MITER 
+      METH=MF/10
+      MITER=MF-10*METH  
+      MFOLD=MF  
+      IF (MITER.NE.MIO) IWEVAL=MITER
+      IF (METH.EQ.MEO) GO TO 150
+      IDOUB=L+1 
+      IRET=1
+  130 CALL NGE003 (METH,NQ,EL,TQ,MAXDER)
+      LMAX=MAXDER+1 
+      RC=RC*EL(1)/OLDL0 
+      OLDL0=EL(1)   
+  140 FN=FLOAT(N)   
+      EDN=FN*(DBLE(TQ(1))*EPS)**2   
+      E=FN*(DBLE(TQ(2))*EPS)**2 
+      EUP=FN*(DBLE(TQ(3))*EPS)**2   
+      BND=FN*(DBLE(TQ(4))*EPS)**2   
+      GO TO (160,170,200), IRET 
+  150 IF ((EPS.EQ.EPSOLD).AND.(N.EQ.NOLD)) GO TO 160
+      EPSOLD=EPS
+      NOLD=N
+      IRET=1
+      GO TO 140 
+  160 IF (H.EQ.HOLD) GO TO 200  
+      RH=H/HOLD 
+      H=HOLD
+      IREDO=3   
+      GO TO 175 
+  170 RH=DMAX1(RH,HMIN/ABS(H))  
+  175 RH=DMIN1(RH,HMAX/ABS(H),RMAX) 
+      R1=1.0D0 
+      DO 180 J=2,L  
+        R1=R1*RH
+        DO 180 I=1,N
+  180   Y(I,J)=Y(I,J)*R1
+      H=H*RH
+      RC=RC*RH  
+      IDOUB=L+1 
+      IF (IREDO.EQ.0) GO TO 690 
+  200 IF (ABS(RC-1.0D0).GT.0.30D0) IWEVAL=MITER   
+      IF (NSTEP.GE.NSTEPJ+20) IWEVAL=MITER  
+      T=T+H 
+      DO 210 J1=1,NQ
+        DO 210 J2=J1,NQ 
+        J=(NQ+J1)-J2
+        DO 210 I=1,N
+  210   Y(I,J)=Y(I,J)+Y(I,J+1)  
+  220 DO 230 I=1,N  
+  230   ERROR(I)=0.0D0 
+      M=0   
+      CALL DIFFUN (N,T,Y,SAVE2) 
+      NFE=NFE+1 
+      IF (IWEVAL.LE.0) GO TO 290
+      IWEVAL=0  
+      RC=1. 
+      NJE=NJE+1 
+      NSTEPJ=NSTEP  
+      GO TO (250,240,260), MITER
+  240 NFE=NFE+N 
+  250 CON=-H*EL(1)  
+C                                 CALL PSET 
+      CALL NGE004 (Y,N0,CON,MITER,IER,PW,N_PW)  
+      IF (IER.NE.0) GO TO 420   
+      GO TO 350 
+  260 R=EL(1)*.10D0
+      DO 270 I=1,N  
+  270   PW(I)=Y(I,1)+R*(H*SAVE2(I)-Y(I,2))  
+      CALL DIFFUN (N,T,PW,SAVE1)
+      NFE=NFE+1 
+      HL0=H*EL(1)   
+      DO 280 I=1,N  
+        R0=H*SAVE2(I)-Y(I,2)
+        PW(I)=1.0D0
+        D=.10D0*R0-H*(SAVE1(I)-SAVE2(I))   
+        SAVE1(I)=0.0D0 
+        IF (ABS(R0).LT.UROUND*YMAX(I)) GO TO 280
+        IF (ABS(D).EQ.0.0D0) GO TO 420 
+        PW(I)=.10D0*R0/D   
+        SAVE1(I)=PW(I)*R0   
+  280   CONTINUE
+      GO TO 370 
+  290 IF (MITER.NE.0) GO TO (350,350,310), MITER
+      D=0.0D0  
+      DO 300 I=1,N  
+        R=H*SAVE2(I)-Y(I,2) 
+        D=D+((R-ERROR(I))/YMAX(I))**2   
+        SAVE1(I)=Y(I,1)+EL(1)*R 
+  300   ERROR(I)=R  
+      GO TO 400 
+C-----------------------------------------------------------------------
+  310 PHL0=HL0  
+      HL0=H*EL(1)   
+      IF (HL0.EQ.PHL0) GO TO 330
+      R=HL0/PHL0
+      DO 320 I=1,N  
+        D=1.0D0-R*(1.0D0-1.0D0/PW(I))
+        IF (ABS(D).EQ.0.0D0) GO TO 440 
+  320   PW(I)=1.0D0/D  
+  330 DO 340 I=1,N  
+  340   SAVE1(I)=PW(I)*(H*SAVE2(I)-(Y(I,2)+ERROR(I)))   
+      GO TO 370 
+  350 DO 360 I=1,N  
+  360   SAVE1(I)=H*SAVE2(I)-(Y(I,2)+ERROR(I))   
+C                                 CALL SOL  
+      CALL NGE006 (N,N0,PW,SAVE1,IPIV)  
+  370 D=0.0D0  
+      DO 380 I=1,N  
+        ERROR(I)=ERROR(I)+SAVE1(I)  
+        D=D+(SAVE1(I)/YMAX(I))**2   
+  380   SAVE1(I)=Y(I,1)+EL(1)*ERROR(I)  
+C-----------------------------------------------------------------------
+  400 IF (M.NE.0) CRATE=DMAX1(.90D0*CRATE,D/D1)
+      IF ((D*DMIN1(1.0D0,2.0D0*CRATE)).LE.BND) GO TO 450  
+      D1=D  
+      M=M+1 
+      IF (M.EQ.3) GO TO 410 
+      CALL DIFFUN (N,T,SAVE1,SAVE2) 
+      GO TO 290 
+C-----------------------------------------------------------------------
+  410 NFE=NFE+2 
+      IF (IWEVAL.EQ.-1) GO TO 440   
+  420 T=TOLD
+      RMAX=2.0D0   
+      DO 430 J1=1,NQ
+        DO 430 J2=J1,NQ 
+        J=(NQ+J1)-J2
+        DO 430 I=1,N
+  430   Y(I,J)=Y(I,J)-Y(I,J+1)  
+      IF (ABS(H).LE.HMIN*1.000010D0) GO TO 680 
+      RH=.250D0
+      IREDO=1   
+      GO TO 170 
+  440 IWEVAL=MITER  
+      GO TO 220 
+  450 IF (MITER.NE.0) IWEVAL=-1 
+      NFE=NFE+M 
+      D=0.0D0  
+      DO 460 I=1,N  
+  460   D=D+(ERROR(I)/YMAX(I))**2   
+      IF (D.GT.E) GO TO 500 
+      KFLAG=0   
+      IREDO=0   
+      NSTEP=NSTEP+1 
+      HUSED=H   
+      NQUSED=NQ 
+      DO 470 J=1,L  
+        DO 470 I=1,N
+  470   Y(I,J)=Y(I,J)+EL(J)*ERROR(I)
+      IF (IDOUB.EQ.1) GO TO 520 
+      IDOUB=IDOUB-1 
+      IF (IDOUB.GT.1) GO TO 700 
+      IF (L.EQ.LMAX) GO TO 700  
+      DO 490 I=1,N  
+  490   Y(I,LMAX)=ERROR(I)  
+      GO TO 700 
+  500 KFLAG=KFLAG-1 
+      T=TOLD
+      DO 510 J1=1,NQ
+        DO 510 J2=J1,NQ 
+        J=(NQ+J1)-J2
+        DO 510 I=1,N
+  510   Y(I,J)=Y(I,J)-Y(I,J+1)  
+      RMAX=2.0D0   
+      IF (ABS(H).LE.HMIN*1.000010D0) GO TO 660 
+      IF (KFLAG.LE.-3) GO TO 640
+      IREDO=2   
+      PR3=1.D20 
+      GO TO 540 
+  520 PR3=1.D20 
+      IF (L.EQ.LMAX) GO TO 540  
+      D1=0.0D0 
+      DO 530 I=1,N  
+  530   D1=D1+((ERROR(I)-Y(I,LMAX))/YMAX(I))**2 
+      ENQ3=.50D0/FLOAT(L+1)
+      PR3=((D1/EUP)**ENQ3)*1.40D0+1.4D-06  
+  540 ENQ2=.50D0/FLOAT(L)  
+      PR2=((D/E)**ENQ2)*1.20D0+1.2D-06 
+      PR1=1.D20 
+      IF (NQ.EQ.1) GO TO 560
+      D=0.0D0  
+      DO 550 I=1,N  
+  550   D=D+(Y(I,L)/YMAX(I))**2 
+      ENQ1=.50D0/FLOAT(NQ) 
+      PR1=((D/EDN)**ENQ1)*1.30D0+1.3D-06   
+  560 IF (PR2.LE.PR3) GO TO 570 
+      IF (PR3.LT.PR1) GO TO 590 
+      GO TO 580 
+  570 IF (PR2.GT.PR1) GO TO 580 
+      NEWQ=NQ   
+      RH=1.0D0/PR2 
+      GO TO 620 
+  580 NEWQ=NQ-1 
+      RH=1.0D0/PR1 
+      GO TO 620 
+  590 NEWQ=L
+      RH=1.0D0/PR3 
+      IF (RH.LT.1.10D0) GO TO 610  
+      DO 600 I=1,N  
+  600   Y(I,NEWQ+1)=ERROR(I)*EL(L)/FLOAT(L) 
+      GO TO 630 
+  610 IDOUB=10  
+      GO TO 700 
+  620 IF ((KFLAG.EQ.0).AND.(RH.LT.1.10D0)) GO TO 610   
+      IF (NEWQ.EQ.NQ) GO TO 170 
+  630 NQ=NEWQ   
+      L=NQ+1
+      IRET=2
+      GO TO 130 
+  640 IF (KFLAG.EQ.-7) GO TO 670
+      RH=.10D0 
+      RH=DMAX1(HMIN/ABS(H),RH)  
+      H=H*RH
+      CALL DIFFUN (N,T,Y,SAVE1) 
+      NFE=NFE+1 
+      DO 650 I=1,N  
+  650   Y(I,2)=H*SAVE1(I)   
+      IWEVAL=MITER  
+      IDOUB=10  
+      IF (NQ.EQ.1) GO TO 200
+      NQ=1  
+      L=2   
+      IRET=3
+      GO TO 130 
+  660 KFLAG=-1  
+      GO TO 700 
+  670 KFLAG=-2  
+      GO TO 700 
+  680 KFLAG=-3  
+      GO TO 700 
+  690 RMAX=10.0D0  
+  700 HOLD=H
+      JSTART=NQ 
+      RETURN
+      END   
+      SUBROUTINE NGE003 (METH,NQ,EL,TQ,MAXDER)  
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)   
+      INTEGER METH,NQ,MAXDER,K  
+      DOUBLE PRECISION EL   
+      DOUBLE PRECISION TQ,PERTST
+      DIMENSION PERTST(12,2,3), EL(13), TQ(4)   
+      DATA PERTST/1.0D0,1.0D0,2.0D0,1.0D0,.31580D0,.074070D0,.013910D0,
+     $.0021820D0,.00029450D0,.000034920D0,.0000036920D0,.00000035240D0,
+     $1.0D0,1.0D0,.50D0,.16670D0,.041670D0,1.0D0,1.0D0,1.0D0,1.0D0,
+     $1.0D0,1.0D0,1.0D0,2.0D0,12.0D0,24.0D0,37.890D0,53.330D0,70.080D0,
+     $87.970D0,106.90D0,126.70D0,147.40D0,168.80D0,191.0D0,2.0D0,4.50D0,
+     $7.3330D0,10.420D0,13.70D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,
+     $1.0D0,12.0D0,24.0D0,37.890D0,53.330D0,70.080D0,87.970D0,106.90D0,
+     $126.70D0,147.40D0,168.80D0,191.0D0,1.0D0,3.0D0,6.0D0,9.1670D0,
+     $12.50D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0,1.0D0/  
+      GO TO (1,2), METH 
+    1 MAXDER=12 
+      GO TO (101,102,103,104,105,106,107,108,109,110,111,112), NQ   
+    2 MAXDER=5  
+      GO TO (201,202,203,204,205), NQ   
+  101 EL(1)=1.0D0 
+      GO TO 900 
+  102 EL(1)=0.50D0 
+      EL(3)=0.50D0 
+      GO TO 900 
+  103 EL(1)=4.1666666666666667D-01  
+      EL(3)=0.750D0
+      EL(4)=1.6666666666666667D-01  
+      GO TO 900 
+  104 EL(1)=0.3750D0   
+      EL(3)=9.1666666666666667D-01  
+      EL(4)=3.3333333333333333D-01  
+      EL(5)=4.1666666666666667D-02  
+      GO TO 900 
+  105 EL(1)=3.4861111111111111D-01  
+      EL(3)=1.04166666666666670D0  
+      EL(4)=4.8611111111111111D-01  
+      EL(5)=1.0416666666666667D-01  
+      EL(6)=8.3333333333333333D-03  
+      GO TO 900 
+  106 EL(1)=3.2986111111111111D-01  
+      EL(3)=1.14166666666666670D0  
+      EL(4)=0.6250D0   
+      EL(5)=1.7708333333333333D-01  
+      EL(6)=0.0250D0   
+      EL(7)=1.3888888888888889D-03  
+      GO TO 900 
+  107 EL(1)=3.1559193121693122D-01  
+      EL(3)=1.2250D0   
+      EL(4)=7.5185185185185185D-01  
+      EL(5)=2.5520833333333333D-01  
+      EL(6)=4.8611111111111111D-02  
+      EL(7)=4.8611111111111111D-03  
+      EL(8)=1.9841269841269841D-04  
+      GO TO 900 
+  108 EL(1)=3.0422453703703704D-01  
+      EL(3)=1.29642857142857140D0  
+      EL(4)=8.6851851851851852D-01  
+      EL(5)=3.3576388888888889D-01  
+      EL(6)=7.7777777777777778D-02  
+      EL(7)=1.0648148148148148D-02  
+      EL(8)=7.9365079365079365D-04  
+      EL(9)=2.4801587301587302D-05  
+      GO TO 900 
+  109 EL(1)=2.9486800044091711D-01  
+      EL(3)=1.35892857142857140D0  
+      EL(4)=9.7655423280423280D-01  
+      EL(5)=0.41718750D0   
+      EL(6)=1.1135416666666667D-01  
+      EL(7)=0.018750D0 
+      EL(8)=1.9345238095238095D-03  
+      EL(9)=1.1160714285714286D-04  
+      EL(10)=2.7557319223985891D-06 
+      GO TO 900 
+  110 EL(1)=2.8697544642857143D-01  
+      EL(3)=1.4144841269841270D0  
+      EL(4)=1.07721560846560850D0  
+      EL(5)=4.9856701940035273D-01  
+      EL(6)=0.14843750D0   
+      EL(7)=2.9060570987654321D-02  
+      EL(8)=3.7202380952380952D-03  
+      EL(9)=2.9968584656084656D-04  
+      EL(10)=1.3778659611992945D-05 
+      EL(11)=2.7557319223985891D-07 
+      GO TO 900 
+  111 EL(1)=2.8018959644393672D-01  
+      EL(3)=1.4644841269841270D0  
+      EL(4)=1.17151455026455030D0  
+      EL(5)=5.7935819003527337D-01  
+      EL(6)=1.8832286155202822D-01  
+      EL(7)=4.1430362654320988D-02  
+      EL(8)=6.2111441798941799D-03  
+      EL(9)=6.2520667989417989D-04  
+      EL(10)=4.0417401528512640D-05 
+      EL(11)=1.5156525573192240D-06 
+      EL(12)=2.5052108385441719D-08 
+      GO TO 900 
+  112 EL(1)=2.7426554003159906D-01  
+      EL(3)=1.50993867243867240D0  
+      EL(4)=1.2602711640211640D0  
+      EL(5)=6.5923418209876543D-01  
+      EL(6)=2.3045800264550265D-01  
+      EL(7)=5.5697246105232216D-02  
+      EL(8)=9.4394841269841270D-03  
+      EL(9)=1.1192749669312169D-03  
+      EL(10)=9.0939153439153439D-05 
+      EL(11)=4.8225308641975309D-06 
+      EL(12)=1.5031265031265031D-07 
+      EL(13)=2.0876756987868099D-09 
+      GO TO 900 
+C   
+  201 EL(1)=1.0D0 
+      GO TO 900 
+  202 EL(1)=6.6666666666666667D-01  
+      EL(3)=3.3333333333333333D-01  
+      GO TO 900 
+  203 EL(1)=5.4545454545454545D-01  
+      EL(3)=EL(1)   
+      EL(4)=9.0909090909090909D-02  
+      GO TO 900 
+  204 EL(1)=0.480D0
+      EL(3)=0.70D0 
+      EL(4)=0.20D0 
+      EL(5)=0.020D0
+      GO TO 900 
+  205 EL(1)=4.3795620437956204D-01  
+      EL(3)=8.2116788321167883D-01  
+      EL(4)=3.1021897810218978D-01  
+      EL(5)=5.4744525547445255D-02  
+      EL(6)=3.6496350364963504D-03  
+C   
+  900 DO 910 K=1,3  
+  910   TQ(K)=PERTST(NQ,METH,K) 
+      TQ(4)=.50D0*TQ(2)/FLOAT(NQ+2)
+      RETURN
+      END   
+      SUBROUTINE NGE004 (Y,N0,CON,MITER,IER,PW,N_PW)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)   
+C
+C----- N_EQU is the maximum number of equations
+C----- WKSPSZ (= WorKSPace SiZe) is the workspace required
+C      by DGEAR
+C----- These parameters must be changed in DGEAR,NGE002,NGE004
+      INTEGER*2 N_EQU
+      INTEGER*4 WKSPSZ,N_PW
+      DOUBLE PRECISION PW(N_PW)
+      PARAMETER (N_EQU=750,WKSPSZ=145000)
+C
+      INTEGER N0,MITER,IER,N,IDUMMY,IPIV,NSQ,I,J1,J 
+      DOUBLE PRECISION Y,CON,T,H,DUMMY,UROUND,YMAX,SAVE1,SAVE2
+      DOUBLE PRECISION EPSJ,D,R0,YJ,R
+      DIMENSION Y(N0,6) 
+      COMMON /GEAR1/ T,H,DUMMY(3),UROUND,N,IDUMMY(3)
+      COMMON /GEAR2/ YMAX(N_EQU)
+      COMMON /GEAR4/ SAVE1(N_EQU)   
+      COMMON /GEAR5/ SAVE2(N_EQU)   
+C      COMMON /GEAR6/ PW(WKSPSZ)  
+      COMMON /GEAR7/ IPIV(N_EQU)
+      COMMON /GEAR8/ EPSJ,NSQ   
+      IF (MITER.EQ.2) GO TO 20  
+      CALL PEDERV (N,T,Y,PW,N0) 
+      DO 10 I=1,NSQ 
+   10   PW(I)=PW(I)*CON 
+      GO TO 60  
+   20 D=0.0D0  
+      DO 30 I=1,N   
+   30   D=D+SAVE2(I)**2 
+      R0=ABS(H)*SQRT(D)*1.D+03*UROUND   
+      J1=0  
+      DO 50 J=1,N   
+        YJ=Y(J,1)   
+        R=EPSJ*YMAX(J)  
+        R=DMAX1(R,R0)   
+        Y(J,1)=Y(J,1)+R 
+        D=CON/R 
+        CALL DIFFUN (N,T,Y,SAVE1)   
+        DO 40 I=1,N 
+   40     PW(I+J1)=(SAVE1(I)-SAVE2(I))*D
+        Y(J,1)=YJ   
+        J1=J1+N0
+   50   CONTINUE
+   60 J=1   
+      DO 70 I=1,N   
+        PW(J)=PW(J)+1.  
+   70   J=J+(N0+1)  
+      CALL NGE005 (N,N0,PW,IPIV,IER)
+      RETURN
+      END   
+      SUBROUTINE NGE005 (N,NDIM,A,IP,IER)   
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)    
+      INTEGER N,NDIM,IP,IER,NM1,K,KP1,M,I,J 
+      DOUBLE PRECISION  A,T  
+      DIMENSION A(NDIM,N), IP(N)
+      IER=0 
+      IP(N)=1   
+      IF (N.EQ.1) GO TO 70  
+      NM1=N-1   
+      DO 60 K=1,NM1 
+        KP1=K+1 
+        M=K 
+        DO 10 I=KP1,N   
+   10     IF (ABS(A(I,K)).GT.ABS(A(M,K))) M=I   
+        IP(K)=M 
+        T=A(M,K)
+        IF (M.EQ.K) GO TO 20
+        IP(N)=-IP(N)
+        A(M,K)=A(K,K)   
+        A(K,K)=T
+   20   IF (T.EQ.0.0D0) GO TO 80   
+        T=1.0D0/T  
+        DO 30 I=KP1,N   
+   30     A(I,K)=-A(I,K)*T  
+        DO 50 J=KP1,N   
+          T=A(M,J)  
+          A(M,J)=A(K,J) 
+          A(K,J)=T  
+          IF (T.EQ.0.0D0) GO TO 50 
+          DO 40 I=KP1,N 
+   40       A(I,J)=A(I,J)+A(I,K)*T  
+   50     CONTINUE  
+   60   CONTINUE
+   70 K=N   
+      IF (A(N,N).EQ.0.0D0) GO TO 80
+      RETURN
+   80 IER=K 
+      IP(N)=0   
+      RETURN
+      END   
+      SUBROUTINE NGE006 (N,NDIM,A,B,IP) 
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)   
+      INTEGER N,NDIM,IP,NM1,K,KP1,M,I,KB,KM1
+      DOUBLE PRECISION A,B,T
+      DIMENSION A(NDIM,N), B(N), IP(N)  
+      IF (N.EQ.1) GO TO 50  
+      NM1=N-1   
+      DO 20 K=1,NM1 
+        KP1=K+1 
+        M=IP(K) 
+        T=B(M)  
+        B(M)=B(K)   
+        B(K)=T  
+        DO 10 I=KP1,N   
+   10     B(I)=B(I)+A(I,K)*T
+   20   CONTINUE
+      DO 40 KB=1,NM1
+        KM1=N-KB
+        K=KM1+1 
+        B(K)=B(K)/A(K,K)
+        T=-B(K) 
+        DO 30 I=1,KM1   
+   30     B(I)=B(I)+A(I,K)*T
+   40   CONTINUE
+   50 B(1)=B(1)/A(1,1)  
+      RETURN
+      END   
+
+C                                                                       
+C **********************************************************************                                                                       
+		  SUBROUTINE DIFFUN (N,T,Y0,YDOT)                       
+C **********************************************************************                                                                       
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+
+ccccccccccccccccccccccccccccc get rid of implicit double precision!
+ccccccccccccccccccccccccccccc replace with implicit none
+
+
+c---- Constants
+      INTEGER*2 MXCOMP,MAXMC,MAXNC,MAXPTS,MAXDE
+
+c**** Change Hokanson 2/8/97
+c      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=6,MAXPTS=400,MAXDE=750)
+      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=400,MAXDE=750)
+c      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=6000,MAXDE=750)
+c**** End Change Hokanson 2/8/97
+
+c---- Subroutine Parameters
+      INTEGER*4 N
+      DOUBLE PRECISION T
+      DOUBLE PRECISION Y0(MAXDE),YDOT(MAXDE)
+
+c---- Local variables
+      DOUBLE PRECISION WW(MAXMC),AAU(MAXMC),BB(MAXNC,MAXMC),
+     &                 Z(MXCOMP),Q0(MXCOMP),CBS(MXCOMP,MAXMC)
+      DOUBLE PRECISION XKTIME(MXCOMP),RT(MXCOMP),FAC(MXCOMP)
+c      INTEGER I,II,III,IIII,J,JJ,K,KK,N,M
+      INTEGER I,II,III,IIII,J,JJ,K,KK,M
+
+c---- Common block variables
+      DOUBLE PRECISION DG(MXCOMP),ST(MXCOMP),EDS(MXCOMP),EDP(MXCOMP),
+     &                 BR(MAXNC,MAXNC),D(MXCOMP)
+      DOUBLE PRECISION YM(MXCOMP),XNI(MXCOMP),XN(MXCOMP),WR(MAXNC),
+     &                 AZ(MAXMC,MAXMC)
+      INTEGER*2 MC,NC,NCOMP,N1
+      DOUBLE PRECISION DGT
+      INTEGER*2 NIN
+      DOUBLE PRECISION STD(MXCOMP),BEDS(MXCOMP,MAXNC,MAXNC),
+     &                 BEDP(MXCOMP,MAXNC,MAXNC),DGI(MXCOMP)
+      INTEGER*2 MND,ND,MD
+      DOUBLE PRECISION TOR(MXCOMP),PART(MXCOMP),TCONV,TORTU(MXCOMP)
+      DOUBLE PRECISION RK1(MXCOMP),RK2(MXCOMP),RK3(MXCOMP),RK4(MXCOMP),
+     &                 XK(MXCOMP)
+      DOUBLE PRECISION CBO(MXCOMP)
+
+c---- Common blocks
+      COMMON /BLOCKA/ DG,ST,EDS,EDP,BR,D
+      COMMON /BLOCKB/ YM,XNI,XN,WR,AZ
+      COMMON /BLOCKC/ MC,NC,NCOMP,N1,DGT,NIN
+      COMMON /BLOCKE/ STD,BEDS,BEDP,DGI,MND,ND,MD
+      COMMON /BLOCKF/ TOR,PART,TCONV,TORTU
+      COMMON /BLOCKG/ RK1,RK2,RK3,RK4,XK
+      COMMON /BLOCKJ/ CBO
+
+      DOUBLE PRECISION CPORE(MAXDE)
+      COMMON /WASH1/ CPORE
+
+c---- Debug variables
+      INTEGER*2 DEBUGM
+      DOUBLE PRECISION LAST_T
+      COMMON /DEBUG/ LAST_T, DEBUGM
+      DOUBLE PRECISION O_RT(10)
+
+c new parameters to psdm() subroutine:
+      INTEGER IS_IN_ROOM
+      DOUBLE PRECISION ROOM_VOL
+      DOUBLE PRECISION ROOM_FLOWRATE
+      DOUBLE PRECISION ROOM_C0(1:MXCOMP)
+      DOUBLE PRECISION ROOM_EMIT(1:MXCOMP)
+      CHARACTER*100 FN_MASSBAL_OUT
+
+c new parameters to psdm() subroutine:
+      COMMON /AMWAY1/ IS_IN_ROOM,ROOM_VOL,ROOM_FLOWRATE,ROOM_C0,
+     &  ROOM_EMIT,FN_MASSBAL_OUT
+
+c new parameters from psdm() subroutine:
+      DOUBLE PRECISION XWT(1:MXCOMP)
+      DOUBLE PRECISION FLRT
+      COMMON /AMWAY2/ XWT,FLRT
+
+c---- NEW LOCAL VARIABLES (6/24/98):
+      DOUBLE PRECISION CR_(1:MXCOMP)
+      DOUBLE PRECISION CB_(1:MXCOMP)
+      INTEGER CRIDX_(1:MXCOMP)
+
+      IF (IS_IN_ROOM.EQ.1) THEN
+        DO I=1, NCOMP
+          CRIDX_(I) = N1*NCOMP + I
+          CR_(I) = Y0(CRIDX_(I))
+        ENDDO
+      ENDIF
+
+C                                                                       
+C---- Determine liquid phase concentrations at each radial and
+C.... axial position within adsorbent particle using Ideal
+C.... Adsorbed Solution Theory
+C 
+      DO 2 I = 1,NCOMP
+	 XKTIME(I) = XK(I)*(RK1(I)+RK2(I)*(T/TCONV) +
+     &               RK3(I)*DEXP(RK4(I)*(T/TCONV)))
+c      XKTIME(I) = 0.01D0*XK(I)*(RK1(I) - RK2(I)*(T/TCONV) +
+c     $            RK3(I)*DEXP(-RK4(I)*(T/TCONV)))
+      IF (XKTIME(I) .LE. (XK(I)/1.0D+03)) THEN
+	  XKTIME(I) = XK(I)/1.0D+03
+      ENDIF
+ 2    CONTINUE
+      DO 3 I = 1,NCOMP
+	IF (TOR(I) .LT. 1.0D0) THEN
+	  IF ((T/TCONV) .GT. 1.008D5) THEN
+	     TORTU(I) = TOR(I) + PART(I)*(T/TCONV)
+	     RT(I) = TORTU(I)/1.0D0
+	     FAC(I) = ((1.0D0/RT(I)) - D(I))/(1.0D0 - D(I))
+	  ELSE
+	     FAC(I) = 1.0D0
+	  ENDIF
+	ELSE
+	  FAC(I) = 1.0D0
+	ENDIF
+ 3    CONTINUE                                                                        
+
+      II = 0                                                            
+      JJ = 0                                                            
+      DO 15 K = 1,MC                                                    
+	 DO 8 M = 1,NC                                                  
+	    QTE = 0.0D0                                                 
+	    YT0 = 0.0D0                                                 
+	    DO 5 I = 1,NCOMP                                            
+	       II = II + 1                                              
+	       Z(I) = YM(I)*Y0(II)                                      
+	       QTE = QTE + Z(I)                                         
+	       YT0 = YT0 + XNI(I)*Z(I)                                  
+	       II = II + N1 - 1                                         
+    5       CONTINUE                                                    
+	    DO 6 I = 1,NCOMP                                            
+	       JJ = JJ + 1                                              
+	       IF ( QTE .LE. 0.0D0 .OR. YT0 .LE. 0.0D0 ) THEN           
+		  CPORE(JJ) = 0.0D0                                     
+	       ELSE                                                     
+		  Z(I) = Z(I)/QTE                                       
+		  Q0(I) = YT0*XN(I)/YM(I)                               
+		  IF ( XNI(I)*LOG10(Q0(I)) .LT. -20.0D0 ) THEN          
+		     CPORE(JJ) = 0.0D0                                  
+		  ELSE                                                  
+	       CPORE(JJ) =(Z(I)*Q0(I)**XNI(I))*(XK(I)/XKTIME(I))**XNI(I)                   
+		  ENDIF                                                 
+	       ENDIF                                                    
+	       JJ = JJ + N1 - 1                                         
+    6       CONTINUE                                                    
+	    IF ( M .LT. NC - 1 ) THEN                                   
+	       II = (K - 1)*ND + M                                      
+	       JJ = (K - 1)*ND + M                                      
+	    ELSE                                                        
+	       II = (K - 1) + MND                                       
+	       JJ = (K - 1) + MND                                       
+	    ENDIF                                                       
+    8    CONTINUE                                                       
+	 II = ND*K                                                      
+	 JJ = ND*K                                                      
+   15 CONTINUE                                                          
+      DO 60 I = 1,NCOMP                                                 
+	 II = (I-1)*N1                                                  
+	 III = II + MND                                                 
+	 IIII = III + MD                                                
+       IF (IS_IN_ROOM.EQ.1) THEN
+C-------- (CINFL,DIM'LESS) = (CR_,UG/L)/(CBO,UMOL/L)/(XWT,UG/UMOL)
+          CINFL = CR_(I) / CBO(I) / XWT(I)
+       ELSE
+          IF (NIN.EQ.0) THEN
+            CINFL = 1.0D0
+          ELSE
+            CINFL = CINF(I,T)
+          ENDIF
+       ENDIF
+
+C	 IF ( NIN .EQ. 0 ) THEN
+C	    CINFL = 1.0D0
+C	 ELSE
+CCCCCCc---Modified by ejo on 8/10/96
+CCCCCC            CINFL = CINF(I,T/TCONV) / CBO(I)
+CCCCCCc---Original code follows:
+CCCCCCc            CINFL = CINF(I,T)
+CCCCCCc---End of modification comments
+C	    CINFL = CINF(I,T)
+C	 ENDIF
+
+	 DO 20 K = 2,MC
+	 IF ( CPORE(III + K) .LE. 0.0D0 ) THEN                          
+	    CBS(I,K) = STD(I)*Y0(IIII + K)                              
+	 ELSE                                                           
+	    CBS(I,K) = STD(I)*(Y0(IIII + K) - CPORE(III + K))           
+	 ENDIF                                                          
+   20    CONTINUE                                                       
+	 DO 40 K = 1,MC                                                 
+	    WW(K) = 0.0D0                                               
+	    AAU(K) = 0.0D0                                              
+	    KK = II + (K-1)*ND                                          
+	    DO 30 J = 1,ND                                              
+	      BB(J,K) = 0.0D0                                           
+	       DO 25 M = 1,ND                                           
+		  BB(J,K) = BB(J,K) + BEDS(I,J,M)*Y0(KK + M)            
+     +                           + BEDP(I,J,M)*FAC(I)*CPORE(KK + M)            
+   25          CONTINUE                                                 
+	       BB(J,K) = BB(J,K) + BEDS(I,J,NC)*Y0(III + K)             
+     +                        + BEDP(I,J,NC)*FAC(I)*CPORE(III + K)             
+   30       CONTINUE                                                    
+	    DO 35 J = 1,ND                                              
+	       JJ = KK + J                                              
+C                                                                       
+C---- Intraparticle Phase Mass Balance (excluding boundary)
+C                                                                       
+	       YDOT(JJ) = BB(J,K)                                       
+
+	       WW(K) = WW(K) + WR(J)*YDOT(JJ)                           
+   35       CONTINUE                                                    
+   40    CONTINUE                                                       
+C                                                                       
+C---- Liquid-Solid Boundary Layer Mass Balance at column entrance
+C                                                                       
+	 YDOT(III+1) = (STD(I)*DGI(I)*(CINFL - CPORE(III + 1))          
+     +                 - WW(1)) / WR(NC)                                
+C                                                                       
+	 DO 55 K = 2,MC                                                 
+C                                                                       
+C---- Liquid-Solid Boundary Layer Mass Balance within column
+C                                                                       
+	    YDOT(III+K) = (CBS(I,K)*DGI(I) - WW(K)) / WR(NC)            
+C                                                                       
+	    DO 50 M = 2,MC                                              
+	       AAU(K) = AAU(K) + AZ(K,M)*Y0(IIII+M)                     
+   50       CONTINUE                                                    
+C                                                                       
+C---- Liquid Phase Mass Balance
+C                                                                       
+	    YDOT(IIII+K) = -DGT*(AZ(K,1)*CINFL + AAU(K))                
+     +                     - 3.0D0*CBS(I,K)                             
+C                                                                       
+   55    CONTINUE                                                       
+   60 CONTINUE                                                          
+
+      IF (IS_IN_ROOM.EQ.1) THEN
+C
+C------ MASS BALANCE FOR ROOM.
+C
+        DO I=1, NCOMP
+C-------- (CB_,UG/L) = (Y0,DIM'LESS)*(CBO,UMOL/L)*(XWT,UG/UMOL)
+          CB_(I) = Y0(N1*I)*CBO(I)*XWT(I)
+C-------- MAIN MASS BALANCE EQUATION.
+          YDOT(CRIDX_(I)) =
+     &      60.0D0/TCONV*1.0D0/ROOM_VOL * (
+     &      ROOM_FLOWRATE*ROOM_C0(I) -
+     &      ROOM_FLOWRATE*CR_(I) +
+     &      1000.0D0*ROOM_EMIT(I) -
+     &      FLRT/60.0D0*CR_(I) +
+     &      FLRT/60.0D0*CB_(I)
+     &                                    )
+        ENDDO
+      ENDIF
+
+      IF (DEBUGM .EQ. 1) THEN
+c       Ensure that each time is output only once.
+c       Note: The DIFFUN() routine is called several times for
+c       each instant in time, and this debug output includes only
+c       a snapshot of the first call to DIFFUN() for each time.
+c       If this is a problem, just comment out the LAST_T code.
+	TEST1 = T/TCONV
+	TEST2 = LAST_T
+	IF ( TEST1 .EQ. 0D0 ) THEN
+	  GOTO 62
+	END IF
+	IF ( DABS((TEST1-TEST2)/TEST1) .LE. 1.0D-5 ) THEN
+c         Do nothing--same time as the last output line.
+	ELSE
+C          WRITE(8,*) ((T/TCONV)/1.440D3),
+C     &               (T/TCONV),
+C     &               (O_RT(I), I=1, NCOMP)
+c     &               CINFL,
+c     &               CINFL * CBO(1)
+c     &               (XKTIME(I), I=1, NCOMP),
+c     &               (D(I), I=1, NCOMP),
+c     &               (FAC(I), I=1, NCOMP),
+c     &               (Y0(I), I=1, (((NC+1)*MC)-1)*NCOMP)
+c     &               (YDOT(I), I=1, (((NC+1)*MC)-1)*NCOMP),
+c     &               (CPORE(I), I=1, (((NC+1)*MC)-1)*NCOMP)
+	  WRITE(8,*) ' '
+	  LAST_T = T/TCONV
+	END IF
+      END IF
+
+62    RETURN
+      END                                                               
+
+
+      program front
+      IMPLICIT NONE
+C
+C------ COMMON VARIABLES.
+C
+      INCLUDE 'COMMON.FI'
+c------ MAXIMUMS
+      INTEGER MXCOMP,MAXMC,MAXNC,MAXPTS,MAXDE
+      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=400,MAXDE=750)
+c      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=6000,MAXDE=750)
+c new maximums:
+      INTEGER MXTBACK
+      PARAMETER (MXTBACK=400)
+
+c------ MISCELLANEOUS
+      DOUBLE PRECISION EPS_ERROR_CRITERIA
+      PARAMETER (EPS_ERROR_CRITERIA=0.0005)
+
+c------ PARAMETERS TO PSDM() SUBROUTINE
+      INTEGER*2 Numb
+      DOUBLE PRECISION Chemicals(MXCOMP,16)
+      DOUBLE PRECISION Ads_Prop(4)
+      DOUBLE PRECISION C_Prop(3)
+      DOUBLE PRECISION T(MAXPTS,2)
+      DOUBLE PRECISION CPVB(MXCOMP,MAXPTS)
+      INTEGER*2 NITP
+      DOUBLE PRECISION TT(5)
+      INTEGER*2 NXX,MXX,NinI
+      DOUBLE PRECISION TinI(MAXPTS),CinI(MXCOMP,MAXPTS)
+      INTEGER*4 N_PW
+      INTEGER*2 NumBed
+      INTEGER*2 NFLAG
+      DOUBLE PRECISION VARS1(15)
+      DOUBLE PRECISION VARS2(MXCOMP,19)
+      INTEGER*4 ISDBUG
+      INTEGER*4 TELL_PSDM_SPECIAL_OUTPUT
+c new parameters to psdm() subroutine:
+      INTEGER*4 NB
+      DOUBLE PRECISION TBACK(MXTBACK)
+c new parameters to psdm() subroutine:
+      DOUBLE PRECISION ROOM_VOL
+      DOUBLE PRECISION ROOM_FLOWRATE
+      DOUBLE PRECISION ROOM_C0(1:MXCOMP)
+      DOUBLE PRECISION ROOM_EMIT(1:MXCOMP)
+      CHARACTER*100 FN_MASSBAL_OUT
+      CHARACTER*100 FN_CR_OUT
+      CHARACTER*100 FN_CB_OUT
+      DOUBLE PRECISION in_INITIAL_ROOM_CONC(1:MXCOMP)
+
+c------ LOCAL VARIABLES
+      INTEGER I,J,K
+      CHARACTER*100 DUMMY1
+      CHARACTER*100 DUMMY_LINE
+      INTEGER BEDSIMTYPE
+      INTEGER NEQ
+      INTEGER stop_at_bed
+      DOUBLE PRECISION EOF_TEST
+      INTEGER IS_IN_ROOM
+C
+C------ START OF CODE.
+C
+C
+C------ READ PATH FILE.
+C
+      FN_IN_FILELIST = 'PROOM1.IN'
+      OPEN(UNIT=11,FILE=FN_IN_FILELIST,STATUS='OLD')
+      READ(11,*) PROOM_MODE
+      READ(11,*) FN_IN_MAIN
+      READ(11,*) FN_OUT_SUCCESSFLAG
+      READ(11,*) FN_OUT_MAIN
+      READ(11,*) FN_OUT_CVST
+c      READ(11,*) FN_OUT_SS_RESULTS
+	CLOSE(11)
+C
+C------ READ IN DATA FROM INPUT FILE "INPUT.DAT"
+C
+c     open (unit=4,file='input.dat',status='OLD')
+      open (unit=4,file=FN_IN_MAIN,status='OLD')
+      read (4,*) dummy1
+      read (4,*) dummy1
+      read (4,*) dummy1
+      read (4,*) dummy1
+      read (4,*) DUMMY_LINE
+      do i=1, 4
+        read (4,*) ads_prop(i)
+      enddo
+      do i=1, 3
+        read (4,*) c_prop(i)
+      enddo
+      read (4,*) mxx
+      read (4,*) nxx
+      read (4,*) numb
+      read (4,*) nini
+      read (4,*) numbed
+      read (4,*) bedsimtype
+      read (4,*) isdbug
+      do i=1, 3
+        read (4,*) tt(i)
+      enddo
+c      read (4,*) NB
+c      do i=1, NB
+c        read (4,*) TBACK(i)
+c      enddo
+      NB = 0
+      read (4,*) DUMMY_LINE
+      read (4,*) IS_IN_ROOM
+      if (IS_IN_ROOM.EQ.1) then
+        READ (4,*) ROOM_VOL
+        READ (4,*) ROOM_FLOWRATE
+        DO I=1, NUMB
+          READ (4,*) ROOM_C0(I)
+          READ (4,*) ROOM_EMIT(I)
+        ENDDO
+        READ (4,*) FN_MASSBAL_OUT
+        READ (4,*) FN_CR_OUT
+        READ (4,*) FN_CB_OUT
+      else
+        READ (4,*) dummy1
+        READ (4,*) dummy1
+        DO I=1, NUMB
+          READ (4,*) dummy1
+          READ (4,*) dummy1
+        ENDDO      
+        READ (4,*) dummy1
+        READ (4,*) dummy1
+        READ (4,*) dummy1
+      endif
+      read (4,*) DUMMY_LINE
+	do i=1, numb
+        read (4,*) dummy1
+        do j=1, 16
+          read (4,*) chemicals(i,j)
+        enddo
+        read (4,*) in_INITIAL_ROOM_CONC(i)
+      enddo
+      if (nini.gt.0) then
+        read (4,*) DUMMY_LINE
+        read (4,*) dummy1
+        read (4,*) dummy1
+        do j=1,nini
+          read (4,*) tini(j), (cini(i,j),i=1,numb)
+        enddo
+      endif
+      read (4,*) DUMMY_LINE
+      read (4,*) EOF_TEST
+      IF ( (DABS(EOF_TEST-12345.678)/12345.678).GT.0.001) THEN
+        PRINT *, 'THE END OF FILE MARKER (`EOF_TEST`) WAS NOT DETECTED.'
+        PRINT *, 'TERMINATING MODEL PROGRAM.'
+        STOP
+      ENDIF
+      close (4)
+
+      NEQ = NUMB*(MXX*(NXX+1)-1)
+      IF (NEQ.GT.MAXDE) THEN
+        PRINT *, 'YOU HAVE SPECIFIED THIS ' //
+     &           'NUMBER OF DIFFERENTIAL EQUATIONS:'
+        PRINT *, NEQ
+        PRINT *, 'THE MAXIMUM NUMBER IS:'
+        PRINT *, MAXDE
+        PRINT *, 'TERMINATING MODEL PROGRAM.'
+        STOP
+      ENDIF
+      N_PW = NEQ*NEQ + 2*NEQ
+
+      if (bedsimtype.eq.0) then
+        TELL_PSDM_SPECIAL_OUTPUT = 1
+        call PSDM(Numb,Chemicals,Ads_Prop,C_Prop,
+     &    T,CPVB,NITP,TT,NXX,MXX,
+     &    NinI,TinI,CinI,NumBed,NFLAG,
+     &    VARS1,VARS2,ISDBUG,
+     &    TELL_PSDM_SPECIAL_OUTPUT,NB,TBACK,
+     &    IS_IN_ROOM,ROOM_VOL,ROOM_FLOWRATE,ROOM_C0,
+     &    ROOM_EMIT,FN_MASSBAL_OUT,FN_CR_OUT,FN_CB_OUT,
+     &    in_INITIAL_ROOM_CONC)
+	endif
+
+      if (bedsimtype.eq.1) then
+C
+C     Recalculation of length (L) and weight (WT) based on the
+C     number of axial elements.
+C
+        ADS_PROP(1) = ADS_PROP(1)/DBLE(NUMBED)
+        ADS_PROP(3) = ADS_PROP(3)/DBLE(NUMBED)
+C
+C     Changing time of first output point to very small value if
+C     more than one axial element is desired.
+C
+        IF (NUMBED .GT. 1) THEN
+          TT(2) = 1.0d-8
+        ENDIF
+
+        stop_at_bed = numbed
+        do i=1, stop_at_bed
+          PRINT *,'PERFORMING CALCULATIONS FOR AXIAL ELEMENT ', I
+          numbed = i
+          if (i.eq.stop_at_bed) then
+            TELL_PSDM_SPECIAL_OUTPUT = 1
+          else
+            TELL_PSDM_SPECIAL_OUTPUT = 0
+          endif
+          call PSDM(Numb,Chemicals,Ads_Prop,C_Prop,
+     &      T,CPVB,NITP,TT,NXX,MXX,
+     &      NinI,TinI,CinI,NumBed,NFLAG,
+     &      VARS1,VARS2,ISDBUG,
+     &      TELL_PSDM_SPECIAL_OUTPUT,NB,TBACK,
+     &      IS_IN_ROOM,ROOM_VOL,ROOM_FLOWRATE,ROOM_C0,
+     &      ROOM_EMIT,FN_MASSBAL_OUT,FN_CR_OUT,FN_CB_OUT,
+     &      in_INITIAL_ROOM_CONC)
+          NINI = NITP
+          do J=1, NITP
+            TINI(J) = T(J,1)
+            do K=1, NUMB
+              if (CPVB(K,J).LT.EPS_ERROR_CRITERIA) then
+                CINI(K,J) = EPS_ERROR_CRITERIA
+              else
+C------- CONVERT FROM DIMENSIONLESS (C/C0) TO UG/L
+                CINI(K,J) = CPVB(K,J)*CHEMICALS(K,2)
+              endif
+            enddo
+          enddo          
+        enddo
+      endif      
+
+      CALL GENERATE_NFLAG_OUTPUT(NFLAG,0.0D0)
+
+
+c: Still need to work on:
+
+c           cpvb        O
+c           nitp        O  X
+c           nini        i  x
+c           tini        i  x
+c           cini        i  x
+c           n_pw        i  x
+c           nflag       O
+           
+
+
+      end
+
+
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CC
+CC    SUBROUTINE GENERATE_NFLAG_OUTPUT
+CC
+CC    PURPOSE: PERFORM A FEW FINAL OUTPUTS.
+CC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+      SUBROUTINE GENERATE_NFLAG_OUTPUT(NFLAG_DGEAR_SIMULATION,USE_TOUT)
+      IMPLICIT NONE
+      INTEGER*2 NFLAG_DGEAR_SIMULATION
+	DOUBLE PRECISION USE_TOUT
+C
+C------ COMMON VARIABLES.
+C
+      INCLUDE 'COMMON.FI'
+C
+C------ LOCAL VARIABLES.
+C
+	INTEGER NFLAG
+      INTEGER I
+
+C1010  FORMAT(/
+C     &  'NFLAG_DGEAR_SIMULATION, ERROR FLAG.............. = ',I5/
+C     &  )
+
+      NFLAG = NFLAG_DGEAR_SIMULATION
+c      DO I=1,2
+      DO I=1,1
+	  IF (I.EQ.1) THEN
+C
+C-------- ERASE ORIGINAL FILE IF EXISTS.
+C
+          OPEN(UNIT=15,FILE=FN_OUT_SUCCESSFLAG)
+        ENDIF
+c	  IF (I.EQ.2) THEN
+cC
+cC-------- APPEND TO ORIGINAL FILE.
+cC
+c          OPEN(UNIT=15,FILE=FN_OUT_MAIN,ACCESS='APPEND')
+c        ENDIF
+        WRITE(15,*) 'NFLAG_DGEAR_SIMULATION, ' //
+     &              'ERROR FLAG FOR SIMULATION:'
+        WRITE(15,*) NFLAG_DGEAR_SIMULATION
+c        IF (NFLAG.NE.0) THEN
+c          WRITE(15,*) 'ERROR OCCURRED AT T (MINUTES) = ', 
+c     &                USE_TOUT/TCONV
+c	  ENDIF
+        WRITE(15,*) 'DESCRIPTION OF THIS ERROR:'
+        IF (NFLAG .EQ. 15) THEN
+          WRITE(15,2015)
+        ELSE IF (NFLAG .EQ. 105) THEN
+	    WRITE(15,2105) 
+        ELSE IF (NFLAG .EQ. 115) THEN
+	    WRITE(15,2115)
+        ELSE IF (NFLAG .EQ. 155) THEN
+	    WRITE(15,2155)
+        ELSE IF (NFLAG .EQ. 205) THEN
+	    WRITE(15,2205)
+        ELSE IF (NFLAG .EQ. 255) THEN
+	    WRITE(15,2255)
+        ELSE IF (NFLAG .EQ. 305) THEN
+	    WRITE(15,2305)
+        ELSE IF (NFLAG .EQ. 405) THEN
+	    WRITE(15,2405)
+        ELSE IF (NFLAG .EQ. 415) THEN
+	    WRITE(15,2415)
+        ELSE IF (NFLAG .EQ. 425) THEN
+	    WRITE(15,2425)
+        ELSE IF (NFLAG .EQ. 435) THEN
+	    WRITE(15,2435)
+        ELSE IF (NFLAG .EQ. 445) THEN
+	    WRITE(15,2445)
+        ELSE IF (NFLAG .EQ. 1603) THEN
+	    WRITE(15,*) 'RUN ABORTED SINCE NOT ENOUGH ' //
+     &      'WORKSPACE AVAILABLE' //
+     &      'FOR DATA STORAGE, CHANGE ALLOCATION'
+        ELSE IF (NFLAG .EQ. 1901) THEN
+	    WRITE(15,*)'RUN ABORTED DUE TO SOME ' //
+     &      'TYPE OF USER MIS-INPUT ' //
+     &      'OR UN-DOCUMENTED INTERNAL ERROR.'
+        ENDIF
+        CLOSE(15)
+      ENDDO
+
+ 2015 FORMAT(1X,'WARNING..  T + H = T ON NEXT STEP.')   
+ 2105 FORMAT(1X,//,'KFLAG = -1 FROM INTEGRATOR, ERROR TEST FAILED',/)
+ 2115 FORMAT(1X,' H HAS BEEN REDUCED AND STEP WILL BE RETRIED',//)
+ 2155 FORMAT(//44H PROBLEM APPEARS UNSOLVABLE WITH GIVEN INPUT//)  
+ 2205 FORMAT(//35H KFLAG = -2 FROM INTEGRATOR 
+     1	/52H  THE REQUESTED ERROR IS SMALLER THAN CAN BE HANDLED//) 
+ 2255 FORMAT(//40H EPS TOO SMALL FOR THE MACHINE PRECISION/)
+ 2305 FORMAT (1X,//,'CORRECTOR CONVERGENCE COULD NOT BE ACHIEVED',/)
+ 2405 FORMAT (//28H ILLEGAL INPUT.. EPS .LE. 0.//)  
+ 2415 FORMAT (//25H ILLEGAL INPUT.. N .LE. 0//) 
+ 2425 FORMAT (//36H ILLEGAL INPUT.. (T0-TOUT)*H .GE. 0.//)  
+ 2435 FORMAT (//24H ILLEGAL INPUT.. INDEX =,I5//)   
+ 2445 FORMAT (1X,//,'INDEX = -1 ON INPUT WITH (T-TOUT)*H .GE. 0.',/,' 
+     1	INTERPOLATION WAS DONE AS ON NORMAL RETURN, DESIRED PARAMETER
+     2  CHANGES WERE NOT MADE.') 
+
+      RETURN
+	END
+
+
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CC
+CC  Program Name:       PSDM for DLL
+CC  Author:             Michigan Tech University - 1994
+CC  Intended Platform:  Compiled with Microsoft FORTRAN and linked
+CC                      to the Visual Basic code of the Adsorption
+CC                      Simulation Software.
+CC
+CC  Modification History:
+CC  =====================
+CC  11/18/1994: Fred Gobin
+CC  - User input for the diffusion coefficients
+CC  - Valid gas and liquid phase
+CC  - 6 component maximum
+CC  - Uses DGEAR subroutine
+CC  - Fouling correlation for K reduction
+CC  - Time variable tortuosity included (see DIFFUN)
+CC  03/16/1996: Eric Oman
+CC  - User can now input tortuosity for every component
+CC  04/18/1996: Eric Oman
+CC  - Modified to send some input/calculated variables back to caller
+CC    - VARS1: General simulation variables
+CC    - VARS2: Component-specific simulation variables
+CC  07/04/1996: Eric Oman
+CC  - Modified to output PSDM internal variables to file called PSDM.XO,
+CC    if parameter DEBUGM is set to 1.
+CC  07/19/1996: Eric Oman
+CC  - Modified to use Bhu's code for variable input, initialization,
+CC    DIFFUN, ORTHOG, etc.
+CC  02/08/1997: Dave Hokanson
+CC  - Modified to have the capability to use up to 18 radial 
+CC    collocation constants.  At this point, maximum number of
+CC    equations to by solved at DGEAR will still be left at 750
+CC    in the Visual Basic code.
+CC    Later, Y0, YDOT and workspace sizes may be increased to use
+CC    18 axial collocation points and 18 radial collocation points
+CC    at the same time.
+CC  12/07/1997: Eric Oman
+CC  - Modified to incorporate backwashing; refer to Gary Friedman's
+CC    thesis, pp. 74-76 and appendices 12 and 28.
+CC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CC
+CC  Description of Inputs/Outputs:
+CC  ==============================
+CC
+CC  *I*   Ads_Prop    Adsorber Bed Properties
+CC                    Array Size: (4)
+CC                    (1): Length (m)
+CC                    (2): Diameter (m)
+CC                    (3): Weight of adsorbent (kg)
+CC                    (4): Inlet flowrate (m^3/s)
+CC  *I*   C_Prop      Adsorbent Properties
+CC                    Array Size: (3)
+CC                    (1): Void Fraction of the particle (-)
+CC                    (2): Apparent Density (g/cm^3)
+CC                    (3): Particle Radius (cm)
+CC  *I*   Chemicals   Chemical Properties
+CC                    Array Size: (Numb,16)
+CC                    (I,1): MW (g/mol)
+CC                    (I,2): Initial conc. (ug/l)
+CC                    (I,3): Molar Volume (cm^3/mol)
+CC                    (I,4): Freundlich K (*)
+CC                    (I,5): Freundlich 1/n
+CC                    (I,6): kf (cm/s)
+CC                    (I,7): Ds (cm^2/s)
+CC                    (I,8): Dp (cm^2/s)
+CC                    (I,9): Coeff. for fouling correlation (-)
+CC                    (I,10): Coeff. for fouling correlation (1/min)
+CC                    (I,11): Coeff. for fouling correlation (-)
+CC                    (I,12): Coeff. for fouling correlation (1/min)
+CC                    (I,13): Tortuosity
+CC                              Note: This input is never used!
+CC                              - ejo, 3/16/96
+CC                    (I,14): Tor. Coeff. for Tortuosity=f(t)
+CC                    (I,15): Part. Coeff. for Tortuosity=f(t)
+CC                    (I,16): Time parameter(min) for Tortuosity=f(t)
+CC  *I*   CinI        Influent Concentrations (ug/L)
+CC                    Array Size: (Numb,NinI)
+CC  *O*   CPVB        Reduced Breakthrough Concentrations, C/C0 (-)
+CC                    Array Size: (Numb,400)
+CC  *I*   ISDBUG      Debug mode for program
+CC                    Setting of 0 ===> No debugging
+CC                    Setting of 1 ===> Outputs to various text files
+CC  *I*   MXX         Number of axial collocation points
+CC  *I*   N_PW        Size of the working space (bytes)
+CC  *O*   NFLAG       Error flag returned to Visual Basic
+CC  *I*   NinI        Number of influent points (see CinI and TinI)
+CC  *O*   NITP        Number of breakthrough points (see CPVB and T)
+CC  *I*   Numb        Number of chemicals
+CC  *I*   NumBed      Current bed number in series to simulate
+CC  *I*   NXX         Number of radial collocation points
+CC  *O*   T           Breakthrough Times (minutes)
+CC                    Array Size: (400,2)
+CC  *I*   TinI        Times for CinI array (minutes)
+CC                    Array Size: (NinI)
+CC  *I*   TT          Time parameters
+CC                    Array Size: (5)
+CC                    (1): Time to end simulation (minutes)
+CC                    (2): Time to begin simulation (minutes)
+CC                    (3): Time step (minutes)
+CC  *O*   VARS1       Various debugging variables
+CC                    Array Size: (15)
+CC  *O*   VARS2       Various debugging variables
+CC                    Array Size: (Numb,19)
+CC
+CC (*) --- K is in (umol/g)x(L/umol)^(1/n)
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+
+
+c      SUBROUTINE PSDM(Numb,Chemicals,Ads_Prop,C_Prop,
+c     &                T,CPVB,NITP,TT,NXX,MXX,
+c     &                NinI,TinI,CinI,N_PW,NumBed,NFLAG,
+c     &                VARS1,VARS2,ISDBUG)
+c      SUBROUTINE PSDM(Numb,Chemicals,Ads_Prop,C_Prop,
+c     &                T,CPVB,NITP,TT,NXX,MXX,
+c     &                NinI,TinI,CinI,NumBed,NFLAG,
+c     &                VARS1,VARS2,ISDBUG,
+c     &                TELL_PSDM_SPECIAL_OUTPUT)
+C      SUBROUTINE PSDM(Numb,Chemicals,Ads_Prop,C_Prop,
+C     &  T,CPVB,NITP,TT,NXX,MXX,
+C     &  NinI,TinI,CinI,NumBed,NFLAG,
+C     &  VARS1,VARS2,ISDBUG,
+C     &  TELL_PSDM_SPECIAL_OUTPUT,NB,TBACK,
+C     &  in_IS_IN_ROOM,in_ROOM_VOL,in_ROOM_FLOWRATE,in_ROOM_C0,
+C     &  in_ROOM_EMIT,in_FN_MASSBAL_OUT,in_FN_CR_OUT,in_FN_CB_OUT)
+      SUBROUTINE PSDM(Numb,Chemicals,Ads_Prop,C_Prop,
+     &  T,CPVB,NITP,TT,NXX,MXX,
+     &  NinI,TinI,CinI,NumBed,NFLAG,
+     &  VARS1,VARS2,ISDBUG,
+     &  TELL_PSDM_SPECIAL_OUTPUT,NB,TBACK,
+     &  in_IS_IN_ROOM,in_ROOM_VOL,in_ROOM_FLOWRATE,in_ROOM_C0,
+     &  in_ROOM_EMIT,in_FN_MASSBAL_OUT,in_FN_CR_OUT,in_FN_CB_OUT,
+     &  in_INITIAL_ROOM_CONC)
+   
+      IMPLICIT NONE
+C
+C------ COMMON VARIABLES.
+C
+      INCLUDE 'COMMON.FI'
+
+c---- Constants
+      INTEGER*2 MXCOMP,MAXMC,MAXNC,MAXPTS,MAXDE
+
+c**** Change Hokanson 2/8/97
+c      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=6,MAXPTS=400,MAXDE=750)
+      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=400,MAXDE=750)
+c      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=6000,MAXDE=750)
+c**** End Change Hokanson 2/8/97
+c new maximums:
+      INTEGER MXTBACK
+      PARAMETER (MXTBACK=400)
+
+      INTEGER*2 NSTEPS
+c      PARAMETER (NSTEPS=400)
+      PARAMETER (NSTEPS=6000)
+
+cC**** Define Workspace **********************************************
+cc     The HUGE argument should not be needed since the DLL is
+cc     compiled using the /AH option.
+c      DOUBLE PRECISION PW[ALLOCATABLE,HUGE](:)
+
+C      
+C     N_PW IS ADDED TO THIS PARAMETER STATEMENT TO ALLOCATE THE
+C     WORKSPACE FOR PSDM AND DGEAR.  THIS VALUE CORRESPONDS TO
+C     THE CAPABILITY FOR A MAXIMUM NC = 6, MC = 18, AND 6 COMPONENTS.
+C     THIS WAS PREVIOUSLY DONE IN VISUAL BASIC. 
+      
+      INTEGER*4 N_PW
+      PARAMETER(N_PW=1336720)
+      DOUBLE PRECISION PW(N_PW)
+
+c---- Input variables
+      INTEGER*2 Numb
+      DOUBLE PRECISION Chemicals(MXCOMP,16)
+      DOUBLE PRECISION Ads_Prop(4)
+      DOUBLE PRECISION C_Prop(3)
+      DOUBLE PRECISION T(MAXPTS,2)
+      DOUBLE PRECISION CPVB(MXCOMP,MAXPTS)
+      INTEGER*2 NITP
+      DOUBLE PRECISION TT(5)
+      INTEGER*2 NXX,MXX,NinI
+      DOUBLE PRECISION TinI(NinI),CinI(MXCOMP,NinI)
+c      INTEGER*4 N_PW
+      INTEGER*2 NumBed
+      INTEGER*2 NFLAG
+      DOUBLE PRECISION VARS1(15)
+      DOUBLE PRECISION VARS2(MXCOMP,19)
+      INTEGER*4 ISDBUG
+      INTEGER*4 TELL_PSDM_SPECIAL_OUTPUT
+c new parameters to psdm() subroutine:
+      INTEGER*4 NB
+      DOUBLE PRECISION TBACK(MXTBACK)
+c new parameters to psdm() subroutine:
+      INTEGER in_IS_IN_ROOM
+      DOUBLE PRECISION in_ROOM_VOL
+      DOUBLE PRECISION in_ROOM_FLOWRATE
+      DOUBLE PRECISION in_ROOM_C0(1:MXCOMP)
+      DOUBLE PRECISION in_ROOM_EMIT(1:MXCOMP)
+      CHARACTER*100 in_FN_MASSBAL_OUT
+      CHARACTER*100 in_FN_CR_OUT
+      CHARACTER*100 in_FN_CB_OUT
+      DOUBLE PRECISION in_INITIAL_ROOM_CONC(1:MXCOMP)
+      INTEGER IS_IN_ROOM
+      DOUBLE PRECISION ROOM_VOL
+      DOUBLE PRECISION ROOM_FLOWRATE
+      DOUBLE PRECISION ROOM_C0(1:MXCOMP)
+      DOUBLE PRECISION ROOM_EMIT(1:MXCOMP)
+      CHARACTER*100 FN_MASSBAL_OUT
+      CHARACTER*100 FN_CR_OUT
+      CHARACTER*100 FN_CB_OUT
+
+c---- Storage of input variables
+      INTEGER*2 NCOMP
+      DOUBLE PRECISION XWT(1:MXCOMP)
+      DOUBLE PRECISION CBO(MXCOMP),VB(MXCOMP),XK(MXCOMP),
+     &                 XN(MXCOMP),KF(MXCOMP),DS(MXCOMP),DP(MXCOMP),
+     &                 RK1(MXCOMP),RK2(MXCOMP),RK3(MXCOMP),RK4(MXCOMP),
+     &                 TORTU(MXCOMP),TOR(MXCOMP),PART(MXCOMP),
+     &                 TTORTU(MXCOMP)
+      DOUBLE PRECISION L,DIA,WT,FLRT
+      DOUBLE PRECISION EPOR,RHOP,RAD
+      INTEGER*2 BEDNUM
+      DOUBLE PRECISION DSTEP,DTOL,DOUT
+      INTEGER*2 MC,NC
+      INTEGER*2 NIN
+      DOUBLE PRECISION TIN(MAXPTS),CIN(MXCOMP,MAXPTS)
+
+c---- Storage of calculated variables
+      INTEGER*2 NEQ
+      DOUBLE PRECISION AREA,BEDVOL,EBED,EBCT,TAU
+      INTEGER*2 NCA,MCA
+      DOUBLE PRECISION AZ1(MAXMC,MAXMC),BR1(MAXNC,MAXNC),WR1(MAXNC)
+      DOUBLE PRECISION AZ(MAXMC,MAXMC),BR(MAXNC,MAXNC),WR(MAXNC)
+      DOUBLE PRECISION QTE
+      DOUBLE PRECISION D(MXCOMP),QE(MXCOMP),DGS(MXCOMP),DGP(MXCOMP)
+      DOUBLE PRECISION EDS(MXCOMP),EDP(MXCOMP),ST(MXCOMP)
+      DOUBLE PRECISION BIS(MXCOMP),BIP(MXCOMP),DG(MXCOMP)
+      DOUBLE PRECISION XNI(MXCOMP)
+      DOUBLE PRECISION DGT,BVF
+      DOUBLE PRECISION TCONV,TSTEP,TTOL
+      DOUBLE PRECISION YM(MXCOMP)
+      INTEGER*4 N
+      DOUBLE PRECISION Y0(MAXDE)
+      DOUBLE PRECISION DT0,DH0,T0,H0,TOUT,EPS
+      INTEGER*2 ITP
+      INTEGER*4 MF
+      INTEGER*4 INDEX
+
+c---- Major calculation loop
+      DOUBLE PRECISION CP(MXCOMP,MAXPTS)
+      DOUBLE PRECISION CR(MXCOMP,MAXPTS)
+      DOUBLE PRECISION TP(MAXPTS)
+      INTEGER*2 N1
+
+c---- Miscellaneous
+      INTEGER*2 I,J
+
+c---- Debug Variables
+      INTEGER*2 DEBUGM
+      DOUBLE PRECISION LAST_T
+      COMMON /DEBUG/ LAST_T, DEBUGM
+      INTEGER*4 error
+
+c---- Common blocks
+
+      COMMON /BLOCKA/ DG,ST,EDS,EDP,BR,D
+      COMMON /BLOCKB/ YM,XNI,XN,WR,AZ
+      COMMON /BLOCKC/ MC,NC,NCOMP,N1,DGT,NIN
+      COMMON /BLOCKD/ CIN,TIN
+      COMMON /BLOCKF/ TOR,PART,TCONV,TORTU
+      COMMON /BLOCKG/ RK1,RK2,RK3,RK4,XK
+      COMMON /BLOCKH/ BEDNUM
+      COMMON /BLOCKJ/ CBO
+
+c---- NEW LOCAL VARIABLES (12/7/97):
+      INTEGER*4 NA
+      INTEGER*4 XNB
+      DOUBLE PRECISION XTBACK(MXTBACK)
+      DOUBLE PRECISION WZ1(MAXNC)
+      DOUBLE PRECISION WZ(MAXNC)
+
+c new parameters to psdm() subroutine:
+      COMMON /AMWAY1/ IS_IN_ROOM,ROOM_VOL,ROOM_FLOWRATE,ROOM_C0,
+     &  ROOM_EMIT,FN_MASSBAL_OUT
+      COMMON /AMWAY2/ XWT,FLRT
+
+c---- NEW LOCAL VARIABLES (6/24/98):
+      DOUBLE PRECISION MASSBAL_(1:MXCOMP,1:7)
+      DOUBLE PRECISION CR_(1:MXCOMP)
+      DOUBLE PRECISION CB_(1:MXCOMP)
+      INTEGER CRIDX_(1:MXCOMP)
+
+C---- NEW LOCAL VARIABLES (9/16/98):
+      DOUBLE PRECISION INITIAL_ROOM_CONC(1:MXCOMP)
+
+C
+C                  SET UP DEBUG VARIABLES AND OPEN DEBUG FILES
+C
+
+      ISDBUG = 0
+      IF (ISDBUG .EQ. 1) THEN
+	  DEBUGM = 1
+	  LAST_T = 0D0
+      ELSE
+	  DEBUGM = 0
+      ENDIF
+
+c      open(3,file='test.txt')
+c      write(3,*) 'Got to this point (A) in PSDM10'
+c      close(3)
+
+      IF (DEBUGM .EQ. 1) THEN
+	OPEN(4,FILE='psdm.xo')
+	OPEN(8,FILE='psdm.y')
+      END IF
+
+C
+C                  ALLOCATE WORKSPACE FOR DIFFERENTIAL EQUATIONS
+C
+
+c      ALLOCATE (PW(N_PW),STAT=error)
+      IF (error.NE.0) GOTO 9999
+
+C
+C                  READ IN INPUT DATA
+C
+
+c---- Input number of chemicals
+      NCOMP = Numb
+
+c---- Input chemical properties
+      DO 801 I = 1,NCOMP
+        XWT(I)    = Chemicals(I,1)
+	  CBO(I)    = Chemicals(I,2)
+	  VB(I)     = Chemicals(I,3)
+	  XK(I)     = Chemicals(I,4)
+	  XN(I)     = Chemicals(I,5)
+	  KF(I)     = Chemicals(I,6)
+	  DS(I)     = Chemicals(I,7)
+	  DP(I)     = Chemicals(I,8)
+	  RK1(I)    = Chemicals(I,9)
+	  RK2(I)    = Chemicals(I,10)
+	  RK3(I)    = Chemicals(I,11)
+	  RK4(I)    = Chemicals(I,12)
+	  TORTU(I)  = Chemicals(I,13)
+	  TOR(I)    = Chemicals(I,14)
+	  PART(I)   = Chemicals(I,15)
+	  TTORTU(I) = Chemicals(I,16)
+  801 CONTINUE
+
+c---- Input adsorption bed properties
+c     Note : L,DIA are converted from meters ---> centimeters
+c            WT is converted from kilograms ---> grams
+c            FLRT is converted from cubic meters per second
+c            ---> milliliters per minute
+      L      = Ads_Prop(1)*100.D0
+      DIA    = Ads_Prop(2)*100.D0
+      WT     = Ads_Prop(3)*1000.D0
+      FLRT   = Ads_Prop(4)*60.D0*1D6
+
+c---- Input carbon properties
+      EPOR   = C_Prop(1)
+      RHOP   = C_Prop(2)
+      RAD    = C_Prop(3)
+
+c---- Input set the number of the bed in series being handled
+      BEDNUM = NumBed
+
+c---- Input set the simulation time parameters
+      DSTEP  = TT(3)
+      DTOL   = TT(1)
+      DOUT   = TT(2)
+
+c---- Input number of collocation points
+      MC = MXX
+      NC = NXX
+
+c---- Input variable influent concentrations
+      NIN = NinI
+      IF (NIN .EQ. 0) GO TO 811
+      DO 1 J = 1,NIN                                                    
+C       READ(4,*) TIN(J), (CIN(I,J), I = 1,NCOMP)                      
+	TIN(J) = TinI(J)
+	DO 2 I=1,NCOMP
+	  CIN(I,J) = CinI(I,J)
+2       CONTINUE
+1     CONTINUE
+
+c---- Input backwashing variables
+811   XNB = NB
+      DO I=1,XNB
+        XTBACK(I) = TBACK(I)
+      ENDDO
+
+c---- Input filter-in-room related variables
+      IS_IN_ROOM = in_IS_IN_ROOM
+      ROOM_VOL = in_ROOM_VOL
+      ROOM_FLOWRATE = in_ROOM_FLOWRATE
+      DO I=1,NCOMP
+        ROOM_C0(I) = in_ROOM_C0(I)
+        ROOM_EMIT(I) = in_ROOM_EMIT(I)
+      ENDDO
+      FN_MASSBAL_OUT = in_FN_MASSBAL_OUT
+      FN_CR_OUT = in_FN_CR_OUT
+      FN_CB_OUT = in_FN_CB_OUT
+							  
+C
+C                  CALCULATIONS
+C
+
+c---- Calculate number of equations
+812   NEQ = (MC*(NC + 1) - 1)*NCOMP
+      IF (IS_IN_ROOM.EQ.1) THEN
+        NEQ = NEQ + NCOMP
+      ENDIF
+
+c---- Convert influent concentrations from ug/L ---> umol/L
+      DO 212 I = 1, NCOMP
+	CBO(I) = CBO(I)/XWT(I)
+	DO 211 J=1, NIN
+	  CIN(I,J) = CIN(I,J)/XWT(I)
+211     CONTINUE
+212   CONTINUE                                                          
+
+C
+C---- KEEP ROOM INITIAL CONCENTRATIONS IN UNITS OF ug/L.
+C
+      DO I=1, NCOMP
+        INITIAL_ROOM_CONC(I) = in_INITIAL_ROOM_CONC(I)
+      ENDDO
+
+c---- Calculate various bed parameters
+      AREA = 3.141592654D0*DIA*DIA/4.0D0
+      BEDVOL = L*AREA                                                   
+      EBED = 1.0D0 - WT/(BEDVOL*RHOP)                                   
+      EBCT = BEDVOL/FLRT                                                
+c      EBCT = BEDVOL/(FLRT*1.0d-6)
+      TAU = BEDVOL*EBED*60.0D0/FLRT                                     
+
+c---- Calculate collocation constants
+      MCA = MC
+      NCA = NC
+      CALL CONSTNT(NCA,MCA,AZ1,BR1,WR1,WZ1,NFLAG)
+      IF (NFLAG.NE.0) GOTO 9999
+      DO 9 I=1,MC
+	  WZ(I)=WZ1(I)
+        DO 9 J=1,MC
+  	    AZ(I,J) = AZ1(I,J)
+9     CONTINUE
+      DO 8 I=1,NC
+	  WR(I)=WR1(I)
+	  DO 8 J=1,NC
+	    BR(I,J) = BR1(I,J)
+8     CONTINUE
+
+c---- Calculate some dimensionless groups
+      QTE = 0.0
+      DO 30 I = 1,NCOMP                                                 
+	D(I) = DS(I)/DP(I)
+	QE(I) = XK(I)*CBO(I)**XN(I)
+	QTE = QTE + QE(I)
+	DGS(I) = (RHOP*QE(I)*(1.0 - EBED)*1000.0)/(EBED*CBO(I))
+	DGP(I) = EPOR*(1.0 - EBED)/EBED
+	EDS(I) = DS(I)*DGS(I)*TAU/(RAD**2)
+	IF (EDS(I) .LE. 1.0D-130) THEN
+	  EDS(I) = 1.0D-130
+	ENDIF
+	EDP(I) = DP(I)*DGP(I)*TAU/(RAD**2)
+	ST(I)  = KF(I)*(1.0 - EBED)*TAU/(EBED*RAD)
+	BIS(I) = ST(I)/EDS(I)
+	BIP(I) = ST(I)/EDP(I)
+	DG(I)  = DGS(I) + DGP(I)
+	XNI(I) = 1.0/XN(I)
+30    CONTINUE
+
+c---- Calculate total solute distribution parameter, DGT,
+c.... and bed volumes fed to column, BVF
+      DGT = 0.0                                                         
+      DO 33 I = 1,NCOMP                                                 
+	 DGT = DGT + DG(I)                                              
+33    CONTINUE
+      BVF = EBED*DGT                                                    
+
+c---- Calculate some time parameters
+      TCONV = 60.0/(TAU*(DGT + 1))
+      TSTEP = DSTEP*TCONV                                               
+      TTOL  = DTOL*TCONV                                                
+
+c---- Calculate equilibrium adsorbent phase concentration fractions
+      DO 35 I = 1,NCOMP                                                 
+	YM(I) = QE(I)/QTE
+35    CONTINUE
+
+c---- Call subroutine ORTHOG to combine collocation constants
+c.... and dimensionless groups and to determine total number
+c.... of differential equations being solved for by GEAR
+      CALL ORTHOG(N)
+C      IF (IS_IN_ROOM) THEN
+C        N = N + NCOMP
+C      ENDIF
+
+c---- Initialize dependent variables
+      DO I = 1, N
+        Y0(I) = 0.0
+      ENDDO
+      IF (IS_IN_ROOM.EQ.1) THEN
+C
+C...... INITIALIZE ROOM CONCENTRATION FOR EACH CHEMICAL.
+C
+        DO I=1, NCOMP
+C          Y0(N+I) = 0.0D0
+          Y0(N+I) = INITIAL_ROOM_CONC(I)
+        ENDDO
+        N = N + NCOMP
+      ENDIF
+
+c---- Parameters for DGEAR
+      DT0   = 0.0
+      DH0   = 1.0D-9
+
+      T0    = DT0*TCONV                                                 
+      H0    = DH0*TCONV                                                 
+      TOUT  = DOUT*TCONV                                                
+      EPS   = 1.0D-3
+      MF    = 22
+      INDEX = 1
+
+c---- Convert influent and experimental data to dimensionless form
+      DO 60 J = 1,NIN
+	  TIN(J) = TIN(J)*TCONV
+	  DO 55 I = 1,NCOMP
+	    CIN(I,J) = CIN(I,J)/CBO(I)
+55      CONTINUE
+60    CONTINUE
+
+      DO I=1, XNB
+        XTBACK(I) = XTBACK(I)*TCONV
+      ENDDO
+
+C
+C------ IF PSDM-IN-ROOM MODEL, OUTPUT CONCENTRATIONS ON THE FLY.
+C
+      IF (IS_IN_ROOM.EQ.1) THEN
+        OPEN(UNIT=19,FILE=FN_MASSBAL_OUT)
+        WRITE(19,*) 'NOTE: ALL TERMS IN UNITS OF UG/S.'
+        OPEN(UNIT=21,FILE=FN_CR_OUT)
+        OPEN(UNIT=22,FILE=FN_CB_OUT)
+      ENDIF
+C
+C                  OUTPUT DEBUG FILES
+C
+
+
+      IF (DEBUGM .EQ. 1) THEN
+	WRITE(4,*) '***** Before DGEAR Loop'
+	WRITE(4,*) 'N =', N
+	WRITE(4,*) 'T0 =', T0
+	WRITE(4,*) 'H0 =', H0
+	WRITE(4,*) 'Y0 =', (Y0(I), I=1, N)
+	WRITE(4,*) 'TOUT =', TOUT
+	WRITE(4,*) 'EPS =', EPS
+	WRITE(4,*) 'MF =', MF
+	WRITE(4,*) 'INDEX =', INDEX
+      END IF
+
+c      IF (DEBUGM .EQ. 1) THEN
+c        OPEN(3,FILE='psdm.v1')
+c        WRITE(3,*) 'QTE =', QTE
+c        WRITE(3,*) 'QE(1) =', QE(1)
+c        WRITE(3,*) 'YM(1) =', YM(1)
+c        WRITE(3,*) '---'
+c        I = 1
+c        WRITE(3,*) 'I =', I
+c        WRITE(3,*) 'CBO(I) =', CBO(I)
+c        WRITE(3,*) 'D(I) =', D(I)
+cc        WRITE(3,*) 'DEN =', DEN
+cc        WRITE(3,*) 'DGI(I) =', DGI(I)
+c        WRITE(3,*) 'DGP(I) =', DGP(I)
+c        WRITE(3,*) 'DGS(I) =', DGS(I)
+c        WRITE(3,*) 'DGT =', DGT
+cc        WRITE(3,*) 'DIFL(I) =', DIFL(I)
+c        WRITE(3,*) 'DP(I) =', DP(I)
+c        WRITE(3,*) 'DS(I) =', DS(I)
+c        WRITE(3,*) 'EBCT =', EBCT
+c        WRITE(3,*) 'EBED =', EBED
+cc        WRITE(3,*) 'EDD(I) =', EDD(I)
+c        WRITE(3,*) 'EDP(I) =', EDP(I)
+c        WRITE(3,*) 'EDS(I) =', EDS(I)
+c        WRITE(3,*) 'EPOR =', EPOR
+c        WRITE(3,*) 'QE(I) =', QE(I)
+c        WRITE(3,*) 'RAD =', RAD
+c        WRITE(3,*) 'RHOP =', RHOP
+cc        WRITE(3,*) 'SPDFR =', SPDFR
+cc        WRITE(3,*) 'STD(I) =', STD(I)
+c        WRITE(3,*) 'TAU =', TAU
+c        WRITE(3,*) 'TOR(I) =', TOR(I)
+cc        WRITE(3,*) 'TORT(I) =', TORT(I)
+c        WRITE(3,*) 'VB(I) =', VB(I)
+cc        WRITE(3,*) 'VW =', VW
+c        WRITE(3,*) 'XK(I) =', XK(I)
+c        WRITE(3,*) 'XN(I) =', XN(I)
+c        CLOSE(3)
+c      END IF
+
+C
+C                  MAJOR CALCULATION LOOP TO INTEGRATE D.E.'s
+C
+
+      ITP = 0                                                           
+      NA = 1
+
+   70 ITP = ITP + 1                                                     
+
+      CALL DGEAR (N,T0,H0,Y0,TOUT,EPS,MF,INDEX,NFLAG,PW,N_PW)
+      WRITE (*,'(1X,''PERCENT COMPLETE = '',F7.2,''%'')') 
+     &      (100.0D0*TOUT)/TTOL
+
+      IF (DEBUGM .EQ. 1) THEN
+	WRITE(4,*) '***** Out of DGEAR Loop'
+	WRITE(4,*) 'N =', N
+	WRITE(4,*) 'T0 =', T0
+	WRITE(4,*) 'H0 =', H0
+	WRITE(4,*) 'Y0 =', (Y0(I), I=1, N)
+	WRITE(4,*) 'TOUT =', TOUT
+	WRITE(4,*) 'EPS =', EPS
+	WRITE(4,*) 'MF =', MF
+	WRITE(4,*) 'INDEX =', INDEX
+      END IF
+
+C
+C------ STORE THE CURRENT TIME POINT.   
+C
+      IF (IS_IN_ROOM.EQ.1) THEN
+c              print *, ncomp
+c        WRITE(21,1035) T/TCONV,(Y0(N1*NCOMP+I),I=1,NCOMP)
+c        WRITE(22,1035) T/TCONV,(Y0(N1*I),I=1,NCOMP)
+        WRITE(21,*) TOUT/TCONV,(Y0(N1*NCOMP+I),I=1,NCOMP)
+        WRITE(22,*) TOUT/TCONV,(Y0(N1*I),I=1,NCOMP)
+      ELSE
+        DO I = 1,NCOMP                                                 
+	    CP(I,ITP) = Y0(N1*I)
+C        CR(I,ITP) = Y0(N1*NCOMP + I)
+        ENDDO
+      ENDIF
+      IF (IS_IN_ROOM.EQ.1) THEN
+            DO I=1,NCOMP
+C              CRIDX_(I) = N1*NCOMP + I
+C              CR_(I) = Y0(CRIDX_(I))
+              CR_(I) = Y0(N1*NCOMP+I)
+CC---------- (CB_,UG/L) = (Y0,DIM'LESS)*(CBO,UMOL/L)*(XWT,UG/UMOL)
+C              CB_(I) = Y0(N1*I)*CBO(I)*XWT(I)
+C---------- (CB_,UG/L) = (Y0,DIM'LESS)*(CBO,UMOL/L)*(XWT,UG/UMOL)
+              CB_(I) = Y0(N1*I)*CBO(I)*XWT(I)
+              IF (CB_(I).LT.0.0D0) THEN
+                CB_(I) = 0.0D0
+              ENDIF
+C------- (MASSBAL_,UG/S) = (ROOM_FLOWRATE,L/S)*(ROOM_C0,UG/L)
+              MASSBAL_(I,1) = (ROOM_FLOWRATE/1000.0D0)*ROOM_C0(I)
+C------- (MASSBAL_,UG/S) = (ROOM_FLOWRATE,L/S)*(CR_,UG/L)
+              MASSBAL_(I,2) = (ROOM_FLOWRATE/1000.0D0)*CR_(I)
+C------- (MASSBAL_,UG/S) = (ROOM_EMIT,UG/S)
+              MASSBAL_(I,3) = ROOM_EMIT(I)
+C------- (MASSBAL_,UG/S) = (FLRT,L/S)*(CR_,UG/L)
+              MASSBAL_(I,4) = (FLRT/60.0D0/1000.0D0)*CR_(I)
+C------- (MASSBAL_,UG/S) = (FLRT,L/S)*(CB_,UG/L)
+              MASSBAL_(I,5) = (FLRT/60.0D0/1000.0D0)*CB_(I)
+              MASSBAL_(I,6) = 
+     &  MASSBAL_(I,1) + MASSBAL_(I,3) + MASSBAL_(I,5)
+              MASSBAL_(I,7) = MASSBAL_(I,2) + MASSBAL_(I,4)
+              MASSBAL_(I,8) = MASSBAL_(I,6) - MASSBAL_(I,7)
+            ENDDO
+            WRITE (19,'(7(G20.10))') TOUT/TCONV,
+     &        MASSBAL_(1,1),
+     &        MASSBAL_(1,2),
+     &        MASSBAL_(1,3),
+     &        MASSBAL_(1,4),
+     &        MASSBAL_(1,5),
+     &        MASSBAL_(1,7)
+      ENDIF
+
+      TP(ITP) = TOUT                                                    
+      DOUT = TOUT/TCONV                                                 
+      IF ( ITP .LT. NSTEPS ) THEN                                       
+        IF ( TOUT .LT. TTOL ) THEN
+          IF (1.NE.1) THEN
+            IF ( (XNB.NE.0) .AND. (TOUT.GE.XTBACK(NA)) ) THEN 
+c               WRITE(7,114) 
+               CALL WASH( Y0,WZ )   
+               T0 = TOUT
+C               H0 = H01 
+               INDEX = 1
+               IF ( NA .EQ. XNB ) THEN   
+                  XNB = 0
+               ELSE 
+                  NA = NA + 1   
+               ENDIF
+            ENDIF   
+          ENDIF
+	    TOUT = TOUT + TSTEP
+	    IF ( TOUT .GT. TTOL ) TOUT = TTOL
+	    GOTO 70
+        ENDIF
+      ELSE                                                              
+        IF ( TOUT .NE. TTOL ) THEN
+c          WRITE(6,108) NSTEPS, DOUT
+          GOTO 81
+	  ENDIF
+      ENDIF                                                             
+
+C
+C                  TRANSFER DATA BACK TO VISUAL BASIC
+C
+
+81    DO 82 J = 1, ITP
+	T(J,1) = TP(J)/TCONV
+	T(J,2) = TP(J)*BVF
+	DO 821 I=1, NCOMP
+	  CPVB(I,J) = CP(I,J)
+821     CONTINUE
+82    CONTINUE
+
+      NITP = ITP
+
+C
+C                  DEALLOCATE D.E. WORKSPACE MEMORY
+C
+
+9999  IF (error.NE.0) then
+	NFLAG = 1603
+      ELSE
+c	DEALLOCATE(PW,STAT=error)
+	IF (error.NE.0) THEN
+	  NFLAG = 1603
+	ENDIF
+      ENDIF
+
+C
+C                  OUTPUT SOME DEBUG VARIABLES TO VISUAL BASIC
+C
+
+      VARS1(1) = NC / 1D0
+      VARS1(2) = MC / 1D0
+      VARS1(3) = NEQ / 1D0
+      VARS1(4) = RAD
+      VARS1(5) = RHOP
+      VARS1(6) = EPOR
+      VARS1(7) = EBED
+C      VARS1(8) = ----
+      VARS1(9) = TAU
+      VARS1(10) = EBCT
+C      VARS1(11) = ----
+C      VARS1(12) = ----
+C      VARS1(13) = ----
+C      VARS1(14) = ----
+      VARS1(15) = NFLAG / 1D0
+
+      DO 1300 I = 1,NCOMP
+	VARS2(I,1) = VB(I)
+	VARS2(I,2) = XWT(I)
+	VARS2(I,3) = CBO(I)
+	VARS2(I,4) = XK(I)
+	VARS2(I,5) = XN(I)
+C        VARS2(I,6) = ----
+	VARS2(I,7) = KF(I)
+	VARS2(I,8) = DS(I)
+	VARS2(I,9) = ST(I)
+	VARS2(I,10) = DGS(I)
+	VARS2(I,11) = BIS(I)
+	VARS2(I,12) = EDS(I)
+	VARS2(I,13) = DGP(I)
+	VARS2(I,14) = DP(I)
+	VARS2(I,15) = BIP(I)
+	VARS2(I,16) = EDP(I)
+	VARS2(I,17) = D(I)
+C        VARS2(I,18) = ----
+1300  CONTINUE
+
+      IF (TELL_PSDM_SPECIAL_OUTPUT.eq.1) then
+C
+C    Conversion of bed length,weight,
+C    tau, ST, EDS, and EDP back to the entire bed value instead of per
+C    each axial element.
+C
+        EBCT = EBCT * DBLE(NUMBED)
+        L = L * DBLE(NUMBED)
+        WT = WT * DBLE(NUMBED)
+        TAU = TAU * DBLE(NUMBED)
+        DO I = 1,NCOMP
+	    ST(I) = ST(I) * DBLE(NUMBED)
+	    EDP(I) = EDP(I) * DBLE(NUMBED)
+	    EDS(I) = EDS(I) * DBLE(NUMBED)
+        ENDDO 
+
+c        open (5,file='psdm.out')
+        open (5,file=FN_OUT_MAIN)
+        WRITE(5,1005) NCOMP,NC,MC,NUMBED,NEQ,NFLAG,RAD,RHOP,EPOR,
+     1  	L,DIA,WT,FLRT,EBED,TAU,EBCT
+        WRITE(5,*) '(*) Note K units are (umol/g)*(L/umol)^(1/n)'
+        DO I=1,NCOMP
+          WRITE(5,1011) '?',VB(I),XWT(I),CBO(I),XK(I),XN(I),
+     &      KF(I),DS(I),DP(I),TOR(I),D(I),
+     &      ST(I),DGS(I),BIS(I),EDS(I),EDP(I),DGP(I),BIP(I)
+        ENDDO
+
+        IF (IS_IN_ROOM.EQ.1) THEN
+C-------- DO NOTHING.    
+        ELSE
+          DO J = 1,ITP
+            WRITE(5,1035) T(J,1),(CP(I,J),I=1,NCOMP)
+C ,(CR(I,J),I=1,NCOMP)
+          ENDDO
+1035      FORMAT(1X,E18.9,1X,6(1X,E18.9),6(1X,E18.9))
+        ENDIF
+
+ 1005   FORMAT(////
+     &   'NUMBER OF COMPONENTS, NCOMP............... = ',I15/
+     &   'NUMBER OF RADIAL COLLOCATION POINTS, NC... = ',I15/
+     &   'NUMBER OF AXIAL COLLOCATION POINTS, MC.... = ',I15/
+     &   'CURRENT AXIAL ELEMENT, NUMBED............. = ',I15/
+     &   'TOTAL NO. OF DIFFERENTIAL EQUATIONS, NEQ.. = ',I15/
+     &   'ERROR FLAG FROM DGEAR, NFLAG.............. = ',I15/
+     &   'RADIUS OF ADSORBENT PARTICLE, RAD (CM) ... = ',G20.10/
+     &   'APPARENT DENSITY OF ADSORBENT, RHOP (G/ML) = ',G20.10/
+     &   'ADSORBENT PARTICLE POROSITY, EPOR......... = ',G20.10/
+     &   'BED LENGTH, L, (CM)....................... = ',G20.10/
+     &   'BED DIAMETER, DIA, (CM)................... = ',G20.10/
+     &   'ADSORBENT WEIGHT, WT (G).................. = ',G20.10/
+     &   'FLOWRATE, FLRT (ML/MIN)................... = ',G20.10/
+     &   'BED POROSITY, EBED........................ = ',G20.10/
+c     &   'SUPERFICIAL VELOCITY, VS (CM/MIN)......... = ',G20.10/
+     &   'PACKED BED CONTACT TIME, TAU (SEC)........ = ',G20.10/
+     &   'EMPTY BED CONTACT TIME, EBCT (MIN)........ = ',G20.10//)
+c     &   'REYNOLDS NUMBER, RE....................... = ',G20.10/
+c     &   'TEMPERATURE, TEMP (CELSIUS)............... = ',G20.10/
+c     &   'PRESSURE, ATM (ATM)....................... = ',G20.10/
+c     &   'DENSITY OF WATER, DW (G/ML)............... = ',G20.10/
+c     &   'VISCOSITY OF WATER, VW (CP)............... = ',G20.10/
+c     &   'DENSITY OF PURGE GAS, DPURG (G/ML)........ = ',G20.10/
+c     &   'VISCOSITY OF PURGE GAS, VPURG (KG/M-SEC).. = ',G20.10/
+c     &   'MOLECULAR WEIGHT OF PURGE GAS, GAS_MW..... = ',G20.10//)
+ 1011 FORMAT(/' PARAMETERS FOR  ',A30/    
+     & 4X,'MOLAR VOLUME AT BOILING PT.,VB (ML/GMOL). = ',G20.10/
+c     & 4X,'NORMAL BOILING POINT, NBP (KELVIN)....... = ',G20.10/
+     & 4X,'MOLECULAR WEIGHT, XWT (DALTON)........... = ',G20.10/
+     & 4X,'INITIAL BULK CONCENTRATION, CBO (UMOL/L). = ',G20.10/
+     & 4X,'FREUNDLICH K, XK, (*).................... = ',G20.10/
+     & 4X,'FREUNDLICH 1/N, XN....................... = ',G20.10/
+c     & 4X,'DIFFUSIVITY, DIFFUS, (CM^2/SEC).......... = ',G20.10/
+c     & 4X,'SCMIDT NUMBER, SC........................ = ',G20.10/
+     & 4X,'FILM TRANSFER COEFF., KF, (CM/SEC)....... = ',G20.10/
+     & 4X,'SURFACE DIFFUSION COEFF., DS, (CM^2/SEC). = ',G20.10/
+     & 4X,'PORE DIFFUSION COEFF., DP, (CM^2/SEC).... = ',G20.10/
+c     & 4X,'SURFACE TO PORE DIFFUSION RATIO, SPDFR... = ',G20.10/
+     & 4X,'TORTUOSITY CONSTANT, TOR................. = ',G20.10/
+     & 4X,'DS OVER DP, D............................ = ',G20.10/
+     & 4X,'STANTON NUMBER, ST....................... = ',G20.10/
+     & 4X,'SURFACE SOLUTE DIST. PARAMETER, DGS...... = ',G20.10/
+     & 4X,'SURFACE BIOT NUMBER, BIS................. = ',G20.10/
+     & 4X,'SURFACE DIFFUSION MODULUS, EDS........... = ',G20.10/
+     & 4X,'PORE DIFFUSION MODULUS, EDP.............. = ',G20.10/
+     & 4X,'PORE SOLUTE DIST. PARAMETER, DGP......... = ',G20.10/
+     & 4X,'PORE BIOT NUMBER, BIP.................... = ',G20.10//)
+
+        close (5)
+      endif
+
+      IF (DEBUGM .EQ. 1) THEN
+	CLOSE(4)
+	CLOSE(8)
+      END IF
+
+      IF (IS_IN_ROOM.EQ.1) THEN
+C        WRITE (19,*) '-1    -1'
+        CLOSE(19)
+        WRITE (21,*) 'END_OF_DATA'
+        WRITE (21,*) 'EXIT VALUE OF NFLAG ='
+        WRITE (21,*) NFLAG
+        CLOSE(21)
+        WRITE (22,*) 'END_OF_DATA'
+        WRITE (22,*) 'EXIT VALUE OF NFLAG ='
+        WRITE (22,*) NFLAG
+        CLOSE(22)
+      ENDIF
+
+      RETURN
+      END                                                               
+C                                                                       
+C **********************************************************************                                                                       
+		       SUBROUTINE ORTHOG( N )                          
+C **********************************************************************                                                                      
+c      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+
+c---- Subroutine parameters
+      INTEGER*4 N
+
+c---- Constants
+      INTEGER*2 MXCOMP,MAXMC,MAXNC,MAXPTS,MAXDE
+
+c**** Change Hokanson 2/8/97
+c      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=6,MAXPTS=400,MAXDE=750)
+      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=400,MAXDE=750)
+c      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=6000,MAXDE=750)
+c**** End Change Hokanson 2/8/97
+
+c---- Local variables
+      DOUBLE PRECISION EDD(MXCOMP)
+
+c---- Common block variables
+      DOUBLE PRECISION DG(MXCOMP),ST(MXCOMP),EDS(MXCOMP),EDP(MXCOMP),
+     &                 BR(MAXNC,MAXNC),D(MXCOMP)
+      INTEGER*2 MC,NC,NCOMP,N1
+      DOUBLE PRECISION DGT
+      INTEGER*2 NIN
+      DOUBLE PRECISION STD(MXCOMP),BEDS(MXCOMP,MAXNC,MAXNC),
+     &                 BEDP(MXCOMP,MAXNC,MAXNC),
+     &                 DGI(MXCOMP)
+      INTEGER*2 MND,ND,MD
+
+c---- Common block
+      COMMON /BLOCKA/ DG,ST,EDS,EDP,BR,D
+      COMMON /BLOCKC/ MC,NC,NCOMP,N1,DGT,NIN
+      COMMON /BLOCKE/ STD,BEDS,BEDP,DGI,MND,ND,MD
+
+c---- Debug variables
+      INTEGER*2 DEBUGM
+      DOUBLE PRECISION LAST_T
+      COMMON /DEBUG/ LAST_T, DEBUGM
+
+      ND  = NC - 1                                                      
+      MD  = MC - 1                                                      
+      MND = MC*ND                                                       
+      N1  = MND + MC + MD                                               
+      N   = N1*NCOMP                                                    
+c---Modified by ejo on 7/19/96
+c      DGT = 1.0 + DGT
+c      DO 50 I = 1,NCOMP
+c---Original Code Follows--Modified by ejo on 7/19/96
+      DO 50 I = 1,NCOMP
+	 DGT    = 1.0 + DGT
+c---End Modified by ejo on 7/19/96
+	 DGI(I) = 1.0/DG(I)                                             
+	 STD(I) = ST(I)*DGT                                             
+	 EDD(I) = DGT/DG(I)                                             
+	 DO 20 J = 1,ND                                                 
+	    DO 10 K = 1,NC                                              
+	       BEDS(I,J,K) = (EDS(I) + D(I)*EDP(I))*EDD(I)*BR(J,K)      
+   10       CONTINUE                                                    
+   20    CONTINUE                                                       
+	 DO 40 J = 1,ND                                                 
+	    DO 30 K = 1,NC                                              
+	       BEDP(I,J,K) = EDP(I)*(1.0 - D(I))*EDD(I)*BR(J,K)         
+   30       CONTINUE                                                    
+   40    CONTINUE                                                       
+   50 CONTINUE                                                          
+
+      IF (DEBUGM .EQ. 1) THEN
+	OPEN(3,FILE='psdm.c2')
+	I = 1
+	WRITE(3,*) 'I =', I
+	WRITE(3,*) 'DGT =', DGT
+	WRITE(3,*) 'DGI(I) =', DGI(I)
+	WRITE(3,*) 'STD(I) =', STD(I)
+	WRITE(3,*) 'D(I) =', D(I)
+	WRITE(3,*) 'EDD(I) =', EDD(I)
+	WRITE(3,*) 'EDS(I) =', EDS(I)
+	WRITE(3,*) 'EDP(I) =', EDP(I)
+
+	DO 1021 J=1,ND
+	  WRITE(3,*) (BR(J,K), K=1, NC)
+	  WRITE(3,*) ' '
+1021    CONTINUE
+
+	DO 1011 I=1,ND
+	  WRITE(3,*) (BEDS(1,I,J), J=1, NC)
+	  WRITE(3,*) ' '
+1011    CONTINUE
+	DO 1012 I=1,ND
+	  WRITE(3,*) (BEDP(1,I,J), J=1, NC)
+	  WRITE(3,*) ' '
+1012    CONTINUE
+	CLOSE(3)
+      END IF
+
+      RETURN                                                            
+      END                                                               
+C                         FUNCTION CINF(I,T)
+C                                                                       
+C   **************************************************************      
+C   * This function calculates the influent concentration to the *      
+C   * column for each component at each time interval T.  If no  *      
+C   * varying influent data is given this subroutine is ignored. *      
+C   **************************************************************      
+C                                                                       
+C   Description of Inputs/Outputs/Return:
+C   =====================================
+C
+C   *I*   I       Index of component
+C   *I*   T       Time at which to calculate influent conc. (dim'less)
+C   *R*   CINF    Calculated influent concentration (normalized, C/C0)
+C
+
+      DOUBLE PRECISION FUNCTION CINF(I,T)
+      IMPLICIT NONE                              
+
+      INTEGER NCOMPI
+      PARAMETER (NCOMPI=6)
+      INTEGER*2 BEDNUM
+      INTEGER I,J
+      INTEGER*2 MC,NC,NCOMP,N1,NIN
+      DOUBLE PRECISION DGT
+      DOUBLE PRECISION CIN(NCOMPI,400),TIN(400),T
+
+      COMMON /BLOCKD/ CIN,TIN
+      COMMON /BLOCKC/ MC,NC,NCOMP,N1,DGT,NIN
+      COMMON /BLOCKH/ BEDNUM 
+
+      IF (T .LE. TIN(1) ) THEN                                          
+	 CINF = CIN(I,1)
+      ELSE IF (T .GE. TIN(NIN) ) THEN                                   
+	 CINF = CIN(I,NIN)                                              
+      ELSE                                                              
+	 J = 1                                                          
+   10    J = J + 1                                                      
+	    IF(T .GE. TIN(J-1) .AND. T .LE. TIN(J) ) THEN               
+	       CINF = CIN(I,J-1) + (CIN(I,J)-CIN(I,J-1))*(T-TIN(J-1))/  
+     +            (TIN(J)-TIN(J-1))                                     
+	    ELSE IF (J .LT. NIN ) THEN                                  
+	       GO TO 10                                                 
+	    ENDIF                                                       
+      ENDIF                                                             
+      RETURN                                                            
+      END                                                               
+C                                                                       
+C                    --------------------------                         
+C                    I END OF SUBROUTINE CINF I                         
+C                    --------------------------                         
+
+C **********************************************************************                                                                       
+		 SUBROUTINE PEDERV ( N,T,Y,PD,N0 )                      
+C **********************************************************************                                                                       
+c      IMPLICIT NONE
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+c      COMMON/BLOCKC/MC,NC,NCOMP,N1,DGT,NIN
+      RETURN                                                            
+      END                                                               
+
+C--------------------------------------------------------------------
+C    Subroutine CONSTANT - Provide Collocation Constants
+C--------------------------------------------------------------------
+c      SUBROUTINE CONSTNT(N1,N2,AZ1,BR1,WR1,NFLAGO)
+      SUBROUTINE CONSTNT(N1,N2,AZ1,BR1,WR1,WZ1,NFLAGO)
+
+c**** Change Hokanson 2/8/97
+c      PARAMETER (MCI=18,NCI=6)
+      PARAMETER (MCI=18,NCI=18)
+c**** End Change Hokanson 2/8/97    
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+ccccccccccccccccccccccccccccc get rid of implicit double precision!
+ccccccccccccccccccccccccccccc replace with implicit none
+
+      INTEGER*2 N1
+      INTEGER*2 N2
+      DOUBLE PRECISION AZ1(MCI,MCI),BR1(NCI,NCI),WR1(NCI)
+      DOUBLE PRECISION WZ1(NCI)
+      INTEGER*2 NFLAGO
+
+      DOUBLE PRECISION R(18), Z(18), QI(18,18), RR(18)
+      COMMON /QMTRXS/ Q(18,18), C(18,18), D(18,18), F(18)
+      COMMON /OCCOEF/ AR(18,18), BR(18,18), AZ(18,18), BZ(18,18),
+     +                WZ(18), WR(18)
+
+C---- local variables
+      INTEGER NR,NZ
+      INTEGER NFLAG
+
+c---- Debug variables
+      INTEGER*2 DEBUGM
+      DOUBLE PRECISION LAST_T
+      COMMON /DEBUG/ LAST_T, DEBUGM
+
+C     For Spherical coordinates:    NGEOR = 3
+C                                   NOR =0
+C                                   N1R = 1
+C                                   ALFAR = 1.D0
+C                                   BETAR = 0.5D0
+C
+C     For Cylindrical coordinates:  NGEOR = 2
+C                                   NOR =0
+C                                   N1R = 1
+C                                   ALFAR = 1.D0
+C                                   BETAR = 0.0D0
+      DATA NGEOR/3/
+     +    ,  N0R/0/,  N1R/1/,  ALFAR/1.0D0/,  BETAR/ 0.5D0/            
+     +    ,  N0Z/1/,  N1Z/1/,  ALFAZ/0.0D0/,  BETAZ/ 0.0D0/            
+      NR = N1
+      NZ = N2
+      NFLAGO = 0
+      NFLAG = NFLAGO
+									
+      IF (DEBUGM .EQ. 1) THEN
+	WRITE(4,*) 'NC = N1 =', N1
+	WRITE(4,*) 'MC = N2 =', N2
+	WRITE(4,*) 'NFLAG =', NFLAG
+      END IF
+
+      CALL DROOT(NR-1,N0R,N1R,ALFAR,BETAR,RR)                           
+      DO 1 I = 1, NR                                                    
+   1    R(I) = DSQRT(RR(I))                                             
+      CALL DSPOLY(NGEOR, NR, NR, R)                                     
+      CALL DLINRG( NR,  Q,18, QI,18,NFLAG)                                    
+      IF (NFLAG.NE.0) then
+	GOTO 9997
+	endif
+      
+C     CALL DMRRRR(  1, NR,  F, 1, NR, NR, QI,18,  1, NR,WR,1,NFLAG)         
+      CALL DMURRV( NR, NR, QI,18, NR, F, 2, NR, WR,NFLAG)                     
+      IF (NFLAG.NE.0) then
+	GOTO 9997
+	endif
+      
+      CALL DMRRRR( NR, NR,  C,18, NR, NR, QI,18, NR, NR,AR,18,NFLAG)         
+      IF (NFLAG.NE.0) then
+	GOTO 9997
+	endif
+      
+      CALL DMRRRR( NR, NR,  D,18, NR, NR, QI,18,NR,NR,BR,18,NFLAG)
+      IF (NFLAG.NE.0) then
+	GOTO 9997
+	endif
+	  
+									
+      CALL DROOT(NZ-2,N0Z,N1Z,ALFAZ,BETAZ, Z)                           
+      CALL DUPOLY( NZ, NZ,  Z)                                          
+      CALL DLINRG( NZ,  Q,18, QI,18,NFLAG)                                    
+      IF (NFLAG.NE.0) then
+	GOTO 9997
+	endif
+C     CALL DMRRRR(  1, NZ,  F, 1, NZ, NZ, QI,18,  1, NZ, WZ,1,NFLAG)         
+      IF (NFLAG.NE.0) GOTO 9997
+      CALL DMURRV( NZ, NZ, QI,18, NZ, F, 2, NZ, WZ,NFLAG)                     
+      IF (NFLAG.NE.0) GOTO 9997
+      CALL DMRRRR( NZ, NZ,  C,18, NZ, NZ, QI,18, NZ, NZ, AZ,18,NFLAG)         
+      IF (NFLAG.NE.0) GOTO 9997
+      CALL DMRRRR( NZ, NZ,  D,18, NZ, NZ, QI,18, NZ, NZ, BZ,18,NFLAG)         
+      IF (NFLAG.NE.0) GOTO 9997
+
+      DO 1515 I=1,NZ
+	  WZ1(I)=WZ(I)
+	  DO 1517 J=1,NZ
+	    AZ1(I,J)=AZ(I,J)
+1517    CONTINUE
+1515  CONTINUE
+      DO 1516 I=1,NR
+	  WR1(I)=WR(I)
+	  DO 1516 J=1,NR
+	    BR1(I,J)=BR(I,J)
+1516  CONTINUE
+
+      IF (DEBUGM .EQ. 1) THEN
+      open (unit=8,file='constnt.txt')
+	WRITE(8,*) 'NC = N1 =', N1
+	WRITE(8,*) 'MC = N2 =', N2
+	WRITE(8,*) 'NFLAG =', NFLAG
+
+	WRITE(8,*) 'AZ:'
+	DO 2101 I=1,NZ
+	  WRITE(8,*) (AZ(I,J), J=1, NZ)
+2101  CONTINUE
+	WRITE(8,*) 'BR:'
+	DO 2102 I=1,NR
+	  WRITE(8,*) (BR(I,J), J=1, NR)
+2102  CONTINUE
+	WRITE(8,*) 'WR:'
+	DO 2103 I=1,NR
+	  WRITE(8,*) WR(I)
+2103  CONTINUE
+	WRITE(8,*) 'WZ:'
+	DO 2104 I=1,NZ
+	  WRITE(8,*) WZ(I)
+2104  CONTINUE
+      close (8)
+      stop
+      END IF
+
+
+9997  NFLAGO = NFLAG
+
+      if (DEBUGM .EQ. 1) then
+        WRITE(4,*) 'NFLAGO = ', NFLAGO
+        WRITE(4,*) 'NFLAG = ', NFLAG
+      end if
+
+      return
+      END
+
+C **********************************************************************
+      SUBROUTINE DROOT(N,N0,N1,AL,BE,ROOT)                              
+C **********************************************************************
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)                               
+ccccccccccccccccccccccccccccc get rid of implicit double precision!
+ccccccccccccccccccccccccccccc replace with implicit none
+
+      DIMENSION D1(18), D2(18), ROOT(18)                        
+      DATA ZERO/0.0D0/, ONE/1.0D0/, TWO/2.0D0/, TRE/3.0D0/              
+     +     , DELTA/0.00010D0/, ERROR/0.10D-09/                          
+      AB = AL + BE                                                      
+      AD = BE - AL                                                      
+      AP = BE * AL                                                      
+      D1(1) = (AD / (AB + TWO) + ONE) / TWO                             
+      D2(1) = ZERO                                                      
+      IF(N.LT.2) GO TO 15                                               
+      DO 10 I = 2, N                                                    
+      Z1 = I - 1                                                        
+      Z  = AB + TWO * Z1                                                
+      D1(I) = (AB * AD / Z / (Z + TWO) + ONE) / TWO                     
+      IF (I.NE.2) GO TO 11                                              
+      D2(I) = (AB + AP + Z1) / Z / Z / (Z + ONE)                        
+      GO TO 10                                                          
+11      Z = Z * Z                                                       
+	Y = Z1 * (AB + Z1)                                              
+	Y = Y * (AP + Y)                                                
+	D2(I) = Y / Z / (Z - ONE)                                       
+10      CONTINUE                                                        
+15      X = ZERO                                                        
+      DO 20 I = 1, N                                                    
+25      XD = ZERO                                                       
+      XN = ONE                                                          
+      XD1 = ZERO                                                        
+      XN1 = ZERO                                                        
+      DO 30 J = 1, N                                                    
+	XP = (D1(J) - X) * XN - D2(J) * XD                              
+	XP1 = (D1(J) - X) * XN1 - D2(J) * XD1 - XN                      
+	XD = XN                                                         
+	XD1 = XN1                                                       
+	XN = XP                                                         
+30      XN1 = XP1                                                       
+      ZC = ONE                                                          
+      Z = XN / XN1                                                      
+      IF(I.EQ.1) GO TO 21                                               
+      DO 22 J = 2, I                                                    
+22      ZC = ZC - Z / (X - ROOT(J-1))                                   
+21      Z = Z / ZC                                                      
+      X = X - Z                                                         
+      IF (DABS(Z).GT.ERROR) GO TO 25                                    
+      ROOT(I) = X                                                       
+20      X = X + DELTA                                                   
+      NT = N + N0 + N1                                                  
+      IF (N0.EQ.0)  GO TO 35                                            
+      DO 31 I = 1,N                                                     
+      J = N + 1-I                                                       
+31      ROOT(J+1) = ROOT(J)                                             
+      ROOT(1) = ZERO                                                    
+35      IF(N1.EQ.1) ROOT(NT) = ONE                                      
+      RETURN                                                            
+      END                                                               
+      
+C **********************************************************************
+      SUBROUTINE DUPOLY( ND, NC,  X)                                    
+C **********************************************************************
+      IMPLICIT DOUBLE PRECISION (A-H, O-Z)                              
+ccccccccccccccccccccccccccccc get rid of implicit double precision!
+ccccccccccccccccccccccccccccc replace with implicit none
+
+      DIMENSION X(18), Y(36)                                            
+      COMMON/QMTRXS/ Q(18,18), C(18,18), D(18,18), F(18)                
+      DATA ZERO/0.0D0/, ONE/1.0D0/, TWO/2.0D0/, FOUR/4.0D0/             
+      DO 10 J = 1, ND                                                   
+      Y(1) = ONE                                                        
+      DO 11 I = 2, NC                                                   
+11      Y(I) = Y(I-1) * (TWO * X(J) - ONE)                              
+      Q(J,1) = Y(1)                                                     
+      Q(J,2) = Y(2)                                                     
+      C(J,1) = ZERO                                                     
+      C(J,2) = TWO                                                      
+      D(J,1) = ZERO                                                     
+      D(J,2) = ZERO                                                     
+      IF(MOD(J,2).EQ.0) THEN                                            
+      F(J)   = ZERO                                                     
+      ELSE                                                              
+      F(J)   = ONE / DFLOAT(J)                                          
+      ENDIF                                                             
+      DO 10 I = 3, NC                                                   
+	Q(J,I) = Y(I)                                                   
+	C(J,I) = TWO * (I - ONE) * Y(I-1)                               
+10      D(J,I) = FOUR * (I - ONE) * (I - TWO) * Y(I-2)                  
+      RETURN                                                            
+      END                                                               
+
+C **********************************************************************
+      SUBROUTINE DSPOLY(IA,ND,NC,X)                                     
+C **********************************************************************
+      IMPLICIT DOUBLE PRECISION (A-H, O-Z)                              
+ccccccccccccccccccccccccccccc get rid of implicit double precision!
+ccccccccccccccccccccccccccccc replace with implicit none
+
+      DIMENSION X(18), Y(36)                                            
+      COMMON/QMTRXS/ Q(18,18), C(18,18), D(18,18), F(18)                
+      DATA ZERO/0.0D0/, ONE/1.0D0/, TWO/2.0D0/, FOUR/4.0D0/             
+      DO 10 J = 1, ND                                                   
+      Y(1) = X(J)                                                       
+      DO 11 I = 2, 2 * NC                                               
+11      Y(I) = Y(I-1) * X(J)                                            
+      Q(J,1) = ONE                                                      
+      Q(J,2) = Y(2)                                                     
+      C(J,1) = ZERO                                                     
+      C(J,2) = TWO * Y(1)                                               
+      D(J,1) = ZERO                                                     
+      D(J,2) = TWO * IA                                                 
+      F(J)   = ONE / DFLOAT(2 * J - 2 + IA)                             
+      DO 10 I = 3, NC                                                   
+	Q(J,I) = Y(2*I-2)                                               
+	C(J,I) = (TWO * I - TWO) * Y(2*I-3)                             
+10      D(J,I) = (TWO * I - TWO) * (TWO * I - FOUR + IA) * Y(2*I-4)     
+      RETURN                                                            
+      END
+C
+
+
+
+                     SUBROUTINE WASH ( Y0,WZ )  
+C   
+C   *************************************************************** 
+C   * This subroutine simulates a backwashing process by reset-   * 
+C   * ting the concetrations in both the liquid and solid phases  * 
+C   * by assuming a completely mixed adsorber during the process. * 
+C   * The solid phase concentration gradients for each axial pos- * 
+C   * ition in the bed (surface and pore) is set to the weighted  * 
+C   * average using the axial weighting vector.  The liquid phase * 
+C   * concentrations are set to an initial concentration of one.  * 
+C   *************************************************************** 
+C   
+
+      INTEGER*2 MXCOMP,MAXMC,MAXNC,MAXPTS,MAXDE
+      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=400,MAXDE=750)
+c      PARAMETER (MXCOMP=6,MAXMC=18,MAXNC=18,MAXPTS=6000,MAXDE=750)
+      DOUBLE PRECISION Y0(MAXDE)
+      DOUBLE PRECISION WZ(MAXNC)
+      DOUBLE PRECISION CPORE(MAXDE)
+      COMMON /WASH1/ CPORE
+
+c      DIMENSION Y0(1),WZ(1) 
+c      COMMON/BLOCKF/CPORE(400)  
+      COMMON MC,NC,NCOMP,N1,DGT,NIN,MND,MD,ND   
+
+      STOP 'debug to make sure parameters passed properly!'
+
+      DO 60 I = 1,NCOMP 
+         II = (I - 1)*N1
+         III = II + MND 
+         IIII = III + MD
+         DO 30 J = 1,ND 
+            JJ = II + (J - 1)   
+            QQ = 0.0
+            QR = 0.0
+            DO 10 K = 1,MC  
+               KK = (K - 1)*ND + JJ 
+               QQ = QQ + WZ(K)*Y0(KK + 1)   
+               QR = QR + WZ(K)*CPORE(KK + 1)
+   10       CONTINUE
+            DO 20 K = 1,MC  
+               KK = (K - 1)*ND + JJ 
+               Y0(KK + 1) = QQ  
+               CPORE(KK + 1) = QR   
+   20       CONTINUE
+   30    CONTINUE   
+         QQ = 0.0   
+         QR = 0.0   
+         DO 40 K = 1,MC 
+            QQ = QQ + WZ(K)*Y0(III + K) 
+            QR = QR + WZ(K)*CPORE(III + K)  
+   40    CONTINUE   
+         DO 50 K = 1,MC 
+            Y0(III+ K) = QQ 
+            CPORE(III+ K) = QR  
+   50    CONTINUE   
+         DO 55 K = 2,MC 
+            Y0(IIII + K) = 1.0  
+   55    CONTINUE   
+   60 CONTINUE  
+      RETURN
+      END   
+C
+C   
+C                    -------------------------- 
+C                    I END OF SUBROUTINE WASH I 
+C                    -------------------------- 

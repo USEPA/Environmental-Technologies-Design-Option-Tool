@@ -1,0 +1,24 @@
+
+note on mpms dll files.txt
+================================
+
+1234567890123456789012345678901234567890123456789012345678901234567890
+Huff states in his readme.txt file that his UPPMEM.EXE program
+is dependent upon the following system files:
+  
+    mfc42d.dll
+    mfco42d.dll
+    msvcirtd.dll
+    msvcrtd.dll
+
+In reality, it is dependent upon the following system files:
+
+    mfc42.dll    - should be self-registered in WinSys directory
+    msvcrt.dll    - should be placed in WinSys directory (no self-registration)
+    msvcirt.dll    - should be placed in WinSys directory (no self-registration)
+
+Eric J. Oman
+2:04 PM 8/17/99
+
+
+

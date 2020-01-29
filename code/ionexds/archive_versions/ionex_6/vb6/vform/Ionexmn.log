@@ -1,0 +1,15 @@
+Line 17: Class CommonDialog of control CMDialog1 was not a loaded control class.
+Line 21: Class SSFrame of control fraIonsInSystem was not a loaded control class.
+Line 175: Class SSFrame of control fraOperatingConditions was not a loaded control class.
+Line 244: Class SSFrame of control fraKineticDimensionless was not a loaded control class.
+Line 252: Class SSFrame of control fraDimensionlessGroups was not a loaded control class.
+Line 441: Class SSFrame of control fraKinetic was not a loaded control class.
+Line 568: Class SSFrame of control fraAdsorbentProperties was not a loaded control class.
+Line 753: Class SSFrame of control fraBedData was not a loaded control class.
+Line 22: The property name Caption in fraIonsInSystem is invalid.
+Line 176: The property name Caption in fraOperatingConditions is invalid.
+Line 245: The property name Caption in fraKineticDimensionless is invalid.
+Line 253: The property name Caption in fraDimensionlessGroups is invalid.
+Line 442: The property name Caption in fraKinetic is invalid.
+Line 569: The property name Caption in fraAdsorbentProperties is invalid.
+Line 754: The property name Caption in fraBedData is invalid.

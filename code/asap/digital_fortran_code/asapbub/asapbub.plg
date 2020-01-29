@@ -1,0 +1,77 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: asapbub - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP85E.tmp" with contents
+[
+/compile_only /include:"Release/" /dll /libs:dll /nologo /warn:nofileopt /module:"Release/" /object:"Release/" 
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\AIRFLO.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\VQBUB.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\VOLBUB.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\TRUEKLA.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\TAUSVOLS.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\REMOVBUB.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\PCALCBUB.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\KLABUB.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\KLA20A.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\GETSOTR.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\GETSOTE.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\GETPHIB.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\GETCSTAR.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\EFFLBUB.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\DIFO2.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapbub\VQMINBUB.F90"
+]
+Creating temporary file "C:\TEMP\RSP85F.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /incremental:no /pdb:"Release/asapbub.pdb" /machine:I386 /out:"Release/asapbub.dll" /implib:"Release/asapbub.lib" 
+.\Release\VQMINBUB.OBJ
+.\Release\DIFO2.OBJ
+.\Release\EFFLBUB.OBJ
+.\Release\GETCSTAR.OBJ
+.\Release\GETPHIB.OBJ
+.\Release\GETSOTE.OBJ
+.\Release\GETSOTR.OBJ
+.\Release\KLA20A.OBJ
+.\Release\KLABUB.OBJ
+.\Release\PCALCBUB.OBJ
+.\Release\REMOVBUB.OBJ
+.\Release\TAUSVOLS.OBJ
+.\Release\TRUEKLA.OBJ
+.\Release\VOLBUB.OBJ
+.\Release\VQBUB.OBJ
+.\Release\AIRFLO.OBJ
+]
+Creating command line "link.exe @C:\TEMP\RSP85F.tmp"
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\asap\digital_fortran_code\asapbub\AIRFLO.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\VQBUB.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\VOLBUB.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\TRUEKLA.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\TAUSVOLS.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\REMOVBUB.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\PCALCBUB.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\KLABUB.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\KLA20A.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\GETSOTR.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\GETSOTE.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\GETPHIB.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\GETCSTAR.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\EFFLBUB.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\DIFO2.F90
+X:\etdot10\code\asap\digital_fortran_code\asapbub\VQMINBUB.F90
+Linking...
+   Creating library Release/asapbub.lib and object Release/asapbub.exp
+
+
+
+<h3>Results</h3>
+asapbub.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

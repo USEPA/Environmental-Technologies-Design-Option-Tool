@@ -1,0 +1,67 @@
+"Ion Exchange Model - Input File"
+"Pressure",101000,"Pa","Pa"
+"Temperature",294.15,"K","K"
+"Bed Length",.056,"m","cm"
+"Bed Diameter",.0268,"m","cm"
+"Bed Weight",.02455,"kg","g"
+"Bed Flowrate",5.78333333333333E-07,"m³/s","ml/min",-1
+"Bed EBCT",.910370175942442,"min","min",0
+"Number of Beds (in series)",8
+"Resin Name","IRN-78"
+"Apparent Density",1.18,"g/ml","g/ml"
+"Particle Radius",.0002975,"m","m"
+"Particle Porosity (-)",.5429
+"Tortuosity (-)",1
+"Total Resin Capacity",1.94,"meq/g","meq/g"
+"Time Parameters - Total Run Time",250,"min","min"
+"Time Parameters - InitialTime",.0001,"min","min"
+"Time Parameters - Time Step",.65,"min","min"
+"Number of Axial Collocation Points",11
+"Number of Radial Collocation Points",5
+"Correlation for Ionic Transport Coeff., kf","Gnielinski"
+"Component Properties - Properties of Cations"
+"Number of Cations",0
+"Presaturant Cation",0
+"Sum of Cation Time-Averaged Initial Influent Concs.",0,0
+"Separation Factor Info.",-1,11
+"Component Properties - Properties of Anions"
+"Number of Anions",2
+"Presaturant Anion",1
+"Sum of Anion Time-Averaged Initial Influent Concs.",9.401,-1
+"Separation Factor Info.",-1,11
+"Cl-"
+35.45,.03545,.001,1,1
+1.58843494107105E-05,0
+1.58843494107105E-05,"cm²/s"
+1.58843494107105E-05,"cm²/s"
+.0116,-1
+1.4531932662295E-03,"cm/s"
+.0116,"cm/s"
+1.58843494107105E-05,0
+1.58843494107105E-05,"cm²/s"
+1.58843494107105E-05,"cm²/s"
+"Na+",1,50.1
+"Cl-",1,76.3
+"SO4-2"
+96.06,451.482,9.4,2,8.94
+1.21357304473753E-05,0
+1.21357304473753E-05,"cm²/s"
+1.21357304473753E-05,"cm²/s"
+.00912,-1
+1.13834791997373E-03,"cm/s"
+.00912,"cm/s"
+1.21357304473753E-05,0
+1.21357304473753E-05,"cm²/s"
+1.21357304473753E-05,"cm²/s"
+"Na+",1,50.1
+"SO4-2",2,80
+"Molecular Weight Units","mg/mmol"
+"Initial Conc. Units","meq/L"
+"Liquid Diffusivity Correlation Units","cm²/s"
+"Liquid Diffusivity User Input Units","cm²/s"
+"Ionic Transport Coeff Correlation Units","cm/s"
+"Ionic Transport Coeff User Input Units","cm/s"
+"Pore Diffusivity Correlation Units","cm²/s"
+"Pore Diffusivity User Input Units","cm²/s"
+"Name of File for Cation Variable Influent","NONE"
+"Name of File for Anion Variable Influent","NONE"

@@ -1,0 +1,71 @@
+Microsoft (R) COFF Binary File Dumper Version 3.00.5270
+Copyright (C) Microsoft Corp 1992-1995. All rights reserved.
+
+
+Dump of file asapptad.dll
+
+File Type: DLL
+
+         Section contains the following Exports for asapptad.dll
+
+                   0 characteristics
+            362D4336 time date stamp Tue Oct 20 22:13:10 1998
+                0.00 version
+                   1 ordinal base
+                  44 number of functions
+                  44 number of names
+
+            ordinal hint   name
+
+                  1    0   AIRDENS  (00001145)
+                  3    1   AIRVISC  (0000113B)
+                  4    2   AREAPT2  (000010A0)
+                  6    3   DIFFL  (000010AF)
+                  7    4   DIFGWL  (00001136)
+                 17    5   GETSAF  (000010D2)
+                 18    6   H2ODENS  (000010BE)
+                 19    7   H2OST  (000010E6)
+                 20    8   H2OVISC  (00001091)
+                 22    9   LDAIRPT2  (0000112C)
+                 23    A   LDH2OPT2  (0000102D)
+                 27    B   OPTMAL  (00001078)
+                 28    C   PBLOWPT  (00001131)
+                 29    D   PDROP  (00001113)
+                 30    E   PPUMPPT  (000010A5)
+                 38    F   PTOTALPT  (000010DC)
+                 39   10   QAIRPT2  (000010C8)
+                 40   11   QH2OPT2  (00001014)
+                 41   12   REMOVPT  (000010F0)
+                 42   13   TVOLPT2  (0000108C)
+                 43   14   VQCALC  (00001069)
+                  2   15   _AIRFLO@12  (0000111D)
+                  5   16   _AWCALC@40  (0000100A)
+                  8   17   _DIFLHL@12  (00001046)
+                  9   18   _DIFLPOL@8  (00001127)
+                 10   19   _EFFLPT2@32  (0000114A)
+                 11   1A   _FINDKLA@100  (00001032)
+                 12   1B   _GETCSPT@20  (000010B4)
+                 13   1C   _GETHIVQ@24  (00001019)
+                 14   1D   _GETHTUPT@16  (000010FA)
+                 15   1E   _GETMULT@12  (000010D7)
+                 16   1F   _GETNTUPT@16  (0000101E)
+                 21   20   _KLACOR@12  (0000100F)
+                 24   21   _ONDAKGPT@28  (00001140)
+                 25   22   _ONDAKLPT@32  (0000109B)
+                 26   23   _ONDKLAPT@32  (00001096)
+                 31   24   _PT1AREA@16  (00001087)
+                 32   25   _PT1DTOW@8  (000010CD)
+                 33   26   _PT1HTOW@12  (00001050)
+                 34   27   _PT1LDAIR@28  (000010B9)
+                 35   28   _PT1LDH2O@20  (00001118)
+                 36   29   _PT1TVOL@12  (000010EB)
+                 37   2A   _PT1VQMIN@16  (00001023)
+                 44   2B   _VQMLTPT1@12  (00001041)
+
+     Summary
+
+        C000 .data
+        1000 .idata
+        1000 .rdata
+        3000 .reloc
+       27000 .text

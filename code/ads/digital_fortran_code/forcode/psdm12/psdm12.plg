@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: psdm12 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP680.tmp" with contents
+[
+/compile_only /include:".\Release/" /include:"Release/" /math_library:fast /nologo /module:".\Release/" /object:".\Release/" 
+"X:\etdot10\code\ads\digital_fortran_code\forcode\psdm12\DIFFUN.FOR"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\psdm12\FRONT.FOR"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\psdm12\psdm12.for"
+]
+Creating command line "link.exe kernel32.lib /nologo /subsystem:console /incremental:no /pdb:".\Release/psdm12.pdb" /machine:I386 /out:".\Release/psdm12.exe"  .\Release\psdm12.obj .\Release\FRONT.OBJ .\Release\DIFFUN.OBJ .\imsllib.lib "
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\ads\digital_fortran_code\forcode\psdm12\DIFFUN.FOR
+df: info: Some interprocedural optimizations may be disabled when compiling into separate object files
+X:\etdot10\code\ads\digital_fortran_code\forcode\psdm12\FRONT.FOR
+X:\etdot10\code\ads\digital_fortran_code\forcode\psdm12\psdm12.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\psdm12\psdm12.for(128) : Warning: This attribute is not supported in the DEC$ ATTRIBUTES directive.   [HUGE]
+      DOUBLE PRECISION PW[ALLOCATABLE,HUGE](:)
+--------------------------------------^
+Linking...
+
+
+
+<h3>Results</h3>
+psdm12.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

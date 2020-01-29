@@ -1,0 +1,128 @@
+ Andrew W. Loll, 2/12/96
+
+ The Results for the Linear/SIMPLEX Reference Regression of the Antoine 
+ Constants are: 
+ (This is for the 8 chemical reference set using Tony's iteration scheme.
+
+
+ The Objective Function for this Run is:       .18069E-07
+
+
+  FRAG #        A              B              A              B      
+ -------  -------------  -------------  -------------  -------------
+
+       1     1.57908104   467.01481324    10.00000000   500.00000000
+       2     1.21596981   180.80239722    10.00000000   500.00000000
+       3     2.79007617   793.95537471    10.00000000   500.00000000
+       4      .41838084   209.57809714    10.00000000   500.00000000
+       5      .86063419   624.18702249    10.00000000   500.00000000
+       6     1.11688387   707.06650897    10.00000000   500.00000000
+       7       NF            NF     
+       8       NF            NF     
+       9       NF            NF     
+      10       NF            NF     
+      11       NF            NF     
+      12       NF            NF     
+      13       NF            NF     
+      14       NF            NF     
+      15       NF            NF     
+      16       NF            NF     
+      17       NF            NF     
+      18       NF            NF     
+      19       NF            NF     
+      20       NF            NF     
+      21       NF            NF     
+      22       NF            NF     
+      23       NF            NF     
+      24       NF            NF     
+      25       NF            NF     
+      26       NF            NF     
+      27       NF            NF     
+      28       NF            NF     
+      29       NF            NF     
+      30       NF            NF     
+      31       NF            NF     
+      32       NF            NF     
+      33       NF            NF     
+      34       NF            NF     
+      35       NF            NF     
+      36       NF            NF     
+      37       NF            NF     
+      38       NF            NF     
+      39       NF            NF     
+      40       NF            NF     
+      41       NF            NF     
+      42       NF            NF     
+      43       NF            NF     
+      44       NF            NF     
+      45       NF            NF     
+      46       NF            NF     
+      47       NF            NF     
+      48       NF            NF     
+      49       NF            NF     
+      50       NF            NF     
+      51       NF            NF     
+      52       NF            NF     
+      53       NF            NF     
+      54       NF            NF     
+      55       NF            NF     
+      56       NF            NF     
+      57       NF            NF     
+      58       NF            NF     
+      59       NF            NF     
+      60       NF            NF     
+      61       NF            NF     
+      62       NF            NF     
+      63       NF            NF     
+      64       NF            NF     
+      65       NF            NF     
+      66       NF            NF     
+      67       NF            NF     
+      68       NF            NF     
+      69       NF            NF     
+      70       NF            NF     
+      71       NF            NF     
+      72       NF            NF     
+      73       NF            NF     
+      74       NF            NF     
+      75       NF            NF     
+      76       NF            NF     
+      77       NF            NF     
+      78       NF            NF     
+      79       NF            NF     
+      80       NF            NF     
+      81       NF            NF     
+      82       NF            NF     
+      83       NF            NF     
+      84       NF            NF     
+      85       NF            NF     
+      86       NF            NF     
+      87       NF            NF     
+      88       NF            NF     
+      89       NF            NF     
+      90       NF            NF     
+      91       NF            NF     
+      92       NF            NF     
+      93       NF            NF     
+      94       NF            NF     
+      95       NF            NF     
+      96       NF            NF     
+      97       NF            NF     
+      98       NF            NF     
+      99       NF            NF     
+     100       NF            NF     
+     101       NF            NF     
+     102       NF            NF     
+     103       NF            NF     
+     104       NF            NF     
+     105       NF            NF     
+     106       NF            NF     
+     107       NF            NF     
+     108       NF            NF     
+     109       NF            NF     
+     110       NF            NF     
+     111       NF            NF     
+     112       NF            NF     
+     113       NF            NF     
+     114       NF            NF     
+     115       NF            NF     

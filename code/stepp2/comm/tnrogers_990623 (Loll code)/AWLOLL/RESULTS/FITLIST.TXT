@@ -1,0 +1,12 @@
+Current Programs:
+
+FIT_34.FOR - 2 loop simplex/linear reference model for entire fitting set
+FIT_6.FOR - 2 loop simplex/linear reference model for 8 chemical test set
+FIT1-14.FOR - All other models should use this version since it is verified
+FITS_6.FOR - Simplex only fitting B values reference model for 8 chemical
+             test set
+PREDREF.FOR - Runs predictions for the reference substance models only.
+              (Use FIT1-14.FOR with MFIT=6 for all others).
+FIT_6a.FOR - 2 loop simplex/linear reference model for 8 chemical test set
+             with the seeding block in a subroutine (SEEDIT). Otherwise, the
+             same as FIT_6.FOR

@@ -1,0 +1,68 @@
+Microsoft (R) COFF Binary File Dumper Version 3.00.5270
+Copyright (C) Microsoft Corp 1992-1995. All rights reserved.
+
+
+Dump of file stepp.dll
+
+File Type: DLL
+
+         Section contains the following Exports for stepp.dll
+
+                   0 characteristics
+            362FEFBF time date stamp Thu Oct 22 22:53:51 1998
+                0.00 version
+                   1 ordinal base
+                  41 number of functions
+                  41 number of names
+
+            ordinal hint   name
+
+                  1    0   ACCALL  (000010B9)
+                  2    1   AIRDENS  (00001127)
+                  3    2   AIRVISC  (00001122)
+                  4    3   AQSCALL  (000010AF)
+                  5    4   AQSFIT  (00001078)
+                  9    5   DIFGWL  (0000110E)
+                 10    6   DIFLHL  (000010BE)
+                 11    7   DIFLPOL  (000010D2)
+                 12    8   DIFLWC  (00001109)
+                 18    9   H2OST  (000010B4)
+                 20    A   HC1CALL  (000010F0)
+                 21    B   HC2CALL  (000010E1)
+                 22    C   HCDBCONV  (00001118)
+                 23    D   HENFIT  (0000111D)
+                 26    E   KOWCALL  (00001014)
+                 27    F   LDDBCALL  (000010C3)
+                 28   10   LDGCCALL  (0000102D)
+                 30   11   MWTCALL  (000010EB)
+                 38   12   VBBPCALL  (00001113)
+                 39   13   VBMATT  (000010FF)
+                 41   14   VPRCALL  (00001091)
+                  6   15   _AQSOL@28  (0000100A)
+                  7   16   _BINPAR@28  (000010AA)
+                  8   17   _DBDENS@40  (0000105F)
+                 13   18   _ERROR@12  (000010C8)
+                 14   19   _FGRP@12  (000010CD)
+                 15   1A   _FGRPCALL@4  (00001046)
+                 16   1B   _GETGAM@36  (000010DC)
+                 17   1C   _H2ODENS@24  (00001028)
+                 19   1D   _H2OVISC@24  (000010FA)
+                 24   1E   _HENRY@24  (00001000)
+                 25   1F   _INITVS@4  (00001064)
+                 29   20   _MOLWT@16  (0000105A)
+                 31   21   _NEWTON@36  (000010D7)
+                 32   22   _ORGDENS@16  (0000106E)
+                 33   23   _PARMS@12  (00001096)
+                 34   24   _PARTC@28  (000010A0)
+                 35   25   _REGRESS@20  (00001037)
+                 36   26   _UNIMOD@36  (0000112C)
+                 37   27   _VAPORP@48  (00001073)
+                 40   28   _VBMSCH@16  (0000101E)
+
+     Summary
+
+       19000 .data
+        1000 .idata
+        1000 .rdata
+        4000 .reloc
+       31000 .text

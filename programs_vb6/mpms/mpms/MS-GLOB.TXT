@@ -1,0 +1,14 @@
+ MS-GLOB .TXT                 < MEMBRANE SYSTEMS >                  04/23/1998
+
+                               GLOBAL PARAMETERS
+
+               [ 1] Element Diameter             (mm):     2.0000
+               [ 2] Element Length               (cm):    50.0000
+               [ 3] Feed Pressure              (bars):      .6900
+               [ 4] Cross Flow Velocity        (cm/s):   110.0000
+               [ 5] Recovery                      (%):    95.0000
+               [ 6] Operating Temperature        (øC):    20.0000
+               [ 7] Membrane Pore Dia.           (æm):   .682D-02
+               [ 8] Membrane Resistance        (1/cm):   .980D+09
+               [ 9] TOC Density            (gm/cu.cm):     1.2000
+               [10] Max. Volume Fraction          (#):      .5800

@@ -1,0 +1,31 @@
+From: "Chaitanya" <cbelwal@mtu.edu>
+To: "Dave Hokanson" <drhokans@mtu.edu>
+Cc: <tnrogers@mtu.edu>
+Subject: Request for some changes
+Date: Thu, 12 Jul 2001 09:55:13 -0400
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 4.72.3110.5
+X-MimeOLE: Produced By Microsoft MimeOLE V4.72.3110.3
+
+Hello Dave,
+
+There are a few more changes to be done in the DLL to load another binary
+paramater file ( Global Data ). I installed fortran powerstaion but it seems
+I have the old version ( version 4 1994-95) , I cant read ur project files
+(dsp / dsw ), hence I think it will be best if you can re compile it with
+your compiler.
+
+The changes required are in the binpar file. I have edited the orig binpar
+file ( from the updated DLL ) and am sending it across with this as file
+name binpar_modified.f90. The lines which I have modified / added,  have my
+comments as "modified by CB". All changes were done by Dr. Rogers and you
+can review it if all is ok.
+
+Thank you for your help.
+
+Regards,
+Chaitanya
+
+
+
+Attachment Converted: "H:\pc_mail\hokanson\attach\BINPAR_modified.F90"

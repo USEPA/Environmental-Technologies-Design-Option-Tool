@@ -1,0 +1,9 @@
+Line 20: Class SSFrame of control fraSeparationFactor was not a loaded control class.
+Line 94: Class SSFrame of control fraIonProperties was not a loaded control class.
+Line 137: Class SpinButton of control spnValence was not a loaded control class.
+Line 215: Class SSFrame of control fraNernstHaskell was not a loaded control class.
+Line 21: The property name Caption in fraSeparationFactor is invalid.
+Line 25: The property name ShadowColor in fraSeparationFactor is invalid.
+Line 95: The property name Caption in fraIonProperties is invalid.
+Line 99: The property name ShadowColor in fraIonProperties is invalid.
+Line 216: The property name Caption in fraNernstHaskell is invalid.

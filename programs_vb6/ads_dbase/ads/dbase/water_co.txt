@@ -1,0 +1,7 @@
+6
+"Organic Free Water",1,0,0,0
+"Rhine River, Germany, Anthropogenic Input",.35,-.0000000615,.65,-.0000893
+"Surface Water from the Keweenaw Waterway",.51,-.000000921,.49,-.000028
+"Groundwater from the city of Karlsruhe, Germany",.65,-.000000671,.35,-.0001
+"Groundwater from Wausau, Wisconsin",.83,-.000000912,.17,-.000265
+"Groundwater from Houghton, Michigan",.66,-.000000155,.34,-.000104

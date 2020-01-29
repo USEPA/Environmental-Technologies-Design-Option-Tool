@@ -1,0 +1,7 @@
+
+If this file is present, then the program will act like
+a Beta version with reduced functionality.
+
+Eric J. Oman
+8:31 PM 10/26/99
+

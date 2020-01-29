@@ -1,0 +1,104 @@
+Input data for the Plug-Flow Pore And Surface Diffusion Model
+
+From Data File :            x:\cpas10\code\ads\vb5_internal\forcode\verify\psdm12\manual_8i\psdm_vb5.dat
+
+Component                    K*      1/n      C0        MW      Vm        NBP
+                                      -      mg/L      g/mol    cm³/mol    C
+TRICHLOROETHYLENE           60.100  0.416    0.20     1.31E+02 1.02E+02 87.00
+
+* K in (mg/g)*(L/mg)^(1/n) - Vm = Molar Volume at NBP
+
+Bed Data:
+    Bed Length:            1.800E+00 m
+    Bed Diameter:          3.658E+00 m
+    Weight of GAC:         8.500E+03 kg
+    Inlet Flowrate:        3.156E-02 m³/s
+    EBCT:                  9.990E+00 mn
+
+    Temperature:           10.00 C
+    Water Density:         0.9998 g/cm³
+    Water Viscosity:       1.31E-02 g/cm.s
+
+Carbon Properties:
+    Name:                  Calgon F400 (12x40)
+    Apparent Density:      0.803 g/cm³
+    Particle Radius:       0.051300 cm
+    Porosity:              0.641
+    Shape Factor:          1.500
+
+Kinetic parameters:
+
+Component              kf     Ds       Dp       St       Eds      Edp     SPDFR
+                      cm/s     cm²/s    cm²/s    -        -        -       -
+TRICHLOROETHYLENE    3.61E-03     3.33E-41 6.42E-06  23.58  5.25E-31
+                                                                   0.52   1.00E-30
+
+Fouling correlations:
+
+ Water type : Groundwater from the city of Karlsruhe, Germany
+K(t)/K0 = 0.65 - 6.71E-07* t  + 0.35* EXP(-1.00E-04* t)
+(t in minutes)
+
+TRICHLOROETHYLENE:
+         Correlation type: Halogenated alkenes
+         K/K0 = (K/K0) 
+Correlation used when NOM fouling is important:
+ Tortuosity = 1.0 if t< 70 days
+ Tortuosity = 0.334 + 6.610E-06 * EBCT
+
+
+Results for the Plug-Flow Pore And Surface Diffusion Model
+
+TRICHLOROETHYLENE                                 
+                             Time(days)BVT       TC        C (mg/L)
+5% of the influent conc.     1.47E+02  2.11E+04  47.01     1.00E-02
+50% of the influent conc.    1.94E+02  2.79E+04  62.10     0.10
+95% of the influent conc.    2.46E+02  3.54E+04  78.87     0.19
+
+Treatment Objective: 1.00E-02 mg/L
+
+         Time (days):   1.47E+02
+         BVT:           2.11E+04
+         Tr. Capacity:  47.01
+
+TC (Treatment Capacity) is in m³  / kg of GAC
+
+PSDM Module Input Variables
+Note: * designates a variable calculated in Visual BASIC
+
+Number of radial collocation points, NC            = 8
+Number of axial collocation points, MC             = 10
+Total no. of differential equations, NEQ           = 89
+Radius of adsorbent particle, RAD (cm)             = 5.1300E-02
+Apparent particle density, RHOP (g/cm^3)           = 8.0300E-01
+Void fraction of carbon, EPOR (-)                  = 6.4100E-01
+Void fraction of bed, EBED (-)                     = 4.4043E-01
+*Surface loading, SF (gpm/ft^2)                    = 4.4221E+00
+Packed bed contact time, TAU (sec)                 = 2.6399E+02
+Empty bed contact time, EBCT (min)                 = 9.9900E+00
+*Reynolds number, RE (-)                           = 5.3580E+00
+*Fluid density, DW (g/cm^3)                        = 9.9975E-01
+*Fluid viscosity, VW (g/cm-s)                      = 1.3053E-02
+Error flag, NFLAG                                  = 0
+
+TRICHLOROETHYLENE                                 
+Molal volume at the boiling pt., VB (cm^3/gmol)    = 1.0200E+02
+Molecular weight of compound, XWT (g/gmol)         = 1.3139E+02
+Initial bulk liquid-phase conc., CBO (umol/L)      = 1.5222E+00
+Freundlich iso. cap., XK (umol/g)*(L/umol)^(1/n)   = 1.9662E+02
+Freundlich isotherm constant, XN (-)               = 4.1600E-01
+*Liquid diffusivity, DIFL (cm^2/sec)               = 6.4204E-06
+Film transfer coefficient, KF (cm/sec)             = 3.6060E-03
+Surface diffusion coefficient, DS (cm^2/s)         = 3.3315E-41
+Stanton number, ST (-)                             = 2.3577E+01
+Solute distribution parameter, DGS (-)             = 1.5695E+05
+Biot number, BIS (-)                               = 4.4949E+31
+Diffusivity modulus, EDS (-)                       = 5.2451E-31
+Pore solute dist. parameter, DGP (-)               = 8.1439E-01
+Pore diffusion coefficient, DP (cm^2/s)            = 6.4204E-06
+Pore Biot number, BIP (-)                          = 4.4949E+01
+Pore diffusion modulus, EDP (-)                    = 5.2451E-01
+Surface to pore diffusivity ratio, D (-)           = 5.1888E-36
+*Schmidt number, SC (-)                            = 2.0336E+03
+*SPDFR (-)                                         = 1.0000E-30
+

@@ -1,0 +1,9 @@
+
+
+If this file exists (c:\a_aaaaaa\internal.txt),
+then AdDesignS and DORT will populate certain
+otherwise hidden menu features.  These menu
+features are intended for internal MTU usage only.
+
+Eric J. Oman
+4/18/98

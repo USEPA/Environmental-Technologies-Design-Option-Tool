@@ -1,0 +1,120 @@
+
+Manual Printing Instructions
+Environmental Technologies Design Option Tool
+
+
+Table of Contents:
+
+1. Potential Print Formatting Problems
+2. Obtaining Printed Copies of the Manuals
+   from CenCITT
+3. AdDesignS Manual Printing Instructions
+4. ASAP Manual Printing Instructions
+5. StEPP Manual Printing Instructions
+6. Installing Microsoft Word 97 Viewer
+
+
+1. Potential Print Formatting Problems
+
+The manuals are available in Word 97 format. Please
+be aware that the authors have observed formatting 
+changes when printing these Word files on different 
+printers. It is not unexpected that a user printing 
+the Word files may not achieve a printed version of 
+the manual that agrees completely with the page 
+numbering shown in the Table of Contents.
+
+
+2. Obtaining Printed Copies of the Manuals
+   from CenCITT
+
+CenCITT will send licensed users of the software 
+a printed copy of the manuals for a fee. To request 
+information about obtaining a printed copy of 
+any or all manuals, please contact:
+
+   David W. Hand, Ph.D.
+   National Center for 
+      Clean Industrial and 
+      Treatment Technologies (CenCITT)
+   Michigan Technological University
+   1400 Townsend Drive
+   Houghton, Michigan 49931
+   Phone: (906) 487-2777
+   Email: dwhand@mtu.edu
+
+
+3. AdDesignS Manual Printing Instructions
+
+Note: Microsoft Word 97 or Microsoft Word 97 Viewer must 
+      be installed in order to print the Word version of 
+      the manual. If neither Word 97 nor Word 97 Viewer 
+      is installed on your system, Microsoft Word 97
+      Viewer must be installed as described in step 6 
+      below before continuing.
+
+Load the file "ads.doc" within the ..\etdot10\ads\help 
+folder (or whatever folder into which the ETDOT software
+was installed) into Word 97 (or Word 97 Viewer) and 
+choose "Print" from the "File" menu.
+
+
+4. ASAP Manual Printing Instructions
+
+Note: Microsoft Word 97 or Microsoft Word 97 Viewer must 
+      be installed in order to print the Word version of 
+      the manual. If neither Word 97 nor Word 97 Viewer 
+      is installed on your system, Microsoft Word 97
+      Viewer must be installed as described in step 6 
+      below before continuing.
+
+The ASAP manual consists of 26 files named asap_01.doc,
+asap_02.doc, asap_03.doc, ..., asap_25.doc, asap_26.doc
+(see "README.doc" within the ..\etdot10\asap\help folder
+for a complete listing of files and the page numbers 
+in the manual represented by each). To print the ASAP 
+manual in Word 97 format, it is necessary to print 
+all 26 files.
+
+Load the file "asap_01.doc" within the ..\etdot10\asap\help 
+folder (or whatever folder into which the ETDOT software
+was installed) into Word 97 (or Word 97 Viewer) and 
+choose "Print" from the "File" menu. Repeat the process 
+for "asap_02.doc", "asap_03.doc", ..., "asap_26.doc".
+
+
+5. StEPP Manual Printing Instructions
+
+Note: Microsoft Word 97 or Microsoft Word 97 Viewer must 
+      be installed in order to print the Word version of 
+      the manual. If neither Word 97 nor Word 97 Viewer 
+      is installed on your system, Microsoft Word 97
+      Viewer must be installed as described in step 6 
+      below before continuing.
+
+Load the file "stepp.doc" within the ..\etdot10\stepp\help 
+folder (or whatever folder into which the ETDOT software
+was installed) into Word 97 (or Word 97 Viewer) and 
+choose "Print" from the "File" menu.
+
+
+6. Installing Microsoft Word 97 Viewer
+
+The Microsoft Word 97 version of the manual files
+requires that either Microsoft Word 97 (or later
+version) or Microsoft Word 97 Viewer be installed
+in order to print properly.  If you do not have  
+Microsoft Word 97 installed on your PC, Microsoft
+Word 97 Viewer is provided on the install CD. This
+software will allow you to print the Word files that
+make up the manuals.
+   
+To install the Microsoft Word 97 Viewer, re-insert 
+the "ETDOT Programs" CD-ROM into your drive and run 
+"z:\wd97vwr32.exe" where "z:" is the letter 
+associated with your CD-ROM drive.  Follow the 
+instructions provided by the Microsoft Word 97 Viewer
+installation  software.  Sometimes, a reboot is 
+required to complete the install process; if the 
+software prompts you to reboot your computer, do so.
+

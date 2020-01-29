@@ -1,0 +1,39 @@
+DefInt A-Z
+
+Global Const SRCCOPY = &HCC0020
+Global winSysDir$
+Global winDir$
+Global gfWin31%
+		     
+Declare Function GetWindowsDirectory Lib "Kernel" (ByVal lpBuffer As String, ByVal nSize As Integer) As Integer
+Declare Function GetSystemDirectory Lib "Kernel" (ByVal lpBuffer As String, ByVal nSize As Integer) As Integer
+Declare Function BitBlt Lib "Gdi" (ByVal destHdc, ByVal X, ByVal Y, ByVal w, ByVal h, ByVal srcHdc, ByVal srcX, ByVal srcY, ByVal Rop As Long)
+Declare Function GetVersion Lib "Kernel" () As Long
+
+Declare Function DiskSpaceFree Lib "SETUPKIT.DLL" () As Long
+Declare Function AllocUnit Lib "SETUPKIT.DLL" () As Long
+Declare Function SetTime Lib "SETUPKIT.DLL" (ByVal A$, ByVal b$) As Integer
+
+Declare Function VerInstallFile& Lib "ver.dll" (ByVal Flags%, ByVal SrcFile$, ByVal DestFile$, ByVal SrcPath$, ByVal DestPath$, ByVal CurrDir$, ByVal TmpFile$, lpwTmpFileLen%)
+Declare Function GetFileVersionInfoSize Lib "ver.dll" (ByVal lpszFileName As String, lpdwHandle As Long) As Long
+Declare Function GetFileVersionInfo Lib "ver.dll" (ByVal lpszFileName As String, ByVal lpdwHandle As Long, ByVal cbbuf As Long, ByVal lpvdata As String) As Integer
+Declare Function VerQueryValue Lib "ver.dll" (ByVal lpvBlock As String, ByVal lpszSubBlock As String, lplpBuffer As Long, lpcb As Integer) As Integer
+Declare Function lstrcpyn Lib "Kernel" (ByVal lpszString1 As Any, ByVal lpszString2 As Long, ByVal cChars As Integer) As Long
+
+Declare Function WritePrivateProfileString% Lib "Kernel" (ByVal lpAppName$, ByVal lpKeyName$, ByVal lpString$, ByVal lpFileName$)
+Declare Function GetPrivateProfileString Lib "Kernel" (ByVal lpAppName$, ByVal lpKeyName$, ByVal lpDefault$, ByVal lpRetString$, ByVal nSize%, ByVal lpFileName$) As Integer
+
+Type OFStruct
+    cBytes As String * 1
+    fFixedDisk As String * 1
+    nErrCode As Integer
+    reserved As String * 4
+    szPathName As String * 128
+End Type
+
+Declare Function OpenFile Lib "Kernel" (ByVal lpFileName As String, lpReOpenBuff As OFStruct, ByVal wStyle As Integer) As Integer
+
+
+
+
+

@@ -1,0 +1,12 @@
+10 Routines MODIFIED
+
+ACCALL.F90
+Aqscall.f90
+Binpar.f90
+Fgrp.f90
+Hc1call.f90
+Kowcall.f90
+Molwt.f90
+Mwtcall.f90
+Vbbpcall.f90
+Vbmsch.f90

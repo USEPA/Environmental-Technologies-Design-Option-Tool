@@ -1,0 +1,14 @@
+
+If this file exists, the MainProgram module
+sets up the drive and path for internal debugging purposes
+using the ChDrive and ChDir commands.
+
+Users who install their software onto networked drives 
+may have difficulty running the models.  Installation and 
+usage on non-networked drives should fix the problem.
+
+Eric Oman
+9/2/98
+12:23 PM 11/9/98
+11:46 AM 9/22/99
+

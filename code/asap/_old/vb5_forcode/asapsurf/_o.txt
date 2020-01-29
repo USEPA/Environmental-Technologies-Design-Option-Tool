@@ -1,0 +1,263 @@
+!C***************************************************************
+!CC
+!CC                   DIFO2
+!CC           FIND DIFFUSIVITY OF OXYGEN
+!CC
+!CC Description:  This subroutine calculates the diffusivity of
+!CC               oxygen.  The correlation to be used gives
+!CC               diffusivity as a function of temperature.
+!CC               It comes from the following reference:
+!CC
+!CC                  Holmen, Kim and Peter Liss, "Models for air-
+!CC                     water gas transfer:  an experimental
+!CC                     investigation," Tellus 36B (1984).
+!CC
+!CC Output Variable:
+!CC    DIFLO2 =   Diffusivity of oxygen (m^2/sec)
+!CC
+!CC Input Variable:
+!CC    TEMP =     Temperature (K)
+!CC
+!CC Variables Internal to Subroutine DIFO2
+!CC    A,B =      Parameters for fit of data
+!CC
+!C***************************************************************
+
+      SUBROUTINE DIFO2(DIFLO2,TEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFO2
+!MS$ ATTRIBUTES ALIAS:'_DIFO2':: DIFO2
+!MS$ ATTRIBUTES REFERENCE::DIFLO2,TEMP
+
+      DOUBLE PRECISION DIFLO2,TEMP,A,B
+
+         A = 3.15D0
+         B = -831.0D0
+         DIFLO2 = (10.0D0**(A+B/TEMP))*1.0D-9     
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                           KLAO2SUR
+!CC   FIND OXYGEN MASS TRANSFER COEFFICIENT FOR SURFACE AERATION
+!CC
+!CC Description:  This subroutine calculates the oxygen mass
+!CC               transfer coefficient (KLAO2) for surface aeration.
+!CC               The correlation to be used gives KLAO2 as a
+!CC               function of Power/Volume.
+!CC               It comes from the following reference:
+!CC
+!CC                  Roberts, Paul V. and Paul Dandliker, "Mass
+!CC                     Transfer of Volatile Organic Contaminants
+!CC                     During Surface Aeration," E.S.&T.,17,8 (1983)
+!CC
+!CC Output Variable:
+!CC    KLAO2 =    Oxygen mass transfer coefficient (1/sec)
+!CC
+!CC Input Variable:
+!CC    POVERV =   Power Input / Unit Volume (W/m^3)
+!CC
+!C***************************************************************
+
+      SUBROUTINE KLAO2SUR(KLAO2,POVERV)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::KLAO2SUR
+!MS$ ATTRIBUTES ALIAS:'_KLAO2SUR':: KLAO2SUR
+!MS$ ATTRIBUTES REFERENCE::KLAO2,POVERV
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION KLAO2,POVERV
+   
+         KLAO2 = 2.9D-5 * POVERV**0.95D0
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                           KLASURF
+!CC               FIND KLA FOR SURFACE AERATION
+!CC
+!CC Description:  This subroutine finds KLa for a compound for
+!CC               surface aeration using two film theory and
+!CC               mass transfer correlations.
+!CC
+!CC Output Variables:
+!CC    KLA =      Compound mass transfer coefficient (1/sec)
+!CC    N =        Exponent used in correlation
+!CC    KGKL =     Ratio of gas-phase to liquid-phase mass transfer
+!CC               coefficent (assumed constant and equal to 40
+!CC               for surface aeration - Munz & Roberts, 1989)
+!CC
+!CC Input Variables:
+!CC    KLAO2 =    Oxygen mass transfer coeff. (1/sec)
+!CC    DIFL =     Diffusivity of liquid water (m^2/sec)
+!CC    DIFLO2 =   Diffusivity of oxygen (m^2/sec)
+!CC    HC =       Henry's constant (dimensionless)
+!CC
+!C***************************************************************
+
+      SUBROUTINE KLASURF(KLA,KLAO2,DIFL,DIFLO2,N,KGKL,HC)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::KLASURF
+!MS$ ATTRIBUTES ALIAS:'_KLASURF':: KLASURF
+!MS$ ATTRIBUTES REFERENCE::KLA,KLAO2,DIFL,DIFLO2,N,KGKL,HC
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      DOUBLE PRECISION KLA,KLAO2,DIFL,DIFLO2,N,KGKL,HC
+
+      N = 0.5D0
+      KGKL = 40.0D0
+      KLA = KLAO2*((DIFL/DIFLO2)**N)*(1.0D0/(1.0D0+(1.0D0/KGKL/HC)))        
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                      PCALCSUR
+!CC          POWER CALCULATION FOR SURFACE AERATION
+!CC
+!CC Description:  This subroutine will perform the power calculation
+!CC               for surface aeration.
+!CC
+!CC Output Variables:
+!CC    PTOT =     Total power required (kW)
+!CC    PTANK =    Power required for each tank (kW)
+!CC
+!CC Input Variables:
+!CC    POVERV =   Power Input / Unit Volume (W/m^3)
+!CC    VTOT =     Total fluid volume in all tanks (m^3)
+!CC    NTANK =    No. of Tanks
+!CC    EFFM =     Aerator motor efficiency (%)
+!CC
+!C***************************************************************
+
+      SUBROUTINE PCALCSUR(PTOT,PTANK,POVERV,VTOT,NTANK,EFFM)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PCALCSUR
+!MS$ ATTRIBUTES ALIAS:'_PCALCSUR':: PCALCSUR
+!MS$ ATTRIBUTES REFERENCE::PTOT,PTANK,POVERV,VTOT,NTANK,EFFM
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         INTEGER NTANK
+         DOUBLE PRECISION PTOT,PTANK,POVERV,VTOT,EFFM
+
+         PTOT = POVERV*VTOT/(EFFM/100.0D0)/1000.0D0
+         PTANK = PTOT/NTANK
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                      SEFFL
+!CC
+!CC Description:  This subroutine will determine the effluent
+!CC               concentrations from each tank for surface
+!CC               aeration.  It will also calculate the removal
+!CC               efficiency.
+!CC
+!CC Output Variables:
+!CC    CEXIT =    Array of effluent concentrations from each tank (ug/L)
+!CC    RECE =     Achieved removal efficiency (%)
+!CC
+!CC Input Variables:
+!CC    CI =       Influent concentration to tank 1 (ug/L)
+!CC    KLA =      Compound mass transfer coefficient (1/sec)
+!CC    TAUI =     Residence time of each tank (hrs)
+!CC    NTANK =    No. of tanks (in series)
+!CC
+!C***************************************************************
+
+      SUBROUTINE SEFFL(CEXIT,RECE,CI,KLA,TAUI,NTANK)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::SEFFL
+!MS$ ATTRIBUTES ALIAS:'_SEFFL':: SEFFL
+!MS$ ATTRIBUTES REFERENCE::CEXIT,RECE,CI,KLA,TAUI,NTANK
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DIMENSION CEXIT(20)
+         INTEGER NTANK
+         DOUBLE PRECISION CI,KLA,TAUI,CEXIT
+
+         DO 1900, I=1,NTANK
+            CEXIT(I) = CI/((1.0D0+KLA*TAUI*3600.0D0)**I)
+1900     CONTINUE
+         RECE = 100.0D0 * (CI-CEXIT(NTANK)) / CI
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                       SURFEFF
+!CC
+!CC Description:  This subroutine will calculate the removal
+!CC               efficiency desired for surface aeration.
+!CC
+!CC Output Variable:
+!CC    RMOVAL =   Desired removal efficiency for surface aeration (%)
+!CC
+!CC Input Variables:
+!CC    CI =       Influent concentration (ug/L)
+!CC    CE =       Treatment objective (ug/L)
+!CC
+!C***************************************************************
+
+      SUBROUTINE SURFEFF(RMOVAL,CI,CE)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::SURFEFF
+!MS$ ATTRIBUTES ALIAS:'_SURFEFF':: SURFEFF
+!MS$ ATTRIBUTES REFERENCE::RMOVAL,CI,CE
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION RMOVAL,CI,CE
+
+         RMOVAL = (CI-CE)*100.0D0/CI
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                         TAUISURF
+!CC    RESIDENCE TIMES OF 1 TANK FOR SURFACE AERATION
+!CC
+!CC Description:  This subroutine will calculate the hydraulic
+!CC               retention time for each individual tank   This is
+!CC               for the case of a design (new) facility.
+!CC
+!CC Output Variables:
+!CC    TAUI =     Hydraulic retention time of each tank (hrs)
+!CC
+!CC Input Variables:
+!CC    CI =       Influent concentration (ug/L)
+!CC    CE =       Treatment objective (ug/L)
+!CC    NTANK =    No. of tanks (in series)
+!CC    KLA =      Compound mass transfer coefficient (1/sec)
+!CC
+!CC Variable Internal to Subroutine TAUISURF
+!CC    TAUN =     Residence time of all tanks (hrs)
+!CC
+!C***************************************************************
+
+      SUBROUTINE TAUISURF(TAUI,CI,CE,NTANK,KLA)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::TAUISURF
+!MS$ ATTRIBUTES ALIAS:'_TAUISURF':: TAUISURF
+!MS$ ATTRIBUTES REFERENCE::TAUI,CI,CE,NTANK,KLA
+
+         IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+         INTEGER NTANK
+         DOUBLE PRECISION TAUN,TAUI,CI,CE,KLA
+
+            TAUN = (NTANK/KLA) * ((CI/CE)**(1.0D0/NTANK)-1.0D0)
+            TAUI = TAUN/NTANK
+            TAUI = TAUI/3600.0D0
+ 
+      END
+
+!C***************************************************************
+

@@ -1,0 +1,34 @@
+Microsoft (R) COFF Binary File Dumper Version 3.00.5270
+Copyright (C) Microsoft Corp 1992-1995. All rights reserved.
+
+
+Dump of file asapsurf.dll
+
+File Type: DLL
+
+         Section contains the following Exports for asapsurf.dll
+
+                   0 characteristics
+            362E3B4F time date stamp Wed Oct 21 15:51:43 1998
+                0.00 version
+                   1 ordinal base
+                   7 number of functions
+                   7 number of names
+
+            ordinal hint   name
+
+                  1    0   DIFO2  (00001000)
+                  2    1   KLAO2SUR  (00001005)
+                  3    2   KLASURF  (0000100F)
+                  4    3   PCALCSUR  (0000100A)
+                  5    4   SEFFL  (00001019)
+                  6    5   SURFEFF  (0000101E)
+                  7    6   TAUISURF  (00001014)
+
+     Summary
+
+        B000 .data
+        1000 .idata
+        1000 .rdata
+        3000 .reloc
+       25000 .text

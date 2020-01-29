@@ -1,0 +1,589 @@
+REM ***************************************************
+REM    CONSTRAINED QUASI-NEWTON OPTIMIZATION PROVIDED
+REM                       by
+REM                  QNEWT PROGRAM
+REM               w/ BOXMIN & MULTPEN
+REM                       by
+REM               Thomas R. Cuthbert, Jr.
+REM                      from
+REM        Optimization Using Personal Computers:
+REM       With Applications to Electrical Networks
+REM              (John Wiley  &  Sons, 1987)
+REM
+REM                MODIFIED BY John Raymond
+REM ***************************************************
+
+  OPTION BASE 1: REM - NO SUBSCRIPT O
+  DEFDBL A, C, F-G, X
+  DIM EpsMach AS DOUBLE, EpsMach1 AS DOUBLE
+  REM - QUASI-NEWTON OPTIMIZER - PROGRAM C5-1 'QNEWT'
+
+   DECLARE SUB FUNC () : DECLARE SUB GRAD () : DECLARE SUB UPDATE ()
+   DIM SHARED X(1 TO 20), G(1 TO 20)
+   COMMON SHARED F
+   COMMON SHARED L7
+
+   CLS : KEY OFF
+    PRINT
+    REM - USE OF MAJOR VARIABLES AS FOLLOWS -
+    REM         B()     VECTOR FOR RANK-1 UPDATE OF HESSIAN MATRIX
+    REM         D3      DELTA FNCN VALUE USED WITH LINQUAD & LINCUBIC
+    REM         D4      DIFFERENCE BETWEEN CURRENT AND TURNING-POINT SLOPES
+    REM         E()     SEARCH DIRECTION VECTOR
+    REM         F       OBJECTIVE FUNCTION VALUE USER COMPUTES IN SUB5000
+    REM         F5      OBJECTIVE FUNCTION VALUE USED INTERNALLY
+    REM         FNACS   INVERSE COSINE FUNCTION
+    REM         G()     GRADIENT OF F USER COMPUTES IN SUB7000
+    REM         G2      SLOPE AT CURRENT X POINT
+    REM         G3      SLOPE AT TURNING POINT
+    REM         G5()    GRADIENT OF F USED INTERNALLY
+    REM         H()     VECTOR STORAGE OF APPROXIMATE HESSIAN MATRIX.
+    REM         K2      COUNT OF NUMBER OF F EVALUATIONS
+    REM         L7      ITERATION COUNTER
+    REM         M3      NUMBER OF DATA SAMPLES READ IN FROM DATA STATEMENTS.
+    REM         N       NUMBER OF VARIABLES.
+    REM         Q       SCALAR COEFFICIENT IN RANK-1 UPDATE OF HESSIAN
+    REM         T       LINE SEARCH METRIC (VARIABLE)
+    REM         T()     WORKING VECTOR USED IN VARIOUS WAYS
+    REM         W()     WORKING VECTOR USED IN VARIOUS WAYS
+    REM         X()     VARIABLES VECTOR, DIM N.
+    DEFDBL B, D-E, H, Q-W, Y-Z: REM - NOTE THAT P IS SNGL PRECISION
+    DEFINT I-L, N
+    S6$ = " ######.########"
+    DEF FNACS (X) = 1.570796 - ATN(X / SQR(1 - X * X)): REM - ARC COS
+    M1 = 50: E1 = .0001: I7 = 1: V = .001#: REM - INIT PARAMS
+    REM - FOLLOWING DIMENSIONS ARE FOR N<=20.  THE HESSIAN VECTOR
+    REM     H() MUST BE DIMENSIONED N*(N+1)/2
+    DIM H(210), E(20), G5(20), W(20), T(20), B(20)
+    DIM L4(20), L5(20), P5(20, 2): REM CONSTRAINTS AND BOUND ARRAYS
+    DIM U(30), U9(30), S(30), C(30), a(20, 30): REM MAX OF 30 CONSTRAINTS
+   
+    REM *****  Determine Machine Epsilon for Numerical Differentiation *****
+    REM FORSYTHE (1977) P.14 EPSILON TEST
+
+    EpsMach = 1
+40  EpsMach = .5 * EpsMach
+    EpsMach1 = EpsMach + 1
+    IF EpsMach1 > 1 THEN GOTO 40
+    EpsMach1 = EpsMach ^ .3333333333333333#
+    
+    REM ********************************************************************
+    REM - HESSIAN H(.) STORED AS A VECTOR; SEE EQUATION (3.1.14)
+    GOSUB 2030: REM UNBOUND ALL POSSIBLE VARIABLES
+    GOTO 1150: REM - TO MENU & SELECTION
+    REM - RE-ENTRY FOR INVALID COMMAND NUMBERS & CONTINUING
+999 VIEW PRINT 1 TO 24: CLS : K2 = 0: REM - INIT FUNCTION EVALUATION COUNTER
+     PRINT : COLOR 15, 0: PRINT "                     COMMAND MENU                                            ": COLOR 9, 0
+     PRINT TAB(2); CHR$(201); : FOR CNT% = 1 TO 51: PRINT CHR$(205); : NEXT CNT%: PRINT CHR$(187): COLOR 9, 0
+     PRINT TAB(2); CHR$(186); : COLOR 15, 0: PRINT "  1.  ENTER STARTING VARIABLES (AT LEAST ONCE)     "; : COLOR 9, 0: PRINT CHR$(186);
+     PRINT TAB(2); CHR$(186); : COLOR 15, 0: PRINT "  2.  REVISE CONTROL PARAMETERS (OPTIONAL)         "; : COLOR 9, 0: PRINT CHR$(186);
+     PRINT TAB(2); CHR$(186); : COLOR 15, 0: PRINT "  3.  START BOUNDED OPTIMIZATION                   "; : COLOR 9, 0: PRINT CHR$(186);
+     PRINT TAB(2); CHR$(186); : COLOR 15, 0: PRINT "  4.  EXIT                                         "; : COLOR 9, 0: PRINT CHR$(186): COLOR 9, O:
+     PRINT TAB(2); CHR$(186); : COLOR 15, 0: PRINT "  5.  SEE &/OR RESET & RECORD BINDING VARIABLES    "; : COLOR 9, 0: PRINT CHR$(186): COLOR 9, 0
+     PRINT TAB(2); CHR$(186); : COLOR 15, 0: PRINT "  6.  START CONSTRAINED OPTIMIZATION               "; : COLOR 9, 0: PRINT CHR$(186); : COLOR 9, 0
+     PRINT TAB(2); CHR$(186); : COLOR 15, 0: PRINT "  7.  PERFORM ANOTHER ANALYSIS                     "; : COLOR 9, 0: PRINT CHR$(186): COLOR 9, 0
+     PRINT TAB(2); CHR$(200); : FOR CNT% = 1 TO 51: PRINT CHR$(205); : NEXT CNT%: PRINT CHR$(188): COLOR 9, 0
+     COLOR 15, 0
+     VIEW PRINT 14 TO 24
+     PRINT "INPUT COMMAND NUMBER:"; : INPUT S$
+     K = LEN(S$): IF K = 0 THEN GOTO 999: REM - AVOID <CR>
+     K = ASC(S$)
+     IF K < 48 OR K > 57 THEN GOTO 999: REM - 1ST CHAR MUST BE 0-9
+     K = VAL(S$)
+     IF K = 0 THEN K = 15: REM - ALTERNATIVE DISPLAY NUMBERS
+     IF K > 20 THEN GOTO 999: REM - CAN'T EXCEED MENU #'S
+     ON K GOSUB 1200, 1280, 1410, 1380, 2090, 4000
+1150 PRINT "PRESS <RETURN> KEY TO CONTINUE -- READY";
+     INPUT S4$
+     IF S4$ <> "" THEN BEEP: REM - <RETURN> BEFORE NEXT CMD NUMBER
+     GOTO 999
+     REM ************************************
+1200 REM - ENTER VARIABLES
+     PRINT "NUMBER OF VARIABLES = "; : INPUT n
+     PRINT "ENTER STARTING VARAIBLES X(I):"
+     FOR I = 1 TO n
+     PRINT "    X("; I; ")="; : INPUT X(I)
+     NEXT I
+     RETURN
+     REM ************************************
+1280 REM - REVISE CONTROL PARAMETERS
+     PRINT "MAXIMUM # OF ITERATIONS (DEFAULT=50):"; : INPUT S4$
+     M1 = 50: IF S4$ <> "" THEN M1 = VAL(S4$)
+     PRINT "STOPPING CRITERION (DEFAULT =1E-6:"; : INPUT S4$
+     E1 = .000001: IF S4$ <> "" THEN E1 = VAL(S4$)
+     PRINT "PRINT EVERY Ith ITERATION (DEFAULT=1):"; : INPUT S4$
+     I7 = 1: IF S4$ <> "" THEN I7 = VAL(S4$)
+     RETURN
+     REM *************************************
+     REM - NORMAL STOP
+1380 KEY ON: PRINT "END OF RUN":  END
+     REM *************************************
+1400 REM - MAIN OPTIMIZATION ALGORITHM - SEE CHAPTER FIVE
+1410 IF n > 0 THEN GOTO 1433
+     PRINT "----- INITIAL GUESS VALUES NOT SET; USE COMMAND #1 --"
+     RETURN
+1433 REM - INITIAL HESSIAN COULD BE MADE EXACT OR APPROXIMATE
+     GOSUB 3850: REM - RESET & RECORD BINDING VARIABLES
+     GOSUB 2860: REM - INITIALIZE HESSIAN IN H(.)
+     GOSUB 2980: REM - LDLT FACTORIZATION OF HESSIAN
+1460 REM - FIND & SAVE MIN POSITIVE DIAG ELEMENT IN H
+     I2 = n + 1: D2 = H(1)
+     FOR I = 2 TO n
+     IF H(I2) > D2 THEN GOTO 1510
+     D2 = H(I2): REM - THE MIN POSITIVE DIAGONAL ELEMENT
+1510 I2 = I2 + n + 1 - I
+     NEXT I
+     IF D2 > 0 THEN GOTO 1550
+     PRINT "STARTING HESSIAN NOT POSITIVE DEFINITE.": RETURN
+1550 GOSUB 5000: K2 = K2 + 1: F5 = F: REM - STARTING FUNCTION VALUE
+     D3 = .1 * ABS(F): REM - PREDICT 10% FNCN REDUCTION ON ITER #1
+     L7 = 0: REM - INITIALIZE ITERATION COUNTER
+     GOSUB 7000: REM - CALC GRADIENT VECTOR
+     IF L8 = 1 THEN GOSUB 4900: REM - CHECK USER'S GRADIENT BY DIFF'G
+     FOR I = 1 TO n: G5(I) = G(I): NEXT I
+     FOR I = 1 TO n: L5(I) = 0: NEXT I: REM - UNBIND ALL CONSTRAINTS
+1580 L7 = L7 + 1: REM - RE-ENTRY POINT FOR ITERATION LOOP
+     IF ((L7 - 1) MOD I7) = 0 THEN GOSUB 2770: REM - REPORT F, X AND G
+     REM - RELEASE NON-K-T CONSTRAINTS
+     FOR I = 1 TO n
+     IF L5(I) * G(I) > 0 THEN L5(I) = 0
+     NEXT I
+     FOR I = 1 TO n: REM - PROJECT GRADIENT INTO FIXED SPACE
+     G5(I) = G(I) * (1 - ABS(L5(I)))
+     E(I) = -G5(I): REM - RIGHTHAND SIDE OF NEWTON LINEAR EQUATIONS
+     NEXT I
+     GOSUB 3260: REM - SOLVE FOR SEARCH DIRECTION VECTOR
+     FOR I = 1 TO n: REM - PROJECT SEARCH DIRECTION INTO SUBSPACE
+     E(I) = E(I) * (1 - ABS(L5(I)))
+     NEXT I
+     GOSUB 2480: REM - PRINT STEP-TO-GRADIENT DEGREES
+     REM ******************************************
+     REM - BEGIN LINE SEARCH USING ONLY CUTBACKS
+     REM - CALC SLOPE AT TURNING POINT
+     G3 = 0
+     FOR I = 1 TO n
+     G3 = G3 + G5(I) * E(I)
+     T(I) = G5(I): REM - SAVE GRADIENT AT TURNING POINT
+     W(I) = X(I): REM - SAVE TURNING POINT
+     NEXT I
+     IF G3 < 0 THEN GOTO 1750
+     PRINT "POS SLOPE @ TURNING POINT STARTING ITER #"; L7: GOTO 2700
+1750 M3 = 0: T = 1: REM - INITIAL COUNTER & STEP METRIC
+     REM - RE-ENTRY IN LINE SEARCH USING ONLY CUTBACKS
+1770 FOR I = 1 TO n: X(I) = W(I) + T * E(I): NEXT I: REM - STEP
+     GOSUB 1880: REM - CHECK/SET ANY ADDITIONAL BOUNDS
+     GOSUB 5000: K2 = K2 + 1: F1 = F: REM - TRIAL FNCN
+     IF F1 >= F5 THEN GOTO 1810: REM - CUT BACK STEP SIZE
+     F5 = F1: GOTO 2610: REM - TEST FOR TERMINATION
+1810 M3 = M3 + 1: REM - INCREMENT CUTBACK COUNT
+     IF M3 < 15 THEN GOTO 1850
+     FOR I = 1 TO n: X(I) = W(I): NEXT I: REM - SET X AT TURNING POINT
+     PRINT "STEP SIZE TOO SMALL -TERMINATED": PRINT "SOLUTION HAS CONVERGED ON A LOCAL OR GLOBAL MINIMUM WITHIN GIVEN CONSTRAINTS.": GOTO 2710
+1850 T = T / 4
+     PRINT "     ########## CUT BACK STEP SIZE BY FACTOR OF 4 ###########"
+     GOTO 1770: REM - TRY REDUCED STEP
+     REM ************************************
+1880 REM  - CHECK FOR MORE BOUNDS AND RESET STEP SIZE T IF BINDING
+     FOR I = 1 TO n
+     IF E(I) = 0 THEN GOTO 1990: REM - TEST ONLY SUBSPACE BOUNDS
+     L5(I) = 0: REM - CANCEL BOUNDS, THEN RETEST THEM
+     REM - PROCESS LOWER BOUNDS
+     IF (W(I) + T * E(I)) > (P5(I, 1) + P2) THEN GOTO 1960
+     X(I) = P5(I, 1)
+     L5(I) = -1: REM - NOW AN ACTIVE CONSTRAINT
+     PRINT "             ACTIVATED k("; I; ") LOWER BOUND"
+     GOTO 1990: REM - NO NEED TO PROCESS UPPER BOUNDS
+1960 IF (W(I) + T * E(I)) < P5(I, 2) THEN GOTO 1990
+     X(I) = P5(I, 2)
+     L5(I) = 1: REM - NOW AN ACTIVE CONSTRAINT
+     PRINT "             ACTIVATED k("; I; ") UPPER BOUND"
+1990 NEXT I
+     RETURN
+     REM ************************************
+     REM - INIT FLAGS AND LOWER/UPPER BOUNDS
+2030 REM - CLEAR THE 'BINDING BOUND(S)' & SET DEFAULT LIMITS
+     FOR I = 1 TO 20: L4(I) = 0: L5(I) = 0
+     P5(I, 1) = .00001: P5(I, 2) = 1
+     NEXT I
+     RETURN
+     REM ************************************
+2090 REM - SEE OR RESET LOWER/UPPER BOUND ON VARIABLES
+     S4$ = "NONE.  ": PRINT "BOUNDS NOW SET ARE:"
+     PRINT " I          LOWER          UPPER"
+     FOR I = 1 TO 20
+     IF L4(I) = 0 THEN GOTO 2150
+     S4$ = "": PRINT I; "   "; : PRINT USING S6$; P5(I, 1); P5(I, 2)
+2150 NEXT I
+     PRINT S4$; "SET OR RESET ANY BOUNDS (Y/N)"; : INPUT S4$
+     IF S4$ <> "Y" THEN RETURN
+     REM - RE-ENTRY FOR MORE BOUND SETTING
+2190 PRINT "ENTER 0 TO RETURN TO MENU, ELSE ENTER VARIABLE # =";
+     INPUT I: IF I = 0 THEN RETURN
+     PRINT "PRESS <RETURN> IF NO BOUND DESIRED"
+     PRINT "  LOWER BOUND ="; : INPUT S4$
+REM *****  Setting Default Lower Bounds  ***** 
+     P5(I, 1) = -1000: IF S4$ <> "" THEN P5(I, 1) = VAL(S4$)
+     IF S4$ <> "" THEN L4(I) = 1
+     PRINT "  UPPER BOUND ="; : INPUT S4$
+REM *****  Setting Default Upper Bounds  ***** 
+     P5(I, 2) = 1000: IF S4$ <> "" THEN P5(I, 2) = VAL(S4$)
+     IF S4$ <> "" THEN L4(I) = 1
+     GOTO 2190
+     REM ************************************
+     REM - BEGIN TWO RANK-ONE UPDATES USING BFGS FORMULA
+2320 GOSUB 7000: REM - NEW GRADIENT
+     G6 = 0: REM - CALC CURRENT SLOPE
+     FOR I = 1 TO n: REM -LAST GRADIENT WAS SAVED IN T(I)
+     W(I) = T(I): G5(I) = G(I) * (1 - ABS(L5(I))): G6 = G6 + G5(I) * E(I)
+     NEXT I
+     D3 = F6 - F5: REM - NEW DIFFERENCE FOR INIT STEP CALC
+     D4 = G6 - G3: REM - CURRENT SLOPE MINUS OLD SLOPE
+     IF D4 < 0 THEN GOTO 1580: REM - START NEXT ITERATION
+     FOR I = 1 TO n: B(I) = G5(I) - W(I): NEXT I: REM - GRADIENT DIFF
+     Q = 1 / (T * D4): REM - SCALAR MULTIPLIER I FIRST RANK-1 UPDATE
+     GOSUB 3520: REM - PERFORM FIRST BFGS RANK-1 UPDATE
+     FOR I = 1 TO n: B(I) = W(I): NEXT I: REM - VECTOR FOR 2ND UPDATE
+     Q = 1 / G3: REM - SCALAR MULTIPLIER IN 2ND RANK-1 UPDATE
+     GOSUB 3520: REM - PERFORM SECOND BFGS RANK-1 UPDATE
+     GOTO 1580: REM - START NEXT ITERATION
+     REM *******************************************
+2480 REM - CALC STEP-TO-GRADIENT DEGREES
+     C2 = 0: C3 = 0: G1 = 0
+     FOR I = 1 TO n
+     C2 = C2 + G(I) * E(I): C3 = C3 + E(I) * E(I): G1 = G1 + G(I) * G(I)
+     NEXT I
+     IF C3 = 0 OR G3 = 0 THEN RETURN: REM - AVOID DIVISION BY ZERO
+     P1 = -C2 / SQR(C3 * G1):  IF P1 < 1 THEN GOTO 2550
+     P1 = 0: GOTO 2560: REM - AVOID /0 IN ACS
+2550 P1 = 57.29578 * FNACS(P1)
+2560 PRINT "          STEP-TO-GRADIENT DEGREES=";
+     PRINT USING " ##.####"; P1
+     RETURN
+     REM ********************************************
+     REM - TEST FOR TERMINATION
+2610 IF L7 < M1 THEN GOTO 2660: REM - NOT AT MAX ITERATIONS
+     PRINT "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+     PRINT "STOPPED  AT GIVEN LIMIT OF"; M1; "ITERATIONS;RESULTS ARE:"
+     L7 = L7 + 1: GOTO 2710
+     REM - TEST CONVERGENCE OF BOTH F AND EACH X(I)
+2660 IF ABS(F1 - F) / (1 + ABS(F1)) > E1 THEN GOTO 2320
+     FOR I = 1 TO n
+     IF ABS(T * E(I)) / (1 + ABS(X(I))) > E1 THEN GOTO 2320
+     NEXT I
+2700 L7 = L7 + 1: PRINT "CONVERGED ON LOCAL OR GLOBAL MINIMUM; SOLUTION IS:"
+2710 GOSUB 5000: F5 = F: REM -GET FUNCTION VALUE
+     GOSUB 7000: REM - GET GRADIENT
+     GOSUB 2780: REM REPORT F, X, & G AT STOPPING POINT
+     PRINT "TOTAL NUMBER OF FUNCTION EVALUTATIONS="; K2
+     RETURN
+     REM **********************************************
+2770 REM - PRINT FUNCTION, VARIABLES, AND GRADIENT
+2780 PRINT "AT START OF ITERATION NUMBER"; L7
+     P1 = F5: PRINT "   FUNCTION VALUE ="; P1
+     PRINT " I     X(I);  "; TAB(25); "G(I); "
+     FOR I = 1 TO n
+     PRINT I; : PRINT USING S6$; X(I); G(I)
+     NEXT I
+     RETURN
+     REM **********************************************
+2860 REM - STORE UNIT MATRIX IN H()
+     L = 0
+     FOR J = 1 TO n
+     FOR I = 1 TO n
+     IF I < J THEN GOTO 2940
+     L = L + 1
+     H(L) = 0
+     IF I = J THEN H(L) = 1
+2940 NEXT I
+     NEXT J
+     RETURN
+     REM *************************************************
+2980 REM - LDLT FACTORIZATION OF MATRIX IN SITU IN VECTOR H
+     K5 = 1
+     FOR I = 2 TO n
+     IF H(K5) > 0 THEN GOTO 3040
+     PRINT "                     HESSIAN MADE P.D."
+     H(K5) = .000001: REM - FORCE POSITIVE DEFINITENESS
+3040 Z2 = H(K5)
+     K5 = K5 + 1
+     I1 = K5
+     FOR J = 1 TO n
+     Z5 = H(K5)
+     H(K5) = H(K5) / Z2
+     J5 = K5
+     I5 = I1
+     FOR K = I TO J
+     J5 = J5 + n + 1 - K
+     H(J5) = H(J5) - H(I5) * Z5
+     I5 = I5 + 1
+     NEXT K
+     K5 = K5 + 1
+     NEXT J
+     NEXT I
+     IF H(K5) <= 0 THEN GOTO 3220
+     RETURN
+3220 PRINT "                       HESSIAN MADE P.D."
+     H(K5) = .000001: REM - FORCE POSITIVE DEFINITENESS
+     RETURN
+     REM *********************************************
+3260 REM - SOLUTION E=Inv(H)E FOR SEARCH STEP
+     FOR I = 2 TO n
+     I4 = I
+     V5 = E(I)
+     FOR J = 1 TO I - 1
+     V5 = V5 - H(I4) * E(J)
+     I4 = I4 + n - J
+     NEXT J
+     E(I) = V5
+     NEXT I
+     E(n) = E(n) / H(I4)
+     FOR K = 2 TO n
+     I = n + 1 - K
+     I1 = I4 - K
+     V5 = E(I) / H(I1)
+     I4 = I1
+     FOR J = I + 1 TO n
+     I1 = I1 + 1
+     V5 = V5 - H(I1) * E(J)
+     NEXT J
+     E(I) = V5
+     NEXT K
+     RETURN
+     REM **********************************
+     REM - RANK 1 UPDATE OF H WITH QBBT
+     REM - SOLN OF LV=Z FOR V BY FWD SUBSTITUTION
+3520 T(1) = B(1)
+     FOR I = 2 TO n
+     I4 = I
+     Z = B(I)
+     FOR J = 1 TO I - 1
+     Z = Z - H(I4) * T(J)
+     I4 = I4 + n - J
+     NEXT J
+     T(I) = Z
+     NEXT I
+     REM - UPDATE dii IN H DIAGONAL & FILL E()
+     I4 = 1
+     FOR I = 1 TO n
+     Z = H(I4) + Q * T(I) * T(I)
+     IF Z <= 0 THEN GOTO 3830: REM - dii NEGATIVE
+     H(I4) = Z
+     E(I) = T(I) * Q / Z
+     Q = Q - E(I) * E(I) * Z
+     I4 = I4 + n + 1 - I
+     NEXT I
+     REM - UPDATE L* = LLhat
+     I4 = 1
+     FOR I = 1 TO n - 1
+     I4 = I4 + 1
+     FOR J = I + 1 TO n
+     B(J) = B(J) - H(I4) * T(I)
+     H(I4) = H(I4) + E(I) * B(J)
+     I4 = I4 + 1
+     NEXT J
+     NEXT I
+     RETURN
+3830 PRINT "H("; I; ") IS NEGATIVE - ABORT": RETURN
+     REM *********************************************
+3850 REM - RESET & RECORD BINDING VARIABLES
+     FOR I = 1 TO n
+     REM - PROCESS LOWER BOUNDS
+     IF X(I) > P5(I, 1) THEN GOTO 3920
+     X(I) = P5(I, 1): L5(I) = -1
+     PRINT "SET X("; I; ")="; X(I); " (LOWER BOUND)"
+     GOTO 3950: REM - NO NEED TO PROCESS UPPER BOUNDS
+3920 IF X(I) < P5(I, 2) THEN GOTO 3950
+     X(I) = P5(I, 2): L5(I) = 1
+     PRINT "SET X("; I; ")="; X(I); " (UPPER BOUND)"
+3950 NEXT I
+     RETURN
+     REM - END OF QUASI-NEWTON OPTIMIZER WITH BOXMIN CONSTRAINTS
+4000 REM *******************************************
+     REM - START MULTIPLIER PENALTY FUNCTION METHOD
+     REM *******************************************
+     M = 0: REM - INIT TOTAL NUMBER OF CONSTRAINTS TO CHECK USER
+     C6 = 1E+20: K7 = 0: REM - CONSTR CONVERGENCE CONSTRAINTS
+     FOR I = 1 TO 30
+     U(I) = 0: REM - INIT CONSTRAINT RESIDUAL OFFSET
+     S(I) = 1: REM - FOR CALCS AT LINE 4092
+     FOR J = 1 TO n
+     a(J, I) = 0: REM - INIT CONSTRAINT JACOBIAN
+     NEXT J
+     NEXT I
+     GOSUB 4700: REM - SET INITAL CONSTR RESIDUAL WEIGHTS
+     L8 = 1: REM - INIT PENALTY LOOP COUNT
+     GOSUB 1400: REM - MIN F(X) FROM COLD START
+     REM - RE-ENTRY FOR OUTER PENALTY LOOP
+4120 PRINT "*****************************************"
+     BEEP
+     GOSUB 4800: REM - FIND MAX PNLTY MODULUS & ESTI LAGR MULTIPLIERS
+     PRINT "AFTER "; L8; " PENALTY MINIMIZATIONS,"
+     PRINT "   THE MAX CONSTRAINT MODULUS #"; K8; " ="; P8
+     PRINT "CONTINUE PENALTY MINIMIZATIONS (Y/N)"; : INPUT S4$
+     IF S4$ = "N" THEN RETURN
+     L8 = L8 + 1: REM - INCREMENT PENALTY LOOP COUNT
+     REM - POWELL'S PARAMETERS ADJUST SCHEME
+     C7 = C6: C6 = P8: IF C6 >= C7 THEN GOTO 4310
+     IF K7 = 1 THEN GOTO 4460
+4210 FOR I = 1 TO M: REM - ADJUST ALL OFFSETS
+     U9(I) = U(I): REM - SAVE OFFSETS
+     C8 = C(I)
+     IF I <= Kc THEN GOTO 4260: REM - EQUALITY CONSTR CASE
+     IF U(I) < C(I) THEN C8 = U(I): REM - CHOOSE MIN
+4260 U(I) = U(I) - C8: REM - NEW CONSTR RESIDUAL OFFFSET ESTIMATE
+     NEXT I
+     K7 = 1: REM - JUST REST ALL OFFSETS
+     GOSUB 1460: REM - MIN F(X) START'G WITH CURRENT HESSIAN
+     GOTO 4120: REM - CLOSE OUTER PENALTY LOOP
+4310 REM - DIVERGING CASE
+     C6 = C7: REM - USE PRIOR MAX C() NORM
+     IF K7 = 0 THEN GOTO 4350
+     FOR I = 1 TO M: U(I) = U9(I): NEXT I: REM -USE PRIOR OFFSETS
+4350 REM - SELECTIVELY INCREASE WEIGHTS ON CONSTR RESIDUALS
+     FOR I = 1 TO M
+     C9 = C(I)
+     IF I <= Kc THEN GOTO 4410: REM - EQUALITY CONSTR
+     IF C9 < 0 THEN GOTO 4410: REM - BINDING INEQUALITY CONSTRAINTS
+     GOTO 4430: REM - UNBINDING INEQUALITY CONSTRAINT
+4410 IF ABS(C9) < (C7 / 4) THEN GOTO 4430: REM - WEIGHT IS OK
+     S(I) = S(I) * 10: U(I) = U(I) / 10: REM - FORCE CONVERGENCE
+4430 NEXT I
+     REM - TEST FOR MIN CONVERGENCE RATE
+4460 IF C6 > (C7 / 4) THEN GOTO 4350: REM - FORCE GREATER CONVERGENCE RATE
+     GOTO 4210: REM - IS OK - ADJUST ALL OFFSETS
+4700 REM *********************************************
+     GOSUB 5000: REM - CALC F(X) WITH S(I)=1
+     REM - C8=SUM C(I)^2 FROM SUB5000
+     REM - F9=UNCONSTRAINED OBJECTIVE FUNCTION VALUE
+     REM - U(I)=0 NOW
+     REM - CHANGE WEIGHTS ON BINDING CONSTRAINTS - LEAVE REST =1
+     K9 = 0
+     FOR I = Kc + 1 TO M: REM - TEST FOR # BINDING INEQUALITIES
+     IF C(I) < 0 THEN K9 = K9 + 1
+     NEXT I
+     IF (Kc + K9) = 0 THEN RETURN: REM - NONE BINDING SO S()=1
+     C8 = 2 * ABS(F9) / (Kc + K9): REM - AVERAGE ALLOWED EACH C(I)^2 TERM
+     FOR I = 1 TO M
+     IF I <= Kc THEN GOTO 4785: REM - IS AN EQUALITY CONSTRAINT
+     IF C(I) > 0 THEN GOTO 4790: REM - UNBINDING INEQUALITY CONSTRAINT
+4785 S(I) = C8 / (C(I) * C(I) + .001#): IF S(I) > 1000 THEN S(I) = 1000
+4790 NEXT I
+     RETURN
+4800 REM *************************************************
+     REM - FIND MAX CONSTR RESID MAGNITUDE P8=ABS(C(K8))
+     P8 = 0: K8 = 0: REM - INIT
+     PRINT "ESTIMATED LAGRANGE MULTIPLIERS -"
+     FOR I = 1 TO M
+     C9 = C(I)
+     IF I <= Kc THEN GOTO 4870: REM - IS EQUALITY CONSTRAINT
+     IF C9 > 0 THEN C9 = 0
+4870 C9 = ABS(C9)
+     IF C9 <= P8 THEN GOTO 4887
+     P8 = C9: K8 = I: REM - NEW MAX MODULUS
+4887 PRINT "   CONSTRAINT #"; I; ":";
+     PRINT USING "#####.#####"; U(I) * S(I)
+     NEXT I
+     RETURN
+4900 REM **********************************************
+     REM - COMPARE USER'S GRADIENT WITH FINITE DIFFERENCES
+     PRINT "GRADIENT    VIA SUB9000     VIA FORWARD DIFF."
+     FOR J1 = 1 TO n
+     D5 = EpsMach
+     X(J1) = X(J1) + D5: GOSUB 5000: REM - PERTURBED FUNCTION
+     PRINT USING "       ######.########"; G(J1); (F - F5) / (D5)
+     X(J1) = X(J1) - D5: REM - RESTORE NOMINAL X(J1)
+     NEXT J1
+     F = F5: REM - RESTORE NOMINAL FNCN
+     PRINT "PRESS <RETURN> KEY TO CONTINUE -- READY"; : INPUT S4$
+     RETURN
+5000 REM ************************************************
+     REM - STND MULTIPLIER PENALTY FUNCTION
+     C8 = 0: REM - INIT SUM OF PENALTIES
+     GOSUB 8000: REM - CALC CONSTRAINTS C()
+     IF M > 0 THEN GOTO 5050
+     PRINT "WARNING!!!!!!!!!!  USER FAILED TO ASSIGN M & Kc VALUES IN SUB8000": BEEP
+5050 FOR I9 = 1 TO M
+     C9 = C(I9) - U(I9): REM - OFFSET CONSTRAINT RESIDUAL
+     IF I9 <= Kc THEN GOTO 5100: REM - IS EQUALITY CONSTRAINT
+     IF C9 < 0 THEN GOTO 5100: REM - PENALIZE
+     GOTO 5110
+5100 C8 = C8 + S(I9) * (C9 ^ 2): REM - ACCUMULATE PENALTIES
+5110 NEXT I9
+     CALL FUNC
+     F9 = F: REM - SAVE OBJECTIVE VALUE TO INIT S() IN SUB4700
+     F = F + C8 / 2
+     RETURN
+7000 REM **************************************************
+     REM - STND MULT PENALTY GRADIENT
+REM *****  USE Call Grad for Analytical Gradients, Gosub 7500 for
+REM *****  numerical central difference gradients
+     GOSUB 7500 'CALL GRAD
+     GOSUB 9000: REM -CALC CONSTRAINTS GRADIENTS
+     FOR J9 = 1 TO n: REM - VARIABLES LOOP
+     G9 = 0
+     FOR I9 = 1 TO M: REM - CONSTRAINTS LOOP
+     C9 = C(I9) - U(I9): REM - OFFSET CONSTRAINED RESIDUAL
+     IF I9 <= Kc THEN GOTO 7070: REM - IS EQUALITY CONSTR
+     IF C9 < 0 THEN GOTO 7070
+     GOTO 7080
+7070 G9 = G9 + S(I9) * C9 * a(J9, I9)
+7080 NEXT I9
+     G(J9) = G(J9) + G9
+     NEXT J9
+     RETURN
+8000 REM **************************************************
+     REM Kc=# OF EQUALITY CONSTRAINTS
+     REM M=# OF INEQUALITY CONSTRAINTS
+     Kc = 0: M = 1
+     REM *****  (i.e., C(1)=>  0 < f(of unknown variables)
+     C(1) = 1
+
+     RETURN
+9000 REM ***  GRADIENTS OF INEQUALITY CONSTRAINTS  ***
+      a(1, 1) = 0
+      a(2, 1) = 0
+    
+     RETURN
+7500 REM ***** FINITE DIFFERENCE GRADIENT *******
+     REM ****************************************
+     F9 = F: REM - SAVE NOMINAL FUNCTION VALUE
+     FOR II = 1 TO n: REM - CALC POS PERTURBATIONS
+REM *****
+     REM - Machine Epsilon
+     DX = EpsMach1
+     Xold = X(II)
+     X(II) = Xold - DX
+     CALL FUNC: Fa = F: REM - GET PERTURBED FUNCTION VALUE AT i-1
+     X(II) = Xold + DX
+     K2 = K2 + 1: REM - Increment Number Function Evaluations
+     CALL FUNC: Fb = F: REM - GET PERTURBED FUNCTION VALUE AT i+1
+     G(II) = (Fb - Fa) / (2 * DX): REM - Central ORDER DIFFERENCE
+     X(II) = Xold: REM -RESTORE X(II) VALUE
+     NEXT II
+     F = F9: REM - RESTORE NOMINAL FNCN VALUE
+     RETURN
+END
+
+DEFSNG A-E, G-L, N, Q-W, Y-Z
+SUB FUNC
+
+DIM r1 AS INTEGER, r2 AS INTEGER, r3 AS INTEGER, T AS INTEGER
+DIM g12 AS SINGLE, g13 AS SINGLE, g23 AS SINGLE
+
+REM ****** TEST FUNCTION (1)  *****
+'F = X(1) ^ 2 + X(2) ^ 4
+
+REM *****  ROSENBROCK EQUATION  *****
+F = 100 * (X(2) - X(1)) ^ 2 + (1 - X(1)) ^ 2
+
+END SUB
+
+DEFSNG F
+DEFDBL G
+SUB GRAD
+
+'G(1) = -200 * (X(2) - X(1)) - 2 * (1 - X(1))
+'G(2) = 200 * (X(2) - X(1))
+
+END SUB
+

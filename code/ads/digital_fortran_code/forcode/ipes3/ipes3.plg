@@ -1,0 +1,35 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ipes3 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP65F.tmp" with contents
+[
+/compile_only /include:".\Release/" /include:"Release/" /math_library:fast /nologo /module:".\Release/" /object:".\Release/" 
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\adliq.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\error.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\FRONT.FOR"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\hofman.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\speq.for"
+]
+Creating command line "link.exe kernel32.lib /nologo /subsystem:console /incremental:no /pdb:".\Release/ipes3.pdb" /machine:I386 /out:".\Release/ipes3.exe"  .\Release\speq.obj .\Release\hofman.obj .\Release\FRONT.OBJ .\Release\error.obj .\Release\adliq.obj "
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\adliq.for
+df: info: Some interprocedural optimizations may be disabled when compiling into separate object files
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\error.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\FRONT.FOR
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\hofman.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\ipes3\speq.for
+Linking...
+
+
+
+<h3>Results</h3>
+ipes3.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

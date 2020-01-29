@@ -1,0 +1,96 @@
+
+
+////////////////////////////////////////////////////////////////////////////////////
+
+New Values to be appended to the voc.for file:
+===================================================
+KP1_OUT  -  L/mg
+XVALS_OUT(1:7)  -  mg/L
+where the index is:
+'[Influent Weir] - 1
+'[Aerated Grit Chamber] - 2
+'[Primary Clarifer] - 3
+'[Primary Clarifer Weir] - 4
+'[Aeration Basin(s)] - 5
+'[Secondary Clarifier] - 6
+'[Secondary Clarifier Weir] - 7
+
+
+
+C
+C.....STORE THIS VALUE FOR OUTPUT.
+	KP1_OUT = KP1
+C.....END OF STORE THIS VALUE FOR OUTPUT.
+C
+
+
+
+
+'[Influent Weir] - X=X0
+'[Aerated Grit Chamber] - X=X0
+'[Primary Clarifer] -
+'[Primary Clarifer Weir] - 
+'[Aeration Basin(s)] - 
+'[Secondary Clarifier] - 
+'[Secondary Clarifier Weir] - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
+
+[Primary Clarifier] : [Removal Mechanisms] : [Sorption]
+-   PSM = 1  for  "Dobbs"
+-   PSM = 2  for  "Matter-Muller"
+
+////////////////////////////////////////////////////////////////////////////////////
+
+      IF (PSM.EQ.1) THEN
+LOGKP1=5.8D-1*(LOGKOW)+1.14D0
+KP1=10.D0**LOGKP1
+KP1=KP1/1000.D0
+      ENDIF
+
+Units of KP1 = L/gram
+
+////////////////////////////////////////////////////////////////////////////////////
+
+      IF (PSM.NE.1) THEN
+         LOGKP1=0.67D0*(LOGKOW)-2.61D0
+         KP1=10.D0**LOGKP1
+C........CONVERT KP1 FROM TSS BASIS TO VSS BASIS, ASSUMING
+C........THAT VSS/TSS = 0.8
+         KP1=KP1/0.8	   
+      ENDIF
+
+Units of KP1 = L/gram
+
+////////////////////////////////////////////////////////////////////////////////////
+
+   X0 = [Main Window] : [Influent Solids Conc.]
+
+[Influent Weir] - X=X0
+[Aerated Grit Chamber] - X=X0
+[Primary Clarifer] -
+  QE1 = 
+  QPC = 
+  E = ([Primary Clarifier] : [Percentage Removal])/100
+  X=(1.D0-E)*QPC*X0/QE1
+[Primary Clarifer Weir] - 
+[Aeration Basin(s)] - 
+[Secondary Clarifier] - 
+[Secondary Clarifier Weir] - 
+
+
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////

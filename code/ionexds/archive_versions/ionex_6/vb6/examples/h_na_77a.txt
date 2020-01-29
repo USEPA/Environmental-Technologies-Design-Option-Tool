@@ -1,0 +1,65 @@
+Ion Exchange Model - Input File
+Pressure
+Temperature
+Bed Length
+Bed Diameter
+Bed Weight
+Bed Flowrate
+Bed EBCT
+Number of Beds (in series)
+Resin Name
+Apparent Density
+Particle Radius
+Particle Porosity (-)
+Tortuosity (-)
+Total Resin Capacity
+Time Parameters - Total Run Time
+Time Parameters - InitialTime
+Time Parameters - Time Step
+Number of Axial Collocation Points
+Number of Radial Collocation Points
+Correlation for Ionic Transport Coeff.
+Component Properties - Properties of Cations
+Number of Cations
+Presaturant Cation
+Sum of Cation Time-Averaged Initial Influent Concs.
+Separation Factor Info.
+H+,1,1
+H+,1,2
+H+,1,3
+H+,1,4
+H+,1,5
+H+,1,6
+H+,1,7
+H+,1,8
+H+,1,9
+H+,1,10
+H+,1,11
+Cl-,1,1
+Na+,1,1
+Na+,1,2
+Na+,1,3
+Na+,1,4
+Na+,1,5
+Na+,1,6
+Na+,1,7
+Na+,1,8
+Na+,1,9
+Na+,1,10
+Na+,1,11
+Cl-,1,1
+Component Properties - Properties of Anions
+Presaturant Anion
+Number of Anions
+Sum of Anion Time-Averaged Initial Influent Concs.
+Separation Factor Info.,
+Molecular Weight Units
+Initial Conc. Units
+Liquid Diffusivity Correlation Units
+Liquid Diffusivity User Input Units
+Ionic Transport Coeff Correlation Units
+Ionic Transport Coeff User Input Units
+Pore Diffusivity Correlation Units
+Pore Diffusivity User Input Units
+Name of File for Cation Variable Influent
+Name of File for Anion Variable Influent

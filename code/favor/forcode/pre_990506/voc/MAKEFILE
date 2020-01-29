@@ -1,0 +1,12 @@
+FL = FL
+FFLAGS = /FPi87 /4Nt /4I4 /G2
+
+APPSRC = C:\FAVOR\voc_dev
+
+DEPENDANCIES = f16voc.exe
+
+all : $(DEPENDANCIES)
+
+f16voc.exe : voc.for blah.for
+	$(FL) $(FFLAGS) /Fef16voc.exe voc.for
+

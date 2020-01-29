@@ -1,0 +1,199 @@
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Tracking the Calculation code:
+=================================
+- frmmain . Calculate_button_Click
+  - modcalculate . Recalculate
+    - modDBAccess . Get801Data       <<<<<<<<<< INCREDIBLY IMPORTANT DATABASE LOADER ( TABLE = "DIPPR801" )
+    - modDBAccess . Get911Data       <<<<<<<<<< INCREDIBLY IMPORTANT DATABASE LOADER ( TABLE = "DIPPR911" )
+    - modDBAccess . GetMasterData
+    - modcalculate . Block5Calc
+    - modcalculate . PredCalc        <<<<<<<<<<<<<<<<<< MAJOR MAIN CALCULATION CODE (?)
+      - modmthcalcs . CalcMWUNIFAC
+      - modmthcalcs . CalcLDBhiruds
+      - modmthcalcs . CalcLDModRackett
+            (et cetera)
+    - modnewunits . update_DisplayData
+  - moddisplay . DisplayProps
+
+''''Global InfoMethod(NumProperties) As MethodInfoType
+
+
+
+- A major calculation module = modmthcalcs
+  - For example:
+    - CalcDwaterHaydukLaudie() subroutine is called from modcalculate.PredCalc()
+
+
+
+Tracking the Technique Sub-window code:
+==========================================
+- frmmain . PNLPropVal_Click
+  - modmethod . CreateMethodForm
+    - modmethod . LoadMethodFormInfo
+      - modmethod . ClearText
+      - modmethod . EnableFofT
+      - modmethod . LoadFTInfo
+        - modmethod . RefText    <<<<<<< ALL OF THE REFERENCE TEXTS
+      - modmethod . DisableFofT
+      - modmethod . LoadPropertyInputs
+        - modmethod . AddProperty
+
+
+- Note MethodInfoType structure located in modeclare.BAS
+
+
+
+
+Tracking the DIPPR911 values (an example):
+==============================================
+- Look in MASTER.MDB - DIPPR911
+- Look for "Cas #" = "108883" and "PEARLS Code" = 0 = MW   (molecular weight)
+  - Note that Value = 92.14052 and Units = "kg/kmol"
+- Look for "Cas #" = "108883" and "PEARLS Code" = 1 = LD25   (liquid density at 25 degC)
+  - Note that Value = 862.4 and Units = "kg/m3"
+- These two values correspond to those reported by
+  the software for Toluene.
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+FIGURING OUT THE frm911DBInfo WINDOW.
+================================================
+
+- For the DIPPR801 data:
+  - For temp-dependent properties:
+    - .DIPPR_REL = reliable = rs.fields(FieldPrefix & "REL")
+    - For now, set the .ReferenceText using the T-dependent equation reference
+  - For non-temp-dependent properties:
+    - .DIPPR_REF = ref = rs.fields(FieldPrefix & "REF")
+    - .DIPPR_R = rating = rs.fields(FieldPrefix & "R")
+  - The "ref" variable is used to search for [801refs].RefNum = $(ref);
+    if a record (rs) is found, the value rs.Reference is displayed in
+    frm911DBInfo.TXTCitations; if no record (rs) is found, an error is
+    displayed in frm911DBInfo.TXTCitations; note, in the new version,
+    this value will be stored into .ReferenceText
+  - The "rating" variable is displayed in frm911DBInfo.TXTRating
+  - The "reliable" variable is displayed in frm911DBInfo.TXT801Code
+
+- For the DIPPR911 data:
+  - For non-temp-dependent properties:
+    - .DIPPR_Value = rs.fields("Value")
+    - .DIPPR_Units = rs.fields("Units")
+    - To calculate .Value, convert .DIPPR_Value from .DIPPR_Units 
+      to (Prop).UnitBase
+    - .DIPPR_R = rs.fields("Rating")                    ' for non-temp-dependent properties only
+  - For temp-dependent properties:
+    - .FofT_EqForm = rs.fields("Equation")
+    - .FofT_Coeffs(1) = rs.fields("Coef1")
+    - .FofT_Coeffs(2) = rs.fields("Coef2")
+    - .FofT_Coeffs(3) = rs.fields("Coef3")
+    - .FofT_Coeffs(4) = rs.fields("Coef4")
+    - .FofT_Coeffs(5) = rs.fields("Coef5")
+    - .FofT_Units_F = rs.fields("Units")
+    - .FofT_Units_T = "K"       '???? Is this correct?
+    - .FofT_Minimum_T = rs.fields("Value")              ' in degrees K
+    - .FofT_Maximum_T = rs.fields("Temperature")        ' in degrees K
+    - When calculating a f(T) property value:
+      - Calculate the equation value
+      - Convert the value from .FofT_Units_F to (Prop).UnitBase, and then
+        store the value into .Value
+  - .DIPPR_Pressure = rs.fields("Pressure")
+  - .DIPPR_DescMethod = rs.fields("Desc/Method")
+  - .DIPPR_Comment = rs.fields("Comment")
+  - .DIPPR_ArticleNumber = rs.fields("Article #"); next, a search is
+    made for [CITATION].PrimaryKey = $(.DIPPR_ArticleNumber); if
+    a record (rs) is found, the record contents are assembled into
+    .ReferenceText (for a how-to, refer to the subroutine
+    LoadFRM911DBFromInfo() in the old code); if no record (rs) is 
+    found, an error is displayed in .ReferenceText
+
+
+- Design of new DIPPR801/911 window-pane to be created: 
+  - Outer frame that says "DIPPR801" or "DIPPR911"
+  - CAS
+  - ''''Name
+  - Rating Code (.DIPPR_R) (for non-T-dependent properties only)
+  - Reliability Code (.DIPPR_REL) (for T-dependent properties only)
+  - Description of Method (Project 801 Code Format) (.DIPPR_DescMethod)
+  - Pressure (.DIPPR_Pressure)
+  - Literature Citations (.ReferenceText)
+  - Database Comment (.DIPPR_Comment)
+  - A note must be present in red to indicate that Kline/Rogers need 
+    to elaborate on the window as to the meaning of the rating codes and 
+    reliability codes
+
+- Design of main technique list window-pane:
+  - For all DIPPR801/911 techniques:
+    - Set txtReference to "( Select "DIPPR801/911" on list for more details )"
+
+
+
+
+SOME NOTES ON REFERENCE TEXTS.
+================================================
+The routine modmethod . RefText() contains a large number of reference
+texts, some for f(T) equations, and some for individual techniques.  Most of
+this code should be easily transportable to the new version, with some
+minor changes.  Instead of using strings in the select-case command for techniques, 
+now the Long technique codes will be used instead.  (This allows the strings
+viewed by the user to be changed without massive recoding.)
+
+The routine modmethod . RefText() is called by the following routines:
+- frmmethod . GRDDataSources_Click
+- modmethod . LoadFTInfo
+- modmethod . LoadMethodFormInfo
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Fire and Explosion Calculations (BLOCK5):
+==============================================
+- modcalculate . Recalculate
+  - modcalculate . Block5Calc
+    - modblock5 . do_block5_calcs
+      - modblock5 . Initialize            'set up various arrays
+      - modblock5 . read_database         'import lots of values from the "block5" database
+        - modblock5 . set_quality_codes   'very short routine to transfer bl() data into QC()
+      - modblock5 . set_elements
+      - modblock5 . set_groups
+      - modblock5 . is_inorganic
+      - modblock5 . calc_upper
+      - modblock5 . calc_lower
+      - modblock5 . calc_flpt
+      - modblock5 . calc_AIT
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+

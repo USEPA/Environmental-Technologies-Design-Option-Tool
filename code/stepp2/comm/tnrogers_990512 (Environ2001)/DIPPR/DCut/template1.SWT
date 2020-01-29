@@ -1,0 +1,71 @@
+[Setup Wizard Template]
+TemplateDate=4/14/99 8:26:47 PM
+
+[Select Project and Options]
+txtProjFile=C:\DIPPR\DCut\Dcut.vbp
+chkProjRebuild=0
+optBldSetup=True
+chkIncludeDEP=0
+optInternet=False
+optDEPOnly=False
+
+[Distribution Method]
+optFloppyTarg=False
+optSingleDirTarg=True
+optMultDirTarg=False
+
+[Single Directory]
+cboFloppyDrives=0
+cboFloppyDriveSize=0
+txtDirTarget=C:\DIPPR\DCut\setup\
+
+[Internet Package]
+optRemoteSite=True
+optLocalSite=False
+txtLocalSite=
+
+[Data Access]
+chkUseJet=1
+chkUseODBC=0
+Isam0=
+
+[ActiveX Server Components]
+File1="C:\PROGRAM FILES\VB5\WIZARDS\AITOOL.DLL",True,32763,True,False,,,0,False,False
+File2=
+
+[Confirm Dependencies]
+File1="C:\WINDOWS\SYSTEM\COMDLG32.OCX",True,32764
+File2="C:\PROGRAM FILES\COMMON FILES\MICROSOFT SHARED\DAO\dao2535.tlb",True,32763
+File3="C:\WINDOWS\SYSTEM\TABCTL32.OCX",True,32764
+File4="C:\WINDOWS\SYSTEM\DBGRID32.OCX",True,32764
+File5="C:\WINDOWS\SYSTEM\COMCTL32.OCX",True,32764
+File6=
+
+[Shared ActiveX Application]
+optDeployApplication=True
+optDeployShared=False
+optRemoteServer1=True
+optRemoteServer0=False
+
+[File Summary]
+File1="C:\WINDOWS\SYSTEM\MSVBVM50.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File2="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\StdOle2.tlb",True,"$(WinSysPathSysFile)",$(TLBRegister),False
+File3="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\OleAut32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File4="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\OlePro32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File5="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\AsycFilt.dll",True,"$(WinSysPathSysFile)",,False
+File6="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\Ctl3d32.dll",True,"$(WinSysPathSysFile)",,False
+File7="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\ComCat.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File8="C:\WINDOWS\SYSTEM\COMDLG32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File9="C:\PROGRAM FILES\COMMON FILES\MICROSOFT SHARED\DAO\dao2535.tlb",True,"$(MSDAOPath)",$(TLBRegister),True
+File10="C:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.dll",True,"$(MSDAOPath)",$(DLLSelfRegister),True
+File11="C:\WINDOWS\SYSTEM\MSJtEr35.dll",True,"$(WinSysPathSysFile)",,False
+File12="C:\WINDOWS\SYSTEM\MSJInt35.dll",True,"$(WinSysPathSysFile)",,False
+File13="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\MSVCRT40.dll",True,"$(WinSysPathSysFile)",,False
+File14="C:\WINDOWS\SYSTEM\TABCTL32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File15="C:\WINDOWS\SYSTEM\DBGRID32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File16="C:\WINDOWS\SYSTEM\COMCTL32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File17="C:\PROGRAM FILES\VB5\WIZARDS\AITOOL.DLL",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File18="C:\DIPPR\DCut\Dcut.exe",True,"$(AppPath)",,False
+File19="C:\DIPPR\DCut\Dcut.DEP",True,"$(AppPath)",,False
+File20="C:\DIPPR\DCut\PDOXWORK.INI",False,"$(AppPath)",,False
+File21="C:\DIPPR\DCut\dcut.ini",True,"$(AppPath)",,False

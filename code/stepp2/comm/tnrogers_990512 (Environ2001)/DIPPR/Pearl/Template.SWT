@@ -1,0 +1,157 @@
+[Setup Wizard Template]
+TemplateDate=4/14/99 7:16:10 PM
+
+[Select Project and Options]
+txtProjFile=C:\DIPPR\Pearl\Pearls.vbp
+chkProjRebuild=0
+optBldSetup=True
+chkIncludeDEP=1
+optInternet=False
+optDEPOnly=False
+
+[Distribution Method]
+optFloppyTarg=False
+optSingleDirTarg=True
+optMultDirTarg=False
+
+[Single Directory]
+cboFloppyDrives=0
+cboFloppyDriveSize=0
+txtDirTarget=C:\DIPPR\Pearl\setup\
+
+[Internet Package]
+optRemoteSite=True
+optLocalSite=False
+txtLocalSite=
+
+[Data Access]
+chkUseJet=1
+chkUseODBC=0
+Isam0=Excel 5.0
+Isam1=Excel 4.0
+Isam2=Excel 3.0
+Isam3=Excel 8.0
+Isam4=Text
+Isam5=HTML Import
+Isam6=HTML Export
+Isam7=dBase III
+Isam8=dBase IV
+Isam9=dBase 5.0
+Isam10=FoxPro 2.0
+Isam11=FoxPro 2.5
+Isam12=FoxPro 2.6
+Isam13=FoxPro 3.0
+Isam14=FoxPro DBC
+Isam15=Paradox 3.X
+Isam16=Paradox 4.X
+Isam17=Paradox 5.X
+Isam18=Lotus WK1
+Isam19=Lotus WK3
+Isam20=Lotus WK4
+Isam21=Jet 2.x
+Isam22=
+Excel 5.0=False
+Excel 4.0=False
+Excel 3.0=False
+Excel 8.0=False
+Text=False
+HTML Import=False
+HTML Export=False
+dBase III=False
+dBase IV=False
+dBase 5.0=False
+FoxPro 2.0=False
+FoxPro 2.5=False
+FoxPro 2.6=False
+FoxPro 3.0=False
+FoxPro DBC=False
+Paradox 3.X=False
+Paradox 4.X=True
+Paradox 5.X=True
+Lotus WK1=False
+Lotus WK3=False
+Lotus WK4=False
+Jet 2.x=True
+
+[ActiveX Server Components]
+File1=
+
+[Confirm Dependencies]
+File1="C:\WINDOWS\SYSTEM\VSOCX6.OCX",True,32764
+File2="C:\PROGRAM FILES\COMMON FILES\MICROSOFT SHARED\DAO\dao2535.tlb",True,32763
+File3="C:\WINDOWS\SYSTEM\CRYSTL32.OCX",True,32764
+File4="C:\WINDOWS\SYSTEM\DBLIST32.OCX",True,32764
+File5="C:\WINDOWS\SYSTEM\MSCHART.OCX",True,32764
+File6="C:\WINDOWS\SYSTEM\MSFLXGRD.OCX",True,32764
+File7="C:\WINDOWS\SYSTEM\COMDLG32.OCX",True,32764
+File8="C:\WINDOWS\SYSTEM\COMCTL32.OCX",True,32764
+File9="C:\WINDOWS\SYSTEM\Mosdap32.dll",True,32762
+File10=
+
+[Shared ActiveX Application]
+optDeployApplication=True
+optDeployShared=False
+optRemoteServer1=True
+optRemoteServer0=False
+
+[File Summary]
+-File1="C:\WINDOWS\SYSTEM\MSVBVM50.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+-File2="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\StdOle2.tlb",True,"$(WinSysPathSysFile)",$(TLBRegister),False
+-File3="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\OleAut32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+-File4="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\OlePro32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+-File5="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\AsycFilt.dll",True,"$(WinSysPathSysFile)",,False
+-File6="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\Ctl3d32.dll",True,"$(WinSysPathSysFile)",,False
+-File7="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\ComCat.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File8="C:\WINDOWS\SYSTEM\VSOCX6.OCX",True,"$(WinSysPath)",,True
+File9="C:\PROGRAM FILES\COMMON FILES\MICROSOFT SHARED\DAO\dao2535.tlb",True,"$(MSDAOPath)",$(TLBRegister),True
+File10="C:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.dll",True,"$(MSDAOPath)",$(DLLSelfRegister),True
+File11="C:\WINDOWS\SYSTEM\MSJtEr35.dll",True,"$(WinSysPathSysFile)",,False
+File12="C:\WINDOWS\SYSTEM\MSJInt35.dll",True,"$(WinSysPathSysFile)",,False
+File13="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\MSVCRT40.dll",True,"$(WinSysPathSysFile)",,False
+File14="C:\WINDOWS\SYSTEM\CRYSTL32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File15="C:\WINDOWS\SYSTEM\CRPE32.DLL",True,"$(WinSysPath)",,True
+File16="C:\WINDOWS\SYSTEM\IMPLODE.DLL",True,"$(WinSysPath)",,True
+File17="C:\WINDOWS\SYSTEM\PG32.DLL",True,"$(WinSysPath)",,True
+File18="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\CO2C40EN.DLL",True,"$(WinSysPath)",,True
+File19="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\MSVCRT20.DLL",True,"$(WinSysPathSysFile)",,False
+File20="C:\WINDOWS\Crystal\CRXLAT32.DLL",True,"$(WinPath)\Crystal",,True
+File21="C:\WINDOWS\SYSTEM\P2BBND.DLL",True,"$(WinSysPath)",,True
+File22="C:\WINDOWS\SYSTEM\P2BDAO.DLL",True,"$(WinSysPath)",,True
+File23="C:\WINDOWS\SYSTEM\P2CTDAO.DLL",True,"$(WinSysPath)",,True
+File24="C:\WINDOWS\SYSTEM\P2IRDAO.DLL",True,"$(WinSysPath)",,True
+File25="C:\WINDOWS\SYSTEM\P2SODBC.DLL",True,"$(WinSysPath)",,True
+File26="C:\WINDOWS\Crystal\U2DDISK.DLL",True,"$(WinPath)\Crystal",,True
+File27="C:\WINDOWS\Crystal\U2DMAPI.DLL",True,"$(WinPath)\Crystal",,True
+File28="C:\WINDOWS\Crystal\U2FCR.DLL",True,"$(WinPath)\Crystal",,True
+File29="C:\WINDOWS\Crystal\U2FDIF.DLL",True,"$(WinPath)\Crystal",,True
+File30="C:\WINDOWS\Crystal\U2FHTML.DLL",True,"$(WinPath)\Crystal",,True
+File31="C:\WINDOWS\Crystal\U2FREC.DLL",True,"$(WinPath)\Crystal",,True
+File32="C:\WINDOWS\Crystal\U2FRTF.DLL",True,"$(WinPath)\Crystal",,True
+File33="C:\WINDOWS\Crystal\U2FSEPV.DLL",True,"$(WinPath)\Crystal",,True
+File34="C:\WINDOWS\Crystal\U2FTEXT.DLL",True,"$(WinPath)\Crystal",,True
+File35="C:\WINDOWS\Crystal\U2FWKS.DLL",True,"$(WinPath)\Crystal",,True
+File36="C:\WINDOWS\Crystal\U2FWORDW.DLL",True,"$(WinPath)\Crystal",,True
+File37="C:\WINDOWS\Crystal\U2FXLS.DLL",True,"$(WinPath)\Crystal",,True
+File38="C:\WINDOWS\SYSTEM\DBLIST32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File39="C:\WINDOWS\SYSTEM\MSCHART.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File40="C:\WINDOWS\SYSTEM\MSFLXGRD.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File41="C:\WINDOWS\SYSTEM\COMDLG32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File42="C:\WINDOWS\SYSTEM\COMCTL32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File43="C:\WINDOWS\SYSTEM\Mosdap32.dll",True,"$(WinSysPath)",,True
+File44="C:\WINDOWS\SYSTEM\MSJet35.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File45="C:\WINDOWS\SYSTEM\VBAJet32.dll",True,"$(WinSysPathSysFile)",,False
+File46="C:\WINDOWS\SYSTEM\VB5DB.dll",True,"$(WinSysPath)",,True
+File47="C:\WINDOWS\SYSTEM\MSRD2x35.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File48="C:\WINDOWS\SYSTEM\MsRepl35.dll",True,"$(WinSysPathSysFile)",,False
+File49="C:\WINDOWS\SYSTEM\ODBCJt32.dll",True,"$(WinSysPathSysFile)",,False
+File50="C:\WINDOWS\SYSTEM\ODBCJI32.dll",True,"$(WinSysPathSysFile)",,False
+File51="C:\WINDOWS\SYSTEM\ODBCTL32.dll",True,"$(WinSysPathSysFile)",,False
+File52="C:\WINDOWS\SYSTEM\MSPDOX35.DLL",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File53="C:\DIPPR\Pearl\PEARLS.HLP",True,"$(AppPath)",,False
+File54="C:\DIPPR\Pearl\Pearls.exe",True,"$(AppPath)",,False
+File55="C:\DIPPR\Pearl\Pearls.DEP",True,"$(AppPath)",,False
+File56="C:\DIPPR\Pearl\pearls.def",True,"$(AppPath)",,False
+File57="C:\DIPPR\Pearl\chemone.rpt",True,"$(AppPath)",,False
+File58="C:\DIPPR\Pearl\chem.rpt",True,"$(AppPath)",,False
+File59="C:\DIPPR\Pearl\PEARLS.ICO",True,"$(AppPath)",,False
+File60="C:\DIPPR\Pearl\prop.rpt",True,"$(AppPath)",,False

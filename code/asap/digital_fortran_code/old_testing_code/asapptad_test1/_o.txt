@@ -1,0 +1,1722 @@
+!C**************************************************************
+!C
+!C                     AIRDENS
+!C
+!C Description:  This subroutine will estimate the air
+!C               density using an equation developed assuming
+!C               air is an ideal gas.
+!C
+!C Output Variable:
+!C    DG =       Air Density (kg/m^3)
+!C
+!C Input Variables:
+!C    TEMP =     Temperature in Deg K
+!C    PRES =     Operating pressure (atm)
+!C
+!C Variables Internal to Subroutine AIRDENS:
+!C    MWAVG =    Average molecular weight of air
+!C    R =        Universal Gas Constant
+!C
+!C History:  Subroutine written by David R. Hokanson (9/30/93)
+!C
+!C**************************************************************
+
+      SUBROUTINE AIRDENS(DG,TEMP,PRES)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AIRDENS
+!MS$ ATTRIBUTES ALIAS:'_AIRDENS':: AIRDENS
+!MS$ ATTRIBUTES REFERENCE::DG,TEMP,PRES
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DG,TEMP,R,MWAVG,PRES 
+      
+         MWAVG = 28.95D0
+         R = 0.08205D0
+         DG = ((MWAVG)*(PRES))/((R)*(TEMP))
+
+      END
+
+!C**************************************************************
+
+!C***************************************************************
+!CC
+!CC                            AIRFLO
+!CC         CALCULATION OF THE AIR FLOW RATE TO EACH TANK
+!CC
+!CC Description:  This subroutine will calculate the air flow
+!CC               rate (to each tank for bubble aeration and to
+!CC               the tower for packed tower aeration), given
+!CC               air to water ratio and water flow rate
+!CC
+!CC Output Variable:
+!CC    QA =       Air flow rate (m^3/sec)
+!CC
+!CC Input Variable:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC    QW =       Water flow rate (m^3/sec)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE AIRFLO(QA,VQ,QW)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AIRFLO
+!MS$ ATTRIBUTES ALIAS:'_AIRFLO@12':: AIRFLO
+!MS$ ATTRIBUTES REFERENCE::QA,VQ,QW
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION QA,VQ,QW
+
+         QA = VQ*QW
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                       AIRVISC
+!CC
+!CC Description:   This subroutine will calculate the air viscosity
+!CC                given temperature.
+!CC
+!CC Output Variable:
+!CC    VG =         Viscosity of air (kg/m/sec)
+!CC
+!CC Input Variable:
+!CC    TEMP =       Operating temperature (K)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE AIRVISC(VG,TEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AIRVISC
+!MS$ ATTRIBUTES ALIAS:'_AIRVISC':: AIRVISC
+!MS$ ATTRIBUTES REFERENCE::VG,TEMP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION VG,TEMP
+
+         VG = (1.7D-7)*(TEMP**0.818)
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                       AREAPT2
+!CC
+!CC Description:  This subroutine will calculate tower area,
+!CC               given tower diameter.
+!CC
+!CC Output Variables:
+!CC    AREA =     Tower area (m^2)
+!CC
+!CC Input Variables:
+!CC    DT =       Tower diameter (m)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE AREAPT2(AREA,DT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AREAPT2
+!MS$ ATTRIBUTES ALIAS:'_AREAPT2':: AREAPT2
+!MS$ ATTRIBUTES REFERENCE::AREA,DT
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION AREA,DT
+
+         AREA = 3.1415926D0 * DT * DT / 4.0D0
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                            AWCALC
+!CC    CALCULATION OF THE WETTED SURFACE AREA OF THE PACKING
+!CC
+!CC Description:  This subroutine will calculate the wetted
+!CC               surface area of the packing (AW) in m2/m3.
+!CC               The equation to be used is:
+!CC
+!CC                  AW = AT*(1-exp(-1.45*((STC/ST)^.75)*(RE^.1)*
+!CC                                 (FR^(-0.5))*(WE^0.2)))
+!CC
+!CC               where:
+!CC                  AT = Total surface area of packing
+!CC                  STC = Critical packing surface tension
+!CC                  ST = Surface tension of water
+!CC                  RE = ML/(AT*VL)
+!CC                  FR = (AT*ML^2)/(DL*DL*9.81)
+!CC                  WE = ML^2/(DL*AT*ST)
+!CC
+!CC Output Variables:
+!CC    RE =       Reynold's number (dimensionless)
+!CC    FR =       Froude number (dimensionless)
+!CC    WE =       Weber number (dimensionless)
+!CC    AW =       Wetted surface area of packing (m2/m3)
+!CC
+!CC Input Variables:
+!CC    ML =       Liquid mass loading rate (kg/m^2/sec)
+!CC    AT =       Specific surface area of the packing (m^2/m^3)
+!CC    VL =       Liquid viscosity (kg/m/sec)
+!CC    DL =       Liquid density (kg/m^3)
+!CC    ST =       Surface tension of water (kg/sec^2)
+!CC    STC =      Critical surface tension of the packing (N/m)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE AWCALC (AW,STC,ST,ML,AT,VL,DL,RE,FR,WE)   
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AWCALC
+!MS$ ATTRIBUTES ALIAS:'_AWCALC@40':: AWCALC
+!MS$ ATTRIBUTES REFERENCE::AW,STC,ST,ML,AT,VL,DL,RE,FR,WE
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION STC,ST,ML,AT,VL,DL,AW,RE,FR,WE          
+
+         RE = ML/(AT*VL)
+         FR = (AT*(ML**2))/(DL*DL*9.81D0)   
+         WE = (ML**2)/(DL*AT*ST)                                
+         AW = AT*(1.0D0-EXP(-1.45D0*((STC/ST)**0.75)*(RE**0.1)*(FR**(-0.05))*(WE**0.2)))             
+      END                                                    
+                                                            
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                            DIFFL
+!CC         CALCULATION OF THE LIQUID DIFFUSIVITY, DIFL
+!CC
+!CC Description:  This subroutine will determine a value for
+!CC               liquid diffusivity, DIFL.  If a value is
+!CC               available, it will simply be entered.
+!CC               Otherwise, DIFL will be calculated by the
+!CC               program.
+!CC
+!CC Variables:
+!CC    MW =       Molecular weight of the compound
+!CC    VB =       Molal volume of the compound (m3/kg-mol)
+!CC    DIFL =     Liquid Diffusivity (m2/sec)
+!CC
+!CC
+!CC History:
+!CC    6/7/93 - changed the REAL data types to DOUBLE PRECISION to give
+!CC    8 bytes of precision. (See history note in STEP2.FOR, same date).
+!CC       -ry
+!CC
+!CC    9/30/93 - Modified by DAVID R. HOKANSON to do the diffusivity
+!CC              calculations in separate FORTRAN subroutines called
+!CC              DIFLPOL.FOR and DIFLHL.FOR
+!CC
+!CC***************************************************************
+
+      SUBROUTINE DIFFL (DIFL,VL, MW, VB)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFFL
+!MS$ ATTRIBUTES ALIAS:'_DIFFL':: DIFFL
+!MS$ ATTRIBUTES REFERENCE::DIFL,VL,MW,VB
+
+         DOUBLE PRECISION DIFL, MW, VL, VB
+
+            IF (MW.GE.1000) THEN
+               CALL DIFLPOL(DIFL,MW)   
+            ELSE
+               CALL DIFLHL(DIFL,VL,VB)
+            END IF
+
+      END
+     
+!C***************************************************************
+
+!C**************************************************************
+!CC
+!CC                   DIFGWL
+!CC
+!CC Description:  This subroutine will calculate the gas diffusivity
+!CC               using the Wilke-Lee modification of the Hirschfelder-
+!CC               Bird-Spotz method.
+!CC
+!CC Output Variable:
+!CC    DIFG =     Gas Diffusivity (m^2/sec)
+!CC
+!CC Input Variables:
+!CC    MW =       Molecular weight of compound
+!CC    VB =       Molar volume of compound (m^3/kmol)
+!CC    TEMPB =    Boiling point temperature of compound (K)
+!CC    TEMP =     Operating temperature (K)
+!CC    PRES =     Operating pressure (atm)
+!CC
+!CC Variables internal to Subroutine DIFGWL:
+!CC    MA =       Molecular weight of air
+!CC    MB =       Molecular weight of compound
+!CC    RA =       Molecular radius of air
+!CC    RB =       Molecular radius of compound
+!CC    RAB =      Molecular separation at collision (nm)
+!CC    EKB =      Eb/k
+!CC    EKA =      Ea/k
+!CC    EKEAB =    Energy of molecular attraction / Boltzmann's constant
+!CC    TKEAB =    kT/Eab
+!CC    EE =       Temporary value = log(TKEAB)
+!CC    YVAL =     f(kT/Eab) = Collision function
+!CC    PT =       Absolute pressure (N/m^2)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C**************************************************************
+
+      SUBROUTINE DIFGWL(DIFG,MW,VB,TEMPB,TEMP,PRES)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFGWL
+!MS$ ATTRIBUTES ALIAS:'_DIFGWL':: DIFGWL
+!MS$ ATTRIBUTES REFERENCE::DIFG,MW,VB,TEMPB,TEMP,PRES
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DIFG,MW,VB,TEMPB,TEMP,PRES,MB,MA,RB,RA,RAB,EKB,EKA,EKEAB,TKEAB,EE,YVAL,SQM,PT 
+     
+         MB = MW
+         MA = 28.95D0                                            
+         RB = 1.18D0*((VB)**0.33333)                          
+         RA = 0.3711D0                                       
+         RAB = (RA+RB)/2.0D0                                  
+         EKB = 1.21D0*TEMPB
+         EKA = 78.6D0                                           
+         EKEAB = (EKB*EKA)**0.5                                
+         TKEAB = TEMP/EKEAB
+         EE = LOG(TKEAB)/2.303D0
+         YVAL = 10**(-0.14329D0 - 0.48343D0*(EE) + 0.1939D0*(EE)**2+ 0.13612D0*(EE)**3 - 0.20578D0*(EE)**4 + 0.083899D0*(EE)**5 - 0.011491D0*(EE)**6)
+         SQM = (1/MA+1/MB)**0.5 
+         PT = 101325.0D0*PRES  
+         DIFG = (0.0001D0*(1.084D0-(0.249D0*SQM))*(TEMP**1.5)*SQM)/(PT*RAB*YVAL*RAB)
+
+      END
+
+!C**************************************************************
+
+!C*************************************************************
+!CC
+!CC                    DIFLHL
+!CC
+!CC Description:  This subroutine will calculate liquid diffusivity
+!CC               for compounds with molecular weight < 1000 and molar
+!CC               volumes between 0.015 and 0.5 m^3/kmol.  It uses
+!CC               the Hayduk and Laudie correlation.
+!CC
+!CC Output Variable:
+!CC    DIFL =     Liquid diffusivity (m^2/sec) of compound
+!CC
+!CC Input Variables:
+!CC    VL =       Liquid viscosity (kg/m/sec)
+!CC    VB =       Molar volume of compound (m^3/kmol)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C*************************************************************
+
+      SUBROUTINE DIFLHL(DIFL,VL,VB)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFLHL
+!MS$ ATTRIBUTES ALIAS:'_DIFLHL@12':: DIFLHL
+!MS$ ATTRIBUTES REFERENCE::DIFL,VL,VB
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DIFL,VL,VB
+
+         DIFL = (1.326D-4)/(((VL*1000.0D0)**1.14)*((VB*1000.0D0)**0.589))/(100.0D0**2)            
+
+      END
+
+!C*************************************************************
+
+!C*************************************************************
+!CC
+!CC                    DIFLPOL
+!CC
+!CC Description:  This subroutine will calculate liquid diffusivity
+!CC               for compounds with molecular weight > 1000.  It
+!CC               uses the method of Polson, 1950.
+!CC
+!CC Output Variable:
+!CC    DIFL =     Liquid diffusivity (m^2/sec)
+!CC
+!CC Input Variable:
+!CC    MW =       Molecular weight of compound
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C*************************************************************
+
+      SUBROUTINE DIFLPOL(DIFL,MW)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFLPOL
+!MS$ ATTRIBUTES ALIAS:'_DIFLPOL@8':: DIFLPOL
+!MS$ ATTRIBUTES REFERENCE::DIFL,MW
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DIFL,MW
+
+         DIFL = (2.74D-5)*(MW**(-1.0D0/3.0D0))            
+
+      END
+
+!C*************************************************************
+
+!C***************************************************************
+!CC
+!CC                       EFFLPT2
+!CC
+!CC Description:  This subroutine will calculate the effluent
+!CC               concentration for a given compound specified
+!CC               earlier.
+!CC
+!CC Output Variables:
+!CC    CE =       Effluent concentration (ug/L)
+!CC
+!CC Input Variables:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC    HC =       Henry's constant (dimensionless)
+!CC    QW =       Water flow rate (m^3/sec)
+!CC    AREA =     Tower area (m^2)
+!CC    HLL =      Tower length (m)
+!CC    KLA =      Overall mass transfer coefficient (1/sec)
+!CC    CI =       Influent concentration (ug/L)
+!CC
+!CC Variables Internal to Subroutine EFFLPT2
+!CC    RR =       Stripping Factor
+!CC    QWA =      Volumetric water loading rate (m^3/m^2/sec)
+!CC    BB =       Variable used to simplify calculation
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE EFFLPT2(CE,VQ,HC,QW,AREA,HLL,KLA,CI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::EFFLPT2
+!MS$ ATTRIBUTES ALIAS:'_EFFLPT2@32':: EFFLPT2
+!MS$ ATTRIBUTES REFERENCE::CE,VQ,HC,QW,AREA,HLL,KLA,CI
+      
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION CE,VQ,HC,QW,AREA,HLL,KLA,CI,RR,QWA,BB
+
+         RR = VQ*HC
+         QWA = QW/AREA
+         BB = (HLL*KLA*(RR-1))/(QWA*RR)   
+         CE = (CI*(RR-1))/(RR*(EXP(BB))-1)
+
+      END
+
+!C***************************************************************
+
+      SUBROUTINE FINDKLA(KLASAF,KLAOND,KL,KG,AW,STC,ST,ML,AT,DL,VL,DIFL,DP,GM,VG,DG,DIFG,HENRYC,SAFFAC,RE,FR,WE,RL,RG,RT)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::FINDKLA
+!MS$ ATTRIBUTES ALIAS:'_FINDKLA@100':: FINDKLA
+!MS$ ATTRIBUTES REFERENCE::KLASAF,KLAOND,KL,KG,AW,STC,ST,ML,AT,DL,VL,DIFL,DP,GM,VG,DG,DIFG,HENRYC,SAFFAC,RE,FR,WE,RL,RG,RT
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         PARAMETER (MAXCOM=10)
+
+         DOUBLE PRECISION HENRYC,DL,DG,VG,VL,ST,DP,STC,AT,GM,ML,AW,RE,FR,WE,DIFL,KL,DIFG,KG,KLAOND,RL,RG,RT,SAFFAC,KLASAF
+
+      
+!CC**** CALCULATE KLA FOR COMPOUND I **********************
+
+        CALL AWCALC(AW,STC,ST,ML,AT,VL,DL,RE,FR,WE)
+        CALL ONDAKLPT(KL,ML,AW,VL,DL,DIFL,AT,DP)
+        CALL ONDAKGPT(KG,GM,AT,VG,DG,DIFG,DP)
+        CALL ONDKLAPT(KLAOND,RL,RG,RT,KL,AW,KG,HENRYC)
+        CALL KLACOR(KLASAF,KLAOND,SAFFAC)
+
+      END
+!C***************************************************************
+!CC
+!CC                  GETCSPT
+!CC
+!CC Description:  This subroutine will calculate the concentration
+!CC               at the air-water interface
+!CC
+!CC Output Variable:
+!CC    CS =       Conc. at air-water interface (ug/L)
+!CC
+!CC Input Variables:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC    HC =       Henry's constant (dimensionless)
+!CC    CI =       Influent concentration (ug/L)
+!CC    CE =       Treatment objective (ug/L)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE GETCSPT(CS,VQ,HC,CI,CE)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETCSPT
+!MS$ ATTRIBUTES ALIAS:'_GETCSPT@20':: GETCSPT
+!MS$ ATTRIBUTES REFERENCE::CS,VQ,HC,CI,CE
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION CS,VQ,HC,CI,CE
+
+         CS = (1.0D0/(VQ*HC)) * (CI-CE)
+
+      END
+
+!C***************************************************************
+
+      SUBROUTINE GETHIVQ(TAG,VQMIN,HENRYC,CINFL,CTOBJ,NUMCOM)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETHIVQ
+!MS$ ATTRIBUTES ALIAS:'_GETHIVQ@24':: GETHIVQ
+!MS$ ATTRIBUTES REFERENCE::TAG,VQMIN,HENRYC,CINFL,CTOBJ,NUMCOM
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         PARAMETER (MAXCOM=10)
+         DIMENSION CINFL(MAXCOM),CTOBJ(MAXCOM),HENRYC(MAXCOM),VQMIN(MAXCOM)
+         DOUBLE PRECISION CINFL,CTOBJ,HENRYC,VQMIN
+         INTEGER*2 NUMCOM,TAG
+
+         TAG = 1
+
+         DO 10, I = 1,NUMCOM
+            CALL PT1VQMIN(VQMIN(I),CINFL(I),CTOBJ(I),HENRYC(I))
+            IF (VQMIN(TAG).LT.VQMIN(I)) THEN
+               TAG = I
+            END IF
+ 10      CONTINUE
+
+      END
+!C***************************************************************
+!CC
+!CC                  GETHTUPT
+!CC
+!CC Description:  This subroutine will calculate the height of
+!CC               a transfer unit for a packed tower design.
+!CC
+!CC Output Variable:
+!CC    HTU =      Height of a transfer unit (m)
+!CC
+!CC Input Variables:
+!CC    QW =       Water flow rate (m^3/sec)
+!CC    AREA =     Tower area (m^2)
+!CC    KLA =      Overall mass transfer coefficient (1/sec)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE GETHTUPT(HTU,QW,AREA,KLA)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETHTUPT
+!MS$ ATTRIBUTES ALIAS:'_GETHTUPT@16':: GETHTUPT
+!MS$ ATTRIBUTES REFERENCE::HTU,QW,AREA,KLA
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION HTU,QW,AREA,KLA
+
+         HTU = QW/(AREA*KLA)
+
+      END
+
+!C***************************************************************
+
+!C****************************************************************
+!CC
+!CC                        GETMULT.F
+!CC
+!CC Description:  This subroutine will calculate the multiple that
+!CC               will result in VQ when it is multiplied by VQMIN.
+!CC
+!CC Output Variable:
+!CC    XMPL =     Multiple of VQMIN to get VQ
+!CC
+!CC Input Variables:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC    VQMIN =    Minimum air to water ratio (dimensionless)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C****************************************************************
+
+      SUBROUTINE GETMULT(XMPL,VQ,VQMIN)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETMULT
+!MS$ ATTRIBUTES ALIAS:'_GETMULT@12':: GETMULT
+!MS$ ATTRIBUTES REFERENCE::XMPL,VQ,VQMIN
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION XMPL,VQ,VQMIN
+
+         XMPL = VQ/VQMIN
+
+      END
+
+!C****************************************************************
+
+!C***************************************************************
+!CC
+!CC                  GETNTUPT
+!CC
+!CC Description:  This subroutine will determine the number of
+!CC               transfer units for a packed tower design.
+!CC
+!CC Output Variable:
+!CC    NTU =      Number of transfer units
+!CC
+!CC Input Variables:
+!CC    CS =       Conc. at the air-water interface (ug/L)
+!CC    CI =       Influent concentration (ug/L)
+!CC    CE =       Effluent concentration (ug/L)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE GETNTUPT(NTU,CI,CE,CS)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETNTUPT
+!MS$ ATTRIBUTES ALIAS:'_GETNTUPT@16':: GETNTUPT
+!MS$ ATTRIBUTES REFERENCE::NTU,CI,CE,CS
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION NTU,CI,CE,CS
+
+         NTU = ((CI-CE)/(CI-CS-CE))*LOG((CI-CS)/CE)       
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                            GETSAF
+!CC               FINDING THE KLa SAFETY FACTOR
+!CC
+!CC Description:  This subroutine will calculate the KLa safety
+!CC               factor, given the Onda mass transfer coefficient
+!CC               and the design mass transfer coefficient.
+!CC
+!CC Output Variable:
+!CC    SAFFAC =   Safety factor on KLa (dimensionless)
+!CC
+!CC Input Variable:
+!CC    KLAOND =   KLA calculated with the Onda correlation (1/sec)
+!CC    KLASAF =   Design overall mass transfer coeffient (1/sec)
+!CC
+!CC
+!CC History:  Subroutine written by David R. Hokanson (1/3/94)
+!CC
+!C***************************************************************
+
+      SUBROUTINE GETSAF(SAFFAC,KLAOND,KLASAF)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETSAF
+!MS$ ATTRIBUTES ALIAS:'_GETSAF':: GETSAF
+!MS$ ATTRIBUTES REFERENCE::SAFFAC,KLAOND,KLASAF
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION KLASAF,KLAOND,SAFFAC 
+
+         SAFFAC = KLASAF / KLAOND 
+
+      END
+
+!C***************************************************************
+
+!C**************************************************************
+!CC
+!CC                     H20DENS
+!CC
+!CC Description:  This subroutine will estimate the liquid
+!CC               density using a routine from Reid, Prausnitz,
+!CC               and Poling (1987).
+!CC
+!CC Output Variable:
+!CC    DL =       Liquid Density (kg/m^3)
+!CC
+!CC Input Variables:
+!CC    TEMP =     Temperature in Deg K
+!CC
+!CC Variables Internal to Subroutine H2ODENS:
+!CC     A1,A2,A3,A4,A5 = Constants used in polynomial fit
+!CC     XAVG,FAVG,XN,FN = Variables used to calculate DL
+!CC     FX = Liquid Density of Water (g/cm^3)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C**************************************************************
+
+      SUBROUTINE H2ODENS(DL,TEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::H2ODENS
+!MS$ ATTRIBUTES ALIAS:'_H2ODENS':: H2ODENS
+!MS$ ATTRIBUTES REFERENCE::DL,TEMP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION A1,A2,A3,A4,A5,XAVG,FAVG,XN,TEMP,FN,FX,DL
+      
+         A1 = -1.4176800403D+00
+         A2 =  8.9766515240D+00
+         A3 = -1.2275501969D+01
+         A4 =  7.4584410413D+00
+         A5 = -1.7384916050D+00
+         XAVG = 324.65D+00    
+         FAVG = 0.98396D+00  
+         XN = TEMP/XAVG       
+         FN = A1 + A2*(XN) + A3*(XN)**2 + A4*(XN)**3 + A5*(XN)**4 
+
+         FX = FN*FAVG                                            
+
+         DL = FX * 1000.0D0
+
+      END
+
+!C**************************************************************
+
+!C*****************************************************************
+!CC
+!CC                          H2OST
+!CC
+!CC Description:  This subroutine will calculate the surface tension
+!CC               of water, given temperature
+!CC
+!CC Output Variable:
+!CC    ST =       Surface tension of water (kg/sec^2)
+!CC
+!CC Input Variable:
+!CC    TEMP =     Operating temperature (K)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C*****************************************************************
+
+      SUBROUTINE H2OST(ST,TEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::H2OST
+!MS$ ATTRIBUTES ALIAS:'_H2OST':: H2OST
+!MS$ ATTRIBUTES REFERENCE::ST,TEMP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION ST,TEMP
+
+         ST = (7.558301D-2) - (1.3143D-4)*(TEMP-273) - (4.7616D-7)*((TEMP-273)**2)
+
+      END
+
+!C*****************************************************************
+                      
+!C*****************************************************************
+!CC
+!CC                      H2OVISC
+!CC
+!CC Description:  This subroutine will calculate the viscosity of
+!CC               liquid water using a routine from Reid, Prausnitz,
+!CC               and Poling (1987).
+!CC
+!CC Output Variable:
+!CC    VL =       Viscosity of liquid water (kg/m/sec)
+!CC
+!CC Input Variables:
+!CC    TEMP =     Operating Temperature (K)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C*****************************************************************
+
+      SUBROUTINE H2OVISC(VL,TEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::H2OVISC
+!MS$ ATTRIBUTES ALIAS:'_H2OVISC':: H2OVISC
+!MS$ ATTRIBUTES REFERENCE::VL,TEMP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION VL,TEMP
+
+         VL = EXP(-24.71D0 + (4209.0D0 / TEMP) + (.04527D0 * TEMP) - (3.376D-5) * (TEMP**2))
+         VL = VL/1000.0D0
+
+      END
+
+!C*****************************************************************
+
+!C***************************************************************
+!CC
+!CC                            KLACOR
+!CC     FINDING THE DESIGN OVERALL MASS TRANSFER COEFFICIENT
+!CC
+!CC Description:  This subroutine will calculate the design overall
+!CC               mass transfer coefficient by adjusting the KLa
+!CC               calculated by the Onda correlation with a safety
+!CC               factor.
+!CC
+!CC Output Variable:
+!CC    KLASAF =   Design overall mass transfer coeffient (1/sec)
+!CC
+!CC Input Variable:
+!CC    KLAOND =   KLA calculated with the Onda correlation (1/sec)
+!CC    SAFFAC =   Safety factor on KLa (dimensionless)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE KLACOR(KLASAF,KLAOND,SAFFAC)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::KLACOR
+!MS$ ATTRIBUTES ALIAS:'_KLACOR@12':: KLACOR
+!MS$ ATTRIBUTES REFERENCE::KLASAF,KLAOND,SAFFAC
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION KLASAF,KLAOND,SAFFAC 
+
+         KLASAF = KLAOND * SAFFAC 
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                       LDAIRPT2
+!CC
+!CC Description:  This subroutine will calculate air mass loading
+!CC               rate.
+!CC
+!CC Output Variables:
+!CC    GM =       Air mass loading rate (kg/m^2/sec)
+!CC
+!CC Input Variables:
+!CC    QA =       Air flow rate (m^3/sec)
+!CC    DG =       Air density (kg/m^3)
+!CC    AREA =     Tower area (m^2)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE LDAIRPT2(GM,QA,DG,AREA)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::LDAIRPT2
+!MS$ ATTRIBUTES ALIAS:'_LDAIRPT2':: LDAIRPT2
+!MS$ ATTRIBUTES REFERENCE::GM,QA,DG,AREA
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION GM,QA,DG,AREA
+
+      GM = QA*DG/AREA
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                       LDH2OPT2
+!CC
+!CC Description:  This subroutine will calculate water mass loading
+!CC               rate.
+!CC
+!CC Output Variables:
+!CC    ML =       Liquid (water) mass loading rate (kg/m^2/sec)
+!CC
+!CC Input Variables:
+!CC    QW =       Water flow rate (m^3/sec)
+!CC    DL =       Water density (kg/m^3)
+!CC    AREA =     Tower area (m^2)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE LDH2OPT2(ML,QW,DL,AREA)             
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::LDH2OPT2
+!MS$ ATTRIBUTES ALIAS:'_LDH2OPT2':: LDH2OPT2
+!MS$ ATTRIBUTES REFERENCE::ML,QW,DL,AREA
+    
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION ML,QW,DL,AREA
+
+         ML = QW*DL/AREA
+
+      END
+
+!C***************************************************************
+
+!C****************************************************************
+!CC
+!CC                    ONDAKGPT
+!CC
+!CC Description:  This subroutine will calculate gas phase
+!CC               mass transfer coefficient, KG, using the
+!CC               Onda correlation.
+!CC
+!CC Output Variable:
+!CC    KG =       Gas phase mass transfer coefficient (m/sec)
+!CC
+!CC Input Variables:
+!CC    GM =       Gas mass loading rate (kg/m^2/sec)
+!CC    AT =       Specific surface area of the packing (m^2/m^3)
+!CC    VG =       Air viscosity (kg/m/sec)
+!CC    DG =       Gas density (kg/m^3)
+!CC    DIFG =     Gas diffusivity (m^2/sec)
+!CC    DP =       Nominal diameter of the packing (m)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C****************************************************************
+
+      SUBROUTINE ONDAKGPT(KG,GM,AT,VG,DG,DIFG,DP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ONDAKGPT
+!MS$ ATTRIBUTES ALIAS:'_ONDAKGPT@28':: ONDAKGPT
+!MS$ ATTRIBUTES REFERENCE::KG,GM,AT,VG,DG,DIFG,DP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION KG,GM,AT,VG,DG,DIFG,DP
+
+         KG = 5.23D0 * ((GM/(AT*VG))**0.7) * ((VG/(DG*DIFG))**(0.3333333D0)) * ((AT*DP)**(-2)) * AT * DIFG        
+ 
+      END
+
+!C****************************************************************
+
+!C****************************************************************
+!CC
+!CC                    ONDAKLPT
+!CC
+!CC Description:  This subroutine will calculate liquid phase
+!CC               mass transfer coefficient, KL, using the
+!CC               Onda correlation.
+!CC
+!CC Output Variable:
+!CC    KL =       Liquid phase mass transfer coefficient (m/sec)
+!CC
+!CC Input Variables:
+!CC    ML =       Liquid mass loading rate (kg/m^2/sec)
+!CC    AW =       Wetted surface area of the packing (m^2/m^3)
+!CC    VL =       Liquid viscosity (kg/m/sec)
+!CC    DL =       Liquid density (kg/m^3)
+!CC    DIFL =     Liquid diffusivity (m^2/sec)
+!CC    AT =       Specific surface area of the packing (m^2/m^3)
+!CC    DP =       Nominal diameter of the packing (m)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C****************************************************************
+
+      SUBROUTINE ONDAKLPT(KL,ML,AW,VL,DL,DIFL,AT,DP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ONDAKLPT
+!MS$ ATTRIBUTES ALIAS:'_ONDAKLPT@32':: ONDAKLPT
+!MS$ ATTRIBUTES REFERENCE::KL,ML,AW,VL,DL,DIFL,AT,DP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION KL,ML,AW,VL,DL,DIFL,AT,DP
+
+         KL = 0.0051D0 * ((ML/(AW*VL))**(0.6666666)) * ((VL/(DL*DIFL))**(-0.5)) * ((AT*DP)**0.4) / ((DL/(VL*9.81D0))**(0.3333333))
+ 
+      END
+
+!C****************************************************************
+
+
+!C****************************************************************
+!CC
+!CC                    ONDKLAPT
+!CC
+!CC Description:  This subroutine will calculate the overall
+!CC               mass transfer coefficient, KLAOND, using the
+!CC               Onda correlation.
+!CC
+!CC Output Variable:
+!CC    KLAOND =   Overall mass transfer coefficient (1/sec) from
+!CC               the Onda correlation
+!CC    RL =       Liquid phase mass transfer resistance (sec)
+!CC    RG =       Gas phase mass transfer resistance (sec)
+!CC    RT =       Total mass transfer resistance (sec)
+!CC
+!CC Input Variables:
+!CC    KL =       Liquid phase mass transfer coefficient (m/sec)
+!CC    AW =       Wetted surface area of packing (m2/m3)
+!CC    KG =       Gas phase mass transfer coefficient (m/sec)
+!CC    HC =       Henry's constant (dimensionless)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C****************************************************************
+
+      SUBROUTINE ONDKLAPT(KLAOND,RL,RG,RT,KL,AW,KG,HC)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::ONDKLAPT
+!MS$ ATTRIBUTES ALIAS:'_ONDKLAPT@32':: ONDKLAPT
+!MS$ ATTRIBUTES REFERENCE::KLAOND,RL,RG,RT,KL,AW,KG,HC
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION KLAOND,RL,RG,RT,KL,AW,KG,HC 
+
+         RL = 1/(KL*AW)                                        
+         RG = 1/(KG*AW*HC)                                    
+         RT = RL+RG                                          
+         KLAOND = 1/(RL+RG)                                    
+
+      END
+
+!C****************************************************************
+
+      SUBROUTINE OPTMAL(DL,VL,ST,DG,VG,QW,DP,CF,STC,AT,CINFL,CTOBJ,HENRYC,NUMCOM,PRESD,DIFL,DIFG,SAFFAC,TAG,MULTVQ,CEFFL,ERRORF)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::OPTMAL
+!MS$ ATTRIBUTES ALIAS:'_OPTMAL':: OPTMAL
+!MS$ ATTRIBUTES REFERENCE::DL,VL,ST,DG,VG,QW,DP,CF,STC,AT,CINFL,CTOBJ,HENRYC,NUMCOM,PRESD,DIFL,DIFG,SAFFAC,TAG,MULTVQ,CEFFL,ERRORF
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         PARAMETER (MAXCOM=10,MAXMLT=20)
+         DIMENSION CINFL(MAXCOM),CTOBJ(MAXCOM)
+         DIMENSION HENRYC(MAXCOM),VQMIN(MAXCOM),DIFL(MAXCOM)
+         DIMENSION KL(MAXCOM),DIFG(MAXCOM),KG(MAXCOM),KLAOND(MAXCOM)
+         DIMENSION RL(MAXCOM),RG(MAXCOM),RT(MAXCOM),KLASAF(MAXCOM)
+         DIMENSION CS(MAXCOM),CEFFL(MAXCOM),PRESDR(MAXCOM)
+         DIMENSION DIFF(MAXCOM)
+
+DOUBLE PRECISION QW,CINFL,CTOBJ,HENRYC,DL,DG,VG,VL,ST
+DOUBLE PRECISION DP,CF,STC,AT,VQMIN,VQ,QA,PRESD,GM,ML
+DOUBLE PRECISION AREA,DT,AW,RE,FR,WE,DIFL,KL,DIFG,KG
+DOUBLE PRECISION KLAOND,RL,RG,RT,SAFFAC,KLASAF,CS,HTU
+DOUBLE PRECISION NTU,HLL,TV,CEFFL,PRESDR,DIFF,DIFFMX
+DOUBLE PRECISION MULTVQ,ACTMLT
+         INTEGER NEWTAG,NUMIT,HITAG,VQTAG,NUMMLT
+         INTEGER*2 NUMCOM,TAG,ERRORF
+
+
+!CC**** GET COMPOUND WITH HIGHEST MINIMUM AIR TO WATER RATIO,
+!CC**** IDENTIFIED BY TAG (THE NO. OF THE COMPOUND IN ARRAY)
+
+         CALL GETHIVQ(TAG,VQMIN,HENRYC,CINFL,CTOBJ,NUMCOM)
+         HITAG = TAG
+
+!CC*****************************************************************
+
+         MULTVQ = 3.50D0
+         VQTAG = TAG
+         NUMMLT = 1
+
+5        NUMIT = 1
+
+!CC**** CALCULATE TOWER DIAMETER AFTER CALCULATING NECESSARY OTHER STUFF
+
+10       CALL VQMLTPT1(VQ,VQMIN(VQTAG),MULTVQ)
+         CALL GETMULT(ACTMLT,VQ,VQMIN(TAG))
+         CALL AIRFLO(QA,VQ,QW)
+         CALL PT1LDAIR(GM,PRESD,VQ,DG,DL,CF,VL)
+         CALL PT1LDH2O(ML,VQ,DG,DL,GM)
+         CALL PT1AREA(AREA,QW,DL,ML)
+         CALL PT1DTOW(DT,AREA)
+
+!CC*****************************************************************
+
+
+!CC**** CALCULATE KLA FOR THE DESIGN COMPOUND **********************
+
+         I = TAG
+
+         CALL FINDKLA(KLASAF(I),KLAOND(I),KL(I),KG(I),AW,STC,ST,ML,AT,DL,VL,DIFL(I),DP,GM,VG,DG,DIFG(I),HENRYC(I),SAFFAC,RE,FR,WE,RL(I),RG(I),RT(I))        
+			
+
+!CC**** CALCULATE TOWER LENGTH FOR THE DESIGN COMPOUND **************
+
+         CALL GETCSPT(CS(TAG),VQ,HENRYC(TAG),CINFL(TAG),CTOBJ(TAG))
+         CALL GETHTUPT(HTU,QW,AREA,KLASAF(TAG))
+         CALL GETNTUPT(NTU,CINFL(TAG),CTOBJ(TAG),CS(TAG))
+         CALL PT1HTOW(HLL,HTU,NTU)
+         CALL PT1TVOL(TV,AREA,HLL)
+
+
+!CC**** CALCULATE REMOVAL OF OTHER COMPOUNDS
+!CC**** FOR GIVEN DESIGN
+
+         CEFFL(TAG) = CTOBJ(TAG)
+         DIFFMX = 0.0D0 
+         NEWTAG = TAG
+
+         DO 100, I = 1,TAG-1
+            CALL FINDKLA(KLASAF(I),KLAOND(I),KL(I),KG(I),AW,STC,ST,ML,AT,DL,VL,DIFL(I),DP,GM,VG,DG,DIFG(I),HENRYC(I),SAFFAC,RE,FR,WE,RL(I),RG(I),RT(I))
+            CALL EFFLPT2(CEFFL(I),VQ,HENRYC(I),QW,AREA,HLL,KLASAF(I),CINFL(I))
+            DIFF(I) = (CEFFL(I) - CTOBJ(I))/CINFL(I)
+            IF (DIFF(I).GT.DIFFMX) THEN
+                DIFFMX = DIFF(I)
+                NEWTAG = I
+            END IF
+100      CONTINUE
+
+         DO 110, I = TAG+1,NUMCOM
+            CALL FINDKLA(KLASAF(I),KLAOND(I),KL(I),KG(I),AW,STC,ST,ML,AT,DL,VL,DIFL(I),DP,GM,VG,DG,DIFG(I),HENRYC(I),SAFFAC,RE,FR,WE,RL(I),RG(I),RT(I))
+            CALL EFFLPT2(CEFFL(I),VQ,HENRYC(I),QW,AREA,HLL,KLASAF(I),CINFL(I))
+            DIFF(I) = (CEFFL(I) - CTOBJ(I))/CINFL(I)
+            IF (DIFF(I).GT.DIFFMX) THEN
+               DIFFMX = DIFF(I)
+               NEWTAG = I
+            END IF
+
+110      CONTINUE
+
+         IF (NUMIT.GE.NUMCOM) THEN
+            MULTVQ = MULTVQ + 0.5D0
+            NUMMLT = NUMMLT + 1
+            IF (NUMMLT.GT.MAXMLT) GOTO 200
+            GOTO 5
+         END IF
+
+         IF (NEWTAG.NE.TAG) THEN
+            TAG = NEWTAG
+            VQTAG = TAG
+            NUMIT = NUMIT + 1
+            GOTO 10
+         END IF
+
+!CC****  WE CONVERGED AND WILL EXIT GRACEFULLY
+
+         ERRORF = 0
+         RETURN
+
+!CC****  WE DID NOT CONVERGE BUT WILL NOW EXIT THE PROGRAM, CHOOSING
+!CC****  TAG BETWEEN ONE OF THE COMPOUNDS OSCILLATING TOWARD BEING
+!CC****  THE DESIGN COMPOUND
+
+200      ERRORF = -1
+         RETURN
+
+      END
+!C*************************************************************
+!CC
+!CC                         PBLOWPT
+!CC
+!CC Description:  This subroutine calculates the brake power
+!CC               for the blowers used to supply air to the
+!CC               packed tower.
+!CC
+!CC Output Variable:
+!CC    BP =       Brake power for the blower (kW)
+!CC
+!CC Input Variables:
+!CC    QA =       Air flow rate (m^3/sec)
+!CC    AREA =     Tower area (m^2)
+!CC    PRES =     Operating pressure (atm)
+!CC    PRESD =    Gas pressure drop (N/m^2/m)
+!CC    HLL =      Tower length (m)
+!CC    DG =       Density of air (kg/m^3)
+!CC    T1 =       Inlet air temperature (Deg C)
+!CC    EFF =      Blower efficiency (%)
+!CC
+!CC Variables Internal to Subroutine PBLOWPT
+!CC    VGAS =     Gas volumetric loading (m^3/m^2/sec)
+!CC    PRESE =    Pressure drop through demister, packing support
+!CC               plate, duct work, and tower inlet and outlet (N/m^2)
+!CC    RG =       Universal gas constant for air (J/kg air/K)
+!CC    NN =       Constant (=0.283 for air)
+!CC    P1 =       Outlet air pressure (N/m^2)
+!CC    P2 =       Inlet air pressure (N/m^2)
+!CC    QMG =      Mass flow rate of air (kg/sec)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C*************************************************************
+
+      SUBROUTINE PBLOWPT(BP,QA,AREA,PRES,PRESD,HLL,DG,T1,EFF)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PBLOWPT
+!MS$ ATTRIBUTES ALIAS:'_PBLOWPT':: PBLOWPT
+!MS$ ATTRIBUTES REFERENCE::BP,QA,AREA,PRES,PRESD,HLL,DG,T1,EFF
+
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)  
+      DOUBLE PRECISION BP,QA,AREA,PRES,PRESD,HLL,DG,T1,EFF,VGAS,PRESE,RG,NN,P1,P2,QMG
+
+      T1 = T1+273.0D0
+      EFF = EFF / 100.0D0
+      VGAS = QA/AREA
+      PRESE = 275.0D0 * (VGAS**2)
+      RG = 286.7D0
+      NN = 0.283D0
+      P1 = PRES * (101330.0D0)
+      P2 = (PRESD*HLL) + P1 + PRESE
+      QMG = QA*DG
+      BP = ((QMG*RG*T1)/(1000.0D0*NN*EFF))*((P2/P1)**NN -1)
+      T1 = T1 - 273.0D0
+      EFF = EFF * 100.0D0
+
+      END
+
+!C*************************************************************
+
+!C***************************************************************
+!CC
+!CC                       PDROP
+!CC
+!CC Description:  This subroutine will calculate the pressure
+!CC               drop from a routine developed from the Eckhert
+!CC               curve (from Cummings?).  Note:  the Eckhert curve
+!CC               is only valid in approximate pressure drop range
+!CC               of 50 - 1200 N/m^2/m and operating above a
+!CC               pressure drop of 300 N/m^2/m is generally not
+!CC               desirable in practice.
+!CC
+!CC Output Variables:
+!CC    PRESD =    Gas pressure drop (N/m^2/m)
+!CC
+!CC Input Variables:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC    GM =       Air mass loading rate (kg/m^2/sec)`
+!CC    CF =       Packing factor (dimensionless)
+!CC    VL =       Water viscosity (kg/m-sec)
+!CC    DG =       Air density (kg/m^3)
+!CC    DL =       Water density (kg/m^3)
+!CC    DEL =      Iterative step used to find Pressure drop
+!CC
+!CC Variables internal to subroutine PDROP:
+!CC    YYA =      Value of the y-axis on the Eckert Curve
+!CC    PP =       Iterative pressure drop
+!CC    DRPINI =   Initial pressure drop used in iteration
+!CC               (set equal to DEL right now)
+!CC    DELTA =    Step to use in iteration
+!CC               (set equal to 1 right now)
+!CC    DRPMAX =   Maximum pressure drop used in iteration
+!CC               (set equal to 1200 right now)
+!CC  EE,PD,A0,A1,A2 = Values used in subroutine to make calculation
+!CC    YYB =      Calculated value on y-axis of Eckert curve
+!CC               based on the current pressure drop.
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE PDROP(PRESD,VQ,GM,CF,VL,DG,DL,DRPINI,DRPMAX,DEL)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PDROP
+!MS$ ATTRIBUTES ALIAS:'_PDROP':: PDROP
+!MS$ ATTRIBUTES REFERENCE::PRESD,VQ,GM,CF,VL,DG,DL,DRPINI,DRPMAX,DEL
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION VQ,GM,CF,VL,DG,DL,YYA,PP,DRPINI,DELTA,DRPMAX,EE,PD,A0,A1,A2,YYB,DEL
+
+         YYA = ((GM**2)*CF*(VL**0.1D0))/(DG*(DL-DG))
+         DRPINI = 1.0D0
+         PP = DRPINI
+         DELTA = DEL
+         DRPMAX = 1200.0D0
+         EE = -1.0D0*LOG10(VQ*(((DG/DL)-(DG/DL)**2)**0.5))
+1300     PD = LOG10(PP)
+         A0 = -6.6599D0 + 4.3077D0*PD - 1.3503D0*PD**2 + 0.15931D0*PD**3
+         A1 = 3.0945D0 - 4.3512D0*PD + 1.6240D0*PD**2 - 0.20855D0*PD**3
+         A2 =  1.7611D0 - 2.3394D0*PD + 0.89914D0*PD**2 - 0.11597D0*PD**3
+         YYB = 10.0D0**(A0+A1*EE+A2*EE**2)
+
+         IF (PP.GT.DRPMAX) THEN
+            PRESD = -1
+         ELSE IF ((YYB.LT.(0.99D0*YYA)).OR.(YYB.GT.(1.010D0*YYA))) THEN
+            PP = PP + DELTA
+            GOTO 1300
+         ELSE
+            PRESD = PP
+         END IF
+
+      END
+
+!C***************************************************************
+  
+!C***************************************************************
+!CC
+!CC                    PPUMPPT
+!CC
+!CC Description:  This subroutine will calculate the brake power
+!CC               for the pump required to bring the water from
+!CC               the bottom of the tower to the top of the
+!CC               tower.
+!CC
+!CC Output Variable:
+!CC    BPW =      Brake power for the pump (kW)
+!CC
+!CC Input Variables:
+!CC    EFFW =     Pump efficiency (%)
+!CC    DL =       Density of water (kg/m^3)
+!CC    QW =       Water flow rate (m^3/sec)
+!CC    HLL =      Tower height (m)
+!CC
+!CC History:
+!CC    Subroutine written by:  David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE PPUMPPT(BPW,EFFW,DL,QW,HLL) 
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PPUMPPT
+!MS$ ATTRIBUTES ALIAS:'_PPUMPPT':: PPUMPPT
+!MS$ ATTRIBUTES REFERENCE::BPW,EFFW,DL,QW,HLL
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION BPW,EFFW,DL,QW,HLL
+
+         EFFW = EFFW/100.0D0
+         BPW = (DL*QW*HLL*9.8D0)/(1000.0D0*EFFW)
+         EFFW = EFFW * 100.0D0
+
+      END
+
+!C***************************************************************
+
+!C****************************************************************
+!CC
+!CC                        PT1AREA
+!CC
+!CC Description:  This subroutine will calculate tower area for the
+!CC               design phase of the tower.
+!CC
+!CC Output Variable:
+!CC    AREA =     Tower area (m^2)
+!CC
+!CC Input Variables:
+!CC    QW =       Water flow rate (m^3/sec)
+!CC    DL =       Water density (kg/m^3)
+!CC    ML =       Water mass loading (kg/m^2/sec)
+!CC
+!CC Variable Internal to subroutine AREAPT1:
+!CC    QWM =      Water mass flow rate (kg/sec)
+!CC
+!CC History:  Program written by David R. Hokanson (9/30/93)
+!CC
+!C****************************************************************
+
+      SUBROUTINE PT1AREA(AREA,QW,DL,ML)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PT1AREA
+!MS$ ATTRIBUTES ALIAS:'_PT1AREA@16':: PT1AREA
+!MS$ ATTRIBUTES REFERENCE::AREA,QW,DL,ML
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION AREA,QW,DL,ML,QWM
+
+         QWM = QW*DL 
+         AREA = QWM/ML
+
+      END
+
+!C****************************************************************
+
+!C****************************************************************
+!CC
+!CC                      PT1DTOW
+!CC
+!CC Description:  This subroutine will calculate the diameter of
+!CC               the tower, given tower area.
+!CC
+!CC Output Variable:
+!CC    DT =       Tower Diameter (m)
+!CC
+!CC Input Variable:
+!CC    AREA =     Tower area (m^2)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C****************************************************************
+
+      SUBROUTINE PT1DTOW(DT,AREA)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PT1DTOW
+!MS$ ATTRIBUTES ALIAS:'_PT1DTOW@8':: PT1DTOW
+!MS$ ATTRIBUTES REFERENCE::DT,AREA
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DT,AREA
+
+         DT = ((4*AREA)/(3.1415926))**0.5
+
+      END
+
+!C****************************************************************
+
+!C***************************************************************
+!CC
+!CC                      PT1HTOW
+!CC
+!CC Description:  This subroutine will find the packed tower
+!CC               length necessary to meet design specifications.
+!CC
+!CC Output Variable:
+!CC    HLL =      Tower length (m)
+!CC
+!CC Input Variables:
+!CC    HTU =      Height of a transfer unit (m)
+!CC    NTU =      No. of transfer units (-)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE PT1HTOW(HLL,HTU,NTU)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PT1HTOW
+!MS$ ATTRIBUTES ALIAS:'_PT1HTOW@12':: PT1HTOW
+!MS$ ATTRIBUTES REFERENCE::HLL,HTU,NTU
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION HLL,HTU,NTU
+
+         HLL = HTU * NTU                                 
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                       PT1LDAIR
+!CC
+!CC Description:  This subroutine will calculate air mass loading
+!CC               rate from Figure 6.34 of Treybol, 1980.
+!CC
+!CC Output Variables:
+!CC    GM =       Air mass loading rate (kg/m^2/sec)
+!CC
+!CC Input Variables:
+!CC    PRESD =    Desired air pressure drop across tower (N/m2/m)
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC    DG =       Air density (kg/m^3)
+!CC    DL =       Water density (kg/m^3)
+!CC    CF =       Packing factor (dimensionless)
+!CC    VL =       Liquid viscosity (kg/m/sec)
+!CC
+!CC Variables Internal to subroutine LDAIRPT1
+!CC    FF,A0,A1 = Temporary values used to calculate air
+!CC    A2,EE,MM   mass loading rate, GM (kg/m2-sec)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE PT1LDAIR(GM,PRESD,VQ,DG,DL,CF,VL)     
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PT1LDAIR
+!MS$ ATTRIBUTES ALIAS:'_PT1LDAIR@28':: PT1LDAIR
+!MS$ ATTRIBUTES REFERENCE::GM,PRESD,VQ,DG,DL,CF,VL
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION GM,PRESD,FF,A0,A1,A2,EE,MM,VQ,DG,DL,CF,VL
+
+      FF = LOG10(PRESD)                                  
+      A0 = -6.6599D0+4.3077D0*FF-1.3503D0*(FF**2)+0.15931D0*(FF**3)         
+      A1 = 3.0945D0-4.3512D0*FF+1.6240D0*(FF**2)-0.20855D0*(FF**3)        
+      A2 = 1.7611D0-2.3394D0*FF+0.89914D0*(FF**2)-0.11597D0*(FF**3)      
+      EE = -LOG10(VQ*(((DG/DL)-((DG/DL)**2))**0.5))
+      MM =  10**(A0 + A1*EE + A2*(EE**2))
+      GM = ((MM*DG*(DL-DG))/(CF*(VL**0.1)))**0.5               
+
+      END
+
+!C**************************************************************
+
+!C***************************************************************
+!CC
+!CC                       PT1LDH2O
+!CC
+!CC Description:  This subroutine will calculate water mass loading
+!CC               rate.
+!CC
+!CC Output Variables:
+!CC    ML =       Liquid (water) mass loading rate (kg/m^2/sec)
+!CC
+!CC Input Variables:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC    DG =       Air density (kg/m^3)
+!CC    DL =       Water density (kg/m^3)
+!CC    GM =       Air mass loading rate (kg/m^2/sec)
+!CC
+!CC Variable internal to Subroutine LDH2OOT1:
+!CC    VQM =      Air to water ratio on a mass basis
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE PT1LDH2O(ML,VQ,DG,DL,GM)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PT1LDH2O
+!MS$ ATTRIBUTES ALIAS:'_PT1LDH2O@20':: PT1LDH2O
+!MS$ ATTRIBUTES REFERENCE::ML,VQ,DG,DL,GM
+    
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION VQM,ML,VQ,DG,DL,GM
+
+         VQM = VQ*(DG/DL)                            
+         ML = GM/VQM                                
+
+      END
+
+!C***************************************************************
+ 
+!C***************************************************************
+!CC
+!CC                      PT1TVOL
+!CC
+!CC Description:  This subroutine will calculate the volume
+!CC               of the design tower.
+!CC
+!CC Output Variable:
+!CC    TV =       Tower volume (m3)
+!CC
+!CC Input Variables:
+!CC    AREA =     Tower area (m^2)
+!CC    HLL =      Tower height (m)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE PT1TVOL(TV,AREA,HLL)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PT1TVOL
+!MS$ ATTRIBUTES ALIAS:'_PT1TVOL@12':: PT1TVOL
+!MS$ ATTRIBUTES REFERENCE::TV,AREA,HLL
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION TV,AREA,HLL
+
+         TV = AREA * HLL                                
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                      PT1VQMIN
+!CC
+!CC Description:  This subroutine will calculate the minimum air
+!CC               to water ratio to achieve the treatment objective
+!CC               for a compound of interest, given influent conc.,
+!CC               effluent conc., and Henry's Constant
+!CC
+!CC Output Variable:
+!CC    VQMIN =    Minimum air to water ratio (dimensionless)
+!CC
+!CC Input Variables:
+!CC    CI =       Influent concentration (ug/L)
+!CC    CE =       Effluent concentration (ug/L)
+!CC    HC =       Henry's Constant (dimensionless)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE PT1VQMIN(VQMIN,CI,CE,HC)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PT1VQMIN
+!MS$ ATTRIBUTES ALIAS:'_PT1VQMIN@16':: PT1VQMIN
+!MS$ ATTRIBUTES REFERENCE::VQMIN,CI,CE,HC
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION VQMIN,CI,CE,HC 
+         
+         VQMIN = (CI-CE)/(HC*CI)                                 
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                    PTOTALPT
+!CC
+!CC Description:  This subroutine will calculate the total power,
+!CC               which is equal to the sum of the brake power for
+!CC               the blower and the brake power for the pump.
+!CC
+!CC Output Variable:
+!CC    BPT =      Total brake power (kW)
+!CC
+!CC Input Variables:
+!CC    BP =       Brake power for the blower (kW)
+!CC    BPW =      Brake power for the pump (kW)
+!CC
+!CC History:
+!CC    Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE PTOTALPT(BPT,BP,BPW)        
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PTOTALPT
+!MS$ ATTRIBUTES ALIAS:'_PTOTALPT':: PTOTALPT
+!MS$ ATTRIBUTES REFERENCE::BPT,BP,BPW
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION BPT,BP,BPW
+
+         BPT = BP + BPW
+
+      END
+
+!C***************************************************************
+
+!C*********************************************************************
+!CC
+!CC                       QAIRPT2
+!CC
+!CC Description:  This subroutine will calculate the air flow rate
+!CC               given tower area and air mass loading rate.
+!CC
+!CC Output Variables:
+!CC    QA =       Air flow rate (m3/sec)
+!CC
+!CC Input Variables:
+!CC    GM =       Air Mass Loading Rate (kg/m2/sec)
+!CC    DG =       Air Density (kg/m3)
+!CC    AREA =     Tower Area (m2)
+!C*********************************************************************
+
+      SUBROUTINE QAIRPT2(QA,GM,DG,AREA)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::QAIRPT2
+!MS$ ATTRIBUTES ALIAS:'_QAIRPT2':: QAIRPT2
+!MS$ ATTRIBUTES REFERENCE::QA,GM,DG,AREA
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION QA,GM,DG,AREA
+
+         QA = GM*AREA/DG
+
+      END
+
+!C*********************************************************************
+
+!C*********************************************************************
+!CC
+!CC                       QH2OPT2
+!CC
+!CC Description:  This subroutine will calculate the water flow rate
+!CC               given tower area and liquid mass loading rate.
+!CC
+!CC Output Variables:
+!CC    QW =       Water flow rate (m3/sec)
+!CC
+!CC Input Variables:
+!CC    ML =       Water Mass Loading Rate (kg/m2/sec)
+!CC    DL =       Water Density (kg/m3)
+!CC    AREA =     Tower Area (m2)
+!C*********************************************************************
+
+      SUBROUTINE QH2OPT2(QW,ML,DL,AREA)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::QH2OPT2
+!MS$ ATTRIBUTES ALIAS:'_QH2OPT2':: QH2OPT2
+!MS$ ATTRIBUTES REFERENCE::QW,ML,DL,AREA
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION QW,ML,DL,AREA
+
+         QW = ML*AREA/DL
+
+      END
+
+!C*********************************************************************
+
+!C***************************************************************
+!CC
+!CC                       REMOVPT
+!CC
+!CC Description:  This subroutine will calculate the
+!CC               the removal efficiency for a given
+!CC               compound specified earlier.
+!CC
+!CC Output Variables:
+!CC    REMOV =    Removal Efficiency (%)
+!CC
+!CC Input Variables:
+!CC    CI =       Influent concentration (ug/L)
+!CC    CE =       Effluent concentration (ug/L)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE REMOVPT(REMOV,CI,CE)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::REMOVPT
+!MS$ ATTRIBUTES ALIAS:'_REMOVPT':: REMOVPT
+!MS$ ATTRIBUTES REFERENCE::REMOV,CI,CE
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION REMOV,CI,CE
+
+         REMOV = ((CI-CE)/CI)*100.0D0
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                       TVOLPT2
+!CC
+!CC Description:  This subroutine will calculate tower volume,
+!CC               given tower area and tower height
+!CC
+!CC Output Variables:
+!CC    TV =       Tower volume (m^3)
+!CC
+!CC Input Variables:
+!CC    AREA =     Tower area (m^2)
+!CC    HLL =      Tower length (m)
+!CC
+!CC History:  Subroutine written by:  David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE TVOLPT2(TV,AREA,HLL)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::TVOLPT2
+!MS$ ATTRIBUTES ALIAS:'_TVOLPT2':: TVOLPT2
+!MS$ ATTRIBUTES REFERENCE::TV,AREA,HLL
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION TV,AREA,HLL
+
+         TV = AREA * HLL
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                            VQCALC
+!CC         CALCULATION OF THE AIR TO WATER RATIO
+!CC
+!CC Description:  This subroutine will calculate the air to water
+!CC               ratio, given air flow rate and water flow rate
+!CC
+!CC Output Variable:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC
+!CC Input Variable:
+!CC    QA =       Air flow rate (m^3/sec)
+!CC    QW =       Water flow rate (m^3/sec)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE VQCALC(VQ,QA,QW)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VQCALC
+!MS$ ATTRIBUTES ALIAS:'_VQCALC':: VQCALC
+!MS$ ATTRIBUTES REFERENCE::VQ,QA,QW
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION QA,VQ,QW
+
+         VQ = QA/QW
+
+      END
+
+!C***************************************************************
+
+!C*************************************************************
+!CC
+!CC                     VQMLTPT1
+!CC
+!CC Description:  This subroutine will calculate air to water
+!CC               ratio, given a value for minimum air to
+!CC               water ratio, and a multiple to achieve
+!CC               air to water ratio.
+!CC
+!CC Output Variable:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC
+!CC Input Variables:
+!CC    VQMIN =    Minimum air to water ratio (dimensionless)
+!CC    XMPL =     Multiple of VQMIN to get VQ
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C*************************************************************
+
+      SUBROUTINE VQMLTPT1(VQ,VQMIN,XMPL)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VQMLTPT1
+!MS$ ATTRIBUTES ALIAS:'_VQMLTPT1@12':: VQMLTPT1
+!MS$ ATTRIBUTES REFERENCE::VQ,VQMIN,XMPL
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION VQ,VQMIN,XMPL
+
+         VQ=XMPL*VQMIN           
+
+      END
+
+!C*************************************************************
+

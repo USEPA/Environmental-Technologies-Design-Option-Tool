@@ -1,0 +1,95 @@
+
+
+
+x- On the [Define CSTR Parameters] window:
+  - If [Step Feed] is selected, then 
+    [Biomass Concentration]:[Uniform] should automatically 
+    be forced to be turned off
+  - If [Volume]:[Uniform] is turned off, then 
+    [Biomass Concentration]:[Uniform] should automatically 
+    be forced to be turned off
+  - If [Gas Flowrate]:[Uniform] is turned off, then 
+    [Biomass Concentration]:[Uniform] should automatically 
+    be forced to be turned off
+
+x- When called from [Define CSTR Parameters] window, the
+  [Biomass Calculation] window must act as follows:
+  - When the user clicks OK:
+    - Writes INPUT file
+    - Calls BMS program
+    - Reads OUTPUT file
+    - Does what is listed below
+    - Returns to the previous window
+
+x- When called from [Aeration Basin] window, the
+  [Biomass Calculation] window must act as follows:
+  - When the user clicks OK:
+    - Writes INPUT file
+    - Calls BMS program
+    - Reads OUTPUT file
+    - Does what is listed below
+    - Returns to the previous window
+
+x- Fix unit problem on [Secondary Clarifier]:[Effluent solids conc.]
+  - A problem occurs when a .FVR file is reloaded
+
+x- Move controls from one window to another:
+  - Source:
+    - [Secondary Clarifier]:[Effluent solids concentration]
+  - Destination:
+    - [Aeration Basin]:[Effluent solids concentration]
+      (directly underneath the SOTR value)
+
+x- On [Grit Chamber]:[Gas Flow Rate]:
+  - Instead of using "m^3/m-h", use "m^3/min"
+  - Instead of using "ft^3/ft-h", use "ft^3/min"
+
+x- Convert this unit "m^3/m-h" to "m^3/(m-h)" everywhere in the program
+
+x- In the Input1.dat input file, make this change:
+  - Under "PRIMARY CLARIFIERS":
+    - Under "Percent Solids Removal in Primary Clarifier (E)":
+      - Instead of writing the percentage, e.g. 82%, write
+        the fraction instead, e.g. 0.82
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+SAMPLE OUTPUT FILE FORMAT:
+=============================
+    1   .4670E+04   .1689E+02
+    2   .4670E+04   .1689E+02
+    3   .4669E+04   .2199E+02
+
+
+
+idx_CSTR, Conc_Biomass, Conc_Effluent_Substrate
+
+
+
+For the case of N=1:
+========================
+idx_CSTR, unitless, (only =1)
+Conc_Biomass, mg/L, (store into [Aeration Basin]:[Average Biomass Conc.])
+Conc_Effluent_Substrate, mg/L, (ignore this data)
+
+
+For the case of N>1:
+========================
+idx_CSTR, unitless, (use as an index)
+Conc_Biomass, mg/L, (store into [Define CSTR Parameters]:[rows marked `Biomass Concentration`])
+Conc_Effluent_Substrate, mg/L, (ignore this data)
+
+
+

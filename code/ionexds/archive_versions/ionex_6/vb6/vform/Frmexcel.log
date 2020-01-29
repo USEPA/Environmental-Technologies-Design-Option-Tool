@@ -1,0 +1,17 @@
+Line 19: Class SSFrame of control fraLang was not a loaded control class.
+Line 27: Class SSOption of control optFrench was not a loaded control class.
+Line 35: Class SSOption of control optEnglish was not a loaded control class.
+Line 44: Class CommonDialog of control CMDialog1 was not a loaded control class.
+Line 57: Class SSFrame of control frmExcel was not a loaded control class.
+Line 65: Class SSOption of control optExcel was not a loaded control class.
+Line 74: Class SSOption of control optExcel was not a loaded control class.
+Line 84: Class SSCommand of control cmdTransfer was not a loaded control class.
+Line 92: Class SSCommand of control cmdCancel was not a loaded control class.
+Line 20: The property name Caption in fraLang is invalid.
+Line 28: The property name Caption in optFrench is invalid.
+Line 36: The property name Caption in optEnglish is invalid.
+Line 58: The property name Caption in frmExcel is invalid.
+Line 66: The property name Caption in optExcel is invalid.
+Line 75: The property name Caption in optExcel is invalid.
+Line 85: The property name Caption in cmdTransfer is invalid.
+Line 93: The property name Caption in cmdCancel is invalid.

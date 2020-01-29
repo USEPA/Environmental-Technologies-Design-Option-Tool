@@ -1,0 +1,23 @@
+The following correction and modification was made.
+
+(1)  Correction.  Extinction coefficient and quantum yield are now 
+     written correctly to input file for H2O2, NOM, and target
+     compounds.
+
+(2)  Modification.  On the photochemical properties window, user
+     can click a button to view tabulated extinction coefficient
+     versus wavelength for H2O2 Hydrogen peroxide.
+
+(1)  Code Change
+
+Find Modifications made 18apr2002 BY DAVID R. HOKANSON 
+\vb6\vbasic\FortranLink2.bas
+
+(2)  New form to show the table:
+\vb6\vform\frmExtin.frm
+
+     Modified photochem.frm to display the table.
+
+
+Hokanson
+4/21/02

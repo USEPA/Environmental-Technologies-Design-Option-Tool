@@ -1,0 +1,257 @@
+1		NTARGET: number of target organic compounds
+1.0D-10	EPS: DGEAR error criteria
+1		IDREACT: 0 if CMBR, 1 if FR -- use TIS model
+25              NTANK: Tank number
+70		VOLUME: Tank volume, liters (L)		
+10		SSIZE: Simulation time step, sec
+25		TTOTAL: Total simulation time (used for CMBR), min
+3.0		XNTIMES: times of total hydraulic retention time for TIS
+25.0	TAU: hydraulic retention time of a tank, min
+5.0		OPSIZE: time interval for output data, min
+0		IDCARBN: how TIC input, 0 for [CO3], 1 for alkanility
+250		ALK: alkanility, mg/L as CaCO3
+4.0e-3	TICARBN: total inorganic carbonate concentration, M
+8.4		PH(0): initial pH value
+0.0		PHOSPH: total inorganic phosphate ion concentration, M
+15.8	UVPATHL: optical path length of UV light, cm
+1		NWVLEN: numbers of wavelength range meassured
+253.7	WAVELENGTH:
+500		ELECTR_POWER: The electricity power of the lamp, watts
+1		IDUVI: How UV intensity input, 0 for "eins./L-s", 1 for "watts", 2 for efficience
+34.3	UVI, eins./L-s; UVWATTS, watts; or UVEFF, dimensionless
+16		NCOMP: number of compound,
+"H2O2"	COMNAME(1): Name of component
+1.0e-3	CONCINI(1): Initial/influent concentration of component, M
+0		VAL(1): Valence of the component
+34		MW(1): Molecular weight of component, g/gmol
+"DBCP"	COMNAME(2): target organic compound 1, C3H5Br2Cl
+1.83e-6	CONCINI(2) 
+0		VAL(2)
+100		MW(2)  
+"HO2*"	COMNAME(4)
+0		CONCINI(4) 
+0		VAL(4)
+33		MW(4)
+"HCO3-"	COMNAME(5)
+0		CONCINI(5): the actual value get from ALK or TICARBN
+-1		VAL(5)
+61		MW(5)
+"H2PO4-"COMNAME(6)
+0		CONCINI(6): the actual value get from PHOSPH
+-1		VAL(6)
+61		MW(6)
+"NOM"	COMNAME(7)
+0		CONCINI(7), mg/L
+0		VAL(7)
+200		MW(7)
+"CO3*-"	COMNAME(8)
+0		CONCINI(8)
+-1		VAL(8)
+62		MW(8)
+"HPO4*-"COMNAME(9)
+0		CONCINI(9)
+-1		VAL(9)
+61		MW(9)
+"HO*"	COMNAME(10)
+0		CONCINI(10)
+0		VAL(10)
+17		MW(10)
+"HO2-"	COMNAME(11)
+0		CONCINI(11)
+-1		VAL(11)
+33		MW(11)
+"R1-"	COMNAME(12): disassociated form of target organic compound 1 (if R1 is an acid)
+0		CONCINI(12) 
+-1		VAL(12)
+100		MW(12) 
+"O2*-"	COMNAME(14)
+0		CONCINI(14)
+-1		VAL(14)
+32		MW(14)
+"CO3--"	COMNAME(15)
+0		CONCINI(15)
+-2		VAL(15)
+60		MW(15)
+"HPO4--"COMNAME(16)
+0		CONCINI(16)
+-2		VAL(16)
+60		MW(16)
+"H2CO3"	COMNAME(17)
+0		CONCINI(17)
+-2		VAL(17)
+62		MW(17)
+"H3PO4"	COMNAME(18)
+0		CONCINI(18)
+-2		VAL(18)
+60		MW(18)
+26		NIRREV: number of irreversible reactions, A + B ==> C + D
+1		COMPA(1): compd A in rxt 1 -- H2O2
+9		COMPB(1): compd B in rxt 1 -- HO*
+3		COMPC(1): compd C in rxt 1 -- HO2*
+0		COMPD(1): compd D in rxt 1 -- H2O, not considered in this model
+2.7e7	XK(1): seconc order rate constant of reaction 1, 1/M-s
+9		COMPA(2): compd A in rxt 2 -- HO*
+10		COMPB(2): compd B in rxt 2 -- HO2-
+3		COMPC(2): compd C in rxt 2 -- HO2*
+0		COMPD(2): compd D in rxt 2 -- OH-, not considered in this model
+7.5e9	XK(2): seconc order rate constant of reaction 2
+1		COMPA(3): compd A in rxt 3 -- H2O2
+3		COMPB(3): compd B in rxt 3 -- HO2*
+9		COMPC(3): compd C in rxt 3 -- HO*
+0		COMPD(3): compd D in rxt 3 -- H2O + O2, not considered in this model
+3.0		XK(3): seconc order rate constant of reaction 3
+1		COMPA(4): compd A in rxt 4 -- H2O2
+12		COMPB(4): compd B in rxt 4 -- O2*-
+9		COMPC(4): compd C in rxt 4 -- HO*
+0		COMPD(4): compd D in rxt 4 -- OH- + O2, not considered in this model
+0.13	XK(4): seconc order rate constant of reaction 4
+9		COMPA(5): compd A in rxt 5 -- HO*
+13		COMPB(5): compd B in rxt 5 -- CO3--
+7		COMPC(5): compd C in rxt 5 -- CO3*-
+0		COMPD(5): compd D in rxt 5 -- OH-, not considered in this model
+3.9e8	XK(5): seconc order rate constant of reaction 5
+9		COMPA(6): compd A in rxt 6 -- HO*
+4		COMPB(6): compd B in rxt 6 -- HCO3-
+7		COMPC(6): compd C in rxt 6 -- CO3*-
+0		COMPD(6): compd D in rxt 6 -- H2O, not considered in this model
+8.5e6	XK(6): seconc order rate constant of reaction 6
+9		COMPA(7): compd A in rxt 7 -- HO*
+14		COMPB(7): compd B in rxt 7 -- HPO4--
+8		COMPC(7): compd C in rxt 7 -- HPO4*-
+0		COMPD(7): compd D in rxt 7 -- OH-, not considered in this model
+1.5e5	XK(7): seconc order rate constant of reaction 7
+9		COMPA(8): compd A in rxt 8 -- HO*
+5		COMPB(8): compd B in rxt 8 -- H2PO4-
+8		COMPC(8): compd C in rxt 8 -- HPO4*-
+0		COMPD(8): compd D in rxt 8 -- H2O, not considered in this model
+2.0e4	XK(8): seconc order rate constant of reaction 8
+1		COMPA(9): compd A in rxt 9 -- H2O2
+7		COMPB(9): compd B in rxt 9 -- CO3*-
+4		COMPC(9): compd C in rxt 9 -- HCO3-
+3		COMPD(9): compd D in rxt 9 -- HO2*
+4.3e5	XK(9): seconc order rate constant of reaction 9
+10		COMPA(10): compd A in rxt 10 -- HO2-
+7		COMPB(10): compd B in rxt 10 -- CO3*-
+13		COMPC(10): compd C in rxt 10 -- CO3--
+3		COMPD(10): compd D in rxt 10 -- HO2*
+3.0e7	XK(10): seconc order rate constant of reaction 10
+1		COMPA(11): compd A in rxt 11 -- H2O2
+8		COMPB(11): compd B in rxt 11 -- HPO4*-
+5		COMPC(11): compd C in rxt 11 -- H2PO4-
+3		COMPD(11): compd D in rxt 11 -- HO2*
+2.7e7	XK(11): seconc order rate constant of reaction 11
+9		COMPA(12): compd A in rxt 12 -- HO*
+9		COMPB(12): compd B in rxt 12 -- HO*
+1		COMPC(12): compd C in rxt 12 -- H2O2
+0		COMPD(12): compd D in rxt 12 -- no this product in this reaction
+5.5e9	XK(12): seconc order rate constant of reaction 12
+9		COMPA(13): compd A in rxt 13 -- HO*
+3		COMPB(13): compd B in rxt 13 -- HO2*
+0		COMPC(13): compd C in rxt 13 -- H2O, not considered in this model
+0		COMPD(13): compd D in rxt 13 -- O2, not considered in this model
+6.6e9	XK(13): seconc order rate constant of reaction 13
+3		COMPA(14): compd A in rxt 14 -- HO2*
+3		COMPB(14): compd B in rxt 14 -- HO2*
+1		COMPC(14): compd C in rxt 14 -- H2O2
+0		COMPD(14): compd D in rxt 14 -- O2, not considered in this model
+8.3e5	XK(14): seconc order rate constant of reaction 14
+3		COMPA(15): compd A in rxt 15 -- HO2*
+12		COMPB(15): compd B in rxt 15 -- O2*-
+10		COMPC(15): compd C in rxt 15 -- HO2-
+0		COMPD(15): compd D in rxt 15 -- O2, not considered in this model
+9.7e7	XK(15): seconc order rate constant of reaction 15
+9		COMPA(16): compd A in rxt 16 -- HO*
+12		COMPB(16): compd B in rxt 16 -- O2*-
+0		COMPC(16): compd C in rxt 16 -- O2, not considered in this model
+0		COMPD(16): compd D in rxt 16 -- OH, not considered in this model
+7.0e9	XK(16): seconc order rate constant of reaction 16
+9		COMPA(17): compd A in rxt 17 -- HO*
+7		COMPB(17): compd B in rxt 17 -- CO3*-
+0		COMPC(17): compd C in rxt 17 -- unknown, not considered in this model
+0		COMPD(17): compd D in rxt 17 -- unknown, not considered in this model
+3.0e9	XK(17): seconc order rate constant of reaction 17
+7		COMPA(18): compd A in rxt 18 -- CO3*-
+12		COMPB(18): compd B in rxt 18 -- O2*-
+13		COMPC(18): compd C in rxt 18 -- CO3--
+0		COMPD(18): compd D in rxt 18 -- O2, not considered in this model
+6.0e8	XK(18): seconc order rate constant of reaction 18
+7		COMPA(19): compd A in rxt 19 -- CO3*-
+7		COMPB(19): compd B in rxt 19 -- CO3*-
+0		COMPC(19): compd C in rxt 19 -- unknown, not considered in this model
+0		COMPD(19): compd D in rxt 19 -- unknown, not considered in this model
+3.0e7	XK(19): seconc order rate constant of reaction 19
+9		COMPA(20): compd A in rxt 20 -- HO*
+2		COMPB(20): compd B in rxt 20 -- DBCP
+0		COMPC(20): compd C in rxt 20 -- unknown, not considered in this model
+0		COMPD(20): compd D in rxt 20 -- unknown, not considered in this model
+1.5e8	XK(20): seconc order rate constant of reaction 20
+9		COMPA(22): compd A in rxt 22 -- HO*
+11		COMPB(22): compd B in rxt 22 -- DBCP- = 0
+0		COMPC(22): compd C in rxt 22 -- unknown, not considered in this model
+0		COMPD(22): compd D in rxt 22 -- unknown, not considered in this model
+3.0e9	XK(22): seconc order rate constant of reaction 22
+9		COMPA(24): compd A in rxt 24 -- HO*
+6		COMPB(24): compd B in rxt 24 -- NOM
+0		COMPC(24): compd C in rxt 24 -- unknown, not considered in this model
+0		COMPD(24): compd D in rxt 24 -- unknown, not considered in this model
+2.0e4	XK(24): seconc order rate constant of reaction 24, 1/(mg/L)-s
+7		COMPA(25): compd A in rxt 25 -- CO3*-
+2		COMPB(25): compd B in rxt 25 -- R1
+0		COMPC(25): compd C in rxt 25 -- unknown, not considered in this model
+0		COMPD(25): compd D in rxt 25 -- unknown, not considered in this model
+0		XK(25): seconc order rate constant of reaction 25
+8		COMPA(27): compd A in rxt 27 -- HPO4*-
+2		COMPB(27): compd B in rxt 27 -- R1
+0		COMPC(27): compd C in rxt 27 -- unknown, not considered in this model
+0		COMPD(27): compd D in rxt 27 -- unknown, not considered in this model
+0		XK(27): seconc order rate constant of reaction 27
+12		COMPA(29): compd A in rxt 29 -- O2*-
+2		COMPB(29): compd B in rxt 29 -- R1
+0		COMPC(29): compd C in rxt 29 -- unknown, not considered in this model
+0		COMPD(29): compd D in rxt 29 -- unknown, not considered in this model
+0		XK(29): seconc order rate constant of reaction 29
+3		COMPA(31): compd A in rxt 31 -- HO2*
+2		COMPB(31): compd B in rxt 31 -- R1
+0		COMPC(31): compd C in rxt 31 -- unknown, not considered in this model
+0		COMPD(31): compd D in rxt 31 -- unknown, not considered in this model
+0		XK(31): seconc order rate constant of reaction 31
+2		NMULTIACID: number of multiprotic acids 
+1		COMPE(1): compd E in reversible rxt 1 -- H2O2
+10		COMPF(1): compd F in reversible rxt 1 -- HO2-
+11.6	XKE(1): equilibrium constant of reversible rxt 1
+2		COMPE(2): compd E in reversible rxt 2 -- R1(H)
+11		COMPF(2): compd F in reversible rxt 2 -- R1-
+14.0	XKE(2): equilibrium constant of reversible rxt 2
+4		COMPE(4): compd E in reversible rxt 4 -- HO2*
+12		COMPF(4): compd F in reversible rxt 4 -- O2*-
+4.8		XKE(4): equilibrium constant of reversible rxt 4
+5		COMPE(5): compd E in reversible rxt 5 -- HCO3-
+13		COMPF(5): compd F in reversible rxt 5 -- CO3--
+10.3	XKE(5): equilibrium constant of reversible rxt 5
+6		COMPE(6): compd E in reversible rxt 6 -- H2PO4-
+14		COMPF(6): compd F in reversible rxt 6 -- HPO4--
+7.2		XKE(6): equilibrium constant of reversible rxt 6
+15		COMPE(7): compd E in reversible rxt 7 -- H2CO3
+5		COMPF(7): compd F in reversible rxt 7 -- HCO3-
+6.3		XKE(7): equilibrium constant of reversible rxt 7
+16		COMPE(8): compd E in reversible rxt 8 -- H3PO4
+6		COMPF(8): compd F in reversible rxt 8 -- H2PO4-
+2.1		XKE(8): equilibrium constant of reversible rxt 8
+3		NPHOT: number of photolysis reactions, G ==> h H
+1		COMPG(1): compd G in photolysis rxt 1 -- H2O2
+9		COMPH(1): compd H in photolysis rxt 1 -- HO*
+2		STOCPHOT(1): moles H produced when 1 mole G destroyd photo rxt1
+19.0	EXTCOEF(1,wvlen): extinction coefficient
+0.5		QUATYD(1,1): quantum yield of the compd. G(1) under wavelen 13
+2		COMPG(2): compd G in photolysis rxt 2 -- R1
+0		COMPH(2): compd H in photolysis rxt 2 -- unknown
+1		STOCPHOT(2): moles H produced when 1 mole G destroyd photo rxt2
+14.7
+0.47	QUATYD(2,13): quantum yield of the compd. G(2) under wavelen 13
+6		COMPG(4): compd G in photolysis rxt 4 -- NOM
+0		COMPH(4): compd H in photolysis rxt 4 -- unknown
+1		STOCPHOT(4): moles H produced when 1 mole G destroyd photo rxt4
+0.0867	EXTCOEF(4,wvlen): extinction coefficient
+0.0		QUATYD(4,13): quantum yield of the compd. G(4) under wavelen 13
+3		NCARBN(1): number of carbon in compound R1
+3		NSUBSTT(1): number of substitute (such as Cl) in compound R1

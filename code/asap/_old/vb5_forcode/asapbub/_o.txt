@@ -1,0 +1,673 @@
+!C***************************************************************
+!CC
+!CC                            AIRFLO
+!CC         CALCULATION OF THE AIR FLOW RATE TO EACH TANK
+!CC
+!CC Description:  This subroutine will calculate the air flow
+!CC               rate (to each tank for bubble aeration and to
+!CC               the tower for packed tower aeration), given
+!CC               air to water ratio and water flow rate
+!CC
+!CC Output Variable:
+!CC    QA =       Air flow rate (m^3/sec)
+!CC
+!CC Input Variable:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC    QW =       Water flow rate (m^3/sec)
+!CC
+!CC History:  Subroutine written by David R. Hokanson (9/30/93)
+!CC
+!C***************************************************************
+
+      SUBROUTINE AIRFLO(QA,VQ,QW)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::AIRFLO
+!MS$ ATTRIBUTES ALIAS:'_AIRFLO':: AIRFLO
+!MS$ ATTRIBUTES REFERENCE::QA,VQ,QW
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION QA,VQ,QW
+
+         QA = VQ*QW
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                   DIFO2
+!CC           FIND DIFFUSIVITY OF OXYGEN
+!CC
+!CC Description:  This subroutine calculates the diffusivity of
+!CC               oxygen.  The correlation to be used gives
+!CC               diffusivity as a function of temperature.
+!CC               It comes from the following reference:
+!CC
+!CC                  Holmen, Kim and Peter Liss, "Models for air-
+!CC                     water gas transfer:  an experimental
+!CC                     investigation," Tellus 36B (1984).
+!CC
+!CC Output Variable:
+!CC    DIFLO2 =   Diffusivity of oxygen (m^2/sec)
+!CC
+!CC Input Variable:
+!CC    TEMP =     Temperature (K)
+!CC
+!CC Variables Internal to Subroutine DIFO2
+!CC    A,B =      Parameters for fit of data
+!CC
+!C***************************************************************
+
+      SUBROUTINE DIFO2(DIFLO2,TEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::DIFO2
+!MS$ ATTRIBUTES ALIAS:'_DIFO2':: DIFO2
+!MS$ ATTRIBUTES REFERENCE::DIFLO2,TEMP
+   
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION DIFLO2,TEMP,A,B
+
+         A = 3.15D0
+         B = -831.0D0
+         DIFLO2 = (10**(A+B/TEMP))*1.0D-9     
+
+      END
+
+!C***************************************************************
+ 
+!C***************************************************************
+!CC
+!CC                         EFFLUENT
+!CC
+!CC Description:  This subroutine will calculate the effluent
+!CC               concentrations out of each tank for both the
+!CC               liquid phase and the gas phase.
+!CC
+!CC Output Variables:
+!CC    CEXIT =    Array of liquid phase effluent concs.
+!CC    YEXIT =    Array of gas phase effluent concs.
+!CC
+!CC Input Variables:
+!CC    HC =       Henry's constant of compound (dimensionless)
+!CC    CI =       Liquid phase influent conc. (ug/L)
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC    NTANK =    No. of tanks
+!CC    PHI =      Stanton No. (dimensionless)
+!CC
+!C***************************************************************
+
+      SUBROUTINE EFFLBUB(CEXIT,YEXIT,HC,CI,VQ,NTANK,PHI)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::EFFLBUB
+!MS$ ATTRIBUTES ALIAS:'_EFFLBUB':: EFFLBUB
+!MS$ ATTRIBUTES REFERENCE::CEXIT,YEXIT,HC,CI,VQ,NTANK,PHI
+         
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DIMENSION CEXIT(0:20),YEXIT(20)
+         INTEGER NTANK
+         DOUBLE PRECISION CEXIT,YEXIT,HC,CI,VQ
+
+         CEXIT(0) = CI
+         DO 1400, I=1,NTANK
+            CEXIT(I) = CI/((1.0D0+VQ*HC*(1.0D0-EXP(-PHI)))**I)
+            YEXIT(I) = (1.0D0/VQ)*(CEXIT(I-1)-CEXIT(I))
+1400     CONTINUE
+
+      END
+
+!C***************************************************************
+
+!C*********************************************************************
+!CC
+!CC                   GETCSTAR
+!CC
+!CC Description:  This subroutine will calculate a value of CSTR20.
+!CC
+!CC Output Variable:
+!CC    CSTR20 =   DO saturation concentration attained at infinite
+!CC               time (mg/L)
+!CC    GAMMAW =   Weight density of water
+!CC    DEFF =     Effective saturation depth (m)
+!CC
+!CC Input Variables:
+!CC    PB =       Barometric pressure (atm)
+!CC    DEPTHW =   Water depth (m)
+!CC
+!CC Variables Internal to Subroutine GETCSTR
+!CC    CSTRS =    Tabular value of D.O. surface saturation conc. at 20 C
+!CC    PV =       Vapor pressure of water (atm)
+!CC    PS =       Standard barometric pressure of 1.00 atm
+!CC
+!C********************************************************************
+
+      SUBROUTINE GETCSTAR(CSTR20,GAMMAW,DEFF,PB,DEPTHW)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETCSTAR
+!MS$ ATTRIBUTES ALIAS:'_GETCSTAR':: GETCSTAR
+!MS$ ATTRIBUTES REFERENCE::CSTR20,GAMMAW,DEFF,PB,DEPTHW
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION CSTR20,PB,DEPTHW,CSTRS,PV,GAMMAW,DEFF,PS
+
+         PV = 0.023D0
+         GAMMAW = 62.4D0
+         DEFF = DEPTHW / 3.0D0       
+         PS = 1.0D0
+         CSTRS = 9.09D0 
+         CSTR20 = CSTRS * ((PB-PV+(GAMMAW/144.0D0/14.696D0)*DEFF*3.2808D0)/(PS-PV))
+
+      END
+
+!C********************************************************************
+
+!C***************************************************************
+!CC
+!CC                         GETPHIB
+!CC
+!CC Description:  This subroutine will calculate the Stanton no.,
+!CC               PHI, for bubble aeration.
+!CC
+!CC Output Variables:
+!CC    PHI =      Stanton No. (>3 --> Mass transfer not controlling)
+!CC
+!CC Input Variables:
+!CC    KLA =      Compound mass transfer coefficient (1/sec)
+!CC    VTANK =    Volume of each tank (m^3)
+!CC    HC =       Henry's constant of compound (dimensionless)
+!CC    QA =       Air flow rate to each tank (m^3/sec)
+!CC
+!C***************************************************************
+
+      SUBROUTINE GETPHIB(PHI,KLA,VTANK,HC,QA)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETPHIB
+!MS$ ATTRIBUTES ALIAS:'_GETPHIB':: GETPHIB
+!MS$ ATTRIBUTES REFERENCE::PHI,KLA,VTANK,HC,QA
+         
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION PHI,KLA,VTANK,HC,QA
+
+         PHI = KLA*VTANK/HC/QA 
+
+      END
+
+!C***************************************************************
+
+!C********************************************************************
+!CC
+!CC                      GETSOTE
+!CC
+!CC Description:  Given SOTR and Qair, this subroutine calculates
+!CC               SOTE.
+!CC
+!CC Output Variable:
+!CC    SOTE =     Standardized oxygen transfer efficiency (%)C
+!CC
+!CC Input Variables:
+!CC    QAIR =     Air flow rate (std m^3/hr) --> 20 Deg C, 1 atm, 36% r.h.
+!CC
+!CC    SOTR =     Standardized oxygen mass transfer rate (kg/d)
+!CC         =     Rate of oxygen mass transfer at zero D.O. and 20 Deg C
+!CC
+!CC Variable Internal to GETSOTE:
+!CC    WO2 =      Rate of oxygen supply (kg/d) by the diffuser
+!CC
+!C********************************************************************
+
+      SUBROUTINE GETSOTE (SOTE,SOTR,QAIR)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETSOTE
+!MS$ ATTRIBUTES ALIAS:'_GETSOTE':: GETSOTE
+!MS$ ATTRIBUTES REFERENCE::SOTE,SOTR,QAIR
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION SOTE,SOTR,QAIR,WO2
+
+         WO2 = QAIR/0.15D0
+         SOTE = SOTR*100.0D0/WO2
+
+      END
+
+!C********************************************************************
+
+!C********************************************************************
+!CC
+!CC                      GETSOTR
+!CC
+!CC Description:  Given SOTE and Qair, this subroutine calculates
+!CC               SOTR.
+!CC
+!CC Output Variable:
+!CC    SOTR =     Standardized oxygen mass transfer rate (kg/d)
+!CC         =     Rate of oxygen mass transfer at zero D.O. and 20 Deg C
+!CC
+!CC Input Variables:
+!CC    QAIR =     Air flow rate (std m^3/hr) --> 20 Deg C, 1 atm, 36% r.h.
+!CC    SOTE =     Standardized oxygen transfer efficiency (%)
+!CC
+!CC Variable Internal to GETSOTR:
+!CC    WO2 =      Rate of oxygen supply (kg/d) by the diffuser
+!CC
+!C********************************************************************
+
+      SUBROUTINE GETSOTR (SOTR,SOTE,QAIR)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::GETSOTR
+!MS$ ATTRIBUTES ALIAS:'_GETSOTR':: GETSOTR
+!MS$ ATTRIBUTES REFERENCE::SOTR,SOTE,QAIR
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION SOTR,SOTE,QAIR,WO2
+
+         WO2 = QAIR/0.15D0
+         SOTR = WO2*SOTE/100.0D0
+
+      END
+
+!C********************************************************************
+
+!C******************************************************************
+!CC
+!CC                        KLA20A
+!CC
+!CC Description:  This subroutine calculates the apparent mass
+!CC               transfer coefficient of oxygen at 20 Deg C, KLA20.
+!CC
+!CC Output Variables:
+!CC    V =        Water volume in each tank (L)
+!CC    KLA20 =    Apparent oxygen mass transfer coeff. at 20 Deg C (1/sec)
+!CC
+!CC Input Variables:
+!CC    VM3 =      Water volume in each tank (m^3)
+!CC    CSTR20 =   DO saturation concentration attained at infinite
+!CC               time (mg/L)
+!CC    SOTR =     Standardized oxygen mass transfer rate (kg/d)
+!CC         =     Rate of oxygen mass transfer at zero D.O. and 20 Deg C
+!CC
+!CC
+!C******************************************************************
+
+      SUBROUTINE KLA20A(KLA20,V,VM3,CSTR20,SOTR)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::KLA20A
+!MS$ ATTRIBUTES ALIAS:'_KLA20A':: KLA20A
+!MS$ ATTRIBUTES REFERENCE::KLA20,V,VM3,CSTR20,SOTR
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION KLA20,V,VM3,CSTR20
+
+         V = VM3 * 1000.0D0
+         KLA20 = SOTR * 1.0D6 / V / CSTR20 /24.0D0/60.0D0/60.0D0
+         
+      END
+
+!C******************************************************************
+
+!C***************************************************************
+!CC
+!CC                         KLABUB
+!CC               FIND KLA FOR BUBBLE AERATION
+!CC
+!CC Description:  This subroutine finds KLa for a compound for
+!CC               bubble aeration using two film theory and
+!CC               mass transfer correlations.
+!CC
+!CC Output Variables:
+!CC    KLA =      Compound mass transfer coefficient (1/sec)
+!CC    N =        Exponent used in correlation
+!CC    KGKL =     Ratio of gas-phase to liquid-phase mass transfer
+!CC               coefficent (assumed constant and equal to 100
+!CC               for bubble aeration) ** Find Source **
+!CC
+!CC Input Variables:
+!CC    KLAO2 =    Oxygen mass transfer coeff. (1/sec)
+!CC    DIFL =     Diffusivity of liquid water (m^2/sec)
+!CC    DIFLO2 =   Diffusivity of oxygen (m^2/sec)
+!CC    HC =       Henry's constant (dimensionless)
+!CC
+!C***************************************************************
+
+      SUBROUTINE KLABUB(KLA,KLAO2,DIFL,DIFLO2,N,KGKL,HC) 
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::KLABUB
+!MS$ ATTRIBUTES ALIAS:'_KLABUB':: KLABUB
+!MS$ ATTRIBUTES REFERENCE::KLA,KLAO2,DIFL,DIFLO2,N,KGKL,HC
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION KLA,KLAO2,DIFL,DIFLO2,N,KGKL,HC
+
+         N = 0.6D0
+         KGKL = 100.0D0
+         KLA = KLAO2 * ((DIFL/DIFLO2)**N) * (1.0D0/(1.0D0+(1.0D0/KGKL/HC)))
+
+      END
+
+!C***************************************************************
+
+!C******************************************************************
+!CC
+!CC                      PCALCBUB
+!CC
+!CC Description:  This subroutine does the power calculation for
+!CC               bubble aeration by calculating the total blower
+!CC               brake power required.
+!CC
+!CC Output Variables:
+!CC    TP =       Total blower brake power needed for all tanks (kW)
+!CC    BP =       Blower brake power required for each tank (kW)
+!CC
+!CC Input Variables:
+!CC    PRES =     Operating pressure (atm)
+!CC    TAIR =     Inlet air temperature (C)
+!CC    QA =       Air flow rate (m^3/sec)
+!CC    EFFB =     Blower efficiency (%)
+!CC    DL =       Liquid density (kg/m^3)
+!CC    HEAD =     Water depth (m)
+!CC    NTANK =    No. of tanks
+!CC    NBLOW =    No. of blowers per tank
+!CC
+!CC Variables Internal to Subroutine PCALCBUB
+!CC    TAIRK =    Inlet air temperature (K)
+!CC    DG =       Density of air (kg/m^3)
+!CC    GME =      Air mass flow rate (kg/sec)
+!CC    R =        Universal gas constant for air (J/kg/K)
+!CC    NN =       0.283 for air
+!CC    EFF =      Blower efficiency (as decimal)
+!CC    PIN =      Inlet pressure (kN/m^2)
+!CC    POUT =     Outlet pressure (kN/m^2)
+!CC
+!C******************************************************************
+
+      SUBROUTINE PCALCBUB(TP,BP,PRES,TAIR,QA,EFFB,DL,HEAD,NTANK,NBLOW)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::PCALCBUB
+!MS$ ATTRIBUTES ALIAS:'_PCALCBUB':: PCALCBUB
+!MS$ ATTRIBUTES REFERENCE::TP,BP,PRES,TAIR,QA,EFFB,DL,HEAD,NTANK,NBLOW
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      INTEGER NTANK,NBLOW
+      DOUBLE PRECISION TP,BP,PRES,TAIR,QA,EFFB,DL,HEAD,DG,GME,R,NN,EFF,PIN,POUT
+
+      TAIRK = TAIR + 273.15D0
+      DG = 28.95D0*PRES/0.08205D0/TAIRK
+      GME = QA*DG
+      R = 286.7D0
+      NN = 0.283D0
+      EFF = EFFB/100.0D0
+      PIN = PRES*101325.0D0
+      POUT = PIN+DL*HEAD*9.81D0
+      BP = (GME*R*TAIRK/1000.0D0/NN/EFF)*((POUT/PIN)**NN-1)
+      TP = BP * DBLE(NTANK) * DBLE(NBLOW)
+
+      END
+
+!C******************************************************************
+
+!C***************************************************************
+!CC
+!CC                         REMOVBUB
+!CC
+!CC Description:  This subroutine will calculate the overall
+!CC               overall removal efficiency for the liquid
+!CC               phase.
+!CC
+!CC Output Variables:
+!CC    RECE =     Actual liquid phase removal efficiency
+!CC
+!CC Input Variables:
+!CC    CEFFL =    Liquid phase effluent conc. from last tank (ug/L)
+!CC    CI =       Liquid phase influent conc. (ug/L)
+!CC
+!C***************************************************************
+
+      SUBROUTINE REMOVBUB(RECE,CI,CEFFL)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::REMOVBUB
+!MS$ ATTRIBUTES ALIAS:'_REMOVBUB':: REMOVBUB
+!MS$ ATTRIBUTES REFERENCE::RECE,CI,CEFFL
+         
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION RECE,CI,CEFFL
+
+         RECE = (CI-CEFFL)/CI * 100.0D0
+
+      END
+
+!C***************************************************************
+
+!C****************************************************************
+!CC
+!CC                     TAUSVOLS
+!CC
+!CC Description:  This subroutine will calculate the fluid
+!CC               residence time for each tank, the total
+!CC               fluid residence time, the individual tank
+!CC               volume and the total volume of all tanks
+!CC               for bubble and surface aeration.  Given any
+!CC               one of the 4 parameters, the other three will be
+!CC               calculated.
+!CC
+!CC Output Variables:
+!CC    TAU =      Fluid residence time in each tank (hrs)
+!CC    TAUN =     Total fluid residence time (hrs)
+!CC    VTANK =    Volume of each tank (m3)
+!CC    VTOT =     Total volume of all tanks (m3)
+!CC
+!CC Input Variables:
+!CC    NTANK =    No. of tanks in series
+!CC    QW =       Water Flow Rate (m3/sec)
+!CC    CODE =     Code telling which variable is user-specified
+!CC               and which variables must be calculated:
+!CC                  Code = 1 --> Specified TAU
+!CC                               Calculate TAUN, VTANK, VTOT
+!CC                  Code = 2 --> Specified TAUN
+!CC                               Calculate TAU, VTANK, VTOT
+!CC                  Code = 3 --> Specified VTANK
+!CC                               Calculate TAU, TAUN, VTOT
+!CC                  Code = 4 --> Specified VTOT
+!CC                               Calculate TAU, TAUN, VTANK
+!CC
+!C****************************************************************
+
+      SUBROUTINE TAUSVOLS(TAUN,NTANK,TAU,VTANK,VTOT,QW,CODE)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::TAUSVOLS
+!MS$ ATTRIBUTES ALIAS:'_TAUSVOLS':: TAUSVOLS
+!MS$ ATTRIBUTES REFERENCE::TAUN,NTANK,TAU,VTANK,VTOT,QW,CODE
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         INTEGER NTANK, CODE
+         DOUBLE PRECISION TAUN,TAU,VTANK,VTOT,QW
+
+         IF (CODE.EQ.1) THEN
+            TAUN = DBLE(NTANK)*TAU
+            VTANK = TAU*60.0D0*60.0D0*QW
+            VTOT = VTANK*DBLE(NTANK)
+         ELSE IF (CODE.EQ.2) THEN
+            TAU = TAUN / DBLE(NTANK)
+            VTANK = TAU*60.0D0*60.0D0*QW
+            VTOT = VTANK*DBLE(NTANK)       
+         ELSE IF (CODE.EQ.3) THEN
+            TAU = VTANK / 60.0D0 / 60.0D0 / QW
+            TAUN = DBLE(NTANK)*TAU
+            VTOT = VTANK*DBLE(NTANK)
+         ELSE IF (CODE.EQ.4) THEN
+            VTANK = VTOT / DBLE(NTANK)
+            TAU = VTANK / 60.0D0 / 60.0D0 / QW
+            TAUN = DBLE(NTANK)*TAU
+         END IF
+
+      END
+
+!C****************************************************************
+
+!C********************************************************************
+!CC
+!CC                        TRUEKLA
+!CC
+!CC Description:  This subroutine will return values for the true
+!CC               oxygen mass transfer coefficient at the operating
+!CC               temperature (KLATT), for the true oxygen mass
+!CC               transfer coefficient at 20 deg C (KLAT20, and for
+!CC               PHI (a value used in calculating the true oxygen
+!CC               mass transfer coefficient).
+!CC
+!CC Output Variables:
+!CC    KLAO2 =    True oxygen mass transfer coefficient (1/sec)
+!CC               at operating temperature, TEMP
+!CC    KLAT20 =   True oxygen mass transfer coeff. at 20 Deg C (1/sec)
+!CC    PHI =      Parameter used in calculating true Kla (1/sec)
+!CC
+!CC Input Variables:
+!CC    QAIR =     Air flow rate (std m^3/hr) --> 20 Deg C, 1 atm, 36% r.h.
+!CC    V =        Water Volume in each tank (L)
+!CC    PB =       Barometric pressure (atm)
+!CC    GAMMAW =   Weight density of water
+!CC    KLA20 =    Apparent oxygen mass transfer coeff. at 20 Deg C (1/min)
+!CC    DEFF =     Effective saturation depth (m)
+!CC    TEMP =     Operating temperature (Deg K)
+!CC
+!CC Variables Internal to Subroutine TRUEKLA
+!CC    MO =       Molecular weight of oxygen (O2)
+!CC    MA =       Molecular weight of air
+!CC    RHOA =     Density of air (mg/L)
+!CC    QAIRLM =   Volumetric air flow rate (L/min)
+!CC    HO =       Henry's constant for O2
+!CC    TEMPC =    Temperature in Deg C
+!CC    THETA =    Argument for Van't Hoff temperature relationship
+!CC    KLATT =    True Kla at operating temperature, TEMP
+!CC
+!C********************************************************************
+
+      SUBROUTINE TRUEKLA(KLAO2,KLAT20,PHI,QAIR,V,PB,GAMMAW,KLA20,DEFF,TEMP)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::TRUEKLA
+!MS$ ATTRIBUTES ALIAS:'_TRUEKLA':: TRUEKLA
+!MS$ ATTRIBUTES REFERENCE::KLAO2,KLAT20,PHI,QAIR,V,PB,GAMMAW,KLA20,DEFF,TEMP
+
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+      DOUBLE PRECISION KLAO2,KLAT20,PHI,QAIR,V,PB,GAMMAW,KLA20,DEFF,TEMP,MO,MA,RHOA,QAIRLM,HO,TEMPC,THETA,KLATT
+
+            MO = 32.0D0
+            MA = 28.87D0
+            RHOA = 1240.0D0
+            QAIRLM = QAIR * 1000.0D0 / 60.0D0
+            HO = 50.0D0
+            PHI = (MO*RHOA*QAIRLM)/(MA*HO*V*(PB+GAMMAW/144.0D0/14.696D0*DEFF*3.2808D0))/60.0D0
+            KLAT20 = KLA20/(1-KLA20/(2.0D0*PHI))
+            TEMPC = TEMP - 273.15D0
+            THETA = 1.024D0
+            KLATT = KLAT20 * THETA**(TEMPC-20.0D0)
+            KLAO2 = KLATT
+
+      END
+            
+!C********************************************************************
+
+!C***************************************************************
+!CC
+!CC                         VOLBUB
+!CC
+!CC Description:  This subroutine will calculate the tank volume
+!CC               required to meet a treatment objective for a
+!CC               given chemical.
+!CC
+!CC Output Variables:
+!CC    VOLTNK =   Tank Volume to Meet Treatment Objective (m3)
+!CC    ERRORF =   Error Flag (Value of 0 means no error, Value
+!CC               of -1 means a negative log would have been taken
+!CC
+!CC Input Variables:
+!CC    HENRYC =   Henry's constant of compound (dimensionless)
+!CC    QAIR =     Air flow rate (m3/sec)
+!CC    KLA =      Mass Transfer Coefficient of Compound (1/sec)
+!CC    CINFL =    Influent Concentration of Compound (ug/L)
+!CC    CTO =      Treatment Objective of Compound (ug/L)
+!CC    NTANK =    Number of Tanks in Series (-)
+!CC    QW =       Water Flow Rate (m3/sec)
+!CC
+!C***************************************************************
+
+      SUBROUTINE VOLBUB(VOLTNK,HENRYC,QAIR,KLA,CINFL,CTO,NTANK,QW,ERRORF)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VOLBUB
+!MS$ ATTRIBUTES ALIAS:'_VOLBUB':: VOLBUB
+!MS$ ATTRIBUTES REFERENCE::VOLTNK,HENRYC,QAIR,KLA,CINFL,CTO,NTANK,QW,ERRORF
+         
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         INTEGER NTANK,ERRORF
+         DOUBLE PRECISION VOLTNK,HENRYC,QAIR,KLA,CINFL,CTO,QW
+         DOUBLE PRECISION PARAM1, PARAM2, PARAM3
+
+         ERRORF = 0
+         PARAM1 = (CINFL/CTO)**(1.0D0/DBLE(NTANK))
+         PARAM2 = (PARAM1-1.0D0)*QW/QAIR/HENRYC
+         PARAM3 = 1.0D0 - PARAM2
+         IF (PARAM3.LE.(0.0D0)) THEN
+            ERRORF = -1
+         ELSE
+            VOLTNK = - (HENRYC * QAIR / KLA) * DLOG(PARAM3)
+         END IF
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                            VQBUB
+!CC         CALCULATION OF THE AIR TO WATER RATIO
+!CC
+!CC Description:  This subroutine will calculate the air to water
+!CC               ratio, given air flow rate to each tank and
+!CC               water flow rate.
+!CC
+!CC Output Variable:
+!CC    VQ =       Air to water ratio (dimensionless)
+!CC
+!CC Input Variable:
+!CC    QA =       Air flow rate to each tank (m^3/sec)
+!CC    QW =       Water flow rate (m^3/sec)
+!CC
+!C***************************************************************
+
+      SUBROUTINE VQBUB(VQ,QA,QW)
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VQBUB
+!MS$ ATTRIBUTES ALIAS:'_VQBUB':: VQBUB
+!MS$ ATTRIBUTES REFERENCE::VQ,QA,QW
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         DOUBLE PRECISION QA,VQ,QW
+
+         VQ = QA/QW
+
+      END
+
+!C***************************************************************
+
+!C***************************************************************
+!CC
+!CC                        VQMINBUB
+!CC      MINIMUM AIR TO WATER RATIO FOR BUBBLE AERATION
+!Cc
+!CC Description:   This subroutine calculates the minimum air
+!CC                to water ratio for bubble aeration.  This
+!CC                minimum air to water ratio is the minimum
+!CC                air to water ratio to achieve the desired
+!CC                removal efficiency for NTANK tanks in series.
+!CC
+!CC Output Variables:
+!CC    VQMIN =     Minimum air to water ratio (dimensionless)
+!CC
+!CC Input Variable:
+!CC    CINFL =     Influent Concentration (ug/L)
+!CC    CTO =       Treatment Objective (ug/L)
+!CC    HC =        Henry's constant (dimensionless)
+!CC    NTANK =     Number of Tanks
+!CC
+!C***************************************************************
+
+      SUBROUTINE VQMINBUB(VQMIN,CINFL,CTO,HC,NTANK)    
+!MS$ ATTRIBUTES DLLEXPORT, STDCALL::VQMINBUB
+!MS$ ATTRIBUTES ALIAS:'_VQMINBUB':: VQMINBUB
+!MS$ ATTRIBUTES REFERENCE::VQMIN,CINFL,CTO,HC,NTANK
+
+         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+         INTEGER NTANK
+         DOUBLE PRECISION VQMIN,HC,CINFL,CTO
+         DOUBLE PRECISION PARAM1
+
+         PARAM1 = (CINFL/CTO)**(1.0D0/DBLE(NTANK))
+         VQMIN = (PARAM1-1.0D0)/HC                  
+
+      END
+
+!C***************************************************************
+

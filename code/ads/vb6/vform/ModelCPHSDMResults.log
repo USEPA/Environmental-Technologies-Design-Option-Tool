@@ -1,0 +1,111 @@
+Line 46: Class GraphLib.Graph of control grpBreak was not a loaded control class.
+Line 105: Class Threed.SSFrame of control SSFrame2 was not a loaded control class.
+Line 125: Class Threed.SSOption of control optType was not a loaded control class.
+Line 149: Class Threed.SSOption of control optType was not a loaded control class.
+Line 173: Class Threed.SSOption of control optType was not a loaded control class.
+Line 198: Class Threed.SSFrame of control Frame3D1 was not a loaded control class.
+Line 218: Class Threed.SSCommand of control cmdTreat was not a loaded control class.
+Line 985: Class Threed.SSCommand of control cmdFile was not a loaded control class.
+Line 1008: Class Threed.SSCommand of control cmdExcel was not a loaded control class.
+Line 1031: Class MSComDlg.CommonDialog of control CMDialog1 was not a loaded control class.
+Line 1040: Class Threed.SSCommand of control cmdSave was not a loaded control class.
+Line 1063: Class Threed.SSCommand of control cmdSelect was not a loaded control class.
+Line 1086: Class Threed.SSCommand of control cmdPrint was not a loaded control class.
+Line 1109: Class Threed.SSCommand of control cmdExit was not a loaded control class.
+Line 52: The property name _Version in grpBreak is invalid.
+Line 53: The property name _ExtentX in grpBreak is invalid.
+Line 54: The property name _ExtentY in grpBreak is invalid.
+Line 55: The property name _StockProps in grpBreak is invalid.
+Line 57: The property name BottomTitle in grpBreak is invalid.
+Line 58: The property name GraphStyle in grpBreak is invalid.
+Line 59: The property name GraphType in grpBreak is invalid.
+Line 60: The property name GridStyle in grpBreak is invalid.
+Line 61: The property name LeftTitle in grpBreak is invalid.
+Line 62: The property name RandomData in grpBreak is invalid.
+Line 63: The property name ColorData in grpBreak is invalid.
+Line 64: The property name ExtraData in grpBreak is invalid.
+Line 65: The property name ExtraData[] in grpBreak is invalid.
+Line 66: The property name FontFamily in grpBreak is invalid.
+Line 68: The property name FontSize[0] in grpBreak is invalid.
+Line 69: The property name FontSize[1] in grpBreak is invalid.
+Line 70: The property name FontSize[2] in grpBreak is invalid.
+Line 71: The property name FontSize[3] in grpBreak is invalid.
+Line 72: The property name FontStyle in grpBreak is invalid.
+Line 73: The property name GraphData in grpBreak is invalid.
+Line 74: The property name GraphData[] in grpBreak is invalid.
+Line 75: The property name GraphData[0,0] in grpBreak is invalid.
+Line 76: The property name GraphData[0,1] in grpBreak is invalid.
+Line 77: The property name GraphData[0,2] in grpBreak is invalid.
+Line 78: The property name GraphData[0,3] in grpBreak is invalid.
+Line 79: The property name GraphData[0,4] in grpBreak is invalid.
+Line 80: The property name LabelText in grpBreak is invalid.
+Line 81: The property name LegendText in grpBreak is invalid.
+Line 82: The property name PatternData in grpBreak is invalid.
+Line 83: The property name SymbolData in grpBreak is invalid.
+Line 84: The property name XPosData in grpBreak is invalid.
+Line 85: The property name XPosData[] in grpBreak is invalid.
+Line 111: The property name _Version in SSFrame2 is invalid.
+Line 112: The property name _ExtentX in SSFrame2 is invalid.
+Line 113: The property name _ExtentY in SSFrame2 is invalid.
+Line 114: The property name _StockProps in SSFrame2 is invalid.
+Line 115: The property name Caption in SSFrame2 is invalid.
+Line 133: The property name _Version in optType is invalid.
+Line 134: The property name _ExtentX in optType is invalid.
+Line 135: The property name _ExtentY in optType is invalid.
+Line 136: The property name _StockProps in optType is invalid.
+Line 137: The property name Caption in optType is invalid.
+Line 157: The property name _Version in optType is invalid.
+Line 158: The property name _ExtentX in optType is invalid.
+Line 159: The property name _ExtentY in optType is invalid.
+Line 160: The property name _StockProps in optType is invalid.
+Line 161: The property name Caption in optType is invalid.
+Line 181: The property name _Version in optType is invalid.
+Line 182: The property name _ExtentX in optType is invalid.
+Line 183: The property name _ExtentY in optType is invalid.
+Line 184: The property name _StockProps in optType is invalid.
+Line 185: The property name Caption in optType is invalid.
+Line 204: The property name _Version in Frame3D1 is invalid.
+Line 205: The property name _ExtentX in Frame3D1 is invalid.
+Line 206: The property name _ExtentY in Frame3D1 is invalid.
+Line 207: The property name _StockProps in Frame3D1 is invalid.
+Line 208: The property name Caption in Frame3D1 is invalid.
+Line 225: The property name _Version in cmdTreat is invalid.
+Line 226: The property name _ExtentX in cmdTreat is invalid.
+Line 227: The property name _ExtentY in cmdTreat is invalid.
+Line 228: The property name _StockProps in cmdTreat is invalid.
+Line 229: The property name Caption in cmdTreat is invalid.
+Line 992: The property name _Version in cmdFile is invalid.
+Line 993: The property name _ExtentX in cmdFile is invalid.
+Line 994: The property name _ExtentY in cmdFile is invalid.
+Line 995: The property name _StockProps in cmdFile is invalid.
+Line 996: The property name Caption in cmdFile is invalid.
+Line 1015: The property name _Version in cmdExcel is invalid.
+Line 1016: The property name _ExtentX in cmdExcel is invalid.
+Line 1017: The property name _ExtentY in cmdExcel is invalid.
+Line 1018: The property name _StockProps in cmdExcel is invalid.
+Line 1019: The property name Caption in cmdExcel is invalid.
+Line 1034: The property name _ExtentX in CMDialog1 is invalid.
+Line 1035: The property name _ExtentY in CMDialog1 is invalid.
+Line 1036: The property name _Version in CMDialog1 is invalid.
+Line 1038: The property name MaxFileSize in CMDialog1 is invalid.
+Line 1031: Property FontSize in CMDialog1 could not be set.
+Line 1047: The property name _Version in cmdSave is invalid.
+Line 1048: The property name _ExtentX in cmdSave is invalid.
+Line 1049: The property name _ExtentY in cmdSave is invalid.
+Line 1050: The property name _StockProps in cmdSave is invalid.
+Line 1051: The property name Caption in cmdSave is invalid.
+Line 1070: The property name _Version in cmdSelect is invalid.
+Line 1071: The property name _ExtentX in cmdSelect is invalid.
+Line 1072: The property name _ExtentY in cmdSelect is invalid.
+Line 1073: The property name _StockProps in cmdSelect is invalid.
+Line 1074: The property name Caption in cmdSelect is invalid.
+Line 1093: The property name _Version in cmdPrint is invalid.
+Line 1094: The property name _ExtentX in cmdPrint is invalid.
+Line 1095: The property name _ExtentY in cmdPrint is invalid.
+Line 1096: The property name _StockProps in cmdPrint is invalid.
+Line 1097: The property name Caption in cmdPrint is invalid.
+Line 1116: The property name _Version in cmdExit is invalid.
+Line 1117: The property name _ExtentX in cmdExit is invalid.
+Line 1118: The property name _ExtentY in cmdExit is invalid.
+Line 1119: The property name _StockProps in cmdExit is invalid.
+Line 1120: The property name Caption in cmdExit is invalid.

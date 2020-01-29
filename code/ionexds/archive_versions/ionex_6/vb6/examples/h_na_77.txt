@@ -1,0 +1,85 @@
+Ion Exchange Model - Input File
+Pressure,,,,101000,Pa
+Temperature,,,,294.15,K
+Bed Length,,,,.098,m
+Bed Diameter,,,,.0269,m
+Bed Weight,,,,.0465,kg
+Bed Flowrate,1,,,7.11666666666667E-07,m³/s
+Bed Flowrate,2,,,-1
+Bed EBCT,1,,,1.30434549347949,min
+Bed EBCT,2,,,0
+Number of Beds (in series),,,,1
+Resin Name,,,IRN-77
+Apparent Density,,,,1.22,g/ml
+Particle Radius,,,,.0002975,m
+Particle Porosity (-),,,,.6289
+Tortuosity (-),,,,1
+Total Resin Capacity,,,,2.45,meq/g,
+Time Parameters - Total Run Time,,,,399,min
+Time Parameters - InitialTime,,,,1,min
+Time Parameters - Time Step,,,,1,min
+Number of Axial Collocation Points,,,,,15
+Number of Radial Collocation Points,,,,6
+Correlation for Ionic Transport Coeff; kf,,,Wildhagen
+Number of Cations,,,,2
+Presaturant Cation,,,,1
+Sum of Cation Time-Averaged Initial Influent Concs.,,,,10.4198128577643
+OKTOGetCationDimensionless,,,,-1
+Separation Factor Info.,,,,-1
+Separation Factor Info.,,,,11
+Name,1,,H+
+MolecularWeight,1,,,1.01
+InitialConcentration,1,,,.0022624
+EquivalentInitialConcentration,1,,,.00224
+Valence,1,,,1
+SeparationFactor,1,,,1
+Kinetic.LiquidDiffusivity.Value,1,,,3.28993297880527E-05
+Kinetic.LiquidDiffusivity.UserInput,1,,,0
+Kinetic.LiquidDiffusivityCorrelation,1,,,3.28993297880527E-05,cm²/s
+Kinetic.LiquidDiffusivityUserInput,1,,,3.28993297880527E-05,cm²/s
+Kinetic.IonicTransportCoefficient.Value,1,,,1.55714131084098E-02
+Kinetic.IonTransportCoefficient.UserInput,1,,,0
+Kinetic.IonicTransportCoeffCorrelation,1,,,1.55714131084098E-02,cm/s
+Kinetic.IonicTransportCoeffUserInput,1,,,1.55714131084098E-02,cm/s
+Kinetic.PoreDiffusivity.Value,1,,,3.28993297880527E-05
+Kinetic.PoreDiffusivity.UserInput,1,,,0
+Kinetic.PoreDiffusivityCorrelation,1,,,3.28993297880527E-05,cm²/s
+Kinetic.PoreDiffusivityUserInput,1,,,3.28993297880527E-05,cm²/s
+Kinetic.NernstHaskellCation.Ion_Name,1,,H+
+Kinetic.NernstHaskellCation.Valence,1,,,1
+Kinetic.NernstHaskellCation.LimitingIonicConductance,1,,,349.8
+Kinetic.NernstHaskellAnion.Ion_Name,1,,Cl-
+Kinetic.NernstHaskellAnion.Valence,1,,,1
+Kinetic.NernstHaskellAnion.LimitingIonicConductance,1,,,76.3
+Name,2,,Na+
+MolecularWeight,2,,22.99
+InitialConcentration,2,,,239.5
+EquivalentInitialConcentration,2,,,10.4175728577643
+Valence,2,,,1
+SeparationFactor,2,,,1.68
+Kinetic.LiquidDiffusivity.Value,2,,,1.58843494107105E-05
+Kinetic.LiquidDiffusivity.UserInput,2,,,0
+Kinetic.LiquidDiffusivityCorrelation,2,,,1.58843494107105E-05,cm²/s
+Kinetic.LiquidDiffusivityUserInput,2,,,1.58843494107105E-05,cm²/s
+Kinetic.IonicTransportCoefficient.Value,2,,,9.58332641186725E-03
+Kinetic.IonTransportCoefficient.UserInput,2,,,0
+Kinetic.IonicTransportCoeffCorrelation,2,,,9.58332641186725E-03,cm/s
+Kinetic.IonicTransportCoeffUserInput,2,,,9.58332641186725E-03,cm/s
+Kinetic.PoreDiffusivity.Value,2,,,1.58843494107105E-05
+Kinetic.PoreDiffusivity.UserInput,2,,,0
+Kinetic.PoreDiffusivityCorrelation,2,,,1.58843494107105E-05,cm²/s
+Kinetic.PoreDiffusivityUserInput,2,,,1.58843494107105E-05,cm²/s
+Kinetic.NernstHaskellCation.Ion_Name,2,,Na+
+Kinetic.NernstHaskellCation.Valence,2,,,1
+Kinetic.NernstHaskellCation.LimitingIonicConductance,2,,,50.1
+Kinetic.NernstHaskellAnion.Ion_Name,2,,Cl-
+Kinetic.NernstHaskellAnion.Valence,2,,,1
+Kinetic.NernsthaskellAnion.LimitingIonicConductance,2,,,76.3
+Number of Anions,,,,0
+Presaturant Anion,,,,0
+Sum of Anion Time-Averaged Initial Influent Concs.,,,,0
+OKToGetAnionDimensionless,,,,,0
+AnionSeparation Factor Info.,,,,-1
+AnionSeparation Factor Info.,,,,11
+Name of File for Cation Variable Influent,1,,NONE
+Name of File for Anion Variable Influent,1,,NONE

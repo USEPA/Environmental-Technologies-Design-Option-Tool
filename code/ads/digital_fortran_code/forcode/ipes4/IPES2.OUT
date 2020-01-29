@@ -1,0 +1,49 @@
+ CSAV, average bulk concentration, ug/L
+   1.000000019282387E-001
+ QSAV, Polanyi adsorption capacity, ug/g
+   101812.183737485500000
+ XK1, Freundlich K, (ug/g)*(L/ug)^(1/n)
+   230742.103843294100000
+ XK2, Freundlich K, (umol/g)*(L/umol)^(1/n)
+     8554.018723493700000
+ XNF, Freundlich 1/n, dimless
+   3.553270984743776E-001
+ CBEG, correlation lower bound, ug/L
+   1.000000019282387E-001
+ CEND, correlation upper bound, ug/L
+   1.000000019282387E-001
+ ERRMAT, error matrix
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+           0
+ SQERR, has any error occurred (0=no)?
+           0
+ EOFTESTMARKER:
+   123456.000000000000000

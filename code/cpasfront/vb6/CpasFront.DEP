@@ -1,0 +1,192 @@
+[Version]
+Version=1.0.0.8
+
+[MSVBVM50.DLL <0009>]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPathSysFile)
+Date=1/24/1997
+Time=13:44:42
+Version=5.0.37.24
+CABFilename=MSVBVM50.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSVBVM50.inf
+CABRunFile=
+Uses1=
+
+[STDOLE2.TLB <0009>]
+Register=$(TLBRegister)
+Dest=$(WinSysPathSysFile)
+Date=1/15/1997
+Time=0:00:00
+Version=2.20.4054.1
+CABFilename=
+CABDefaultURL=
+CABINFFile=
+CABRunFile=
+Uses1=OleAut32.dll
+Uses2=OlePro32.dll
+Uses3=AsycFilt.dll
+Uses4=
+
+[OLEAUT32.DLL <0009>]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPathSysFile)
+Date=1/15/1997
+Time=0:00:00
+Version=2.20.4054.1
+CABFilename=
+CABDefaultURL=
+CABINFFile=
+CABRunFile=
+Uses1=
+
+[OLEPRO32.DLL <0009>]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPathSysFile)
+Date=1/15/1997
+Time=0:00:00
+Version=5.0.4055.1
+CABFilename=
+CABDefaultURL=
+CABINFFile=
+CABRunFile=
+Uses1=
+
+[ASYCFILT.DLL <0009>]
+Register=
+Dest=$(WinSysPathSysFile)
+Date=1/15/1997
+Time=0:00:00
+Version=2.20.4056.1
+CABFilename=AsycFilt.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=AsycFilt.inf
+CABRunFile=
+Uses1=
+
+[CTL3D32.DLL <0009>]
+Register=
+Dest=$(WinSysPathSysFile)
+Date=8/21/1996
+Time=0:00:00
+Version=2.31.0.0
+CABFilename=
+CABDefaultURL=
+CABINFFile=
+CABRunFile=
+Uses1=
+
+[COMCAT.DLL <0009>]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPathSysFile)
+Date=10/31/1996
+Time=0:00:00
+Version=4.71.1441.1
+CABFilename=
+CABDefaultURL=
+CABINFFile=
+CABRunFile=
+Uses1=
+
+[TABCTL32.OCX <0009>]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPath)
+Date=1/16/1997
+Time=0:00:00
+Version=5.0.37.14
+CABFilename=TabCtl32.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=TabCtl32.inf
+CABRunFile=
+Uses1=ComCat.dll
+Uses2=
+
+[COMCTL32.OCX <0009>]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPath)
+Date=1/16/1997
+Time=0:00:00
+Version=5.0.37.14
+CABFilename=ComCtl32.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=ComCtl32.inf
+CABRunFile=
+Uses1=ComCat.dll
+Uses2=
+
+[THREED32.OCX <0009>]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPath)
+Date=7/26/1995
+Time=0:00:00
+Version=1.0.41.0
+CABFilename=
+CABDefaultURL=
+CABINFFile=
+CABRunFile=
+Uses1=OlePro32.dll
+Uses2=MFC40.dll
+Uses3=MSVCRT40.dll
+Uses4=
+
+[MFC40.DLL <0009>]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPathSysFile)
+Date=7/31/1996
+Time=0:00:00
+Version=4.1.0.6038
+CABFilename=MFC40.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vc
+CABINFFile=
+CABRunFile=MFC40.exe -Q
+Uses1=
+
+[MSVCRT40.DLL <0009>]
+Register=
+Dest=$(WinSysPathSysFile)
+Date=7/31/1996
+Time=0:00:00
+Version=4.10.0.6038
+CABFilename=MSVCRT40.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSVCRT40.inf
+CABRunFile=
+Uses1=
+
+[COMDLG32.OCX <0009>]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPath)
+Date=1/16/1997
+Time=9:10:46
+Version=5.0.37.14
+CABFilename=ComDlg32.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=ComDlg32.inf
+CABRunFile=
+Uses1=ComCat.dll
+Uses2=
+
+[CPASFRONT.EXE <0009>]
+Register=
+Dest=$(AppPath)
+Date=8/21/1998
+Time=13:14:10
+Version=1.0.0.8
+CABFilename= ; If you are going to compress this file into a Cabinet (.cab) file, you should add the name of that file here.
+CABDefaultURL= ; If you specified a CABFileName, then you can put URL location here, where Internet users can locate your Cabinet file for download.
+CABINFFile= ; If you specified a CABFileName that processes an INF file, you should put the name of the inf file contained in that Cabinet file, here.  This is ignored if a Run= key is also present
+CABRunFile= ; If you specified a CABFileName that processes an EXE file, you should put the name of the exe file contained in that Cabinet file, here.  This takes precedence over the InfFile= key
+Uses1=MSVBVM50.dll
+Uses2=StdOle2.tlb
+Uses3=OleAut32.dll
+Uses4=OlePro32.dll
+Uses5=AsycFilt.dll
+Uses6=Ctl3d32.dll
+Uses7=ComCat.dll
+Uses8=TABCTL32.OCX
+Uses9=COMCTL32.OCX
+Uses10=THREED32.OCX
+Uses11=MFC40.dll
+Uses12=MSVCRT40.dll
+Uses13=COMDLG32.OCX
+Uses14=

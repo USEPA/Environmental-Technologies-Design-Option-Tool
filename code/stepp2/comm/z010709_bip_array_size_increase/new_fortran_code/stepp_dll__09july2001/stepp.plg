@@ -1,0 +1,158 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: stepp - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSPD44.tmp" with contents
+[
+/compile_only /include:"Release/" /dll /nologo /warn:nofileopt /module:"Release/" /object:"Release/" 
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VPRCALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VBMSCH.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VBMATT.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VBBPCALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VAPORP.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\UNIMOD.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\REGRESS.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\PARTC.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\PARMS.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\ORGDENS.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\NEWTON.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\MWTCALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\MOLWT.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\LDGCCALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\LDDBCALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\KOWCALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\INITVS.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HENRY.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HENFIT.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HCDBCONV.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HC2CALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HC1CALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\H2OVISC.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\H2OST.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\H2ODENS.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\GETGAM.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\FGRPCALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\FGRP.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\ERROR.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DIFLWC.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DIFLPOL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DIFLHL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DIFGWL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DBDENS.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\BINPAR.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AQSOL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AQSFIT.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AQSCALL.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AIRVISC.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AIRDENS.F90"
+"X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\ACCALL.F90"
+]
+Creating temporary file "C:\TEMP\RSPD45.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /incremental:no /pdb:"Release/stepp.pdb" /machine:I386 /out:"Release/stepp.dll" /implib:"Release/stepp.lib" 
+.\Release\ACCALL.OBJ
+.\Release\AIRDENS.OBJ
+.\Release\AIRVISC.OBJ
+.\Release\AQSCALL.OBJ
+.\Release\AQSFIT.OBJ
+.\Release\AQSOL.OBJ
+.\Release\BINPAR.OBJ
+.\Release\DBDENS.OBJ
+.\Release\DIFGWL.OBJ
+.\Release\DIFLHL.OBJ
+.\Release\DIFLPOL.OBJ
+.\Release\DIFLWC.OBJ
+.\Release\ERROR.OBJ
+.\Release\FGRP.OBJ
+.\Release\FGRPCALL.OBJ
+.\Release\GETGAM.OBJ
+.\Release\H2ODENS.OBJ
+.\Release\H2OST.OBJ
+.\Release\H2OVISC.OBJ
+.\Release\HC1CALL.OBJ
+.\Release\HC2CALL.OBJ
+.\Release\HCDBCONV.OBJ
+.\Release\HENFIT.OBJ
+.\Release\HENRY.OBJ
+.\Release\INITVS.OBJ
+.\Release\KOWCALL.OBJ
+.\Release\LDDBCALL.OBJ
+.\Release\LDGCCALL.OBJ
+.\Release\MOLWT.OBJ
+.\Release\MWTCALL.OBJ
+.\Release\NEWTON.OBJ
+.\Release\ORGDENS.OBJ
+.\Release\PARMS.OBJ
+.\Release\PARTC.OBJ
+.\Release\REGRESS.OBJ
+.\Release\UNIMOD.OBJ
+.\Release\VAPORP.OBJ
+.\Release\VBBPCALL.OBJ
+.\Release\VBMATT.OBJ
+.\Release\VBMSCH.OBJ
+.\Release\VPRCALL.OBJ
+]
+Creating command line "link.exe @C:\TEMP\RSPD45.tmp"
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VPRCALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VBMSCH.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VBMATT.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VBBPCALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VBBPCALL.F90(87) : Warning: Variable NERR is used before its value has been defined
+         IF (NERR.EQ.-1) THEN
+-------------^
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\VAPORP.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\UNIMOD.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\REGRESS.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\PARTC.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\PARMS.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\ORGDENS.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\NEWTON.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\MWTCALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\MOLWT.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\LDGCCALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\LDDBCALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\KOWCALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\INITVS.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HENRY.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HENFIT.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HCDBCONV.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HC2CALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\HC1CALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\H2OVISC.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\H2OST.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\H2ODENS.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\GETGAM.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\FGRPCALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\FGRP.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\ERROR.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DIFLWC.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DIFLPOL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DIFLHL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DIFGWL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\DBDENS.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\BINPAR.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AQSOL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AQSOL.F90(55) : Warning: Variable IRR is used before its value has been defined
+      ELSE IF (IRR.EQ.-2) THEN
+---------------^
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AQSFIT.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AQSCALL.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AIRVISC.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\AIRDENS.F90
+X:\etdot10\code\stepp2\digital_fortran_code\stepp_dll__09july2001\ACCALL.F90
+Linking...
+   Creating library Release/stepp.lib and object Release/stepp.exp
+
+
+
+<h3>Results</h3>
+stepp.dll - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

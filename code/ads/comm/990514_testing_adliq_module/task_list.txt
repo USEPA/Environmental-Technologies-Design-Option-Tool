@@ -1,0 +1,23 @@
+
+
+
+
+Task list to test the IPE routine, ADLIQ.
+=============================================
+Background:
+Currently, the ADLIQ() routine uses the molar volume at the
+operating temperature for its internal variable VOLM.  
+The Polanyi parameters are determined using molar volume at
+the normal boiling point.  This may possibly be the reason
+that several student hand calculations are significantly
+different from the program output.
+
+Approach:
+Run calculation forcing VOLM to equal the molar volume at
+the normal boiling point to see if the program output is closer
+to the student hand calculations.
+
+
+
+
+  

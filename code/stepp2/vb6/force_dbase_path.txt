@@ -1,0 +1,12 @@
+
+
+If this file exists, then the dbase path is temporarily
+reset to the following path for testing purposes:
+
+    c:\work\990519_master_mdb_with_dippr801_data
+
+Eric J. Oman
+3:22 PM 5/19/99
+
+
+

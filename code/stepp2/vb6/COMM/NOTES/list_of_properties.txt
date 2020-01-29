@@ -1,0 +1,412 @@
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Properties that are found in StEPP:
+=====================================
+- CAS
+- name
+- vapor pressure
+- infinite dilution activity coefficient
+- Henry's constant
+- molecular weight
+- normal boiling point
+- liquid density
+- molar volume at operating temperature
+- molar volume at NBP
+- refractive index
+- aqueous solubility
+- log octanol water partition coefficient
+- liquid diffusivity
+- gas diffusivity
+
+
+
+Properties in PPMS that can be compared with StEPP properties:
+================================================================
+- CAS
+- name
+- vapor pressure (5)
+  - "Vapor Pressure @ 298.15 K"
+  - "Vapor Pressure as f(T)"
+  - 911 Database
+  - User Input
+- infinite dilution activity coefficient (2)
+  - "Activity Coefficient of Chemical in Water"
+  - 911 Database
+  - Hansch (1968)
+  - User Input
+- Henry's constant (2)
+  - "Henry's Constant"
+  - 911 Database
+  - Yaws
+  - Superfund
+  - Ashworth
+  - Gmehling
+  - Persichetti
+  - Hwang
+  - ASPEN (AENV)
+  - User Input
+- molecular weight (5)
+  - "Molecular Weight"
+  - 911 Database
+  - UNIFAC
+  - User Input
+- normal boiling point (5)
+  - "Normal Boiling Point (NBP)"
+  - 911 Database
+  - User Input
+- liquid density (5)
+  - "Liquid Density @ 298.15 K"
+  - "Liquid Density as f(T)"
+  - 911 Database
+  - Bhiruds (1978)
+  - Modified Rackett (1978)
+  - User Input
+- molar volume at operating temperature
+- molar volume at NBP
+- refractive index
+- aqueous solubility (2)
+  - "Solubility Limit of Chemical in Water"
+  - 911 Database
+  - Yaws
+  - Yalkowsky (1990)
+  - User Input
+- log octanol water partition coefficient (2)
+  - "Log Kow"
+  - 911 Database
+  - Kenaga and Goring (1978)
+  - User Input
+- liquid diffusivity (7)
+  - "Diffusivity in Water"
+  - 911 Database
+  - Hayduk and Minhas (1982)
+  - Hayduk and Laudie (1974)
+  - Wilke and Chang
+  - User Input
+- gas diffusivity (7)
+  - "Diffusivity in Air"
+  - 911 Database
+  - Wilke and Lee Modification
+  - User Input
+
+
+
+(Notes re Toluene:
+1 m = 100 cm
+1 m^2 = 10,000 cm^2
+9.15e-6 cm^2/s = 9.15e-10 m^2/s
+0.091 cm^2/s = 0.0000091 m^2/s)
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Complete list of PPMS property sheets, properties, and techniques:
+=====================================================================
+- Chemical Information (0)
+  - Operating Temperature
+  - Operating Pressure
+  - Name
+  - CAS
+  - Formula
+  - Family
+  - Source
+  - SMILES
+- General 1 (1)
+  - Molecular Weight
+    - 911 Database
+    - UNIFAC
+    - User Input
+  - Liquid Density @ 298.15 K
+    - 911 Database
+    - Bhiruds (1978)
+    - Modified Rackett (1978)
+    - User Input
+  - Liquid Density as f(T)
+    - 911 Database
+    - User Input
+  - Melting Point
+    - 911 Database
+    - Taft and Starek (1930)
+    - Lorenz and Herz (1922)
+    - User Input
+  - Normal Boiling Point (NBP)
+    - 911 Database
+    - User Input
+  - Vapor Pressure @ 298.15 K
+    - 911 Database
+    - User Input
+  - Vapor Pressure as f(T)
+    - Antoine
+    - User Input
+  - Heat of Formation
+    - 911 Database
+    - User Input
+- General 2 (2)
+  - Liquid Heat Capacity as f(T)
+    - 911 Database
+    - User Input
+  - Vapor Heat Capacity as f(T)
+    - 911 Database
+    - User Input
+  - Heat of Vaporization @ 298.15 K
+    - 911 Database
+    - Watson
+    - User Input
+  - Heat of Vaporization @ NBP
+    - 911 Database
+    - Klein (1949)
+    - Chen and Pitzer (1965)
+    - User Input
+  - Heat of Vaporization as f(T)
+    - 911 Database
+    - User Input
+  - Critical Temperature
+    - 911 Database
+    - User Input
+  - Critical Pressure
+    - 911 Database
+    - User Input
+  - Critical Volume
+    - 911 Database
+    - User Input
+- Transport (3)
+  - Diffusivity in Water
+    - 911 Database
+    - Hayduk and Minhas (1982)
+    - Hayduk and Laudie (1974)
+    - Wilke and Chang
+    - User Input
+  - Diffusivity in Air
+    - 911 Database
+    - Wilke and Lee Modificatio[n]
+    - User Input
+  - Surface Tension @ 298.15 K
+    - 911 Database
+    - Brock and Bird (1983)
+    - User Input
+  - Surface Tension as f(T)
+    - 911 Database
+    - User Input
+  - Vapor Viscosity as f(T)
+    - ( 911 Database ??? )
+    - User Input
+  - Liquid Viscosity as f(T)
+    - ( 911 Database ??? )
+    - User Input
+  - Liquid Thermal Conductivity as f(T)
+    - 911 Database
+    - User Input
+  - Vapor Thermal Conductivity as f(T)
+    - ( 911 Database ??? )
+    - User Input
+- Partitioning/Equilibrium (4)
+  - Activity Coefficient of Chemical in Water
+    - 911 Database
+    - [ UNIFAC <<<=== This method must be added back in !!! ]
+    - Hansch (1968)
+    - User Input
+  - Activity Coefficient of Water in Chemical
+    - 911 Database
+    - User Input
+  - Henry's Constant
+    - 911 Database
+    - Yaws
+    - Superfund
+    - Ashworth
+    - Gmehling
+    - Persichetti
+    - Hwang
+    - ASPEN (AENV)
+    - User Input
+  - Solubility Limit of Chemical in Water
+    - 911 Database
+    - Yaws
+    - Yalkowsky (1990)
+    - User Input
+  - Log Kow
+    - 911 Database
+    - Kenaga and Goring (1978)
+    - User Input
+  - Log Koc
+    - 911 Database
+    - Baker (1994)
+    - User Input
+  - Bioconcentration Factor
+    - 911 Database
+    - Kobayshi (1981)
+    - Kenaga and Goring (1980)
+    - User Input
+- Fire and Explosion (5)
+  - Upper Flammability Limit
+    - 911 Database
+    - MTU Fire & Explosion Data
+    - MTU Group Contribution
+    - MTU Combustion Reaction
+    - Penn State Group Contribu[tion Model]
+    - User Input
+  - Lower Flammability Limit
+    - 911 Database
+    - MTU Fire & Explosion Data
+    - MTU Group Contribution
+    - Penn State Group Contribu[tion Model]
+    - MTU Combustion Reaction
+    - MTU FlashPoint Method
+    - User Input
+  - Flash Point
+    - 911 Database
+    - MTU Fire & Explosion Data
+    - LFL Data
+    - MTU LFL Group Contributio[n Model]
+    - Penn State Group Contribu[tion Model]
+    - MTU LFL Combustion Reacti[on]
+    - User Input
+  - Autoignition Temperature
+    - 911 Database
+    - MTU Fire & Explosion Data
+    - MTU Logarithmic Method
+    - MTU Linear Method
+    - User Input
+  - Heat of Combustion
+    - 911 Database
+    - User Input
+- Oxygen Demand (6)
+  - Carbonaceous ThOD
+    - 911 Database
+    - User Input
+  - Combined (C + N) ThOD
+    - 911 Database
+    - User Input
+  - Chemical Oxygen Demand
+    - 911 Database
+    - MTU DIPPR
+    - User Input
+  - Biochemical Oxygen Demand
+    - 911 Database
+    - User Input
+- Aquatic Toxicity 1 (7)
+  - Fathead Minnow, 48h, EC50
+    - ( 911 Database ??? )
+    - User Input
+  - Fathead Minnow, 96h, EC50
+    - 911 Database
+    - User Input
+  - Fathead Minnow, 24h, LC50
+    - 911 Database
+    - User Input
+  - Fathead Minnow, 48h, LC50
+    - 911 Database
+    - User Input
+  - Fathead Minnow, 96h, LC50
+    - 911 Database
+    - User Input
+  - Salmonidae, 24h, LC50
+    - 911 Database
+    - User Input
+  - Salmonidae, 48h, LC50
+    - 911 Database
+    - User Input
+  - Salmonidae, 96h, LC50
+    - 911 Database
+    - User Input
+- Aquatic Toxicity 2 (8)
+  - Daphnia Magna, 24h, EC50
+    - 911 Database
+    - User Input
+  - Daphnia Magna, 48h, EC50
+    - 911 Database
+    - User Input
+  - Daphnia Magna, 24h, LC50
+    - 911 Database
+    - User Input
+  - Daphnia Magna, 48h, LC50
+    - 911 Database
+    - User Input
+  - Mysid, 96[h], LC50
+    - ( 911 Database ??? )
+    - User Input
+  - Alternate Species
+    - 911 Database
+    - User Input
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Global Const MW = 0         'Molecular Weight
+Global Const LD25 = 1       'Liquid Density @ 25C
+Global Const LD = 2         'Liquid Density as f(T)
+Global Const mp = 3         'Melting Point
+Global Const NBP = 4        'Normal Boiling Point
+Global Const VP25 = 5       'Vapor Pressure @ 25C
+Global Const VP = 6         'Vapor Pressure as f(T)
+Global Const hfor = 7       'Heat of Formation
+Global Const LHC = 8        'Liquid Heat Capacity as f(T)
+Global Const VHC = 9        'Vapor Heat Capacity as f(T)
+Global Const Hvap25 = 10    'Heat of Vaporization @ 25C
+Global Const HvapNBP = 11   'Heat of Vaporization @ NBP
+Global Const Hvap = 12      'Heat of Vaporization as f(T)
+Global Const CT = 13        'Critical Temperature
+Global Const CP = 14        'Critical Pressure
+Global Const CV = 38        'Critical Volume
+Global Const Dwater = 15    'Diffusivity in Water
+Global Const Dair = 16      'Diffusivity in Air
+Global Const ST25 = 17      'Surface Tension @ 25C
+Global Const ST = 18        'Surface Tension as f(T)
+Global Const VV = 19        'Vapor Viscosity as f(T)
+Global Const LV = 20        'Liquid Viscosity as f(T)
+Global Const LTC = 21       'Liquid Thermal Conductivity as f(T)
+Global Const VTC = 22       'Vapor Thermal Conductivity as f(T)
+Global Const UFL = 23       'Upper Flammability Limit
+Global Const LFL = 24       'Lower Flammability Limit
+Global Const FP = 25        'Flash Point
+Global Const AIT = 26       'Autoignition Temperature
+Global Const Hcomb = 27     'Heat of Combustion
+Global Const ThODcarb = 28  'Carbonaceous ThOD
+Global Const ThODcomb = 29  'Combined ThOD
+Global Const COD = 30       'Chemical Oxygen Demand
+Global Const BOD = 31       'Biochemical Oxygen Demand
+Global Const ACwater = 32   'Infinite Dilution Activity Coefficient of Water in Chemical
+Global Const HC = 33        'Henry's Constant
+Global Const ACchem = 34    'Infinite Dilution Activity Coefficient of Chemical in Water
+Global Const logKow = 35    'log Kow
+Global Const logKoc = 36    'log Koc
+Global Const BCF = 37       'Bioconcentration Factor
+Global Const Schem = 39     'Solubility Limit of Chemical in Water
+Global Const Swater = 40    'Solubility Limit of Water in Chemical
+    '41 to 54 is the new toxicity props added approx 8/14/98 JEM
+Global Const Fat48E = 41    'Fathead Minnow, 48h, EC50
+Global Const Fat96E = 42    'Fathead Minnow, 96h, EC50
+Global Const Fat24L = 43    'Fathead Minnow, 24h, LC50
+Global Const Fat48L = 44    'Fathead Minnow, 48h, LC50
+Global Const Fat96L = 45    'Fathead Minnow, 96h, LC50
+Global Const Sal24L = 46    'Salmonidae, 24h, LC50
+Global Const Sal48L = 47    'Salmonidae, 48h, LC50
+Global Const Sal96L = 48    'Salmonidae, 96h, LC50
+Global Const Daph24E = 49    'Daphnia magna, 24h, EC50
+Global Const Daph48E = 50    'Daphnia magna, 48h, EC50
+Global Const Daph24L = 51    'Daphnia magna, 24h, LC50
+Global Const Daph48L = 52    'Daphnia magna, 48h, LC50
+Global Const Mysid96L = 53    'Mysid, 96h, LC50
+Global Const AltSpecies = 54    'Alternate species
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+

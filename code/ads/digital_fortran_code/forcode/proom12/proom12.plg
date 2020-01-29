@@ -1,0 +1,68 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: proom12 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP314.tmp" with contents
+[
+/compile_only /include:"Release/" /nologo /warn:nofileopt /module:"Release/" /object:"Release/" 
+"X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\proom.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\front.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\diffun.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\dgear.for"
+]
+Creating temporary file "C:\TEMP\RSP315.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/proom12.pdb" /machine:I386 /out:"Release/proom12.exe" 
+.\Release\dgear.obj
+.\Release\diffun.obj
+.\Release\front.obj
+.\Release\proom.obj
+.\imsllib.lib
+]
+Creating command line "link.exe @C:\TEMP\RSP315.tmp"
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\proom.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\proom.for(210) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_VOL]
+      DOUBLE PRECISION ROOM_VOL
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\proom.for(211) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_FLOWRATE]
+      DOUBLE PRECISION ROOM_FLOWRATE
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\proom.for(212) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_C0]
+      DOUBLE PRECISION ROOM_C0(1:MXCOMP)
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\proom.for(213) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_EMIT]
+      DOUBLE PRECISION ROOM_EMIT(1:MXCOMP)
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\proom.for(335) : Warning: Variable ERROR is used before its value has been defined
+      IF (error.NE.0) GOTO 9999
+----------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\front.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\diffun.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\diffun.for(80) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_VOL]
+      DOUBLE PRECISION ROOM_VOL
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\diffun.for(81) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_FLOWRATE]
+      DOUBLE PRECISION ROOM_FLOWRATE
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\diffun.for(82) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_C0]
+      DOUBLE PRECISION ROOM_C0(1:MXCOMP)
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\diffun.for(83) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [ROOM_EMIT]
+      DOUBLE PRECISION ROOM_EMIT(1:MXCOMP)
+-----------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\proom12\dgear.for
+Linking...
+
+
+
+<h3>Results</h3>
+proom12.exe - 0 error(s), 9 warning(s)
+</pre>
+</body>
+</html>

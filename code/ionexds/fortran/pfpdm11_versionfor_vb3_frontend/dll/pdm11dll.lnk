@@ -1,0 +1,5 @@
+/SEG:300 pfpdm11.obj+dgear.obj 
+pdm11dll.dll
+nul
+/NOE /NOD c:\dosapps\fortran\lib\ldllfew.lib pfpsdm05.lib
+pdm11dll.def

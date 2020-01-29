@@ -1,0 +1,53 @@
+
+
+
+
+
+
+Overview
+- Information Flow Diagram
+- Description of StEPP
+- Description of PPMS/PEARLS/PDE
+- Actions Required to Merge StEPP and PPMS
+
+
+
+Information Flow Diagram
+
+Description of StEPP
+- Deficiencies
+  - Not flexible enough to easily add new properties
+  - Cannot easily be converted to ActiveX DLL
+- Positive Traits
+  - UNIFAC calculation system
+  - Well-tested and verified
+
+Description of PPMS/PEARLS/PDE
+- Deficiencies
+  - Not flexible enough to easily add new properties
+  - Cannot easily be converted to ActiveX DLL
+  - Many unit conversion errors, e.g.:
+    - Density of toluene = 104 g/cm^3
+    - Density of water = -8.73e+04 kmol/m^3
+    - Density of toluene = -8.50e+07 kg/m^3
+- Positive Traits
+  - Very large databases (DIPPR801 and DIPPR911)
+  - Good prototype
+
+Actions Required to Merge StEPP and PPMS
+- Phase One
+  - Finalize StEPP/PPMS agreement (starting today)
+  - Add a few more unit conversions
+  - Add more estimation techniques
+- Phase Two
+  - Add printing, exporting, searching
+  - Add UNIFAC calculations
+  - Link with EFRAT and SCENE
+- Phase Three
+  - Develop SMILES-based QSAR/QSPR estimation techniques
+  - Link with Jane's model
+
+Demo ...
+
+
+

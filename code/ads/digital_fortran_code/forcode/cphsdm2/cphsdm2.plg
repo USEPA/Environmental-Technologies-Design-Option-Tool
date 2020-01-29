@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: cphsdm2 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP633.tmp" with contents
+[
+/compile_only /include:".\Release/" /include:"Release/" /math_library:fast /nologo /module:".\Release/" /object:".\Release/" 
+"X:\etdot10\code\ads\digital_fortran_code\forcode\cphsdm2\cphsdm2.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\cphsdm2\FRONT.FOR"
+]
+Creating command line "link.exe kernel32.lib /nologo /subsystem:console /incremental:no /pdb:".\Release/cphsdm2.pdb" /machine:I386 /out:".\Release/cphsdm2.exe"  .\Release\FRONT.OBJ .\Release\cphsdm2.obj "
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\ads\digital_fortran_code\forcode\cphsdm2\cphsdm2.for
+df: info: Some interprocedural optimizations may be disabled when compiling into separate object files
+X:\etdot10\code\ads\digital_fortran_code\forcode\cphsdm2\FRONT.FOR
+Linking...
+
+
+
+<h3>Results</h3>
+cphsdm2.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

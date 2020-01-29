@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: asapsurf - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP5ED.tmp" with contents
+[
+/compile_only /include:".\Release/" /include:"Release/" /math_library:fast /nologo /threads /module:".\Release/" /object:".\Release/" 
+"X:\etdot10\code\asap\digital_fortran_code\asapsurf\DIFO2.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapsurf\KLAO2SUR.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapsurf\KLASURF.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapsurf\PCALCSUR.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapsurf\SEFFL.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapsurf\SURFEFF.F90"
+"X:\etdot10\code\asap\digital_fortran_code\asapsurf\TAUISURF.F90"
+]
+Creating temporary file "C:\TEMP\RSP5EE.tmp" with contents
+[
+kernel32.lib /nologo /subsystem:windows /dll /incremental:no /pdb:".\Release/asapsurf.pdb" /machine:I386 /out:".\Release/asapsurf.dll" /implib:".\Release/asapsurf.lib" 
+.\Release\TAUISURF.OBJ
+.\Release\SURFEFF.OBJ
+.\Release\SEFFL.OBJ
+.\Release\PCALCSUR.OBJ
+.\Release\KLASURF.OBJ
+.\Release\KLAO2SUR.OBJ
+.\Release\DIFO2.OBJ
+]
+Creating command line "link.exe @C:\TEMP\RSP5EE.tmp"
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\asap\digital_fortran_code\asapsurf\DIFO2.F90
+df: info: Some interprocedural optimizations may be disabled when compiling into separate object files
+X:\etdot10\code\asap\digital_fortran_code\asapsurf\KLAO2SUR.F90
+X:\etdot10\code\asap\digital_fortran_code\asapsurf\KLASURF.F90
+X:\etdot10\code\asap\digital_fortran_code\asapsurf\PCALCSUR.F90
+X:\etdot10\code\asap\digital_fortran_code\asapsurf\SEFFL.F90
+X:\etdot10\code\asap\digital_fortran_code\asapsurf\SURFEFF.F90
+X:\etdot10\code\asap\digital_fortran_code\asapsurf\TAUISURF.F90
+Linking...
+   Creating library .\Release/asapsurf.lib and object .\Release/asapsurf.exp
+
+
+
+<h3>Results</h3>
+asapsurf.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

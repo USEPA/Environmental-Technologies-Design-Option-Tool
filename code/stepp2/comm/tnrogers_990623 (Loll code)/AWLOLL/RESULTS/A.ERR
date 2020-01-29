@@ -1,0 +1,15 @@
+fitwfgct.for
+simp_dp.for
+linpac.for
+
+Microsoft (R) Segmented-Executable Linker  Version 5.15
+Copyright (C) Microsoft Corp 1984-1991.  All rights reserved.
+
+Object Modules [.OBJ]: fitwfgct.OBJ +
+Object Modules [.OBJ]: simp_dp.OBJ +
+Object Modules [.OBJ]: linpac.OBJ 
+Run File [fitwfgct.exe]: fitwfgct.EXE
+List File [NUL.MAP]: NUL
+Libraries [.LIB]: corewin /SE:512 /NOD:LLIBFOR7 LLIBFEW.LIB 
+Definitions File [NUL.DEF]: c:\fortran\binb\fl.def;
+Temporary file c:\ln014785 has been created.

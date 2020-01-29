@@ -1,0 +1,110 @@
+void 
+main() {
+
+int intExitFlag=1;
+               
+//Maximum characters in string is 90.  Buffer is dimensioned to 92 to
+//hold Maximum lenght of string in first array element and null character
+//in the last array element
+int i;
+int intSF_ID[100]={0};				//Array to store ID of detected subfragments
+int intSF_Quant[100]={0};			//Array to store quantity of respective detected subfragments
+int intMF_ID[21]={0};				//Array to store ID of detected molecular feature strings
+int intMF_Quant[21]={0};			//Array to store quantity of detected molecular features
+_int8 intSearchResult=0;			//Search result flag. (0~failed,1~success,2~partial success)
+char *strQuery=new char[610];		//Buffer to store query string
+char *strSubFragFile=new char[25];	//Buffer to store subfragment file name
+char *strOutputFile=new char[25];	//Buffer to store subfragment file name
+int intSearchType;					//Type of search flag. 0 ~ non-truncating search, 1 ~ truncating search,2 ~ enumerating search.
+int intQueryType;					//Type of query flag. 0~ string, 1~ file.
+
+cout<<"Search Type (0=non-truncating,1=truncating,2=enumerating)? ";
+cin>>intSearchType;
+cout<<"String or File (0=string,1=file)? ";
+cin>>intQueryType;
+cout<<"Input SMILES Query: "<<endl;
+cin>>strQuery;                               //Input SMILES structure
+cout<<"Enter subfragment file name: "<<endl;
+cin>>strSubFragFile;                         //Input name of subfragment file
+if(intQueryType==1) {
+	cout<<"Enter output file name: "<<endl;
+	cin>>strOutputFile;                         //Input name of subfragment file
+}
+
+//Call SubIsomorph() function
+MOSDAP_SHRED(strQuery,intQueryType,strSubFragFile,strOutputFile,intSearchType,intSearchResult,intSF_ID,intSF_Quant,intMF_ID,intMF_Quant);
+     
+//Delineate results
+switch(intSearchResult) {
+
+//Subgraphisomorphism was a failure.
+case 0:
+
+     if(intQueryType) cout<<"File search complete."<<endl;
+     else cout<<"Substructure search was a failure."<<endl;
+     break;
+//Subgraphisomorphism was a success. Either a subfragment was detected in the non-truncating search or
+//at least one "complete" deconstruction (no molecular residual) resulted from the truncating search.
+case 1:
+
+     //Output ID and quantity of detected subfragments
+     cout<<endl;
+     for(i=0;i<100;i++) {
+          if(intSF_ID[i] > 0) cout<<intSF_ID[i]<<"  "<<intSF_Quant[i]<<"  ;  ";
+          else if(intSF_ID[i] <0) cout<<endl<<" ==== "<<endl;
+          else break;
+     }
+     cout<<endl;
+	 for(i=0;i<21;i++) {
+          if(intMF_ID[i] > 0) cout<<intMF_ID[i]<<"  "<<intMF_Quant[i]<<"  ;  ";
+          else if(intMF_ID[i] <0) cout<<endl<<" ==== "<<endl;
+          else break;
+     } 
+	 cout<<endl;
+
+     //Output successful search depending upon search type selected
+     switch(intSearchType) {
+
+     case 0:
+          cout<<"Substructure search was a success. A subfragment was detected."<<endl;
+          break;
+
+     case 1:
+          cout<<"Substructure search was a success. No molecular residual resulted."<<endl;
+          break;
+
+     case 2:
+          cout<<"Enumerating search was a success. At least one combinatorial grouping resulted."<<endl;
+          break;
+     }    
+     break;
+//Subgraphisomorphism was a partial success. A molecular residual resulted in all attempts
+//to completely deconstruct the query structure in a truncating search.
+case 2:
+     //Output ID and quantity of detected subfragments
+     cout<<endl;
+     for(i=0;i<100;i++) {
+          if(intSF_ID[i] > 0) cout<<intSF_ID[i]<<"  "<<intSF_Quant[i]<<"  ;  ";
+          else if(intSF_ID[i] <0) cout<<endl<<" ==== "<<endl;
+          else break;
+     }
+     cout<<endl;
+	 for(i=0;i<21;i++) {
+          if(intMF_ID[i] > 0) cout<<intMF_ID[i]<<"  "<<intMF_Quant[i]<<"  ;  ";
+          else if(intMF_ID[i] <0) cout<<endl<<" ==== "<<endl;
+          else break;
+     } 
+	 cout<<endl;
+
+     //Output partially successful search.
+     cout<<"Substructure search was a partial success. A molecular residual resulted."<<endl;
+     break;
+}
+
+if(strQuery) delete[] strQuery;
+if(strSubFragFile) delete[] strSubFragFile;
+if(strOutputFile) delete[] strOutputFile;
+
+cin>>intExitFlag;
+
+}

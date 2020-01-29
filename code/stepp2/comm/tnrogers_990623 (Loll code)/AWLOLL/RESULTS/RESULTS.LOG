@@ -1,0 +1,51 @@
+ Andrew W. Loll, 11/96
+
+ The Results for the SIMPLEX Non-Linear Regression of the Antoine Constants are: 
+
+
+ The Objective Function for this Run is:       .18744E-07
+
+
+  FRAG #        A              B           SEED B
+ -------  -------------  -------------
+
+       1     2.30000000   447.45683963     500.
+       2     1.80000000   260.35359076     300.
+       3     2.90000000   293.11185073     300.
+       4      .46000000   110.48317028     100.
+       5     1.30000000   383.15563452     400.
+       6     2.10000000   559.81822378     500.
+
+
+ The Results for the SIMPLEX Non-Linear Regression of the Antoine Constants are: 
+
+
+ The Objective Function for this Run is:       .18744E-07
+
+
+  FRAG #        A              B      
+ -------  -------------  -------------
+
+       1     2.30000000   246.61517622     200.
+       2     1.80000000   143.49349697     200.
+       3     2.90000000   161.54816357     200.
+       4      .46000000    60.89263611     200.
+       5     1.30000000   211.17566200     200.
+       6     2.10000000   308.54298712     200.
+
+
+ The Results for the SIMPLEX Non-Linear Regression of the Antoine Constants are: 
+
+
+ The Objective Function for this Run is:       .18744E-07
+
+
+  FRAG #        A              B      
+ -------  -------------  -------------
+
+       1     2.30000000   705.53459544     500.
+       2     1.80000000   410.51661090     500.
+       3     2.90000000   462.16871150     500.
+       4      .46000000   174.20607295     500.
+       5     1.30000000   604.14666098     500.
+       6     2.10000000   882.70217160     500.

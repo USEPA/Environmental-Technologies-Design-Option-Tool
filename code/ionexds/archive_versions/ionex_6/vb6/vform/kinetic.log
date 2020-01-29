@@ -1,0 +1,27 @@
+Line 47: Class SSFrame of control fraPoreDiffusivityInput was not a loaded control class.
+Line 85: Class SSOption of control optPoreDiffusivity was not a loaded control class.
+Line 95: Class SSOption of control optPoreDiffusivity was not a loaded control class.
+Line 114: Class SSFrame of control fraIonicTransport was not a loaded control class.
+Line 122: Class SSOption of control optIonicTransportCoeff was not a loaded control class.
+Line 132: Class SSOption of control optIonicTransportCoeff was not a loaded control class.
+Line 181: Class SSFrame of control fraLiquidDiffusivityInput was not a loaded control class.
+Line 219: Class SSOption of control optLiquidDiffusivity was not a loaded control class.
+Line 229: Class SSOption of control optLiquidDiffusivity was not a loaded control class.
+Line 248: Class SSFrame of control fraPoreDiffusivity was not a loaded control class.
+Line 355: Class SSFrame of control fraIonicTransportCoefficient was not a loaded control class.
+Line 803: Class SSFrame of control fraLiquidDiffusivity was not a loaded control class.
+Line 48: The property name Caption in fraPoreDiffusivityInput is invalid.
+Line 86: The property name Caption in optPoreDiffusivity is invalid.
+Line 96: The property name Caption in optPoreDiffusivity is invalid.
+Line 102: The property name Value in optPoreDiffusivity is invalid.
+Line 115: The property name Caption in fraIonicTransport is invalid.
+Line 123: The property name Caption in optIonicTransportCoeff is invalid.
+Line 129: The property name Value in optIonicTransportCoeff is invalid.
+Line 133: The property name Caption in optIonicTransportCoeff is invalid.
+Line 182: The property name Caption in fraLiquidDiffusivityInput is invalid.
+Line 220: The property name Caption in optLiquidDiffusivity is invalid.
+Line 230: The property name Caption in optLiquidDiffusivity is invalid.
+Line 236: The property name Value in optLiquidDiffusivity is invalid.
+Line 249: The property name Caption in fraPoreDiffusivity is invalid.
+Line 356: The property name Caption in fraIonicTransportCoefficient is invalid.
+Line 804: The property name Caption in fraLiquidDiffusivity is invalid.

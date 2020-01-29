@@ -1,0 +1,16 @@
+Ion Exchange Simulation Software - PFPDM
+
+
+Calculation Time Summary for:
+   2 component(s)
+   1 bed
+   15 axial collocation points
+   6 radial collocation points
+   Total Simulation Time (minutes) = 399.00
+
+
+Initial Time was 08/08/00  9:23:41 AM
+
+Bed           Time Completed Bed
+
+ 1            08/08/00  9:23:43 AM

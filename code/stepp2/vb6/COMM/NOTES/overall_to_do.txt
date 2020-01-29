@@ -1,0 +1,199 @@
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+OVERALL TO DO LIST   (PHASE ONE).
+=======================================
+
+x- Add display of f(T) parameters on Techniques window
+  x- If the selected technique is NOT user-entry, gray-out all the f(T) parameters
+  x- If the selected property does NOT have f(T), gray- and blank-out all
+    of the f(T) parameters
+x- Add display of DIPPR801 parameters on Techniques window
+  x- First, store the values into the TechniqueData() structure
+  x- ... (references included)
+  x- Second, create the appropriate window controls
+  x- Third, refresh the data onto the window
+x- Add use of DIPPR911 parameters
+  x- First, load the parameters from the database
+  x- ... (references included)
+  x- Second, double-check that all calcs and displays occur properly
+x- Fix the properties that are Tr-dependent
+  x- Consider doing this:
+    x- Do not calculate the f(T) properties immediately
+    x- Instead, wait until the Tr property has been loaded; i.e. wait until
+      the DIPPR801 and DIPPR911 data has been loaded
+    x- Then, calculate all of the f(T) and f(Tr) properties
+x- Map out all of the property dependencies
+x- Add use of "block5" parameters:
+  x- First, load and calculate parameters
+  x- Second, double-check that all calcs and displays occur properly
+x- Code the "Change Units" command
+x- Add the user-entry code to frmTechniques:
+  x- Specify user input
+  x- Remove user input
+  x- Use a separate window to enter the value; allow the user to specify the units 
+    of entry ...
+    x- Once the user clicks OK, the value will be converted to the base units and stored
+    x- The units the user entered the value in are not stored anywhere
+x- Add the hierarchy override logic to frmTechniques:
+  x- Specify override 
+  x- Remove override 
+x- Add the "Basic Chemical Info" tab on the main window
+  x- CAS
+  x- SMILES
+  x- (et cetera)
+x- Add the Options -- Environment Preferences window:
+  x- Significant Figures Displayed
+  x- Font size for lists, e.g. 8, 10, 12, 14, ...
+  x- Method of implementation:
+    x- Global PrefEnvironment as PrefEnvironment_Type
+    x- function PrefEnvironment_SetDefaults()
+    x- function PrefEnvironment_LoadFromINI()
+    x- function PrefEnvironment_SaveToINI()
+    x- In sub main, call PrefEnvironment_LoadFromINI()
+    x- When the user changes the settings, call PrefEnvironment_SaveToINI()
+
+
+x- Add the Options -- Customize window
+  x- Refer to design_of_new_program.txt for window details
+  x- Keep it as a single window, with multiple tabs if needed
+- Add the following file i/o operations:
+  - Open
+    - Add a refresh after the load is complete
+  - Save
+  - Save As
+  - Structure of .PRL file:
+    - Main
+    - UserHierarchy
+    - UserChemicals
+      - Instead of row-storage, use a binary storage method
+- Add calculation of miscellaneous estimation techniques
+  - First, calculate parameters
+  - Second, double-check that all calcs and displays occur properly
+- Add to technique window:
+  - For each estimation technique:
+    - Property dependence array that stores the "Long" property codes,
+      which is then translated into text on the window
+- Add these fields:
+  - date/time of last recalculation for all chemicals
+  - date/time of last save
+
+
+- Add the Antoine regression window (to be completed by other programmers)
+- Add in more of the units that the old version of PPMS used:
+  - Henry's constant, including variable-T capability
+  - Aqueous solubility, including variable-T capability
+  - Liquid density e.g.: kg/m3, kmol/m3, etc.
+  - Other units .......
+- Add a stub for File--Export (to be completed by other programmers)
+- Add a stub for File--Print (to be completed by other programmers)
+- Add a stub for Plot--Create Plot (to be completed by other programmers)
+- Add a stub for DBMAN and DCUT from the ppms_front project (to be completed by other programmers)
+- Based on serial number, parts of the software will be crippled; i.e. the CenCITT
+  people don't get the DIPPR 911 data, but they do get the DIPPR 801 data;
+  and various other things
+- Make presentation of software developed to date:
+  - List of deficiencies with StEPP
+    - Not flexible enough for adding new properties / techniques
+    - Cannot easily be converted to ActiveX DLL
+  - List of deficiencies with PEARLS/PPMS
+    - Although the technique window is very flexible, a good point,
+      the main property window is not flexible enough; the tab control
+      has to be removed
+    - There are probably a few unit conversions programmed correctly,
+      but I haven't found them yet; examples:
+      - Density of toluene = 104 g/cm^3
+      - Density of water = -8.73e+04 kmol/m^3
+      - Density of toluene = -8.50e+07 kg/m^3
+      - The main problem with the unit conversions in this program is that they are performed
+        far too frequently, and they are almost all incorrect.
+      - Solution: Store all values in BASE UNITS and perform all calculations in
+        BASE UNITS, as much as possible.  For example, critical pressure will ALWAYS be stored in 
+        units of Pascals.  When displayed, it will be converted to its appropriate DISPLAY UNITS,
+        e.g. atm, mmHg, etc.  When used in a correlation that requires critical pressure
+        in atm, a simple conversion factor will be applied.
+    - All of the UNIFAC calculations were arbitrarily removed
+    - Cannot easily be converted to ActiveX DLL
+    - Many, many other problems
+  - Changes made to date
+  - Changes planned in future
+  - Demo of new program
+- Finalize new PPMS/StEPP agreement with everyone
+- Turn over PART of code to other programmers on a "check-out" basis
+
+
+OVERALL TO DO LIST   (PHASE TWO).
+=======================================
+- Add in the StEPP calculations:
+  - Activity coefficient
+  - Henry's constant = f(gamma,VP)
+  - Aqueous solubility = f(gamma, ??? )
+  - log (Kow) = f(gamma, ??? )
+  - Other values that do not overlap the PPMS properties
+- Verify ALL CALCULATIONS:
+  - Verify all calculations versus the StEPP program
+  - Verify all non-StEPP parameters versus literature
+  - Make spot-checks of each database technique
+- Add "silent" calls to the .DLL, similar to how it will be called
+  from EFRAT and other programs
+- Add SMILES-based estimation techniques:
+  - Construct list of properties needed by EFRAT, and by other programs
+  - Develop new ones via working with Drs. Rogers and Sabjlic, etc.
+  - Have Dr. Sabjlic (sp?) verify our techniques
+- Link new program with SCENE
+
+
+
+OVERALL TO DO LIST   (PHASE THREE).
+=======================================
+- Allow user to specify own f(T) parameters
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////

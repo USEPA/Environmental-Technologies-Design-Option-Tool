@@ -1,0 +1,4402 @@
+%!
+/TeXDict 200 dict def
+TeXDict begin
+/Mtrx matrix def
+/@start {
+/StartTime usertime def
+vmstatus pop /@VMused exch def pop 
+72 720 translate 
+} def
+/@letter { /letter where { pop letter 72 720 translate } if } def
+/@legal { /legal where { pop legal 72 936 translate } if } def
+/@note { /note where { pop note 72 720 translate } if } def
+/@a4 { /a4 where { pop a4 72 765 translate } if } def
+/@landscape { [ 0 1 -1 0 0 0 ] concat -9.0 72 mul 0 translate } def
+/@manualfeed { /manualfeed where { /manualfeed true put } if } def
+/@duplex { /setduplexmode where { /setduplexmode true put } if } def
+/@copies { /#copies exch def } def
+/@startdoc {
+dup
+72 exch div dup neg scale
+0 0 transform round exch round exch itransform translate
+Mtrx currentmatrix pop
+currentdict /isoddpage known
+{   /SecondMtrx matrix def
+8.5 exch mul 0 translate
+SecondMtrx currentmatrix pop
+}{
+pop
+} ifelse
+/@TeXSave save def
+} def
+/@restore /restore load def
+/restore {
+vmstatus pop
+dup @VMused lt {pop @VMused} if
+exch pop exch @restore /@VMused exch def
+} bind def
+/@pri { ( ) print
+(                                       ) cvs print
+}def
+/@newfont {
+/newname exch def
+newname 7 dict def
+newname load begin
+/FontType 3 def
+dup neg matrix scale /FontMatrix exch def
+/FontBBox [0 0 1 1] def
+/BitMaps 256 array def
+/BuildChar {CharBuilder} def
+/Encoding 256 array def
+0 1 255 {Encoding exch /.undef put} for
+end
+newname newname load definefont pop
+} bind def
+/ch-image  {ch-data 0 get} bind def
+/ch-width  {ch-data 1 get} bind def
+/ch-height {ch-data 2 get} bind def
+/ch-xoff   {ch-data 3 get} bind def
+/ch-yoff   {ch-data 4 get} bind def
+/ch-tfmw   {ch-data 5 get} bind def
+/CharBuilder
+{ exch /BitMaps get exch get /ch-data exch def
+ch-data null ne {
+ch-tfmw    0     ch-xoff neg     ch-yoff neg
+ch-width ch-xoff sub   ch-height ch-yoff sub
+setcachedevice
+ch-width ch-height true [1 0  0 1 ch-xoff ch-yoff] {ch-image}
+imagemask
+} if
+} bind def
+/@dc{
+/ch-code exch def
+dup 0 get
+length 2 lt
+{ pop [ <00> 1 1 0 0 8.00 ] }
+if
+/ch-data exch def
+currentfont /BitMaps get ch-code ch-data put
+currentfont /Encoding get ch-code dup (   ) cvs cvn put
+} bind def
+/@pc {
+pop
+/ch-data exch def
+currentpoint translate
+ch-width ch-height true [1 0 0 -1 ch-xoff ch-yoff ] {ch-image}
+imagemask
+} bind def
+/@sf { setfont } def
+/@flushfonts { @TeXSave restore /@TeXSave save def} def
+/@bop0 { pop } bind def
+/@bop1 { pop Mtrx setmatrix /SaveImage save def } def
+/@eop { showpage SaveImage restore } def
+/p { moveto } bind def
+/r { 0 rmoveto } bind def
+/s { show pop } bind def
+/ks {
+2 1 counttomark 2 sub { -1 roll } for
+counttomark 2 idiv {
+show 0 rmoveto
+} repeat
+show
+pop
+} bind def
+/m { mark } bind def
+/ru {
+/dy exch 1 sub neg def
+/dx exch 1 sub def
+gsave
+currentpoint
+newpath moveto
+dx 0 rlineto
+0 dy rlineto
+dx neg 0 rlineto
+closepath fill
+grestore
+} bind def
+/@end {
+(Time used: ) print usertime StartTime sub @pri
+(VM used: ) print @VMused @pri
+(. Unused: ) print vmstatus @VMused sub @pri pop pop
+(\n) print flush
+end 
+} def
+/DraftFirst { gsave initmatrix newpath
+/Helvetica-Bold findfont setfont
+(Draft) dup stringwidth pop 8.875 exch div dup 72 mul dup scale
+52.3 rotate 2.5 exch div -.35 translate
+0.95 setgray
+0 0 moveto show
+grestore
+} bind def
+/DraftMore { gsave initmatrix newpath
+/Helvetica-Bold findfont 72 scalefont setfont
+0.95 setgray
+576 702 moveto
+(Draft) stringwidth exch neg exch neg rmoveto
+(Draft) show
+grestore 
+} bind def
+/@draft {
+/@bop1 { 1 le {DraftFirst} {DraftMore} ifelse
+Mtrx setmatrix
+/SaveImage save def
+} bind def
+} bind def
+/@twoup {
+initmatrix [ 0 1 -1 0 0 0 ] concat
+36 -87 translate  5.5 8.5 div dup scale
+/isoddpage true def
+/@eop { isoddpage not {showpage} if
+SaveImage restore
+/isoddpage isoddpage not def
+} def
+/@bop1 { pop 
+isoddpage
+{ SecondMtrx setmatrix }
+{ Mtrx setmatrix }
+ifelse
+/SaveImage save def
+} def
+/@end { isoddpage not { showpage } if
+end
+} def
+} def
+/@beginspecial
+{ SpecialDict begin
+gsave /SpecialSave save def
+currentpoint transform initgraphics itransform translate 0 0 moveto
+SpecialDefaults
+IfMacSetUp
+} def
+/@setspecial
+{
+hof vof translate setclipper
+hsc vsc scale
+angl rotate
+} def
+/@endspecial
+{ SpecialSave restore
+grestore end
+} def
+/@beginfullpage {
+gsave /SpecialSave save def
+SpecialDict begin
+/showpage {} def
+initgraphics
+} def
+/@endfullpage {
+clear end SpecialSave restore grestore showpage
+} def
+/SpecialDict 50 dict def
+SpecialDict begin
+/Inch { 72 mul} bind def
+/SpecialDefaults
+{ /hsi 8.5 Inch def
+/vsi 11 Inch def
+/hof 0 def
+/vof 0 def
+/hsc 1 def
+/vsc 1 def
+/angl 0 def
+/CLIP false def
+} def
+/@hsize {/hsi exch def /CLIP true def} def
+/@vsize {/vsi exch def /CLIP true def} def
+/@hoffset {/hof exch def} def
+/@voffset {/vof exch def} def
+/@hscale {/hsc exch def} def
+/@vscale {/vsc exch def} def
+/@rotate {/angl exch def} def
+/setclipper
+{
+CLIP
+{ newpath 0 0 moveto hsi 0 rlineto 0 vsi rlineto hsi neg 0 rlineto 
+closepath clip }
+if
+} def
+end
+/IfMacSetUp
+{ userdict /md known
+{ userdict /md get type /dicttype eq
+{ md begin
+/txpose{
+1 -1 scale
+} bind def
+/cp {pop pop} bind def
+end }
+if }
+if    
+} def
+end
+/TeXDict where
+{/TeXDict get begin}
+{ (Need to load basic TeXDict first\n) print
+currentfile flushfile} 
+ifelse
+/@texmakefont {
+/TeXsize exch def
+[ TeXsize 0 0 TeXsize neg 0 0 ] makefont
+def
+} bind def
+/@ps2texfont {
+dup FontDirectory exch known
+{ exch pop findfont }
+{ ReEncodeForTeX }
+ifelse
+exch @texmakefont
+} bind def
+/ReEncodeForTeX
+{ /newfontname exch def
+/basefontname exch def
+/TeXstr 30 string def
+/basefontdict basefontname findfont def
+/newfont basefontdict maxlength dict def
+basefontdict
+{ exch dup /FID ne
+{ dup /Encoding eq
+{ exch dup length array copy
+newfont 3 1 roll put }
+{ exch newfont 3 1 roll put }
+ifelse
+}
+{ pop pop }
+ifelse
+} forall
+basefontdict /MathFontName known not
+{
+/TeXvec 
+basefontname TeXstr cvs (Courier) search
+{ pop pop pop TeXcourvec }
+{ pop TeXnormalvec }
+ifelse 
+def
+TeXvec aload pop
+TeXvec length 2 idiv
+{ newfont /Encoding get 3 1 roll put }
+repeat
+}
+if
+newfontname newfont definefont
+} bind def
+/TeXnormalvec
+[ 8#014 /fi 8#015 /fl 8#020 /dotlessi 8#022 /grave 8#023 /acute
+8#024 /caron 8#025 /breve 8#026 /macron 8#027 /ring 8#030 /cedilla
+8#031 /germandbls 8#032 /ae 8#033 /oe 8#034 /oslash 8#035 /AE
+8#036 /OE 8#037 /Oslash 8#042 /quotedblright 8#074 /exclamdown
+8#076 /questiondown 8#134 /quotedblleft 8#136 /circumflex
+8#137 /dotaccent 8#173 /endash 8#174 /emdash 8#175 /hungarumlat
+8#176 /tilde 8#177 /dieresis ] def
+/TeXcourvec
+[ 8#016 /exclamdown 8#017 /questiondown 8#020 /dotlessi 8#022 /grave
+8#023 /acute 8#024 /caron 8#025 /breve 8#026 /macron 8#027 /ring
+8#030 /cedilla 8#031 /germandbls 8#032 /ae 8#033 /oe 8#034 /oslash
+8#035 /AE 8#036 /OE 8#037 /Oslash 8#074 /less 8#076 /greater
+8#134 /backslash 8#136 /circumflex 8#137 /underscore 8#173 /braceleft
+8#174 /bar 8#175 /braceright 8#177 /dieresis ] def
+/ObliqueFont {
+/ObliqueAngle exch def
+/ObliqueBaseName exch def
+/ObliqueFontName exch def
+/ObliqueTransform [1 0 ObliqueAngle sin ObliqueAngle cos div 1 0 0] def
+/basefontdict ObliqueBaseName findfont ObliqueTransform makefont def
+/newfont basefontdict maxlength dict def
+basefontdict
+{ exch dup /FID ne
+{ dup /Encoding eq
+{ exch dup length array copy
+newfont 3 1 roll put }
+{ exch newfont 3 1 roll put }
+ifelse
+}
+{ pop pop }
+ifelse
+} forall
+newfont /FontName ObliqueFontName put
+ObliqueFontName newfont definefont pop
+} bind def
+/SmallCapsFont {
+/SmallCapsBaseName exch def
+/SmallCapsFontName exch def
+/basefontdict SmallCapsBaseName findfont def
+/newfont basefontdict maxlength 10 add dict def
+newfont begin
+/FontName SmallCapsFontName def
+/FontBaseDict basefontdict 1000 scalefont def
+/FontSCDict FontBaseDict .8 scalefont def
+/FontType 3 def
+/BuildChar {SmallCapChar} def
+/FontMatrix dup basefontdict exch get def
+/FontBBox dup basefontdict exch get def
+/Encoding dup basefontdict exch get def
+end
+SmallCapsFontName newfont definefont pop
+} bind def
+/SmallCapChar {
+/achar (A) def
+achar exch 0 exch put
+begin
+achar 0 get dup 97 ge exch 122 le and {
+achar 0 achar 0 get 32 sub put
+FontSCDict
+} {
+FontBaseDict
+} ifelse
+setfont achar stringwidth FontBBox setcachedevice
+newpath 0 0 moveto achar show
+end
+} bind def
+/MathEncodingVec [
+/Gamma /Delta /Theta /Lambda /Xi /Pi /Sigma /Upsilon1
+/Phi /Psi /Omega /alpha /beta /gamma /delta /epsilon
+/zeta /nu /theta /iota /kappa /lambda /mu /nu
+/xi /pi /rho /sigma /tau /upsilon /phi /chi
+/psi /omega /epsilon /theta1 /omega1 /rho /sigma /phi1
+/arrowleft /arrowleft /arrowright /arrowright
+/suchthat /congruent /proportional /angle
+/zero /one /two /three /four /five /six /seven
+/eight /nine /period /comma /less /slash /greater /asteriskmath
+/partialdiff /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /registerserif /copyrightserif /trademarkserif /logicalor /logicaland
+/section /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /dotlessi /j /weierstrass /macron /breve
+] def
+/MathCharVec [
+71	68	81	76	88	80	83	161
+70	89	87	97	98	103	100	101
+122	110	113	105	107	108	109	110
+120	112	114	115	116	117	102	99
+121	119	101	74	118	114	115	106
+172	172	174	174	39	64	181	208
+48	49	50	51	52	53	54	55
+56	57	46	44	60	47	62	42
+182	65	66	67	68	69	70	71
+72	73	74	75	76	77	78	79
+80	81	82	83	84	85	86	87
+88	89	90	210	211	212	218	217
+167	97	98	99	100	101	102	103
+104	105	106	107	108	109	110	111
+112	113	114	115	116	117	118	119
+120	121	122	245	106	195	197	198
+] def
+/MathDictVec [
+1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1
+2 2 2 2 2 2 2 2
+0 0 0 0 0 0 0 0
+0 0 0 0 2 2 2 2
+2 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 2 2 2 2 2
+2 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 2 0 0
+] def
+/MathOblique {
+3 copy ObliqueFont
+pop pop MathFont
+} bind def  
+/MathFont {
+/MathSymName exch def
+/MathBaseName exch def
+/MathFontName exch def
+/basefontdict MathBaseName findfont def
+/newfont basefontdict maxlength 10 add dict def
+newfont begin
+/FontName MathFontName def
+/FontDictArray [
+basefontdict 1000 scalefont
+MathSymName findfont 950 scalefont
+/Symbol findfont 950 scalefont
+] def
+/FontType 3 def
+/BuildChar {MathFontChar} def
+/FontMatrix dup basefontdict exch get def
+/FontBBox dup basefontdict exch get def
+/Encoding dup basefontdict exch get dup length array copy def
+/WhichFont MathDictVec def
+/WhichChar MathCharVec def
+MathEncodingVec Encoding copy pop
+/achar (A) def
+end
+MathFontName newfont definefont pop
+} bind def
+/MathFontChar {
+exch begin
+achar exch 0 exch put
+FontDictArray WhichFont achar 0 get get get setfont
+achar dup 0 get WhichChar exch get 0 exch put
+achar stringwidth FontBBox setcachedevice
+newpath 0 0 moveto achar show
+end
+} bind def
+end
+/psf$TeXscale { 65536 div } def
+/DocumentInitState [ matrix currentmatrix currentlinewidth currentlinecap
+currentlinejoin currentdash currentgray currentmiterlimit ] cvx def
+/startTexFig {
+/psf$SavedState save def
+userdict maxlength dict begin
+currentpoint transform
+DocumentInitState setmiterlimit setgray setdash setlinejoin setlinecap
+setlinewidth setmatrix
+itransform moveto
+/psf$ury exch psf$TeXscale def
+/psf$urx exch psf$TeXscale def
+/psf$lly exch psf$TeXscale def
+/psf$llx exch psf$TeXscale def
+/psf$y exch psf$TeXscale def
+/psf$x exch psf$TeXscale def
+currentpoint /psf$cy exch def /psf$cx exch def
+/psf$sx psf$x psf$urx psf$llx sub div def
+/psf$sy psf$y psf$ury psf$lly sub div def
+psf$sx psf$sy scale
+psf$cx psf$sx div psf$llx sub
+psf$cy psf$sy div psf$ury sub translate
+/DefFigCTM matrix currentmatrix def
+/initmatrix {
+DefFigCTM setmatrix
+} def
+/defaultmatrix {
+DefFigCTM exch copy
+} def
+/initgraphics {
+DocumentInitState setmiterlimit setgray setdash 
+setlinejoin setlinecap setlinewidth setmatrix
+DefFigCTM setmatrix
+} def
+/showpage {
+initgraphics
+} def
+/erasepage {
+initgraphics
+} def
+/copypage {} def
+} bind def
+/clipFig {
+currentpoint 6 2 roll
+newpath 4 copy
+4 2 roll moveto
+6 -1 roll exch lineto
+exch lineto
+exch lineto
+closepath clip
+newpath
+moveto
+} bind def
+/doclip { psf$llx psf$lly psf$urx psf$ury clipFig } def
+/endTexFig { end psf$SavedState restore } def
+/ForAlex { 72 8.5 mul 0  translate 90 rotate } def
+%%Title: etdot.dvi
+%%Creator: dvi2ps 3.1
+%%EndProlog
+TeXDict begin @start
+300 @startdoc
+1 @bop0
+1.000000 /cmr10.360 @newfont
+cmr10.360 @sf
+[<03FFFF8003FFFF800007C0000007C0000007C0000007C0000007C0000007C0000007C0000007C0
+  000007C0000007C0000007C0000007C0000007C0000007C0000007C0000007C0000007C0000007
+  C0000007C0000007C000C007C006C007C006C007C006C007C006E007C00EE007C00E6007C00C60
+  07C00C7007C01C7C07C07C7FFFFFFC7FFFFFFC> 31 34 -2 0 36] 84 @dc
+[<FFFEFFFE07C007C007C007C007C007C007C007C007C007C007C007C007C007C007C007C007C007
+  C007C007C007C007C007C007C007C007C007C007C007C007C0FFFEFFFE> 15 34 -1 0 18] 73 @dc
+[<FFFFFF80FFFFFF8007C01F8007C0078007C0038007C0038007C0018007C001C007C001C007C000
+  C007C000C007C000C007C000C007C0000007C0000007C0000007C0000007C0000007C0000007C0
+  000007C0000007C0000007C0000007C0000007C0000007C0000007C0000007C0000007C0000007
+  C0000007C0000007C00000FFFF0000FFFF0000> 26 34 -2 0 31] 76 @dc
+[<FFFFFFF0FFFFFFF007C003F007C000F807C0007807C0003807C0001807C0001807C0001807C000
+  1807C0000C07C0300C07C0300C07C0300007C0300007C0700007C0F00007FFF00007FFF00007C0
+  F00007C0700007C0300007C0303007C0303007C0303007C0003007C0007007C0007007C0006007
+  C000E007C001E007C007E0FFFFFFE0FFFFFFE0> 30 34 -2 0 34] 69 @dc
+[<C1FE00C7FF80FF07C0FC01E0F800F0F000F0E00070E00078C00078C00078C000780000F80000F8
+  0001F80003F0000FF001FFF007FFE01FFFC03FFF807FFE007FE0007E0000FC0000F80000F80030
+  F00030F00030F00070F000707800F07801F03C03F01E0FF00FFE3003F830> 21 36 -3 1 28] 83 @dc
+[<000FF000003FFE0000FC0F0003F0038007C001C00F8000E00F0000601F0000703E0000303E0000
+  387C0000187C0000187C000018F8000018F8000000F8000000F8000000F8000000F8000000F800
+  0000F8000000F8000018F80000187C0000187C0000387C0000383E0000383E0000781F0000780F
+  0000F80F8000F807C001F803F003B800FC0F38003FFC18000FF018> 29 36 -3 1 36] 67 @dc
+[<0000007F00FFFE01FF80FFFE03F38007C003E1C007C007C0C007C007C0C007C007C00007C007C0
+  0007C007C00007C007C00007C007C00007C007C00007C007C00007C00FC00007C00F800007C01F
+  800007C07F000007FFFC000007FFFC000007C01F000007C007800007C003C00007C003E00007C0
+  01E00007C001F00007C001F00007C001F00007C001F00007C001E00007C003E00007C003C00007
+  C007800007C01F0000FFFFFC0000FFFFE00000> 34 35 -2 1 37] 82 @dc
+[<FFF00060FFF000E01F8001E0060001E0060003E0060003E0060007E006000FE006000FE006001F
+  E006001F6006003F6006007E6006007E600600FC600600F8600601F8600603F0600603F0600607
+  E0600607C060060FC060061F8060061F8060063F0060063E0060067E006006FC006006FC006007
+  F8006007F0006007F001F8FFE00FFFFFC00FFF> 32 34 -2 0 37] 78 @dc
+[<FFFF0000FFFF000007C0000007C0000007C0000007C0000007C0000007C0000007C0000007C000
+  0007C0300007C0300007C0300007C0300007C0700007C0F00007FFF00007FFF00007C0F00007C0
+  700007C0300007C0300007C0303007C0303007C0003007C0003007C0007007C0007007C0006007
+  C000E007C001E007C007E0FFFFFFE0FFFFFFE0> 28 34 -2 0 33] 70 @dc
+[<0FC1E03FF3F87C3FDCF81F8CF00F8CF0078CF0078CF807807807807C07803F07800FFF8003FF80
+  000F800007803807807C0F807C0F007C3F007FFE001FF000> 22 21 -2 0 25] 97 @dc
+[<0000C000000001E000000001E000000001E000000003F000000003F000000003F000000007D800
+  000007D800000007D80000000F8C0000000F8C0000000F8C0000001F060000001F060000003F07
+  0000003E030000003E030000007E038000007C018000007C01800000F800C00000F800C00000F8
+  00C00001F000600001F000600001F000600003E000300003E000300007E000380007C000180007
+  C0003C000FC0007E00FFFC01FFC0FFFC01FFC0> 34 35 -1 1 37] 86 @dc
+[<000FF000003FFC0000F81F0003E007C007C003E00F8001F00F0000F01E0000783E00007C3C0000
+  3C7C00003E7C00003E7C00003EF800001FF800001FF800001FF800001FF800001FF800001FF800
+  001FF800001FF800001F7800001E7800001E7C00003E7C00003E3C00003C3E00007C1E0000780F
+  0000F0078001E007C003E001E0078000F81F00003FFC00000FF000> 32 36 -3 1 39] 79 @dc
+[<FFF800FFF8000F00000F00000F00000F00000F00000F00000F00000F00000F00000F00000F0000
+  0F00000F80000F80000F87801FC780FFF780FF7F800F3F00> 17 21 -1 0 20] 114 @dc
+[<007000E001E001C0038007000F000E001E001C003C003C00380078007800700070007000F000F0
+  00F000F000F000F000F000F000F000F000F000F000F000F0007000700070007800780038003C00
+  3C001C001E000E000F000700038001C001E000E00070> 12 50 -3 13 19] 40 @dc
+[<01F007F807980F1C0F0C0F0C0F0C0F0C0F0C0F000F000F000F000F000F000F000F000F000F00FF
+  F8FFF83F001F000F000700070007000300030003000300> 14 31 -1 0 19] 116 @dc
+[<01FC0007FF000F83C03E01C03C00E0780060780000F00000F00000F00000F00000F00000FFFFE0
+  FFFFE07800E07801E03C01C03E03C01F0F8007FF0001FC00> 19 21 -1 0 22] 101 @dc
+[<00FC0007FF800F03C01C00E0380070780078700038F0003CF0003CF0003CF0003CF0003CF0003C
+  F0003C7000387800783800701C00E00F03C007FF8000FC00> 22 21 -1 0 25] 111 @dc
+[<7FFC007FFC00078000078000078000078000078000078000078000078000078000078000078000
+  078000078000078000078000078000078000FFF800FFF800078000078000078000078000078000
+  078000078000078000078F8003CF8003EF8001FF8000FF00003F00> 17 35 0 0 15] 102 @dc
+[<FFF0FFF00F000F000F000F000F000F000F000F000F000F000F000F000F000F000F000F000F000F
+  000F000F000F000F000F000F000F000F000F000F000F001F00FF00FF000F00> 12 35 0 0 13] 108 @dc
+[<FFE0FFE00F000F000F000F000F000F000F000F000F000F000F000F000F000F000F001F00FF00FF
+  000F00000000000000000000000000000000000E001F001F001F000E00> 11 34 0 0 13] 105 @dc
+[<03FF000FFFC03F03F07C00F8700038F0003CE0001CE0001CF0003CF0003C7C01F83FFFF80FFFF0
+  1FFFE01FFF803C00003800003800001BF8001FFC001F1F001E0F003C07803C07803C07803C0780
+  3C07803C07801E0F1C1F1F3C07FFDC03F9FC0000F8> 22 33 -1 11 25] 103 @dc
+[<FFF3FF80FFF3FF800F0078000F0078000F0078000F0078000F0078000F0078000F0078000F0078
+  000F0078000F0078000F0078000F0078000F0078000F8078000F8078001FC0F800FFF1F000FF7F
+  F0000F1FC000> 25 21 -1 0 28] 110 @dc
+[<03FC000FFF001F87803E01803C01C07800C0780000F00000F00000F00000F00000F00000F00000
+  F000007800007807003C0F803E0F801F0F800FFF8003FE00> 18 21 -2 0 22] 99 @dc
+[<CFE0FFF8FC3CF01EE00EE00EC00EC01E007E0FFC3FFC7FF8FFE0FE00F000E00CE00CF01C783C3F
+  FC0FEC> 15 21 -2 0 20] 115 @dc
+[<E0007000780038001C000E000F0007000780038003C003C001C001E001E000E000E000E000F000
+  F000F000F000F000F000F000F000F000F000F000F000F000F000E000E000E001E001E001C003C0
+  03C00380078007000F000E001C00380078007000E000> 12 50 -3 13 19] 41 @dc
+[<00700700000070070000007007000000F80F800000F80F800000F80F800001EC1EC00001EC1EC0
+  0001EC1CC00003C63C600003C63C600003C63860000783783000078378300007837030000F01F0
+  18000F01F018000F01E01C001F01F03E00FFCFFCFF80FFCFFCFF80> 33 21 -1 0 36] 119 @dc
+[<FFF000FFF0000F00000F00000F00000F00000F00000F00000F00000F00000F1FC00F7FF00FE1F8
+  0FC07C0F803C0F001E0F001E0F001F0F000F0F000F0F000F0F000F0F000F0F001F0F001E0F001E
+  0F003E0FC07CFFE0F8FF7FF00F1FC0> 24 31 -1 10 28] 112 @dc
+[<FFE7FEFFE7FE0F03F00F03E00F03E00F07C00F0FC00F0F800F1F000FBF000FFE000FFC000F7C00
+  0F38000F1C000F0E000F07000F07C00F07E00F0FFC0F0FFC0F00000F00000F00000F00000F0000
+  0F00000F00000F00000F00000F00001F0000FF0000FF00000F0000> 23 35 -1 0 26] 107 @dc
+[<03F8FF0FFEFF1F0FF83C03F07C01F07800F07800F0F000F0F000F0F000F0F000F0F000F0F000F0
+  F000F07800F07800F07C00F03E01F01F07F00FFFF003F8F00000F00000F00000F00000F00000F0
+  0000F00000F00000F00000F00000F00001F0000FF0000FF00000F0> 24 35 -2 0 28] 100 @dc
+[<FFF3FF80FFF3FF800F0078000F0078000F0078000F0078000F0078000F0078000F0078000F0078
+  000F0078000F0078000F0078000F0078000F0078000F8078000F8078000FC0F8000FF1F0000F7F
+  F0000F1FC0000F0000000F0000000F0000000F0000000F0000000F0000000F0000000F0000000F
+  0000000F0000001F000000FF000000FF0000000F000000> 25 35 -1 0 28] 104 @dc
+[<003800003800007C00007C00007C0000FE0000F60000F60001E30001E30001E30003C18003C180
+  07C1C00780C00780C00F00E00F00E01F00F8FFE3FEFFE3FE> 23 21 -1 0 26] 118 @dc
+[<FFF3FFCFFFFFF3FFCFFF0F003C00F00F003C00F00F003C00F00F003C00F00F003C00F00F003C00
+  F00F003C00F00F003C00F00F003C00F00F003C00F00F003C00F00F003C00F00F003C00F00F803E
+  00F00F803E00F01FC07F01F0FFF0FBC3E0FF7FF9FFE00F1FE07F80> 40 21 -1 0 43] 109 @dc
+[<01FC7F8007FF7F800783FC000F01F8000F00F8000F00F8000F0078000F0078000F0078000F0078
+  000F0078000F0078000F0078000F0078000F0078000F0078000F0078001F00F800FF07F800FF07
+  F8000F007800> 25 21 -1 0 28] 117 @dc
+[<3E00007F0000FB8000F8C000F8C000F86000006000007000003000003000003800003800007C00
+  007C00007C0000FE0000F60000F60001E30001E30001E30003C18003C18007C1C00780C00780C0
+  0F00E00F00E01F00F8FFE3FEFFE3FE> 23 31 -1 10 26] 121 @dc
+[<70F8F8F870> 5 5 -4 0 14] 46 @dc
+[<FFF0FFF0FFF0> 12 3 -1 -9 17] 45 @dc
+[<000FF800003FFE1800FE0F3803F003F807E001F80F8000F80F8000F81F0000F83E0000F83E0000
+  F87C0000F87C0000F87C0000F8F8003FFFF8003FFFF8000000F8000000F8000000F8000000F800
+  0000F8000000F8000018F80000187C0000187C0000387C0000383E0000383E0000781F0000780F
+  0000F80F8000F807C001F803F003B800FC0F38003FFC18000FF018> 32 36 -3 1 39] 71 @dc
+[<0007F000001FFC00007E1E0000F8070001F0038001E0018003E000C003E000C007C000E007C000
+  6007C0006007C0006007C0006007C0006007C0006007C0006007C0006007C0006007C0006007C0
+  006007C0006007C0006007C0006007C0006007C0006007C0006007C0006007C0006007C0006007
+  C0006007C0006007C0006007C001F8FFFE0FFFFFFE0FFF> 32 35 -2 1 37] 85 @dc
+[<C0E0703818181C0C0C0C7CFCFCF870> 6 15 -4 10 14] 44 @dc
+[<FFE03FFFFFE03FFF1F0003F00E0003E0060003E0060003E0030007C0030007C0030007C001800F
+  8001FFFF8001FFFF8000C01F0000C01F0000C01F0000603E0000603E0000603E0000307C000030
+  7C0000307C000018F8000018F8000018F800000DF000000DF000000DF000000FF0000007E00000
+  07E0000007E0000003C0000003C0000003C00000018000> 32 35 -2 0 37] 65 @dc
+[<0C1FC00E7FF00EE0F80FC07C0F803C0F001E0F001E0F000F0F000F0F000F0F000F0F000F0F000F
+  0F000F0F001E0F001E0F003E0FC03C0FE0F80F7FF00F1FC00F00000F00000F00000F00000F0000
+  0F00000F00000F00000F00000F00001F0000FF0000FF00000F0000> 24 35 -1 0 28] 98 @dc
+[<001FFE001FFE0001E00001E00001E00001E00001E00001E00001E00001E003F1E00FFDE01F0FE0
+  3E07E07C03E07801E07801E0F001E0F001E0F001E0F001E0F001E0F001E0F801E07801E07801E0
+  7C03E03E07E01F0EE00FFCE003F060> 23 31 -2 10 26] 113 @dc
+[<FFFE0000FFFE000007C0000007C0000007C0000007C0000007C0000007C0000007C0000007C000
+  0007C0000007C0000007C0000007C0000007C0000007FFF80007FFFE0007C01F0007C007C007C0
+  03C007C001E007C001E007C001F007C001F007C001F007C001F007C001F007C001E007C001E007
+  C003C007C007C007C01F00FFFFFE00FFFFF800> 28 34 -2 0 34] 80 @dc
+[<FFFE7FFFFFFE7FFF07C003E007C003E007C003E007C003E007C003E007C003E007C003E007C003
+  E007C003E007C003E007C003E007C003E007C003E007C003E007C003E007FFFFE007FFFFE007C0
+  03E007C003E007C003E007C003E007C003E007C003E007C003E007C003E007C003E007C003E007
+  C003E007C003E007C003E0FFFE7FFFFFFE7FFF> 32 34 -2 0 37] 72 @dc
+[<FFFF80FFFF80FC07807C03803E01801F01C01F80C00F80C007C0C003E0C003F00001F00060F800
+  607C00607E00703E00301F00380F803C0FC03FFFC03FFFC0> 18 21 -1 0 22] 122 @dc
+[<7FF1FFC07FF1FFC007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C
+  0007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C0007807C00FFFF
+  FC00FFFFFC000780000007800000078000000780000007800000078000000780380007807C0007
+  C07C0003E07C0001F07C0000F83800003FF800000FE000> 26 35 0 0 28] 12 @dc
+[<FFC3FF80FFC3FF800F81F8000781F0000381E00001C3C00000C7C00000678000007F0000003E00
+  00001E0000003C0000007E000000FE000000F3000001E3800003E1C00003C1E0000FC1F8007FF3
+  FF007FF3FF00> 25 21 0 0 26] 120 @dc
+[<7FFF807FFF8001E00001E00001E00001E00001E00001E00001E00001E00001E00001E00001E000
+  01E00001E00001E00001E00001E00001E00001E00001E00001E00001E00001E00001E00001E000
+  01E00001E000FDE000FFE00003E00000E000006000> 17 33 -3 0 25] 49 @dc
+1 @bop1
+cmr10.360 @sf
+0 50 p m (TITLE) 17 (SCREEN)  ks 
+0 134 p m (F) -3 (aV) -1 (Or) 15 (\(F) -3 (ate) 16 
+(of) 17 (V) -3 (olatile) 19 (Organics\)) 17 (is) 17 (a) 17 
+(soft) 0 (w) -1 (are) 15 (pac) 0 (k) -2 (age) 15 
+(for) 17 (predicting) 17 (the) 18 (fate) 17 (of) 17 (v) 0 
+(olatile)  ks 
+0 194 p m (organic) 15 (comp) 1 (ounds) 13 (\(V) 0 (OCs\)) 15 
+(in) 16 (w) 0 (astew) -1 (ater) 14 (treatmen) -1 (t) 14 
+(systems.) 20 (F) -3 (aV) -1 (Or) 13 (consists) 16 (of) 15 
+(a) 16 (graph-)  ks 
+0 254 p m (ical) 20 (user) 16 (in) 0 (terface) 18 (\(GUI\),) 18 
+(a) 18 (F) 0 (OR) -4 (TR) -1 (AN) 17 (program) 14 
+(for) 18 (calculati) 1 (ng) 19 (V) 0 (OC) 16 (concen) 0 
+(trations) 17 (and)  ks 
+0 314 p m (remo) -1 (v) -3 (al) 15 (p) 1 (ercen) 0 
+(tages,) 15 (and) 16 (a) 16 (database) 16 (and) 16 (prop) 1 
+(ert) -1 (y) 15 (estimation) 17 (mo) 1 (dule) 15 (that) 17 
+(pro) 0 (vide) 15 (v) -2 (alues)  ks 
+0 374 p m (of) 17 (relev) -2 (an) 0 (t) 15 (parameters) -1 
+(.)  ks 
+0 458 p m (F) -3 (aV) -1 (Or) 21 (is) 23 (capable) 24 
+(of) 23 (sim) 0 (ulating) 22 (V) 0 (OC) 22 (fate) 24 
+(with) 24 (unit) 24 (pro) 1 (cesses) 22 (that) 24 (are) 23 
+(encoun) -1 (tered) 22 (in)  ks 
+0 518 p m (con) 0 (v) -1 (en) -1 (tional) 15 (w) 0 
+(astew) -1 (ater) 14 (treatmen) 0 (t) 14 (plan) 0 (ts.) 20 
+(Calculati) 1 (ons) 17 (of) 16 (V) 0 (OC) 15 (concen) 0 
+(trations) 14 (are) 16 (deter-)  ks 
+0 578 p m (mined) 19 (b) 0 (y) 19 (solution) 22 (of) 21 
+(mass) 18 (balance) 21 (equations) 21 (for) 20 (V) 0 (OCs) 19 
+(in) 21 (the) 20 (unit) 22 (pro) 1 (cesses.) 32 (The) 20 
+(unit)  ks 
+0 638 p m (pro) 1 (cesses) 16 (sim) -1 (ulated) 16 (in) 17 
+(F) -3 (aV) -1 (Or) 14 (are) 17 (sho) 0 (wn) 14 
+(in) 18 (the) 17 (Plan) 0 (t) 16 (Sc) 0 (hem) -1 
+(a) -1 (tic) 17 (screen) 16 (and) 16 (are) 16 (describ) 1 
+(ed)  ks 
+0 697 p m (in) 22 (the) 22 (Help) 23 (a) 0 (v) -2 
+(ailable) 22 (in) 22 (the) 22 (separate) 22 (screens) 20 (for) 22 
+(the) 22 (unit) 22 (pro) 1 (cesses.) 37 (The) 21 (mass) 20 
+(balance)  ks 
+0 757 p m (equations) 17 (include) 18 (mec) -1 (han) -1 (ism) -1 
+(s) 14 (for) 17 (V) 0 (OC) 15 (bio) 1 (degradation,) 17 
+(sorption,) 16 (v) 0 (olatilizat) 1 (ion) 19 (and) 15 (strip-)  ks 
+0 817 p m (ping,) 17 (where) 17 (applicable.) 26 (These) 16 (mec) 0 
+(h) -1 (anism) -1 (s) 15 (also) 17 (are) 17 (describ) 1 
+(ed) 17 (in) 18 (the) 17 (Help) 19 (a) 0 (v) -2 
+(ailable) 17 (in) 18 (the)  ks 
+0 877 p m (separate) 16 (screens) 15 (for) 17 (the) 16 (unit) 18 
+(pro) 1 (cesses.)  ks 
+0 961 p m (The) 17 (GUI) 18 (pro) 0 (vides) 15 (a) 18 
+(platform) 16 (for) 17 (the) 17 (user) 17 (to) 17 (input) 18 
+(w) 0 (astew) -1 (ater) 15 (treatmen) 0 (t) 15 (plan) 0 
+(t) 17 (op) 1 (erating)  ks 
+0 1021 p m (parameters) 17 (and) 18 (parameters) 17 (relev) -2 (an) 0 
+(t) 18 (to) 20 (the) 20 (ph) 0 (ysical,) 19 (c) 0 
+(hem) -1 (ical) 20 (and) 18 (biological) 23 (b) 1 (eha) 0 
+(vior) 18 (of)  ks 
+0 1081 p m (the) 15 (V) 0 (OCs.) 19 (The) 14 (inputs) 15 
+(consist) 14 (of) 15 (either) 15 (default) 15 (v) -2 (alues,) 14 
+(user-de\014ned) 12 (v) -2 (alues,) 15 (v) -2 (alues) 14 (obtained)  ks 
+0 1141 p m (from) 20 (built-in) 23 (databases,) 21 (or) 21 (v) -2 
+(alues) 22 (supplied) 21 (b) 0 (y) 21 (a) 21 (prop) 1 
+(ert) 0 (y) 20 (estimation) 21 (mo) 1 (dule) 21 (\(STEPP\).)  ks 
+0 1201 p m (The) 16 (GUI) 17 (pro) 0 (vides) 15 (a) 17 
+(link) 18 (to) 17 (the) 17 (param) -1 (eter) 15 (databases) 16 
+(and) 15 (to) 17 (STEPP) -3 (.)  ks 
+0 1285 p m (The) 17 (GUI) 18 (allo) 0 (ws) 18 (for) 17 
+(execution) 19 (of) 17 (the) 18 (F) 0 (OR) -5 (TRAN) 16 
+(program) 15 (and) 16 (for) 18 (displa) 0 (y) 17 (of) 17 
+(the) 18 (program)  ks 
+0 1345 p m (results) 15 (in) 15 (either) 16 (a) 15 (n) 0 
+(um) -2 (erical) 14 (or) 15 (graphical) 15 (format.) 20 (The) 14 
+(GUI) 16 (also) 15 (pro) 0 (vides) 13 (for) 15 (sa) 0 
+(ving) 14 (F) -3 (aV) -1 (Or)  ks 
+0 1405 p m (setups) 16 (and) 17 (for) 16 (prin) 0 (ting) 17 
+(n) 0 (um) -2 (erical) 17 (or) 16 (graphical) 18 (results.) 23 
+(Pro) 0 (vision) 16 (of) 18 (these) 17 (utilit) 1 (ie) 1 
+(s) 18 (ma) -1 (y) 16 (b) 1 (e)  ks 
+0 1465 p m (found) 16 (in) 17 (the) 17 (men) -1 (u) 14 
+(bars) 15 (at) 17 (the) 17 (top) 16 (of) 17 (the) 17 
+(relev) -2 (an) 0 (t) 15 (F) -3 (aV) 0 (O) -1 
+(r) 14 (screens.)  ks 
+963 2790 p m (1)  s
+@eop
+2 @bop0
+cmr10.360 @sf
+[<FFF0303FFF80FFF0783FFF801F807801F00006007801F0000600FC01F0000600FC01F0000600FC
+  01F0000601E601F0000601E601F0000601E601F0000603C301F0000603C301F0000603C301F000
+  06078181F00006078181F00006078181F000060F00C1F000060F00C1F000061E0061F000061E00
+  61F000061E0061F000063C0031F000063C0031F000063C0031F00006780019F00006780019F000
+  06780019F00006F0000DF00006F0000DF00006F0000DF00007E00007F00007E00007F000FFE000
+  07FF80FFC00003FF80> 41 34 -2 0 46] 77 @dc
+[<70F8F8F870000000000000000000000070F8F8F870> 5 21 -4 0 14] 58 @dc
+[<7FF1FFC07FF1FFC007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C
+  0007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C00FFFF
+  FC00FFFFFC0007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C0007
+  C07C0003E07C0001F07C0000F87C00007FFC00000FFC00> 26 35 0 0 28] 13 @dc
+[<FFFFE0FFFFE0FFFFE07FFFE03800601E00700F003007803003C03001E00000F000007800003C00
+  001E00000F00000F800007C00003E00003E00001E00001F03001F0FC00F0FC00F0FC01F0FC01F0
+  F801F0E003E07003E0380FC03C1F800FFF0003F800> 20 33 -2 0 25] 50 @dc
+[<380E7C1FFC3FFC3FF83EC030C030C030E03860186018701C380E1C070C03> 16 15 -6 -20 25] 92 @dc
+[<FFFFF800FFFFFF0007C00F8007C003C007C001E007C000F007C0007807C0003C07C0003C07C000
+  3E07C0001E07C0001E07C0001F07C0001F07C0001F07C0001F07C0001F07C0001F07C0001F07C0
+  001F07C0001F07C0001E07C0001E07C0001E07C0003C07C0003C07C0007807C0007807C000F007
+  C001E007C003C007C00F80FFFFFE00FFFFF800> 32 34 -2 0 38] 68 @dc
+[<C030E038701C380E180618061C070C030C030C037C1FFC3FFC3FF83E701C> 16 15 -2 -20 25] 34 @dc
+[<03FC001FFF003E1F807807C06003E0F803E0FC01F0FC01F0FC01F0FC01F03001F00001F00001F0
+  0003E00003C0000780001F0003FC0003FC00003F00000F800007800007C00003E03803E07C03E0
+  7E01E07E03E07C03E07803E03807C01E0F800FFF0003FC00> 20 34 -2 1 25] 51 @dc
+[<00FFFC00FFFC000780000780000780000780000780000780000780FFFFFCFFFFFCE00780600780
+  3007803807801807800C07800E078006078003078003878001878000C78000E780006780003780
+  003F80001F80000F80000F80000780000380000380> 22 33 -1 0 25] 52 @dc
+[<03F8000FFE003E1F003807807007C0E003E0F803E0F801F0F801F0F801F0F801F00001F00001F0
+  0001F00001F00001E01803E01C03C01E07C01F0F801BFF0019FC00180000180000180000180000
+  1800001800001FF8001FFE001FFF001FFFC01E03C01800C0> 20 34 -2 1 25] 53 @dc
+[<01FC0007FE000F0F801E03C03C01C03801E07801E07800F07000F07000F0F000F0F000F0F000F0
+  F000F0F000F0F800F0F801E0FC01E0FC03C0FF0780F7FF00F1FE00703000780000780000380000
+  3C03E01C03E01E03E00F03E00780E003E1C001FF80007F00> 20 34 -2 1 25] 54 @dc
+[<FFFFFFFFFFFF> 24 2 0 -12 25] 123 @dc
+1.000000 /cmti10.360 @newfont
+cmti10.360 @sf
+[<1FC03FF07878F01CE00EE006E000E000E000F000F000FFC0FFF8F83C780E78063C061E060F8E07
+  FE01F8> 15 21 -6 0 23] 101 @dc
+[<0F801FC03CE0387038303C301C381C181C001E000E000E000E000F0007000700070007800380FF
+  F8FFF803C001C001C001C001E000E000E000E000E00060> 13 31 -4 0 17] 116 @dc
+[<0FE03FF83C3C780E7007F003F000F000F000F8007800780078003C003C001E0F1E0F0F0F07C701
+  FF007E> 16 21 -5 0 23] 99 @dc
+2 @bop1
+cmr10.360 @sf
+0 50 p m (PLANT) 17 (SCHEMA) -3 (TIC) 16 (SCREEN)  ks 
+0 134 p m (This) 15 (screen) 15 (con) 0 (tains) 14 (the) 15 
+(basic) 16 (pro) 1 (cedures) 13 (for) 15 (op) 1 (erating) 16 
+(F) -3 (aV) -1 (Or) -1 (.) 20 (The) 15 (pro) 1 
+(cedures) 13 (should) 15 (b) 1 (e)  ks 
+0 194 p m (follo) 0 (w) 0 (ed) 15 (in) 17 (this) 18 
+(order:)  ks 
+0 279 p m (1\)) 17 (En) 0 (ter) 15 (the) 16 (plan) 0 
+(t) 16 (in\015uen) 0 (t) 15 (\015o) 0 (w) 15 (rate) 17 
+(and) 16 (solids) 17 (concen) 0 (tration.)  ks 
+0 364 p m (2\)) 24 (Clic) 0 (king) 25 (on) 24 (the) 24 
+(\\Chemical) 23 (Data) 24 (and) 24 (En) 0 (vironm) -1 (en) -2 
+(tal) 23 (Conditions") 24 (button) 24 (brings) 23 (the)  ks 
+0 423 p m (user) 16 (to) 17 (the) 17 (Chemical) 16 (Data) 17 
+(and) 16 (En) 0 (vironm) -1 (en) -1 (tal) 16 (Conditions) 17 
+(screen.) 22 (In) 16 (this) 17 (screen,) 16 (the) 17 (user)  ks 
+0 483 p m (can) 18 (en) 0 (ter) 16 (v) -2 (alues,) 18 
+(use) 17 (default) 19 (v) -2 (alues,) 17 (or) 18 (use) 17 
+(v) -2 (alues) 18 (supplied) 18 (from) 16 (a) 17 (database,) 18 
+(for) 17 (c) 0 (hem) -1 (ical)  ks 
+0 543 p m (prop) 1 (ert) 0 (y) -4 (,) 14 (en) 0 
+(vironmen) -2 (tal,) 16 (and) 15 (general) 17 (op) 1 (erational) 18 
+(param) -1 (eters.)  ks 
+0 628 p m (3\)) 12 (Select) 12 (the) 12 (unit) 12 (pro) 1 
+(cesses) 10 (to) 12 (b) 1 (e) 11 (activ) -2 (ated) 12 
+(b) 0 (y) 10 (clic) 0 (king) 13 (on) 11 (the) 11 
+(appropriate) 11 (b) 1 (o) 0 (xes) 10 (will) 14 (activ) -2 
+(ate)  ks 
+0 687 p m (some) 14 (of) 15 (the) 15 (unit) 16 (pro) 1 
+(cesses) 15 (\(in\015uen) 0 (t) 14 (w) 0 (eir,) 14 (aerated) 15 
+(grit) 16 (c) 0 (ham) -2 (b) 0 (er,) 14 (primary) 13 
+(clari\014er) 16 (w) 0 (eir,) 15 (and)  ks 
+0 747 p m (secondary) 10 (clari\014er) 12 (w) 0 (eir\).) 19 (Note) 12 
+(that) 12 (the) 11 (remaining) 11 (unit) 11 (pro) 1 (cesses) 10 
+(\(primary) 10 (clari\014er,) 13 (aeration)  ks 
+0 807 p m (basin,) 16 (and) 16 (secondary) 16 (clari\014er\)) 17 (are) 16 
+(p) 1 (ermanen) -2 (tly) 17 (activ) -2 (ated.)  ks 
+0 892 p m (4\)) 20 (Clic) 0 (king) 22 (on) 20 (the) 20 
+(icons) 20 (for) 20 (the) 21 (unit) 20 (pro) 1 (cesses) 20 
+(in) 20 (the) 21 (plan) 0 (t) 19 (sc) 0 (hem) -1 
+(atic) 19 (brings) 20 (y) 0 (ou) 18 (to) 21 (the)  ks 
+0 951 p m (screens) 15 (for) 15 (the) 17 (resp) 1 (ectiv) 0 
+(e) 15 (unit) 17 (pro) 1 (cesses.) 21 (These) 15 (screens) 15 
+(allo) 0 (w) 16 (the) 16 (user) 15 (to) 16 (activ) -2 
+(ate) 17 (the) 16 (unit)  ks 
+0 1011 p m (pro) 1 (cesses) 12 (\(except) 14 (for) 12 (the) 14 
+(primar) -1 (y) 12 (clari\014er,) 14 (aeration) 13 (basin) 13 (and) 12 
+(secondary) 12 (clari\014er,) 14 (whic) 0 (h) 11 (are)  ks 
+0 1071 p m (p) 1 (ermanen) -2 (tly) 16 (activ) -2 (ated\),) 17 
+(sp) 1 (ecify) 17 (op) 1 (erational) 16 (and) 16 (mo) 1 
+(deling) 15 (conditions,) 17 (and) 15 (en) 0 (ter) 14 (v) -2 
+(alues) 15 (for)  ks 
+0 1131 p m (unit) 20 (pro) 1 (cess) 18 (op) 1 (erational) 21 
+(and) 18 (mo) 1 (deling) 19 (parameters.) 28 (Default) 20 (v) -2 
+(alues) 19 (are) 19 (pro) 0 (vided) 18 (for) 19 (eac) 0 
+(h)  ks 
+0 1191 p m (op) 1 (erational) 18 (and) 16 (mo) 1 (deling) 16 
+(condition) 18 (and) 16 (param) -1 (eter.)  ks 
+0 1275 p m (5\)) 17 (Clic) 0 (king) 18 (on) 16 (the) 17 
+(\\Execution") 17 (button) 16 (executes) 17 (the) 17 (mo) 1 (del.)  ks 
+0 1360 p m (6\)) 12 (Clic) 0 (king) 13 (on) 12 (the) 12 
+(\\View) 13 (Output") 11 (button) 12 (allo) 0 (ws) 12 (the) 12 
+(user) 11 (to) 12 (view) 13 (the) 12 (mo) 1 (del) 12 
+(output{rem) -1 (o) -1 (v) -3 (al)  ks 
+0 1420 p m (rates) 16 (and) 16 (concen) 0 (trations{in) 16 (n) 0 
+(um) -2 (erical) 16 (or) 16 (graphical) 17 (formats.)  ks 
+0 1504 p m (General) 17 (Description) 17 (of) 17 (V) 0 (OC) 15 
+(Mo) 1 (deling) 18 (and) 16 (Unit) 18 (Pro) 1 (cesses)  ks 
+0 1512 p 1271 2 ru
+0 1589 p m (V) 0 (OCs) 21 (are) 23 (accoun) 0 (ted) 21 
+(for) 23 (in) 24 (eac) 0 (h) 21 (of) 23 (three) 23 
+(phases) 22 (in) 24 (F) -3 (aV) -1 (Or) -1 (:) 33 
+(liquid,) 27 (solid,) 25 (or) 22 (gas.) 41 (The)  ks 
+0 1649 p m (w) 0 (astew) -1 (ater) 20 (en) 0 (tering) 20 
+(the) 22 (treatmen) -1 (t) 20 (plan) 0 (t) 21 (is) 22 
+(assum) -1 (ed) 19 (to) 22 (con) 0 (tain) 21 (solid) 22 
+(and) 21 (liquid) 24 (phases,)  ks 
+0 1709 p m (unless) 17 (the) 18 (plan) 0 (t) 17 (in\015uen) 0 
+(t) 16 (solids) 18 (concen) 0 (tration) 17 (is) 18 (set) 18 
+(to) 18 (zero.) 25 (It) 18 (is) 18 (assum) -1 (ed) 16 
+(that) 18 (the) 18 (V) 0 (OCs)  ks 
+0 1768 p m (reac) 0 (h) 13 (an) 14 (instan) 0 (taneous) 13 
+(equilibrium) 15 (b) 1 (et) 0 (w) 0 (een) 13 (the) 15 
+(liquid) 16 (and) 14 (solid) 16 (phases) 13 (in) 16 (the) 14 
+(in\015uen) 0 (t) 14 (and)  ks 
+0 1828 p m (in) 16 (all) 17 (of) 16 (the) 15 (unit) 17 
+(pro) 1 (cesses.) 20 (Mass) 14 (transfer-limited) 16 (exc) 0 (hange) 14 
+(is) 16 (mo) 1 (deled) 14 (for) 16 (V) 0 (OC) 14 
+(liquid-gas)  ks 
+0 1888 p m (exc) 0 (hanges.) 19 (F) -3 (aV) -1 (Or) 10 
+(solv) 0 (es) 11 (a) 12 (mass) 10 (balance) 13 (equations) 13 
+(for) 12 (eac) 0 (h) 11 (unit) 13 (pro) 1 (cess.) 19 
+(The) 13 (mass) 10 (balance)  ks 
+0 1948 p m (equations) 18 (accoun) 0 (t) 15 (for) 17 (in) 0 
+(terphase) 16 (mass) 15 (exc) 0 (hanges) 15 (and) 17 (bio) 1 
+(degradation.) 24 (Liquid-phase) 17 (V) 0 (OC)  ks 
+0 2008 p m (bio) 1 (degradation) 17 (is) 17 (mo) 1 (deled) 16 
+(in) 17 (the) 17 (aeration) 17 (basin.)  ks 
+0 2092 p m (Eac) 0 (h) 18 (t) 0 (yp) 1 (e) 19 
+(of) 19 (unit) 20 (pro) 1 (cess) 19 (is) 20 (treated) 19 
+(as) 19 (a) 20 (reactor) 19 (in) 20 (series) 19 (with) 21 
+(the) 19 (other) 19 (unit) 20 (pro) 1 (cesses.)  ks 
+0 2152 p m (Although) 21 (the) 21 (plan) 0 (t) 20 (sc) 0 
+(hem) -2 (atic) 20 (displa) 0 (ys) 20 (only) 21 (single) 22 
+(unit) 21 (pro) 1 (cesses) 20 (in) 21 (series,) 21 (it) 22 
+(is) 21 (p) 1 (ossible)  ks 
+0 2212 p m (to) 21 (mo) 1 (del) 20 (m) -1 (ultiple) 21 
+(unit) 21 (pro) 1 (cesses) 19 (in) 21 (parallel) 22 (\(except) 22 
+(for) 20 (the) 21 (in\015uen) 0 (t) 19 (w) 0 (eir\).) 33 
+(In) 20 (eac) 0 (h) 19 (unit)  ks 
+0 2272 p m (pro) 1 (cess) 20 (screen,) 20 (the) 21 (user) 20 
+(can) 20 (designate) 21 (the) 21 (n) 0 (um) -3 (b) 0 
+(er) 19 (of) 21 (unit) 21 (pro) 1 (cess) 20 (op) 1 
+(erating) 20 (in) 22 (parallel.)  ks 
+0 2331 p m (Eac) 0 (h) 22 (parallel) 25 (unit) 25 (pro) 1 
+(cess) 23 (is) 24 (assum) -1 (ed) 22 (to) 24 (b) 1 
+(e) 24 (iden) 0 (tical) 25 (in) 24 (terms) 22 (of) 24 
+(\015o) 0 (w) 22 (rates) 23 (\(liq) 1 (uid) 26 (or)  ks 
+0 2391 p m (gas\),) 17 (geometry) -3 (,)  ks 
+cmti10.360 @sf
+15 r m (etc)  s
+cmr10.360 @sf
+m (.) 23 (All) 19 (unit) 17 (pro) 1 (cesses) 16 
+(except) 18 (for) 17 (the) 17 (aeration) 18 (basin) 17 (are) 16 
+(treated) 17 (as) 17 (single,)  ks 
+0 2451 p m (completely) 18 (stirred) 16 (tank) 17 (reactors) 16 (\(CSTRs\).) 23 
+(The) 16 (aeration) 18 (basin) 16 (can) 17 (b) 1 (e) 17 
+(mo) 1 (deled) 16 (as) 16 (a) 17 (series)  ks 
+0 2511 p m (of) 17 (CSTRs.) 21 (The) 16 (grit) 17 (c) 0 
+(ham) -2 (b) 0 (er,) 15 (clari\014ers) 17 (and) 16 (aeration) 16 
+(basin) 17 (can) 16 (b) 1 (e) 17 (sim) 0 (u) -1 
+(lated) 16 (as) 16 (co) 0 (v) 0 (er) -1 (ed) 15 
+(or)  ks 
+0 2570 p m (unco) 0 (v) -1 (ered) 16 (reactors.) 26 (The) 19 
+(w) 0 (eirs) 17 (can) 18 (b) 1 (e) 19 (sim) -1 
+(ulated) 17 (only) 19 (as) 18 (op) 1 (en) 19 (reactors.) 26 
+(Solids) 19 (and) 18 (liquid)  ks 
+0 2630 p m (w) 0 (astage) 15 (in) 17 (the) 17 (clari\014ers) 17 
+(is) 17 (accoun) 0 (ted) 15 (for) 16 (in) 17 (the) 17 
+(mass) 14 (balance) 17 (equations.)  ks 
+963 2790 p m (2)  s
+@eop
+3 @bop0
+cmr10.360 @sf
+[<00030000C00000070000E00000078001E00000078001E000000F8001F000000FC003F000000FC0
+  03F000000FC003F000001FC003F800001F6007D800001F6007D800003E6007CC00003E300F8C00
+  003E300F8C00007E300F8E00007C381F8600007C181F0600007C181F060000F8181F030000F80C
+  3E030000F80C3E030001F00C3E018001F0067C018001F0067C018003F0067C01C003E007FC00C0
+  03E003F800C003E003F800C007C003F8006007C001F0006007C001F000700F8001F000700FC003
+  F000F8FFFC3FFF07FFFFFC3FFF07FF> 48 35 -1 1 51] 87 @dc
+[<7FF1FFE07FF1FFE007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C
+  0007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C00FFFF
+  FFE0FFFFFFE007803C0007803C0007803C0007803C0007803C0007803C0007803C0007803C0007
+  C07E3E03E07E3E01F07F3E00F83FBE003FFFFC000FF1F8> 31 35 0 0 29] 11 @dc
+[<FFFFFC00FFFFFF0007C00FC007C003E007C001F007C001F007C000F807C000F807C000F807C000
+  F807C000F807C000F807C000F007C001F007C003E007C007C007C00F8007FFFE0007FFFF0007C0
+  0F8007C007C007C003E007C001E007C001F007C001F007C001F007C001F007C001F007C001E007
+  C003E007C007C007C00F80FFFFFF00FFFFF800> 29 34 -2 0 35] 66 @dc
+cmti10.360 @sf
+[<1F0F803F9FC079FCC070F8E0F07860F03C60F03C70F01C30F01C00F81E00781E00780E00780E00
+  7C0F003C0F003C07001E0F000F0F80079F8003FF8000FB80> 20 21 -5 0 25] 97 @dc
+[<3C007E00F700E300E300F380F1807180700078007800380038003C003C001C001C001E001E000E
+  000E000F000F0007000700078007800380038003C003C003C01FC01FE003E0> 11 35 -4 0 13] 108 @dc
+[<F0F0F8F870> 5 5 -5 0 15] 46 @dc
+cmr10.360 @sf
+[<0FE0001FF8003C3E00700F007C07007C07807C03C07C01C00001E00001E00001E000C0E007F8F0
+  0FFEF01E0FF03C03F07803F07801F0F001F0F000F0F000F0F000F0F000F0F000F0F000E0F000E0
+  F001E07801E07801C03C03C01C07801F0F0007FE0001F800> 20 34 -2 1 25] 57 @dc
+[<C0E0703818181C0C0C0C7CFCFCF870> 6 15 -4 -20 14] 39 @dc
+[<03FC000FFF001F0F803C03C07801E07000E0F00070E00070E00070E00070E000F0F001F07003F0
+  780FE03C1FE01E7FC00FFF8007FF0007FE001FFE001FFF003FC7807F03C07E01E07C00E07800E0
+  7000E07000E07001E03801C03C03C01F0F8007FF0001FC00> 20 34 -2 1 25] 56 @dc
+[<0FE0003FF80078FC00707E00F83E00FC1F00FC1F00FC1F00FC1F00301F00001F00001F00001F00
+  001F00001F00001F00001F00001F00001F00001F00001F00001F00001F00001F00001F00001F00
+  001F00001F00001F00001F00001F00001F00001F000FFFF00FFFF0> 20 35 -2 1 26] 74 @dc
+[<01F80007FE000F0F001C03803C03C03801C07801E07801E07000E07000E0F000F0F000F0F000F0
+  F000F0F000F0F000F0F000F0F000F0F000F0F000F0F000F0F000F0F000F0F000F07000E07000E0
+  7000E07801E03801C03801C01C03800F0F0007FE0001F800> 20 34 -2 1 25] 48 @dc
+cmti10.360 @sf
+[<1F0000007FC0000071F00000E0F80000F0780000F83C0000F83C0000783E0000781E0000001E00
+  00001F0000001F0000000F0000000F0000000F8000000F80000007800000078000000780000007
+  C0000003C0000003C0000003C0000003E0000001E0000001E0000001E0000001F0000000F00000
+  00F0000000F0000000F8000000F800001FFF80001FFF80> 25 35 -4 1 26] 74 @dc
+[<FFFFFF807FFFFFC007C00FC003C003E003C001E003E000E001E0007001E0003001E0003801F000
+  1800F0001800F0181C00F0180C00F8180000781C0000781C0000781C00007FFC00003FFE00003C
+  1E00003C0E00003E0600001E0706001E0306001E0306001F0006000F0006000F0006000F000700
+  0F80070007800F0007801F00FFFFFF007FFFFF> 32 34 -3 0 34] 69 @dc
+[<1C00F8001E01FC001E03CE000E0387000E03C3000F01C3000F01C3800701E1800700E0000780E0
+  000780F000038070000380700003C07000E3C0780061E0380061F0380071F838003BFC78001F9F
+  F0000F07E000> 25 21 -3 0 28] 110 @dc
+[<01F80003FC00078E000707000703000701800701800701C00700C00780C00380E003806003C060
+  01C060E1C07061E07070E0F030E1F03DE1F01FC1F00780E0> 20 21 -3 0 23] 118 @dc
+[<0F001FC03DC038E03C601C601C701E300E000E000F00070007800380E38063C061C031C03BC01F
+  800F0000000000000000000000000000000000000000F000F000F00070> 12 34 -3 0 15] 105 @dc
+[<1C00001E00001E00000E00000E00000F00000F0000070000070000078000078000038000038000
+  03C000E3C1C061E1E061E1E071F0E03BF8E01F9FC00F0F80> 19 21 -3 0 21] 114 @dc
+[<0FC0003FF0007CF800783C00701E00F00F00F00F00F00780F00780F807807807C07803C07803C0
+  7C03C03C03C01E03C01E03C00F038007C78001FF00007C00> 18 21 -5 0 25] 111 @dc
+[<7FC000FFF000F0F800F03C00701E00001E00000E00000F00000F0000070003E70007FF800F3F80
+  0E0F801E07801E03C01E03C01E01C01E01C01F01E00F01E00F00E00F00E00F80F00780F003C0F0
+  03C0F001E0F800F1F8007FB8001F38> 21 31 -2 10 23] 103 @dc
+cmr10.360 @sf
+[<01C00003E00003E00003E00003E00003E00003E00003E00003E00001E00001E00001E00001E000
+  01E00000F00000F00000F000007000007000003800003800001800001C00000E00C00700C00300
+  C00380E001C06000C07FFFE07FFFF07FFFF07FFFF0700000600000> 20 35 -3 1 25] 55 @dc
+3 @bop1
+cmr10.360 @sf
+0 50 p m (INFLUENT) 17 (WEIR) 17 (SCREEN)  ks 
+0 134 p m (V) 0 (OCs) 16 (are) 17 (remo) -1 (v) -1 
+(ed) 16 (from) 15 (the) 18 (in\015uen) 0 (t) 17 (w) 0 
+(eir) 17 (\(IW\)) 18 (b) 0 (y) 17 (stripping) 18 (as) 17 
+(the) 18 (w) 0 (astew) -1 (ater) 16 (falls) 19 (from)  ks 
+0 194 p m (the) 16 (top) 15 (to) 16 (the) 16 (b) 1 
+(ottom) 15 (of) 15 (the) 16 (w) 0 (eir.) 21 (Only) 16 
+(one) 15 (IW) 16 (is) 16 (allo) 0 (w) 0 (ed) 14 
+(and) 15 (the) 15 (IW) 16 (cannot) 15 (b) 1 (e) 16 
+(co) 0 (v) 0 (er) -1 (ed.)  ks 
+0 254 p m (The) 16 (user) 16 (m) -1 (us) -1 (t) 15 
+(sp) 1 (ecify) 18 (the) 17 (follo) 0 (wing) 17 (parameters) 14 
+(in) 18 (the) 16 (IW) 17 (screen:)  ks 
+58 339 p m (-)  s
+100 339 p m (whether) 16 (the) 17 (IW) 16 (is) 17 (activ) 0 
+(e)  ks 
+58 423 p m (-)  s
+100 423 p m (the) 16 (mo) 1 (del) 16 (used) 16 (to) 17 
+(calculate) 19 (the) 16 (IW) 17 (stripping) 17 (remo) -1 (v) -3 
+(al) 16 (rate:) 21 (P) 0 (o) 1 (ol) 17 (or) 16 
+(Napp) 1 (e)  ks 
+58 508 p m (-)  s
+100 508 p m (the) 16 (width) 18 (of) 16 (the) 17 (IW) 17 
+(\(the) 17 (dimension) 16 (of) 16 (the) 17 (w) 0 (eir) 16 
+(transv) 0 (er) -1 (se) 15 (to) 17 (the) 17 (direction) 17 
+(of) 17 (\015o) 0 (w\))  ks 
+58 593 p m (-)  s
+100 593 p m (the) 21 (distance) 21 (from) 19 (the) 21 (liqui) 1 
+(d) 22 (surface) 20 (at) 21 (the) 21 (IW) 21 (top) 21 
+(to) 21 (the) 22 (liquid) 23 (surface) 20 (at) 21 (the) 21 
+(IW)  ks 
+100 653 p m (b) 1 (ottom)  ks 
+58 737 p m (-)  s
+100 737 p m (the) 16 (rate) 17 (of) 17 (gas) 16 (\015o) 0 
+(w) 15 (lea) 0 (ving) 16 (the) 17 (tailw) 0 (ater) 17 
+(of) 17 (the) 17 (IW) 17 (\(needed) 16 (for) 16 (the) 17 
+(P) 0 (o) 1 (ol) 16 (Mo) 1 (del\))  ks 
+0 822 p m (The) 18 (V) 0 (OC) 17 (is) 19 (either) 18 
+(assumed) 16 (to) 18 (b) 1 (e) 19 (stripp) 1 (ed) 18 
+(in) 0 (to) 17 (the) 19 (air) 18 (as) 18 (the) 18 
+(liqui) 1 (d) 20 (\015o) 0 (ws) 16 (o) 0 (v) -1 
+(er) 16 (the) 18 (drop,)  ks 
+0 882 p m (b) 1 (efore) 20 (it) 20 (con) 0 (tacts) 19 
+(the) 20 (basin) 19 (w) 0 (ater) 18 (surface,) 20 (or) 19 
+(stripp) 1 (ed) 19 (in) 0 (to) 19 (the) 20 (rising,) 21 
+(en) 0 (trained) 18 (bubbles)  ks 
+0 941 p m (caused) 23 (b) 0 (y) 23 (the) 25 (turbulence) 24 
+(of) 24 (the) 25 (w) 0 (ater) 23 (\015o) 0 (w) 22 
+(en) 0 (tering) 24 (the) 24 (receiving) 26 (basin.) 45 (Emission) 23 
+(of)  ks 
+0 1001 p m (con) 0 (tam) -1 (inan) -1 (ts) 19 (at) 21 
+(w) 0 (eirs) 20 (can) 21 (th) 0 (us) 19 (b) 1 
+(e) 21 (mo) 1 (deled) 20 (with) 22 (t) 0 (w) 0 
+(o) 19 (di\013eren) 0 (t) 20 (mo) 1 (dels:) 30 (the) 21 
+(P) 0 (o) 1 (ol) 20 (Mo) 1 (del)  ks 
+0 1061 p m (\(Baill) 1 (o) 1 (d)  ks 
+cmti10.360 @sf
+20 r m (et) 18 (al.)  ks 
+cmr10.360 @sf
+m (,) 18 (1991\)) 17 (and) 17 (the) 17 (Napp) 1 
+(e) 18 (Mo) 1 (del) 18 (\(Pincince,) 19 (1991\).) 25 (The) 17 
+(Napp) 1 (e) 18 (Mo) 1 (del) 18 (assum) -1 (es)  ks 
+0 1121 p m (plug) 17 (\015o) 0 (w) 15 (conditions) 18 (for) 17 
+(the) 17 (liquid) 19 (and) 16 (completely) 18 (mixed) 17 (conditions) 18 
+(for) 16 (the) 18 (gas.) 22 (All) 19 (mass)  ks 
+0 1181 p m (transfer) 19 (is) 20 (assumed) 17 (to) 20 (o) 1 
+(ccur) 20 (in) 21 (the) 20 (liquid) 22 (stream) 18 (as) 19 
+(it) 21 (falls) 21 (to) 21 (the) 20 (surface) 19 (and) 19 
+(stripping)  ks 
+0 1240 p m (caused) 13 (b) 0 (y) 12 (en) 0 (trained) 11 
+(bubbles) 13 (in) 14 (the) 14 (receiving) 14 (basin) 14 (is) 13 
+(ignored.) 21 (The) 13 (rate) 13 (of) 14 (V) 0 (OC) 12 
+(stripping) 14 (is)  ks 
+0 1300 p m (related) 17 (to) 17 (the) 17 (rate) 17 (of) 17 
+(o) 0 (xygen) 15 (stripping) 17 (b) 0 (y) 15 (a) 17 
+(di\013usivit) 0 (y) 18 (relationship.) 23 (The) 16 (o) 0 (xygen) 16 
+(stripping)  ks 
+0 1360 p m (rates) 17 (are) 18 (calculated) 19 (from) 16 (\014tted,) 19 
+(empirical) 18 (p) 1 (o) 0 (w) -1 (er) 16 (la) 0 
+(w) 17 (functions) 18 (based) 17 (on) 17 (the) 18 (width) 19 
+(of) 18 (the)  ks 
+0 1420 p m (IW) 17 (and) 16 (the) 16 (distance) 17 (b) 1 
+(et) 0 (w) 0 (een) 15 (top) 16 (and) 16 (b) 1 
+(ottom) 16 (w) 0 (ater) 15 (lev) 0 (els.)  ks 
+0 1504 p m (The) 21 (P) 0 (o) 1 (ol) 20 (Mo) 1 
+(del) 22 (assumes) 18 (plug) 22 (\015o) 0 (w) 19 (conditions) 22 
+(for) 20 (the) 21 (gas,) 22 (completely) 22 (mixed) 20 (conditions)  ks 
+0 1564 p m (for) 21 (the) 22 (liquid,) 24 (and) 21 (considers) 21 
+(mass) 19 (transfer) 20 (only) 23 (in) 0 (to) 20 (the) 22 
+(en) 0 (trained) 20 (bubbles) 21 (as) 21 (they) 22 (rise)  ks 
+0 1624 p m (through) 18 (the) 20 (p) 1 (o) 1 (ol.) 33 
+(Stripping) 20 (that) 20 (o) 1 (ccurs) 19 (b) 1 (efore) 19 
+(the) 20 (stream) 18 (con) 0 (tacts) 19 (the) 19 (w) 0 
+(ater) 19 (surface) 19 (is)  ks 
+0 1684 p m (not) 18 (considered.) 25 (The) 17 (rate) 18 (of) 18 
+(V) 0 (OC) 16 (stripping) 18 (for) 18 (the) 18 (P) 0 
+(o) 1 (ol) 17 (Mo) 1 (del) 18 (also) 18 (is) 19 
+(related) 18 (to) 18 (the) 18 (rate)  ks 
+0 1744 p m (of) 19 (o) 0 (xygen) 17 (stripping) 19 (b) 0 
+(y) 17 (a) 19 (di\013usivit) 0 (y) 20 (relationship.) 29 (The) 18 
+(o) 0 (xygen) 18 (remo) -1 (v) -3 (al) 18 (rate) 18 
+(is) 19 (determined)  ks 
+0 1803 p m (b) 0 (y) 16 (applying) 18 (a) 18 (mass) 15 
+(balance) 18 (to) 18 (the) 18 (rising) 18 (bubble.) 24 (The) 17 
+(mass) 16 (balance) 18 (equation) 18 (dep) 1 (ends) 16 (on)  ks 
+0 1863 p m (the) 22 (o) 0 (xygen) 20 (stripping) 22 (rate,) 22 
+(the) 22 (Henry's) 21 (la) 0 (w) 21 (constan) 0 (ts) 20 
+(for) 21 (the) 22 (V) 0 (OC) 20 (and) 21 (o) 0 
+(xygen) 20 (and) 21 (the)  ks 
+0 1923 p m (ratio) 16 (of) 15 (the) 15 (IW) 15 (liquid) 17 
+(\015o) 0 (w) 13 (rate) 15 (to) 15 (the) 16 (rate) 14 
+(of) 16 (gas) 14 (\015o) 0 (w) 13 (lea) 0 (ving) 15 
+(the) 16 (tailw) 0 (ater) 15 (of) 15 (the) 15 (IW.) 15 
+(The)  ks 
+0 1983 p m (o) 0 (xygen) 16 (stripping) 18 (rates) 17 (are) 17 
+(calculated) 19 (from) 15 (\014tted,) 18 (empirical) 18 (p) 1 (o) 0 
+(w) -1 (er) 15 (la) 0 (w) 17 (functions) 17 (based) 16 
+(on)  ks 
+0 2042 p m (the) 21 (width) 21 (of) 21 (the) 20 (IW) 21 
+(and) 20 (the) 21 (distance) 21 (b) 1 (et) 0 (w) 0 
+(een) 18 (top) 21 (and) 20 (b) 1 (ottom) 20 (w) 0 
+(ater) 19 (lev) 0 (els) 21 (\(Nak) -2 (asone,)  ks 
+0 2102 p m (1986\).)  s
+0 2187 p m (References)  s
+0 2195 p 230 2 ru
+0 2272 p m (Baill) 1 (o) 1 (d,) 26 (C.R.,) 23 (Crittenden,) 25 
+(J.C.,) 24 (Mihelcic,) 26 (J.R.,) 23 (Rogers,) 23 (T.N.,) 25 (Grady) -3 
+(,) 22 (Jr.,) 23 (C.P) -3 (.L.) 22 (1991.)  ks 
+0 2331 p m (Critical) 25 (ev) -2 (aluation) 23 (of) 23 (the) 23 
+(state) 23 (of) 23 (tec) 0 (hnologies) 22 (for) 22 (predicting) 24 
+(the) 22 (transp) 1 (ort) 22 (and) 22 (fate) 23 (of)  ks 
+0 2391 p m (to) 0 (xic) 18 (comp) 1 (ounds) 15 (in) 19 
+(w) 0 (astew) -1 (ater) 16 (facili) 1 (ti) 1 (es.) 28 
+(WPCF) 18 (Researc) 0 (h) 16 (F) -3 (ou) -1 (ndation) 17 
+(Rep) 1 (ort) 17 (No.) 27 (90-1,)  ks 
+0 2451 p m (W) -3 (ater) 16 (En) 0 (vironm) -1 (en) -2 
+(t) 15 (F) -3 (ound) -1 (ation,) 15 (Arlington,) 18 (V) -5 
+(A.)  ks 
+0 2536 p m (Naksone,) 14 (H.) 14 (1986.) 21 (Study) 13 (of) 14 
+(aeration) 14 (at) 15 (w) 0 (eirs) 12 (and) 13 (cascades,)  ks 
+cmti10.360 @sf
+14 r m (J.) 15 (Envir) -2 (on.) 23 (Engin.)  ks 
+cmr10.360 @sf
+m (,) 14 (113:64{73.)  ks 
+0 2620 p m (Pincince,) 21 (A.B.) 19 (1991.) 29 (T) -3 (ransfer) 17 
+(of) 19 (o) 0 (xygen) 18 (and) 18 (emissions) 18 (of) 19 
+(v) 0 (olatile) 21 (organic) 19 (comp) 1 (oun) -1 (ds) 17 
+(at)  ks 
+963 2790 p m (3)  s
+@eop
+4 @bop0
+cmti10.360 @sf
+[<000007F0FFFC0FF87FFC1F1C07C03F0E03C03F0603C03E0603E03F0001E03F0001E01F0001E01F
+  0001F01F0000F01F0000F00F0000F00F0000F80E0000781E0000781E00007FFC00007FFF00003C
+  0F80003C03E0003C01F0003E00F8001E0078001E007C001E007C001F007C000F003C000F003C00
+  0F003C000F803C00078078000780F800FFFFE0007FFF80> 31 35 -3 1 36] 82 @dc
+[<1FC07FF0F0F8E03CF01CF01C701E001E003E00FE03FC07F807F00700070C071E071E079E03CE01
+  FE00FC> 15 21 -3 0 20] 115 @dc
+[<0E00070000000E00070000000F00078000000F00078000000F8007C000000F8007C000000FC007
+  E000000FC007E000000F6007B000000F6007B000000F30079800000F30079800000F18078C0000
+  0F18078C00000F0C078600000F0C078600000F06078300000F06078300000F03078180000F0307
+  8180000F018780C0000F018780E0000F00C78060000F00E78070000F00678030000F0077801800
+  0F00378018000F001F800C000F001F800C000F000F8006000F000F8007000F00078007001F000F
+  C00FC0FFF07FF83FF0FFF07FF83FF8> 45 35 -10 1 50] 87 @dc
+[<FFFC00007FFC000007C0000003C0000003C0000003E0000003E0000001E0000001E0000001F000
+  0001F0000000F0000000F0000000F8000000F80000007FFC00007FFF80007C07C0007C01E0003C
+  00F0003C0078003E007C003E003C001E003E001E003E001F003E001F001E000F001E000F001E00
+  0F801E000F803C0007807C00FFFFF8007FFFE0> 31 34 -3 0 34] 80 @dc
+[<01FC000007FF80001F83C0001F00E0003C0070007C00180078001C00F8000E00F0000600F00007
+  00F0000300F0000380F0000180F0000180F8000000F8000000F8000000F8000000FC0000007C00
+  00007C0000007C0000603E0000603E0000701F0000701F0000300F8000700780007807C0007803
+  E0007801F0007800F800FC003E01FC001F839C0007FF0C0001FE06> 31 36 -8 1 36] 67 @dc
+[<FFFE00007FFE000007C0000003C0000003C0000003E0000001E0000001E0000001E0000001F000
+  0000F0180000F0180000F0180000F8180000781C0000783C00007FFC00007FFC00003C1E00003C
+  0E00003C0600003E0600001E0706001E0306001E0006001F0006000F0006000F0006000F000700
+  0F80070007800F0007801F00FFFFFF007FFFFF> 32 34 -3 0 33] 70 @dc
+4 @bop1
+cmr10.360 @sf
+0 50 p m (clari\014er) 17 (w) 0 (eirs,)  ks 
+cmti10.360 @sf
+15 r m (R) -2 (es.) 24 (J.) 18 (WPCF)  ks 
+cmr10.360 @sf
+m (,) 15 (63:114-122.)  ks 
+963 2790 p m (4)  s
+@eop
+5 @bop0
+cmr10.360 @sf
+[<7FF0FFC7FF7FF0FFC7FF07801E00F007801E00F007801E00F007801E00F007801E00F007801E00
+  F007801E00F007801E00F007801E00F007801E00F007801E00F007801E00F007801E00F007801E
+  00F007801E00F007801E00F007801E01F0FFFFFFFFF0FFFFFFFFF007801E000007801E00000780
+  1E000007801E000007801E000007801E000007801E00E007803E01F007C03F01F003E03F81F001
+  F03FC1F000FC3FE0E0003FFCFFE00007F03F80> 40 35 0 0 42] 14 @dc
+1.000000 /cmmi10.360 @newfont
+cmmi10.360 @sf
+[<00007E000000007F00000000FF80000000FFC0000000FFC0000000F1E0000000E060000000E060
+  000000E0300000FFE0100003FFE010000FE1F800001F607C00003E60FE00003C70CF80007839C7
+  C000783F83E000F80F01F000F00000F000F00000F800F000007C00F000007C00F000003E00F800
+  003E00F800001E00F800001F00F800001F00F800001F007C00000F807C00000F807C00000F803E
+  00000F803E00000F801F00000F800F00000F800F80000F000780000F0003C0000F0001E0001E00
+  00F0001E000078003C00003E007800000F81F0000003FFE00000007F0000> 33 45 -3 10 39] 81 @dc
+1.000000 /cmmi7.360 @newfont
+cmmi7.360 @sf
+[<03FF10000FFFF8003F00F8003C00780078003800F0003800F0003C00F0001C00F0001C00F001FF
+  80F001FF80F0000000F0000000F8000000780003007C0003003C0003003E0003001F0007800F80
+  078003E00F8001F83F80007FF9C0000FE0C0> 26 24 -3 0 31] 71 @dc
+cmmi10.360 @sf
+[<FFFC3FFF00FFFC3FFF0007C001F00003C000F00003C000F00003E000F80001E000F80001E00078
+  0001E000780001F0007C0000F0007C0000F0003C0000F0003C0000F8003E000078003E00007800
+  1E000078001E00007FFFFF00003FFFFF00003C000F00003C000F00003E000F80001E000F80001E
+  000780001E000780001F0007C0000F0007C0000F0003C0000F0003C0000F8003E000078003E000
+  078001E000FFFC3FFF00FFFC3FFF> 40 34 -2 0 41] 72 @dc
+[<00FF00000003FFE000000FE0F800001F803C00003E000E00003C000700007C00038000780001C0
+  00F80000C000F80000E000F000006000F000007000F000003000F000003000F800000000F80000
+  0000F800000000F800000000FC000000007C000000007C000000007C00000C003E00000C003E00
+  000E001F00000E001F00000E000F80000E0007C0000F0003E0000F0001F0000F0000F8001F0000
+  7C003F80003F003780000FE0F3800003FFE18000007F80C0> 34 36 -3 1 36] 67 @dc
+1.000000 /cmsy10.360 @newfont
+cmsy10.360 @sf
+[<FFFFFFFCFFFFFFFC> 30 2 -4 -11 39] 0 @dc
+cmmi10.360 @sf
+[<0FE0003FFC007C3E00700700F00380E00180E00000E00000E00000F00000F00000FFF000FFFE00
+  F81F007803807C01803C01801F01800F838003FF0000FE00> 17 21 -3 0 23] 101 @dc
+1.000000 /cmsy7.360 @newfont
+cmsy7.360 @sf
+[<FFFFFEFFFFFE> 23 2 -4 -8 31] 0 @dc
+cmmi7.360 @sf
+[<0600000600000700000700000300000300000380001FF8007FFE00718F00E1C780E1C3C0E0C1C0
+  E0C1E0E0E0E0E0E0E0F060E07860E03C71E01E73C00FFF8003FF00003800003800001800001800
+  001C00001C00000C00000C00000C00> 19 31 -3 7 24] 30 @dc
+cmmi10.360 @sf
+[<0E00001F00000F00000F00000F00000F800007800007800007800007C00003C00003C00003C000
+  03E1E0E1E1F061E1F061F1F031F8F03BFC701FCFE00F87C0> 20 21 0 0 22] 114 @dc
+cmmi7.360 @sf
+[<3F80FFC0E1E0E0F0E07000F007F01FF01FE01F001C301C381E380FF807F0> 13 15 -3 0 19] 115 @dc
+[<0F801FC01CE01C701C301E301E000E000E000F000F0007000700FFF07FF00380038003C003C001
+  C001C0> 12 21 -1 0 15] 116 @dc
+[<1C00001E00001E00000E00000E00000F00000F0000070000070000078000E7838063C38077E380
+  3FFF801F3F00> 17 15 -1 0 18] 114 @dc
+[<0F001FC01DC01CE01C601E600E000F0007000700E780638073803F801F00000000000000000000
+  00000001C001C000C0> 11 24 -1 0 14] 105 @dc
+[<FF0000FF80001C00001C00001E00001E00000E00000EF8000FFC000F8E00078700070380078380
+  0783C00381C00381C003C1C073C1C031E1C03BF3C01FFF800F9F00> 18 22 0 7 21] 112 @dc
+cmr10.360 @sf
+[<FFFFFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000
+  00FFFFFFFFFFFFFFFF> 32 12 -3 -6 39] 61 @dc
+1.000000 /cmex10.360 @newfont
+cmex10.360 @sf
+[<001C0038007800F000E001C003C0078007000F000F001E001E001C003C003C003C007800780078
+  0078007800F000F000F000F000F000F000F000F000F000F000F000F000F000F000F00078007800
+  7800780078003C003C003C001C001E001E000F000F000700078003C001C000E000F00078003800
+  1C> 14 59 -7 57 23] 0 @dc
+[<E000700078003C001C000E000F000780038003C003C001E001E000E000F000F000F00078007800
+  7800780078003C003C003C003C003C003C003C003C003C003C003C003C003C003C003C00780078
+  00780078007800F000F000F000E001E001E003C003C0038007800F000E001C003C0078007000E0
+  00> 14 59 -1 57 23] 1 @dc
+cmr10.360 @sf
+[<3F007FC0F9E0F8F0F8F8F878007800780078007800780078007800780078007800780078007800
+  78007800780078007800780078007800F807F807F8007800000000000000000000000000000000
+  007000F800F800F80070> 13 44 2 10 15] 106 @dc
+5 @bop1
+cmr10.360 @sf
+0 50 p m (AERA) -3 (TED) 16 (GRIT) 16 (CHAMBER) 17 (SCREEN)  ks 
+0 134 p m (V) 0 (OCs) 23 (can) 25 (b) 1 (e) 26 
+(remo) -2 (v) -1 (ed) 23 (through) 24 (t) 0 (w) 0 
+(o) 23 (remo) -2 (v) -2 (al) 24 (mec) -1 (hanism) -1 
+(s) 22 (in) 26 (the) 25 (aerated) 25 (grit) 26 (c) 0 
+(ham) -3 (b) 1 (er)  ks 
+0 194 p m (\(A) 0 (GC\):) 23 (stripping) 23 (and) 23 (v) 0 
+(olatilizati) 1 (on.) 44 (Although) 23 (solids) 24 (are) 23 (w) 0 
+(asted) 21 (in) 24 (A) 0 (GCs,) 23 (it) 25 (assum) -1 
+(ed)  ks 
+0 254 p m (that) 19 (V) 0 (OCs) 18 (do) 19 (not) 19 
+(sorb) 18 (appreciably) 20 (to) 19 (these) 19 (solids,) 20 (and) 19 
+(so) 18 (sorption) 19 (is) 20 (neglected) 20 (as) 19 (a) 19 
+(re-)  ks 
+0 314 p m (mo) -1 (v) -2 (a) -1 (l) 21 (mec) 0 
+(ha) -1 (nism) 19 (in) 23 (F) -3 (aV) -1 (Or) 20 
+(for) 21 (A) 0 (GCs.) 38 (It) 22 (is) 23 (also) 22 
+(assumed) 20 (that) 22 (a) 22 (negligibl) 1 (e) 24 (amoun) -2 
+(t) 21 (of)  ks 
+0 374 p m (liquid) 24 (is) 22 (w) 0 (asted) 20 (from) 20 
+(the) 22 (A) 0 (GC.) 21 (The) 21 (user) 21 (m) -1 
+(ust) 20 (sp) 1 (ecify) 23 (the) 22 (follo) 0 (wing) 22 
+(parameters) 20 (in) 22 (the)  ks 
+0 433 p m (A) 0 (GC) 16 (screen:)  ks 
+58 518 p m (-)  s
+100 518 p m (whether) 16 (the) 17 (A) 0 (GCs) 15 (are) 16 
+(activ) 0 (e)  ks 
+58 603 p m (-)  s
+100 603 p m (the) 16 (n) 0 (um) -2 (b) 0 (er) 15 
+(of) 17 (parallel) 18 (A) 0 (GCs) 15 (in) 17 (use)  ks 
+58 687 p m (-)  s
+100 687 p m (whether) 16 (the) 17 (A) 0 (GCs) 15 (are) 16 
+(co) 0 (v) 0 (er) -1 (ed)  ks 
+58 772 p m (-)  s
+100 772 p m (the) 16 (v) 0 (en) 0 (tilation) 17 (rate) 17 
+(for) 16 (an) 16 (A) 0 (GC) 16 (if) 17 (the) 17 
+(A) 0 (GC) 16 (is) 17 (co) 0 (v) -1 (ered)  ks 
+58 857 p m (-)  s
+100 857 p m (the) 16 (liqui) 1 (d) 18 (depth) 16 (in) 17 
+(an) 17 (A) 0 (GC)  ks 
+58 941 p m (-)  s
+100 941 p m (the) 16 (v) 0 (olume) 15 (of) 17 (an) 16 
+(A) 0 (GC)  ks 
+58 1026 p m (-)  s
+100 1026 p m (the) 16 (gas) 16 (\015o) 0 (w) 15 (rate) 17 
+(in) 0 (to) 16 (an) 16 (A) 0 (GC)  ks 
+58 1111 p m (-)  s
+100 1111 p m (the) 16 (standard) 15 (o) 0 (xygen) 16 (transfer) 15 
+(e\016ciency) 18 (\(SOTR\))  ks 
+0 1196 p m (Stripping)  s
+0 1204 p 203 2 ru
+0 1280 p m (Remo) -1 (v) -3 (al) 24 (of) 24 (V) 0 
+(OCs) 23 (b) 0 (y) 23 (aeration) 24 (in) 25 (the) 25 
+(A) 0 (GC) 23 (is) 25 (sim) 0 (ulated) 23 (via) 25 
+(the) 25 (stripping) 25 (mec) -1 (han) -1 (ism) -1 (.)  ks 
+0 1340 p m (Stripping) 20 (in) 21 (the) 21 (A) 0 (GC) 19 
+(is) 20 (o) 1 (ccurs) 20 (through) 19 (air) 21 (bubbles) 19 
+(that) 21 (are) 19 (mec) 0 (h) -1 (anical) 20 (in) 21 
+(origin.) 33 (The)  ks 
+0 1400 p m (rate) 16 (of) 17 (V) 0 (OC) 15 (remo) -1 
+(v) -3 (al) 15 (is) 17 (giv) 0 (en) 16 (b) 0 
+(y) 15 (\(Rob) 1 (erts)  ks 
+cmti10.360 @sf
+16 r m (et) 18 (al.)  ks 
+cmr10.360 @sf
+m (,) 16 (1984\)) 17 (the) 16 (pro) 1 (duct) 16 
+(of) 17 (gas) 16 (\015o) 0 (w) 14 (rate) 17 (\()  ks 
+cmmi10.360 @sf
+m (Q)  s
+cmmi7.360 @sf
+1883 1407 p m (G)  s
+cmr10.360 @sf
+1917 1400 p m (\),)  s
+0 1460 p m (the) 18 (Henry's) 16 (la) 0 (w) 17 (constan) 0 
+(t) 16 (\()  ks 
+cmmi10.360 @sf
+m (H)  s
+cmr10.360 @sf
+4 r m (\),) 18 (the) 18 (V) 0 (OC) 16 (liqui) 1 
+(d-phase) 17 (concen) 0 (tration) 17 (\()  ks 
+cmmi10.360 @sf
+m (C)  s
+cmr10.360 @sf
+4 r m (\),) 17 (and) 17 (a) 17 (correction)  ks 
+0 1519 p m (factor) 18 (for) 18 (the) 19 (fraction) 19 (of) 19 
+(equilibrium) 19 (ac) 0 (hiev) 0 (ed) 16 (b) 1 (et) 0 
+(w) 0 (een) 16 (V) 0 (OC) 17 (concen) 0 (trations) 17 
+(in) 19 (the) 19 (liquid)  ks 
+0 1579 p m (and) 16 (gas) 16 (phases) 15 (\(1)  ks 
+cmsy10.360 @sf
+12 r m (\000)  s
+cmmi10.360 @sf
+10 r m (e)  s
+cmsy7.360 @sf
+469 1562 p m (\000)  s
+cmmi7.360 @sf
+m (\036)  s
+cmr10.360 @sf
+527 1579 p m (\))  s
+cmmi10.360 @sf
+696 1766 p m (r)  s
+cmmi7.360 @sf
+718 1773 p m (str) 1 (ip)  ks 
+cmr10.360 @sf
+823 1766 p m (=)  s
+cmmi10.360 @sf
+14 r m (Q)  s
+cmmi7.360 @sf
+915 1773 p m (G)  s
+cmmi10.360 @sf
+949 1766 p m (H) 4 (C)  ks 
+cmex10.360 @sf
+1042 1727 p m (\000)  s
+cmr10.360 @sf
+1064 1766 p m (1)  s
+cmsy10.360 @sf
+11 r m (\000)  s
+cmmi10.360 @sf
+11 r m (e)  s
+cmsy7.360 @sf
+1173 1746 p m (\000)  s
+cmmi7.360 @sf
+m (\036)  s
+cmex10.360 @sf
+1231 1726 p m (\001)  s
+cmr10.360 @sf
+0 1928 p m (where)  s
+cmmi10.360 @sf
+23 r m (r)  s
+cmmi7.360 @sf
+173 1935 p m (str) 1 (ip)  ks 
+cmr10.360 @sf
+288 1928 p m (is) 25 (the) 24 (rate) 23 (of) 24 (stripping.) 44 
+(V) 0 (OCs) 22 (that) 25 (ha) 0 (v) -1 (e) 22 
+(high) 24 (v) -2 (alues) 23 (of) 24 (the) 24 (Henry's) 24 
+(la) 0 (w)  ks 
+0 1988 p m (constan) 0 (t) 16 (ma) -1 (y) 16 (require) 17 
+(signi\014can) 0 (t) 17 (tank) 18 (depths) 17 (to) 17 (ac) 0 
+(hiev) 0 (e) 16 (equili) 1 (brium.) 25 (Ho) 0 (w) -1 
+(ev) -1 (er,) 16 (unless) 17 (the)  ks 
+0 2047 p m (Henry's) 21 (constan) 0 (t) 21 (is) 22 (v) 0 
+(ery) 21 (large,) 24 (the) 22 (correction) 22 (factor) 22 (will) 25 
+(b) 1 (e) 22 (close) 23 (to) 22 (1.) 38 (The) 22 
+(correction)  ks 
+0 2107 p m (factor) 15 (is) 14 (based) 14 (on) 14 (the) 15 
+(o) 0 (v) -1 (erall) 14 (V) 0 (OC) 13 (mass) 12 
+(transfer) 14 (co) 1 (e\016cien) 0 (t,) 14 (the) 15 (gas) 14 
+(\015o) 0 (w) 12 (rate,) 15 (the) 15 (aeration)  ks 
+0 2167 p m (basin) 16 (v) 0 (olume,) 15 (and) 16 (the) 16 
+(Henry's) 16 (la) 0 (w) 16 (constan) 0 (t) 15 (\(Rob) 1 
+(erts)  ks 
+cmti10.360 @sf
+17 r m (et) 17 (al.)  ks 
+cmr10.360 @sf
+m (,) 17 (1984\).)  ks 
+0 2252 p m (The) 18 (o) 0 (v) -1 (erall) 18 (V) 0 
+(OC) 17 (mass) 16 (transfer) 17 (co) 1 (e\016cien) 0 (t) 18 
+(is) 19 (calculated) 20 (b) 0 (y) 17 (relating) 19 (it) 19 
+(to) 19 (the) 18 (o) 0 (v) 0 (era) -1 (ll) 18 
+(mass)  ks 
+0 2311 p m (transfer) 17 (co) 1 (e\016cien) 0 (t) 18 (for) 18 
+(o) 0 (xygen) 17 (\(Munz) 18 (and) 17 (Rob) 1 (erts,) 18 
+(1989\).) 26 (The) 18 (o) 0 (v) 0 (er) -1 (all) 18 
+(mass) 16 (transfer) 17 (rate)  ks 
+0 2371 p m (for) 19 (o) 0 (xygen) 19 (is) 20 (calculated) 22 
+(from) 18 (the) 20 (standard) 18 (o) 0 (xygen) 18 (transfer) 19 
+(e\016ciency) 21 (\(SOTR\),) 19 (the) 20 (A) 0 (GC)  ks 
+0 2431 p m (v) 0 (olume,) 17 (and) 18 (the) 19 (dynamic) 18 
+(saturation) 19 (v) -2 (alue) 19 (for) 18 (o) 0 (xygen.) 28 
+(The) 18 (o) 0 (v) 0 (er) -1 (all) 19 (o) 0 
+(xygen) 18 (mass) 16 (transfer)  ks 
+0 2491 p m (rate) 16 (is) 17 (adjusted) 16 (to) 17 (accoun) 0 
+(t) 15 (for) 16 (the) 17 (e\013ects) 17 (of) 16 (the) 17 
+(w) 0 (astew) -1 (ater) 15 (matrix,) 15 (the) 17 (temp) 1 
+(erature,) 15 (and)  ks 
+0 2551 p m (a) 17 (correction) 18 (term) 15 (\(Bail) 1 (lo) 2 
+(d)  ks 
+cmti10.360 @sf
+19 r m (et) 18 (al.)  ks 
+cmr10.360 @sf
+m (,) 17 (1986\).) 24 (The) 17 (correction) 18 (term) 16 
+(is) 17 (a) 18 (function) 17 (of) 18 (the) 17 (gas) 17 
+(\015o) 0 (w)  ks 
+0 2610 p m (rate,) 22 (temp) 1 (erature,) 21 (v) 0 (olume) 20 
+(of) 21 (the) 22 (basin,) 22 (barometric) 20 (pressure,) 21 (e\013ectiv) 0 
+(e) 22 (depth,) 22 (and) 20 (other)  ks 
+0 2670 p m (constan) 0 (ts.) 37 (The) 22 (e\013ectiv) 0 (e) 23 
+(depth) 21 (is) 23 (de\014ned) 21 (as) 22 (the) 22 (depth) 22 
+(whic) 0 (h) 21 (the) 22 (bubble) 22 (concen) 0 (tration)  ks 
+963 2790 p m (5)  s
+@eop
+6 @bop0
+cmsy7.360 @sf
+[<030003800300E31CF33CFFFC3FF007803FF0FFFCF33CE31C030003800300> 14 15 -3 -1 20] 3 @dc
+[<07E001F8001FF807FE00387E1FCF00701F3E0380E007FC01C0E003F801C0C001F000C0C001E000
+  C0C003E000C0E007F001C0E00FF801C0701F3E03803CFE1F87001FF807FE0007E001F800> 34 15 -3 0 40] 49 @dc
+cmmi10.360 @sf
+[<0F83E03FE7F87CFFB8783F1C701F0CF00F8CF00F8EF00786F00780F807C07807C07803C07803C0
+  7C03E03C03E01E01E01E03E00F03F007C7F001FEF0007CF00000F80000F800007800007800007C
+  00007C00003C00003C00003E00003E00003E0001FE0001FF00001F> 24 35 -2 0 26] 100 @dc
+cmmi7.360 @sf
+[<1FC07FF07078E018E000E000E000FE00FFE0F3F0703878183E381FF807E0> 13 15 -3 0 19] 101 @dc
+cmmi10.360 @sf
+[<70F8F8F870> 5 5 -4 0 14] 58 @dc
+cmr10.360 @sf
+[<C0E0607030381818181878F8F8F870000000000000000000000070F8F8F870> 5 31 -4 10 14] 59 @dc
+cmmi10.360 @sf
+[<FFFC03FFC000FFFC03FFC00007C0007E000003C0007C000003C0007C000003E00078000001E000
+  F8000001E000F8000001E001F0000001F001F0000000F001E0000000F003E0000000F803C00000
+  00FC07C00000007E07C00000007F8F8000000079CF800000007CEF000000003C7F000000003C3F
+  000000003C1E000000003E07000000001E03800000001E01E00000001E00F00000001F00380000
+  000F001C0000000F000E0000000F00078000000F8001C00000078001F00000078001FC0000FFFC
+  03FF8000FFFC03FF80> 41 34 -2 0 42] 75 @dc
+cmmi7.360 @sf
+[<FFFFC0FFFFE01E03E00E01E00E00700F00700F0030070038070018078018078000038000038000
+  03C00003C00001C00001C00001E00001E00000E00000E00000F00007FF0007FF00> 21 24 -3 0 27] 76 @dc
+cmmi10.360 @sf
+[<0F83E03FE7F87CFFB8783F1C701F0CF00F0CF00F8EF00786F00780F807807807C07803C07803C0
+  7C03C03C03E01E01E01E03E00F03E007C7F001FEF0007CF0> 23 21 -2 0 26] 97 @dc
+cmmi7.360 @sf
+[<03F00007F800071C000F0C000E0E000F0600070700070300070300078300E3838073C3807BC780
+  3F87800F0700> 17 15 -1 0 20] 118 @dc
+[<3F007FC0F1E0E070E078E038E03CE01CE01CF01C701C381C1E380FF803E0> 14 15 -3 0 20] 111 @dc
+[<7CFCEEE6E6F6F07070787838383C3C1C1C1E1E0E0E0F3F3F> 8 24 -3 0 13] 108 @dc
+cmr10.360 @sf
+[<003FFF8000003FFF80000001F000000001F000000001F000000001F000000001F000000001F000
+  000001F000000001F000000001F000000001F000000001F000000001F000000003F000000003F8
+  00000007F800000007CC0000000FCE0000000F860000001F870000003F030000003E038000007E
+  018000007C00C00000FC00C00001F800600001F000600003F000300003E000380007E0003C000F
+  E0007E00FFFC01FFE0FFFC01FFE0> 35 34 -1 0 37] 89 @dc
+[<C00000C00000E000006000006000007000003000003000003800001800001800001C00000C0000
+  0C00000E000006000006000007000003000003000003800001800001800001C00000C00000E000
+  006000006000007000003000003000003800001800001800001C00000C00000C00000E00000600
+  0006000007000003000003000003800001800001800001C00000C00000C0> 18 49 -3 12 25] 47 @dc
+[<FFFE07FFC0FFFE07FFC007C001FE0007C001F80007C001F80007C003F00007C003F00007C007E0
+  0007C00FC00007C00FC00007C01F800007C03F000007C03F000007E07E000007F07C000007F8FC
+  000007DDF8000007CFF8000007C7F0000007C3E0000007C1E0000007C0E0000007C070000007C0
+  38000007C03C000007C01E000007C00F000007C007800007C003C00007C001E00007C000F00007
+  C001FC00FFFE07FF80FFFE07FF80> 34 34 -2 0 39] 75 @dc
+cmti10.360 @sf
+[<C3F80000EFFE0000FF0F00007C0780007803C0007801E0007000E0003000F00030007000300070
+  0030007000000078000000780000007800000078000001F800000FF000007FF00000FFE00001FF
+  C00003FF000003F0000003E0000003C0000003C000000380060003C0070001C0070001C0070001
+  E0070000E0078000F0078000780F80003E3F80001FF9C00007F0C0> 26 36 -4 1 28] 83 @dc
+[<1F0F803F9FC079FCC070F8E0F07860F03C60F03C70F01C30F01C00F81E00781E00780E00780E00
+  7C0F003C0F003C07001E0F000F0F80079F8003FF8000FB800003C00003C00001C00001C00001E0
+  0001E00000E00000E00000F00000F00000F00007F00007F80000F8> 21 35 -5 0 25] 100 @dc
+[<FFFFC0007FFFC00001F0000000F0000000F0000000F80000007800000078000000780000007C00
+  00003C0000003C0000003C0000003E0000001E0000001E0000001E0000001F0000000F0000000F
+  0000000F0000000F80006007801860078018600780187007C0183003C0183803C0181803C01C1C
+  03E01C1E01E01C0F81E07C0FFFFFFC0FFFFFFC> 30 34 -8 0 36] 84 @dc
+[<E007C0F00FE0F01E70701C38701E18780E18780E1C380F0C3807003C07003C07801C03801C0380
+  1E03801E03C00F01C00F81C00FC1C00FE3C007FF80073F0007800007800003800003800003C000
+  03C00001C00001C00001E00001E00001E0000FE0000FF00001F000> 22 35 -3 0 25] 104 @dc
+6 @bop1
+cmr10.360 @sf
+0 50 p m (w) 0 (ould) 13 (b) 1 (e) 15 (in) 15 
+(equilibrium) 15 (with) 15 (the) 15 (dissolv) 0 (ed) 14 (o) 0 
+(xygen) 13 (concen) 0 (tration) 13 (at) 15 (an) 14 (in\014nite) 15 
+(time) 15 (during)  ks 
+0 110 p m (the) 17 (unsteady) 16 (state) 17 (o) 0 (xygen) 15 
+(transfer) 15 (test) 17 (\()  ks 
+cmmi10.360 @sf
+m (C)  s
+cmsy7.360 @sf
+927 93 p m (\003)  s
+923 122 p m (1)  s
+cmr10.360 @sf
+966 110 p m (\).) 22 (F) -3 (aV) -1 (Or) 14 (estimates) 16 
+(the) 17 (e\013ectiv) 0 (e) 17 (depth) 16 (in) 17 (the)  ks 
+0 169 p m (A) 0 (GC) 12 (\()  ks 
+cmmi10.360 @sf
+m (d)  s
+cmmi7.360 @sf
+169 176 p m (e)  s
+cmr10.360 @sf
+191 169 p m (\)) 14 (as) 13 (\(from) 12 (Baillo) 2 (d) 15 
+(et) 14 (al.,) 14 (1986\))  ks 
+cmmi10.360 @sf
+13 r m (d)  s
+cmmi7.360 @sf
+878 176 p m (e)  s
+cmr10.360 @sf
+913 169 p m (=) 14 (0)  ks 
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (35)  s
+cmmi10.360 @sf
+m (d)  s
+cmr10.360 @sf
+m (,) 13 (where)  ks 
+cmmi10.360 @sf
+13 r m (d)  s
+cmr10.360 @sf
+13 r m (is) 14 (the) 14 (tank) 13 (liqui) 1 (d) 15 
+(depth.)  ks 
+cmmi10.360 @sf
+20 r m (C)  s
+cmsy7.360 @sf
+1865 152 p m (\003)  s
+1861 182 p m (1)  s
+cmr10.360 @sf
+1917 169 p m (is)  s
+0 229 p m (estimated) 13 (from) 12 (an) 14 (expression) 13 (found) 13 
+(in) 14 (Baill) 1 (o) 1 (d)  ks 
+cmti10.360 @sf
+16 r m (et) 15 (al.)  ks 
+cmr10.360 @sf
+21 r m (\(1986\).) 22 (It) 14 (is) 14 (a) 14 (function) 14 
+(of) 14 (the) 14 (e\013ectiv) 0 (e)  ks 
+0 289 p m (depth;,barom) -1 (etric) 19 (pressure,) 19 (v) -2 (ap) 1 
+(or) 19 (pressure) 19 (of) 20 (w) 0 (ater,) 20 (a) 20 
+(standard) 19 (pressure) 18 (of) 21 (101.33) 19 (kP) 0 (a,)  ks 
+0 349 p m (sp) 1 (eci\014c) 17 (w) 0 (eigh) 0 (t) 15 
+(of) 17 (w) 0 (ater,) 15 (and) 16 (saturation) 16 (concen) 0 
+(tration) 15 (of) 17 (o) 0 (xygen.)  ks 
+0 433 p m (V) -3 (olatili) 1 (zati) 1 (on)  ks 
+0 441 p 291 2 ru
+0 518 p m (V) -3 (olatili) 1 (zati) 1 (on) 13 (o) 1 
+(ccurs) 11 (b) 0 (y) 10 (w) 0 (a) -1 (y) 9 
+(of) 12 (air) 12 (\015o) 0 (w) 9 (across) 10 (the) 12 
+(A) 0 (GC) 10 (surface.) 20 (In) 11 (an) 11 (op) 1 
+(en) 11 (basin,) 12 (v) 0 (olatiliz) 1 (a-)  ks 
+0 578 p m (tion) 18 (is) 17 (induced) 17 (b) 0 (y) 15 
+(the) 17 (wind,) 17 (while) 19 (in) 17 (a) 17 (closed) 17 
+(basin) 17 (v) 0 (olatilizati) 1 (on) 19 (is) 17 (induced) 17 
+(b) 0 (y) 15 (forced) 17 (air)  ks 
+0 638 p m (v) 0 (en) -1 (tilation.) 33 (The) 20 (rate) 20 
+(of) 20 (v) 0 (olatiliz) 1 (ati) 1 (on) 21 (is) 21 
+(based) 19 (on) 19 (a) 20 (\014rst-order) 18 (rate) 20 (expression) 19 
+(where) 19 (an)  ks 
+0 697 p m (o) 0 (v) -1 (erall) 17 (mass) 14 (transfer) 16 
+(rate) 17 (co) 1 (e\016cien) 0 (t) 17 (\()  ks 
+cmmi10.360 @sf
+m (K)  s
+cmmi7.360 @sf
+864 704 p m (L)  s
+cmmi10.360 @sf
+895 697 p m (a)  s
+cmr10.360 @sf
+m (\)) 18 (is) 17 (m) -1 (ultiplied) 18 (b) 0 
+(y) 16 (a) 17 (V) 0 (OC) 15 (concen) 0 (tration) 16 
+(driving)  ks 
+0 757 p m (force:)  s
+cmmi10.360 @sf
+753 946 p m (r)  s
+cmmi7.360 @sf
+775 953 p m (v) 1 (ol)  ks 
+cmr10.360 @sf
+845 946 p m (=)  s
+cmmi10.360 @sf
+14 r m (K)  s
+cmmi7.360 @sf
+940 953 p m (L)  s
+cmmi10.360 @sf
+970 946 p m (a)  s
+cmr10.360 @sf
+m (\()  s
+cmmi10.360 @sf
+m (C)  s
+cmsy10.360 @sf
+15 r m (\000)  s
+cmmi10.360 @sf
+11 r m (C)  s
+cmsy7.360 @sf
+1156 926 p m (\003)  s
+cmr10.360 @sf
+1178 946 p m (\))  s
+0 1111 p m (where)  s
+cmmi10.360 @sf
+18 r m (r)  s
+cmmi7.360 @sf
+168 1118 p m (v) 1 (ol)  ks 
+cmr10.360 @sf
+243 1111 p m (is) 18 (the) 19 (rate) 18 (of) 18 (stripping,)  ks 
+cmmi10.360 @sf
+19 r m (C)  s
+cmr10.360 @sf
+22 r m (is) 18 (the) 19 (bulk) 19 (V) 0 (OC) 17 
+(aqueous) 17 (phase) 17 (concen) 0 (tration,) 18 (and)  ks 
+cmmi10.360 @sf
+0 1171 p m (C)  s
+cmsy7.360 @sf
+40 1154 p m (\003)  s
+cmr10.360 @sf
+81 1171 p m (is) 19 (the) 19 (V) 0 (OC) 17 (aqueous) 18 
+(phase) 18 (concen) 0 (tration) 18 (that) 19 (w) 0 (ould) 17 
+(b) 1 (e) 19 (in) 19 (equili) 1 (brium) 19 (with) 20 
+(the) 19 (bulk)  ks 
+0 1230 p m (air) 22 (concen) 0 (tration.) 35 (The) 21 (rate) 21 
+(expression) 21 (is) 22 (based) 21 (on) 21 (the) 21 (existence) 23 
+(of) 22 (a) 21 (stagnan) 0 (t) 19 (la) 0 (y) 0 
+(er) 20 (at)  ks 
+0 1290 p m (the) 21 (w) 0 (astew) -1 (ater-a) -1 (ir) 19 
+(in) 0 (terface.) 34 (When) 20 (the) 21 (reactor) 20 (is) 21 
+(unco) 0 (v) -1 (ered) -1 (,) 20 (the) 21 (air) 20 
+(ab) 1 (o) 0 (v) 0 (e) 18 (the) 21 (basin) 21 
+(is)  ks 
+0 1350 p m (assum) -1 (ed) 15 (to) 17 (ha) 0 (v) -1 
+(e) 15 (negligibl) 1 (e) 18 (V) 0 (OC) 16 (concen) 0 
+(tration) 15 (and)  ks 
+cmmi10.360 @sf
+16 r m (C)  s
+cmsy7.360 @sf
+1173 1333 p m (\003)  s
+cmr10.360 @sf
+1209 1350 p m (=) 14 (0.) 22 (When) 17 (the) 17 (reactor) 16 
+(is) 17 (co) 0 (v) 0 (er) -1 (ed,)  ks 
+0 1410 p m (a) 17 (V) 0 (OC) 16 (gas) 17 (phase) 16 
+(mass) 15 (balance) 17 (equation) 18 (that) 17 (incorp) 1 (orates) 17 
+(a) 17 (v) 0 (en) 0 (tilation) 17 (rate) 18 (is) 17 
+(solv) 0 (ed) 16 (for)  ks 
+0 1470 p m (the) 17 (V) 0 (OC) 15 (gas) 16 (phase) 16 
+(concen) 0 (tration) 15 (in) 17 (the) 17 (stagnan) 0 (t) 15 
+(la) 0 (y) 0 (er.)  ks 
+0 1554 p m (The) 20 (o) 0 (v) 0 (er) -1 (all) 20 
+(mass) 18 (transfer) 20 (co) 1 (e\016cien) 0 (t) 20 (is) 21 
+(based) 20 (on) 20 (the) 20 (liqui) 1 (d) 22 (and) 20 
+(gas) 19 (phase) 20 (mass) 18 (transfer)  ks 
+0 1614 p m (co) 1 (e\016cien) 0 (ts) 21 (and) 22 (the) 22 
+(Henry's) 21 (la) 0 (w) 21 (constan) 0 (t,) 22 (assum) -1 
+(ing) 20 (that) 23 (liquid-phase) 22 (mass) 20 (transfer) 21 (re-)  ks 
+0 1674 p m (sistance) 20 (is) 20 (dominan) -1 (t.) 30 (The) 20 
+(gas) 19 (and) 19 (liqui) 1 (d) 21 (mass) 18 (transfer) 18 
+(co) 1 (e\016cien) 0 (ts) 20 (are) 19 (calculated) 21 (either)  ks 
+0 1734 p m (from) 17 (correlations) 18 (dev) 0 (elop) 1 (ed) 18 
+(b) 0 (y) 17 (Mac) 0 (k) -2 (a) -1 (y) 17 
+(and) 17 (Y) -3 (eun) 17 (\(1983\)) 19 (or) 18 (b) 0 
+(y) 17 (Go) 0 (vind)  ks 
+cmti10.360 @sf
+18 r m (et) 19 (al.)  ks 
+cmr10.360 @sf
+28 r m (\(1991\)) 19 (and)  ks 
+0 1793 p m (Cohen)  s
+cmti10.360 @sf
+18 r m (et) 20 (al.)  ks 
+cmr10.360 @sf
+29 r m (\(1978\).) 29 (The) 19 (Mac) 0 (k) -2 (a) -2 
+(y) 17 (and) 18 (Y) -3 (eun) 18 (correlations) 19 (dep) 1 
+(end) 18 (on) 19 (the) 19 (wind) 19 (sp) 1 (eed,) 19 
+(the)  ks 
+0 1853 p m (gas) 16 (and) 16 (liquid) 18 (phase) 16 (Sc) 0 
+(hm) -2 (idt) 16 (n) 0 (um) -3 (b) 0 (ers,) 14 
+(and) 16 (the) 17 (basin) 16 (depth.) 21 (The) 17 (Go) 0 
+(vind)  ks 
+cmti10.360 @sf
+15 r m (et) 17 (al.)  ks 
+cmr10.360 @sf
+m (/Cohen)  s
+cmti10.360 @sf
+17 r m (et)  s
+0 1913 p m (al.)  s
+cmr10.360 @sf
+22 r m (correlation) 16 (is) 15 (based) 14 (on) 14 (a) 15 
+(roughness) 12 (Reynolds) 15 (n) 0 (um) -3 (b) 1 (er,) 13 
+(the) 15 (V) 0 (OC) 13 (liqui) 1 (d) 16 (di\013usivit) 1 
+(y) -3 (,) 14 (V) 0 (OC)  ks 
+0 1973 p m (molecular) 16 (w) 0 (eigh) 0 (t,) 15 (wind) 16 
+(v) 0 (elo) 1 (cit) 0 (y) -3 (,) 16 (and) 16 
+(the) 17 (basin) 16 (depth.)  ks 
+0 2057 p m (References)  s
+0 2065 p 230 2 ru
+0 2142 p m (Baill) 1 (o) 1 (d,) 26 (C.R.,) 23 (Crittenden,) 25 
+(J.C.,) 24 (Mihelcic,) 26 (J.R.,) 23 (Rogers,) 23 (T.N.,) 25 (Grady) -3 
+(,) 22 (Jr.,) 23 (C.P) -3 (.L.) 22 (1991.)  ks 
+0 2202 p m (Critical) 25 (ev) -2 (aluation) 23 (of) 23 (the) 23 
+(state) 23 (of) 23 (tec) 0 (hnologies) 22 (for) 22 (predicting) 24 
+(the) 22 (transp) 1 (ort) 22 (and) 22 (fate) 23 (of)  ks 
+0 2262 p m (to) 0 (xic) 18 (comp) 1 (ounds) 15 (in) 19 
+(w) 0 (astew) -1 (ater) 16 (facili) 1 (ti) 1 (es.) 28 
+(WPCF) 18 (Researc) 0 (h) 16 (F) -3 (ou) -1 (ndation) 17 
+(Rep) 1 (ort) 17 (No.) 27 (90-1,)  ks 
+0 2321 p m (W) -3 (ater) 16 (En) 0 (vironm) -1 (en) -2 
+(t) 15 (F) -3 (ound) -1 (ation,) 15 (Arlington,) 18 (V) -5 
+(A.)  ks 
+0 2406 p m (Baill) 1 (o) 1 (d,) 24 (C.R.,) 21 (P) 0 
+(aulson,) 20 (W.L.,) 22 (McKeo) 0 (wn) -1 (,) 20 (J.J.,) 21 
+(Campb) 1 (ell,) 22 (Jr.,) 21 (H.J.) 20 (1986.) 35 (Accuracy) 21 
+(and)  ks 
+0 2466 p m (precision) 14 (of) 13 (plan) 0 (t) 12 (scale) 14 
+(and) 13 (shop) 12 (clean) 14 (w) 0 (ater) 12 (o) 0 
+(xygen) 12 (transfer) 12 (tests,)  ks 
+cmti10.360 @sf
+14 r m (R) -2 (es.) 23 (J.) 15 (WPCF)  ks 
+cmr10.360 @sf
+m (,) 12 (58:290{)  ks 
+0 2526 p m (299.)  s
+0 2610 p m (Cohen,) 21 (Y.,) 22 (Co) 1 (cc) 0 (hio,) 21 
+(W.,) 22 (Mac) 0 (k) -3 (a) -1 (y) -4 (,) 20 
+(D.) 20 (1978.) 34 (Lab) 1 (oratory) 21 (study) 20 (of) 21 
+(liquid-phase) 21 (con) 0 (trolled)  ks 
+0 2670 p m (v) 0 (olatiliz) 1 (ati) 1 (on) 18 (rates) 16 
+(in) 17 (presence) 16 (of) 17 (wind) 16 (w) 0 (a) -1 
+(v) -1 (es.)  ks 
+cmti10.360 @sf
+20 r m (Envir) -2 (on.) 23 (Sci.) 24 (and) 18 (T) -3 
+(e) -2 (chnol.)  ks 
+cmr10.360 @sf
+m (,) 16 (127:553{558.)  ks 
+963 2790 p m (6)  s
+@eop
+7 @bop0
+cmr10.360 @sf
+[<7038F87CF87CF87C7038> 14 5 -5 -29 25] 127 @dc
+7 @bop1
+cmr10.360 @sf
+0 50 p m (Go) 0 (vind,) 17 (R.,) 17 (Lai,) 18 (L.,) 18 
+(Dobbs,) 16 (R.) 17 (1991.) 24 (In) 0 (tegrated) 16 (mo) 1 
+(del) 17 (for) 17 (predicting) 18 (the) 18 (fate) 18 (of) 18 
+(organics)  ks 
+0 110 p m (in) 17 (w) 0 (astew) -1 (ater) 15 (treatmen) -1 
+(t) 15 (plan) 0 (ts.)  ks 
+cmti10.360 @sf
+21 r m (Envir) -2 (on.) 23 (Pr) -2 (o) -2 (g.)  ks 
+cmr10.360 @sf
+m (,) 16 (10:13{23.)  ks 
+0 194 p m (Mac) 0 (k) -2 (a) -2 (y) -3 (,) 14 
+(D.M.,) 16 (Y) -3 (eun,) 15 (A.T.K.) 16 (1983.) 21 (Mass) 16 
+(transfer) 15 (co) 1 (e\016cien) 0 (t) 17 (correlations) 17 (for) 16 
+(v) 0 (olatilizat) 1 (ion)  ks 
+0 254 p m (of) 17 (organic) 16 (solutes) 17 (from) 15 (w) 0 
+(ater.)  ks 
+cmti10.360 @sf
+20 r m (Envir) -2 (on.) 23 (Sci.) 24 (T) -3 (e) -2 
+(chnol.)  ks 
+cmr10.360 @sf
+m (,) 15 (17:211{216.)  ks 
+0 339 p m (Munz,) 16 (C.,) 17 (Rob) 1 (erts,) 16 (P) -3 
+(.V.) 16 (1989.) 23 (Gas-) 16 (and) 17 (liquid-phase) 17 (mass) 15 
+(transfer) 16 (resistances) 17 (of) 17 (organic)  ks 
+0 399 p m (comp) 1 (ounds) 14 (during) 16 (mec) -1 (han) -1 
+(ical) 17 (surface) 16 (aeration,)  ks 
+cmti10.360 @sf
+16 r m (Water) 18 (R) -2 (es.)  ks 
+cmr10.360 @sf
+m (,) 17 (23:589{601.)  ks 
+0 483 p m (Rob) 1 (erts,) 16 (P) -3 (.V.,) 15 (Munz,) 16 
+(C.,) 16 (D\177) -24 (andlik) 0 (er,) 15 (P) -3 (.) 15 
+(1984.) 22 (Mo) 1 (deling) 18 (v) 0 (olatile) 18 (organic) 17 
+(solute) 17 (remo) -1 (v) -3 (al) 15 (b) 0 (y)  ks 
+0 543 p m (surface) 16 (and) 16 (bubble) 16 (aeration,)  ks 
+cmti10.360 @sf
+17 r m (R) -2 (es.) 23 (J.) 18 (WPCF)  ks 
+cmr10.360 @sf
+m (,) 15 (56:157{163.)  ks 
+963 2790 p m (7)  s
+@eop
+8 @bop0
+8 @bop1
+cmr10.360 @sf
+0 50 p m (PRIMAR) -3 (Y) 15 (CLARIFIER) 16 (SCREEN)  ks 
+0 134 p m (V) 0 (OC) 19 (remo) -1 (v) -3 (al) 19 
+(can) 20 (o) 1 (ccur) 20 (in) 21 (the) 20 (primary) 19 
+(clari\014ers) 20 (\(PCs\)) 21 (via) 21 (v) 0 (olatili) 1 (zati) 1 
+(on) 22 (and) 19 (under\015o) -1 (w)  ks 
+0 194 p m (w) 0 (astage.) 20 (It) 16 (is) 16 (assum) -1 
+(ed) 14 (that) 16 (all) 17 (solids) 16 (en) 0 (tering) 14 
+(the) 16 (PCs) 15 (are) 15 (remo) -1 (v) -1 (ed) 13 
+(in) 17 (the) 15 (PC) 16 (under\015o) -1 (ws) -1 (.)  ks 
+0 279 p m (The) 16 (user) 16 (m) -1 (us) -1 (t) 15 
+(sp) 1 (ecify) 18 (the) 17 (follo) 0 (wing) 17 (parameters) 14 
+(in) 18 (the) 16 (PC) 17 (screen:)  ks 
+58 364 p m (-)  s
+100 364 p m (the) 16 (n) 0 (um) -2 (b) 0 (er) 15 
+(of) 17 (parallel) 18 (PCs) 16 (in) 17 (use)  ks 
+58 448 p m (-)  s
+100 448 p m (the) 17 (metho) 1 (d) 15 (used) 17 (to) 17 
+(calculate) 19 (the) 17 (v) 0 (olatili) 1 (zati) 1 (on) 18 
+(o) 0 (v) 0 (er) -1 (all) 17 (mass) 15 (transfer) 16 
+(co) 1 (e\016cien) 0 (t) 17 (\(note)  ks 
+100 508 p m (that) 19 (the) 19 (metho) 1 (d) 18 (used) 18 
+(to) 19 (calculate) 21 (the) 19 (v) 0 (olatili) 1 (zati) 1 
+(on) 21 (o) 0 (v) -1 (erall) 18 (mass) 17 (transfer) 18 
+(co) 1 (e\016cien) 0 (t)  ks 
+100 568 p m (is) 17 (set) 16 (here) 17 (for) 16 (all) 18 
+(of) 17 (the) 17 (unit) 17 (pro) 1 (cesses\))  ks 
+58 653 p m (-)  s
+100 653 p m (the) 26 (metho) 1 (d) 25 (used) 26 (to) 26 
+(calculate) 29 (the) 26 (sorption) 26 (partitioning) 28 (co) 1 (e\016cien) 0 
+(t) 26 (\(note) 27 (that) 27 (the)  ks 
+100 712 p m (metho) 1 (d) 21 (used) 22 (to) 23 (calculate) 24 
+(the) 23 (sorption) 22 (partitioning) 25 (co) 1 (e\016cien) 0 (t) 22 
+(is) 23 (set) 23 (here) 22 (for) 23 (all) 24 (of)  ks 
+100 772 p m (the) 16 (unit) 18 (pro) 1 (cesses\))  ks 
+58 857 p m (-)  s
+100 857 p m (whether) 16 (the) 17 (PCs) 16 (are) 16 (co) 0 
+(v) -1 (ered)  ks 
+58 941 p m (-)  s
+100 941 p m (the) 16 (v) 0 (en) 0 (tilation) 17 (rate) 17 
+(for) 16 (a) 16 (PC) 17 (if) 18 (the) 16 (PC) 17 
+(is) 17 (co) 0 (v) -1 (ered)  ks 
+58 1026 p m (-)  s
+100 1026 p m (the) 16 (liqui) 1 (d) 18 (depth) 16 (in) 17 
+(a) 17 (PC)  ks 
+58 1111 p m (-)  s
+100 1111 p m (the) 16 (v) 0 (olume) 15 (of) 17 (a) 16 
+(PC)  ks 
+58 1196 p m (-)  s
+100 1196 p m (the) 16 (w) 0 (astage) 16 (\015o) 0 (w) 14 
+(rate) 17 (from) 15 (a) 16 (PC)  ks 
+0 1280 p m (V) -3 (olatili) 1 (zati) 1 (on)  ks 
+0 1288 p 291 2 ru
+0 1365 p m (V) -3 (olatili) 1 (zati) 1 (on) 16 (o) 1 
+(ccurs) 14 (b) 0 (y) 12 (w) 0 (a) 0 (y) 12 
+(of) 15 (air) 14 (\015o) 0 (w) 13 (across) 13 (the) 14 
+(PC) 14 (surface.) 21 (In) 14 (an) 14 (op) 1 (en) 14 
+(basin,) 14 (v) 0 (olatiliz) 1 (a-)  ks 
+0 1425 p m (tion) 18 (is) 17 (induced) 17 (b) 0 (y) 15 
+(the) 17 (wind,) 17 (while) 19 (in) 17 (a) 17 (closed) 17 
+(basin) 17 (v) 0 (olatilizati) 1 (on) 19 (is) 17 (induced) 17 
+(b) 0 (y) 15 (forced) 17 (air)  ks 
+0 1484 p m (v) 0 (en) -1 (tilation.) 33 (The) 20 (rate) 20 
+(of) 20 (v) 0 (olatiliz) 1 (ati) 1 (on) 21 (is) 21 
+(based) 19 (on) 19 (a) 20 (\014rst-order) 18 (rate) 20 (expression) 19 
+(where) 19 (an)  ks 
+0 1544 p m (o) 0 (v) -1 (erall) 17 (mass) 14 (transfer) 16 
+(rate) 17 (co) 1 (e\016cien) 0 (t) 17 (\()  ks 
+cmmi10.360 @sf
+m (K)  s
+cmmi7.360 @sf
+864 1551 p m (L)  s
+cmmi10.360 @sf
+895 1544 p m (a)  s
+cmr10.360 @sf
+m (\)) 18 (is) 17 (m) -1 (ultiplied) 18 (b) 0 
+(y) 16 (a) 17 (V) 0 (OC) 15 (concen) 0 (tration) 16 
+(driving)  ks 
+0 1604 p m (force:)  s
+cmmi10.360 @sf
+753 1778 p m (r)  s
+cmmi7.360 @sf
+775 1785 p m (v) 1 (ol)  ks 
+cmr10.360 @sf
+845 1778 p m (=)  s
+cmmi10.360 @sf
+14 r m (K)  s
+cmmi7.360 @sf
+940 1785 p m (L)  s
+cmmi10.360 @sf
+970 1778 p m (a)  s
+cmr10.360 @sf
+m (\()  s
+cmmi10.360 @sf
+m (C)  s
+cmsy10.360 @sf
+15 r m (\000)  s
+cmmi10.360 @sf
+11 r m (C)  s
+cmsy7.360 @sf
+1156 1758 p m (\003)  s
+cmr10.360 @sf
+1178 1778 p m (\))  s
+0 1928 p m (where)  s
+cmmi10.360 @sf
+18 r m (r)  s
+cmmi7.360 @sf
+168 1935 p m (v) 1 (ol)  ks 
+cmr10.360 @sf
+243 1928 p m (is) 18 (the) 19 (rate) 18 (of) 18 (stripping,)  ks 
+cmmi10.360 @sf
+19 r m (C)  s
+cmr10.360 @sf
+22 r m (is) 18 (the) 19 (bulk) 19 (V) 0 (OC) 17 
+(aqueous) 17 (phase) 17 (concen) 0 (tration,) 18 (and)  ks 
+cmmi10.360 @sf
+0 1988 p m (C)  s
+cmsy7.360 @sf
+40 1971 p m (\003)  s
+cmr10.360 @sf
+81 1988 p m (is) 19 (the) 19 (V) 0 (OC) 17 (aqueous) 18 
+(phase) 18 (concen) 0 (tration) 18 (that) 19 (w) 0 (ould) 17 
+(b) 1 (e) 19 (in) 19 (equili) 1 (brium) 19 (with) 20 
+(the) 19 (bulk)  ks 
+0 2047 p m (air) 22 (concen) 0 (tration.) 35 (The) 21 (rate) 21 
+(expression) 21 (is) 22 (based) 21 (on) 21 (the) 21 (existence) 23 
+(of) 22 (a) 21 (stagnan) 0 (t) 19 (la) 0 (y) 0 
+(er) 20 (at)  ks 
+0 2107 p m (the) 21 (w) 0 (astew) -1 (ater-a) -1 (ir) 19 
+(in) 0 (terface.) 34 (When) 20 (the) 21 (reactor) 20 (is) 21 
+(unco) 0 (v) -1 (ered) -1 (,) 20 (the) 21 (air) 20 
+(ab) 1 (o) 0 (v) 0 (e) 18 (the) 21 (basin) 21 
+(is)  ks 
+0 2167 p m (assum) -1 (ed) 15 (to) 17 (ha) 0 (v) -1 
+(e) 15 (negligibl) 1 (e) 18 (V) 0 (OC) 16 (concen) 0 
+(tration) 15 (and)  ks 
+cmmi10.360 @sf
+16 r m (C)  s
+cmsy7.360 @sf
+1173 2150 p m (\003)  s
+cmr10.360 @sf
+1209 2167 p m (=) 14 (0.) 22 (When) 17 (the) 17 (reactor) 16 
+(is) 17 (co) 0 (v) 0 (er) -1 (ed,)  ks 
+0 2227 p m (a) 17 (V) 0 (OC) 16 (gas) 17 (phase) 16 
+(mass) 15 (balance) 17 (equation) 18 (that) 17 (incorp) 1 (orates) 17 
+(a) 17 (v) 0 (en) 0 (tilation) 17 (rate) 18 (is) 17 
+(solv) 0 (ed) 16 (for)  ks 
+0 2286 p m (the) 17 (V) 0 (OC) 15 (gas) 16 (phase) 16 
+(concen) 0 (tration) 15 (in) 17 (the) 17 (stagnan) 0 (t) 15 
+(la) 0 (y) 0 (er.)  ks 
+0 2371 p m (The) 20 (o) 0 (v) 0 (er) -1 (all) 20 
+(mass) 18 (transfer) 20 (co) 1 (e\016cien) 0 (t) 20 (is) 21 
+(based) 20 (on) 20 (the) 20 (liqui) 1 (d) 22 (and) 20 
+(gas) 19 (phase) 20 (mass) 18 (transfer)  ks 
+0 2431 p m (co) 1 (e\016cien) 0 (ts) 21 (and) 22 (the) 22 
+(Henry's) 21 (la) 0 (w) 21 (constan) 0 (t,) 22 (assum) -1 
+(ing) 20 (that) 23 (liquid-phase) 22 (mass) 20 (transfer) 21 (re-)  ks 
+0 2491 p m (sistance) 20 (is) 20 (dominan) -1 (t.) 30 (The) 20 
+(gas) 19 (and) 19 (liqui) 1 (d) 21 (mass) 18 (transfer) 18 
+(co) 1 (e\016cien) 0 (ts) 20 (are) 19 (calculated) 21 (either)  ks 
+0 2551 p m (from) 17 (correlations) 18 (dev) 0 (elop) 1 (ed) 18 
+(b) 0 (y) 17 (Mac) 0 (k) -2 (a) -1 (y) 17 
+(and) 17 (Y) -3 (eun) 17 (\(1983\)) 19 (or) 18 (b) 0 
+(y) 17 (Go) 0 (vind)  ks 
+cmti10.360 @sf
+18 r m (et) 19 (al.)  ks 
+cmr10.360 @sf
+28 r m (\(1991\)) 19 (and)  ks 
+0 2610 p m (Cohen)  s
+cmti10.360 @sf
+18 r m (et) 20 (al.)  ks 
+cmr10.360 @sf
+29 r m (\(1978\).) 29 (The) 19 (Mac) 0 (k) -2 (a) -2 
+(y) 17 (and) 18 (Y) -3 (eun) 18 (correlations) 19 (dep) 1 
+(end) 18 (on) 19 (the) 19 (wind) 19 (sp) 1 (eed,) 19 
+(the)  ks 
+0 2670 p m (gas) 16 (and) 16 (liquid) 18 (phase) 16 (Sc) 0 
+(hm) -2 (idt) 16 (n) 0 (um) -3 (b) 0 (ers,) 14 
+(and) 16 (the) 17 (basin) 16 (depth.) 21 (The) 17 (Go) 0 
+(vind)  ks 
+cmti10.360 @sf
+15 r m (et) 17 (al.)  ks 
+cmr10.360 @sf
+m (/Cohen)  s
+cmti10.360 @sf
+17 r m (et)  s
+cmr10.360 @sf
+963 2790 p m (8)  s
+@eop
+9 @bop0
+cmmi7.360 @sf
+[<01F9F80007FFFC00078F8E000F0786000E0707000F078300070383800703818007038180078381
+  80E383C1C073C1C1C07BC1C3C03F81C3C00F00C380> 26 15 -1 0 29] 119 @dc
+cmr10.360 @sf
+[<000180000001800000018000000180000001800000018000000180000001800000018000000180
+  00000180000001800000018000000180000001800000018000FFFFFFFFFFFFFFFF000180000001
+  800000018000000180000001800000018000000180000001800000018000000180000001800000
+  01800000018000000180000001800000018000> 32 34 -3 5 39] 43 @dc
+cmmi10.360 @sf
+[<FFF007FFC0FFF007FFC00FE000FC0003C000780000C000F800006000F000003001F000001801F0
+  00001C01E000000E03E000000703C000000383C000000187C0000000C7800000006F800000003F
+  000000001F000000001F000000001E000000003F000000003F000000003D800000007CC0000000
+  7860000000F830000000F018000000F01C000001F00E000001E007000003E003800003E003C000
+  07F003F0007FFC0FFF007FFC0FFF> 40 34 -1 0 41] 88 @dc
+[<0FFF8007FF80007800007C00003C00003C00003C00003E00001E00001E000F9E003FFF007CFF00
+  783F00701F00F00F80F00780F00780F00780F807C07803C07803C07803C07C03E03C01E01E01E0
+  1E03E00F03F007C7F001FEF0007C30> 20 31 -2 10 22] 113 @dc
+9 @bop1
+cmti10.360 @sf
+0 50 p m (al.)  s
+cmr10.360 @sf
+22 r m (correlation) 16 (is) 15 (based) 14 (on) 14 (a) 15 
+(roughness) 12 (Reynolds) 15 (n) 0 (um) -3 (b) 1 (er,) 13 
+(the) 15 (V) 0 (OC) 13 (liqui) 1 (d) 16 (di\013usivit) 1 
+(y) -3 (,) 14 (V) 0 (OC)  ks 
+0 110 p m (molecular) 16 (w) 0 (eigh) 0 (t,) 15 (wind) 16 
+(v) 0 (elo) 1 (cit) 0 (y) -3 (,) 16 (and) 16 
+(the) 17 (basin) 16 (depth.)  ks 
+0 194 p m (W) -3 (astage/Sorption)  ks 
+0 202 p 394 2 ru
+0 279 p m (V) 0 (OCs) 15 (are) 16 (remo) -1 (v) -1 
+(ed) 14 (from) 15 (the) 17 (PCs) 16 (in) 17 (the) 17 
+(under\015o) -1 (w) 14 (w) 0 (astage) 15 (in) 18 (the) 16 
+(liqui) 1 (d) 18 (and) 16 (solid) 18 (phases.)  ks 
+0 339 p m (The) 17 (solids) 18 (concen) 0 (tration) 17 (in) 18 
+(the) 18 (PC) 17 (under\015o) -1 (w) 15 (is) 18 (calculated) 19 
+(with) 19 (a) 17 (mass) 15 (balance) 18 (equation)  ks 
+0 399 p m (that) 16 (dep) 1 (ends) 15 (on) 16 (the) 16 
+(in\015uen) 0 (t) 15 (solids) 16 (concen) 0 (tration,) 15 (in\015uen) 0 
+(t) 15 (\015o) 0 (w) 14 (rate) 16 (in) 0 (to) 15 
+(the) 16 (PCs,) 16 (and) 15 (the)  ks 
+0 458 p m (PC) 16 (w) 0 (astage) 16 (\015o) 0 (w) 14 
+(rate,) 17 (assum) -1 (ing) 15 (that) 17 (the) 17 (solids) 17 
+(are) 16 (completely) 18 (remo) -2 (v) -1 (ed) 15 (in) 17 
+(the) 17 (PCs.)  ks 
+0 543 p m (The) 16 (rate) 17 (of) 17 (remo) -2 (v) -2 
+(al) 15 (b) 0 (y) 15 (V) 0 (OC) 16 (sorption) 16 
+(to) 17 (sludge) 16 (\()  ks 
+cmmi10.360 @sf
+m (r)  s
+cmmi7.360 @sf
+1092 550 p m (sor) 1 (p)  ks 
+cmr10.360 @sf
+1174 543 p m (\)) 17 (in) 17 (the) 17 (PCs) 16 (is) 17 
+(giv) 0 (en) 16 (as:)  ks 
+cmmi10.360 @sf
+736 715 p m (r)  s
+cmmi7.360 @sf
+758 722 p m (sor) 1 (p)  ks 
+cmr10.360 @sf
+853 715 p m (=)  s
+cmmi10.360 @sf
+14 r m (Q)  s
+cmmi7.360 @sf
+945 722 p m (w)  s
+cmr10.360 @sf
+978 715 p m (\()  s
+cmmi10.360 @sf
+m (C)  s
+cmr10.360 @sf
+14 r m (+)  s
+cmmi10.360 @sf
+11 r m (X)  s
+cmmi7.360 @sf
+1138 722 p m (w)  s
+cmmi10.360 @sf
+1171 715 p m (q)  s
+cmr10.360 @sf
+2 r m (\))  s
+0 862 p m (where)  s
+cmmi10.360 @sf
+17 r m (Q)  s
+cmmi7.360 @sf
+184 869 p m (w)  s
+cmr10.360 @sf
+233 862 p m (is) 18 (the) 17 (v) 0 (olumetric) 17 (w) 0 
+(astage) 15 (rate) 17 (from) 16 (the) 17 (PC) 17 (under\015o) -1 
+(w,) 15 (liter/da) 0 (y) -3 (,)  ks 
+cmmi10.360 @sf
+16 r m (C)  s
+cmr10.360 @sf
+21 r m (is) 17 (the) 18 (bulk)  ks 
+0 922 p m (V) 0 (OC) 21 (aqueous) 21 (phase) 21 (concen) 0 
+(tration,)  ks 
+cmmi10.360 @sf
+22 r m (X)  s
+cmmi7.360 @sf
+845 929 p m (w)  s
+cmr10.360 @sf
+899 922 p m (is) 23 (the) 22 (fraction) 23 (of) 22 (biomass) 20 
+(in) 22 (the) 22 (PC) 22 (under\015o) -1 (w)  ks 
+0 981 p m (w) 0 (astage,) 15 (mg/liter,) 16 (and)  ks 
+cmmi10.360 @sf
+16 r m (q)  s
+cmr10.360 @sf
+19 r m (is) 17 (the) 17 (sludge) 16 (phase) 16 (concen) 0 
+(tration) 15 (of) 17 (c) 0 (hem) -1 (ical,) 16 (mg/kg.)  ks 
+0 1066 p m (Sorption) 21 (is) 23 (mo) 1 (deled) 21 (as) 21 
+(an) 22 (equilibrium) 22 (pro) 1 (cess;) 24 (th) 0 (us,) 21 
+(for) 21 (lo) 0 (w) 21 (aqueous) 22 (concen) 0 (trations) 20 
+(of)  ks 
+0 1126 p m (V) 0 (OCs) 16 (in) 19 (a) 18 (w) 0 
+(astestream) 14 (a) 18 (linear) 19 (isotherm) 16 (can) 18 (describ) 1 
+(e) 18 (the) 18 (equili) 1 (brium) 18 (sludge) 18 (phase) 17 
+(con-)  ks 
+0 1186 p m (cen) 0 (tration) 16 (of) 16 (the) 17 (c) 0 
+(hem) -1 (ical) 17 (\()  ks 
+cmmi10.360 @sf
+m (q)  s
+cmr10.360 @sf
+2 r m (\)) 17 (with) 18 (the) 16 (equili) 1 (brium) 17 
+(aqueous) 16 (phase) 15 (concen) 0 (tration) 16 (\()  ks 
+cmmi10.360 @sf
+m (C)  s
+cmr10.360 @sf
+4 r m (\):)  s
+cmmi10.360 @sf
+878 1357 p m (q)  s
+cmr10.360 @sf
+15 r m (=)  s
+cmmi10.360 @sf
+14 r m (K)  s
+cmmi7.360 @sf
+1010 1364 p m (p)  s
+cmmi10.360 @sf
+1033 1357 p m (C)  s
+cmr10.360 @sf
+0 1504 p m (where)  s
+cmmi10.360 @sf
+17 r m (K)  s
+cmmi7.360 @sf
+187 1511 p m (p)  s
+cmr10.360 @sf
+227 1504 p m (is) 18 (the) 18 (c) 0 (hem) -1 (ical) 17 
+(sp) 1 (eci\014c) 18 (sludge-w) 0 (ater) 15 (partition) 19 (co) 1 
+(e\016cien) 0 (t) 17 (normalized) 17 (to) 17 (organic)  ks 
+0 1564 p m (matter) 14 (\(lite) 1 (r/gm) 15 (VSS) 15 (or) 14 
+(liter/gm) 15 (TS\),) 15 (and,)  ks 
+cmmi10.360 @sf
+15 r m (C)  s
+cmr10.360 @sf
+18 r m (is) 16 (the) 15 (equili) 1 (brium) 15 (aqueous) 15 
+(concen) 0 (tration) 14 (of)  ks 
+0 1624 p m (organic) 16 (c) 0 (hemical,) 16 (mg/liter.)  ks 
+0 1709 p m (It) 22 (has) 20 (b) 1 (een) 22 (sho) 0 
+(wn) 19 (that)  ks 
+cmmi10.360 @sf
+21 r m (K)  s
+cmmi7.360 @sf
+585 1716 p m (p)  s
+cmr10.360 @sf
+630 1709 p m (can) 21 (b) 1 (e) 22 (estimated) 21 (from) 19 
+(a) 22 (c) 0 (hem) -1 (ical's) 20 (o) 1 (ctanol-w) 0 
+(ater) 21 (partition)  ks 
+0 1768 p m (co) 1 (e\016cien) 0 (t) 22 (\()  ks 
+cmmi10.360 @sf
+m (K)  s
+cmmi7.360 @sf
+299 1775 p m (ow)  s
+cmr10.360 @sf
+352 1768 p m (\).) 40 (F) -3 (aV) -1 (Or) 20 (allo) 0 
+(ws) 22 (a) 23 (user) 21 (to) 23 (select) 24 (either) 23 
+(the) 23 (correlation) 23 (of) 22 (Dobbs)  ks 
+cmti10.360 @sf
+22 r m (et) 23 (al.)  ks 
+cmr10.360 @sf
+0 1828 p m (\(1989\))  s
+485 2000 p m (log)  s
+cmmi10.360 @sf
+558 2000 p m (K)  s
+cmmi7.360 @sf
+600 2007 p m (p)  s
+cmr10.360 @sf
+637 2000 p m (\(lit) 1 (ers/gm) 16 (VSS\))  ks 
+999 2000 p m (=) 13 (0)  ks 
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (58) 8 (log)  ks 
+cmmi10.360 @sf
+1221 2000 p m (K)  s
+cmmi7.360 @sf
+1263 2007 p m (ow)  s
+cmr10.360 @sf
+1326 2000 p m (+) 11 (1)  ks 
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (14)  s
+0 2147 p m (or) 16 (that) 17 (of) 17 (Matter-M) 1 (\177) -25 
+(uller)  ks 
+cmti10.360 @sf
+16 r m (et) 17 (al.)  ks 
+cmr10.360 @sf
+22 r m (\(1980\))  s
+500 2319 p m (log)  s
+cmmi10.360 @sf
+573 2319 p m (K)  s
+cmmi7.360 @sf
+615 2326 p m (p)  s
+cmr10.360 @sf
+652 2319 p m (\(liters/gm) 16 (TS\))  ks 
+984 2319 p m (=) 14 (0)  ks 
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (67) 8 (log)  ks 
+cmmi10.360 @sf
+1206 2319 p m (K)  s
+cmmi7.360 @sf
+1248 2326 p m (ow)  s
+cmsy10.360 @sf
+1312 2319 p m (\000)  s
+cmr10.360 @sf
+11 r m (2)  s
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (61)  s
+0 2466 p m (F) -3 (aV) -1 (Or) 13 (accoun) 0 (ts) 14 
+(for) 15 (the) 15 (di\013eren) 0 (t) 15 (units) 15 (of)  ks 
+cmmi10.360 @sf
+16 r m (K)  s
+cmmi7.360 @sf
+942 2473 p m (p)  s
+cmr10.360 @sf
+981 2466 p m (used) 14 (in) 16 (the) 16 (t) 0 (w) 0 
+(o) 13 (correlations.) 22 (The) 15 (correlation)  ks 
+0 2526 p m (of) 18 (Dobbs)  ks 
+cmti10.360 @sf
+16 r m (et) 18 (al.)  ks 
+cmr10.360 @sf
+26 r m (\(1989\)) 18 (sligh) 0 (tly) 18 (o) 0 (v) 0 
+(er) -1 (estimates) 15 (sorption) 17 (while) 19 (that) 18 (of) 18 
+(Matter-M) 1 (\177) -25 (uller) 17 (\(1980\))  ks 
+0 2585 p m (sligh) 0 (tly) 18 (under-pr) -1 (edicts) 16 (sorption) 16 
+(\(Bak) 0 (er,) 15 (1996\).)  ks 
+0 2670 p m (References)  s
+0 2678 p 230 2 ru
+963 2790 p m (9)  s
+@eop
+10 @bop0
+10 @bop1
+cmr10.360 @sf
+0 50 p m (Bak) 0 (er,) 15 (A.L.) 17 (1996.) 22 (An) 17 
+(ev) -2 (aluation) 18 (of) 16 (sorption) 17 (mo) 1 (dels) 16 
+(of) 16 (organic) 17 (comp) 1 (ounds) 14 (on) 0 (to) 15 
+(activ) -2 (ated)  ks 
+0 110 p m (sludge.) 22 (MS) 16 (Thesis,) 16 (Mic) 0 (higan) 16 
+(T) -3 (ec) 0 (h) -1 (nological) 17 (Univ) 0 (ersit) 0 
+(y) -3 (,) 14 (Hough) 0 (ton,) 15 (MI.)  ks 
+0 194 p m (Cohen,) 21 (Y.,) 22 (Co) 1 (cc) 0 (hio,) 21 
+(W.,) 22 (Mac) 0 (k) -3 (a) -1 (y) -4 (,) 20 
+(D.) 20 (1978.) 34 (Lab) 1 (oratory) 21 (study) 20 (of) 21 
+(liquid-phase) 21 (con) 0 (trolled)  ks 
+0 254 p m (v) 0 (olatiliz) 1 (ati) 1 (on) 18 (rates) 16 
+(in) 17 (presence) 16 (of) 17 (wind) 16 (w) 0 (a) -1 
+(v) -1 (es.)  ks 
+cmti10.360 @sf
+20 r m (Envir) -2 (on.) 23 (Sci.) 24 (and) 18 (T) -3 
+(e) -2 (chnol.)  ks 
+cmr10.360 @sf
+m (,) 16 (127:553{558.)  ks 
+0 339 p m (Dobbs,) 22 (R.A.,) 22 (W) -3 (ang,) 21 (L.,) 23 
+(Go) 0 (vind,) 21 (R.) 21 (1989.) 37 (Sorption) 21 (of) 21 
+(to) 0 (xic) 22 (comp) 1 (ounds) 19 (on) 21 (w) 0 
+(astew) -1 (ater)  ks 
+0 399 p m (solids:) 23 (Correlation) 17 (with) 17 (fundamen) -2 (tal) 16 
+(prop) 1 (erties,)  ks 
+cmti10.360 @sf
+16 r m (Envir) -2 (on.) 23 (Sci.) 24 (T) -3 (e) -2 
+(chnol.)  ks 
+cmr10.360 @sf
+21 r m (23:1092{1097.)  s
+0 483 p m (Go) 0 (vind,) 17 (R.,) 17 (Lai,) 18 (L.,) 18 
+(Dobbs,) 16 (R.) 17 (1991.) 24 (In) 0 (tegrated) 16 (mo) 1 
+(del) 17 (for) 17 (predicting) 18 (the) 18 (fate) 18 (of) 18 
+(organics)  ks 
+0 543 p m (in) 17 (w) 0 (astew) -1 (ater) 15 (treatmen) -1 
+(t) 15 (plan) 0 (ts.)  ks 
+cmti10.360 @sf
+21 r m (Envir) -2 (on.) 23 (Pr) -2 (o) -2 (g.)  ks 
+cmr10.360 @sf
+m (,) 16 (10:13{23.)  ks 
+0 628 p m (Mac) 0 (k) -2 (a) -2 (y) -3 (,) 14 
+(D.M.,) 16 (Y) -3 (eun,) 15 (A.T.K.) 16 (1983.) 21 (Mass) 16 
+(transfer) 15 (co) 1 (e\016cien) 0 (t) 17 (correlations) 17 (for) 16 
+(v) 0 (olatilizat) 1 (ion)  ks 
+0 687 p m (of) 17 (organic) 16 (solutes) 17 (from) 15 (w) 0 
+(ater.)  ks 
+cmti10.360 @sf
+20 r m (Envir) -2 (on.) 23 (Sci.) 24 (T) -3 (e) -2 
+(chnol.)  ks 
+cmr10.360 @sf
+m (,) 15 (17:211{216.)  ks 
+0 772 p m (Matter-M) 1 (\177) -25 (uller,) 20 (C.,) 21 (Gujer,) 20 
+(Giger,) 22 (W.,) 21 (and) 19 (Stumm) -1 (,) 19 (W.) 20 
+(1980.) 32 (Non-Biologic) 1 (al) 23 (elimination)  ks 
+0 832 p m (mec) -1 (hanism) -1 (s) 14 (in) 17 (a) 17 
+(biological) 19 (sew) 0 (age) 15 (treatmen) -1 (t) 15 (plan) 0 
+(t,)  ks 
+cmti10.360 @sf
+16 r m (Pr) -2 (o) -2 (g.) 22 (Water.) 23 (T) -3 
+(e) -2 (ch.)  ks 
+cmr10.360 @sf
+21 r m (12:299{314.)  s
+950 2790 p m (10)  s
+@eop
+11 @bop0
+11 @bop1
+cmr10.360 @sf
+0 50 p m (PRIMAR) -3 (Y) 15 (CLARIFIER) 16 (WEIR) 16 (SCREEN)  ks 
+0 134 p m (V) 0 (OCs) 15 (are) 16 (remo) -2 (v) -1 
+(ed) 14 (from) 15 (the) 17 (primary) 14 (clari\014er) 17 (w) 0 
+(eir) 16 (\(PCW\)) 17 (b) 0 (y) 15 (stripping) 16 (as) 16 
+(the) 17 (w) 0 (astew) -1 (ater)  ks 
+0 194 p m (falls) 19 (from) 15 (the) 17 (top) 17 (to) 17 
+(the) 18 (b) 1 (ottom) 16 (of) 17 (the) 17 (w) 0 
+(eir.) 23 (The) 17 (n) 0 (um) -3 (b) 0 (er) 16 
+(of) 17 (activ) 0 (e) 17 (PCWs) 17 (is) 18 (equal) 18 
+(to) 17 (the)  ks 
+0 254 p m (n) 0 (um) -3 (b) 1 (er) 14 (of) 17 
+(primary) 15 (clari\014ers.) 22 (The) 17 (PCW) 16 (cannot) 17 (b) 1 
+(e) 16 (co) 0 (v) 0 (ered) -1 (.)  ks 
+0 339 p m (The) 16 (user) 16 (m) -1 (us) -1 (t) 15 
+(sp) 1 (ecify) 18 (the) 17 (follo) 0 (wing) 17 (parameters) 14 
+(in) 18 (the) 16 (PCW) 17 (screen:)  ks 
+58 423 p m (-)  s
+100 423 p m (whether) 16 (the) 17 (PCWs) 16 (are) 16 (activ) 0 
+(e)  ks 
+58 508 p m (-)  s
+100 508 p m (the) 16 (mo) 1 (del) 16 (used) 16 (to) 17 
+(calculate) 19 (the) 16 (PCW) 17 (stripping) 17 (remo) -1 (v) -3 
+(al) 15 (rates:) 22 (P) 0 (o) 1 (ol) 16 (or) 16 
+(Napp) 1 (e)  ks 
+58 593 p m (-)  s
+100 593 p m (the) 16 (width) 18 (of) 16 (the) 17 (PCWs) 16 
+(\(the) 18 (circumference) 15 (of) 17 (the) 16 (PCWs\))  ks 
+58 677 p m (-)  s
+100 677 p m (the) 13 (distance) 14 (from) 11 (the) 13 (liqui) 1 
+(d) 15 (surface) 12 (at) 13 (the) 14 (PCW) 13 (tops) 13 
+(to) 13 (the) 13 (liqui) 1 (d) 15 (surface) 12 (at) 14 
+(the) 13 (PCW)  ks 
+100 737 p m (b) 1 (ottoms)  ks 
+58 822 p m (-)  s
+100 822 p m (the) 16 (rate) 17 (of) 17 (gas) 16 (\015o) 0 
+(w) 15 (lea) 0 (ving) 16 (the) 17 (tailw) 0 (ater) 17 
+(of) 17 (the) 17 (PCWs) 16 (\(needed) 17 (for) 16 (the) 17 
+(P) 0 (o) 1 (ol) 16 (Mo) 1 (del\))  ks 
+0 907 p m (The) 18 (V) 0 (OC) 17 (is) 19 (either) 18 
+(assumed) 16 (to) 18 (b) 1 (e) 19 (stripp) 1 (ed) 18 
+(in) 0 (to) 17 (the) 19 (air) 18 (as) 18 (the) 18 
+(liqui) 1 (d) 20 (\015o) 0 (ws) 16 (o) 0 (v) -1 
+(er) 16 (the) 18 (drop,)  ks 
+0 966 p m (b) 1 (efore) 17 (it) 18 (con) 0 (tacts) 16 
+(the) 17 (basin) 17 (w) 0 (ater) 16 (surface,) 16 (or) 16 
+(in) 0 (to) 17 (the) 17 (rising,) 17 (en) 0 (trained) 16 
+(bubbles) 16 (caused) 16 (b) 0 (y)  ks 
+0 1026 p m (the) 15 (turbulence) 15 (of) 14 (the) 15 (w) 0 
+(ater) 14 (\015o) 0 (w) 13 (en) 0 (tering) 13 (the) 15 
+(receiving) 16 (basin.) 22 (Emission) 13 (of) 15 (con) 0 (tam) -1 
+(inan) -1 (ts) 13 (at)  ks 
+0 1086 p m (w) 0 (eirs) 13 (can) 13 (th) 0 (us) 12 
+(b) 1 (e) 14 (mo) 1 (deled) 14 (with) 14 (t) 0 
+(w) 0 (o) 12 (di\013eren) 0 (t) 13 (mo) 1 (dels:) 19 
+(the) 15 (P) 0 (o) 1 (ol) 13 (Mo) 1 (del) 15 
+(\(Baill) 1 (o) 1 (d)  ks 
+cmti10.360 @sf
+15 r m (et) 15 (al.)  ks 
+cmr10.360 @sf
+m (,) 15 (1991\))  ks 
+0 1146 p m (and) 18 (the) 19 (Napp) 1 (e) 19 (Mo) 1 
+(del) 19 (\(Pincince,) 20 (1991\).) 29 (The) 18 (Napp) 1 (e) 19 
+(Mo) 1 (del) 19 (assum) -1 (es) 17 (plug) 19 (\015o) 0 
+(w) 16 (conditions)  ks 
+0 1206 p m (for) 18 (the) 18 (liqui) 1 (d) 20 (and) 17 
+(completely) 19 (mixed) 18 (conditions) 19 (for) 17 (the) 19 (gas.) 26 
+(All) 20 (mass) 16 (transfer) 17 (is) 19 (assum) -1 (ed)  ks 
+0 1265 p m (to) 19 (o) 1 (ccur) 19 (in) 19 (the) 19 
+(liqui) 1 (d) 20 (stream) 17 (as) 19 (it) 20 (falls) 20 
+(to) 19 (the) 20 (surface) 18 (and) 18 (stripping) 19 (caused) 18 
+(b) 0 (y) 18 (en) 0 (trained)  ks 
+0 1325 p m (bubbles) 15 (in) 17 (the) 16 (receiving) 17 (basin) 16 
+(is) 16 (ignored.) 21 (The) 16 (rate) 16 (of) 16 (V) 0 
+(OC) 14 (stripping) 16 (is) 17 (related) 16 (to) 16 (the) 16 
+(rate)  ks 
+0 1385 p m (of) 15 (o) 0 (xygen) 13 (stripping) 15 (b) 0 
+(y) 13 (a) 14 (di\013usivit) 0 (y) 16 (relationship.) 22 (The) 14 
+(o) 0 (xygen) 14 (stripping) 14 (rates) 14 (are) 14 (calculated)  ks 
+0 1445 p m (from) 11 (\014tted,) 14 (empirical) 13 (p) 1 (o) 0 
+(w) -1 (er) 11 (la) 0 (w) 12 (functions) 13 (based) 12 
+(on) 12 (the) 13 (width) 14 (of) 13 (the) 13 (PCW) 13 
+(and) 12 (the) 13 (distance)  ks 
+0 1504 p m (b) 1 (et) 0 (w) 0 (een) 14 (top) 17 
+(and) 16 (b) 1 (ottom) 15 (w) 0 (ater) 16 (lev) 0 
+(els.)  ks 
+0 1589 p m (The) 21 (P) 0 (o) 1 (ol) 20 (Mo) 1 
+(del) 22 (assumes) 18 (plug) 22 (\015o) 0 (w) 19 (conditions) 22 
+(for) 20 (the) 21 (gas,) 22 (completely) 22 (mixed) 20 (conditions)  ks 
+0 1649 p m (for) 21 (the) 22 (liquid,) 24 (and) 21 (considers) 21 
+(mass) 19 (transfer) 20 (only) 23 (in) 0 (to) 20 (the) 22 
+(en) 0 (trained) 20 (bubbles) 21 (as) 21 (they) 22 (rise)  ks 
+0 1709 p m (through) 18 (the) 20 (p) 1 (o) 1 (ol.) 33 
+(Stripping) 20 (that) 20 (o) 1 (ccurs) 19 (b) 1 (efore) 19 
+(the) 20 (stream) 18 (con) 0 (tacts) 19 (the) 19 (w) 0 
+(ater) 19 (surface) 19 (is)  ks 
+0 1768 p m (not) 14 (considered.) 21 (The) 14 (rate) 15 (of) 14 
+(V) 0 (OC) 13 (stripping) 15 (for) 14 (the) 15 (P) 0 
+(o) 1 (ol) 14 (Mo) 1 (del) 15 (also) 14 (is) 15 
+(related) 15 (to) 15 (the) 15 (rate) 14 (of)  ks 
+0 1828 p m (o) 0 (xygen) 17 (stripping) 18 (b) 0 (y) 16 
+(a) 18 (di\013usivit) 0 (y) 19 (relationship.) 26 (The) 18 (o) 0 
+(xygen) 16 (remo) -1 (v) -3 (al) 17 (rate) 18 (is) 18 
+(determined) 16 (b) 0 (y)  ks 
+0 1888 p m (applying) 17 (a) 17 (mass) 14 (balance) 17 (to) 16 
+(the) 17 (rising) 17 (bubble.) 22 (The) 16 (mass) 14 (balance) 17 
+(equation) 17 (dep) 1 (ends) 16 (on) 16 (the)  ks 
+0 1948 p m (o) 0 (xygen) 14 (stripping) 16 (rate,) 15 (the) 15 
+(Henry's) 15 (la) 0 (w) 15 (constan) 0 (ts) 13 (for) 15 
+(the) 15 (V) 0 (OC) 14 (and) 15 (o) 0 (xygen) 14 
+(and) 15 (the) 15 (ratio) 16 (of)  ks 
+0 2008 p m (the) 19 (PCW) 19 (liqui) 1 (d) 20 (\015o) 0 
+(w) 18 (rate) 19 (to) 19 (the) 19 (rate) 19 (of) 19 
+(gas) 19 (\015o) 0 (w) 17 (lea) 0 (ving) 19 (the) 19 
+(tailw) 0 (ater) 20 (of) 19 (the) 19 (PCW.) 19 (The)  ks 
+0 2067 p m (o) 0 (xygen) 16 (stripping) 18 (rates) 17 (are) 17 
+(calculated) 19 (from) 15 (\014tted,) 18 (empirical) 18 (p) 1 (o) 0 
+(w) -1 (er) 15 (la) 0 (w) 17 (functions) 17 (based) 16 
+(on)  ks 
+0 2127 p m (the) 17 (width) 18 (of) 17 (the) 17 (PCW) 17 
+(and) 16 (the) 17 (distance) 17 (b) 1 (et) 0 (w) 0 
+(een) 15 (top) 17 (and) 16 (b) 1 (ottom) 16 (w) 0 
+(ater) 15 (lev) 0 (els) 18 (\(Nak) -2 (asone,)  ks 
+0 2187 p m (1986\).)  s
+0 2272 p m (References)  s
+0 2280 p 230 2 ru
+0 2356 p m (Baill) 1 (o) 1 (d,) 26 (C.R.,) 23 (Crittenden,) 25 
+(J.C.,) 24 (Mihelcic,) 26 (J.R.,) 23 (Rogers,) 23 (T.N.,) 25 (Grady) -3 
+(,) 22 (Jr.,) 23 (C.P) -3 (.L.) 22 (1991.)  ks 
+0 2416 p m (Critical) 25 (ev) -2 (aluation) 23 (of) 23 (the) 23 
+(state) 23 (of) 23 (tec) 0 (hnologies) 22 (for) 22 (predicting) 24 
+(the) 22 (transp) 1 (ort) 22 (and) 22 (fate) 23 (of)  ks 
+0 2476 p m (to) 0 (xic) 18 (comp) 1 (ounds) 15 (in) 19 
+(w) 0 (astew) -1 (ater) 16 (facili) 1 (ti) 1 (es.) 28 
+(WPCF) 18 (Researc) 0 (h) 16 (F) -3 (ou) -1 (ndation) 17 
+(Rep) 1 (ort) 17 (No.) 27 (90-1,)  ks 
+0 2536 p m (W) -3 (ater) 16 (En) 0 (vironm) -1 (en) -2 
+(t) 15 (F) -3 (ound) -1 (ation,) 15 (Arlington,) 18 (V) -5 
+(A.)  ks 
+0 2620 p m (Naksone,) 14 (H.) 14 (1986.) 21 (Study) 13 (of) 14 
+(aeration) 14 (at) 15 (w) 0 (eirs) 12 (and) 13 (cascades,)  ks 
+cmti10.360 @sf
+14 r m (J.) 15 (Envir) -2 (on.) 23 (Engin.)  ks 
+cmr10.360 @sf
+m (,) 14 (113:64{73.)  ks 
+950 2790 p m (11)  s
+@eop
+12 @bop0
+12 @bop1
+cmr10.360 @sf
+0 50 p m (Pincince,) 21 (A.B.) 19 (1991.) 29 (T) -3 (ransfer) 17 
+(of) 19 (o) 0 (xygen) 18 (and) 18 (emissions) 18 (of) 19 
+(v) 0 (olatile) 21 (organic) 19 (comp) 1 (oun) -1 (ds) 17 
+(at)  ks 
+0 110 p m (clari\014er) 17 (w) 0 (eirs,)  ks 
+cmti10.360 @sf
+15 r m (R) -2 (es.) 24 (J.) 18 (WPCF)  ks 
+cmr10.360 @sf
+m (,) 15 (63:114-122.)  ks 
+950 2790 p m (12)  s
+@eop
+13 @bop0
+1.000000 /cmr7.360 @newfont
+cmr7.360 @sf
+[<1F807FE070F0F078F03CF03CF03C003C003C003C307838F83FF03FC030003000300030003FE03F
+  F03FF83038> 14 22 -2 0 20] 53 @dc
+13 @bop1
+cmr10.360 @sf
+0 50 p m (AERA) -3 (TION) 16 (BASIN) 17 (SCREEN)  ks 
+0 134 p m (In) 18 (the) 19 (aeration) 19 (basins) 18 (\(ABs\),) 20 
+(three) 18 (remo) -1 (v) -3 (al) 18 (mec) -1 (han) -1 
+(ism) -1 (s) 17 (are) 18 (considered:) 25 (bio) 1 (degradation,)  ks 
+0 194 p m (stripping) 24 (and) 24 (v) 0 (olatilizati) 1 (on.) 46 
+(Stripping) 24 (can) 24 (o) 1 (ccur) 24 (via) 25 (either) 25 
+(di\013used) 24 (bubble) 23 (or) 24 (surface)  ks 
+0 254 p m (aeration.) 27 (The) 18 (V) 0 (OC) 17 (mass) 16 
+(balance) 19 (equations) 19 (for) 18 (the) 18 (complete) 18 (secondary) 18 
+(system) 16 (\(AB) 20 (and)  ks 
+0 314 p m (secondary) 16 (clari\014er,) 17 (or) 16 (SC\)) 17 (are) 16 
+(solv) 0 (ed) 16 (sim) 0 (u) -1 (ltaneously) -3 (.) 21 
+(In) 17 (the) 17 (secondary) 15 (system,) 15 (solids) 18 (and)  ks 
+0 374 p m (liquids) 13 (are) 12 (remo) -2 (v) -1 (ed) 10 
+(from) 10 (the) 12 (SC) 11 (under\015o) -1 (w) 9 (and) 11 
+(either) 13 (recycled) 12 (to) 12 (the) 12 (AB) 12 (in\015uen) 0 
+(t) 11 (or) 11 (w) 0 (asted.)  ks 
+0 433 p m (Solid) 14 (and) 13 (liquid) 15 (recycle) 15 (and) 12 
+(w) 0 (astage) 12 (are) 13 (included) 14 (in) 14 (the) 13 
+(V) 0 (OC) 12 (mass) 11 (balance) 14 (equations.) 21 (The)  ks 
+0 493 p m (AB) 20 (can) 19 (b) 1 (e) 20 (sim) -1 
+(ulated) 18 (as) 19 (up) 19 (to) 20 (nine) 19 (CSTRs) 19 
+(in) 20 (series,) 20 (either) 20 (to) 19 (sim) 0 (ulate) 18 
+(a) 20 (degree) 18 (of) 20 (plug)  ks 
+0 553 p m (\015o) 0 (w) 17 (or) 18 (to) 19 (sim) -1 
+(ulate) 18 (v) -2 (ariable) 19 (feed) 19 (con\014gurations.) 27 (Biomass) 17 
+(concen) 0 (trations) 17 (are) 18 (pro) 0 (vided) 17 (b) 0 
+(y)  ks 
+0 613 p m (solving) 20 (substrate) 18 (\(BOD)  ks 
+cmr7.360 @sf
+520 620 p m (5)  s
+cmr10.360 @sf
+543 613 p m (\)) 19 (and) 19 (biomass) 17 (mass) 17 (balance) 19 
+(equations) 20 (in) 19 (the) 20 (secondary) 18 (system.)  ks 
+0 672 p m (Biomass) 18 (concen) 0 (trations) 18 (are) 19 (assumed) 17 
+(to) 20 (b) 1 (e) 19 (equiv) -2 (alen) 0 (t) 20 
+(to) 20 (v) 0 (olatile) 21 (susp) 1 (ended) 18 (solids) 20 
+(\(VSS\))  ks 
+0 732 p m (concen) 0 (trations.)  ks 
+0 817 p m (Up) 17 (to) 18 (three) 17 (screens) 17 (are) 17 
+(used) 16 (to) 18 (set) 18 (the) 17 (AB) 18 (parameters:) 21 
+(the) 18 (Basic) 18 (Aeration) 18 (Basin) 18 (screen,)  ks 
+0 877 p m (the) 19 (CSTR) 18 (P) 0 (aram) -2 (eters) 17 
+(screen,) 18 (and) 18 (the) 18 (Biomass) 18 (Calculations) 20 (screen.) 27 
+(The) 19 (Basic) 19 (Aeration)  ks 
+0 937 p m (Basin) 14 (screen) 12 (allo) 0 (ws) 13 (the) 13 
+(user) 13 (to) 13 (en) 0 (ter) 12 (general) 13 (AB) 14 
+(param) -1 (eters) 11 (and) 13 (sp) 1 (eci\014cations.) 22 (The) 13 
+(CSTR)  ks 
+0 996 p m (P) 0 (aram) -2 (eters) 12 (screen) 12 (is) 14 
+(used) 13 (only) 14 (if) 15 (the) 13 (more) 12 (than) 13 
+(one) 13 (CSTR) 13 (is) 14 (used) 12 (to) 14 (mo) 1 
+(del) 13 (the) 13 (AB.) 14 (In) 14 (this)  ks 
+0 1056 p m (screen,) 15 (param) -1 (eters) 14 (are) 15 (en) 0 
+(tered) 14 (for) 15 (eac) 0 (h) 14 (CSTR.) 15 (The) 16 
+(Biomass) 14 (Calculations) 17 (screen) 15 (is) 16 (used) 15 (if)  ks 
+0 1116 p m (the) 16 (user) 15 (c) 0 (ho) 1 (oses) 14 
+(to) 17 (ha) 0 (v) -1 (e) 14 (F) -3 (aV) -1 
+(Or) 13 (determine) 15 (biomass) 15 (concen) 0 (trations) 14 (in) 17 
+(the) 16 (AB,) 16 (rather) 15 (than)  ks 
+0 1176 p m (en) 0 (tering) 15 (these) 17 (v) -2 (alues) 16 
+(b) 0 (y) 16 (hand.)  ks 
+0 1260 p m (The) 16 (user) 16 (m) -1 (us) -1 (t) 15 
+(sp) 1 (ecify) 18 (the) 17 (follo) 0 (wing) 17 (parameters) 14 
+(in) 18 (the) 16 (Basic) 18 (Aeration) 17 (Basin) 17 (screen:)  ks 
+58 1345 p m (-)  s
+100 1345 p m (the) 16 (n) 0 (um) -2 (b) 0 (er) 15 
+(of) 17 (parallel) 18 (ABs) 17 (in) 17 (use)  ks 
+58 1430 p m (-)  s
+100 1430 p m (the) 16 (t) 0 (yp) 1 (e) 17 (of) 16 
+(aeration) 17 (\(di\013used) 17 (bubble) 16 (aeration) 17 (or) 16 (surface) 16 
+(aeration\))  ks 
+58 1514 p m (-)  s
+100 1514 p m (whether) 16 (the) 17 (ABs) 16 (are) 17 (co) 0 
+(v) -1 (ered)  ks 
+58 1599 p m (-)  s
+100 1599 p m (the) 16 (v) 0 (en) 0 (tilation) 17 (rate) 17 
+(for) 16 (an) 16 (AB) 17 (if) 18 (the) 17 (AB) 17 
+(is) 17 (co) 0 (v) 0 (er) -1 (ed)  ks 
+58 1684 p m (-)  s
+100 1684 p m (the) 16 (liqui) 1 (d) 18 (depth) 16 (in) 17 
+(an) 17 (AB)  ks 
+58 1768 p m (-)  s
+100 1768 p m (the) 16 (w) 0 (astage) 16 (\015o) 0 (w) 14 
+(rate) 17 (from) 15 (a) 16 (SC)  ks 
+58 1853 p m (-)  s
+100 1853 p m (the) 16 (recycle) 18 (\015o) 0 (w) 15 (rate) 17 
+(from) 14 (a) 17 (SC)  ks 
+58 1938 p m (-)  s
+100 1938 p m (the) 16 (standard) 15 (o) 0 (xygen) 16 (transfer) 15 
+(e\016ciency) 18 (\(SOTR\))  ks 
+58 2022 p m (-)  s
+100 2022 p m (whether) 20 (more) 20 (than) 21 (one) 21 (CSTR) 21 
+(is) 22 (to) 21 (b) 1 (e) 22 (mo) 1 (deled.) 35 
+(If) 22 (the) 22 (user) 20 (c) 0 (ho) 1 (oses) 19 
+(to) 22 (mo) 1 (del) 21 (the)  ks 
+100 2082 p m (AB) 18 (as) 17 (more) 15 (than) 18 (one) 17 
+(CSTR,) 17 (the) 17 (CSTR) 17 (P) 0 (aram) -2 (eters) 16 
+(screen) 17 (will) 20 (p) 1 (op) 17 (up) 17 (and) 16 
+(the) 18 (user)  ks 
+100 2142 p m (will) 16 (b) 1 (e) 14 (prompted) 12 (to) 14 
+(en) 0 (ter) 12 (parameters) 12 (related) 14 (to) 14 (the) 14 
+(m) 0 (u) -1 (ltiple) 15 (CSTRs.) 20 (Once) 14 (the) 14 
+(CSTR)  ks 
+100 2202 p m (P) 0 (ara) -1 (m) -1 (eters) 10 (screen) 11 
+(is) 12 (completes,) 12 (the) 12 (user) 11 (can) 11 (return) 11 
+(to) 12 (the) 12 (Basic) 12 (Aeration) 13 (Basin) 12 (screen.)  ks 
+100 2262 p m (If) 17 (the) 17 (user) 16 (c) 0 (ho) 1 
+(oses) 16 (to) 17 (mo) 1 (del) 17 (the) 17 (AB) 18 
+(as) 16 (a) 17 (single) 19 (CSTR,) 16 (the) 17 (follo) 0 
+(wing) 18 (parameters) 15 (will)  ks 
+100 2321 p m (b) 1 (e) 16 (en) 0 (tered.)  ks 
+58 2406 p m (-)  s
+100 2406 p m (the) 16 (v) 0 (olume) 15 (of) 17 (the) 17 
+(AB)  ks 
+58 2491 p m (-)  s
+100 2491 p m (the) 16 (gas) 16 (\015o) 0 (w) 15 (rate) 17 
+(for) 16 (the) 17 (AB)  ks 
+58 2575 p m (-)  s
+100 2575 p m (whether) 20 (\(1\)) 23 (the) 21 (user) 20 (will) 24 
+(en) 0 (ter) 20 (or) 21 (\(2\)) 22 (F) -3 (aV) -1 
+(Or) 19 (will) 24 (calculate) 23 (biomass) 20 (concen) 0 (trations)  ks 
+100 2635 p m (in) 20 (the) 20 (AB.) 20 (If) 19 (the) 20 
+(user) 19 (c) 0 (ho) 1 (oses) 18 (to) 19 (ha) 0 
+(v) 0 (e) 17 (F) -3 (aV) 0 (O) -1 (r) 17 
+(calculate) 22 (biomass) 18 (concen) 0 (trations,) 18 (\(1\))  ks 
+950 2790 p m (13)  s
+@eop
+14 @bop0
+cmmi7.360 @sf
+[<3E007F00E380E1C0C0E0E0E0E0F0E070E070F070F07078707CF07FE07FC0380038003C003C001C
+  001C001E007E007E00> 12 24 -3 0 18] 98 @dc
+cmmi10.360 @sf
+[<00C000000000E000000001E000000001F000000001F800000001F800000001EC00000001EC0000
+  0001E600000001E700000001E300000003E180000003C180000003C0C0000003C0E0000003C060
+  000003C030000003C030000003C018000003C01C000003C00C000007C006000007800600000780
+  03000007800380000780018000078000C000078000C0000780006000078000300007800038000F
+  00003C000F80007E00FFF801FFC0FFF801FFC0> 34 35 -3 1 29] 86 @dc
+[<E0000000F0000000F0000000F0000000F8000000F800000078000000780000007C0000007C0000
+  003C0000003DFC3E003FFE7F803F87FB801F03F1C01F01F0C01F00F0C01F00F8E00F0078600F00
+  78000F8078000F807C0007803C0007803C0007C03C0007C03E0003C01E0003C01E0003E01E0003
+  E01F0001E00F0001E00F00> 27 32 -1 11 30] 22 @dc
+cmmi7.360 @sf
+[<1C0700F81E0781FE1E0781CE0E0381C70E0381E30F03C0E30F03C0F00701C0700701C0700781E0
+  70E7C1F07863E0F83877F1FC783FBFCFF01F1F87E0> 32 15 -1 0 35] 109 @dc
+[<3E7C7FFEE3E6E1E3C0E3E0F3E0F0E070E070F078707878783CF81FF807D8> 16 15 -3 0 22] 97 @dc
+[<3CFC007FFE0077C70073838073818003818003C00001C00001C00001E000E1E38070E38079F380
+  3FFF800F9F00> 17 15 -2 0 23] 120 @dc
+cmmi10.360 @sf
+[<C00000C00000E000006000006000007000003000003000003800001800001800001C00000C0000
+  0C00000E000006000006000007000003000003000003800001800001800001C00000C00000E000
+  006000006000007000003000003000003800001800001800001C00000C00000C00000E00000600
+  0006000007000003000003000003800001800001800001C00000C00000C0> 18 49 -3 12 25] 61 @dc
+[<3FFF0000003FFF00000001F000000000F000000000F000000000F0000000007000000000780000
+  00007800000000780000000038000000003C000000003C000000003C000000003E000000003F00
+  0000007F800000007DC000000078C0000000F860000000F830000000F018000001F01C000001F0
+  0E000001E006000003E003000003E001800003C000C00007C0006000078000700007800038000F
+  C0007E00FFF801FFE0FFF800FFE0> 35 34 -2 0 29] 89 @dc
+cmsy10.360 @sf
+[<C00003E0000770000E38001C1C00380E00700700E00381C001C38000E700007E00003C00003C00
+  007E0000E70001C3800381C00700E00E00701C003838001C70000EE00007C00003> 24 24 -7 0 39] 2 @dc
+14 @bop1
+cmr10.360 @sf
+100 50 p m (the) 18 (Biomass) 17 (Calculati) 1 (ons) 19 (screen) 18 
+(will) 20 (p) 1 (op) 18 (up,) 18 (\(2\)) 19 (the) 19 
+(user) 17 (will) 21 (b) 1 (e) 18 (prompted) 16 (to) 19 
+(en) 0 (ter)  ks 
+100 110 p m (some) 17 (parameters,) 18 (\(3\)) 20 (F) -3 (aV) -1 
+(Or) 17 (will) 22 (calculate) 21 (the) 20 (biomass) 18 (concen) 0 
+(trations,) 18 (\(4\)) 20 (the) 20 (user)  ks 
+100 169 p m (will) 21 (b) 1 (e) 19 (returned) 17 (to) 19 
+(the) 19 (Basic) 20 (Aeration) 19 (Basin) 20 (screen,) 18 (and) 18 
+(\(5\)) 20 (the) 18 (calculated) 21 (biomass)  ks 
+100 229 p m (concen) 0 (tration) 16 (will) 20 (app) 1 (ear) 16 
+(on) 17 (the) 17 (Basic) 18 (Aeration) 18 (Basin) 18 (screen.) 23 
+(The) 17 (metho) 1 (ds) 16 (used) 16 (b) 0 (y)  ks 
+100 289 p m (F) -3 (aV) -1 (Or) 13 (to) 16 (calculate) 18 
+(biomass) 14 (concen) 0 (trations) 14 (are) 16 (describ) 1 (ed) 15 
+(in) 17 (the) 16 (Help) 17 (for) 15 (the) 16 (Biomass)  ks 
+100 349 p m (Calculations) 18 (screen.)  ks 
+58 433 p m (-)  s
+100 433 p m (the) 22 (biomass) 20 (concen) 0 (tration,) 22 (if) 23 
+(the) 22 (user) 21 (c) 0 (ho) 1 (oses) 20 (to) 22 
+(en) 0 (ter) 20 (the) 22 (biomass) 21 (concen) 0 (trations)  ks 
+100 493 p m (rather) 15 (than) 17 (ha) 0 (v) -1 (e) 14 
+(F) -3 (aV) 0 (O) -1 (r) 15 (calculate) 18 (the) 17 
+(biomass) 15 (concen) 0 (trations.)  ks 
+0 578 p m (Bio) 1 (degradation)  ks 
+0 586 p 333 2 ru
+0 663 p m (The) 16 (rate) 17 (of) 17 (remo) -2 (v) -2 
+(al) 15 (or) 16 (organic) 17 (c) 0 (hem) -1 (ical) 16 
+(due) 16 (to) 17 (bio) 1 (degradation) 17 (\()  ks 
+cmmi10.360 @sf
+m (r)  s
+cmmi7.360 @sf
+1424 670 p m (bio)  s
+cmr10.360 @sf
+1479 663 p m (\)) 17 (is) 17 (describ) 1 (ed) 16 (b) 0 
+(y)  ks 
+cmmi10.360 @sf
+810 838 p m (r)  s
+cmmi7.360 @sf
+832 845 p m (bio)  s
+cmr10.360 @sf
+900 838 p m (=)  s
+cmmi10.360 @sf
+14 r m (K)  s
+cmmi7.360 @sf
+995 845 p m (b)  s
+cmmi10.360 @sf
+1015 838 p m (X) 4 (C) 4 (V)  ks 
+cmr10.360 @sf
+0 989 p m (where)  s
+cmmi10.360 @sf
+22 r m (r)  s
+cmmi7.360 @sf
+172 996 p m (bio)  s
+cmr10.360 @sf
+249 989 p m (has) 22 (units) 23 (of)  ks 
+cmmi10.360 @sf
+23 r m (\026)  s
+cmr10.360 @sf
+m (g/da) 0 (y) -4 (,)  ks 
+cmmi10.360 @sf
+22 r m (C)  s
+cmr10.360 @sf
+26 r m (is) 23 (the) 23 (aqueous) 22 (concen) 0 (tration) 21 
+(of) 23 (the) 23 (c) 0 (hem) -1 (ical) 23 (in) 23 
+(the)  ks 
+0 1049 p m (aeration) 14 (basin) 13 (\()  ks 
+cmmi10.360 @sf
+m (\026)  s
+cmr10.360 @sf
+m (g/liter\),)  s
+cmmi10.360 @sf
+16 r m (V)  s
+cmr10.360 @sf
+24 r m (is) 14 (the) 13 (v) 0 (olume) 12 (of) 13 
+(the) 13 (aeration) 14 (basin\(s\)) 13 (\(lit) 1 (ers\),)  ks 
+cmmi10.360 @sf
+15 r m (X)  s
+cmr10.360 @sf
+18 r m (is) 13 (the) 14 (biomass)  ks 
+0 1108 p m (concen) 0 (tration) 15 (\(mg) 14 (VSS/liter\)) 18 (and)  ks 
+cmmi10.360 @sf
+15 r m (K)  s
+cmmi7.360 @sf
+792 1115 p m (b)  s
+cmr10.360 @sf
+828 1108 p m (is) 17 (the) 16 (bio) 1 (degradation) 16 (rate) 16 
+(constan) 0 (t) 14 (\(liters/mg) 16 (VSS-)  ks 
+0 1168 p m (da) 0 (y\).)  ks 
+cmmi10.360 @sf
+0 1253 p m (K)  s
+cmmi7.360 @sf
+42 1260 p m (b)  s
+cmr10.360 @sf
+83 1253 p m (equals) 21 (the) 21 (Mono) 1 (d) 20 (kinetic) 22 
+(terms) 19 (\()  ks 
+cmmi10.360 @sf
+m (\026)  s
+cmmi7.360 @sf
+858 1260 p m (max)  s
+cmmi10.360 @sf
+941 1253 p m (=K)  s
+cmmi7.360 @sf
+1008 1260 p m (s)  s
+cmmi10.360 @sf
+1029 1253 p m (Y)  s
+cmr10.360 @sf
+11 r m (\)) 21 (when) 20 (the) 21 (V) 0 (OC) 19 
+(concen) 0 (tration) 20 (is) 21 (m) -1 (uc) -2 (h)  ks 
+0 1313 p m (lo) 0 (w) 0 (er) 17 (than) 19 (the) 20 
+(half) 20 (saturation) 20 (constan) 0 (t.) 29 (This) 20 (situation) 20 
+(is) 20 (true) 20 (for) 19 (most) 18 (cases) 19 (where) 19 
+(the)  ks 
+0 1372 p m (concen) 0 (tration) 16 (of) 17 (the) 17 (individual) 19 
+(organic) 17 (c) 0 (hem) -1 (ical) 17 (is) 18 (in) 17 
+(the) 17 (ppb) 16 (\(not) 18 (ppm\)) 15 (range.) 22 (The) 17 
+(rate)  ks 
+0 1432 p m (equation) 18 (assum) -1 (es) 15 (that) 17 (all) 19 
+(of) 17 (the) 17 (biomass) 15 (is) 18 (in) 0 (v) 0 
+(olv) -1 (ed) 15 (in) 18 (remo) -2 (ving) 16 (the) 17 
+(c) 0 (hem) -1 (ical) 17 (of) 17 (in) 0 (terest.)  ks 
+0 1492 p m (Ho) 0 (w) -1 (ev) 0 (er) -1 (,) 17 
+(some) 17 (individuals) 20 (suggest) 18 (the) 19 (quan) 0 (tit) 0 
+(y) 17 (of) 19 (micro) 1 (organism) -1 (s) 17 (sp) 1 
+(eci\014cally) 21 (degrading)  ks 
+0 1552 p m (a) 17 (target) 18 (organic) 17 (p) 1 (ollutan) 0 
+(t) 18 (equals) 17 (\(COD) 18 (of) 17 (target) 18 (c) 0 
+(hem) -1 (ical/COD) 17 (of) 17 (total) 19 (w) 0 (astestream) -1 
+(\))  ks 
+cmsy10.360 @sf
+15 r m (\002)  s
+cmr10.360 @sf
+0 1612 p m (ML) -5 (VSS) 16 (\(or) 16 (MLSS\).)  ks 
+0 1696 p m (Also,) 27 (littl) 1 (e) 27 (is) 25 (curren) -1 
+(tly) 24 (kno) 0 (wn) 22 (ab) 1 (out) 25 (bio) 1 
+(degradation) 24 (rates) 24 (of) 25 (organic) 24 (c) 0 (hem) -1 
+(icals) 24 (in) 25 (the)  ks 
+0 1756 p m (complex) 17 (mixture/ecology) 18 (of) 18 (an) 18 (activ) -2 
+(ated) 18 (sludge) 18 (pro) 1 (cess) 17 (\(Baill) 1 (o) 1 
+(d)  ks 
+cmti10.360 @sf
+20 r m (et) 18 (al.)  ks 
+cmr10.360 @sf
+m (,) 19 (1991\).) 25 (Ranges) 17 (of)  ks 
+cmmi10.360 @sf
+0 1816 p m (K)  s
+cmmi7.360 @sf
+42 1823 p m (b)  s
+cmr10.360 @sf
+80 1816 p m (are) 18 (0.0001) 18 (liters/mg) 17 (VSS-da) 0 (y) 16 
+(for) 18 (a) 18 (v) 0 (ery) 17 (non) 0 (bio) 1 
+(degradab) -1 (le) 17 (c) 0 (hem) -1 (ical) 18 (to) 19 
+(0.40) 17 (lite) 1 (rs/mg)  ks 
+0 1876 p m (VSS-da) 0 (y) 14 (for) 17 (a) 16 (highly) 18 
+(bio) 1 (degradable) 17 (c) 0 (hem) -1 (ical.)  ks 
+0 1960 p m (Stripping) 17 (-) 16 (Surface) 16 (Aeration)  ks 
+0 1968 p 618 2 ru
+0 2045 p m (The) 14 (rate) 15 (of) 14 (stripping) 15 (for) 14 
+(surface) 14 (aeration) 14 (is) 15 (based) 14 (on) 14 (a) 14 
+(\014rst-order) 12 (rate) 15 (expression) 14 (where) 13 (an)  ks 
+0 2105 p m (o) 0 (v) -1 (erall) 14 (mass) 12 (transfer) 14 
+(co) 1 (e\016cien) 0 (t) 14 (\()  ks 
+cmmi10.360 @sf
+m (K)  s
+cmmi7.360 @sf
+751 2112 p m (L)  s
+cmmi10.360 @sf
+781 2105 p m (a)  s
+cmr10.360 @sf
+m (\)) 15 (is) 15 (m) -1 (ultiplied) 16 (b) 0 
+(y) 13 (a) 14 (V) 0 (OC) 13 (concen) 0 (tration) 13 
+(driving) 15 (force.)  ks 
+cmmi10.360 @sf
+736 2280 p m (r)  s
+cmmi7.360 @sf
+758 2287 p m (str) 1 (ip)  ks 
+cmr10.360 @sf
+862 2280 p m (=)  s
+cmmi10.360 @sf
+14 r m (K)  s
+cmmi7.360 @sf
+957 2287 p m (L)  s
+cmmi10.360 @sf
+987 2280 p m (a)  s
+cmr10.360 @sf
+m (\()  s
+cmmi10.360 @sf
+m (C)  s
+cmsy10.360 @sf
+15 r m (\000)  s
+cmmi10.360 @sf
+11 r m (C)  s
+cmsy7.360 @sf
+1173 2260 p m (\003)  s
+cmr10.360 @sf
+1195 2280 p m (\))  s
+0 2431 p m (where)  s
+cmmi10.360 @sf
+15 r m (r)  s
+cmmi7.360 @sf
+165 2438 p m (str) 1 (ip)  ks 
+cmr10.360 @sf
+273 2431 p m (is) 16 (the) 16 (rate) 16 (of) 16 (stripping,)  ks 
+cmmi10.360 @sf
+16 r m (C)  s
+cmr10.360 @sf
+20 r m (is) 16 (the) 16 (bulk) 17 (V) 0 (OC) 15 
+(aqueous) 15 (phase) 15 (concen) 0 (tration,) 15 (and)  ks 
+cmmi10.360 @sf
+0 2491 p m (C)  s
+cmsy7.360 @sf
+40 2474 p m (\003)  s
+cmr10.360 @sf
+81 2491 p m (is) 19 (the) 19 (V) 0 (OC) 17 (aqueous) 18 
+(phase) 18 (concen) 0 (tration) 18 (that) 19 (w) 0 (ould) 17 
+(b) 1 (e) 19 (in) 19 (equili) 1 (brium) 19 (with) 20 
+(the) 19 (bulk)  ks 
+0 2551 p m (air) 22 (concen) 0 (tration.) 35 (The) 21 (rate) 21 
+(expression) 21 (is) 22 (based) 21 (on) 21 (the) 21 (existence) 23 
+(of) 22 (a) 21 (stagnan) 0 (t) 19 (la) 0 (y) 0 
+(er) 20 (at)  ks 
+0 2610 p m (the) 21 (w) 0 (astew) -1 (ater-a) -1 (ir) 19 
+(in) 0 (terface.) 34 (When) 20 (the) 21 (reactor) 20 (is) 21 
+(unco) 0 (v) -1 (ered) -1 (,) 20 (the) 21 (air) 20 
+(ab) 1 (o) 0 (v) 0 (e) 18 (the) 21 (basin) 21 
+(is)  ks 
+0 2670 p m (assum) -1 (ed) 20 (to) 22 (ha) 0 (v) -1 
+(e) 20 (negligible) 24 (con) 0 (tam) -1 (inan) -1 (t) 20 
+(concen) 0 (tration.) 36 (When) 21 (the) 22 (reactor) 21 (is) 22 
+(co) 0 (v) 0 (ered) -1 (,) 21 (a)  ks 
+950 2790 p m (14)  s
+@eop
+15 @bop0
+15 @bop1
+cmr10.360 @sf
+0 50 p m (gas) 16 (phase) 16 (mass) 15 (balance) 17 (equation) 18 
+(that) 17 (incorp) 1 (orates) 17 (a) 17 (v) 0 (en) -1 
+(tilation) 18 (rate) 16 (is) 18 (solv) 0 (ed) 16 (for) 16 
+(the) 18 (gas)  ks 
+0 110 p m (phase) 16 (concen) 0 (tration) 15 (in) 17 (the) 17 
+(stagnan) 0 (t) 15 (la) 0 (y) 0 (er.)  ks 
+0 194 p m (The) 22 (o) 0 (v) -1 (erall) 22 (mass) 20 
+(transfer) 21 (co) 1 (e\016cien) 0 (t) 22 (for) 22 (surface) 21 
+(aeration) 22 (is) 23 (based) 21 (on) 22 (equations) 22 (used) 22 
+(to)  ks 
+0 254 p m (calculate) 21 (mass) 16 (transfer) 17 (co) 1 (e\016cien) 0 
+(ts) 19 (for) 18 (o) 0 (xygen.) 27 (The) 18 (relationship) 20 
+(dev) 0 (elop) 1 (ed) 18 (b) 0 (y) 17 (Munz) 18 
+(and)  ks 
+0 314 p m (Rob) 1 (erts) 22 (\(1989\)) 23 (is) 23 (used) 22 
+(to) 23 (determine) 22 (V) 0 (OC) 21 (mass) 20 (transfer) 22 
+(co) 1 (e\016cien) 0 (ts) 22 (from) 21 (o) 0 (xygen) 21 
+(mass)  ks 
+0 374 p m (transfer) 12 (co) 1 (e\016cien) 0 (ts,) 13 (based) 11 
+(on) 13 (V) 0 (OC) 11 (and) 12 (o) 0 (xygen) 12 
+(di\013usivit) 0 (y) 14 (ratios.) 21 (The) 12 (o) 0 (v) 0 
+(er) -1 (all) 13 (mass) 10 (transfer)  ks 
+0 433 p m (rate) 15 (for) 14 (o) 0 (xygen) 13 (is) 15 
+(calculated) 16 (from) 13 (the) 15 (standard) 13 (o) 0 (xygen) 13 
+(transfer) 14 (e\016ciency) 15 (\(SOTR\),) 15 (the) 14 (AB)  ks 
+0 493 p m (v) 0 (olume,) 17 (and) 18 (the) 19 (dynamic) 18 
+(saturation) 19 (v) -2 (alue) 19 (for) 18 (o) 0 (xygen.) 28 
+(The) 18 (o) 0 (v) 0 (er) -1 (all) 19 (o) 0 
+(xygen) 18 (mass) 16 (transfer)  ks 
+0 553 p m (rate) 16 (is) 17 (adjusted) 16 (to) 17 (accoun) 0 
+(t) 15 (for) 16 (the) 17 (e\013ects) 17 (of) 16 (the) 17 
+(w) 0 (astew) -1 (ater) 15 (matrix,) 15 (the) 17 (temp) 1 
+(erature,) 15 (and)  ks 
+0 613 p m (a) 17 (correction) 18 (term) 15 (\(Bail) 1 (lo) 2 
+(d)  ks 
+cmti10.360 @sf
+19 r m (et) 18 (al.)  ks 
+cmr10.360 @sf
+m (,) 17 (1986\).) 24 (The) 17 (correction) 18 (term) 16 
+(is) 17 (a) 18 (function) 17 (of) 18 (the) 17 (gas) 17 
+(\015o) 0 (w)  ks 
+0 672 p m (rate,) 22 (temp) 1 (erature,) 21 (v) 0 (olume) 20 
+(of) 21 (the) 22 (basin,) 22 (barometric) 20 (pressure,) 21 (e\013ectiv) 0 
+(e) 22 (depth,) 22 (and) 20 (other)  ks 
+0 732 p m (constan) 0 (ts.) 37 (The) 22 (e\013ectiv) 0 (e) 23 
+(depth) 21 (is) 23 (de\014ned) 21 (as) 22 (the) 22 (depth) 22 
+(whic) 0 (h) 21 (the) 22 (bubble) 22 (concen) 0 (tration)  ks 
+0 792 p m (w) 0 (ould) 13 (b) 1 (e) 15 (in) 15 
+(equilibrium) 15 (with) 15 (the) 15 (dissolv) 0 (ed) 14 (o) 0 
+(xygen) 13 (concen) 0 (tration) 13 (at) 15 (an) 14 (in\014nite) 15 
+(time) 15 (during)  ks 
+0 852 p m (the) 22 (unsteady) 20 (state) 22 (o) 0 (xygen) 20 
+(transfer) 21 (test) 21 (\()  ks 
+cmmi10.360 @sf
+m (C)  s
+cmsy7.360 @sf
+956 835 p m (\003)  s
+952 864 p m (1)  s
+cmr10.360 @sf
+995 852 p m (\).) 36 (F) -3 (aV) -1 (Or) 19 (estimates) 21 
+(the) 21 (e\013ectiv) 0 (e) 23 (depth) 20 (for)  ks 
+0 912 p m (surface) 19 (aeration) 19 (in) 20 (the) 20 (AB) 20 
+(\()  ks 
+cmmi10.360 @sf
+m (d)  s
+cmmi7.360 @sf
+654 919 p m (e)  s
+cmr10.360 @sf
+675 912 p m (\)) 20 (as) 19 (\(from) 18 (Baill) 1 (o) 1 
+(d) 21 (et) 20 (al.,) 21 (1986\))  ks 
+cmmi10.360 @sf
+19 r m (d)  s
+cmmi7.360 @sf
+1405 919 p m (e)  s
+cmr10.360 @sf
+1445 912 p m (=) 18 (0)  ks 
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (07)  s
+cmmi10.360 @sf
+m (d)  s
+cmr10.360 @sf
+19 r m (where)  s
+cmmi10.360 @sf
+19 r m (d)  s
+cmr10.360 @sf
+19 r m (is) 20 (the)  ks 
+0 971 p m (tank) 15 (liquid) 16 (depth.)  ks 
+cmmi10.360 @sf
+21 r m (C)  s
+cmsy7.360 @sf
+450 954 p m (\003)  s
+446 984 p m (1)  s
+cmr10.360 @sf
+503 971 p m (is) 15 (estimated) 14 (from) 13 (an) 14 (expression) 14 
+(found) 13 (in) 15 (Baill) 1 (o) 1 (d)  ks 
+cmti10.360 @sf
+17 r m (et) 15 (al.)  ks 
+cmr10.360 @sf
+22 r m (\(1986\).) 22 (It) 15 (is)  ks 
+0 1031 p m (a) 16 (function) 16 (of) 16 (the) 16 (e\013ectiv) 0 
+(e) 17 (depth;,barom) -1 (etric) 15 (pressure,) 14 (v) -2 (ap) 1 
+(or) 14 (pressure) 14 (of) 16 (w) 0 (ater,) 15 (a) 16 
+(standard)  ks 
+0 1091 p m (pressure) 15 (of) 16 (101.33) 16 (kP) 0 (a,) 15 
+(sp) 1 (eci\014c) 18 (w) 0 (eigh) -1 (t) 15 (of) 17 
+(w) 0 (ater,) 15 (and) 16 (saturation) 16 (concen) 0 (tration) 16 
+(of) 17 (o) 0 (xygen.)  ks 
+0 1176 p m (Stripping) 17 (-) 16 (Di\013used) 17 (Bubble) 17 (Aeration)  ks 
+0 1184 p 808 2 ru
+0 1260 p m (F) -3 (or) 16 (di\013used) 19 (bubble) 18 (aeration,) 19 
+(the) 19 (rate) 18 (of) 19 (V) 0 (OC) 17 (remo) -1 
+(v) -2 (al) 17 (is) 19 (giv) 0 (en) 18 (b) 0 
+(y) 17 (\(Rob) 1 (erts)  ks 
+cmti10.360 @sf
+19 r m (et) 19 (al.)  ks 
+cmr10.360 @sf
+m (,) 19 (1984\))  ks 
+0 1320 p m (the) 19 (pro) 1 (duct) 19 (of) 19 (gas) 19 
+(\015o) 0 (w) 17 (rate) 19 (\()  ks 
+cmmi10.360 @sf
+m (Q)  s
+cmmi7.360 @sf
+695 1327 p m (G)  s
+cmr10.360 @sf
+729 1320 p m (\),) 20 (the) 20 (Henry's) 18 (la) 0 (w) 19 
+(constan) 0 (t) 17 (\()  ks 
+cmmi10.360 @sf
+m (H)  s
+cmr10.360 @sf
+4 r m (\),) 21 (the) 19 (V) 0 (OC) 18 (liqui) 1 
+(d-phase)  ks 
+0 1380 p m (concen) 0 (tration) 13 (\()  ks 
+cmmi10.360 @sf
+m (C)  s
+cmr10.360 @sf
+4 r m (\),) 15 (and) 13 (a) 14 (correction) 15 (factor) 14 
+(for) 14 (the) 15 (fraction) 14 (of) 15 (equilibri) 1 (um) 14 
+(ac) 0 (hiev) 0 (ed) 12 (b) 1 (et) 0 (w) 0 
+(een)  ks 
+0 1440 p m (V) 0 (OC) 15 (concen) 0 (trations) 15 (in) 18 
+(the) 16 (liqui) 1 (d) 18 (and) 16 (gas) 16 (phases) 15 
+(\(1)  ks 
+cmsy10.360 @sf
+12 r m (\000)  s
+cmmi10.360 @sf
+10 r m (e)  s
+cmsy7.360 @sf
+1211 1423 p m (\000)  s
+cmmi7.360 @sf
+m (\036)  s
+cmr10.360 @sf
+1269 1440 p m (\):)  s
+cmmi10.360 @sf
+696 1609 p m (r)  s
+cmmi7.360 @sf
+718 1616 p m (str) 1 (ip)  ks 
+cmr10.360 @sf
+823 1609 p m (=)  s
+cmmi10.360 @sf
+14 r m (Q)  s
+cmmi7.360 @sf
+915 1616 p m (G)  s
+cmmi10.360 @sf
+949 1609 p m (H) 4 (C)  ks 
+cmex10.360 @sf
+1042 1570 p m (\000)  s
+cmr10.360 @sf
+1064 1609 p m (1)  s
+cmsy10.360 @sf
+11 r m (\000)  s
+cmmi10.360 @sf
+11 r m (e)  s
+cmsy7.360 @sf
+1173 1589 p m (\000)  s
+cmmi7.360 @sf
+m (\036)  s
+cmex10.360 @sf
+1231 1569 p m (\001)  s
+cmr10.360 @sf
+0 1748 p m (where)  s
+cmmi10.360 @sf
+23 r m (r)  s
+cmmi7.360 @sf
+173 1755 p m (str) 1 (ip)  ks 
+cmr10.360 @sf
+288 1748 p m (is) 25 (the) 24 (rate) 23 (of) 24 (stripping.) 44 
+(V) 0 (OCs) 22 (that) 25 (ha) 0 (v) -1 (e) 22 
+(high) 24 (v) -2 (alues) 23 (of) 24 (the) 24 (Henry's) 24 
+(la) 0 (w)  ks 
+0 1808 p m (constan) 0 (t) 16 (ma) -1 (y) 16 (require) 17 
+(signi\014can) 0 (t) 17 (tank) 18 (depths) 17 (to) 17 (ac) 0 
+(hiev) 0 (e) 16 (equili) 1 (brium.) 25 (Ho) 0 (w) -1 
+(ev) -1 (er,) 16 (unless) 17 (the)  ks 
+0 1868 p m (Henry's) 21 (constan) 0 (t) 21 (is) 22 (v) 0 
+(ery) 21 (large,) 24 (the) 22 (correction) 22 (factor) 22 (will) 25 
+(b) 1 (e) 22 (close) 23 (to) 22 (1.) 38 (The) 22 
+(correction)  ks 
+0 1928 p m (factor) 15 (is) 14 (based) 14 (on) 14 (the) 15 
+(o) 0 (v) -1 (erall) 14 (V) 0 (OC) 13 (mass) 12 
+(transfer) 14 (co) 1 (e\016cien) 0 (t,) 14 (the) 15 (gas) 14 
+(\015o) 0 (w) 12 (rate,) 15 (the) 15 (aeration)  ks 
+0 1988 p m (basin) 16 (v) 0 (olume,) 15 (and) 16 (the) 16 
+(Henry's) 16 (la) 0 (w) 16 (constan) 0 (t) 15 (\(Rob) 1 
+(erts)  ks 
+cmti10.360 @sf
+17 r m (et) 17 (al.)  ks 
+cmr10.360 @sf
+m (,) 17 (1984\).)  ks 
+0 2072 p m (The) 18 (o) 0 (v) -1 (erall) 18 (V) 0 
+(OC) 17 (mass) 16 (transfer) 17 (co) 1 (e\016cien) 0 (t) 18 
+(is) 19 (calculated) 20 (b) 0 (y) 17 (relating) 19 (it) 19 
+(to) 19 (the) 18 (o) 0 (v) 0 (era) -1 (ll) 18 
+(mass)  ks 
+0 2132 p m (transfer) 17 (co) 1 (e\016cien) 0 (t) 18 (for) 18 
+(o) 0 (xygen) 17 (\(Munz) 18 (and) 17 (Rob) 1 (erts,) 18 
+(1989\).) 26 (The) 18 (o) 0 (v) 0 (er) -1 (all) 18 
+(mass) 16 (transfer) 17 (rate)  ks 
+0 2192 p m (for) 23 (o) 0 (xygen) 21 (is) 24 (calculated) 24 
+(from) 22 (the) 23 (standard) 21 (o) 0 (xygen) 22 (transfer) 22 
+(e\016ciency) 24 (\(SOTR\),) 22 (the) 23 (AB)  ks 
+0 2252 p m (v) 0 (olume,) 17 (and) 18 (the) 19 (dynamic) 18 
+(saturation) 19 (v) -2 (alue) 19 (for) 18 (o) 0 (xygen.) 28 
+(The) 18 (o) 0 (v) 0 (er) -1 (all) 19 (o) 0 
+(xygen) 18 (mass) 16 (transfer)  ks 
+0 2311 p m (rate) 16 (is) 17 (adjusted) 16 (to) 17 (accoun) 0 
+(t) 15 (for) 16 (the) 17 (e\013ects) 17 (of) 16 (the) 17 
+(w) 0 (astew) -1 (ater) 15 (matrix,) 15 (the) 17 (temp) 1 
+(erature,) 15 (and)  ks 
+0 2371 p m (a) 17 (correction) 18 (term) 15 (\(Bail) 1 (lo) 2 
+(d)  ks 
+cmti10.360 @sf
+19 r m (et) 18 (al.)  ks 
+cmr10.360 @sf
+m (,) 17 (1986\).) 24 (The) 17 (correction) 18 (term) 16 
+(is) 17 (a) 18 (function) 17 (of) 18 (the) 17 (gas) 17 
+(\015o) 0 (w)  ks 
+0 2431 p m (rate,) 22 (temp) 1 (erature,) 21 (v) 0 (olume) 20 
+(of) 21 (the) 22 (basin,) 22 (barometric) 20 (pressure,) 21 (e\013ectiv) 0 
+(e) 22 (depth,) 22 (and) 20 (other)  ks 
+0 2491 p m (constan) 0 (ts.) 37 (The) 22 (e\013ectiv) 0 (e) 23 
+(depth) 21 (is) 23 (de\014ned) 21 (as) 22 (the) 22 (depth) 22 
+(whic) 0 (h) 21 (the) 22 (bubble) 22 (concen) 0 (tration)  ks 
+0 2551 p m (w) 0 (ould) 13 (b) 1 (e) 15 (in) 15 
+(equilibrium) 15 (with) 15 (the) 15 (dissolv) 0 (ed) 14 (o) 0 
+(xygen) 13 (concen) 0 (tration) 13 (at) 15 (an) 14 (in\014nite) 15 
+(time) 15 (during)  ks 
+0 2610 p m (the) 22 (unsteady) 20 (state) 22 (o) 0 (xygen) 20 
+(transfer) 21 (test) 21 (\()  ks 
+cmmi10.360 @sf
+m (C)  s
+cmsy7.360 @sf
+956 2593 p m (\003)  s
+952 2623 p m (1)  s
+cmr10.360 @sf
+995 2610 p m (\).) 36 (F) -3 (aV) -1 (Or) 19 (estimates) 21 
+(the) 21 (e\013ectiv) 0 (e) 23 (depth) 20 (for)  ks 
+0 2670 p m (bubble) 16 (aeration) 17 (in) 17 (the) 17 (AB) 17 
+(\()  ks 
+cmmi10.360 @sf
+m (d)  s
+cmmi7.360 @sf
+635 2677 p m (e)  s
+cmr10.360 @sf
+657 2670 p m (\)) 17 (as) 16 (follo) 0 (ws) 17 (\(from) 15 
+(Baill) 1 (o) 1 (d) 18 (et) 17 (al.,) 17 (1986\))  ks 
+950 2790 p m (15)  s
+@eop
+16 @bop0
+16 @bop1
+cmmi10.360 @sf
+861 113 p m (d)  s
+cmmi7.360 @sf
+887 120 p m (e)  s
+cmr10.360 @sf
+922 113 p m (=) 14 (0)  ks 
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (35)  s
+cmmi10.360 @sf
+m (d)  s
+cmr10.360 @sf
+0 262 p m (where)  s
+cmmi10.360 @sf
+12 r m (d)  s
+cmr10.360 @sf
+12 r m (is) 13 (the) 13 (tank) 13 (liquid) 14 (depth.)  ks 
+cmmi10.360 @sf
+20 r m (C)  s
+cmsy7.360 @sf
+751 245 p m (\003)  s
+747 274 p m (1)  s
+cmr10.360 @sf
+802 262 p m (is) 13 (estimated) 12 (from) 10 (an) 12 (expression) 12 
+(found) 12 (in) 13 (Baill) 1 (o) 1 (d)  ks 
+cmti10.360 @sf
+14 r m (et) 14 (al.)  ks 
+cmr10.360 @sf
+0 321 p m (\(1986\).) 21 (It) 14 (is) 14 (a) 14 (function) 14 
+(of) 14 (the) 13 (e\013ectiv) 0 (e) 15 (depth;,barom) -2 (etric) 13 
+(pressure,) 12 (v) -2 (ap) 1 (or) 12 (pressure) 12 (of) 14 
+(w) 0 (ater,)  ks 
+0 381 p m (a) 17 (standard) 16 (pressure) 16 (of) 17 (101.33) 17 
+(kP) 0 (a,) 17 (sp) 1 (eci\014c) 18 (w) 0 (eigh) -1 
+(t) 16 (of) 18 (w) 0 (ater,) 16 (and) 17 (saturation) 17 
+(concen) 0 (tration)  ks 
+0 441 p m (of) 17 (o) 0 (xygen.)  ks 
+0 526 p m (V) -3 (olatili) 1 (zati) 1 (on)  ks 
+0 534 p 291 2 ru
+0 610 p m (V) -3 (olatili) 1 (zati) 1 (on) 16 (o) 1 
+(ccurs) 13 (b) 0 (y) 13 (w) 0 (a) -1 (y) 12 
+(of) 15 (air) 14 (\015o) 0 (w) 12 (across) 13 (the) 14 
+(AB) 15 (surface.) 20 (In) 14 (an) 14 (op) 1 (en) 14 
+(basin,) 14 (v) 0 (olatiliz) 1 (a-)  ks 
+0 670 p m (tion) 18 (is) 17 (induced) 17 (b) 0 (y) 15 
+(the) 17 (wind,) 17 (while) 19 (in) 17 (a) 17 (closed) 17 
+(basin) 17 (v) 0 (olatilizati) 1 (on) 19 (is) 17 (induced) 17 
+(b) 0 (y) 15 (forced) 17 (air)  ks 
+0 730 p m (v) 0 (en) -1 (tilation.) 33 (The) 20 (rate) 20 
+(of) 20 (v) 0 (olatiliz) 1 (ati) 1 (on) 21 (is) 21 
+(based) 19 (on) 19 (a) 20 (\014rst-order) 18 (rate) 20 (expression) 19 
+(where) 19 (an)  ks 
+0 790 p m (o) 0 (v) -1 (erall) 17 (mass) 14 (transfer) 16 
+(rate) 17 (co) 1 (e\016cien) 0 (t) 17 (\()  ks 
+cmmi10.360 @sf
+m (K)  s
+cmmi7.360 @sf
+864 797 p m (L)  s
+cmmi10.360 @sf
+895 790 p m (a)  s
+cmr10.360 @sf
+m (\)) 18 (is) 17 (m) -1 (ultiplied) 18 (b) 0 
+(y) 16 (a) 17 (V) 0 (OC) 15 (concen) 0 (tration) 16 
+(driving)  ks 
+0 849 p m (force:)  s
+cmmi10.360 @sf
+753 1022 p m (r)  s
+cmmi7.360 @sf
+775 1029 p m (v) 1 (ol)  ks 
+cmr10.360 @sf
+845 1022 p m (=)  s
+cmmi10.360 @sf
+14 r m (K)  s
+cmmi7.360 @sf
+940 1029 p m (L)  s
+cmmi10.360 @sf
+970 1022 p m (a)  s
+cmr10.360 @sf
+m (\()  s
+cmmi10.360 @sf
+m (C)  s
+cmsy10.360 @sf
+15 r m (\000)  s
+cmmi10.360 @sf
+11 r m (C)  s
+cmsy7.360 @sf
+1156 1002 p m (\003)  s
+cmr10.360 @sf
+1178 1022 p m (\))  s
+0 1171 p m (where)  s
+cmmi10.360 @sf
+18 r m (r)  s
+cmmi7.360 @sf
+168 1178 p m (v) 1 (ol)  ks 
+cmr10.360 @sf
+243 1171 p m (is) 18 (the) 19 (rate) 18 (of) 18 (stripping,)  ks 
+cmmi10.360 @sf
+19 r m (C)  s
+cmr10.360 @sf
+22 r m (is) 18 (the) 19 (bulk) 19 (V) 0 (OC) 17 
+(aqueous) 17 (phase) 17 (concen) 0 (tration,) 18 (and)  ks 
+cmmi10.360 @sf
+0 1230 p m (C)  s
+cmsy7.360 @sf
+40 1213 p m (\003)  s
+cmr10.360 @sf
+81 1230 p m (is) 19 (the) 19 (V) 0 (OC) 17 (aqueous) 18 
+(phase) 18 (concen) 0 (tration) 18 (that) 19 (w) 0 (ould) 17 
+(b) 1 (e) 19 (in) 19 (equili) 1 (brium) 19 (with) 20 
+(the) 19 (bulk)  ks 
+0 1290 p m (air) 22 (concen) 0 (tration.) 35 (The) 21 (rate) 21 
+(expression) 21 (is) 22 (based) 21 (on) 21 (the) 21 (existence) 23 
+(of) 22 (a) 21 (stagnan) 0 (t) 19 (la) 0 (y) 0 
+(er) 20 (at)  ks 
+0 1350 p m (the) 21 (w) 0 (astew) -1 (ater-a) -1 (ir) 19 
+(in) 0 (terface.) 34 (When) 20 (the) 21 (reactor) 20 (is) 21 
+(unco) 0 (v) -1 (ered) -1 (,) 20 (the) 21 (air) 20 
+(ab) 1 (o) 0 (v) 0 (e) 18 (the) 21 (basin) 21 
+(is)  ks 
+0 1410 p m (assum) -1 (ed) 15 (to) 17 (ha) 0 (v) -1 
+(e) 15 (negligibl) 1 (e) 18 (V) 0 (OC) 16 (concen) 0 
+(tration) 15 (and)  ks 
+cmmi10.360 @sf
+16 r m (C)  s
+cmsy7.360 @sf
+1173 1393 p m (\003)  s
+cmr10.360 @sf
+1209 1410 p m (=) 14 (0.) 22 (When) 17 (the) 17 (reactor) 16 
+(is) 17 (co) 0 (v) 0 (er) -1 (ed,)  ks 
+0 1470 p m (a) 17 (V) 0 (OC) 16 (gas) 17 (phase) 16 
+(mass) 15 (balance) 17 (equation) 18 (that) 17 (incorp) 1 (orates) 17 
+(a) 17 (v) 0 (en) 0 (tilation) 17 (rate) 18 (is) 17 
+(solv) 0 (ed) 16 (for)  ks 
+0 1529 p m (the) 17 (V) 0 (OC) 15 (gas) 16 (phase) 16 
+(concen) 0 (tration) 15 (in) 17 (the) 17 (stagnan) 0 (t) 15 
+(la) 0 (y) 0 (er.)  ks 
+0 1614 p m (The) 20 (o) 0 (v) 0 (er) -1 (all) 20 
+(mass) 18 (transfer) 20 (co) 1 (e\016cien) 0 (t) 20 (is) 21 
+(based) 20 (on) 20 (the) 20 (liqui) 1 (d) 22 (and) 20 
+(gas) 19 (phase) 20 (mass) 18 (transfer)  ks 
+0 1674 p m (co) 1 (e\016cien) 0 (ts) 21 (and) 22 (the) 22 
+(Henry's) 21 (la) 0 (w) 21 (constan) 0 (t,) 22 (assum) -1 
+(ing) 20 (that) 23 (liquid-phase) 22 (mass) 20 (transfer) 21 (re-)  ks 
+0 1734 p m (sistance) 20 (is) 20 (dominan) -1 (t.) 30 (The) 20 
+(gas) 19 (and) 19 (liqui) 1 (d) 21 (mass) 18 (transfer) 18 
+(co) 1 (e\016cien) 0 (ts) 20 (are) 19 (calculated) 21 (either)  ks 
+0 1793 p m (from) 17 (correlations) 18 (dev) 0 (elop) 1 (ed) 18 
+(b) 0 (y) 17 (Mac) 0 (k) -2 (a) -1 (y) 17 
+(and) 17 (Y) -3 (eun) 17 (\(1983\)) 19 (or) 18 (b) 0 
+(y) 17 (Go) 0 (vind)  ks 
+cmti10.360 @sf
+18 r m (et) 19 (al.)  ks 
+cmr10.360 @sf
+28 r m (\(1991\)) 19 (and)  ks 
+0 1853 p m (Cohen)  s
+cmti10.360 @sf
+18 r m (et) 20 (al.)  ks 
+cmr10.360 @sf
+29 r m (\(1978\).) 29 (The) 19 (Mac) 0 (k) -2 (a) -2 
+(y) 17 (and) 18 (Y) -3 (eun) 18 (correlations) 19 (dep) 1 
+(end) 18 (on) 19 (the) 19 (wind) 19 (sp) 1 (eed,) 19 
+(the)  ks 
+0 1913 p m (gas) 16 (and) 16 (liquid) 18 (phase) 16 (Sc) 0 
+(hm) -2 (idt) 16 (n) 0 (um) -3 (b) 0 (ers,) 14 
+(and) 16 (the) 17 (basin) 16 (depth.) 21 (The) 17 (Go) 0 
+(vind)  ks 
+cmti10.360 @sf
+15 r m (et) 17 (al.)  ks 
+cmr10.360 @sf
+m (/Cohen)  s
+cmti10.360 @sf
+17 r m (et)  s
+0 1973 p m (al.)  s
+cmr10.360 @sf
+22 r m (correlation) 16 (is) 15 (based) 14 (on) 14 (a) 15 
+(roughness) 12 (Reynolds) 15 (n) 0 (um) -3 (b) 1 (er,) 13 
+(the) 15 (V) 0 (OC) 13 (liqui) 1 (d) 16 (di\013usivit) 1 
+(y) -3 (,) 14 (V) 0 (OC)  ks 
+0 2032 p m (molecular) 16 (w) 0 (eigh) 0 (t,) 15 (wind) 16 
+(v) 0 (elo) 1 (cit) 0 (y) -3 (,) 16 (and) 16 
+(the) 17 (basin) 16 (depth.)  ks 
+0 2117 p m (References)  s
+0 2125 p 230 2 ru
+0 2202 p m (Baill) 1 (o) 1 (d,) 26 (C.R.,) 23 (Crittenden,) 25 
+(J.C.,) 24 (Mihelcic,) 26 (J.R.,) 23 (Rogers,) 23 (T.N.,) 25 (Grady) -3 
+(,) 22 (Jr.,) 23 (C.P) -3 (.L.) 22 (1991.)  ks 
+0 2262 p m (Critical) 25 (ev) -2 (aluation) 23 (of) 23 (the) 23 
+(state) 23 (of) 23 (tec) 0 (hnologies) 22 (for) 22 (predicting) 24 
+(the) 22 (transp) 1 (ort) 22 (and) 22 (fate) 23 (of)  ks 
+0 2321 p m (to) 0 (xic) 18 (comp) 1 (ounds) 15 (in) 19 
+(w) 0 (astew) -1 (ater) 16 (facili) 1 (ti) 1 (es.) 28 
+(WPCF) 18 (Researc) 0 (h) 16 (F) -3 (ou) -1 (ndation) 17 
+(Rep) 1 (ort) 17 (No.) 27 (90-1,)  ks 
+0 2381 p m (W) -3 (ater) 16 (En) 0 (vironm) -1 (en) -2 
+(t) 15 (F) -3 (ound) -1 (ation,) 15 (Arlington,) 18 (V) -5 
+(A.)  ks 
+0 2466 p m (Baill) 1 (o) 1 (d,) 24 (C.R.,) 21 (P) 0 
+(aulson,) 20 (W.L.,) 22 (McKeo) 0 (wn) -1 (,) 20 (J.J.,) 21 
+(Campb) 1 (ell,) 22 (Jr.,) 21 (H.J.) 20 (1986.) 35 (Accuracy) 21 
+(and)  ks 
+0 2526 p m (precision) 14 (of) 13 (plan) 0 (t) 12 (scale) 14 
+(and) 13 (shop) 12 (clean) 14 (w) 0 (ater) 12 (o) 0 
+(xygen) 12 (transfer) 12 (tests,)  ks 
+cmti10.360 @sf
+14 r m (R) -2 (es.) 23 (J.) 15 (WPCF)  ks 
+cmr10.360 @sf
+m (,) 12 (58:290{)  ks 
+0 2585 p m (299.)  s
+0 2670 p m (Cohen,) 21 (Y.,) 22 (Co) 1 (cc) 0 (hio,) 21 
+(W.,) 22 (Mac) 0 (k) -3 (a) -1 (y) -4 (,) 20 
+(D.) 20 (1978.) 34 (Lab) 1 (oratory) 21 (study) 20 (of) 21 
+(liquid-phase) 21 (con) 0 (trolled)  ks 
+950 2790 p m (16)  s
+@eop
+17 @bop0
+17 @bop1
+cmr10.360 @sf
+0 50 p m (v) 0 (olatiliz) 1 (ati) 1 (on) 18 (rates) 16 
+(in) 17 (presence) 16 (of) 17 (wind) 16 (w) 0 (a) -1 
+(v) -1 (es.)  ks 
+cmti10.360 @sf
+20 r m (Envir) -2 (on.) 23 (Sci.) 24 (and) 18 (T) -3 
+(e) -2 (chnol.)  ks 
+cmr10.360 @sf
+m (,) 16 (127:553{558.)  ks 
+0 134 p m (Go) 0 (vind,) 17 (R.,) 17 (Lai,) 18 (L.,) 18 
+(Dobbs,) 16 (R.) 17 (1991.) 24 (In) 0 (tegrated) 16 (mo) 1 
+(del) 17 (for) 17 (predicting) 18 (the) 18 (fate) 18 (of) 18 
+(organics)  ks 
+0 194 p m (in) 17 (w) 0 (astew) -1 (ater) 15 (treatmen) -1 
+(t) 15 (plan) 0 (ts.)  ks 
+cmti10.360 @sf
+21 r m (Envir) -2 (on.) 23 (Pr) -2 (o) -2 (g.)  ks 
+cmr10.360 @sf
+m (,) 16 (10:13{23.)  ks 
+0 279 p m (Mac) 0 (k) -2 (a) -2 (y) -3 (,) 14 
+(D.M.,) 16 (Y) -3 (eun,) 15 (A.T.K.) 16 (1983.) 21 (Mass) 16 
+(transfer) 15 (co) 1 (e\016cien) 0 (t) 17 (correlations) 17 (for) 16 
+(v) 0 (olatilizat) 1 (ion)  ks 
+0 339 p m (of) 17 (organic) 16 (solutes) 17 (from) 15 (w) 0 
+(ater.)  ks 
+cmti10.360 @sf
+20 r m (Envir) -2 (on.) 23 (Sci.) 24 (T) -3 (e) -2 
+(chnol.)  ks 
+cmr10.360 @sf
+m (,) 15 (17:211{216.)  ks 
+0 423 p m (Munz,) 16 (C.,) 17 (Rob) 1 (erts,) 16 (P) -3 
+(.V.) 16 (1989.) 23 (Gas-) 16 (and) 17 (liquid-phase) 17 (mass) 15 
+(transfer) 16 (resistances) 17 (of) 17 (organic)  ks 
+0 483 p m (comp) 1 (ounds) 14 (during) 16 (mec) -1 (han) -1 
+(ical) 17 (surface) 16 (aeration,)  ks 
+cmti10.360 @sf
+16 r m (Water) 18 (R) -2 (es.)  ks 
+cmr10.360 @sf
+m (,) 17 (23:589{601.)  ks 
+0 568 p m (Rob) 1 (erts,) 16 (P) -3 (.V.,) 15 (Munz,) 16 
+(C.,) 16 (D\177) -24 (andlik) 0 (er,) 15 (P) -3 (.) 15 
+(1984.) 22 (Mo) 1 (deling) 18 (v) 0 (olatile) 18 (organic) 17 
+(solute) 17 (remo) -1 (v) -3 (al) 15 (b) 0 (y)  ks 
+0 628 p m (surface) 16 (and) 16 (bubble) 16 (aeration,)  ks 
+cmti10.360 @sf
+17 r m (R) -2 (es.) 23 (J.) 18 (WPCF)  ks 
+cmr10.360 @sf
+m (,) 15 (56:157{163.)  ks 
+950 2790 p m (17)  s
+@eop
+18 @bop0
+18 @bop1
+cmr10.360 @sf
+0 50 p m (CSTR) 16 (P) -3 (ARAMETERS) 14 (SCREEN)  ks 
+0 134 p m (In) 19 (this) 19 (screen,) 18 (the) 19 (user) 18 
+(can) 19 (en) 0 (ter) 17 (sp) 1 (eci\014cations) 20 (for) 19 
+(the) 19 (individual) 21 (CSTRS) 17 (used) 18 (to) 20 (mo) 1 
+(del)  ks 
+0 194 p m (the) 15 (aeration) 16 (basin) 15 (\(AB\).) 16 (This) 15 
+(screen) 15 (is) 15 (used) 14 (only) 16 (when) 15 (more) 13 
+(than) 15 (one) 15 (CSTR) 14 (is) 16 (used.) 20 (The)  ks 
+0 254 p m (AB) 20 (can) 19 (b) 1 (e) 20 (sim) -1 
+(ulated) 18 (as) 19 (up) 19 (to) 20 (nine) 19 (CSTRs) 19 
+(in) 20 (series,) 20 (either) 20 (to) 19 (sim) 0 (ulate) 18 
+(a) 20 (degree) 18 (of) 20 (plug)  ks 
+0 314 p m (\015o) 0 (w) 17 (or) 19 (to) 19 (sim) 0 
+(u) -1 (late) 18 (v) -2 (ariable) 20 (feed) 19 (con\014gurations.) 28 
+(Mass) 18 (balance) 19 (equations) 20 (are) 18 (eac) 0 (h) 18 
+(CSTR)  ks 
+0 374 p m (are) 19 (solv) 0 (ed) 18 (sim) -1 (ultaneously) -3 
+(.) 27 (The) 19 (user) 18 (m) -1 (us) -1 (t) 18 
+(sp) 1 (ecify) 20 (the) 19 (follo) 0 (wing) 20 (param) -1 
+(eters) 17 (in) 20 (the) 19 (CSTR)  ks 
+0 433 p m (P) 0 (aram) -2 (eters) 15 (screen:)  ks 
+58 518 p m (-)  s
+100 518 p m (the) 16 (n) 0 (um) -2 (b) 0 (er) 15 
+(of) 17 (CSTRs)  ks 
+58 603 p m (-)  s
+100 603 p m (whether) 21 (step) 21 (feed) 22 (con\014guration) 21 (is) 22 
+(used.) 37 (With) 22 (the) 22 (default) 23 (con\014guration,) 22 (all) 23 
+(of) 22 (the)  ks 
+100 663 p m (in\015uen) 0 (t) 16 (\015o) 0 (w) 16 (to) 19 
+(the) 18 (AB) 19 (en) 0 (ters) 16 (the) 18 (\014rst) 17 
+(CSTR.) 17 (With) 19 (the) 18 (step) 18 (feed) 18 (con\014guration,) 18 
+(the)  ks 
+100 722 p m (in\015uen) 0 (t) 15 (\015o) 0 (w) 15 (to) 17 
+(the) 16 (AB) 18 (is) 17 (split) 18 (among) 14 (the) 17 
+(CSTRs.)  ks 
+58 807 p m (-)  s
+100 807 p m (whether) 15 (the) 17 (feed) 16 (fractions) 16 (are) 16 
+(non-uniform) -1 (.) 20 (The) 16 (default) 17 (sp) 1 (eci\014cation) 17 
+(is) 17 (that) 17 (the) 16 (feed)  ks 
+100 867 p m (fraction) 12 (is) 13 (distributed) 12 (uniformly) 12 (o) 0 
+(v) -1 (er) 10 (all) 14 (of) 12 (the) 12 (CSTRS.) 11 
+(In) 12 (order) 11 (to) 12 (en) 0 (ter) 11 (feed) 12 
+(fractions,)  ks 
+100 927 p m (the) 13 (user) 12 (m) -1 (us) -1 (t) 12 
+(sp) 1 (ecify) 14 (a) 13 (non-uniform) 11 (feed) 13 (fraction.) 21 
+(The) 13 (uniformit) 0 (y) 12 (of) 13 (the) 14 (feed) 13 
+(fractions)  ks 
+100 986 p m (can) 16 (b) 1 (e) 17 (sp) 1 (eci\014ed) 17 
+(only) 17 (when) 16 (step) 17 (feed) 16 (con\014guration) 16 (is) 17 
+(enabled.)  ks 
+58 1071 p m (-)  s
+100 1071 p m (the) 18 (feed) 19 (fraction) 20 (for) 18 (the) 19 
+(step) 18 (feed) 19 (con\014guration.) 27 (The) 19 (feed) 19 (fractions) 18 
+(can) 19 (b) 1 (e) 19 (sp) 1 (eci\014ed)  ks 
+100 1131 p m (only) 13 (when) 12 (\(a\)) 14 (step) 12 (feed) 13 
+(con\014guration) 12 (is) 14 (enabled) 12 (and) 12 (\(b\)) 14 (the) 12 
+(feed) 13 (fractions) 13 (are) 13 (sp) 1 (eci\014ed)  ks 
+100 1191 p m (as) 16 (non-uniform) -1 (.) 20 (The) 16 (feed) 17 
+(fractions) 17 (m) -1 (us) -1 (t) 15 (sum) 15 (to) 17 
+(one.)  ks 
+58 1275 p m (-)  s
+100 1275 p m (whether) 20 (the) 22 (CSTR) 21 (v) 0 (olumes) 19 
+(are) 21 (non-uniform) -1 (.) 34 (The) 21 (default) 23 (sp) 1 
+(eci\014cation) 22 (is) 22 (that) 22 (the)  ks 
+100 1335 p m (CSTR) 16 (v) 0 (olumes) 15 (are) 17 (uniform.) 23 
+(In) 17 (this) 18 (case,) 17 (the) 18 (user) 16 (en) 0 
+(ters) 16 (a) 17 (total) 19 (AB) 18 (v) 0 (olume) 15 
+(and) 17 (the)  ks 
+100 1395 p m (total) 22 (v) 0 (olume) 18 (will) 23 (b) 1 
+(e) 21 (split) 22 (uniformly) 20 (o) 0 (v) 0 (er) 18 
+(the) 21 (CSTRs.) 33 (In) 20 (order) 20 (to) 21 (en) 0 
+(ter) 19 (v) 0 (olum) -1 (es) 19 (of)  ks 
+100 1455 p m (individual) 18 (CSTRs,) 16 (the) 17 (user) 15 (m) -1 
+(ust) 15 (sp) 1 (ecify) 18 (non-uniform) 13 (v) 0 (olumes.)  ks 
+58 1539 p m (-)  s
+100 1539 p m (the) 18 (v) 0 (olumes) 15 (of) 18 (the) 18 
+(CSTRs.) 25 (In) 17 (the) 19 (case) 17 (of) 18 (uniform) 16 
+(CSTR) 18 (v) 0 (olum) -1 (es,) 16 (the) 18 (user) 17 
+(en) 0 (ters) 16 (a)  ks 
+100 1599 p m (total) 13 (AB) 13 (v) 0 (olume) 10 (and) 12 
+(the) 12 (total) 14 (v) 0 (olume) 10 (will) 15 (b) 1 
+(e) 12 (split) 14 (uniformly) 11 (o) 0 (v) 0 (er) 10 
+(the) 12 (CSTRs.) 19 (In) 12 (order)  ks 
+100 1659 p m (to) 17 (en) 0 (ter) 15 (v) 0 (olum) -1 
+(es) 15 (of) 17 (individual) 18 (CSTRs,) 16 (the) 17 (user) 15 
+(m) -1 (ust) 15 (sp) 1 (ecify) 18 (non-uniform) 13 (v) 0 
+(olumes.)  ks 
+58 1744 p m (-)  s
+100 1744 p m (whether) 21 (the) 21 (aeration) 22 (gas) 21 (\015o) 0 
+(w) 20 (rates) 21 (in) 0 (to) 21 (the) 21 (CSTRs) 21 
+(are) 21 (non-uniform) -1 (.) 35 (The) 21 (default)  ks 
+100 1803 p m (sp) 1 (eci\014cation) 19 (is) 19 (that) 18 (the) 19 
+(aeration) 18 (gas) 18 (\015o) 0 (w) 16 (rates) 18 (in) 0 
+(to) 17 (the) 19 (CSTRs) 17 (are) 18 (uniform.) 25 (In) 18 
+(this)  ks 
+100 1863 p m (case,) 16 (the) 17 (user) 15 (en) 0 (ters) 15 
+(a) 16 (total) 18 (aeration) 17 (gas) 16 (\015o) 0 (w) 15 
+(rate) 16 (and) 16 (the) 17 (total) 18 (gas) 16 (\015o) 0 
+(w) 15 (will) 19 (b) 1 (e) 17 (split)  ks 
+100 1923 p m (uniformly) 20 (o) 0 (v) -1 (er) 18 (the) 21 
+(CSTRs.) 33 (In) 20 (order) 20 (to) 21 (en) 0 (ter) 19 
+(aeration) 21 (gas) 20 (\015o) 0 (w) 18 (rates) 21 (for) 20 
+(individual)  ks 
+100 1983 p m (CSTRs,) 15 (the) 17 (user) 15 (m) 0 (u) -1 
+(st) 15 (sp) 1 (ecify) 18 (non-uniform) 14 (aeration) 16 (gas) 16 
+(\015o) 0 (w) 15 (rates.)  ks 
+58 2067 p m (-)  s
+100 2067 p m (the) 14 (aeration) 15 (gas) 13 (\015o) 0 (w) 13 
+(rates) 14 (of) 14 (the) 15 (CSTRs.) 20 (In) 14 (the) 14 
+(case) 15 (of) 14 (uniform) 13 (CSTR) 13 (gas) 14 (\015o) 0 
+(w) 13 (rates,)  ks 
+100 2127 p m (the) 17 (user) 17 (en) 0 (ters) 16 (a) 17 
+(total) 19 (aeration) 18 (gas) 17 (\015o) 0 (w) 16 (rate) 17 
+(and) 17 (the) 18 (total) 19 (gas) 17 (\015o) 0 (w) 15 
+(rate) 18 (will) 20 (b) 1 (e) 18 (split)  ks 
+100 2187 p m (uniformly) 20 (o) 0 (v) -1 (er) 18 (the) 21 
+(CSTRs.) 33 (In) 20 (order) 20 (to) 21 (en) 0 (ter) 19 
+(aeration) 21 (gas) 20 (\015o) 0 (w) 18 (rates) 21 (for) 20 
+(individual)  ks 
+100 2247 p m (CSTRs,) 15 (the) 17 (user) 15 (m) 0 (u) -1 
+(st) 15 (sp) 1 (ecify) 18 (non-uniform) 14 (aeration) 16 (gas) 16 
+(\015o) 0 (w) 15 (rates.)  ks 
+58 2331 p m (-)  s
+100 2331 p m (whether) 20 (\(a\)) 22 (the) 21 (user) 21 (will) 23 
+(en) 0 (ter) 20 (or) 20 (\(b\)) 22 (F) -3 (aV) -1 
+(Or) 19 (will) 23 (calculate) 23 (biomass) 20 (concen) 0 (trations)  ks 
+100 2391 p m (in) 19 (the) 19 (CSTRs.) 28 (If) 19 (the) 19 
+(user) 17 (c) 0 (ho) 1 (oses) 17 (to) 20 (ha) 0 
+(v) -1 (e) 17 (F) -3 (aV) -1 (Or) 16 (calculate) 21 
+(biomass) 17 (concen) 0 (trations,)  ks 
+100 2451 p m (\(a\)) 22 (the) 21 (Biomass) 20 (Calculati) 1 (ons) 22 
+(screen) 21 (will) 24 (p) 1 (op) 20 (up,) 22 (\(b\)) 22 
+(the) 21 (user) 21 (will) 23 (b) 1 (e) 22 (promp) -1 
+(ted) 20 (to)  ks 
+100 2511 p m (en) 0 (ter) 16 (some) 16 (param) -1 (eters,) 16 
+(\(c\)) 18 (F) -3 (aV) 0 (O) -1 (r) 16 (will) 20 
+(calculate) 20 (the) 18 (biomass) 15 (concen) 0 (trations,) 17 (\(d\)) 18 
+(the)  ks 
+100 2570 p m (user) 16 (will) 19 (b) 1 (e) 18 (returned) 15 
+(to) 18 (the) 17 (CSTR) 17 (P) 0 (ar) -1 (am) -1 
+(eter) 15 (screen,) 17 (and) 16 (\(e\)) 18 (the) 17 (calculated) 19 
+(biomass)  ks 
+100 2630 p m (concen) 0 (trations) 20 (will) 25 (app) 1 (ear) 21 
+(on) 22 (the) 22 (CSTR) 21 (P) 0 (aram) -2 (eter) 21 
+(screen.) 37 (The) 22 (metho) 1 (ds) 20 (used) 21 (b) 0 
+(y)  ks 
+950 2790 p m (18)  s
+@eop
+19 @bop0
+19 @bop1
+cmr10.360 @sf
+100 50 p m (F) -3 (aV) -1 (Or) 13 (to) 16 (calculate) 18 
+(biomass) 14 (concen) 0 (trations) 14 (are) 16 (describ) 1 (ed) 15 
+(in) 17 (the) 16 (Help) 17 (for) 15 (the) 16 (Biomass)  ks 
+100 110 p m (Calculations) 18 (screen.)  ks 
+58 194 p m (-)  s
+100 194 p m (whether) 11 (the) 13 (CSTR) 11 (biomass) 10 (concen) 0 
+(trations) 11 (are) 12 (uniform.) 18 (This) 13 (option) 12 (is) 13 
+(a) 0 (v) -2 (ailable) 12 (only) 13 (if)  ks 
+100 254 p m (the) 14 (user) 13 (c) 0 (ho) 1 (oses) 13 
+(to) 14 (en) 0 (ter) 13 (the) 15 (biomass) 12 (concen) 0 
+(trations.) 20 (The) 14 (default) 15 (sp) 1 (eci\014cation) 16 (is) 15 
+(that)  ks 
+100 314 p m (the) 16 (biomass) 14 (concen) 0 (trations) 14 (in) 16 
+(the) 16 (CSTR) 16 (are) 15 (uniform.) 20 (In) 16 (this) 16 
+(case,) 16 (the) 16 (user) 15 (en) 0 (ters) 13 (an)  ks 
+100 374 p m (a) 0 (v) -1 (erage) 11 (biomass) 12 (concen) 0 
+(tration) 12 (and) 12 (the) 14 (a) 0 (v) -1 (erage) 11 
+(biomass) 12 (concen) 0 (tration) 12 (will) 16 (b) 1 (e) 14 
+(assigned)  ks 
+100 433 p m (to) 14 (eac) 0 (h) 12 (of) 13 (the) 14 
+(CSTRs.) 20 (In) 14 (order) 12 (to) 14 (en) 0 (ter) 12 
+(biomass) 12 (concen) 0 (trations) 12 (for) 13 (indivi) 1 (dual) 15 
+(CSTRs,)  ks 
+100 493 p m (the) 16 (user) 16 (m) -1 (us) -1 (t) 15 
+(sp) 1 (ecify) 18 (non-uniform) 14 (biomass) 15 (concen) 0 (trations.)  ks 
+58 578 p m (-)  s
+100 578 p m (the) 19 (biomass) 18 (concen) 0 (trations) 18 (for) 19 
+(the) 19 (CSTRs,) 19 (if) 20 (the) 20 (user) 18 (c) 0 
+(ho) 1 (oses) 18 (to) 20 (en) 0 (ter) 17 (the) 20 
+(biomass)  ks 
+100 638 p m (concen) 0 (trations) 16 (rather) 16 (than) 17 (ha) 0 
+(v) -1 (e) 16 (F) -3 (aV) -1 (Or) 15 (calculate) 19 
+(the) 18 (biomass) 16 (concen) 0 (trations.) 23 (In) 17 (the)  ks 
+100 697 p m (case) 19 (of) 19 (uniform) 18 (biomass) 17 (concen) 0 
+(trations,) 19 (the) 19 (user) 19 (en) 0 (ters) 17 (an) 19 
+(a) 0 (v) -1 (erage) 17 (biomass) 18 (concen-)  ks 
+100 757 p m (tration) 15 (and) 14 (the) 16 (a) 0 (v) -1 
+(era) -1 (ge) 13 (biomass) 14 (concen) 0 (tration) 13 (will) 18 
+(b) 1 (e) 15 (assigned) 14 (to) 16 (eac) 0 (h) 13 
+(of) 15 (the) 15 (CSTRs.)  ks 
+100 817 p m (In) 15 (order) 15 (to) 16 (en) 0 (ter) 14 
+(biomass) 14 (concen) 0 (trations) 15 (for) 15 (individual) 18 (CSTRs,) 15 
+(the) 16 (user) 15 (m) -1 (us) -1 (t) 15 (sp) 1 
+(ecify)  ks 
+100 877 p m (non-uniform) 13 (biomass) 15 (concen) 0 (trations.)  ks 
+950 2790 p m (19)  s
+@eop
+20 @bop0
+cmr10.360 @sf
+[<7FF9FFEFFF7FF9FFEFFF07801E00F007801E00F007801E00F007801E00F007801E00F007801E00
+  F007801E00F007801E00F007801E00F007801E00F007801E00F007801E00F007801E00F007801E
+  00F007801E00F007801E00F007801E00F0FFFFFFFFF0FFFFFFFFF007801E00F007801E00F00780
+  1E00F007801E00F007801E00F007801E00F007801E00F007803E00F007C03F01F003E03F81F001
+  F03FC1F000FC1FE1F0003FFDFFF00007F03FF0> 40 35 0 0 42] 15 @dc
+cmti10.360 @sf
+[<00F87E0003FEFF0007CFE3800707C1C00703C0E00703C0600701C0600701C0300701C0300781E0
+  300381E0380380E01803C0E01801C0E018E1C0F01C61E0701C70E0703C30E0707C3DE0787C1FC0
+  387C07803838> 30 21 -3 0 33] 119 @dc
+20 @bop1
+cmr10.360 @sf
+0 50 p m (BIOMASS) 16 (CALCULA) -3 (TIONS) 17 (SCREEN)  ks 
+0 134 p m (Biomass) 18 (concen) 0 (trations) 18 (are) 19 (assumed) 17 
+(to) 20 (b) 1 (e) 19 (equiv) -2 (alen) 0 (t) 20 
+(to) 20 (v) 0 (olatile) 21 (susp) 1 (ended) 18 (solids) 20 
+(\(VSS\))  ks 
+0 194 p m (concen) 0 (trations.) 22 (The) 17 (biomass) 15 (concen) 0 
+(trations) 16 (in) 17 (a) 17 (single-) 18 (or) 16 (m) 0 
+(u) -1 (ltiple-CSTR) 17 (aeration) 17 (basin)  ks 
+0 254 p m (\(AB\)) 26 (and) 23 (the) 25 (VSS) 24 (concen) 0 
+(trations) 23 (in) 24 (the) 25 (secondary) 23 (clari\014er) 25 (\(SC\)) 25 
+(w) 0 (astage) 22 (and) 24 (recycle)  ks 
+0 314 p m (are) 20 (calculated) 21 (b) 0 (y) 19 (solving) 21 
+(substrate) 19 (and) 20 (biomass) 18 (mass) 18 (balance) 20 (equations.) 33 
+(The) 20 (substrate)  ks 
+0 374 p m (is) 19 (assumed) 16 (to) 20 (b) 1 (e) 19 
+(equiv) -2 (alen) 0 (t) 18 (to) 20 (the) 19 (BOD)  ks 
+cmr7.360 @sf
+890 381 p m (5)  s
+cmr10.360 @sf
+931 374 p m (concen) 0 (tration.) 28 (Bio) 1 (degradation) 19 (of) 19 
+(the) 19 (V) 0 (OCs) 18 (is)  ks 
+0 433 p m (accoun) 0 (ted) 10 (for) 12 (in) 12 (the) 12 
+(V) 0 (OC) 11 (mass) 9 (balance) 12 (equations) 13 (for) 11 
+(the) 12 (AB) 13 (and) 11 (is) 12 (not) 12 (accoun) 0 
+(ted) 10 (for) 11 (in) 13 (the)  ks 
+0 493 p m (substrate) 18 (mass) 16 (balance) 20 (calculations.) 30 (The) 19 
+(biomass) 17 (and) 18 (substrate) 18 (mass) 16 (balance) 20 (equations)  ks 
+0 553 p m (are) 17 (based) 17 (on) 17 (the) 18 (assum) -1 
+(ptions) 16 (that) 18 (\(a\)) 18 (the) 18 (system) 17 (is) 18 
+(at) 18 (steady) 17 (state,) 19 (\(b\)) 18 (the) 17 (in\015uen) 0 
+(t) 17 (and)  ks 
+0 613 p m (e\017uen) 0 (t) 15 (VSS) 16 (concen) 0 (trations) 15 
+(are) 16 (negligibl) 1 (e) 18 (compared) 14 (to) 17 (the) 17 
+(VSS) 16 (concen) 0 (trations) 15 (in) 17 (the) 16 (AB)  ks 
+0 672 p m (and) 13 (SC,) 13 (\(c\)) 15 (all) 15 (biological) 17 
+(reactions) 14 (o) 1 (ccur) 13 (in) 14 (the) 14 (AB,) 15 
+(and) 13 (\(d\)) 14 (Mono) 1 (d) 13 (kinetics) 15 (can) 14 
+(b) 1 (e) 14 (used) 13 (to)  ks 
+0 732 p m (describ) 1 (e) 16 (the) 16 (kineti) 1 (cs) 17 
+(of) 17 (the) 16 (substrate) 15 (and) 15 (biomass.) 20 (The) 16 
+(mass) 14 (balance) 16 (equations) 16 (used) 16 (here)  ks 
+0 792 p m (are) 18 (based) 18 (on) 18 (those) 18 (found) 18 
+(in) 19 (Metcalf) 20 (and) 18 (Eddy) 18 (\(1979,) 19 (pp.) 27 
+(418{420) 18 (and) 18 (430{434\).) 27 (These)  ks 
+0 852 p m (equations) 17 (ha) 0 (v) -1 (e) 15 (b) 1 
+(een) 17 (mo) 1 (di\014ed) 15 (to) 17 (allo) 0 (w) 17 
+(for) 16 (mo) 1 (deling) 16 (the) 17 (AB) 17 (as) 16 
+(a) 17 (series) 16 (of) 17 (CSTRs.)  ks 
+0 937 p m (The) 16 (user) 16 (m) -1 (us) -1 (t) 15 
+(sp) 1 (ecify) 18 (the) 17 (follo) 0 (wing) 17 (parameters) 14 
+(in) 18 (the) 16 (Biomass) 16 (Calculations) 18 (screen:)  ks 
+58 1021 p m (-)  s
+100 1021 p m (maxim) -2 (um) 16 (gro) 0 (wth) 18 (rate) 20 
+(constan) 0 (t.) 30 (This) 20 (parameter) 18 (is) 20 (found) 19 
+(in) 21 (the) 20 (Mono) 1 (d) 19 (kinetic) 22 (ex-)  ks 
+100 1081 p m (pression) 18 (and) 19 (ranges) 18 (from) 17 (0.8) 19 
+(to) 20 (8) 19 (1/da) 0 (y) -4 (,) 18 (with) 20 
+(a) 20 (t) 0 (ypical) 20 (v) -2 (alue) 19 (of) 20 
+(3.0) 19 (1/da) 0 (y) 17 (\(Metcalf)  ks 
+100 1141 p m (and) 15 (Eddy) -3 (,) 15 (1979,) 16 (p.) 22 
+(434\).)  ks 
+58 1225 p m (-)  s
+100 1225 p m (half) 18 (v) 0 (elo) 1 (cit) 0 (y) 17 
+(constan) 0 (t.) 23 (This) 18 (param) -1 (eter) 16 (is) 18 
+(found) 16 (in) 18 (the) 18 (Mono) 1 (d) 16 (kinetic) 20 
+(expression) 17 (and)  ks 
+100 1285 p m (ranges) 16 (from) 15 (25) 18 (to) 17 (100) 17 
+(mg/L) 16 (BOD)  ks 
+cmr7.360 @sf
+847 1292 p m (5)  s
+cmr10.360 @sf
+870 1285 p m (,) 17 (with) 18 (a) 18 (t) 0 (ypical) 18 
+(v) -2 (alue) 17 (of) 18 (60) 17 (mg/L) 16 (BOD)  ks 
+cmr7.360 @sf
+1728 1292 p m (5)  s
+cmr10.360 @sf
+1767 1285 p m (\(Metcalf)  s
+100 1345 p m (and) 15 (Eddy) -3 (,) 15 (1979,) 16 (p.) 22 
+(434\).)  ks 
+58 1430 p m (-)  s
+100 1430 p m (bacterial) 18 (deca) 0 (y) 16 (rate.) 24 (This) 17 
+(parameter) 15 (ranges) 16 (from) 15 (0.04) 17 (to) 17 (0.075) 17 
+(1/da) 0 (y) -4 (,) 15 (with) 18 (a) 17 (t) 0 
+(ypical)  ks 
+100 1489 p m (v) -2 (alue) 16 (of) 17 (0.06) 16 (1/da) 0 
+(y) 15 (\(Metcalf) 18 (and) 16 (Eddy) -3 (,) 15 (1979,) 16 
+(p.) 22 (434\).)  ks 
+58 1574 p m (-)  s
+100 1574 p m (yield) 17 (co) 1 (e\016cien) 0 (t.) 21 (This) 16 
+(param) -1 (eter) 14 (is) 16 (found) 14 (in) 16 (the) 16 
+(Mono) 1 (d) 14 (kinetic) 18 (expression) 15 (and) 14 (ranges)  ks 
+100 1634 p m (from) 18 (0.4) 21 (to) 20 (0.8) 21 (mg) 19 
+(VSS/mg) 18 (BOD)  ks 
+cmr7.360 @sf
+858 1641 p m (5)  s
+cmr10.360 @sf
+881 1634 p m (,) 21 (with) 22 (a) 20 (t) 0 (ypical) 21 
+(v) -2 (alue) 21 (of) 21 (0.6) 20 (mg) 19 (VSS/mg) 19 
+(BOD)  ks 
+cmr7.360 @sf
+1928 1641 p m (5)  s
+cmr10.360 @sf
+100 1694 p m (\(Metcalf) 18 (and) 16 (Eddy) -3 (,) 15 (1979,) 16 
+(p.) 21 (434\).)  ks 
+58 1778 p m (-)  s
+100 1778 p m (AB) 21 (in\015uen) 0 (t) 19 (BOD)  ks 
+cmr7.360 @sf
+490 1785 p m (5)  s
+cmr10.360 @sf
+532 1778 p m (concen) 0 (tration.) 33 (The) 20 (in\015uen) 0 (t) 19 
+(BOD)  ks 
+cmr7.360 @sf
+1278 1785 p m (5)  s
+cmr10.360 @sf
+1321 1778 p m (concen) 0 (tration) 19 (to) 20 (the) 21 (Ab) 20 
+(can)  ks 
+100 1838 p m (v) -2 (ary) 15 (of) 17 (a) 17 (wide) 17 
+(range,) 16 (for) 16 (example,) 16 (from) 14 (50) 17 (to) 17 
+(1000) 16 (mg/L.)  ks 
+0 1923 p m (Note) 14 (that) 14 (all) 15 (remaining) 12 (param) -1 
+(eters) 11 (required) 13 (to) 14 (solv) 0 (e) 13 (the) 13 
+(mass) 11 (balance) 14 (equations) 14 (ha) 0 (v) -1 (e) 11 
+(b) 1 (een)  ks 
+0 1983 p m (en) 0 (tered) 15 (in) 17 (previous) 16 (F) -3 
+(aV) 0 (O) -1 (r) 14 (screens.)  ks 
+0 2067 p m (References)  s
+0 2075 p 230 2 ru
+0 2152 p m (Metcalf) 14 (and) 13 (Eddy) -3 (,) 12 (Inc.) 21 
+(1979.)  ks 
+cmti10.360 @sf
+20 r m (Wastewater) 15 (Engine) -2 (ering)  ks 
+cmr10.360 @sf
+m (,) 13 (McGra) 0 (w-) -1 (Hill) 14 (Bo) 1 
+(ok) 14 (Co.,) 14 (New) 13 (Y) -3 (ork.)  ks 
+950 2790 p m (20)  s
+@eop
+21 @bop0
+21 @bop1
+cmr10.360 @sf
+0 50 p m (SECOND) 0 (AR) -4 (Y) 15 (CLARIFIER) 16 (SCREEN)  ks 
+0 134 p m (V) 0 (OC) 16 (remo) -1 (v) -3 (al) 16 
+(can) 17 (o) 1 (ccur) 17 (in) 18 (the) 18 (secondary) 16 
+(clari\014ers) 17 (\(SCs\)) 18 (via) 18 (v) 0 (olatiliz) 1 (ati) 1 
+(on) 19 (and) 16 (under\015o) -1 (w)  ks 
+0 194 p m (w) 0 (astage.) 19 (It) 11 (is) 12 (assumed) 9 
+(that) 12 (the) 11 (solids) 12 (are) 11 (completely) 12 (remo) -1 
+(v) -1 (ed) 9 (in) 12 (the) 11 (SCs) 11 (and) 11 
+(that) 11 (biological)  ks 
+0 254 p m (activit) 1 (y) 17 (in) 17 (the) 17 (SCs) 16 
+(can) 16 (b) 1 (e) 17 (neglected.)  ks 
+0 339 p m (The) 16 (user) 16 (m) -1 (us) -1 (t) 15 
+(sp) 1 (ecify) 18 (the) 17 (follo) 0 (wing) 17 (parameters) 14 
+(in) 18 (the) 16 (SC) 17 (screen:)  ks 
+58 423 p m (-)  s
+100 423 p m (the) 16 (n) 0 (um) -2 (b) 0 (er) 15 
+(of) 17 (parallel) 18 (SCs) 16 (in) 17 (use)  ks 
+58 508 p m (-)  s
+100 508 p m (whether) 16 (the) 17 (SCs) 15 (are) 17 (co) 0 
+(v) -1 (ered)  ks 
+58 593 p m (-)  s
+100 593 p m (the) 16 (v) 0 (en) 0 (tilation) 17 (rate) 17 
+(for) 16 (a) 16 (SC) 17 (if) 17 (the) 17 (SC) 16 
+(is) 17 (co) 0 (v) 0 (ered)  ks 
+58 677 p m (-)  s
+100 677 p m (the) 16 (liqui) 1 (d) 18 (depth) 16 (in) 17 
+(a) 17 (SC)  ks 
+58 762 p m (-)  s
+100 762 p m (the) 16 (v) 0 (olume) 15 (of) 17 (a) 16 
+(SC)  ks 
+0 847 p m (V) -3 (olatili) 1 (zati) 1 (on)  ks 
+0 855 p 291 2 ru
+0 932 p m (V) -3 (olatili) 1 (zati) 1 (on) 16 (o) 1 
+(ccurs) 14 (b) 0 (y) 14 (w) 0 (a) -1 (y) 13 
+(of) 15 (air) 15 (\015o) 0 (w) 13 (across) 13 (the) 15 
+(SC) 14 (surface.) 21 (In) 14 (an) 15 (op) 1 (en) 14 
+(basin,) 15 (v) 0 (olatiliz) 1 (a-)  ks 
+0 991 p m (tion) 18 (is) 17 (induced) 17 (b) 0 (y) 15 
+(the) 17 (wind,) 17 (while) 19 (in) 17 (a) 17 (closed) 17 
+(basin) 17 (v) 0 (olatilizati) 1 (on) 19 (is) 17 (induced) 17 
+(b) 0 (y) 15 (forced) 17 (air)  ks 
+0 1051 p m (v) 0 (en) -1 (tilation.) 33 (The) 20 (rate) 20 
+(of) 20 (v) 0 (olatiliz) 1 (ati) 1 (on) 21 (is) 21 
+(based) 19 (on) 19 (a) 20 (\014rst-order) 18 (rate) 20 (expression) 19 
+(where) 19 (an)  ks 
+0 1111 p m (o) 0 (v) -1 (erall) 17 (mass) 14 (transfer) 16 
+(rate) 17 (co) 1 (e\016cien) 0 (t) 17 (\()  ks 
+cmmi10.360 @sf
+m (K)  s
+cmmi7.360 @sf
+864 1118 p m (L)  s
+cmmi10.360 @sf
+895 1111 p m (a)  s
+cmr10.360 @sf
+m (\)) 18 (is) 17 (m) -1 (ultiplied) 18 (b) 0 
+(y) 16 (a) 17 (V) 0 (OC) 15 (concen) 0 (tration) 16 
+(driving)  ks 
+0 1171 p m (force:)  s
+cmmi10.360 @sf
+753 1357 p m (r)  s
+cmmi7.360 @sf
+775 1364 p m (v) 1 (ol)  ks 
+cmr10.360 @sf
+845 1357 p m (=)  s
+cmmi10.360 @sf
+14 r m (K)  s
+cmmi7.360 @sf
+940 1364 p m (L)  s
+cmmi10.360 @sf
+970 1357 p m (a)  s
+cmr10.360 @sf
+m (\()  s
+cmmi10.360 @sf
+m (C)  s
+cmsy10.360 @sf
+15 r m (\000)  s
+cmmi10.360 @sf
+11 r m (C)  s
+cmsy7.360 @sf
+1156 1337 p m (\003)  s
+cmr10.360 @sf
+1178 1357 p m (\))  s
+0 1519 p m (where)  s
+cmmi10.360 @sf
+18 r m (r)  s
+cmmi7.360 @sf
+168 1526 p m (v) 1 (ol)  ks 
+cmr10.360 @sf
+243 1519 p m (is) 18 (the) 19 (rate) 18 (of) 18 (stripping,)  ks 
+cmmi10.360 @sf
+19 r m (C)  s
+cmr10.360 @sf
+22 r m (is) 18 (the) 19 (bulk) 19 (V) 0 (OC) 17 
+(aqueous) 17 (phase) 17 (concen) 0 (tration,) 18 (and)  ks 
+cmmi10.360 @sf
+0 1579 p m (C)  s
+cmsy7.360 @sf
+40 1562 p m (\003)  s
+cmr10.360 @sf
+81 1579 p m (is) 19 (the) 19 (V) 0 (OC) 17 (aqueous) 18 
+(phase) 18 (concen) 0 (tration) 18 (that) 19 (w) 0 (ould) 17 
+(b) 1 (e) 19 (in) 19 (equili) 1 (brium) 19 (with) 20 
+(the) 19 (bulk)  ks 
+0 1639 p m (air) 22 (concen) 0 (tration.) 35 (The) 21 (rate) 21 
+(expression) 21 (is) 22 (based) 21 (on) 21 (the) 21 (existence) 23 
+(of) 22 (a) 21 (stagnan) 0 (t) 19 (la) 0 (y) 0 
+(er) 20 (at)  ks 
+0 1699 p m (the) 21 (w) 0 (astew) -1 (ater-a) -1 (ir) 19 
+(in) 0 (terface.) 34 (When) 20 (the) 21 (reactor) 20 (is) 21 
+(unco) 0 (v) -1 (ered) -1 (,) 20 (the) 21 (air) 20 
+(ab) 1 (o) 0 (v) 0 (e) 18 (the) 21 (basin) 21 
+(is)  ks 
+0 1758 p m (assum) -1 (ed) 15 (to) 17 (ha) 0 (v) -1 
+(e) 15 (negligibl) 1 (e) 18 (V) 0 (OC) 16 (concen) 0 
+(tration) 15 (and)  ks 
+cmmi10.360 @sf
+16 r m (C)  s
+cmsy7.360 @sf
+1173 1741 p m (\003)  s
+cmr10.360 @sf
+1209 1758 p m (=) 14 (0.) 22 (When) 17 (the) 17 (reactor) 16 
+(is) 17 (co) 0 (v) 0 (er) -1 (ed,)  ks 
+0 1818 p m (a) 18 (V) 0 (OC) 17 (gas) 18 (phase) 17 
+(mass) 16 (balance) 19 (equation) 19 (that) 18 (incorp) 1 (orates) 18 
+(a) 18 (v) 0 (en) 0 (tilation) 19 (rate) 18 (is) 18 
+(solv) 0 (ed) 18 (to)  ks 
+0 1878 p m (pro) 0 (vide) 15 (the) 17 (V) 0 (OC) 15 
+(gas) 16 (phase) 16 (concen) 0 (tration) 16 (in) 17 (the) 16 
+(stagnan) 0 (t) 15 (la) 0 (y) 0 (er.)  ks 
+0 1963 p m (The) 20 (o) 0 (v) 0 (er) -1 (all) 20 
+(mass) 18 (transfer) 20 (co) 1 (e\016cien) 0 (t) 20 (is) 21 
+(based) 20 (on) 20 (the) 20 (liqui) 1 (d) 22 (and) 20 
+(gas) 19 (phase) 20 (mass) 18 (transfer)  ks 
+0 2022 p m (co) 1 (e\016cien) 0 (ts) 21 (and) 22 (the) 22 
+(Henry's) 21 (la) 0 (w) 21 (constan) 0 (t,) 22 (assum) -1 
+(ing) 20 (that) 23 (liquid-phase) 22 (mass) 20 (transfer) 21 (re-)  ks 
+0 2082 p m (sistance) 20 (is) 20 (dominan) -1 (t.) 30 (The) 20 
+(gas) 19 (and) 19 (liqui) 1 (d) 21 (mass) 18 (transfer) 18 
+(co) 1 (e\016cien) 0 (ts) 20 (are) 19 (calculated) 21 (either)  ks 
+0 2142 p m (from) 17 (correlations) 18 (dev) 0 (elop) 1 (ed) 18 
+(b) 0 (y) 17 (Mac) 0 (k) -2 (a) -1 (y) 17 
+(and) 17 (Y) -3 (eun) 17 (\(1983\)) 19 (or) 18 (b) 0 
+(y) 17 (Go) 0 (vind)  ks 
+cmti10.360 @sf
+18 r m (et) 19 (al.)  ks 
+cmr10.360 @sf
+28 r m (\(1991\)) 19 (and)  ks 
+0 2202 p m (Cohen)  s
+cmti10.360 @sf
+18 r m (et) 20 (al.)  ks 
+cmr10.360 @sf
+29 r m (\(1978\).) 29 (The) 19 (Mac) 0 (k) -2 (a) -2 
+(y) 17 (and) 18 (Y) -3 (eun) 18 (correlations) 19 (dep) 1 
+(end) 18 (on) 19 (the) 19 (wind) 19 (sp) 1 (eed,) 19 
+(the)  ks 
+0 2262 p m (gas) 16 (and) 16 (liquid) 18 (phase) 16 (Sc) 0 
+(hm) -2 (idt) 16 (n) 0 (um) -3 (b) 0 (ers,) 14 
+(and) 16 (the) 17 (basin) 16 (depth.) 21 (The) 17 (Go) 0 
+(vind)  ks 
+cmti10.360 @sf
+15 r m (et) 17 (al.)  ks 
+cmr10.360 @sf
+m (/Cohen)  s
+cmti10.360 @sf
+17 r m (et)  s
+0 2321 p m (al.)  s
+cmr10.360 @sf
+22 r m (correlation) 16 (is) 15 (based) 14 (on) 14 (a) 15 
+(roughness) 12 (Reynolds) 15 (n) 0 (um) -3 (b) 1 (er,) 13 
+(the) 15 (V) 0 (OC) 13 (liqui) 1 (d) 16 (di\013usivit) 1 
+(y) -3 (,) 14 (V) 0 (OC)  ks 
+0 2381 p m (molecular) 16 (w) 0 (eigh) 0 (t,) 15 (wind) 16 
+(v) 0 (elo) 1 (cit) 0 (y) -3 (,) 16 (and) 16 
+(the) 17 (basin) 16 (depth.)  ks 
+0 2466 p m (W) -3 (astage/Sorption)  ks 
+0 2474 p 394 2 ru
+0 2551 p m (V) 0 (OCs) 15 (are) 17 (remo) -1 (v) -1 
+(ed) 14 (from) 16 (the) 17 (SCs) 16 (in) 18 (the) 17 
+(under\015o) -1 (w) 15 (w) 0 (astage) 15 (in) 18 (the) 17 
+(liqui) 1 (d) 18 (and) 17 (solid) 18 (phases.)  ks 
+0 2610 p m (The) 18 (solids) 18 (concen) 0 (tration) 17 (in) 19 
+(the) 18 (SC) 18 (under\015o) -2 (w) 16 (is) 19 (calculated) 19 
+(with) 19 (a) 18 (mass) 16 (balance) 18 (equation)  ks 
+0 2670 p m (that) 17 (dep) 1 (ends) 16 (on) 16 (the) 17 
+(SC) 17 (in\015uen) 0 (t) 15 (solids) 18 (concen) 0 (tration,) 15 
+(in\015uen) 0 (t) 16 (\015o) 0 (w) 15 (rate) 17 (in) 0 
+(to) 16 (the) 17 (SCs,) 16 (and)  ks 
+950 2790 p m (21)  s
+@eop
+22 @bop0
+22 @bop1
+cmr10.360 @sf
+0 50 p m (the) 17 (SC) 16 (w) 0 (astage) 15 (\015o) 0 
+(w) 15 (rate,) 16 (assuming) 15 (that) 17 (the) 16 (solids) 18 
+(are) 16 (completely) 17 (remo) -1 (v) -1 (ed) 14 (in) 17 
+(the) 17 (SCs.)  ks 
+0 134 p m (The) 16 (rate) 17 (of) 17 (remo) -2 (v) -2 
+(al) 15 (b) 0 (y) 15 (V) 0 (OC) 16 (sorption) 16 
+(to) 17 (sludge) 16 (\()  ks 
+cmmi10.360 @sf
+m (r)  s
+cmmi7.360 @sf
+1092 141 p m (sor) 1 (p)  ks 
+cmr10.360 @sf
+1174 134 p m (\)) 17 (in) 17 (the) 17 (SCs) 16 (is) 17 
+(giv) 0 (en) 16 (as:)  ks 
+cmmi10.360 @sf
+736 304 p m (r)  s
+cmmi7.360 @sf
+758 311 p m (sor) 1 (p)  ks 
+cmr10.360 @sf
+853 304 p m (=)  s
+cmmi10.360 @sf
+14 r m (Q)  s
+cmmi7.360 @sf
+945 311 p m (w)  s
+cmr10.360 @sf
+978 304 p m (\()  s
+cmmi10.360 @sf
+m (C)  s
+cmr10.360 @sf
+14 r m (+)  s
+cmmi10.360 @sf
+11 r m (X)  s
+cmmi7.360 @sf
+1138 311 p m (w)  s
+cmmi10.360 @sf
+1171 304 p m (q)  s
+cmr10.360 @sf
+2 r m (\))  s
+0 447 p m (where)  s
+cmmi10.360 @sf
+17 r m (Q)  s
+cmmi7.360 @sf
+184 454 p m (w)  s
+cmr10.360 @sf
+234 447 p m (is) 18 (the) 18 (v) 0 (olumetric) 17 (w) 0 
+(astage) 16 (rate) 17 (from) 16 (the) 18 (SC) 17 (under\015o) -1 
+(w,) 15 (lite) 1 (r/da) 0 (y) -3 (,)  ks 
+cmmi10.360 @sf
+16 r m (C)  s
+cmr10.360 @sf
+21 r m (is) 18 (the) 18 (bulk)  ks 
+0 507 p m (V) 0 (OC) 21 (aqueous) 22 (phase) 21 (concen) 0 
+(tration,)  ks 
+cmmi10.360 @sf
+23 r m (X)  s
+cmmi7.360 @sf
+847 514 p m (w)  s
+cmr10.360 @sf
+902 507 p m (is) 23 (the) 22 (fraction) 23 (of) 23 (biomass) 21 
+(in) 22 (the) 23 (SC) 22 (under\015o) -1 (w)  ks 
+0 567 p m (w) 0 (astage,) 15 (mg/liter,) 16 (and)  ks 
+cmmi10.360 @sf
+16 r m (q)  s
+cmr10.360 @sf
+19 r m (is) 17 (the) 17 (sludge) 16 (phase) 16 (concen) 0 
+(tration) 15 (of) 17 (c) 0 (hem) -1 (ical,) 16 (mg/kg.)  ks 
+0 651 p m (Sorption) 21 (is) 23 (mo) 1 (deled) 21 (as) 21 
+(an) 22 (equilibrium) 22 (pro) 1 (cess;) 24 (th) 0 (us,) 21 
+(for) 21 (lo) 0 (w) 21 (aqueous) 22 (concen) 0 (trations) 20 
+(of)  ks 
+0 711 p m (V) 0 (OCs) 16 (in) 19 (a) 18 (w) 0 
+(astestream) 14 (a) 18 (linear) 19 (isotherm) 16 (can) 18 (describ) 1 
+(e) 18 (the) 18 (equili) 1 (brium) 18 (sludge) 18 (phase) 17 
+(con-)  ks 
+0 771 p m (cen) 0 (tration) 16 (of) 16 (the) 17 (c) 0 
+(hem) -1 (ical) 17 (\()  ks 
+cmmi10.360 @sf
+m (q)  s
+cmr10.360 @sf
+2 r m (\)) 17 (with) 18 (the) 16 (equili) 1 (brium) 17 
+(aqueous) 16 (phase) 15 (concen) 0 (tration) 16 (\()  ks 
+cmmi10.360 @sf
+m (C)  s
+cmr10.360 @sf
+4 r m (\):)  s
+cmmi10.360 @sf
+878 940 p m (q)  s
+cmr10.360 @sf
+15 r m (=)  s
+cmmi10.360 @sf
+14 r m (K)  s
+cmmi7.360 @sf
+1010 947 p m (p)  s
+cmmi10.360 @sf
+1033 940 p m (C)  s
+cmr10.360 @sf
+0 1083 p m (where)  s
+cmmi10.360 @sf
+17 r m (K)  s
+cmmi7.360 @sf
+187 1090 p m (p)  s
+cmr10.360 @sf
+227 1083 p m (is) 18 (the) 18 (c) 0 (hem) -1 (ical) 17 
+(sp) 1 (eci\014c) 18 (sludge-w) 0 (ater) 15 (partition) 19 (co) 1 
+(e\016cien) 0 (t) 17 (normalized) 17 (to) 17 (organic)  ks 
+0 1143 p m (matter) 14 (\(lite) 1 (r/gm) 15 (VSS) 15 (or) 14 
+(liter/gm) 15 (TS\),) 15 (and,)  ks 
+cmmi10.360 @sf
+15 r m (C)  s
+cmr10.360 @sf
+18 r m (is) 16 (the) 15 (equili) 1 (brium) 15 (aqueous) 15 
+(concen) 0 (tration) 14 (of)  ks 
+0 1203 p m (organic) 16 (c) 0 (hemical,) 16 (mg/liter.)  ks 
+0 1288 p m (It) 22 (has) 20 (b) 1 (een) 22 (sho) 0 
+(wn) 19 (that)  ks 
+cmmi10.360 @sf
+21 r m (K)  s
+cmmi7.360 @sf
+585 1295 p m (p)  s
+cmr10.360 @sf
+630 1288 p m (can) 21 (b) 1 (e) 22 (estimated) 21 (from) 19 
+(a) 22 (c) 0 (hem) -1 (ical's) 20 (o) 1 (ctanol-w) 0 
+(ater) 21 (partition)  ks 
+0 1347 p m (co) 1 (e\016cien) 0 (t) 22 (\()  ks 
+cmmi10.360 @sf
+m (K)  s
+cmmi7.360 @sf
+299 1354 p m (ow)  s
+cmr10.360 @sf
+352 1347 p m (\).) 40 (F) -3 (aV) -1 (Or) 20 (allo) 0 
+(ws) 22 (a) 23 (user) 21 (to) 23 (select) 24 (either) 23 
+(the) 23 (correlation) 23 (of) 22 (Dobbs)  ks 
+cmti10.360 @sf
+22 r m (et) 23 (al.)  ks 
+cmr10.360 @sf
+0 1407 p m (\(1989\))  s
+485 1577 p m (log)  s
+cmmi10.360 @sf
+558 1577 p m (K)  s
+cmmi7.360 @sf
+600 1584 p m (p)  s
+cmr10.360 @sf
+637 1577 p m (\(lit) 1 (ers/gm) 16 (VSS\))  ks 
+999 1577 p m (=) 13 (0)  ks 
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (58) 8 (log)  ks 
+cmmi10.360 @sf
+1221 1577 p m (K)  s
+cmmi7.360 @sf
+1263 1584 p m (ow)  s
+cmr10.360 @sf
+1326 1577 p m (+) 11 (1)  ks 
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (14)  s
+0 1720 p m (or) 16 (that) 17 (of) 17 (Matter-M) 1 (\177) -25 
+(uller)  ks 
+cmti10.360 @sf
+16 r m (et) 17 (al.)  ks 
+cmr10.360 @sf
+22 r m (\(1980\))  s
+500 1889 p m (log)  s
+cmmi10.360 @sf
+573 1889 p m (K)  s
+cmmi7.360 @sf
+615 1896 p m (p)  s
+cmr10.360 @sf
+652 1889 p m (\(liters/gm) 16 (TS\))  ks 
+984 1889 p m (=) 14 (0)  ks 
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (67) 8 (log)  ks 
+cmmi10.360 @sf
+1206 1889 p m (K)  s
+cmmi7.360 @sf
+1248 1896 p m (ow)  s
+cmsy10.360 @sf
+1312 1889 p m (\000)  s
+cmr10.360 @sf
+11 r m (2)  s
+cmmi10.360 @sf
+m (:)  s
+cmr10.360 @sf
+m (61)  s
+0 2032 p m (F) -3 (aV) -1 (Or) 13 (accoun) 0 (ts) 14 
+(for) 15 (the) 15 (di\013eren) 0 (t) 15 (units) 15 (of)  ks 
+cmmi10.360 @sf
+16 r m (K)  s
+cmmi7.360 @sf
+942 2039 p m (p)  s
+cmr10.360 @sf
+981 2032 p m (used) 14 (in) 16 (the) 16 (t) 0 (w) 0 
+(o) 13 (correlations.) 22 (The) 15 (correlation)  ks 
+0 2092 p m (of) 18 (Dobbs)  ks 
+cmti10.360 @sf
+16 r m (et) 18 (al.)  ks 
+cmr10.360 @sf
+26 r m (\(1989\)) 18 (sligh) 0 (tly) 18 (o) 0 (v) 0 
+(er) -1 (estimates) 15 (sorption) 17 (while) 19 (that) 18 (of) 18 
+(Matter-M) 1 (\177) -25 (uller) 17 (\(1980\))  ks 
+0 2152 p m (sligh) 0 (tly) 18 (under-pr) -1 (edicts) 16 (sorption) 16 
+(\(Bak) 0 (er,) 15 (1996\).)  ks 
+0 2237 p m (References)  s
+0 2245 p 230 2 ru
+0 2321 p m (Bak) 0 (er,) 15 (A.L.) 17 (1996.) 22 (An) 17 
+(ev) -2 (aluation) 18 (of) 16 (sorption) 17 (mo) 1 (dels) 16 
+(of) 16 (organic) 17 (comp) 1 (ounds) 14 (on) 0 (to) 15 
+(activ) -2 (ated)  ks 
+0 2381 p m (sludge.) 22 (MS) 16 (Thesis,) 16 (Mic) 0 (higan) 16 
+(T) -3 (ec) 0 (h) -1 (nological) 17 (Univ) 0 (ersit) 0 
+(y) -3 (,) 14 (Hough) 0 (ton,) 15 (MI.)  ks 
+0 2466 p m (Cohen,) 21 (Y.,) 22 (Co) 1 (cc) 0 (hio,) 21 
+(W.,) 22 (Mac) 0 (k) -3 (a) -1 (y) -4 (,) 20 
+(D.) 20 (1978.) 34 (Lab) 1 (oratory) 21 (study) 20 (of) 21 
+(liquid-phase) 21 (con) 0 (trolled)  ks 
+0 2526 p m (v) 0 (olatiliz) 1 (ati) 1 (on) 18 (rates) 16 
+(in) 17 (presence) 16 (of) 17 (wind) 16 (w) 0 (a) -1 
+(v) -1 (es.)  ks 
+cmti10.360 @sf
+20 r m (Envir) -2 (on.) 23 (Sci.) 24 (and) 18 (T) -3 
+(e) -2 (chnol.)  ks 
+cmr10.360 @sf
+m (,) 16 (127:553{558.)  ks 
+0 2610 p m (Dobbs,) 22 (R.A.,) 22 (W) -3 (ang,) 21 (L.,) 23 
+(Go) 0 (vind,) 21 (R.) 21 (1989.) 37 (Sorption) 21 (of) 21 
+(to) 0 (xic) 22 (comp) 1 (ounds) 19 (on) 21 (w) 0 
+(astew) -1 (ater)  ks 
+0 2670 p m (solids:) 23 (Correlation) 17 (with) 17 (fundamen) -2 (tal) 16 
+(prop) 1 (erties,)  ks 
+cmti10.360 @sf
+16 r m (Envir) -2 (on.) 23 (Sci.) 24 (T) -3 (e) -2 
+(chnol.)  ks 
+cmr10.360 @sf
+21 r m (23:1092{1097.)  s
+950 2790 p m (22)  s
+@eop
+23 @bop0
+23 @bop1
+cmr10.360 @sf
+0 50 p m (Go) 0 (vind,) 17 (R.,) 17 (Lai,) 18 (L.,) 18 
+(Dobbs,) 16 (R.) 17 (1991.) 24 (In) 0 (tegrated) 16 (mo) 1 
+(del) 17 (for) 17 (predicting) 18 (the) 18 (fate) 18 (of) 18 
+(organics)  ks 
+0 110 p m (in) 17 (w) 0 (astew) -1 (ater) 15 (treatmen) -1 
+(t) 15 (plan) 0 (ts.)  ks 
+cmti10.360 @sf
+21 r m (Envir) -2 (on.) 23 (Pr) -2 (o) -2 (g.)  ks 
+cmr10.360 @sf
+m (,) 16 (10:13{23.)  ks 
+0 194 p m (Mac) 0 (k) -2 (a) -2 (y) -3 (,) 14 
+(D.M.,) 16 (Y) -3 (eun,) 15 (A.T.K.) 16 (1983.) 21 (Mass) 16 
+(transfer) 15 (co) 1 (e\016cien) 0 (t) 17 (correlations) 17 (for) 16 
+(v) 0 (olatilizat) 1 (ion)  ks 
+0 254 p m (of) 17 (organic) 16 (solutes) 17 (from) 15 (w) 0 
+(ater.)  ks 
+cmti10.360 @sf
+20 r m (Envir) -2 (on.) 23 (Sci.) 24 (T) -3 (e) -2 
+(chnol.)  ks 
+cmr10.360 @sf
+m (,) 15 (17:211{216.)  ks 
+0 339 p m (Matter-M) 1 (\177) -25 (uller,) 20 (C.,) 21 (Gujer,) 20 
+(Giger,) 22 (W.,) 21 (and) 19 (Stumm) -1 (,) 19 (W.) 20 
+(1980.) 32 (Non-Biologic) 1 (al) 23 (elimination)  ks 
+0 399 p m (mec) -1 (hanism) -1 (s) 14 (in) 17 (a) 17 
+(biological) 19 (sew) 0 (age) 15 (treatmen) -1 (t) 15 (plan) 0 
+(t,)  ks 
+cmti10.360 @sf
+16 r m (Pr) -2 (o) -2 (g.) 22 (Water.) 23 (T) -3 
+(e) -2 (ch.)  ks 
+cmr10.360 @sf
+21 r m (12:299{314.)  s
+950 2790 p m (23)  s
+@eop
+24 @bop0
+24 @bop1
+cmr10.360 @sf
+0 50 p m (SECOND) 0 (AR) -4 (Y) 15 (CLARIFIER) 16 (WEIR) 16 
+(SCREEN)  ks 
+0 134 p m (V) 0 (OCs) 12 (are) 13 (remo) -1 (v) -1 
+(ed) 11 (from) 12 (the) 14 (secondary) 13 (clari\014er) 14 (w) 0 
+(eir) 12 (\(SCW\)) 15 (b) 0 (y) 12 (stripping) 14 (as) 13 
+(the) 14 (w) 0 (astew) -1 (ater)  ks 
+0 194 p m (falls) 19 (from) 15 (the) 18 (top) 17 (to) 18 
+(the) 18 (b) 1 (ottom) 16 (of) 18 (the) 17 (w) 0 
+(eir.) 24 (The) 17 (n) 0 (um) -3 (b) 1 (er) 15 
+(of) 17 (activ) 0 (e) 18 (SCWs) 17 (is) 18 (equal) 18 
+(to) 18 (the)  ks 
+0 254 p m (n) 0 (um) -3 (b) 1 (er) 14 (of) 17 
+(primary) 15 (clari\014ers.) 22 (The) 17 (SCW) 16 (cannot) 16 (b) 1 
+(e) 17 (co) 0 (v) 0 (er) -1 (ed.)  ks 
+0 339 p m (The) 16 (user) 16 (m) -1 (us) -1 (t) 15 
+(sp) 1 (ecify) 18 (the) 17 (follo) 0 (wing) 17 (parameters) 14 
+(in) 18 (the) 16 (SCW) 17 (screen:)  ks 
+58 423 p m (-)  s
+100 423 p m (whether) 16 (the) 17 (SCWs) 16 (are) 16 (activ) 0 
+(e)  ks 
+58 508 p m (-)  s
+100 508 p m (the) 16 (mo) 1 (del) 16 (used) 16 (to) 17 
+(calculate) 19 (the) 16 (SCW) 17 (stripping) 17 (remo) -2 (v) -2 
+(al) 15 (rates:) 22 (P) 0 (o) 1 (ol) 16 (or) 16 
+(Napp) 1 (e)  ks 
+58 593 p m (-)  s
+100 593 p m (the) 16 (width) 18 (of) 16 (the) 17 (SCWs) 16 
+(\(the) 17 (circumference) 16 (of) 16 (the) 17 (SCWs\))  ks 
+58 677 p m (-)  s
+100 677 p m (the) 14 (distance) 14 (from) 12 (the) 14 (liqui) 1 
+(d) 15 (surface) 14 (at) 14 (the) 14 (SCW) 14 (tops) 13 
+(to) 14 (the) 15 (liquid) 16 (surface) 13 (at) 14 (the) 14 
+(SCW)  ks 
+100 737 p m (b) 1 (ottoms)  ks 
+58 822 p m (-)  s
+100 822 p m (the) 16 (rate) 17 (of) 17 (gas) 16 (\015o) 0 
+(w) 15 (lea) 0 (ving) 16 (the) 17 (tailw) 0 (ater) 17 
+(of) 17 (the) 17 (SCWs) 16 (\(needed) 16 (for) 17 (the) 16 
+(P) 0 (o) 1 (ol) 16 (Mo) 1 (del\))  ks 
+0 907 p m (The) 18 (V) 0 (OC) 17 (is) 19 (either) 18 
+(assumed) 16 (to) 18 (b) 1 (e) 19 (stripp) 1 (ed) 18 
+(in) 0 (to) 17 (the) 19 (air) 18 (as) 18 (the) 18 
+(liqui) 1 (d) 20 (\015o) 0 (ws) 16 (o) 0 (v) -1 
+(er) 16 (the) 18 (drop,)  ks 
+0 966 p m (b) 1 (efore) 17 (it) 18 (con) 0 (tacts) 16 
+(the) 17 (basin) 17 (w) 0 (ater) 16 (surface,) 16 (or) 16 
+(in) 0 (to) 17 (the) 17 (rising,) 17 (en) 0 (trained) 16 
+(bubbles) 16 (caused) 16 (b) 0 (y)  ks 
+0 1026 p m (the) 15 (turbulence) 15 (of) 14 (the) 15 (w) 0 
+(ater) 14 (\015o) 0 (w) 13 (en) 0 (tering) 13 (the) 15 
+(receiving) 16 (basin.) 22 (Emission) 13 (of) 15 (con) 0 (tam) -1 
+(inan) -1 (ts) 13 (at)  ks 
+0 1086 p m (w) 0 (eirs) 13 (can) 13 (th) 0 (us) 12 
+(b) 1 (e) 14 (mo) 1 (deled) 14 (with) 14 (t) 0 
+(w) 0 (o) 12 (di\013eren) 0 (t) 13 (mo) 1 (dels:) 19 
+(the) 15 (P) 0 (o) 1 (ol) 13 (Mo) 1 (del) 15 
+(\(Baill) 1 (o) 1 (d)  ks 
+cmti10.360 @sf
+15 r m (et) 15 (al.)  ks 
+cmr10.360 @sf
+m (,) 15 (1991\))  ks 
+0 1146 p m (and) 18 (the) 19 (Napp) 1 (e) 19 (Mo) 1 
+(del) 19 (\(Pincince,) 20 (1991\).) 29 (The) 18 (Napp) 1 (e) 19 
+(Mo) 1 (del) 19 (assum) -1 (es) 17 (plug) 19 (\015o) 0 
+(w) 16 (conditions)  ks 
+0 1206 p m (for) 18 (the) 18 (liqui) 1 (d) 20 (and) 17 
+(completely) 19 (mixed) 18 (conditions) 19 (for) 17 (the) 19 (gas.) 26 
+(All) 20 (mass) 16 (transfer) 17 (is) 19 (assum) -1 (ed)  ks 
+0 1265 p m (to) 19 (o) 1 (ccur) 19 (in) 19 (the) 19 
+(liqui) 1 (d) 20 (stream) 17 (as) 19 (it) 20 (falls) 20 
+(to) 19 (the) 20 (surface) 18 (and) 18 (stripping) 19 (caused) 18 
+(b) 0 (y) 18 (en) 0 (trained)  ks 
+0 1325 p m (bubbles) 15 (in) 17 (the) 16 (receiving) 17 (basin) 16 
+(is) 16 (ignored.) 21 (The) 16 (rate) 16 (of) 16 (V) 0 
+(OC) 14 (stripping) 16 (is) 17 (related) 16 (to) 16 (the) 16 
+(rate)  ks 
+0 1385 p m (of) 15 (o) 0 (xygen) 13 (stripping) 15 (b) 0 
+(y) 13 (a) 14 (di\013usivit) 0 (y) 16 (relationship.) 22 (The) 14 
+(o) 0 (xygen) 14 (stripping) 14 (rates) 14 (are) 14 (calculated)  ks 
+0 1445 p m (from) 11 (\014tted,) 14 (empirical) 14 (p) 1 (o) 0 
+(w) -1 (er) 11 (la) 0 (w) 13 (functions) 13 (based) 13 
+(on) 12 (the) 14 (width) 14 (of) 13 (the) 14 (SCW) 13 
+(and) 12 (the) 14 (distance)  ks 
+0 1504 p m (b) 1 (et) 0 (w) 0 (een) 14 (top) 17 
+(and) 16 (b) 1 (ottom) 15 (w) 0 (ater) 16 (lev) 0 
+(els.)  ks 
+0 1589 p m (The) 21 (P) 0 (o) 1 (ol) 20 (Mo) 1 
+(del) 22 (assumes) 18 (plug) 22 (\015o) 0 (w) 19 (conditions) 22 
+(for) 20 (the) 21 (gas,) 22 (completely) 22 (mixed) 20 (conditions)  ks 
+0 1649 p m (for) 21 (the) 22 (liquid,) 24 (and) 21 (considers) 21 
+(mass) 19 (transfer) 20 (only) 23 (in) 0 (to) 20 (the) 22 
+(en) 0 (trained) 20 (bubbles) 21 (as) 21 (they) 22 (rise)  ks 
+0 1709 p m (through) 18 (the) 20 (p) 1 (o) 1 (ol.) 33 
+(Stripping) 20 (that) 20 (o) 1 (ccurs) 19 (b) 1 (efore) 19 
+(the) 20 (stream) 18 (con) 0 (tacts) 19 (the) 19 (w) 0 
+(ater) 19 (surface) 19 (is)  ks 
+0 1768 p m (not) 14 (considered.) 21 (The) 14 (rate) 15 (of) 14 
+(V) 0 (OC) 13 (stripping) 15 (for) 14 (the) 15 (P) 0 
+(o) 1 (ol) 14 (Mo) 1 (del) 15 (also) 14 (is) 15 
+(related) 15 (to) 15 (the) 15 (rate) 14 (of)  ks 
+0 1828 p m (o) 0 (xygen) 17 (stripping) 18 (b) 0 (y) 16 
+(a) 18 (di\013usivit) 0 (y) 19 (relationship.) 26 (The) 18 (o) 0 
+(xygen) 16 (remo) -1 (v) -3 (al) 17 (rate) 18 (is) 18 
+(determined) 16 (b) 0 (y)  ks 
+0 1888 p m (applying) 17 (a) 17 (mass) 14 (balance) 17 (to) 16 
+(the) 17 (rising) 17 (bubble.) 22 (The) 16 (mass) 14 (balance) 17 
+(equation) 17 (dep) 1 (ends) 16 (on) 16 (the)  ks 
+0 1948 p m (o) 0 (xygen) 18 (stripping) 19 (rate,) 20 (the) 19 
+(Henry's) 19 (la) 0 (w) 19 (constan) 0 (ts) 17 (for) 19 
+(the) 19 (V) 0 (OC) 18 (and) 19 (o) 0 (xygen) 18 
+(and) 18 (the) 20 (ratio)  ks 
+0 2008 p m (of) 17 (the) 16 (SCW) 16 (liqui) 1 (d) 18 
+(\015o) 0 (w) 15 (rate) 16 (to) 17 (the) 16 (rate) 17 
+(of) 16 (gas) 16 (\015o) 0 (w) 15 (lea) 0 (ving) 16 
+(the) 17 (tailw) 0 (ater) 17 (of) 17 (the) 16 (SCW.) 16 
+(The)  ks 
+0 2067 p m (o) 0 (xygen) 16 (stripping) 18 (rates) 17 (are) 17 
+(calculated) 19 (from) 15 (\014tted,) 18 (empirical) 18 (p) 1 (o) 0 
+(w) -1 (er) 15 (la) 0 (w) 17 (functions) 17 (based) 16 
+(on)  ks 
+0 2127 p m (the) 18 (width) 17 (of) 18 (the) 17 (SCW) 18 
+(and) 16 (the) 18 (distance) 18 (b) 1 (et) 0 (w) -1 
+(een) 16 (top) 17 (and) 17 (b) 1 (ottom) 16 (w) 0 
+(ater) 16 (lev) 0 (els) 18 (\(Nak) -2 (asone,)  ks 
+0 2187 p m (1986\).)  s
+0 2272 p m (References)  s
+0 2280 p 230 2 ru
+0 2356 p m (Baill) 1 (o) 1 (d,) 26 (C.R.,) 23 (Crittenden,) 25 
+(J.C.,) 24 (Mihelcic,) 26 (J.R.,) 23 (Rogers,) 23 (T.N.,) 25 (Grady) -3 
+(,) 22 (Jr.,) 23 (C.P) -3 (.L.) 22 (1991.)  ks 
+0 2416 p m (Critical) 25 (ev) -2 (aluation) 23 (of) 23 (the) 23 
+(state) 23 (of) 23 (tec) 0 (hnologies) 22 (for) 22 (predicting) 24 
+(the) 22 (transp) 1 (ort) 22 (and) 22 (fate) 23 (of)  ks 
+0 2476 p m (to) 0 (xic) 18 (comp) 1 (ounds) 15 (in) 19 
+(w) 0 (astew) -1 (ater) 16 (facili) 1 (ti) 1 (es.) 28 
+(WPCF) 18 (Researc) 0 (h) 16 (F) -3 (ou) -1 (ndation) 17 
+(Rep) 1 (ort) 17 (No.) 27 (90-1,)  ks 
+0 2536 p m (W) -3 (ater) 16 (En) 0 (vironm) -1 (en) -2 
+(t) 15 (F) -3 (ound) -1 (ation,) 15 (Arlington,) 18 (V) -5 
+(A.)  ks 
+0 2620 p m (Naksone,) 14 (H.) 14 (1986.) 21 (Study) 13 (of) 14 
+(aeration) 14 (at) 15 (w) 0 (eirs) 12 (and) 13 (cascades,)  ks 
+cmti10.360 @sf
+14 r m (J.) 15 (Envir) -2 (on.) 23 (Engin.)  ks 
+cmr10.360 @sf
+m (,) 14 (113:64{73.)  ks 
+950 2790 p m (24)  s
+@eop
+25 @bop0
+25 @bop1
+cmr10.360 @sf
+0 50 p m (Pincince,) 21 (A.B.) 19 (1991.) 29 (T) -3 (ransfer) 17 
+(of) 19 (o) 0 (xygen) 18 (and) 18 (emissions) 18 (of) 19 
+(v) 0 (olatile) 21 (organic) 19 (comp) 1 (oun) -1 (ds) 17 
+(at)  ks 
+0 110 p m (clari\014er) 17 (w) 0 (eirs,)  ks 
+cmti10.360 @sf
+15 r m (R) -2 (es.) 24 (J.) 18 (WPCF)  ks 
+cmr10.360 @sf
+m (,) 15 (63:114-122.)  ks 
+950 2790 p m (25)  s
+@eop
+@end

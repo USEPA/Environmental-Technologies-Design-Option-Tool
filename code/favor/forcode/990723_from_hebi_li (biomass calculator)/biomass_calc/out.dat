@@ -1,0 +1,22 @@
+    1   .4670E+04   .1689E+02
+    2   .4670E+04   .1689E+02
+    3   .4669E+04   .2199E+02
+
+
+
+idx_CSTR, Conc_Biomass, Conc_Effluent_Substrate
+
+
+
+For the case of N=1:
+========================
+idx_CSTR, unitless, (only =1)
+Conc_Biomass, mg/L, (store into [Aeration Basin]:[Average Biomass Conc.])
+Conc_Effluent_Substrate, mg/L, (ignore this data)
+
+
+For the case of N>1:
+========================
+idx_CSTR, unitless, (use as an index)
+Conc_Biomass, mg/L, (store into [Define CSTR Parameters]:[rows marked `Biomass Concentration`])
+Conc_Effluent_Substrate, mg/L, (ignore this data)

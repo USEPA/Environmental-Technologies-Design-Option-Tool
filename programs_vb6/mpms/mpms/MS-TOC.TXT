@@ -1,0 +1,10 @@
+ MS-TOC  .TXT                 < MEMBRANE SYSTEMS >                  04/23/1998
+
+                         TOC MOLECULAR WT. DISTRIBUTION
+
+                        Molecular Wt.(kD)          Conc. (mg/L)
+               [ 1]                  .250                  .400
+               [ 2]                  .750                  .800
+               [ 3]                 5.000                 1.500
+               [ 4]                50.000                  .200
+               [ 5]               400.000                  .100

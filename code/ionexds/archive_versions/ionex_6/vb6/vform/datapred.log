@@ -1,0 +1,6 @@
+Line 25: Class GRAPH of control grpBreak was not a loaded control class.
+Line 32: Class SSCommand of control cmdExit was not a loaded control class.
+Line 40: Class SSFrame of control Frame3D1 was not a loaded control class.
+Line 33: The property name Caption in cmdExit is invalid.
+Line 41: The property name Caption in Frame3D1 is invalid.
+Line 45: The property name ShadowColor in Frame3D1 is invalid.

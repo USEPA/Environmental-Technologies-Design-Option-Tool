@@ -1,0 +1,124 @@
+{\rtf1\ansi \deff5\deflang1033{\fonttbl{\f3\fmodern\fcharset0\fprq1 Courier;}{\f4\froman\fcharset0\fprq2 Times New Roman;}{\f5\fswiss\fcharset0\fprq2 Arial;}{\f11\fmodern\fcharset0\fprq1 Courier New;}
+{\f22\fswiss\fcharset0\fprq2 Arial Narrow;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;
+\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 \snext0 Normal;}{
+\s1\sb60\sl-240\slmult0\keepn\widctlpar \b\f5 \snext0 heading 1;}{\s2\sb60\sa60\sl-240\slmult1\widctlpar \b\f5\fs20 \sbasedon1\snext0 heading 2;}{\s3\li120\sb60\sa60\sl-240\slmult0\widctlpar \b\f5\fs20 \sbasedon1\snext0 heading 3;}{
+\s4\fi-245\li360\sb120\sa60\sl-240\slmult1\widctlpar \f5\fs20 \sbasedon2\snext4 heading 4;}{\s5\sb60\sa60\sl-240\slmult1\widctlpar \b\f5\fs20 \sbasedon2\snext0 heading 5;}{\s6\sb40\sl-238\slmult0
+\keepn\widctlpar\pvpara\posy0\absh255\dxfrtext130\dfrmtxtx130\dfrmtxty0 \b\f5\fs21 \sbasedon1\snext15 heading 6;}{\s9\li115\sa20\sl-240\slmult0\keepn\widctlpar\tx1440\tx2880 \f5\fs16 \sbasedon1\snext0 heading 9;}{\*\cs10 \additive Default Paragraph Font;}
+
+{\s15\sb40\sa160\sl-220\slmult0\widctlpar \f5\fs21 \sbasedon0\snext0 H6p;}{\s16\fi-300\li420\ri140\sb100\sl-210\slmult0\widctlpar\tx140\tx420 \f22\fs19 \snext16 *Cbx;}{\s17\fi-300\li420\ri140\sb100\sa100\sl-210\slmult0\widctlpar\tx140\tx420 \f22\fs19 
+\sbasedon16\snext0 *Cbxe;}{\s18\qc\fi-245\li360\sl-360\slmult0\keepn\widctlpar\box\brdrs\brdrw15\brsp20\brdrcf8 \pvpara\phpg\absh-390\absw1460\dxfrtext220\dfrmtxtx220\dfrmtxty0 \shading6000\cfpat2 \f22\cf8\up4 \sbasedon4\snext4 *hb1;}{
+\s19\ri120\sa60\sl-360\slmult0\keepn\widctlpar\box\brdrs\brdrw15\brsp80\brdrcf8 \pvpara\phmrg\posxr\posy0\absh-390 \shading6000\cfpat2 \b\f22\cf8\up10 \sbasedon0\snext0 *hb2;}{\*\cs20 \additive\cf11 \sbasedon10 annotation reference;}{
+\s21\li120\sa60\sl-220\slmult0\widctlpar \f5\cf11 \sbasedon0\snext21 annotation text;}{\s22\li115\sb120\sa120\widctlpar\tx120\tx480\tx840 \f5\fs20 \sbasedon0\snext0 Art;}{
+\s23\sa120\keepn\widctlpar\tx120\tx480\tx840\tqr\tx1560\pvpara\phpg\posy0\absw1560\dxfrtext240\dfrmtxtx240\dfrmtxty0 \f5\fs20 \sbasedon22\snext0 ArtSd;}{\s24\li120\sa240\sl-220\slmult0\widctlpar\tx120\tx480\tx840 \b\f5\fs20 \sbasedon0\snext0 Cap;}{
+\s25\li120\sl-220\slmult0\widctlpar\tx120\tx480\tx840\tqr\tx1560\pvpara\phpg\posy0\absw1560\dxfrtext240\dfrmtxtx240\dfrmtxty0 \b\f5\fs20 \sbasedon24\snext0 CapSd;}{\s26\sb120\keepn\widctlpar \b\f5\fs28 \sbasedon1\snext0 Ch;}{
+\s27\li-1800\sa280\sl-240\slmult0\keepn\widctlpar \caps\f4\expnd24\expndtw120 \snext26 Cn;}{\s28\li440\sa80\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon0\snext29 Def1;}{\s29\li120\sb20\sa20\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon0\snext28 Term1;}{
+\s30\li560\sa80\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon28\snext0 Def2;}{\s31\sb60\sa60\sl-240\slmult1\widctlpar \b\f5\fs20 \sbasedon2\snext32 Erm;}{\s32\li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon0\snext32 Erp;}{
+\s33\sb60\sa60\sl-240\slmult1\widctlpar\tx600 \b\f5\fs20 \sbasedon31\snext32 Ermn;}{\s34\li120\sl-240\slmult0\keep\widctlpar\tx480\tx840\tx1200\tx1560\tx1920\tx2280\tx2640\tx3000 \f11\fs20 \snext34 Ex;}{\s35\li280\sl-240\slmult0
+\keep\widctlpar\tx480\tx670\tx840\tx1060\tx1200\tx1450\tx1840\tx1920\tx2230\tx2280\tx2620\tx3010\tx3400\tx3790\tx4180\tx4570\tx4960\tx5350\tx5740\tx6130\tx6520\tx6910 \f11\fs20 \sbasedon34\snext35 Exl;}{\s36\li560\sl-240\slmult0
+\keep\widctlpar\tx480\tx840\tx950\tx1200\tx1340\tx1730\tx1920\tx2120\tx2280\tx2510\tx2900\tx3290\tx3680\tx4070\tx4460\tx4850\tx5240\tx5630\tx6020\tx6410\tx6800 \f11\fs20 \sbasedon35\snext36 Exl2;}{\s37\li-1800\sl-240\slmult0
+\keep\widctlpar\tx-1410\tx-1020\tx-630\tx-240\tx150\tx480\tx540\tx840\tx930\tx1200\tx1320\tx1710\tx1920\tx2100\tx2280\tx2490\tx2640\tx2880\tx3000\tx3270\tx3660\tx4050\tx4440\tx4830\tx5220\tx5610\tx6000\tx6390\tx6780 \f11\fs20 \sbasedon34\snext37 Exw;}{
+\s38\fi-1800\li1800\sl-140\slmult0\widctlpar\tqc\tx4320\tqr\tx8640 \f4\fs10 \snext38 footer;}{\s39\li120\sa60\sl-220\slmult0\widctlpar\tqc\tx4320\tqr\tx8640 \b\f5\fs20 \sbasedon0\snext39 header;}{\s40\li-1770\ri30\sb50\sl-80\slmult0\widctlpar\brdrt
+\brdrs\brdrw15\brdrcf2 \f4\fs12 \snext0 header rule;}{\s41\sb60\sl-240\slmult0\keepn\widctlpar \b\f5 \sbasedon1\snext0 Hn1;}{\s42\sb60\sa60\sl-240\slmult1\widctlpar \b\f5\fs20 \sbasedon2\snext0 Hn2;}{\s43\li120\sb60\sa60\sl-240\slmult0\widctlpar 
+\b\f5\fs20 \sbasedon3\snext0 Hn3;}{\s44\li-1800\sa420\sl-600\slmult0\keepn\pagebb\widctlpar \b\f22\fs48 \snext0 Ih;}{\s45\sa80\sl-220\slmult0\keepn\widctlpar \v\f22\cf5 \sbasedon0\snext0 index;}{\s46\fi-320\li440\sa60\sl-220\slmult0
+\widctlpar\tqr\tx360\tx440 \f5\fs20 \sbasedon47\snext46 Lb1;}{\s47\fi-440\li440\sa60\sl-220\slmult0\widctlpar\tqr\tx360\tx440 \f5\fs20 \sbasedon0\snext47 Ln1;}{\s48\fi-320\li760\sa60\sl-220\slmult0\widctlpar\tqr\tx680\tx760 \f5\fs20 \sbasedon49\snext48 
+Lb2;}{\s49\fi-446\li763\sa60\sl-220\slmult0\widctlpar\tqr\tx680\tx760 \f5\fs20 \sbasedon47\snext49 Ln2;}{\s50\li446\sa60\sl-220\slmult0\widctlpar\tx440 \f5\fs20 \sbasedon46\snext50 Lbp;}{\s51\li120\sl-80\slmult0\widctlpar \f5\fs12 \sbasedon0\snext0 Le;}{
+\s52\li120\sl-40\slmult0\widctlpar \f5\fs12 \sbasedon51\snext0 Leh;}{\s53\sa80\sl-220\slmult0\widctlpar \f5\fs21 \sbasedon0\snext53 Lmc;}{\s54\li446\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon55\snext54 Lp1;}{\s55\li440\sa60\sl-220\slmult0\widctlpar 
+
+\f5\fs20 \sbasedon0\snext55 Normal Indent;}{\s56\li760\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon54\snext56 Lp2;}{\s57\sl-220\slmult0\keepn\widctlpar\pvpara\phpg\posy0\absw1560\dxfrtext240\dfrmtxtx240\dfrmtxty0 \f5\fs19 \snext0 Mp;}{
+\s58\li120\sl-120\slmult0\widctlpar\brdrt\brdrs\brdrw15\brsp20 \f4\fs12 \snext0 Ne;}{\s59\li440\sl-120\slmult0\widctlpar\brdrt\brdrs\brdrw15\brsp20 \f4\fs12 \sbasedon58\snext55 Nei;}{\s60\li120\sa60\sl-220\slmult0\widctlpar\tx720\tx1200 \f5\fs20 
+\sbasedon0\snext58 Nh;}{\s61\li440\sa60\sl-220\slmult0\widctlpar\tx1040\tx1520 \b\f22\fs20 \sbasedon0\snext61 Nhi;}{\s62\li120\sb40\sa80\sl-220\slmult0\keepn\widctlpar \f5\fs20 \sbasedon0\snext58 Np1;}{\s63\fi-280\li280\sb40\sa80\sl-220\slmult0
+\keepn\widctlpar \f5\fs20 \sbasedon62\snext59 Np1i;}{\s64\li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon0\snext58 Np2;}{\s65\li440\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon0\snext59 Np2i;}{\s66\li120\sa40\sl-120\slmult0\widctlpar\brdrb
+\brdrs\brdrw15 \f4\fs12 \sbasedon58\snext60 Ns;}{\s67\li440\sa40\sl-120\slmult0\widctlpar\brdrb\brdrs\brdrw15 \f4\fs12 \sbasedon66\snext61 Nsi;}{\s68\li-280\sl-80\slmult0\keepn\pagebb\widctlpar\pvpara\phpg\posy0\dxfrtext180\dfrmtxtx180\dfrmtxty0 \f4\fs12 
+
+\snext0 Pb;}{\s69\li120\sb40\sa60\sl-220\slmult0\widctlpar \b\f5\fs20 \sbasedon0\snext47 Proch;}{\s70\li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon0\snext47 Procp;}{\s71\sb60\sl-240\slmult1\keepn\widctlpar \b\f5 \sbasedon1\snext9 Rh1;}{
+\s72\sb60\sa60\sl-240\slmult1\widctlpar \b\f5\fs20 \sbasedon2\snext0 Rmh;}{\s73\li-1770\ri30\sb280\sa250\sl-120\slmult0\keepn\widctlpar\brdrb\brdrs\brdrw15\brdrcf2 \f4\fs8\cf8 \snext71 Rule;}{\s74\li-240\sl-300\slmult0\widctlpar \f4\fs16 \snext0 Sbre;}{
+\s75\li280\ri280\sl-220\slmult0\keepn\widctlpar\tx670\tx1060\tx1450\tx1840\tx2230\tx2620\tx3010\tx3400\tx3790\tx4180\tx4570\tx4960\tx5350\tx5740\tx6130\tx6520 \f11\fs16 \snext75 SbrEx;}{\s76\li280\ri280\sb220\sa40\sl-280\slmult0\keepn\widctlpar \b\f22 
+\snext0 Sbrh;}{\s77\li280\ri280\sb40\sa40\sl-240\slmult0\keepn\widctlpar \b\f22\fs21 \snext0 Sbrh2;}{\s78\fi-280\li560\ri280\sa80\sl-220\slmult0\keepn\widctlpar\tx560 \f5\fs20 \sbasedon0\snext78 SbrLb;}{\s79\qr\li280\ri280\sl-160\slmult0\keepn\widctlpar 
+\f5\fs12 \sbasedon0\snext0 SbrLe;}{\s80\fi-280\li560\ri280\sa80\sl-220\slmult0\keepn\widctlpar\tx560 \f5\fs20 \sbasedon78\snext78 SbrLp;}{\s81\li280\ri280\sa160\sl-240\slmult0\keepn\widctlpar \f4\fs21 \snext81 Sbrp;}{\s82\li-240\sl-100\slmult0
+\keepn\widctlpar \f4\fs16 \snext76 Sbrs;}{\s83\li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon0\snext83 Syn;}{\s84\li-1800\sa60\sl-220\slmult0\widctlpar\tx-1520\tx-1240\tx-960\tx-680\tx-400\tx-120\tx160\tx440\tx720\tx1000 \f5\fs20 
+\sbasedon0\snext0 Synw;}{\s85\li120\sb20\sa60\widctlpar\tx240\tx280\tx560 \f5\fs19 \sbasedon0\snext85 Tart;}{\s86\qr\li30\ri30\sb80\sa80\sl-180\slmult0\widctlpar\brdrt\brdrs\brdrw15\brsp20 \f5\fs16 \sbasedon0\snext0 Te;}{\s87\li120\sl-40\slmult0
+\widctlpar \f5\fs12 \sbasedon88\snext0 Teh;}{\s88\li120\sl-80\slmult0\widctlpar \f5\fs12 \sbasedon0\snext0 Tes;}{\s89\qr\li310\ri30\sb80\sa80\sl180\slmult0\widctlpar\brdrt\brdrs\brdrw15\brsp20 \f5\fs16 \sbasedon0\snext47 Tei;}{
+\s90\li280\sb20\sa20\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon29\snext30 Term2;}{\s91\qr\li-1770\ri30\sb80\sa80\sl180\slmult0\widctlpar\brdrt\brdrs\brdrw15\brsp20 \f5\fs16 \sbasedon86\snext0 Tew;}{\s92\li120\sl-240\slmult0
+\keep\widctlpar\tx480\tx840\tx1200\tx1560\tx1920\tx2280\tx2640\tx3000 \f3\fs20 \snext92 Tex;}{\s93\li120\sb20\sa60\sl-240\slmult0\keep\widctlpar\tx480\tx840\tx1200\tx1560\tx1920\tx2280\tx2640\tx3000 \f11\fs20 \sbasedon34\snext93 Texf;}{
+\s94\fi-140\li140\sb20\sa40\sl-200\slmult0\widctlpar\tx280 \f5\fs17 \sbasedon0\snext94 Tf;}{\s95\li200\sb40\sl-220\slmult0\widctlpar \b\f5\fs20 \sbasedon0\snext96 Th;}{\s96\li120\sl-40\slmult0\widctlpar\brdrt\brdrs\brdrw15\brsp20 \f4\fs8 \snext0 Tr;}{
+\s97\li120\sb40\sl-220\slmult0\widctlpar \b\f5\fs20 \sbasedon95\snext97 Thf;}{\s98\li120\sa40\sl-220\slmult0\widctlpar\tqr\tldot\tx6960 \f5\fs20 \sbasedon0\snext99 toc 1;}{\s99\li280\sa40\sl-220\slmult0\widctlpar\tqr\tldot\tx6960 \f5\fs20 
+\sbasedon98\snext99 toc 2;}{\s100\li560\sa40\sl-220\slmult0\widctlpar\tqr\tldot\tx6960 \f5\fs20 \sbasedon98\snext100 toc 3;}{\s101\li240\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon0\snext101 Tp;}{\s102\li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 
+\sbasedon101\snext102 Tpf;}{\s103\li440\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon55\snext103 Tpi;}{\s104\li320\sa60\sl-220\slmult0\widctlpar \f5\fs20 \sbasedon0\snext103 Tpif;}{\s105\qr\li240\sa60\sl-220\slmult0\widctlpar \f5\fs20 
+\sbasedon101\snext105 Tpr;}{\s106\li120\sb20\sa60\sl-220\slmult0\widctlpar \f5\fs19 \sbasedon83\snext106 Tsyn;}{\s107\sb20\sa60\sl-220\slmult0\keepn\widctlpar \b\f5\fs19 \snext96 Tt;}{\s108\li-1800\sb20\sa60\sl-220\slmult0\keepn\widctlpar \b\f5\fs19 
+\sbasedon107\snext96 Ttw;}{\s109\li120\sl-120\slmult0\widctlpar\brdrt\brdrdb\brdrw15\brsp20\brdrcf2 \f4\fs12 \sbasedon58\snext0 We;}{\s110\li440\sl-120\slmult0\widctlpar\brdrt\brdrdb\brdrw15\brsp20\brdrcf2 \f4\fs12 \sbasedon109\snext55 Wei;}{
+\s111\li120\sa60\sl-220\slmult0\widctlpar\tx1200 \f5\fs18\cf1 \sbasedon0\snext109 Wh;}{\s112\li440\sa60\sl-220\slmult0\widctlpar\tx1560 \f5\fs18\cf1 \sbasedon111\snext110 Whi;}{\s113\li120\sa40\sl-120\slmult0\widctlpar\brdrb\brdrdb\brdrw15\brdrcf2 
+\f4\fs12 \sbasedon66\snext111 Ws;}{\s114\li440\sa40\sl-120\slmult0\widctlpar\brdrb\brdrdb\brdrw15\brdrcf2 \f4\fs12 \sbasedon113\snext55 Wsi;}{\*\cs115 \additive\ul \sbasedon10 Popup Text;}{\*\cs116 \additive\v\cf13 \sbasedon10 Hidden Text;}{\*\cs117 
+\additive\super \sbasedon10 footnote reference;}{\*\cs118 \additive\uldb \sbasedon115 Jump Text;}{\*\cs119 \additive\f11 \sbasedon10 Example Code Text;}{\*\cs120 \additive\scaps\f5\fs20 \sbasedon10 Keystroke Text;}{\s121\li120\sl-220\slmult0\widctlpar 
+\f5\fs20 \sbasedon0\snext0 footnote text;}{\s122\li115\sb160\sa60\sl-240\slmult0\widctlpar \f5\fs20 \sbasedon0\snext0 See Also;}}{\info{\title Create Help files for Winhelp 3.10.505}{\author Philip Tsui}{\operator Philip Tsui}
+{\creatim\yr1996\mo12\dy13\hr3\min22}{\revtim\yr1996\mo12\dy13\hr3\min26}{\version3}{\edmins3}{\nofpages3}{\nofwords763}{\nofchars4350}{\*\company (none)}{\vern57443}}
+\widowctrl\ftnbj\aenddoc\hyphhotz0\noextrasprl\prcolbl\cvmme\sprsspbf\brkfrm\hyphcaps0\fracwidth \fet0{\*\template C:\\program files\\MS Office\\Templates\\Other Documents\\WHAT6.DOT}\sectd \linex0\endnhere {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang
+
+{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}
+{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9
+\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \s1\sb60\sl-240\slmult0\keepn\widctlpar \b\f5 {\cs117\b0\super ${\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super $} Fate of Volatile Organics}#
+{\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super #} FRM_PL}K{\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super K} FaVOr; output; Unit processes; Processes; Stages}+{\footnote \pard\plain 
+\s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super +} :100}}Fate of Volatile Organics
+\par \pard\plain \li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar We have designed FaVOr to be both powerful and easy to use.  These help pages include an overview to help you to get acquainted with FaVOr and will also describe each of the unit processes in detail.
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar 
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar {\uldb Overview}{\v\cf13 Overview}
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar 
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar {\uldb Influent Weir}{\v\cf13 FRM_IW}
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar Aerated Grit Chamber
+\par Primary Clarifier
+\par Primary Clarifier Weir
+\par Aeration Basin
+\par Secondary Clarifier
+\par Secondary Clarifier Weir
+\par \pard\plain \s1\sb60\sl-240\slmult0\keepn\widctlpar \b\f5 \page {\cs117\b0\super ${\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super $} Overview}#{\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {
+\cs117\super #} Overview}K{\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super K} Overview; GUI}+{\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super +} :150}}Overview
+\par \pard\plain \li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar 
+FaVOr (Fate of Volatile Organics) is a software package for predicting the fate of volatile organic compounds (VOCs) in wastewater treatment systems.  FaVOr consists of a graphical user interface (GUI), a FORTRAN program for calculating VOC concentrations
+
+ and removal percentages, and a database and property estimation module that provide values of relevant parameters.    
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar 
+FaVOr is capable of simulating VOC fate with unit processes that are encountered in conventional wastewater treatment plants.  Calculations of VOC concentrations are determined by solution of mass balance equations for VOCs in the unit processes.  The uni
+
+t processes simulated in FaVOr are shown in the Plant Schematic screen and are described in the Help available in the separate screens for the unit processes.  The mass balance equations include mechanisms for VOC biodegradation, sorption, vol
+atilization and stripping, where applicable. These mechanisms also are described in the Help available in the separate screens for the unit processes.  
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar 
+The GUI provides a platform for the user to input wastewater treatment plant operating parameters and parameters relevant to  the physical, chemical and biological behavior of the VOCs.  The inputs consist of either default values, user-defined values, va
+
+lues obtained from built-in databases, or values supplied by a property estimation module (STEPP). The GUI provides a link to the parameter databases and to STEPP.    
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar 
+The GUI allows for execution of the FORTRAN program and for display of the program results in either a numerical or graphical format.  The GUI also provides for saving FaVOr setups and for printing numerical or graphical results.  Provision of these utili
+
+ties may be found in the menu bars at the top of the relevant FaVOr screens.
+\par \pard\plain \s1\sb60\sl-240\slmult0\keepn\widctlpar \b\f5 {\*\bkmkstart WHAT_Topic}\page {\cs117\b0\super {\*\bkmkstart WHAT_LastFoot}{\*\bkmkend WHAT_LastFoot}${\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super $}
+ Influent Weir}#{\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super #} FRM_IW}K{\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super K}
+ Influent Weir; Weir; Weir Drop; Pool Model; Stripping; Nappe Model; oxygen stripping}+{\footnote \pard\plain \s121\li120\sl-220\slmult0\widctlpar \f5\fs20 {\cs117\super +} :200}}Influent Weir
+\par \pard\plain \li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar {\*\bkmkend WHAT_Topic}VOCs are removed from the influent weir (IW) by stripping as the wastewater falls from the top t
+o the bottom of the weir.  Only one IW is allowed and the IW cannot be covered.  The user must specify the following parameters in the IW screen:  
+\par \pard\plain \s46\fi-320\li440\sa60\sl-220\slmult0\widctlpar\tqr\tx360\tx440 \f5\fs20 \{bmc bullet.bmp\}\tab whether the IW is active
+\par \pard \s46\fi-320\li440\sa60\sl-220\slmult0\widctlpar\tqr\tx360\tx440 \{bmc bullet.bmp\}\tab the model used to calculate the IW stripping removal rate (Pool or Nappe)
+\par \{bmc bullet.bmp\}\tab the width of the IW (the dimension of the weir transverse to the direction of flow)
+\par \{bmc bullet.bmp\}\tab the distance from the liquid surface at the IW top to the liquid surface at the IW bottom
+\par \{bmc bullet.bmp\}\tab the rate of gas flow leaving the tailwater of the IW (needed for the Pool Model)
+\par \pard\plain \li120\sa60\sl-220\slmult0\widctlpar \f5\fs20 
+The VOC is either assumed to be stripped into the air as the liquid flows over the drop, before it contacts the basin water surface, or stripped into the rising, entrained bubbles caused by the turbulence of the water flow entering the receiving basin.  E
+
+mission of contaminants at weirs can thus be modeled with two different models: the Pool Model (Baillod {\i et al.}, 1991) and the Nappe Model (Pincince, 1991).  The Nappe Model assumes p
+lug flow conditions for the liquid and completely mixed conditions for the gas.   All mass transfer is assumed to occur in the liquid stream as it falls to the surface and stripping caused by entrained bubbles in the receiving basin is ignored.  The rate 
+
+of VOC stripping is related to the rate of oxygen stripping by a diffusivity relationship.  The oxygen stripping rates are calculated from fitted, empirical power law functions based on the width of the IW and the distance between top and bottom water lev
+
+els.
+\par The Pool Model assumes plug flow conditions for the gas, completely mixed conditions for the liquid, and considers mass transfer only into the entrained bubbles as they rise through the pool.  Stripping that occurs before the stream contacts the water sur
+face is not considered.  The rate of VOC stripping for the Pool Model also is related to the rate of oxygen stripping by a diffusivity relationship.  The oxygen removal rate is determined by applying a mass balance to the rising bubble. The mass balance 
+equation depends on the oxygen stripping rate, the Henry's law constants for the VOC and oxygen and the ratio of the IW liquid flow rate to the rate of gas flow leaving the tailwater of the IW. The oxygen stripping rates are calculated from fitted, empiri
+
+cal power law functions based on the width of the IW and the distance between top and bottom water levels (Nakasone, 1986).   
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar 
+\par {\b References
+\par }\pard \li120\sa60\sl-220\slmult0\widctlpar Baillod, C.R., Crittenden, J.C., Mihelcic, J.R., Rogers, T.N., Grady, Jr., C.P.L. 1991. Critical evaluation of the sta
+te of technologies for predicting the transport and fate of toxic compounds in wastewater facilities. WPCF Research Foundation Report No. 90-1, Water Environment Foundation, Arlington, VA.  
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar Naksone, H. 1986. Study of aeration at weirs and cascades, {\i J. Environ. Engin.}, 113:64--73.
+\par \pard \li120\sa60\sl-220\slmult0\widctlpar Pincince, A.B. 1991. Transfer of oxygen and emissions of volatile organic compounds at clarifier weirs, {\i Res. J. WPCF}, 63:114-122.
+\par }

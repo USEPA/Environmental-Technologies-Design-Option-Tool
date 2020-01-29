@@ -1,0 +1,35 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ecm5 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP653.tmp" with contents
+[
+/compile_only /include:".\Release/" /include:"Release/" /math_library:fast /nologo /module:".\Release/" /object:".\Release/" 
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ecm5\front.for"
+"X:\etdot10\code\ads\digital_fortran_code\forcode\ecm5\ecm5.for"
+]
+Creating command line "link.exe kernel32.lib /nologo /subsystem:console /incremental:no /pdb:".\Release/ecm5.pdb" /machine:I386 /out:".\Release/ecm5.exe"  .\Release\ecm5.obj .\Release\front.obj .\imsllib.lib "
+<h3>Output Window</h3>
+Compiling Fortran...
+X:\etdot10\code\ads\digital_fortran_code\forcode\ecm5\front.for
+df: info: Some interprocedural optimizations may be disabled when compiling into separate object files
+X:\etdot10\code\ads\digital_fortran_code\forcode\ecm5\ecm5.for
+X:\etdot10\code\ads\digital_fortran_code\forcode\ecm5\ecm5.for(132) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [PAR]
+      common /zsq/ void, den, m, par
+---------------------------------^
+X:\etdot10\code\ads\digital_fortran_code\forcode\ecm5\ecm5.for(773) : Warning: Because of COMMON, the alignment of object is inconsistent with its type   [PAR]
+      common /zsq/ void, den, m, par
+---------------------------------^
+Linking...
+
+
+
+<h3>Results</h3>
+ecm5.exe - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

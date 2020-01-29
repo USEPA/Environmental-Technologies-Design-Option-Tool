@@ -1,0 +1,152 @@
+[Setup Wizard Template]
+TemplateDate=4/14/99 8:41:36 PM
+
+[Select Project and Options]
+txtProjFile=C:\DIPPR\Environ\Environ2001.vbp
+chkProjRebuild=0
+optBldSetup=True
+chkIncludeDEP=0
+optInternet=False
+optDEPOnly=False
+
+[Distribution Method]
+optFloppyTarg=False
+optSingleDirTarg=True
+optMultDirTarg=False
+
+[Single Directory]
+cboFloppyDrives=0
+cboFloppyDriveSize=0
+txtDirTarget=C:\DIPPR\Setup\
+
+[Internet Package]
+optRemoteSite=True
+optLocalSite=False
+txtLocalSite=
+
+[Data Access]
+chkUseJet=1
+chkUseODBC=0
+Isam0=
+
+[ActiveX Server Components]
+File1="C:\PROGRAM FILES\VB5\WIZARDS\AITOOL.DLL",True,32763,True,False,,,0,False,False
+File2=
+
+[Confirm Dependencies]
+File1="C:\WINDOWS\SYSTEM\CRYSTL32.OCX",True,32764
+File2="C:\WINDOWS\SYSTEM\TABCTL32.OCX",True,32764
+File3="C:\WINDOWS\SYSTEM\MSFLXGRD.OCX",True,32764
+File4="C:\WINDOWS\SYSTEM\DBLIST32.OCX",True,32764
+File5="C:\WINDOWS\SYSTEM\COMDLG32.OCX",True,32764
+File6="C:\WINDOWS\SYSTEM\COMCTL32.OCX",True,32764
+File7="C:\WINDOWS\SYSTEM\MSCHART.OCX",True,32764
+File8="C:\WINDOWS\SYSTEM\VSOCX32.OCX",True,32764
+File9="C:\PROGRAM FILES\COMMON FILES\MICROSOFT SHARED\DAO\dao2535.tlb",True,32763
+File10="C:\WINDOWS\SYSTEM\DBGRID32.OCX",True,32764
+File11="C:\WINDOWS\SYSTEM\VSOCX6.OCX",True,32764
+File12="C:\DIPPR\Dbmanager\dlls\Environ.dll",True,32762
+File13="C:\DIPPR\Dbmanager\dlls\Mosdap32.dll",True,32762
+File14=
+
+[Shared ActiveX Application]
+optDeployApplication=True
+optDeployShared=False
+optRemoteServer1=True
+optRemoteServer0=False
+
+[File Summary]
+File1="C:\WINDOWS\SYSTEM\MSVBVM50.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File2="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\StdOle2.tlb",True,"$(WinSysPathSysFile)",$(TLBRegister),False
+File3="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\OleAut32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File4="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\OlePro32.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File5="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\AsycFilt.dll",True,"$(WinSysPathSysFile)",,False
+File6="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\Ctl3d32.dll",True,"$(WinSysPathSysFile)",,False
+File7="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\ComCat.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File8="C:\WINDOWS\SYSTEM\CRYSTL32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File9="C:\WINDOWS\SYSTEM\CRPE32.DLL",True,"$(WinSysPath)",,True
+File10="C:\WINDOWS\SYSTEM\IMPLODE.DLL",True,"$(WinSysPath)",,True
+File11="C:\WINDOWS\SYSTEM\PG32.DLL",True,"$(WinSysPath)",,True
+File12="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\CO2C40EN.DLL",True,"$(WinSysPath)",,True
+File13="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\MSVCRT20.DLL",True,"$(WinSysPathSysFile)",,False
+File14="C:\WINDOWS\Crystal\CRXLAT32.DLL",True,"$(WinPath)\Crystal",,True
+File15="C:\WINDOWS\SYSTEM\P2BBND.DLL",True,"$(WinSysPath)",,True
+File16="C:\WINDOWS\SYSTEM\P2BDAO.DLL",True,"$(WinSysPath)",,True
+File17="C:\WINDOWS\SYSTEM\P2CTDAO.DLL",True,"$(WinSysPath)",,True
+File18="C:\WINDOWS\SYSTEM\P2IRDAO.DLL",True,"$(WinSysPath)",,True
+File19="C:\WINDOWS\SYSTEM\P2SODBC.DLL",True,"$(WinSysPath)",,True
+File20="C:\WINDOWS\Crystal\U2DDISK.DLL",True,"$(WinPath)\Crystal",,True
+File21="C:\WINDOWS\Crystal\U2DMAPI.DLL",True,"$(WinPath)\Crystal",,True
+File22="C:\WINDOWS\Crystal\U2FCR.DLL",True,"$(WinPath)\Crystal",,True
+File23="C:\WINDOWS\Crystal\U2FDIF.DLL",True,"$(WinPath)\Crystal",,True
+File24="C:\WINDOWS\Crystal\U2FHTML.DLL",True,"$(WinPath)\Crystal",,True
+File25="C:\WINDOWS\Crystal\U2FREC.DLL",True,"$(WinPath)\Crystal",,True
+File26="C:\WINDOWS\Crystal\U2FRTF.DLL",True,"$(WinPath)\Crystal",,True
+File27="C:\WINDOWS\Crystal\U2FSEPV.DLL",True,"$(WinPath)\Crystal",,True
+File28="C:\WINDOWS\Crystal\U2FTEXT.DLL",True,"$(WinPath)\Crystal",,True
+File29="C:\WINDOWS\Crystal\U2FWKS.DLL",True,"$(WinPath)\Crystal",,True
+File30="C:\WINDOWS\Crystal\U2FWORDW.DLL",True,"$(WinPath)\Crystal",,True
+File31="C:\WINDOWS\Crystal\U2FXLS.DLL",True,"$(WinPath)\Crystal",,True
+File32="C:\WINDOWS\SYSTEM\TABCTL32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File33="C:\WINDOWS\SYSTEM\MSFLXGRD.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File34="C:\WINDOWS\SYSTEM\DBLIST32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File35="C:\WINDOWS\SYSTEM\COMDLG32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File36="C:\WINDOWS\SYSTEM\COMCTL32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File37="C:\WINDOWS\SYSTEM\MSCHART.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File38="C:\WINDOWS\SYSTEM\VSOCX32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File39="C:\PROGRAM FILES\COMMON FILES\MICROSOFT SHARED\DAO\dao2535.tlb",True,"$(MSDAOPath)",$(TLBRegister),True
+File40="C:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.dll",True,"$(MSDAOPath)",$(DLLSelfRegister),True
+File41="C:\WINDOWS\SYSTEM\MSJtEr35.dll",True,"$(WinSysPathSysFile)",,False
+File42="C:\WINDOWS\SYSTEM\MSJInt35.dll",True,"$(WinSysPathSysFile)",,False
+File43="C:\Program Files\VB5\SETUPKIT\KITFIL32\SYS32\MSVCRT40.dll",True,"$(WinSysPathSysFile)",,False
+File44="C:\WINDOWS\SYSTEM\DBGRID32.OCX",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File45="C:\WINDOWS\SYSTEM\VSOCX6.OCX",True,"$(WinSysPath)",,True
+File46="C:\DIPPR\Dbmanager\dlls\Environ.dll",True,"$(WinSysPath)",,True
+File47="C:\DIPPR\Dbmanager\dlls\Mosdap32.dll",True,"$(WinSysPath)",,True
+File48="C:\PROGRAM FILES\VB5\WIZARDS\AITOOL.DLL",True,"$(WinSysPath)",$(DLLSelfRegister),True
+File49="C:\DIPPR\Environ\Environ2001.exe",True,"$(AppPath)",,False
+File50="C:\DIPPR\Environ\Environ2001.dep",True,"$(AppPath)",,False
+File51="C:\WINDOWS\SYSTEM\MSJet35.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File52="C:\WINDOWS\SYSTEM\VBAJet32.dll",True,"$(WinSysPathSysFile)",,False
+File53="C:\WINDOWS\SYSTEM\VB5DB.dll",True,"$(WinSysPath)",,True
+File54="C:\WINDOWS\SYSTEM\MSRD2x35.dll",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File55="C:\WINDOWS\SYSTEM\MsRepl35.dll",True,"$(WinSysPathSysFile)",,False
+File56="C:\WINDOWS\SYSTEM\ODBCJt32.dll",True,"$(WinSysPathSysFile)",,False
+File57="C:\WINDOWS\SYSTEM\ODBCJI32.dll",True,"$(WinSysPathSysFile)",,False
+File58="C:\WINDOWS\SYSTEM\ODBCTL32.dll",True,"$(WinSysPathSysFile)",,False
+File59="C:\WINDOWS\SYSTEM\MSPDOX35.DLL",True,"$(WinSysPathSysFile)",$(DLLSelfRegister),False
+File60="C:\DIPPR\Pearl\Pearls.hlp",True,"$(AppPath)",,False
+File61="C:\DIPPR\Pearl\Pearls.exe",True,"$(AppPath)",,False
+File62="C:\DIPPR\Pearl\Pearls.dep",True,"$(AppPath)",,False
+File63="C:\DIPPR\Pearl\pearls.def",True,"$(AppPath)",,False
+File64="C:\DIPPR\Pearl\chemone.rpt",True,"$(AppPath)",,False
+File65="C:\DIPPR\Pearl\chem.rpt",True,"$(AppPath)",,False
+File66="C:\DIPPR\Pearl\pearls.ico",True,"$(AppPath)",,False
+File67="C:\DIPPR\Pearl\prop.rpt",True,"$(AppPath)",,False
+File68="C:\DIPPR\DCut\Dcut.exe",True,"$(AppPath)",,False
+File69="C:\DIPPR\DCut\Dcut.dep",True,"$(AppPath)",,False
+File70="C:\DIPPR\DCut\dcut.ini",True,"$(AppPath)",,False
+File71="C:\DIPPR\DCut\pdoxwork.ini",False,"$(AppPath)",,False
+File72="C:\DIPPR\Dbmanager\DBManager.exe",True,"$(AppPath)",,False
+File73="C:\DIPPR\Dbmanager\DBManager.dep",True,"$(AppPath)",,False
+File74="C:\DIPPR\Dbmanager\dat\Ambrose.dat",True,"$(AppPath)\dat",,False
+File75="C:\DIPPR\Dbmanager\dat\Boethling.dat",True,"$(AppPath)\dat",,False
+File76="C:\DIPPR\Dbmanager\dat\Fedors.dat",True,"$(AppPath)\dat",,False
+File77="C:\DIPPR\Dbmanager\dat\Hine&Moo.dat",True,"$(AppPath)\dat",,False
+File78="C:\DIPPR\Dbmanager\dat\Joback.dat",True,"$(AppPath)\dat",,False
+File79="C:\DIPPR\Dbmanager\dat\LeBas.dat",True,"$(AppPath)\dat",,False
+File80="C:\DIPPR\Dbmanager\dat\Lydersen.dat",True,"$(AppPath)\dat",,False
+File81="C:\DIPPR\Dbmanager\dat\Pintar.dat",True,"$(AppPath)\dat",,False
+File82="C:\DIPPR\Dbmanager\dat\Reicheberg.dat",True,"$(AppPath)\dat",,False
+File83="C:\DIPPR\Dbmanager\dat\Unifac.dat",True,"$(AppPath)\dat",,False
+File84="C:\DIPPR\Dbmanager\randq.dat",True,"$(AppPath)",,False
+File85="C:\DIPPR\Dbmanager\alle.dat",True,"$(AppPath)",,False
+File86="C:\DIPPR\Dbmanager\avle.dat",True,"$(AppPath)",,False
+File87="C:\DIPPR\Dbmanager\dbman.def",True,"$(AppPath)",,False
+File88="C:\DIPPR\Dbmanager\aenv.dat",True,"$(AppPath)",,False
+File89="C:\DIPPR\Dbmanager\Methods.mdb",True,"$(AppPath)",,False
+File90="C:\DIPPR\Master.mdb",True,"$(AppPath)",,False
+File91="C:\DIPPR\Block5.mdb",True,"$(AppPath)",,False
+File92="C:\DIPPR\DBsave.mdb",True,"$(AppPath)",,False
+File93="C:\DIPPR\Temp.mdb",True,"$(AppPath)",,False
+File94="C:\DIPPR\demo.prl",True,"$(AppPath)",,False

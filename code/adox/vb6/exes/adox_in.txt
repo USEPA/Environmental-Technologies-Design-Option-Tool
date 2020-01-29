@@ -1,0 +1,329 @@
+1                          NTARGET, number of target organic compounds
+0.0000000001               EPS, DGEAR error criteria
+0                          IDREACT, 0=CMBR or 1=CMFR
+1                          NTANK, number of tanks
+107                        VOLUME, tank volume, liters
+30                         SSIZE, simulation time step, sec
+4                          TTOTAL, total simulation time (used for CMBR), min
+4                          XNTIMES, multiples of total hydraulic retention time (used for CMBR), dim'less
+7.76                       TAU, hydraulic retention time of a tank, min
+0.5                        OPSIZE, time interval for output data, min
+0                          IDCARBN, TIC input method, 0=[CO3], 1=alkalinity
+250                        ALK, alkalinity (if IDCARBN=1), mg/L as CaCO3
+0.002                      TICARBN, total inorganic carbonate concentration [CO3], gmol/L
+4                          PH(0), initial/influent pH value
+0                          PHOSPH, total inorganic phosphate ion concentration, gmol/L
+6                          UVPATHL, optical path length of UV light, cm
+10                         NWVLEN, number of wavelength ranges specified by user
+200                        LWAVE(1), wavelength, nm
+210                        LWAVE(2), wavelength, nm
+220                        LWAVE(3), wavelength, nm
+230                        LWAVE(4), wavelength, nm
+240                        LWAVE(5), wavelength, nm
+250                        LWAVE(6), wavelength, nm
+260                        LWAVE(7), wavelength, nm
+270                        LWAVE(8), wavelength, nm
+280                        LWAVE(9), wavelength, nm
+290                        LWAVE(10), wavelength, nm
+30000                      ELECTR_POWER, the lamp electrical power
+1                          IDUVI, how UV intensity (UVI) is input: 0=Eins./L-s, 1=Watts, 2=as efficiency
+15.79                      UVI(1), UV light parameter (refer to IDUVI for units)
+88.71                      UVI(2), UV light parameter (refer to IDUVI for units)
+264.08                     UVI(3), UV light parameter (refer to IDUVI for units)
+221.94                     UVI(4), UV light parameter (refer to IDUVI for units)
+88.58                      UVI(5), UV light parameter (refer to IDUVI for units)
+277.01                     UVI(6), UV light parameter (refer to IDUVI for units)
+441.64                     UVI(7), UV light parameter (refer to IDUVI for units)
+134.09                     UVI(8), UV light parameter (refer to IDUVI for units)
+92.47                      UVI(9), UV light parameter (refer to IDUVI for units)
+171.66                     UVI(10), UV light parameter (refer to IDUVI for units)
+16                         NCOMP, number of compounds
+"H2O2"                     ::COMNAME(1), compound name
+0.001                        CONCINI(1), initial/influent concentration, gmol/L
+0                            VAL(1), valence
+34                           MW(1), molecular weight, g/gmol
+"TRICHLOROETHYLENE"        ::COMNAME(2), compound name
+0.076                        CONCINI(2), initial/influent concentration, gmol/L
+0                            VAL(2), valence
+131                          MW(2), molecular weight, g/gmol
+"HO2*"                     ::COMNAME(3), compound name
+0                            CONCINI(3), initial/influent concentration, gmol/L
+0                            VAL(3), valence
+33                           MW(3), molecular weight, g/gmol
+"HCO3-"                    ::COMNAME(4), compound name
+0                            CONCINI(4), initial/influent concentration, gmol/L
+-1                           VAL(4), valence
+61                           MW(4), molecular weight, g/gmol
+"H2PO4-"                   ::COMNAME(5), compound name
+0                            CONCINI(5), initial/influent concentration, gmol/L
+-1                           VAL(5), valence
+61                           MW(5), molecular weight, g/gmol
+"NOM"                      ::COMNAME(6), compound name
+0                            CONCINI(6), initial/influent concentration, mg/L (note different units of mg/L)
+0                            VAL(6), valence
+200                          MW(6), molecular weight, g/gmol
+"CO3*-"                    ::COMNAME(7), compound name
+0                            CONCINI(7), initial/influent concentration, gmol/L
+-1                           VAL(7), valence
+62                           MW(7), molecular weight, g/gmol
+"HPO4*-"                   ::COMNAME(8), compound name
+0                            CONCINI(8), initial/influent concentration, gmol/L
+-1                           VAL(8), valence
+61                           MW(8), molecular weight, g/gmol
+"HO*"                      ::COMNAME(9), compound name
+0                            CONCINI(9), initial/influent concentration, gmol/L
+0                            VAL(9), valence
+17                           MW(9), molecular weight, g/gmol
+"HO2-"                     ::COMNAME(10), compound name
+0                            CONCINI(10), initial/influent concentration, gmol/L
+-1                           VAL(10), valence
+33                           MW(10), molecular weight, g/gmol
+"TRICHLOROETHYLENE(-)"     ::COMNAME(11), compound name
+0                            CONCINI(11), initial/influent concentration, gmol/L
+-1                           VAL(11), valence
+130                          MW(11), molecular weight, g/gmol
+"O2*-"                     ::COMNAME(12), compound name
+0                            CONCINI(12), initial/influent concentration, gmol/L
+-1                           VAL(12), valence
+32                           MW(12), molecular weight, g/gmol
+"CO3--"                    ::COMNAME(13), compound name
+0                            CONCINI(13), initial/influent concentration, gmol/L
+-2                           VAL(13), valence
+60                           MW(13), molecular weight, g/gmol
+"HPO4--"                   ::COMNAME(14), compound name
+0                            CONCINI(14), initial/influent concentration, gmol/L
+-2                           VAL(14), valence
+60                           MW(14), molecular weight, g/gmol
+"H2CO3"                    ::COMNAME(15), compound name
+0                            CONCINI(15), initial/influent concentration, gmol/L
+-2                           VAL(15), valence
+62                           MW(15), molecular weight, g/gmol
+"H3PO4"                    ::COMNAME(16), compound name
+0                            CONCINI(16), initial/influent concentration, gmol/L
+-2                           VAL(16), valence
+60                           MW(16), molecular weight, g/gmol
+26                         NIRREV, number of irreversible reactions ( A + B  -->  C + D )
+1                          ::COMPA(1), A for rxn#1 -- H2O2
+9                            COMPB(1), B for rxn#1 -- HO*
+3                            COMPC(1), C for rxn#1 -- HO2*
+0                            COMPD(1), D for rxn#1 -- H2O (not considered in this model)
+27000000                     XK(1), 2nd order rate constant for rxn#1, 1/(gmol/L)-s
+9                          ::COMPA(2), A for rxn#2 -- HO*
+10                           COMPB(2), B for rxn#2 -- HO2-
+3                            COMPC(2), C for rxn#2 -- HO2*
+0                            COMPD(2), D for rxn#2 -- OH- (not considered in this model)
+7500000000                   XK(2), 2nd order rate constant for rxn#2, 1/(gmol/L)-s
+1                          ::COMPA(3), A for rxn#3 -- H2O2
+3                            COMPB(3), B for rxn#3 -- HO2*
+9                            COMPC(3), C for rxn#3 -- HO*
+0                            COMPD(3), D for rxn#3 -- H2O + O2 (not considered in this model)
+3                            XK(3), 2nd order rate constant for rxn#3, 1/(gmol/L)-s
+1                          ::COMPA(4), A for rxn#4 -- H2O2
+12                           COMPB(4), B for rxn#4 -- O2*-
+9                            COMPC(4), C for rxn#4 -- HO*
+0                            COMPD(4), D for rxn#4 -- OH- + O2 (not considered in this model)
+0.13                         XK(4), 2nd order rate constant for rxn#4, 1/(gmol/L)-s
+9                          ::COMPA(5), A for rxn#5 -- HO*
+13                           COMPB(5), B for rxn#5 -- CO3--
+7                            COMPC(5), C for rxn#5 -- CO3*-
+0                            COMPD(5), D for rxn#5 -- OH- (not considered in this model)
+390000000                    XK(5), 2nd order rate constant for rxn#5, 1/(gmol/L)-s
+9                          ::COMPA(6), A for rxn#6 -- HO*
+4                            COMPB(6), B for rxn#6 -- HCO3-
+7                            COMPC(6), C for rxn#6 -- CO3*-
+0                            COMPD(6), D for rxn#6 -- H2O (not considered in this model)
+8500000                      XK(6), 2nd order rate constant for rxn#6, 1/(gmol/L)-s
+9                          ::COMPA(7), A for rxn#7 -- HO*
+14                           COMPB(7), B for rxn#7 -- HPO4--
+8                            COMPC(7), C for rxn#7 -- HPO4*-
+0                            COMPD(7), D for rxn#7 -- OH- (not considered in this model)
+150000                       XK(7), 2nd order rate constant for rxn#7, 1/(gmol/L)-s
+9                          ::COMPA(8), A for rxn#8 -- HO*
+5                            COMPB(8), B for rxn#8 -- H2PO4-
+8                            COMPC(8), C for rxn#8 -- HPO4*-
+0                            COMPD(8), D for rxn#8 -- H2O (not considered in this model)
+20000                        XK(8), 2nd order rate constant for rxn#8, 1/(gmol/L)-s
+1                          ::COMPA(9), A for rxn#9 -- H2O2
+7                            COMPB(9), B for rxn#9 -- CO3*-
+4                            COMPC(9), C for rxn#9 -- HCO3-
+3                            COMPD(9), D for rxn#9 -- HO2*
+430000                       XK(9), 2nd order rate constant for rxn#9, 1/(gmol/L)-s
+10                         ::COMPA(10), A for rxn#10 -- HO2-
+7                            COMPB(10), B for rxn#10 -- CO3*-
+13                           COMPC(10), C for rxn#10 -- CO3--
+3                            COMPD(10), D for rxn#10 -- HO2*
+30000000                     XK(10), 2nd order rate constant for rxn#10, 1/(gmol/L)-s
+1                          ::COMPA(11), A for rxn#11 -- H2O2
+8                            COMPB(11), B for rxn#11 -- HPO4*-
+5                            COMPC(11), C for rxn#11 -- H2PO4-
+3                            COMPD(11), D for rxn#11 -- HO2*
+27000000                     XK(11), 2nd order rate constant for rxn#11, 1/(gmol/L)-s
+9                          ::COMPA(12), A for rxn#12 -- HO*
+9                            COMPB(12), B for rxn#12 -- HO*
+1                            COMPC(12), C for rxn#12 -- H2O2
+0                            COMPD(12), D for rxn#12 -- (no second product produced for this reaction)
+5500000000                   XK(12), 2nd order rate constant for rxn#12, 1/(gmol/L)-s
+9                          ::COMPA(13), A for rxn#13 -- HO*
+3                            COMPB(13), B for rxn#13 -- HO2*
+0                            COMPC(13), C for rxn#13 -- H2O (not considered in this model)
+0                            COMPD(13), D for rxn#13 -- O2 (not considered in this model)
+6600000000                   XK(13), 2nd order rate constant for rxn#13, 1/(gmol/L)-s
+3                          ::COMPA(14), A for rxn#14 -- HO2*
+3                            COMPB(14), B for rxn#14 -- HO2*
+1                            COMPC(14), C for rxn#14 -- H2O2
+0                            COMPD(14), D for rxn#14 -- O2 (not considered in this model)
+830000                       XK(14), 2nd order rate constant for rxn#14, 1/(gmol/L)-s
+3                          ::COMPA(15), A for rxn#15 -- HO2*
+12                           COMPB(15), B for rxn#15 -- O2*-
+10                           COMPC(15), C for rxn#15 -- HO2-
+0                            COMPD(15), D for rxn#15 -- O2 (not considered in this model)
+97000000                     XK(15), 2nd order rate constant for rxn#15, 1/(gmol/L)-s
+9                          ::COMPA(16), A for rxn#16 -- HO*
+12                           COMPB(16), B for rxn#16 -- O2*-
+0                            COMPC(16), C for rxn#16 -- O2 (not considered in this model)
+0                            COMPD(16), D for rxn#16 -- OH- (not considered in this model)
+7000000000                   XK(16), 2nd order rate constant for rxn#16, 1/(gmol/L)-s
+9                          ::COMPA(17), A for rxn#17 -- HO*
+7                            COMPB(17), B for rxn#17 -- CO3*-
+0                            COMPC(17), C for rxn#17 -- unknown (not considered in this model)
+0                            COMPD(17), D for rxn#17 -- unknown (not considered in this model)
+3000000000                   XK(17), 2nd order rate constant for rxn#17, 1/(gmol/L)-s
+7                          ::COMPA(18), A for rxn#18 -- CO3*-
+12                           COMPB(18), B for rxn#18 -- O2*-
+13                           COMPC(18), C for rxn#18 -- CO3--
+0                            COMPD(18), D for rxn#18 -- O2 (not considered in this model)
+600000000                    XK(18), 2nd order rate constant for rxn#18, 1/(gmol/L)-s
+7                          ::COMPA(19), A for rxn#19 -- CO3*-
+7                            COMPB(19), B for rxn#19 -- CO3*-
+0                            COMPC(19), C for rxn#19 -- unknown (not considered in this model)
+0                            COMPD(19), D for rxn#19 -- unknown (not considered in this model)
+30000000                     XK(19), 2nd order rate constant for rxn#19, 1/(gmol/L)-s
+9                          ::COMPA(20), A for rxn#20 -- HO*
+2                            COMPB(20), B for rxn#20 -- TRICHLOROETHYLENE
+0                            COMPC(20), C for rxn#20 -- unknown (not considered in this model)
+0                            COMPD(20), D for rxn#20 -- unknown (not considered in this model)
+4200000000                   XK(20), 2nd order rate constant for rxn#20, 1/(gmol/L)-s
+9                          ::COMPA(21), A for rxn#21 -- HO*
+11                           COMPB(21), B for rxn#21 -- TRICHLOROETHYLENE(-)
+0                            COMPC(21), C for rxn#21 -- unknown (not considered in this model)
+0                            COMPD(21), D for rxn#21 -- unknown (not considered in this model)
+3000000000                   XK(21), 2nd order rate constant for rxn#21, 1/(gmol/L)-s
+9                          ::COMPA(22), A for rxn#22 -- HO*
+6                            COMPB(22), B for rxn#22 -- NOM
+0                            COMPC(22), C for rxn#22 -- unknown (not considered in this model)
+0                            COMPD(22), D for rxn#22 -- unknown (not considered in this model)
+400000000                    XK(22), 2nd order rate constant for rxn#22, 1/(mg/L)-s (note different units of 1/(mg/L)-s)
+7                          ::COMPA(23), A for rxn#23 -- CO3*-
+2                            COMPB(23), B for rxn#23 -- TRICHLOROETHYLENE
+0                            COMPC(23), C for rxn#23 -- unknown (not considered in this model)
+0                            COMPD(23), D for rxn#23 -- unknown (not considered in this model)
+0                            XK(23), 2nd order rate constant for rxn#23, 1/(gmol/L)-s
+8                          ::COMPA(24), A for rxn#24 -- HPO4*-
+2                            COMPB(24), B for rxn#24 -- TRICHLOROETHYLENE
+0                            COMPC(24), C for rxn#24 -- unknown (not considered in this model)
+0                            COMPD(24), D for rxn#24 -- unknown (not considered in this model)
+0                            XK(24), 2nd order rate constant for rxn#24, 1/(gmol/L)-s
+12                         ::COMPA(25), A for rxn#25 -- O2*-
+2                            COMPB(25), B for rxn#25 -- TRICHLOROETHYLENE
+0                            COMPC(25), C for rxn#25 -- unknown (not considered in this model)
+0                            COMPD(25), D for rxn#25 -- unknown (not considered in this model)
+0                            XK(25), 2nd order rate constant for rxn#25, 1/(gmol/L)-s
+3                          ::COMPA(26), A for rxn#26 -- HO2*
+2                            COMPB(26), B for rxn#26 -- TRICHLOROETHYLENE
+0                            COMPC(26), C for rxn#26 -- unknown (not considered in this model)
+0                            COMPD(26), D for rxn#26 -- unknown (not considered in this model)
+0                            XK(26), 2nd order rate constant for rxn#26, 1/(gmol/L)-s
+2                          NMULTIACID, number of multiprotic acids ( E <==> F )
+1                          ::COMPE(1), E for rxn#1 -- H2O2
+10                           COMPF(1), F for rxn#1 -- HO2-
+11.6                         XKE(1), equilibrium constant of reversible rxn#1
+2                          ::COMPE(2), E for rxn#2 -- TRICHLOROETHYLENE
+11                           COMPF(2), F for rxn#2 -- TRICHLOROETHYLENE(-)
+100                          XKE(2), equilibrium constant of reversible rxn#2
+3                          ::COMPE(3), E for rxn#3 -- HO2*
+12                           COMPF(3), F for rxn#3 -- O2*-
+4.8                          XKE(3), equilibrium constant of reversible rxn#3
+4                          ::COMPE(4), E for rxn#4 -- HCO3-
+13                           COMPF(4), F for rxn#4 -- CO3--
+10.3                         XKE(4), equilibrium constant of reversible rxn#4
+5                          ::COMPE(5), E for rxn#5 -- H2PO4-
+14                           COMPF(5), F for rxn#5 -- HPO4--
+7.2                          XKE(5), equilibrium constant of reversible rxn#5
+15                         ::COMPE(6), E for rxn#6 -- H2CO3
+4                            COMPF(6), F for rxn#6 -- HCO3-
+6.3                          XKE(6), equilibrium constant of reversible rxn#6
+16                         ::COMPE(7), E for rxn#7 -- H3PO4
+5                            COMPF(7), F for rxn#7 -- H2PO4-
+2.1                          XKE(7), equilibrium constant of reversible rxn#7
+3                          NPHOT, number of photolysis reactions ( G --> h H )
+1                          ::COMPG(1), G for rxn#1 -- H2O2
+9                            COMPH(1), H for rxn#1 -- HO*
+2                            STOCPHOT(1), moles H produced when 1 mole G destroyed in rxn#1
+140                          EXTCOEF(1,1), extinction coefficient for rxn#1 at 200 nm
+108                          EXTCOEF(1,2), extinction coefficient for rxn#1 at 210 nm
+76                           EXTCOEF(1,3), extinction coefficient for rxn#1 at 220 nm
+55.5                         EXTCOEF(1,4), extinction coefficient for rxn#1 at 230 nm
+35                           EXTCOEF(1,5), extinction coefficient for rxn#1 at 240 nm
+24                           EXTCOEF(1,6), extinction coefficient for rxn#1 at 250 nm
+13                           EXTCOEF(1,7), extinction coefficient for rxn#1 at 260 nm
+8.6                          EXTCOEF(1,8), extinction coefficient for rxn#1 at 270 nm
+4.2                          EXTCOEF(1,9), extinction coefficient for rxn#1 at 280 nm
+2.6                          EXTCOEF(1,10), extinction coefficient for rxn#1 at 290 nm
+0.5                          QUATYD(1,1), quantum yield for rxn#1 at 200 nm
+0.5                          QUATYD(1,2), quantum yield for rxn#1 at 210 nm
+0.5                          QUATYD(1,3), quantum yield for rxn#1 at 220 nm
+0.5                          QUATYD(1,4), quantum yield for rxn#1 at 230 nm
+0.5                          QUATYD(1,5), quantum yield for rxn#1 at 240 nm
+0.5                          QUATYD(1,6), quantum yield for rxn#1 at 250 nm
+0.5                          QUATYD(1,7), quantum yield for rxn#1 at 260 nm
+0.5                          QUATYD(1,8), quantum yield for rxn#1 at 270 nm
+0.5                          QUATYD(1,9), quantum yield for rxn#1 at 280 nm
+0.5                          QUATYD(1,10), quantum yield for rxn#1 at 290 nm
+2                          ::COMPG(2), G for rxn#2 -- TRICHLOROETHYLENE
+0                            COMPH(2), H for rxn#2 -- unknown (not considered in this model)
+1                            STOCPHOT(2), moles H produced when 1 mole G destroyed in rxn#2
+0                            EXTCOEF(2,1), extinction coefficient for rxn#2 at 200 nm
+0                            EXTCOEF(2,2), extinction coefficient for rxn#2 at 210 nm
+0                            EXTCOEF(2,3), extinction coefficient for rxn#2 at 220 nm
+0                            EXTCOEF(2,4), extinction coefficient for rxn#2 at 230 nm
+0                            EXTCOEF(2,5), extinction coefficient for rxn#2 at 240 nm
+0                            EXTCOEF(2,6), extinction coefficient for rxn#2 at 250 nm
+0                            EXTCOEF(2,7), extinction coefficient for rxn#2 at 260 nm
+0                            EXTCOEF(2,8), extinction coefficient for rxn#2 at 270 nm
+0                            EXTCOEF(2,9), extinction coefficient for rxn#2 at 280 nm
+0                            EXTCOEF(2,10), extinction coefficient for rxn#2 at 290 nm
+0                            QUATYD(2,1), quantum yield for rxn#2 at 200 nm
+0                            QUATYD(2,2), quantum yield for rxn#2 at 210 nm
+0                            QUATYD(2,3), quantum yield for rxn#2 at 220 nm
+0                            QUATYD(2,4), quantum yield for rxn#2 at 230 nm
+0                            QUATYD(2,5), quantum yield for rxn#2 at 240 nm
+0                            QUATYD(2,6), quantum yield for rxn#2 at 250 nm
+0                            QUATYD(2,7), quantum yield for rxn#2 at 260 nm
+0                            QUATYD(2,8), quantum yield for rxn#2 at 270 nm
+0                            QUATYD(2,9), quantum yield for rxn#2 at 280 nm
+0                            QUATYD(2,10), quantum yield for rxn#2 at 290 nm
+6                          ::COMPG(3), G for rxn#3 -- NOM
+0                            COMPH(3), H for rxn#3 -- unknown (not considered in this model)
+1                            STOCPHOT(3), moles H produced when 1 mole G destroyed in rxn#3
+0                            EXTCOEF(3,1), extinction coefficient for rxn#3 at 200 nm
+0                            EXTCOEF(3,2), extinction coefficient for rxn#3 at 210 nm
+0                            EXTCOEF(3,3), extinction coefficient for rxn#3 at 220 nm
+0                            EXTCOEF(3,4), extinction coefficient for rxn#3 at 230 nm
+0                            EXTCOEF(3,5), extinction coefficient for rxn#3 at 240 nm
+0                            EXTCOEF(3,6), extinction coefficient for rxn#3 at 250 nm
+0                            EXTCOEF(3,7), extinction coefficient for rxn#3 at 260 nm
+0                            EXTCOEF(3,8), extinction coefficient for rxn#3 at 270 nm
+336                          EXTCOEF(3,9), extinction coefficient for rxn#3 at 280 nm
+0                            EXTCOEF(3,10), extinction coefficient for rxn#3 at 290 nm
+0                            QUATYD(3,1), quantum yield for rxn#3 at 200 nm
+0                            QUATYD(3,2), quantum yield for rxn#3 at 210 nm
+0                            QUATYD(3,3), quantum yield for rxn#3 at 220 nm
+0                            QUATYD(3,4), quantum yield for rxn#3 at 230 nm
+0                            QUATYD(3,5), quantum yield for rxn#3 at 240 nm
+0                            QUATYD(3,6), quantum yield for rxn#3 at 250 nm
+0                            QUATYD(3,7), quantum yield for rxn#3 at 260 nm
+0                            QUATYD(3,8), quantum yield for rxn#3 at 270 nm
+0                            QUATYD(3,9), quantum yield for rxn#3 at 280 nm
+0                            QUATYD(3,10), quantum yield for rxn#3 at 290 nm
+2                          ::NCARBN(1), number of carbon atoms per molecule of compound TRICHLOROETHYLENE
+3                            NSUBSTT(1), number of hydrogen substituted atoms (e.g. Cl,Br,etc.) per molecule of compound TRICHLOROETHYLENE

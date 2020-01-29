@@ -1,0 +1,43 @@
+Microsoft (R) COFF Binary File Dumper Version 3.00.5270
+Copyright (C) Microsoft Corp 1992-1995. All rights reserved.
+
+
+Dump of file asapbub.dll
+
+File Type: DLL
+
+         Section contains the following Exports for asapbub.dll
+
+                   0 characteristics
+            362E3A14 time date stamp Wed Oct 21 15:46:28 1998
+                0.00 version
+                   1 ordinal base
+                  16 number of functions
+                  16 number of names
+
+            ordinal hint   name
+
+                  1    0   AIRFLO  (00001019)
+                  2    1   DIFO2  (0000100A)
+                  3    2   EFFLBUB  (0000102D)
+                  4    3   GETCSTAR  (00001037)
+                  5    4   GETPHIB  (00001028)
+                  6    5   GETSOTE  (00001023)
+                  7    6   GETSOTR  (0000100F)
+                  8    7   KLA20A  (0000103C)
+                  9    8   KLABUB  (0000104B)
+                 10    9   PCALCBUB  (0000101E)
+                 11    A   REMOVBUB  (00001041)
+                 12    B   TAUSVOLS  (00001005)
+                 13    C   TRUEKLA  (00001032)
+                 14    D   VOLBUB  (00001014)
+                 15    E   VQBUB  (00001046)
+                 16    F   VQMINBUB  (00001000)
+
+     Summary
+
+        C000 .data
+        1000 .idata
+        1000 .rdata
+        3000 .reloc
+       26000 .text

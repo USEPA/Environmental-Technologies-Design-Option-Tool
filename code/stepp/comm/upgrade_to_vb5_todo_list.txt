@@ -1,0 +1,60 @@
+
+
+OVERALL:
+========
+x- Upgrade "performing calculations" window
+x- Convert STEPCONV.DLL FORTRAN to 32-bit
+x- Get contaminant list to sort by CAS# properly
+x- Get find/find_next working
+x- Get VB5 to compile with Ctrl-F5
+x- Fix Help--Online Help call; use a command/cmd shell instead;
+  and also Help--Online Manual call
+  x- Make the same change within ASAP.
+  x- Make the same change within AdDesignS (no online help though).
+x- Get alias window working
+x- Convert all common-dialog code
+x- Test all file i/o
+x- Re-secure database with password
+- How difficult would it be to add a datachanged(dirty) flag
+  to the StEPP program?
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////  MISCELLANEOUS NOTES  //////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+Import directly:
+
+Import via copy:
+x- frmTechnicalAssistance
+x- frmExtraDisclaimer
+x- frmAlias
+
+
+
+Online Help ...
+Online Manual ...
+-
+View Version History ...
+View Disclaimer ...
+Technical Assistance Provided By ...
+-
+About ...
+
+
+
+
+
+Test these subroutines/functions:
+=================================
+x- frmalias: ALL
+x- DemoModeMod : write_blist_file
+x- contam_prop_form : Update_Fieldstuff
+
+

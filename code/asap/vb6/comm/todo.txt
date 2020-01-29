@@ -1,0 +1,72 @@
+
+
+ASAP UPGRADE VB3 --> VB5 --> VB6
+================================
+
+x- Run some tests for converting 16-bit Fortran to 32-bit.
+x- Convert everything for packed tower aeration windows.
+x- Convert everything for bubble aeration windows.
+x- Convert everything for surface aeration windows.
+x- Ensure that hitting Ctrl-F5 allows a full compile to succeed.
+x- Set TabOrder = False for all unit comboboxes.
+x- Change 99+% of chdir/chdrive code to call ChangeDir_Main() routine.
+x- Ensure that Help--{300}(Contents) points to the same message that
+  it does on PTAD screen #1.
+x- Set TabOrder properly on each window.
+x- Ensure that every window that had a non-closeable setting
+  in VB3 is similar in VB5 (must be closed by hitting a button).
+  - Set ControlBox=true
+  - Set frm{*}_Okay_To_Unload as local var, read in
+    Form_Load and Form_QueryUnload; write whenever
+    a proper unload occurs.
+  - Set the Icon of the form to the ASAP icon.
+- Perform thorough testing of each model in VB5 code
+x  - PTAD Design
+x  - PTAD Rating
+x  - Bubble Design
+  - Bubble Rating
+x  - Surface Design
+  - Surface Rating
+- Convert VB5 code to VB6
+- Consider adding dirty-flag system for indicating whether 
+  data has changed: how time-consuming would this be?
+
+WINDOWS FOR PACKED TOWER AERATION:
+----------------------------------
+x- frmSplash
+x- frmMainMenu
+- frmAbout2 (move to frmMainMenu)
+- frmAbout (move to frmMainMenu)
+x- frmPTADScreen1
+x- frmPTADScreen2
+x- frmAirWaterProperties
+x- frmShowPackingProperties
+x- frmSelectPacking
+- frmContaminantPropertyEdit
+- frmOptimizeContaminant
+- frmViewEffluentConcentrationsASAP
+- frmShowOndaKLaProperties
+- frmPower
+- frmFlowsLoadingsScreen2
+
+
+
+
+
+
+
+
+x frmWaterPropertiesBubble
+x frmBubbleEffluentConcentrations
+x frmBubblePower
+
+
+
+
+
+
+x frmWaterPropertiesSurface
+x frmSurfaceEffluentConcentrations
+
+
+

@@ -1,0 +1,55 @@
+
+
+
+TASK LIST RE INCORPORATION OF PSDM-IN-ROOM MODEL.
+=================================================
+
+x- Copy I:\consult\amway\forcode\proom10b to 
+  X:\etdot10\code\ads\vb5_forcode\forcode\proom10c
+  (this is the new version that will be attached to AdDesignS).
+H- Compile a new version of proom10c that uses the new
+  up-to-date file i/o system. (HALTED)
+
+- Copy frmModelPSDMResults to frmModelPSDMInRoomResults.
+- Copy ModelPSDM to ModelPSDMInRoom.
+  - Make changes to reflect PSDM-in-Room file i/o.
+x- Add Distribute_PSDMInRoom as boolean.  If False, the Run
+  and Results entries are not present, and the Edit Parameters
+  for PSDM in Room Model button is not present.  Also, if a
+  file containing PSDM in Room data is loaded, a warning message
+  is displayed indicating that the file contains PSDM in Room
+  data but this version of AdDesignS does not handle this type
+  of data.
+
+x- Add File_Open_Legacy_v1_42() to FileIO_Legacy.
+x- Add PSDMInRoomParams table to File_Save_Latest_v1_60() and
+  File_Open_Latest_v1_60() in FileIO_LatestMDB.
+
+x- Add frmParamsPSDMInRoom as copy of VB3_AdsAmway::frmRoom.
+
+x- Install software:
+  x- Add module code: 40=AdDesignS for Amway
+  x- When 40 is detected, write psdmroom.dat to $(ADS_AppPath) directory
+    after the ADS files are moved.
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+mnuRunItem 10
+mnuResultsItem 10
+
+
+

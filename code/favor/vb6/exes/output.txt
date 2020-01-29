@@ -1,0 +1,68 @@
+ 
+    CONTAMINANT NAME 1                   
+ 
+                 BIODEGRADATION CONSTANT  2.00000E-03
+           HENRYS CONSTANT DIMENSIONLESS  1.43000E-01
+                                 LOG KOW  2.11000E+00
+ 
+       PERCENT REMOVAL BY BIODEGRADATION  12.4060
+        PERCENT REMOVAL BY SOLID WASTAGE   1.0760
+       PERCENT REMOVAL BY LIQUID WASTAGE    .0814
+            PERCENT REMOVAL BY STRIPPING  77.8422
+       PERCENT REMOVAL BY VOLATILIZATION   1.0011
+       TOTAL PERCENT REMOVED (by concns)  92.4049
+     TOTAL PERCENT REMOVED (by removals)  92.4066
+ 
+                TOTAL AMOUNT IN INFLUENT  7.19412E-02     kg/day
+                TOTAL AMOUNT BIODEGRADED  8.92502E-03     kg/day
+            TOTAL AMOUNT WASTED AS SOLID  7.74060E-04     kg/day
+             TOTAL AMOUNT WASTED AS LIQ.  5.85353E-05     kg/day
+                   TOTAL AMOUNT STRIPPED  5.60007E-02     kg/day
+                TOTAL AMOUNT VOLATILIZED  7.20169E-04     kg/day
+                TOTAL AMOUNT IN EFFLUENT  5.46399E-03     kg/day
+ 
+  RESULTS BY MECHANISM AND UNIT OPERATION
+ 
+  Influent Liquid Concn 2.00E+02 ug/L
+ 
+ INFLUENT WEIR
+ 
+  3.26464E-05      kg/day REMOVED BY STRIP.  (   .0454  % OF TOTAL)
+  Effluent Liquid Concn 2.00E+02 ug/L
+ 
+ AERATED GRIT CHAMBER
+ 
+  1.73218E-04        kg/day REMOVED BY VOL.  (   .2408 % OF TOTAL) 
+  3.82627E-02      kg/day REMOVED BY STRIP.  ( 53.1861 % OF TOTAL) 
+  Effluent Liquid Concn 9.31E+01 ug/L
+ 
+ PRIMARY CLARIFIER
+ 
+  3.58331E-04        kg/day REMOVED BY VOL.  (   .4981 % OF TOTAL) 
+  7.14818E-04 kg/day REMOVED BY SOLID WAST.  (   .9936 % OF TOTAL) 
+  4.60284E-05  kg/day REMOVED BY LIQ. WAST.  (   .0640 % OF TOTAL) 
+  Effluent Liquid Concn 9.21E+01 ug/L
+ 
+ PRIMARY CLARIFIER WEIR
+ 
+  1.49942E-05      kg/day REMOVED BY STRIP.  (   .0208 % OF TOTAL) 
+  Effluent Liquid Concn 9.20E+01 ug/L
+ 
+ AERATION BASIN MODELED AS  1  CSTRS
+ 
+  1.34599E-04        kg/day REMOVED BY VOL.  (   .1871 % OF TOTAL) 
+  1.76856E-02      kg/day REMOVED BY STRIP.  ( 24.5834 % OF TOTAL) 
+  8.92502E-03     kg/day REMOVED BY BIODEG.  ( 12.4060 % OF TOTAL) 
+  Effluent Liquid Concn 1.57E+01 ug/L
+ 
+ SECONDARY CLARIFIER
+ 
+  5.40217E-05        kg/day REMOVED BY VOL.  (   .0751 % OF TOTAL) 
+  5.92423E-05 kg/day REMOVED BY SOLID WAST.  (   .0823 % OF TOTAL) 
+  1.25068E-05  kg/day REMOVED BY LIQ. WAST.  (   .0174 % OF TOTAL) 
+  Effluent Liquid Concn 1.56E+01 ug/L
+ 
+ SECONDARY CLARIFIER WEIR
+ 
+  4.72659E-06      kg/day REMOVED BY STRIP.  (   .0066 % OF TOTAL) 
+  Effluent Liquid Concn 1.56E+01 ug/L

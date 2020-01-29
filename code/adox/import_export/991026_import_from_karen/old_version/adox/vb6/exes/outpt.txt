@@ -1,0 +1,19 @@
+
+ Mean Residence Time (Tbar) :           .150000E+01
+
+
+ Experimental E(theta) results : 
+
+        THETA               E(theta)
+     .200000E+01         .750000E+00
+     .133333E+01        -.150000E+01
+     .666667E+00        -.750000E+00
+
+
+ Predictions of E(theta) for nTIS model:
+
+        THETA               E(theta)
+     .200000E+01         .146525E+00
+     .133333E+01         .370578E+00
+     .666667E+00         .702926E+00
+           2 of tanks should be used to simulate the system.

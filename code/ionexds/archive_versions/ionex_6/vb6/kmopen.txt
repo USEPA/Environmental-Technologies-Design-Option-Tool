@@ -1,0 +1,543 @@
+Sub LoadIonExchange(strFilename)
+    Dim FileID As String, msg As String
+    Dim i As Integer
+    Dim NamePlusCAS As String
+    Dim DummyString As String
+    Dim StringLength As Integer, MainString As String
+    Dim UnitsOfStorage As String, UnitsOfDisplay As String
+    Dim FoundResinInList As Integer
+    Dim FileIon As String, FileCation As String, FileAnion As String
+    Dim ListIndexOfResin As Integer
+    Dim ListIndex As Integer
+
+    If strFilename = "" Then
+      Call LoadFileIonExchange(filename)
+    Else
+      filename$ = strFilename
+    End If
+    
+    If filename$ <> "" Then
+       FileID = ""
+       Open filename$ For Input As #1
+       
+       Input #1, FileID
+      
+       'Input Pressure and Temperature
+       Input #1, DummyString, NowProj.Operating.Pressure, UnitsOfStorage, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtOperatingConditions(0).Text = _
+		Format$( nowproj.Operating.Pressure, _
+		GetTheFormat( nowproj.Operating.Pressure))
+       frmIonExchangeMain!cboOperatingConditionsUnits(0).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboOperatingConditionsUnits(0).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboOperatingConditionsUnits(0).List(i))=_
+ 		Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboOperatingConditionsUnits(0).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.Operating.Temperature, UnitsOfStorage, _
+		UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtOperatingConditions(1).Text = _
+''''		Format$(nowproj.Operating.Temperature, _
+''''		GetTheFormat( nowproj.Operating.Temperature))
+       frmIonExchangeMain!cboOperatingConditionsUnits(1).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboOperatingConditionsUnits(1).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboOperatingConditionsUnits(1).List(i)) = _
+	      Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboOperatingConditionsUnits(1).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+
+       'Input Bed Data
+
+       Input #1, DummyString, NowProj.Bed.length, UnitsOfStorage, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtBedData(0).Text = _
+''''		Format$(nowproj.bed.Length, _
+''''		GetTheFormat(nowproj.bed.Length))
+       frmIonExchangeMain!cboBedDataUnits(0).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboBedDataUnits(0).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboBedDataUnits(0).List(i)) = _
+	     Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboBedDataUnits(0).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.Bed.Diameter, UnitsOfStorage, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtBedData(1).Text = _
+''''		Format$(nowproj.bed.Diameter, _
+''''		GetTheFormat(nowproj.bed.Diameter))
+       frmIonExchangeMain!cboBedDataUnits(1).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboBedDataUnits(1).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboBedDataUnits(1).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboBedDataUnits(1).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.Bed.Weight, UnitsOfStorage, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtBedData(2).Text = _
+''''		Format$(nowproj.bed.Weight, _
+''''		GetTheFormat(nowproj.bed.Weight))
+       frmIonExchangeMain!cboBedDataUnits(2).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboBedDataUnits(2).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboBedDataUnits(2).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboBedDataUnits(2).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.Bed.Flowrate.Value, UnitsOfStorage, _
+		UnitsOfDisplay, NowProj.Bed.Flowrate.UserInput
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtBedData(3).Text = _
+''''		Format$(nowproj.bed.Flowrate.Value, _
+''''		GetTheFormat(nowproj.bed.Flowrate.Value))
+       frmIonExchangeMain!cboBedDataUnits(3).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboBedDataUnits(3).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboBedDataUnits(3).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboBedDataUnits(3).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.Bed.EBCT.Value, UnitsOfStorage, _
+		UnitsOfDisplay, NowProj.Bed.EBCT.UserInput
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtBedData(4).Text = _
+''''		Format$(nowproj.bed.EBCT.Value, _
+''''		GetTheFormat(nowproj.bed.EBCT.Value))
+       frmIonExchangeMain!cboBedDataUnits(4).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboBedDataUnits(4).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboBedDataUnits(4).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboBedDataUnits(4).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.Bed.NumberOfBeds
+
+
+       'Input Adsorbent Properties
+
+       Input #1, DummyString, NowProj.Resin.Name
+       FoundResinInList = False
+       For i = 0 To frmIonExchangeMain!cboAdsorbents.ListCount - 1
+           If Trim$(frmIonExchangeMain!cboAdsorbents.List(i)) = _
+		Trim$(NowProj.Resin.Name) Then
+              FoundResinInList = True
+              ListIndexOfResin = i
+              Exit For
+           End If
+       Next i
+       If Not FoundResinInList Then
+          frmIonExchangeMain!cboAdsorbents.AddItem Trim$(NowProj.Resin.Name)
+          ListIndexOfResin = frmIonExchangeMain!cboAdsorbents.ListCount - 1
+       End If
+
+       Input #1, DummyString, NowProj.Resin.ApparentDensity, UnitsOfStorage, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtAdsorbentProperties(1).Text = _
+''''		Format$(nowproj.resin.ApparentDensity, _
+''''		GetTheFormat(nowproj.resin.ApparentDensity))
+       frmIonExchangeMain!cboAdsorbentPropertyUnits(1).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboAdsorbentPropertyUnits(1).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboAdsorbentPropertyUnits(1).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboAdsorbentPropertyUnits(1).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.Resin.ParticleRadius, UnitsOfStorage, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtAdsorbentProperties(2).Text = _
+'''		Format$(nowproj.resin.ParticleRadius, _
+''''		GetTheFormat(nowproj.resin.ParticleRadius))
+       frmIonExchangeMain!cboAdsorbentPropertyUnits(2).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboAdsorbentPropertyUnits(2).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboAdsorbentPropertyUnits(2).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboAdsorbentPropertyUnits(2).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.Resin.ParticlePorosity
+       frmIonExchangeMain!txtAdsorbentProperties(3).Text = _
+		Format$(NowProj.Resin.ParticlePorosity, _
+		GetTheFormat(NowProj.Resin.ParticlePorosity))
+
+       Input #1, DummyString, NowProj.Resin.Tortuosity
+       frmIonExchangeMain!txtAdsorbentProperties(4).Text = _
+		Format$(NowProj.Resin.Tortuosity, _
+		GetTheFormat(NowProj.Resin.Tortuosity))
+
+       Input #1, DummyString, NowProj.Resin.TotalCapacity, UnitsOfStorage, _
+		UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+''''       frmIonExchangeMain!txtAdsorbentProperties(5).Text = _
+''''		Format$(nowproj.resin.TotalCapacity, _
+		GetTheFormat(nowproj.resin.TotalCapacity))
+       frmIonExchangeMain!cboAdsorbentPropertyUnits(5).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmIonExchangeMain!cboAdsorbentPropertyUnits(5).ListCount - 1
+           If Trim$(frmIonExchangeMain!cboAdsorbentPropertyUnits(5).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmIonExchangeMain!cboAdsorbentPropertyUnits(5).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       'Input Time Parameters
+       Input #1, DummyString, NowProj.TimeParameters.FinalTime, UnitsOfStorage, _
+		UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmOptionsInputParameters!cboTimeParametersUnits(0).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmOptionsInputParameters!cboTimeParametersUnits(0).ListCount - 1
+           If Trim$(frmOptionsInputParameters!cboTimeParametersUnits(0).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmOptionsInputParameters!cboTimeParametersUnits(0).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.TimeParameters.InitialTime, UnitsOfStorage, _
+		UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmOptionsInputParameters!cboTimeParametersUnits(1).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmOptionsInputParameters!cboTimeParametersUnits(1).ListCount - 1
+           If Trim$(frmOptionsInputParameters!cboTimeParametersUnits(1).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmOptionsInputParameters!cboTimeParametersUnits(1).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.TimeParameters.TimeStep, UnitsOfStorage, _
+		UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmOptionsInputParameters!cboTimeParametersUnits(2).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmOptionsInputParameters!cboTimeParametersUnits(2).ListCount - 1
+           If Trim$(frmOptionsInputParameters!cboTimeParametersUnits(2).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmOptionsInputParameters!cboTimeParametersUnits(2).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+'------Begin Modification Hokanson: 11-Aug2000
+       'Input EPS_ErrorCriteria and DH0_Initial Time step for DGEAR integrator
+       If FileID <> "Ion Exchange Model - Input File" Then
+          Input #1, DummyString, NowProj.EPS_ErrorCriteriaForDGEARIntegrator
+       End If
+
+       If FileID <> "Ion Exchange Model - Input File" Then
+          Input #1, DummyString, NowProj.DH0_InitialTimeStepForDGEARIntegrator, _
+		UnitsOfStorage, UnitsOfDisplay
+'---------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+          frmOptionsInputParameters!cboTimeParametersUnits(4).ListIndex = -1
+'---------END MODIFICATIONS HOKANSON 12-AUG-2000
+          For i = 0 To frmOptionsInputParameters!cboTimeParametersUnits(4).ListCount - 1
+              If Trim$(frmOptionsInputParameters!cboTimeParametersUnits(4).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+                 frmOptionsInputParameters!cboTimeParametersUnits(4).ListIndex = i
+                 Exit For
+              End If
+          Next i
+       End If
+'------End Modification Hokanson: 11-Aug2000
+
+       'Input Collocation Points
+       Input #1, DummyString, NowProj.NumAxialCollocationPoints
+       Input #1, DummyString, NowProj.NumRadialCollocationPoints
+
+       'Correlation Used to Calculate Ionic Transport Coefficient
+       Input #1, DummyString, NowProj.IonicTransportCoeffCorrName
+
+       'Input Component Properties
+       Input #1, DummyString
+       Input #1, DummyString, NowProj.NumberOfCations
+       Input #1, DummyString, NowProj.PresaturantCation
+       Input #1, DummyString, NowProj.SumCationInitialEquivalents, _
+		NowProj.OKToGetCationDimensionless
+       Input #1, DummyString, NowProj.CationSeparationFactorInput.Row, _
+		NowProj.CationSeparationFactorInput.Value
+       For i = 1 To NowProj.NumberOfCations
+           Input #1, NowProj.Cation(i).Name
+           Input #1, NowProj.Cation(i).MolecularWeight, _
+		NowProj.Cation(i).InitialConcentration, _
+		NowProj.Cation(i).EquivalentInitialConcentration, _
+		NowProj.Cation(i).Valence, NowProj.Cation(i).SeparationFactor
+           Input #1, NowProj.Cation(i).Kinetic.LiquidDiffusivity.Value, _
+		NowProj.Cation(i).Kinetic.LiquidDiffusivity.UserInput
+           Input #1, NowProj.Cation(i).Kinetic.LiquidDiffusivityCorrelation, UnitsOfStorage
+           Input #1, NowProj.Cation(i).Kinetic.LiquidDiffusivityUserInput, UnitsOfStorage
+           Input #1, NowProj.Cation(i).Kinetic.IonicTransportCoefficient.Value, _
+		NowProj.Cation(i).Kinetic.IonicTransportCoefficient.UserInput
+           Input #1, NowProj.Cation(i).Kinetic.IonicTransportCoeffCorrelation, _
+		UnitsOfStorage
+           Input #1, NowProj.Cation(i).Kinetic.IonicTransportCoeffUserInput, UnitsOfStorage
+           Input #1, NowProj.Cation(i).Kinetic.PoreDiffusivity.Value, _
+		NowProj.Cation(i).Kinetic.PoreDiffusivity.UserInput
+           Input #1, NowProj.Cation(i).Kinetic.PoreDiffusivityCorrelation, UnitsOfStorage
+           Input #1, NowProj.Cation(i).Kinetic.PoreDiffusivityUserInput, UnitsOfStorage
+           Input #1, NowProj.Cation(i).Kinetic.NernstHaskellCation.Ion_Name, _
+		NowProj.Cation(i).Kinetic.NernstHaskellCation.Valence, _
+		NowProj.Cation(i).Kinetic.NernstHaskellCation.LimitingIonicConductance
+           Input #1, NowProj.Cation(i).Kinetic.NernstHaskellAnion.Ion_Name, _
+		NowProj.Cation(i).Kinetic.NernstHaskellAnion.Valence, _
+		NowProj.Cation(i).Kinetic.NernstHaskellAnion.LimitingIonicConductance
+       Next i
+
+       Input #1, DummyString
+       Input #1, DummyString, NowProj.NumberOfAnions
+       Input #1, DummyString, NowProj.PresaturantAnion
+       Input #1, DummyString, NowProj.SumAnionInitialEquivalents, _
+		NowProj.OKToGetAnionDimensionless
+       Input #1, DummyString, NowProj.AnionSeparationFactorInput.Row, _
+		NowProj.AnionSeparationFactorInput.Value
+       For i = 1 To NowProj.NumberOfAnions
+           Input #1, NowProj.Anion(i).Name
+           Input #1, NowProj.Anion(i).MolecularWeight, _
+		NowProj.Anion(i).InitialConcentration, _
+		NowProj.Anion(i).EquivalentInitialConcentration, _
+		NowProj.Anion(i).Valence, NowProj.Anion(i).SeparationFactor
+           Input #1, NowProj.Anion(i).Kinetic.LiquidDiffusivity.Value, _
+		NowProj.Anion(i).Kinetic.LiquidDiffusivity.UserInput
+           Input #1, NowProj.Anion(i).Kinetic.LiquidDiffusivityCorrelation, UnitsOfStorage
+           Input #1, NowProj.Anion(i).Kinetic.LiquidDiffusivityUserInput, UnitsOfStorage
+           Input #1, NowProj.Anion(i).Kinetic.IonicTransportCoefficient.Value, _
+		NowProj.Anion(i).Kinetic.IonicTransportCoefficient.UserInput
+           Input #1, NowProj.Anion(i).Kinetic.IonicTransportCoeffCorrelation, UnitsOfStorage
+           Input #1, NowProj.Anion(i).Kinetic.IonicTransportCoeffUserInput, UnitsOfStorage
+           Input #1, NowProj.Anion(i).Kinetic.PoreDiffusivity.Value, _
+		NowProj.Anion(i).Kinetic.PoreDiffusivity.UserInput
+           Input #1, NowProj.Anion(i).Kinetic.PoreDiffusivityCorrelation, UnitsOfStorage
+           Input #1, NowProj.Anion(i).Kinetic.PoreDiffusivityUserInput, UnitsOfStorage
+           Input #1, NowProj.Anion(i).Kinetic.NernstHaskellCation.Ion_Name, _
+		NowProj.Anion(i).Kinetic.NernstHaskellCation.Valence, _
+		NowProj.Anion(i).Kinetic.NernstHaskellCation.LimitingIonicConductance
+           Input #1, NowProj.Anion(i).Kinetic.NernstHaskellAnion.Ion_Name, _
+		NowProj.Anion(i).Kinetic.NernstHaskellAnion.Valence, _
+		NowProj.Anion(i).Kinetic.NernstHaskellAnion.LimitingIonicConductance
+       Next i
+
+
+       'Place information on anions and cations in appropriate locations
+
+       'In cboIons on main form
+
+       'Cations
+       frmIonExchangeMain!cboIons(0).Clear
+       frmIonExchangeMain!lstIons(0).Clear
+       For i = 1 To NowProj.NumberOfCations
+           frmIonExchangeMain!cboIons(0).AddItem NowProj.Cation(i).Name
+       Next i
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmIonExchangeMain!cboIons(0).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       frmIonExchangeMain!cboIons(0).ListIndex = NowProj.PresaturantCation - 1
+
+       'Anions
+       frmIonExchangeMain!cboIons(1).Clear
+       frmIonExchangeMain!lstIons(1).Clear
+       For i = 1 To NowProj.NumberOfAnions
+           frmIonExchangeMain!cboIons(1).AddItem NowProj.Anion(i).Name
+       Next i
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmIonExchangeMain!cboIons(1).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       frmIonExchangeMain!cboIons(1).ListIndex = NowProj.PresaturantAnion - 1
+
+       'Generate click event on appropriate resin in cboAdsorbents
+       frmIonExchangeMain!cboAdsorbents.ListIndex = -1
+       frmIonExchangeMain!cboAdsorbents.ListIndex = ListIndexOfResin
+       frmIonExchangeMain!fraKineticDimensionless.Enabled = True
+
+       'Calculate Needed Properties
+       Call CalculateLiquidDensity
+       Call CalculateLiquidViscosity
+       Call CalculateBedArea
+       Call CalculateBedVolume
+       Call CalculateBedDensity
+       Call CalculateBedPorosity
+       Call CalculateSuperficialVelocity
+       Call CalculateInterstitialVelocity
+       Call CalculateEffectiveContactTime
+       Call CalculateParticleDiameter
+
+       Call UpdateKineticParametersAllIons
+'       Call UpdateDimensionlessGroupAllIons
+
+       'Input units of display of properties related to components
+       'Units of Display of Properties Related to Components
+
+       'Molecular Weight
+       Input #1, DummyString, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmAddComponent!cboAddIonUnits(0).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmAddComponent!cboAddIonUnits(0).ListCount - 1
+           If Trim$(frmAddComponent!cboAddIonUnits(0).List(i)) = Trim$(UnitsOfDisplay) Then
+              frmAddComponent!cboAddIonUnits(0).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       'Initial Concentration
+       Input #1, DummyString, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmAddComponent!cboAddIonUnits(1).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmAddComponent!cboAddIonUnits(1).ListCount - 1
+           If Trim$(frmAddComponent!cboAddIonUnits(1).List(i)) = Trim$(UnitsOfDisplay) Then
+              frmAddComponent!cboAddIonUnits(1).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       'Liquid Diffusivity Correlation
+       Input #1, DummyString, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmInputKineticParameters!cboLiquidDiffusivityUnits(0).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmInputKineticParameters!cboLiquidDiffusivityUnits(0).ListCount - 1
+           If Trim$(frmInputKineticParameters!cboLiquidDiffusivityUnits(0).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmInputKineticParameters!cboLiquidDiffusivityUnits(0).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       'Liquid Diffusivity User Input
+       Input #1, DummyString, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmInputKineticParameters!cboLiquidDiffusivityUnits(1).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmInputKineticParameters!cboLiquidDiffusivityUnits(1).ListCount - 1
+           If Trim$(frmInputKineticParameters!cboLiquidDiffusivityUnits(1).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmInputKineticParameters!cboLiquidDiffusivityUnits(1).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       'Ionic Transport Coeff Correlation
+       Input #1, DummyString, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmInputKineticParameters!cboIonicTransportUnits(0).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmInputKineticParameters!cboIonicTransportUnits(0).ListCount - 1
+           If Trim$(frmInputKineticParameters!cboIonicTransportUnits(0).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmInputKineticParameters!cboIonicTransportUnits(0).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       'Ionic Transport Coeff User Input
+       Input #1, DummyString, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmInputKineticParameters!cboIonicTransportUnits(1).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmInputKineticParameters!cboIonicTransportUnits(1).ListCount - 1
+           If Trim$(frmInputKineticParameters!cboIonicTransportUnits(1).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmInputKineticParameters!cboIonicTransportUnits(1).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       'Pore Diffusivity Correlation
+       Input #1, DummyString, UnitsOfDisplay
+       For i = 0 To frmInputKineticParameters!cboPoreDiffusivityUnits(0).ListCount - 1
+           If Trim$(frmInputKineticParameters!cboPoreDiffusivityUnits(0).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmInputKineticParameters!cboPoreDiffusivityUnits(0).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       'Pore Diffusivity User Input
+       Input #1, DummyString, UnitsOfDisplay
+'------BEGIN MODIFICATIONS HOKANSON 12-AUG-2000
+       frmInputKineticParameters!cboPoreDiffusivityUnits(1).ListIndex = -1
+'------END MODIFICATIONS HOKANSON 12-AUG-2000
+       For i = 0 To frmInputKineticParameters!cboPoreDiffusivityUnits(1).ListCount - 1
+           If Trim$(frmInputKineticParameters!cboPoreDiffusivityUnits(1).List(i)) = _
+		Trim$(UnitsOfDisplay) Then
+              frmInputKineticParameters!cboPoreDiffusivityUnits(1).ListIndex = i
+              Exit For
+           End If
+       Next i
+
+       Input #1, DummyString, NowProj.VarInfluentFileCation
+       Input #1, DummyString, NowProj.VarInfluentFileAnion
+
+'       'Generate Click Event On frmIonExchangeMain!cboKinDimComponent
+'       ListIndex = frmIonExchangeMain!cboKinDimComponent.ListIndex
+'       frmIonExchangeMain!cboKinDimComponent.ListIndex = -1
+'       frmIonExchangeMain!cboKinDimComponent.ListIndex = ListIndex
+
+       If NowProj.IonicTransportCoeffCorrName = IONIC_TRANSPORT_COEFFICIENT_1 Then
+          If frmInputKineticParameters!cboIonicTransport.ListIndex = 1 Then
+             frmInputKineticParameters!cboIonicTransport.ListIndex = 0
+          Else
+             'Generate Click Event On frmInputKineticParameters!cboIon
+             ListIndex = frmInputKineticParameters!cboIon.ListIndex
+             frmInputKineticParameters!cboIon.ListIndex = -1
+             frmInputKineticParameters!cboIon.ListIndex = ListIndex
+          End If
+       ElseIf NowProj.IonicTransportCoeffCorrName = IONIC_TRANSPORT_COEFFICIENT_2 Then
+          If frmInputKineticParameters!cboIonicTransport.ListIndex = 0 Then
+             frmInputKineticParameters!cboIonicTransport.ListIndex = 1
+          Else
+             'Generate Click Event On frmInputKineticParameters!cboIon
+             ListIndex = frmInputKineticParameters!cboIon.ListIndex
+             frmInputKineticParameters!cboIon.ListIndex = -1
+             frmInputKineticParameters!cboIon.ListIndex = ListIndex
+          End If
+       End If
+
+       Close #1
+
+       Call ReadVarInfluentConcs
+
+       frmIonExchangeMain.Caption = "Ion Exchange Design Software - " & filename
+       
+      Current_Filename = filename
+      Call OldFileList_Promote( _
+      Current_Filename, _
+      1, _
+      frmIonExchangeMain.mnuFile(12), _
+      frmIonExchangeMain.mnuFile(8), _
+      frmIonExchangeMain.mnuFile(9), _
+      frmIonExchangeMain.mnuFile(10), _
+      frmIonExchangeMain.mnuFile(11))
+    
+    End If

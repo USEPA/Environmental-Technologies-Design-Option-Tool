@@ -1,0 +1,14 @@
+1                          MODULE_VERSION
+0.00000002906              IN_DATA(1), Polanyi parameter BB
+0.551                      IN_DATA(2), Polanyi parameter W0
+298.15                     IN_DATA(3), temperature, degK
+0.1                        IN_DATA(4), bulk concentration, ug/L
+1.61                       IN_DATA(5), organic density, g/cm^3
+165.83                     IN_DATA(6), molecular weight, g/gmol
+18.526523562793            IN_DATA(7), vapor pressure, mmHg
+1.5055                     IN_DATA(8), refractive index, dimless
+2                          IN_DATA(9), Polanyi exponent GM, dimless
+0.000001                   IN_DATA(10), SPEQ numerical tolerance, e.g. 1e-6, dimless
+50                         NL, number of regression points, dimless
+0                          XERR, not sure what this does; 0 seems a good value
+123456                     EOFTESTMARKER

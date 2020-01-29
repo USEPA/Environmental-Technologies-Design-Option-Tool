@@ -1,0 +1,17 @@
+[OPTIONS]
+ERRORLOG=x:\tack\FAVOR\HELP\ERRORLOG.TXT
+COMPRESS=HIGH
+BMROOT=x:\tack\FAVOR\HELP
+REPORT=Yes
+TITLE=FaVOr On-line Documentation
+OLDKEYPHRASE=NO
+WARNING=3
+
+[FILES]
+favor.rtf
+
+[MAP]
+#include <FAVOR.MAP>
+
+[WINDOWS]
+main = "FaVOr On-line Documentation", (0,0,640,1000 ),,, (192,192,192 )
