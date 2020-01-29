@@ -1,0 +1,13 @@
+LIBRARY cpaslib
+DESCRIPTION "Performs CPAS serial number verification"
+EXPORTS
+  snumVerify @1
+  snumGenerate @2
+  snumIsModulePurchased @3
+  snumGetVersionType @4
+  snumIsExpirationPresent @5
+  snumGetExpirationDay @6
+  snumGetExpirationMonth @7
+  snumGetExpirationYear @8
+  snumCpasLicGenerate @9
+  snumGetInternalSnum @10
