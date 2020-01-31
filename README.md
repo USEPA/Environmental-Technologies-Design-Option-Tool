@@ -2,7 +2,7 @@
 
 The **Environmental Technologies Design Option Tool** (ETDOT) was developed by National Center for Clean Industrial and Treatment Technologies (CenCITT) at Michigan Technological University (MTU).
 
-Version 1.0: Copyright 1994–2005
+Version 1.0: Copyright 1994â€“2005
 
 * David R. Hokanson
 * David W. Hand
@@ -40,7 +40,7 @@ This software requires *Administrator Rights* to a computer to install and to ru
 1. Download zip file in the release tab.
 2. Unzip/Unpack zip file
 3. Run *setup.exe* and follow prompts
-4. When prompted enter license key: CAADV0-R74JM-QXCPN-7EER9-1AT72
+4. When prompted enter license key: CAADV0-R74JM-QXCNP-7EER9-1AT72
 5. To run each module in Windows 7 or newer: Edit *properties* of the program to be run and select Compatibility Tab and  "run in compatibility mode". Select Windows 98/Me from the Compatibility Mode dropdown menu.
 
 Available Users manuals will be located in the modules subfolder within the help folder.
