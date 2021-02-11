@@ -489,19 +489,18 @@
         '
         'MainMenu1
         '
-        Me.MainMenu1.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.MainMenu1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuPhase, Me.mnuRun, Me.mnuDisplay, Me.mnuOptions, Me.mnuDatabase, Me.mnuHelp, Me._mnuOther_5, Me.mnuMTU, Me.mnuUnused})
         Me.MainMenu1.Location = New System.Drawing.Point(0, 0)
         Me.MainMenu1.Name = "MainMenu1"
-        Me.MainMenu1.Size = New System.Drawing.Size(621, 33)
+        Me.MainMenu1.Size = New System.Drawing.Size(621, 24)
         Me.MainMenu1.TabIndex = 99
         '
         'mnuFile
         '
         Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuFileItem_0, Me._mnuFileItem_1, Me._mnuFileItem_2, Me._mnuFileItem_3, Me._mnuFileItem_5, Me._mnuFileItem_6, Me._mnuFileItem_7, Me._mnuFileItem_190, Me._mnuFileItem_191, Me._mnuFileItem_192, Me._mnuFileItem_193, Me._mnuFileItem_194, Me._mnuFileItem_199, Me._mnuFileItem_200})
         Me.mnuFile.Name = "mnuFile"
-        Me.mnuFile.Size = New System.Drawing.Size(54, 29)
+        Me.mnuFile.Size = New System.Drawing.Size(37, 20)
         Me.mnuFile.Text = "&File"
         '
         '_mnuFileItem_0
@@ -509,7 +508,7 @@
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_0, CType(0, Short))
         Me._mnuFileItem_0.Name = "_mnuFileItem_0"
         Me._mnuFileItem_0.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me._mnuFileItem_0.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_0.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_0.Text = "&New"
         '
         '_mnuFileItem_1
@@ -517,7 +516,7 @@
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_1, CType(1, Short))
         Me._mnuFileItem_1.Name = "_mnuFileItem_1"
         Me._mnuFileItem_1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me._mnuFileItem_1.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_1.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_1.Text = "&Open ..."
         '
         '_mnuFileItem_2
@@ -525,26 +524,26 @@
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_2, CType(2, Short))
         Me._mnuFileItem_2.Name = "_mnuFileItem_2"
         Me._mnuFileItem_2.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me._mnuFileItem_2.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_2.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_2.Text = "&Save"
         '
         '_mnuFileItem_3
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_3, CType(3, Short))
         Me._mnuFileItem_3.Name = "_mnuFileItem_3"
-        Me._mnuFileItem_3.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_3.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_3.Text = "Save &As ..."
         '
         '_mnuFileItem_5
         '
         Me._mnuFileItem_5.Name = "_mnuFileItem_5"
-        Me._mnuFileItem_5.Size = New System.Drawing.Size(237, 6)
+        Me._mnuFileItem_5.Size = New System.Drawing.Size(155, 6)
         '
         '_mnuFileItem_6
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_6, CType(6, Short))
         Me._mnuFileItem_6.Name = "_mnuFileItem_6"
-        Me._mnuFileItem_6.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_6.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_6.Text = "Select P&rinter"
         '
         '_mnuFileItem_7
@@ -552,33 +551,33 @@
         Me._mnuFileItem_7.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuPrintSubItem_0, Me._mnuPrintSubItem_1})
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_7, CType(7, Short))
         Me._mnuFileItem_7.Name = "_mnuFileItem_7"
-        Me._mnuFileItem_7.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_7.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_7.Text = "&Print ..."
         '
         '_mnuPrintSubItem_0
         '
         Me.mnuPrintSubItem.SetIndex(Me._mnuPrintSubItem_0, CType(0, Short))
         Me._mnuPrintSubItem_0.Name = "_mnuPrintSubItem_0"
-        Me._mnuPrintSubItem_0.Size = New System.Drawing.Size(188, 34)
+        Me._mnuPrintSubItem_0.Size = New System.Drawing.Size(124, 22)
         Me._mnuPrintSubItem_0.Text = "To &Printer"
         '
         '_mnuPrintSubItem_1
         '
         Me.mnuPrintSubItem.SetIndex(Me._mnuPrintSubItem_1, CType(1, Short))
         Me._mnuPrintSubItem_1.Name = "_mnuPrintSubItem_1"
-        Me._mnuPrintSubItem_1.Size = New System.Drawing.Size(188, 34)
+        Me._mnuPrintSubItem_1.Size = New System.Drawing.Size(124, 22)
         Me._mnuPrintSubItem_1.Text = "To a &File"
         '
         '_mnuFileItem_190
         '
         Me._mnuFileItem_190.Name = "_mnuFileItem_190"
-        Me._mnuFileItem_190.Size = New System.Drawing.Size(237, 6)
+        Me._mnuFileItem_190.Size = New System.Drawing.Size(155, 6)
         '
         '_mnuFileItem_191
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_191, CType(191, Short))
         Me._mnuFileItem_191.Name = "_mnuFileItem_191"
-        Me._mnuFileItem_191.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_191.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_191.Text = "&1 Old File #1"
         Me._mnuFileItem_191.Visible = False
         '
@@ -586,7 +585,7 @@
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_192, CType(192, Short))
         Me._mnuFileItem_192.Name = "_mnuFileItem_192"
-        Me._mnuFileItem_192.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_192.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_192.Text = "&2 Old File #2"
         Me._mnuFileItem_192.Visible = False
         '
@@ -594,7 +593,7 @@
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_193, CType(193, Short))
         Me._mnuFileItem_193.Name = "_mnuFileItem_193"
-        Me._mnuFileItem_193.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_193.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_193.Text = "&3 Old File #3"
         Me._mnuFileItem_193.Visible = False
         '
@@ -602,28 +601,28 @@
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_194, CType(194, Short))
         Me._mnuFileItem_194.Name = "_mnuFileItem_194"
-        Me._mnuFileItem_194.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_194.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_194.Text = "&4 Old File #4"
         Me._mnuFileItem_194.Visible = False
         '
         '_mnuFileItem_199
         '
         Me._mnuFileItem_199.Name = "_mnuFileItem_199"
-        Me._mnuFileItem_199.Size = New System.Drawing.Size(237, 6)
+        Me._mnuFileItem_199.Size = New System.Drawing.Size(155, 6)
         Me._mnuFileItem_199.Visible = False
         '
         '_mnuFileItem_200
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_200, CType(200, Short))
         Me._mnuFileItem_200.Name = "_mnuFileItem_200"
-        Me._mnuFileItem_200.Size = New System.Drawing.Size(240, 34)
+        Me._mnuFileItem_200.Size = New System.Drawing.Size(158, 22)
         Me._mnuFileItem_200.Text = "E&xit"
         '
         'mnuPhase
         '
         Me.mnuPhase.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuPhaseItem_0, Me._mnuPhaseItem_1})
         Me.mnuPhase.Name = "mnuPhase"
-        Me.mnuPhase.Size = New System.Drawing.Size(74, 29)
+        Me.mnuPhase.Size = New System.Drawing.Size(50, 20)
         Me.mnuPhase.Text = "&Phase"
         '
         '_mnuPhaseItem_0
@@ -632,21 +631,21 @@
         Me._mnuPhaseItem_0.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnuPhaseItem.SetIndex(Me._mnuPhaseItem_0, CType(0, Short))
         Me._mnuPhaseItem_0.Name = "_mnuPhaseItem_0"
-        Me._mnuPhaseItem_0.Size = New System.Drawing.Size(213, 34)
+        Me._mnuPhaseItem_0.Size = New System.Drawing.Size(141, 22)
         Me._mnuPhaseItem_0.Text = "&Liquid Phase"
         '
         '_mnuPhaseItem_1
         '
         Me.mnuPhaseItem.SetIndex(Me._mnuPhaseItem_1, CType(1, Short))
         Me._mnuPhaseItem_1.Name = "_mnuPhaseItem_1"
-        Me._mnuPhaseItem_1.Size = New System.Drawing.Size(213, 34)
+        Me._mnuPhaseItem_1.Size = New System.Drawing.Size(141, 22)
         Me._mnuPhaseItem_1.Text = "&Gas Phase"
         '
         'mnuRun
         '
         Me.mnuRun.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuRunItem_0, Me._mnuRunItem_1, Me._mnuRunItem_2, Me._mnuRunItem_10, Me._mnuRunItem_20})
         Me.mnuRun.Name = "mnuRun"
-        Me.mnuRun.Size = New System.Drawing.Size(59, 29)
+        Me.mnuRun.Size = New System.Drawing.Size(40, 20)
         Me.mnuRun.Text = "&Run"
         '
         '_mnuRunItem_0
@@ -654,7 +653,7 @@
         Me.mnuRunItem.SetIndex(Me._mnuRunItem_0, CType(0, Short))
         Me._mnuRunItem_0.Name = "_mnuRunItem_0"
         Me._mnuRunItem_0.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F3), System.Windows.Forms.Keys)
-        Me._mnuRunItem_0.Size = New System.Drawing.Size(325, 34)
+        Me._mnuRunItem_0.Size = New System.Drawing.Size(212, 22)
         Me._mnuRunItem_0.Text = "&PSDM"
         '
         '_mnuRunItem_1
@@ -662,7 +661,7 @@
         Me.mnuRunItem.SetIndex(Me._mnuRunItem_1, CType(1, Short))
         Me._mnuRunItem_1.Name = "_mnuRunItem_1"
         Me._mnuRunItem_1.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me._mnuRunItem_1.Size = New System.Drawing.Size(325, 34)
+        Me._mnuRunItem_1.Size = New System.Drawing.Size(212, 22)
         Me._mnuRunItem_1.Text = "&CPHSDM"
         '
         '_mnuRunItem_2
@@ -670,7 +669,7 @@
         Me.mnuRunItem.SetIndex(Me._mnuRunItem_2, CType(2, Short))
         Me._mnuRunItem_2.Name = "_mnuRunItem_2"
         Me._mnuRunItem_2.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F5), System.Windows.Forms.Keys)
-        Me._mnuRunItem_2.Size = New System.Drawing.Size(325, 34)
+        Me._mnuRunItem_2.Size = New System.Drawing.Size(212, 22)
         Me._mnuRunItem_2.Text = "&ECM"
         '
         '_mnuRunItem_10
@@ -678,7 +677,7 @@
         Me.mnuRunItem.SetIndex(Me._mnuRunItem_10, CType(10, Short))
         Me._mnuRunItem_10.Name = "_mnuRunItem_10"
         Me._mnuRunItem_10.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F6), System.Windows.Forms.Keys)
-        Me._mnuRunItem_10.Size = New System.Drawing.Size(325, 34)
+        Me._mnuRunItem_10.Size = New System.Drawing.Size(212, 22)
         Me._mnuRunItem_10.Text = "PSDMR in &Room"
         '
         '_mnuRunItem_20
@@ -686,7 +685,7 @@
         Me.mnuRunItem.SetIndex(Me._mnuRunItem_20, CType(20, Short))
         Me._mnuRunItem_20.Name = "_mnuRunItem_20"
         Me._mnuRunItem_20.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F7), System.Windows.Forms.Keys)
-        Me._mnuRunItem_20.Size = New System.Drawing.Size(325, 34)
+        Me._mnuRunItem_20.Size = New System.Drawing.Size(212, 22)
         Me._mnuRunItem_20.Text = "PSDMR &Alone"
         Me._mnuRunItem_20.Visible = False
         '
@@ -694,7 +693,7 @@
         '
         Me.mnuDisplay.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuResultsItem_0, Me._mnuResultsItem_1, Me._mnuResultsItem_2, Me._mnuResultsItem_3, Me._mnuResultsItem_4, Me._mnuResultsItem_10})
         Me.mnuDisplay.Name = "mnuDisplay"
-        Me.mnuDisplay.Size = New System.Drawing.Size(83, 29)
+        Me.mnuDisplay.Size = New System.Drawing.Size(56, 20)
         Me.mnuDisplay.Text = "Re&sults"
         '
         '_mnuResultsItem_0
@@ -702,7 +701,7 @@
         Me.mnuResultsItem.SetIndex(Me._mnuResultsItem_0, CType(0, Short))
         Me._mnuResultsItem_0.Name = "_mnuResultsItem_0"
         Me._mnuResultsItem_0.ShortcutKeys = System.Windows.Forms.Keys.F3
-        Me._mnuResultsItem_0.Size = New System.Drawing.Size(420, 34)
+        Me._mnuResultsItem_0.Size = New System.Drawing.Size(275, 22)
         Me._mnuResultsItem_0.Text = "&PSDM Results"
         '
         '_mnuResultsItem_1
@@ -710,7 +709,7 @@
         Me.mnuResultsItem.SetIndex(Me._mnuResultsItem_1, CType(1, Short))
         Me._mnuResultsItem_1.Name = "_mnuResultsItem_1"
         Me._mnuResultsItem_1.ShortcutKeys = System.Windows.Forms.Keys.F4
-        Me._mnuResultsItem_1.Size = New System.Drawing.Size(420, 34)
+        Me._mnuResultsItem_1.Size = New System.Drawing.Size(275, 22)
         Me._mnuResultsItem_1.Text = "&CPHSDM Results"
         '
         '_mnuResultsItem_2
@@ -718,7 +717,7 @@
         Me.mnuResultsItem.SetIndex(Me._mnuResultsItem_2, CType(2, Short))
         Me._mnuResultsItem_2.Name = "_mnuResultsItem_2"
         Me._mnuResultsItem_2.ShortcutKeys = System.Windows.Forms.Keys.F5
-        Me._mnuResultsItem_2.Size = New System.Drawing.Size(420, 34)
+        Me._mnuResultsItem_2.Size = New System.Drawing.Size(275, 22)
         Me._mnuResultsItem_2.Text = "&ECM Results"
         '
         '_mnuResultsItem_3
@@ -726,7 +725,7 @@
         Me.mnuResultsItem.SetIndex(Me._mnuResultsItem_3, CType(3, Short))
         Me._mnuResultsItem_3.Name = "_mnuResultsItem_3"
         Me._mnuResultsItem_3.ShortcutKeys = System.Windows.Forms.Keys.F6
-        Me._mnuResultsItem_3.Size = New System.Drawing.Size(420, 34)
+        Me._mnuResultsItem_3.Size = New System.Drawing.Size(275, 22)
         Me._mnuResultsItem_3.Text = "Compare PSDM Results to &Data"
         '
         '_mnuResultsItem_4
@@ -734,14 +733,14 @@
         Me.mnuResultsItem.SetIndex(Me._mnuResultsItem_4, CType(4, Short))
         Me._mnuResultsItem_4.Name = "_mnuResultsItem_4"
         Me._mnuResultsItem_4.ShortcutKeys = System.Windows.Forms.Keys.F7
-        Me._mnuResultsItem_4.Size = New System.Drawing.Size(420, 34)
+        Me._mnuResultsItem_4.Size = New System.Drawing.Size(275, 22)
         Me._mnuResultsItem_4.Text = "Compare CPHSDM Results to D&ata"
         '
         '_mnuResultsItem_10
         '
         Me.mnuResultsItem.SetIndex(Me._mnuResultsItem_10, CType(10, Short))
         Me._mnuResultsItem_10.Name = "_mnuResultsItem_10"
-        Me._mnuResultsItem_10.Size = New System.Drawing.Size(420, 34)
+        Me._mnuResultsItem_10.Size = New System.Drawing.Size(275, 22)
         Me._mnuResultsItem_10.Text = "PSDM in &Room Results"
         Me._mnuResultsItem_10.Visible = False
         '
@@ -749,63 +748,63 @@
         '
         Me.mnuOptions.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuOptionsItem_0, Me._mnuOptionsItem_1, Me._mnuOptionsItem_2})
         Me.mnuOptions.Name = "mnuOptions"
-        Me.mnuOptions.Size = New System.Drawing.Size(92, 29)
+        Me.mnuOptions.Size = New System.Drawing.Size(61, 20)
         Me.mnuOptions.Text = "&Options"
         '
         '_mnuOptionsItem_0
         '
         Me.mnuOptionsItem.SetIndex(Me._mnuOptionsItem_0, CType(0, Short))
         Me._mnuOptionsItem_0.Name = "_mnuOptionsItem_0"
-        Me._mnuOptionsItem_0.Size = New System.Drawing.Size(295, 34)
+        Me._mnuOptionsItem_0.Size = New System.Drawing.Size(197, 22)
         Me._mnuOptionsItem_0.Text = "&Fouling of GAC"
         '
         '_mnuOptionsItem_1
         '
         Me.mnuOptionsItem.SetIndex(Me._mnuOptionsItem_1, CType(1, Short))
         Me._mnuOptionsItem_1.Name = "_mnuOptionsItem_1"
-        Me._mnuOptionsItem_1.Size = New System.Drawing.Size(295, 34)
+        Me._mnuOptionsItem_1.Size = New System.Drawing.Size(197, 22)
         Me._mnuOptionsItem_1.Text = "&Influent concentrations"
         '
         '_mnuOptionsItem_2
         '
         Me.mnuOptionsItem.SetIndex(Me._mnuOptionsItem_2, CType(2, Short))
         Me._mnuOptionsItem_2.Name = "_mnuOptionsItem_2"
-        Me._mnuOptionsItem_2.Size = New System.Drawing.Size(295, 34)
+        Me._mnuOptionsItem_2.Size = New System.Drawing.Size(197, 22)
         Me._mnuOptionsItem_2.Text = "&Effluent concentrations"
         '
         'mnuDatabase
         '
         Me.mnuDatabase.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuDatabasesItem_0, Me._mnuDatabasesItem_1, Me._mnuDatabasesItem_2})
         Me.mnuDatabase.Name = "mnuDatabase"
-        Me.mnuDatabase.Size = New System.Drawing.Size(110, 29)
+        Me.mnuDatabase.Size = New System.Drawing.Size(72, 20)
         Me.mnuDatabase.Text = "&Databases"
         '
         '_mnuDatabasesItem_0
         '
         Me.mnuDatabasesItem.SetIndex(Me._mnuDatabasesItem_0, CType(0, Short))
         Me._mnuDatabasesItem_0.Name = "_mnuDatabasesItem_0"
-        Me._mnuDatabasesItem_0.Size = New System.Drawing.Size(277, 34)
+        Me._mnuDatabasesItem_0.Size = New System.Drawing.Size(180, 22)
         Me._mnuDatabasesItem_0.Text = "&Adsorbent Database"
         '
         '_mnuDatabasesItem_1
         '
         Me.mnuDatabasesItem.SetIndex(Me._mnuDatabasesItem_1, CType(1, Short))
         Me._mnuDatabasesItem_1.Name = "_mnuDatabasesItem_1"
-        Me._mnuDatabasesItem_1.Size = New System.Drawing.Size(277, 34)
+        Me._mnuDatabasesItem_1.Size = New System.Drawing.Size(180, 22)
         Me._mnuDatabasesItem_1.Text = "&Isotherm Database"
         '
         '_mnuDatabasesItem_2
         '
         Me.mnuDatabasesItem.SetIndex(Me._mnuDatabasesItem_2, CType(2, Short))
         Me._mnuDatabasesItem_2.Name = "_mnuDatabasesItem_2"
-        Me._mnuDatabasesItem_2.Size = New System.Drawing.Size(277, 34)
+        Me._mnuDatabasesItem_2.Size = New System.Drawing.Size(180, 22)
         Me._mnuDatabasesItem_2.Text = "A&dsorber Database"
         '
         'mnuHelp
         '
         Me.mnuHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuHelpItem_0, Me._mnuHelpItem_1, Me._mnuHelpItem_10, Me._mnuHelpItem_20, Me._mnuHelpItem_22, Me._mnuHelpItem_30, Me._mnuHelpItem_80, Me._mnuHelpItem_85, Me._mnuHelpItem_90, Me._mnuHelpItem_98, Me._mnuHelpItem_99})
         Me.mnuHelp.Name = "mnuHelp"
-        Me.mnuHelp.Size = New System.Drawing.Size(65, 29)
+        Me.mnuHelp.Size = New System.Drawing.Size(44, 20)
         Me.mnuHelp.Text = "&Help"
         '
         '_mnuHelpItem_0
@@ -813,7 +812,7 @@
         Me._mnuHelpItem_0.Enabled = False
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_0, CType(0, Short))
         Me._mnuHelpItem_0.Name = "_mnuHelpItem_0"
-        Me._mnuHelpItem_0.Size = New System.Drawing.Size(387, 34)
+        Me._mnuHelpItem_0.Size = New System.Drawing.Size(259, 22)
         Me._mnuHelpItem_0.Text = "&Search ... (INVISIBLE)"
         Me._mnuHelpItem_0.Visible = False
         '
@@ -822,7 +821,7 @@
         Me._mnuHelpItem_1.Enabled = False
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_1, CType(1, Short))
         Me._mnuHelpItem_1.Name = "_mnuHelpItem_1"
-        Me._mnuHelpItem_1.Size = New System.Drawing.Size(387, 34)
+        Me._mnuHelpItem_1.Size = New System.Drawing.Size(259, 22)
         Me._mnuHelpItem_1.Text = "&How to use Help ... (INVISIBLE)"
         Me._mnuHelpItem_1.Visible = False
         '
@@ -831,7 +830,7 @@
         Me._mnuHelpItem_10.Enabled = False
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_10, CType(10, Short))
         Me._mnuHelpItem_10.Name = "_mnuHelpItem_10"
-        Me._mnuHelpItem_10.Size = New System.Drawing.Size(387, 34)
+        Me._mnuHelpItem_10.Size = New System.Drawing.Size(259, 22)
         Me._mnuHelpItem_10.Text = "&Online Help ..."
         Me._mnuHelpItem_10.Visible = False
         '
@@ -839,33 +838,33 @@
         '
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_20, CType(20, Short))
         Me._mnuHelpItem_20.Name = "_mnuHelpItem_20"
-        Me._mnuHelpItem_20.Size = New System.Drawing.Size(387, 34)
+        Me._mnuHelpItem_20.Size = New System.Drawing.Size(259, 22)
         Me._mnuHelpItem_20.Text = "Online Manual ..."
         '
         '_mnuHelpItem_22
         '
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_22, CType(22, Short))
         Me._mnuHelpItem_22.Name = "_mnuHelpItem_22"
-        Me._mnuHelpItem_22.Size = New System.Drawing.Size(387, 34)
+        Me._mnuHelpItem_22.Size = New System.Drawing.Size(259, 22)
         Me._mnuHelpItem_22.Text = "Manual Printing Instructions ..."
         '
         '_mnuHelpItem_30
         '
         Me._mnuHelpItem_30.Name = "_mnuHelpItem_30"
-        Me._mnuHelpItem_30.Size = New System.Drawing.Size(384, 6)
+        Me._mnuHelpItem_30.Size = New System.Drawing.Size(256, 6)
         '
         '_mnuHelpItem_80
         '
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_80, CType(80, Short))
         Me._mnuHelpItem_80.Name = "_mnuHelpItem_80"
-        Me._mnuHelpItem_80.Size = New System.Drawing.Size(387, 34)
+        Me._mnuHelpItem_80.Size = New System.Drawing.Size(259, 22)
         Me._mnuHelpItem_80.Text = "View Version History ..."
         '
         '_mnuHelpItem_85
         '
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_85, CType(85, Short))
         Me._mnuHelpItem_85.Name = "_mnuHelpItem_85"
-        Me._mnuHelpItem_85.Size = New System.Drawing.Size(387, 34)
+        Me._mnuHelpItem_85.Size = New System.Drawing.Size(259, 22)
         Me._mnuHelpItem_85.Text = "View Disclaimer ..."
         Me._mnuHelpItem_85.Visible = False
         '
@@ -873,20 +872,20 @@
         '
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_90, CType(90, Short))
         Me._mnuHelpItem_90.Name = "_mnuHelpItem_90"
-        Me._mnuHelpItem_90.Size = New System.Drawing.Size(387, 34)
+        Me._mnuHelpItem_90.Size = New System.Drawing.Size(259, 22)
         Me._mnuHelpItem_90.Text = "&Technical Assistance Provided By ..."
         Me._mnuHelpItem_90.Visible = False
         '
         '_mnuHelpItem_98
         '
         Me._mnuHelpItem_98.Name = "_mnuHelpItem_98"
-        Me._mnuHelpItem_98.Size = New System.Drawing.Size(384, 6)
+        Me._mnuHelpItem_98.Size = New System.Drawing.Size(256, 6)
         '
         '_mnuHelpItem_99
         '
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_99, CType(99, Short))
         Me._mnuHelpItem_99.Name = "_mnuHelpItem_99"
-        Me._mnuHelpItem_99.Size = New System.Drawing.Size(387, 34)
+        Me._mnuHelpItem_99.Size = New System.Drawing.Size(259, 22)
         Me._mnuHelpItem_99.Text = "&About AdDesignS ..."
         '
         '_mnuOther_5
@@ -894,7 +893,7 @@
         Me._mnuOther_5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuOtherItem_1})
         Me.mnuOther.SetIndex(Me._mnuOther_5, CType(5, Short))
         Me._mnuOther_5.Name = "_mnuOther_5"
-        Me._mnuOther_5.Size = New System.Drawing.Size(73, 29)
+        Me._mnuOther_5.Size = New System.Drawing.Size(49, 20)
         Me._mnuOther_5.Text = "Other"
         Me._mnuOther_5.Visible = False
         '
@@ -902,63 +901,63 @@
         '
         Me.mnuOtherItem.SetIndex(Me._mnuOtherItem_1, CType(1, Short))
         Me._mnuOtherItem_1.Name = "_mnuOtherItem_1"
-        Me._mnuOtherItem_1.Size = New System.Drawing.Size(225, 34)
+        Me._mnuOtherItem_1.Size = New System.Drawing.Size(151, 22)
         Me._mnuOtherItem_1.Text = "&Technical Help"
         '
         'mnuMTU
         '
         Me.mnuMTU.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuMTUItem_10, Me._mnuMTUItem_40, Me._mnuMTUItem_50, Me._mnuMTUItem_199})
         Me.mnuMTU.Name = "mnuMTU"
-        Me.mnuMTU.Size = New System.Drawing.Size(129, 29)
+        Me.mnuMTU.Size = New System.Drawing.Size(87, 20)
         Me.mnuMTU.Text = "&MTU Internal"
         '
         '_mnuMTUItem_10
         '
         Me.mnuMTUItem.SetIndex(Me._mnuMTUItem_10, CType(10, Short))
         Me._mnuMTUItem_10.Name = "_mnuMTUItem_10"
-        Me._mnuMTUItem_10.Size = New System.Drawing.Size(333, 34)
+        Me._mnuMTUItem_10.Size = New System.Drawing.Size(219, 22)
         Me._mnuMTUItem_10.Text = "&Create alternate input file"
         '
         '_mnuMTUItem_40
         '
         Me.mnuMTUItem.SetIndex(Me._mnuMTUItem_40, CType(40, Short))
         Me._mnuMTUItem_40.Name = "_mnuMTUItem_40"
-        Me._mnuMTUItem_40.Size = New System.Drawing.Size(333, 34)
+        Me._mnuMTUItem_40.Size = New System.Drawing.Size(219, 22)
         Me._mnuMTUItem_40.Text = "&Keep temporary model files"
         '
         '_mnuMTUItem_50
         '
         Me.mnuMTUItem.SetIndex(Me._mnuMTUItem_50, CType(50, Short))
         Me._mnuMTUItem_50.Name = "_mnuMTUItem_50"
-        Me._mnuMTUItem_50.Size = New System.Drawing.Size(333, 34)
+        Me._mnuMTUItem_50.Size = New System.Drawing.Size(219, 22)
         Me._mnuMTUItem_50.Text = "&Make menu invisible"
         '
         '_mnuMTUItem_199
         '
         Me.mnuMTUItem.SetIndex(Me._mnuMTUItem_199, CType(199, Short))
         Me._mnuMTUItem_199.Name = "_mnuMTUItem_199"
-        Me._mnuMTUItem_199.Size = New System.Drawing.Size(333, 34)
+        Me._mnuMTUItem_199.Size = New System.Drawing.Size(219, 22)
         Me._mnuMTUItem_199.Text = "&Read me"
         '
         'mnuUnused
         '
         Me.mnuUnused.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBatch, Me._mnuBatchItem_0})
         Me.mnuUnused.Name = "mnuUnused"
-        Me.mnuUnused.Size = New System.Drawing.Size(88, 29)
+        Me.mnuUnused.Size = New System.Drawing.Size(59, 20)
         Me.mnuUnused.Text = "Unused"
         Me.mnuUnused.Visible = False
         '
         'mnuBatch
         '
         Me.mnuBatch.Name = "mnuBatch"
-        Me.mnuBatch.Size = New System.Drawing.Size(196, 34)
+        Me.mnuBatch.Size = New System.Drawing.Size(130, 22)
         Me.mnuBatch.Text = "&Batch Files"
         '
         '_mnuBatchItem_0
         '
         Me.mnuBatchItem.SetIndex(Me._mnuBatchItem_0, CType(0, Short))
         Me._mnuBatchItem_0.Name = "_mnuBatchItem_0"
-        Me._mnuBatchItem_0.Size = New System.Drawing.Size(196, 34)
+        Me._mnuBatchItem_0.Size = New System.Drawing.Size(130, 22)
         Me._mnuBatchItem_0.Text = "&PSDM"
         Me._mnuBatchItem_0.Visible = False
         '
@@ -1039,7 +1038,7 @@
         Me._txtCarbon_0.MaxLength = 0
         Me._txtCarbon_0.Name = "_txtCarbon_0"
         Me._txtCarbon_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtCarbon_0.Size = New System.Drawing.Size(161, 26)
+        Me._txtCarbon_0.Size = New System.Drawing.Size(161, 20)
         Me._txtCarbon_0.TabIndex = 13
         Me._txtCarbon_0.Text = "Test"
         Me._txtCarbon_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1055,7 +1054,7 @@
         Me._txtCarbonUnits_2.Location = New System.Drawing.Point(220, 84)
         Me._txtCarbonUnits_2.Name = "_txtCarbonUnits_2"
         Me._txtCarbonUnits_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtCarbonUnits_2.Size = New System.Drawing.Size(80, 26)
+        Me._txtCarbonUnits_2.Size = New System.Drawing.Size(80, 22)
         Me._txtCarbonUnits_2.TabIndex = 83
         Me._txtCarbonUnits_2.TabStop = False
         '
@@ -1070,7 +1069,7 @@
         Me._txtCarbonUnits_1.Location = New System.Drawing.Point(220, 62)
         Me._txtCarbonUnits_1.Name = "_txtCarbonUnits_1"
         Me._txtCarbonUnits_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtCarbonUnits_1.Size = New System.Drawing.Size(80, 26)
+        Me._txtCarbonUnits_1.Size = New System.Drawing.Size(80, 22)
         Me._txtCarbonUnits_1.TabIndex = 82
         Me._txtCarbonUnits_1.TabStop = False
         '
@@ -1087,7 +1086,7 @@
         Me._txtCarbon_3.MaxLength = 0
         Me._txtCarbon_3.Name = "_txtCarbon_3"
         Me._txtCarbon_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtCarbon_3.Size = New System.Drawing.Size(81, 26)
+        Me._txtCarbon_3.Size = New System.Drawing.Size(81, 20)
         Me._txtCarbon_3.TabIndex = 16
         Me._txtCarbon_3.Text = "Test"
         Me._txtCarbon_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1105,7 +1104,7 @@
         Me._txtCarbon_2.MaxLength = 0
         Me._txtCarbon_2.Name = "_txtCarbon_2"
         Me._txtCarbon_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtCarbon_2.Size = New System.Drawing.Size(81, 26)
+        Me._txtCarbon_2.Size = New System.Drawing.Size(81, 20)
         Me._txtCarbon_2.TabIndex = 15
         Me._txtCarbon_2.Text = "Test"
         Me._txtCarbon_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1123,7 +1122,7 @@
         Me._txtCarbon_1.MaxLength = 0
         Me._txtCarbon_1.Name = "_txtCarbon_1"
         Me._txtCarbon_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtCarbon_1.Size = New System.Drawing.Size(81, 26)
+        Me._txtCarbon_1.Size = New System.Drawing.Size(81, 20)
         Me._txtCarbon_1.TabIndex = 14
         Me._txtCarbon_1.Text = "Test"
         Me._txtCarbon_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1171,7 +1170,7 @@
         Me._txtCarbon_4.MaxLength = 0
         Me._txtCarbon_4.Name = "_txtCarbon_4"
         Me._txtCarbon_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtCarbon_4.Size = New System.Drawing.Size(81, 26)
+        Me._txtCarbon_4.Size = New System.Drawing.Size(81, 20)
         Me._txtCarbon_4.TabIndex = 17
         Me._txtCarbon_4.Text = "Test"
         Me._txtCarbon_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1328,7 +1327,7 @@
         Me._txtBedUnits_4.Location = New System.Drawing.Point(220, 122)
         Me._txtBedUnits_4.Name = "_txtBedUnits_4"
         Me._txtBedUnits_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedUnits_4.Size = New System.Drawing.Size(80, 26)
+        Me._txtBedUnits_4.Size = New System.Drawing.Size(80, 22)
         Me._txtBedUnits_4.TabIndex = 62
         Me._txtBedUnits_4.TabStop = False
         '
@@ -1343,7 +1342,7 @@
         Me._txtBedUnits_3.Location = New System.Drawing.Point(220, 102)
         Me._txtBedUnits_3.Name = "_txtBedUnits_3"
         Me._txtBedUnits_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedUnits_3.Size = New System.Drawing.Size(80, 26)
+        Me._txtBedUnits_3.Size = New System.Drawing.Size(80, 22)
         Me._txtBedUnits_3.TabIndex = 61
         Me._txtBedUnits_3.TabStop = False
         '
@@ -1358,7 +1357,7 @@
         Me._txtBedUnits_2.Location = New System.Drawing.Point(220, 82)
         Me._txtBedUnits_2.Name = "_txtBedUnits_2"
         Me._txtBedUnits_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedUnits_2.Size = New System.Drawing.Size(80, 26)
+        Me._txtBedUnits_2.Size = New System.Drawing.Size(80, 22)
         Me._txtBedUnits_2.TabIndex = 60
         Me._txtBedUnits_2.TabStop = False
         '
@@ -1373,7 +1372,7 @@
         Me._txtBedUnits_1.Location = New System.Drawing.Point(220, 62)
         Me._txtBedUnits_1.Name = "_txtBedUnits_1"
         Me._txtBedUnits_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedUnits_1.Size = New System.Drawing.Size(80, 26)
+        Me._txtBedUnits_1.Size = New System.Drawing.Size(80, 22)
         Me._txtBedUnits_1.TabIndex = 59
         Me._txtBedUnits_1.TabStop = False
         '
@@ -1388,7 +1387,7 @@
         Me._txtBedUnits_0.Location = New System.Drawing.Point(220, 42)
         Me._txtBedUnits_0.Name = "_txtBedUnits_0"
         Me._txtBedUnits_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedUnits_0.Size = New System.Drawing.Size(80, 26)
+        Me._txtBedUnits_0.Size = New System.Drawing.Size(80, 22)
         Me._txtBedUnits_0.TabIndex = 58
         Me._txtBedUnits_0.TabStop = False
         '
@@ -1405,7 +1404,7 @@
         Me._txtBedValue_0.MaxLength = 0
         Me._txtBedValue_0.Name = "_txtBedValue_0"
         Me._txtBedValue_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedValue_0.Size = New System.Drawing.Size(81, 26)
+        Me._txtBedValue_0.Size = New System.Drawing.Size(81, 20)
         Me._txtBedValue_0.TabIndex = 8
         Me._txtBedValue_0.Text = "Test"
         Me._txtBedValue_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1423,7 +1422,7 @@
         Me._txtBedValue_1.MaxLength = 0
         Me._txtBedValue_1.Name = "_txtBedValue_1"
         Me._txtBedValue_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedValue_1.Size = New System.Drawing.Size(81, 26)
+        Me._txtBedValue_1.Size = New System.Drawing.Size(81, 20)
         Me._txtBedValue_1.TabIndex = 9
         Me._txtBedValue_1.Text = "Test"
         Me._txtBedValue_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1441,7 +1440,7 @@
         Me._txtBedValue_2.MaxLength = 0
         Me._txtBedValue_2.Name = "_txtBedValue_2"
         Me._txtBedValue_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedValue_2.Size = New System.Drawing.Size(81, 26)
+        Me._txtBedValue_2.Size = New System.Drawing.Size(81, 20)
         Me._txtBedValue_2.TabIndex = 10
         Me._txtBedValue_2.Text = "Test"
         Me._txtBedValue_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1459,7 +1458,7 @@
         Me._txtBedValue_3.MaxLength = 0
         Me._txtBedValue_3.Name = "_txtBedValue_3"
         Me._txtBedValue_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedValue_3.Size = New System.Drawing.Size(81, 26)
+        Me._txtBedValue_3.Size = New System.Drawing.Size(81, 20)
         Me._txtBedValue_3.TabIndex = 11
         Me._txtBedValue_3.Text = "Test"
         Me._txtBedValue_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1477,7 +1476,7 @@
         Me._txtBedValue_4.MaxLength = 0
         Me._txtBedValue_4.Name = "_txtBedValue_4"
         Me._txtBedValue_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtBedValue_4.Size = New System.Drawing.Size(81, 26)
+        Me._txtBedValue_4.Size = New System.Drawing.Size(81, 20)
         Me._txtBedValue_4.TabIndex = 12
         Me._txtBedValue_4.Text = "Test"
         Me._txtBedValue_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1834,7 +1833,7 @@
         Me._txtTime_0.MaxLength = 0
         Me._txtTime_0.Name = "_txtTime_0"
         Me._txtTime_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtTime_0.Size = New System.Drawing.Size(81, 26)
+        Me._txtTime_0.Size = New System.Drawing.Size(81, 20)
         Me._txtTime_0.TabIndex = 2
         Me._txtTime_0.Text = "txtTime"
         Me._txtTime_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1852,7 +1851,7 @@
         Me._txtTime_1.MaxLength = 0
         Me._txtTime_1.Name = "_txtTime_1"
         Me._txtTime_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtTime_1.Size = New System.Drawing.Size(81, 26)
+        Me._txtTime_1.Size = New System.Drawing.Size(81, 20)
         Me._txtTime_1.TabIndex = 3
         Me._txtTime_1.Text = "txtTime"
         Me._txtTime_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1870,7 +1869,7 @@
         Me._txtTime_2.MaxLength = 0
         Me._txtTime_2.Name = "_txtTime_2"
         Me._txtTime_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtTime_2.Size = New System.Drawing.Size(81, 26)
+        Me._txtTime_2.Size = New System.Drawing.Size(81, 20)
         Me._txtTime_2.TabIndex = 4
         Me._txtTime_2.Text = "txtTime"
         Me._txtTime_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1887,7 +1886,7 @@
         Me.txtNumberOfBeds.MaxLength = 0
         Me.txtNumberOfBeds.Name = "txtNumberOfBeds"
         Me.txtNumberOfBeds.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtNumberOfBeds.Size = New System.Drawing.Size(49, 26)
+        Me.txtNumberOfBeds.Size = New System.Drawing.Size(49, 20)
         Me.txtNumberOfBeds.TabIndex = 5
         Me.txtNumberOfBeds.Text = "Test"
         Me.txtNumberOfBeds.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1903,7 +1902,7 @@
         Me._txtTimeUnits_0.Location = New System.Drawing.Point(224, 18)
         Me._txtTimeUnits_0.Name = "_txtTimeUnits_0"
         Me._txtTimeUnits_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtTimeUnits_0.Size = New System.Drawing.Size(69, 26)
+        Me._txtTimeUnits_0.Size = New System.Drawing.Size(69, 22)
         Me._txtTimeUnits_0.TabIndex = 46
         Me._txtTimeUnits_0.TabStop = False
         '
@@ -1918,7 +1917,7 @@
         Me._txtTimeUnits_1.Location = New System.Drawing.Point(224, 40)
         Me._txtTimeUnits_1.Name = "_txtTimeUnits_1"
         Me._txtTimeUnits_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtTimeUnits_1.Size = New System.Drawing.Size(69, 26)
+        Me._txtTimeUnits_1.Size = New System.Drawing.Size(69, 22)
         Me._txtTimeUnits_1.TabIndex = 45
         Me._txtTimeUnits_1.TabStop = False
         '
@@ -1933,7 +1932,7 @@
         Me._txtTimeUnits_2.Location = New System.Drawing.Point(224, 62)
         Me._txtTimeUnits_2.Name = "_txtTimeUnits_2"
         Me._txtTimeUnits_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtTimeUnits_2.Size = New System.Drawing.Size(69, 26)
+        Me._txtTimeUnits_2.Size = New System.Drawing.Size(69, 22)
         Me._txtTimeUnits_2.TabIndex = 44
         Me._txtTimeUnits_2.TabStop = False
         '
@@ -1964,7 +1963,7 @@
         Me._txtNPoint_0.MaxLength = 0
         Me._txtNPoint_0.Name = "_txtNPoint_0"
         Me._txtNPoint_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtNPoint_0.Size = New System.Drawing.Size(49, 26)
+        Me._txtNPoint_0.Size = New System.Drawing.Size(49, 20)
         Me._txtNPoint_0.TabIndex = 6
         Me._txtNPoint_0.Text = "Test"
         Me._txtNPoint_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1982,7 +1981,7 @@
         Me._txtNPoint_1.MaxLength = 0
         Me._txtNPoint_1.Name = "_txtNPoint_1"
         Me._txtNPoint_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtNPoint_1.Size = New System.Drawing.Size(49, 26)
+        Me._txtNPoint_1.Size = New System.Drawing.Size(49, 20)
         Me._txtNPoint_1.TabIndex = 7
         Me._txtNPoint_1.Text = "Test"
         Me._txtNPoint_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -2167,12 +2166,12 @@
         Me.lstComponents.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstComponents.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstComponents.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lstComponents.ItemHeight = 18
+        Me.lstComponents.ItemHeight = 14
         Me.lstComponents.Location = New System.Drawing.Point(8, 17)
         Me.lstComponents.Name = "lstComponents"
         Me.lstComponents.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lstComponents.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.lstComponents.Size = New System.Drawing.Size(289, 58)
+        Me.lstComponents.Size = New System.Drawing.Size(289, 46)
         Me.lstComponents.TabIndex = 37
         Me.lstComponents.TabStop = False
         '
@@ -2186,7 +2185,7 @@
         Me.cboSelectCompo.Location = New System.Drawing.Point(8, 87)
         Me.cboSelectCompo.Name = "cboSelectCompo"
         Me.cboSelectCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboSelectCompo.Size = New System.Drawing.Size(281, 26)
+        Me.cboSelectCompo.Size = New System.Drawing.Size(281, 22)
         Me.cboSelectCompo.TabIndex = 36
         Me.cboSelectCompo.TabStop = False
         '
@@ -2217,7 +2216,7 @@
         Me._txtWater_1.MaxLength = 0
         Me._txtWater_1.Name = "_txtWater_1"
         Me._txtWater_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtWater_1.Size = New System.Drawing.Size(73, 26)
+        Me._txtWater_1.Size = New System.Drawing.Size(73, 20)
         Me._txtWater_1.TabIndex = 0
         Me._txtWater_1.Text = "txtWater(1)"
         Me._txtWater_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -2235,7 +2234,7 @@
         Me._txtWater_0.MaxLength = 0
         Me._txtWater_0.Name = "_txtWater_0"
         Me._txtWater_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtWater_0.Size = New System.Drawing.Size(73, 26)
+        Me._txtWater_0.Size = New System.Drawing.Size(73, 20)
         Me._txtWater_0.TabIndex = 1
         Me._txtWater_0.Text = "txtWater(0)"
         Me._txtWater_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -2355,7 +2354,7 @@
         Me.CommonDialog1.Location = New System.Drawing.Point(0, 0)
         Me.CommonDialog1.Name = "CommonDialog1"
         Me.CommonDialog1.OcxState = CType(resources.GetObject("CommonDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CommonDialog1.Size = New System.Drawing.Size(48, 48)
+        Me.CommonDialog1.Size = New System.Drawing.Size(32, 32)
         Me.CommonDialog1.TabIndex = 0
         '
         'SSFrame2
@@ -2380,7 +2379,7 @@
         Me.Combo1.Location = New System.Drawing.Point(172, 94)
         Me.Combo1.Name = "Combo1"
         Me.Combo1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Combo1.Size = New System.Drawing.Size(83, 26)
+        Me.Combo1.Size = New System.Drawing.Size(83, 22)
         Me.Combo1.TabIndex = 28
         '
         'SSFrame1
@@ -2401,7 +2400,7 @@
         Me.List1.Cursor = System.Windows.Forms.Cursors.Default
         Me.List1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.List1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.List1.ItemHeight = 18
+        Me.List1.ItemHeight = 14
         Me.List1.Location = New System.Drawing.Point(22, 158)
         Me.List1.Name = "List1"
         Me.List1.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -2433,7 +2432,7 @@
         Me.Text1.MaxLength = 0
         Me.Text1.Name = "Text1"
         Me.Text1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Text1.Size = New System.Drawing.Size(83, 26)
+        Me.Text1.Size = New System.Drawing.Size(83, 20)
         Me.Text1.TabIndex = 23
         Me.Text1.Text = "Text1"
         '
@@ -2511,7 +2510,7 @@
         '
         'frmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(621, 485)
