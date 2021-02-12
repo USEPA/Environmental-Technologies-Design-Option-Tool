@@ -158,10 +158,10 @@ Friend Class frmKinetic
 	End Sub
 
 
-	'	Private Sub cmdCancelOK_Click(ByRef Index As Short)
-	Private Sub cmdCancelOK_click(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.ClickEvent, _cmdCancelOK_0.ClickEvent
-		Dim index As Short = Array.IndexOf(cmdCancelOK, sender)
-		Select Case index
+	Private Sub cmdCancelOK_Click(ByRef Index As Short)
+		'Private Sub cmdCancelOK_click(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.ClickEvent, _cmdCancelOK_0.ClickEvent
+		'Dim index As Short = Array.IndexOf(cmdCancelOK, sender)
+		Select Case Index
 			Case 0 'CANCEL.
 				'ROLLBACK TO ORIGINAL COMPONENT DATA.
 				'UPGRADE_WARNING: Couldn't resolve default property of object Component(0). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -461,11 +461,11 @@ Friend Class frmKinetic
 
 
 
-	'	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.ClickEvent
-	'	Call cmdCancelOK_Click(1)
-	'	End Sub
+	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.ClickEvent
+		Call cmdCancelOK_click(1)
+	End Sub
 
-	'Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.ClickEvent
-	'Call cmdCancelOK_Click(0)
-	'End Sub
+	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.ClickEvent
+		Call cmdCancelOK_click(0)
+	End Sub
 End Class
