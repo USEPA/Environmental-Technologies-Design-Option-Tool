@@ -81,7 +81,7 @@
         Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(365, 171)
+        Me.Command4.Location = New System.Drawing.Point(116, 107)
         Me.Command4.Name = "Command4"
         Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Command4.Size = New System.Drawing.Size(97, 22)
@@ -109,9 +109,9 @@
         '
         Me._lblunit_0.AutoSize = True
         Me.lblUnit.SetIndex(Me._lblunit_0, CType(0, Short))
-        Me._lblunit_0.Location = New System.Drawing.Point(101, 198)
+        Me._lblunit_0.Location = New System.Drawing.Point(113, 27)
         Me._lblunit_0.Name = "_lblunit_0"
-        Me._lblunit_0.Size = New System.Drawing.Size(64, 16)
+        Me._lblunit_0.Size = New System.Drawing.Size(49, 14)
         Me._lblunit_0.TabIndex = 13
         Me._lblunit_0.Text = "lblUnit(0)"
         '
@@ -119,9 +119,9 @@
         '
         Me._lblunit_1.AutoSize = True
         Me.lblUnit.SetIndex(Me._lblunit_1, CType(1, Short))
-        Me._lblunit_1.Location = New System.Drawing.Point(104, 245)
+        Me._lblunit_1.Location = New System.Drawing.Point(113, 73)
         Me._lblunit_1.Name = "_lblunit_1"
-        Me._lblunit_1.Size = New System.Drawing.Size(64, 16)
+        Me._lblunit_1.Size = New System.Drawing.Size(49, 14)
         Me._lblunit_1.TabIndex = 14
         Me._lblunit_1.Text = "lblUnit(1)"
         '
@@ -131,18 +131,18 @@
         '_txtWater_0
         '
         Me.txtWater.SetIndex(Me._txtWater_0, CType(0, Short))
-        Me._txtWater_0.Location = New System.Drawing.Point(199, 198)
+        Me._txtWater_0.Location = New System.Drawing.Point(189, 24)
         Me._txtWater_0.Name = "_txtWater_0"
-        Me._txtWater_0.Size = New System.Drawing.Size(100, 23)
+        Me._txtWater_0.Size = New System.Drawing.Size(100, 20)
         Me._txtWater_0.TabIndex = 15
         Me._txtWater_0.Text = "txtWater(0)"
         '
         '_txtWater_1
         '
         Me.txtWater.SetIndex(Me._txtWater_1, CType(1, Short))
-        Me._txtWater_1.Location = New System.Drawing.Point(199, 242)
+        Me._txtWater_1.Location = New System.Drawing.Point(189, 70)
         Me._txtWater_1.Name = "_txtWater_1"
-        Me._txtWater_1.Size = New System.Drawing.Size(100, 23)
+        Me._txtWater_1.Size = New System.Drawing.Size(100, 20)
         Me._txtWater_1.TabIndex = 16
         Me._txtWater_1.Text = "txtWater(1)"
         '
@@ -153,10 +153,11 @@
         Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.SSFrame1.Size = New System.Drawing.Size(166, 101)
         Me.SSFrame1.TabIndex = 4
+        Me.SSFrame1.Visible = False
         '
         '_cmdCancelOK_1
         '
-        Me._cmdCancelOK_1.Location = New System.Drawing.Point(68, 148)
+        Me._cmdCancelOK_1.Location = New System.Drawing.Point(37, 135)
         Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
         Me._cmdCancelOK_1.OcxState = CType(resources.GetObject("_cmdCancelOK_1.OcxState"), System.Windows.Forms.AxHost.State)
         Me._cmdCancelOK_1.Size = New System.Drawing.Size(100, 32)
@@ -165,7 +166,7 @@
         '
         '_cmdCancelOK_0
         '
-        Me._cmdCancelOK_0.Location = New System.Drawing.Point(199, 148)
+        Me._cmdCancelOK_0.Location = New System.Drawing.Point(178, 135)
         Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
         Me._cmdCancelOK_0.OcxState = CType(resources.GetObject("_cmdCancelOK_0.OcxState"), System.Windows.Forms.AxHost.State)
         Me._cmdCancelOK_0.Size = New System.Drawing.Size(100, 32)
@@ -174,18 +175,18 @@
         '
         '_chkCorr_0
         '
-        Me._chkCorr_0.Location = New System.Drawing.Point(37, 12)
+        Me._chkCorr_0.Location = New System.Drawing.Point(37, 15)
         Me._chkCorr_0.Name = "_chkCorr_0"
         Me._chkCorr_0.OcxState = CType(resources.GetObject("_chkCorr_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkCorr_0.Size = New System.Drawing.Size(100, 38)
+        Me._chkCorr_0.Size = New System.Drawing.Size(70, 38)
         Me._chkCorr_0.TabIndex = 0
         '
         '_chkCorr_1
         '
-        Me._chkCorr_1.Location = New System.Drawing.Point(37, 76)
+        Me._chkCorr_1.Location = New System.Drawing.Point(37, 67)
         Me._chkCorr_1.Name = "_chkCorr_1"
         Me._chkCorr_1.OcxState = CType(resources.GetObject("_chkCorr_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkCorr_1.Size = New System.Drawing.Size(100, 30)
+        Me._chkCorr_1.Size = New System.Drawing.Size(70, 30)
         Me._chkCorr_1.TabIndex = 1
         '
         'SSFrame2
@@ -206,10 +207,10 @@
         '
         'frmFluidProps
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(491, 316)
+        Me.ClientSize = New System.Drawing.Size(356, 206)
         Me.ControlBox = False
         Me.Controls.Add(Me._txtWater_0)
         Me.Controls.Add(Me._txtWater_1)
