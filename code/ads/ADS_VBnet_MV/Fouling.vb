@@ -70,7 +70,7 @@ Friend Class frmFouling
 			chkUse(i).Visible = True
 			'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(i). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			chkUse(i).Enabled = Component(i + 1).K_Reduction
+			'chkUse(i).Enabled = Component(i + 1).K_Reduction
 			lblName(i).Visible = True
 			lblName(i).Text = Trim(Component(i + 1).Name)
 		Next i
@@ -129,7 +129,7 @@ Friend Class frmFouling
 			If (Is_Invalid) Then
 				Call Show_Error("You must select a correlation " & "type before you can apply fouling for this chemical.")
 				'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				chkUse(Index).Enabled = False
+				'chkUse(Index).Enabled = False
 				Exit Sub
 			End If
 		End If
@@ -221,7 +221,9 @@ Friend Class frmFouling
 		Call Populate_cboType()
 		
 		Call Populate_cboCorrel()
-		
+
+
+
 		For i = Number_Component To Number_Compo_Max - 1
 			'UPGRADE_WARNING: Couldn't resolve default property of object chkUse().Visible. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			chkUse(i).Visible = False
@@ -229,6 +231,12 @@ Friend Class frmFouling
 			cboCorrel(i).Visible = False
 		Next i
 
+		'chkUse(0).Visible = True
+		'chkUse(0).Enabled = True
+		'chkUse(1).Visible = True
+		'chkUse(1).Enabled = True
+		'chkUse(2).Visible = True
+		'chkUse(2).Enabled = True
 		'UPGRADE_WARNING: Couldn't resolve default property of object cmdEditCompo.Top. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'		cmdEditCompo.Top = VB6.PixelsToTwipsY(lblName(Number_Component - 1).Top) + VB6.PixelsToTwipsY(lblName(Number_Component - 1).Height) + VB6.TwipsPerPixelY * 10
 		'UPGRADE_WARNING: Couldn't resolve default property of object fraCompo.Height. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
