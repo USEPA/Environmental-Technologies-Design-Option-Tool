@@ -30,7 +30,9 @@ Friend Class frmEditCarbon
 		'SPECIFIED EXACTLY AS-IS, OR ELSE IT WILL FAIL.
 		'UPGRADE_WARNING: Couldn't resolve default property of object Ws1.OpenDatabase. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'DB_Carbon = DAOEngine.OpenDatabase(fn_DB_Carbon)  'From ws1 to Daoengine ?? Shang
-		DB_Carbon = Ws1.OpenDatabase(fn_DB_Carbon)
+		'DB_Carbon = Ws1.OpenDatabase(fn_DB_Carbon) 'Throws error
+		'replace w/ password
+		DB_Carbon = Ws1.OpenDatabase(fn_DB_Carbon, True, False, ";pwd=" & decrypt_string(Encrypted_User_Password))
 		FORM_MODE = FORM_MODE_QUERY_DATABASE
 		Me.ShowDialog()
 		If (USER_HIT_USE_THESE) Then
