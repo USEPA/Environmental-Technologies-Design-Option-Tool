@@ -1,4 +1,4 @@
-# ETDOT
+﻿# ETDOT
 
 The **Environmental Technologies Design Option Tool** (ETDOT) was developed by National Center for Clean Industrial and Treatment Technologies (CenCITT) at Michigan Technological University (MTU).
 
@@ -42,6 +42,7 @@ This software requires *Administrator Rights* to a computer to install and to ru
 3. Run *setup.exe* and follow prompts
 4. When prompted enter license key: CAADV0-R74JM-QXCNP-7EER9-1AT72
 5. To run each module in Windows 7 or newer: Edit *properties* of the program to be run and select Compatibility Tab and  "run in compatibility mode". Select Windows 98/Me from the Compatibility Mode dropdown menu.
+6. For AdDesignS: If you get "Error #435...index" or an error about "Biot number out of range", please use English as your language in Windows OS. The comma marker for a decimal used by some non-English languages cannot be passed to the solvers in the program and produce the listed errors.
 
 Available Users manuals will be located in the modules subfolder within the help folder.
 
