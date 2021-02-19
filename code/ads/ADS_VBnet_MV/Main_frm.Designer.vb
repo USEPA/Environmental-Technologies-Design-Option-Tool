@@ -901,7 +901,7 @@
         '
         Me.mnuOtherItem.SetIndex(Me._mnuOtherItem_1, CType(1, Short))
         Me._mnuOtherItem_1.Name = "_mnuOtherItem_1"
-        Me._mnuOtherItem_1.Size = New System.Drawing.Size(180, 22)
+        Me._mnuOtherItem_1.Size = New System.Drawing.Size(151, 22)
         Me._mnuOtherItem_1.Text = "&Technical Help"
         '
         'mnuMTU
@@ -950,14 +950,14 @@
         'mnuBatch
         '
         Me.mnuBatch.Name = "mnuBatch"
-        Me.mnuBatch.Size = New System.Drawing.Size(180, 22)
+        Me.mnuBatch.Size = New System.Drawing.Size(130, 22)
         Me.mnuBatch.Text = "&Batch Files"
         '
         '_mnuBatchItem_0
         '
         Me.mnuBatchItem.SetIndex(Me._mnuBatchItem_0, CType(0, Short))
         Me._mnuBatchItem_0.Name = "_mnuBatchItem_0"
-        Me._mnuBatchItem_0.Size = New System.Drawing.Size(180, 22)
+        Me._mnuBatchItem_0.Size = New System.Drawing.Size(130, 22)
         Me._mnuBatchItem_0.Text = "&PSDM"
         Me._mnuBatchItem_0.Visible = False
         '

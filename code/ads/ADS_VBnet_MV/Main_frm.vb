@@ -1385,4 +1385,8 @@ Friend Class frmMain
 	Private Sub _spnPoint_1_SpinUp(sender As Object, e As EventArgs) Handles _spnPoint_1.SpinUp
 		Call spnPoint_SpinUp(1)
 	End Sub
+
+	Private Sub ssframe_FixedBed_Enter(sender As Object, e As EventArgs) Handles ssframe_FixedBed.Enter
+
+	End Sub
 End Class
