@@ -208,7 +208,7 @@ Friend Class frmMain
 			Call frmMain_Refresh()
 		End If
 	End Sub
-	Private Sub cmdParamsPSDMInRoom_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdParamsPSDMInRoom.Click
+	Private Sub cmdParamsPSDMInRoom_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
 		Dim Raise_Dirty_Flag As Boolean
 		Call frmInputParamsPSDMInRoom.frmInputParamsPSDMInRoom_Edit(Raise_Dirty_Flag)
 		If (Raise_Dirty_Flag) Then

@@ -133,7 +133,6 @@
     Public WithEvents _lblBed_8 As System.Windows.Forms.Label
     Public WithEvents _lblBed_9 As System.Windows.Forms.Label
     Public WithEvents ssframe_FixedBed As AxThreed.AxSSFrame
-    Public WithEvents cmdParamsPSDMInRoom As System.Windows.Forms.Button
     Public WithEvents _txtTime_0 As System.Windows.Forms.TextBox
     Public WithEvents _txtTime_1 As System.Windows.Forms.TextBox
     Public WithEvents _txtTime_2 As System.Windows.Forms.TextBox
@@ -335,7 +334,6 @@
         Me._cmdNote_0 = New System.Windows.Forms.Button()
         Me._cmdNote_1 = New System.Windows.Forms.Button()
         Me.ssframe_PSDM = New AxThreed.AxSSFrame()
-        Me.cmdParamsPSDMInRoom = New System.Windows.Forms.Button()
         Me._txtTime_0 = New System.Windows.Forms.TextBox()
         Me._txtTime_1 = New System.Windows.Forms.TextBox()
         Me._txtTime_2 = New System.Windows.Forms.TextBox()
@@ -1785,7 +1783,6 @@
         '
         'ssframe_PSDM
         '
-        Me.ssframe_PSDM.Controls.Add(Me.cmdParamsPSDMInRoom)
         Me.ssframe_PSDM.Controls.Add(Me._txtTime_0)
         Me.ssframe_PSDM.Controls.Add(Me._txtTime_1)
         Me.ssframe_PSDM.Controls.Add(Me._txtTime_2)
@@ -1804,21 +1801,6 @@
         Me.ssframe_PSDM.OcxState = CType(resources.GetObject("ssframe_PSDM.OcxState"), System.Windows.Forms.AxHost.State)
         Me.ssframe_PSDM.Size = New System.Drawing.Size(368, 246)
         Me.ssframe_PSDM.TabIndex = 41
-        '
-        'cmdParamsPSDMInRoom
-        '
-        Me.cmdParamsPSDMInRoom.BackColor = System.Drawing.SystemColors.Control
-        Me.cmdParamsPSDMInRoom.Cursor = System.Windows.Forms.Cursors.Default
-        Me.cmdParamsPSDMInRoom.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdParamsPSDMInRoom.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdParamsPSDMInRoom.Location = New System.Drawing.Point(10, 180)
-        Me.cmdParamsPSDMInRoom.Name = "cmdParamsPSDMInRoom"
-        Me.cmdParamsPSDMInRoom.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdParamsPSDMInRoom.Size = New System.Drawing.Size(287, 21)
-        Me.cmdParamsPSDMInRoom.TabIndex = 95
-        Me.cmdParamsPSDMInRoom.TabStop = False
-        Me.cmdParamsPSDMInRoom.Text = "Edi&t Parameters for PSDMR Model"
-        Me.cmdParamsPSDMInRoom.UseVisualStyleBackColor = False
         '
         '_txtTime_0
         '

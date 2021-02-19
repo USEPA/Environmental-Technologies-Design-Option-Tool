@@ -143,7 +143,7 @@ Module Refresh
 		frmMain.mnuRunItem(0).Enabled = Enabled_RunMenu
 		frmMain.mnuRunItem(1).Enabled = Enabled_RunMenu
 		frmMain.mnuRunItem(2).Enabled = Enabled_RunMenu
-		frmMain.mnuRunItem(10).Enabled = Enabled_RunMenu 'PSDMR-IN-ROOM.
+		frmMain.mnuRunItem(10).Enabled = False 'PSDMR-IN-ROOM. ' false to make inactive for now
 		frmMain.mnuRunItem(20).Enabled = Enabled_RunMenu 'PSDMR ALONE.
 		'---- FILE MENU: SAVE AND SAVE-AS.
 		frmMain.mnuFileItem(2).Enabled = Enabled_Save
