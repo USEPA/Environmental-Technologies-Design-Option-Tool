@@ -1973,7 +1973,7 @@
         Me._spnPoint_1.Location = New System.Drawing.Point(232, 40)
         Me._spnPoint_1.Name = "_spnPoint_1"
         Me._spnPoint_1.OcxState = CType(resources.GetObject("_spnPoint_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._spnPoint_1.Size = New System.Drawing.Size(29, 28)
+        Me._spnPoint_1.Size = New System.Drawing.Size(29, 20)
         Me._spnPoint_1.TabIndex = 48
         '
         '_spnPoint_0
@@ -1981,7 +1981,7 @@
         Me._spnPoint_0.Location = New System.Drawing.Point(232, 17)
         Me._spnPoint_0.Name = "_spnPoint_0"
         Me._spnPoint_0.OcxState = CType(resources.GetObject("_spnPoint_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._spnPoint_0.Size = New System.Drawing.Size(29, 28)
+        Me._spnPoint_0.Size = New System.Drawing.Size(29, 20)
         Me._spnPoint_0.TabIndex = 49
         '
         '_lblText_0
@@ -2019,7 +2019,7 @@
         Me.spnNumberOfBeds.Location = New System.Drawing.Point(240, 88)
         Me.spnNumberOfBeds.Name = "spnNumberOfBeds"
         Me.spnNumberOfBeds.OcxState = CType(resources.GetObject("spnNumberOfBeds.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.spnNumberOfBeds.Size = New System.Drawing.Size(29, 29)
+        Me.spnNumberOfBeds.Size = New System.Drawing.Size(29, 20)
         Me.spnNumberOfBeds.TabIndex = 52
         '
         '_lblTime_0

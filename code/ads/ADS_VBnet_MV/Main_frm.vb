@@ -235,9 +235,9 @@ Friend Class frmMain
 			Call DirtyStatus_Throw()
 		End If
 	End Sub
-	
-	
-	
+
+
+
 	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles Command4.Click
 		Dim Printer As New Printer
 		Picture1.Image = CaptureActiveWindow()

@@ -223,8 +223,10 @@ Friend Class frmFouling
 		'  cmdEditCompo.Enabled = False
 		'End If
 		'Me.HelpContextID = Hlp_Fouling_of
+
+
 		Call Populate_cboType()
-		
+
 		Call Populate_cboCorrel()
 
 
@@ -434,12 +436,12 @@ Exit_Corr_Water:
 	End Sub
 
 	Private Sub cmdEdit_Enter(sender As Object, e As EventArgs) Handles cmdEdit.Enter
-		Call frmFoulingWaterDatabase.frmFoulingWaterDatabase_Edit()
+		'Call frmFoulingWaterDatabase.frmFoulingWaterDatabase_Edit()
 		Call Populate_cboType()
 	End Sub
 
 	Private Sub cmdEditCompo_Enter(sender As Object, e As EventArgs) Handles cmdEditCompo.Enter
-		Call frmFoulingCompoundDatabase.frmFoulingCompoundDatabase_Edit()
+		'Call frmFoulingCompoundDatabase.frmFoulingCompoundDatabase_Edit()
 		Call Populate_cboCorrel()
 	End Sub
 
