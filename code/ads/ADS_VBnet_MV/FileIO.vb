@@ -181,7 +181,7 @@ err_File_IsExists:
 			End If
 		Else
 			'OPEN A LEGACY-VERSION FILE (TEXT FORMAT).
-			f = FreeFile
+			f = FreeFile()
 			FileOpen(f, fn_Open, OpenMode.Input)
 			Input(f, ThisVersion)
 			ShowLegacyWarning = True
