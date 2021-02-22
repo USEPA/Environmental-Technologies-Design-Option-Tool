@@ -167,8 +167,6 @@
     Public WithEvents _lblWaterUnit_1 As System.Windows.Forms.Label
     Public WithEvents _lblWaterUnit_0 As System.Windows.Forms.Label
     Public WithEvents ssframe_Water As AxThreed.AxSSFrame
-    Public WithEvents sspanel_Dirty As AxThreed.AxSSPanel
-    Public WithEvents sspanel_Status As AxThreed.AxSSPanel
     Public WithEvents SSPanel2 As AxThreed.AxSSPanel
     Public WithEvents CommonDialog1 As AxMSComDlg.AxCommonDialog
     Public WithEvents SSFrame4 As AxThreed.AxSSFrame
@@ -368,8 +366,6 @@
         Me._lblWaterUnit_0 = New System.Windows.Forms.Label()
         Me.cmdWaterCorrelations = New System.Windows.Forms.Button()
         Me.SSPanel2 = New AxThreed.AxSSPanel()
-        Me.sspanel_Dirty = New AxThreed.AxSSPanel()
-        Me.sspanel_Status = New AxThreed.AxSSPanel()
         Me.SSFrame4 = New AxThreed.AxSSFrame()
         Me.CommonDialog1 = New AxMSComDlg.AxCommonDialog()
         Me.SSFrame2 = New AxThreed.AxSSFrame()
@@ -409,6 +405,8 @@
         Me.txtTime = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
         Me.txtTimeUnits = New Microsoft.VisualBasic.Compatibility.VB6.ComboBoxArray(Me.components)
         Me.txtWater = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
+        Me.sspanel_Status = New AxThreed.AxSSPanel()
+        Me.sspanel_Dirty = New AxThreed.AxSSPanel()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame8, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -428,9 +426,6 @@
         CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_Water.SuspendLayout()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSPanel2.SuspendLayout()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SSFrame4.SuspendLayout()
         CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -468,6 +463,8 @@
         CType(Me.txtTime, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTimeUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Command4
@@ -476,7 +473,7 @@
         Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Command4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(104, 431)
+        Me.Command4.Location = New System.Drawing.Point(104, 417)
         Me.Command4.Name = "Command4"
         Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Command4.Size = New System.Drawing.Size(97, 22)
@@ -491,7 +488,7 @@
         Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuPhase, Me.mnuRun, Me.mnuDisplay, Me.mnuOptions, Me.mnuDatabase, Me.mnuHelp, Me._mnuOther_5, Me.mnuMTU, Me.mnuUnused})
         Me.MainMenu1.Location = New System.Drawing.Point(0, 0)
         Me.MainMenu1.Name = "MainMenu1"
-        Me.MainMenu1.Size = New System.Drawing.Size(621, 24)
+        Me.MainMenu1.Size = New System.Drawing.Size(625, 24)
         Me.MainMenu1.TabIndex = 99
         '
         'mnuFile
@@ -1799,7 +1796,7 @@
         Me.ssframe_PSDM.Location = New System.Drawing.Point(8, 224)
         Me.ssframe_PSDM.Name = "ssframe_PSDM"
         Me.ssframe_PSDM.OcxState = CType(resources.GetObject("ssframe_PSDM.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.ssframe_PSDM.Size = New System.Drawing.Size(368, 246)
+        Me.ssframe_PSDM.Size = New System.Drawing.Size(368, 232)
         Me.ssframe_PSDM.TabIndex = 41
         '
         '_txtTime_0
@@ -2296,29 +2293,11 @@
         '
         'SSPanel2
         '
-        Me.SSPanel2.Controls.Add(Me.sspanel_Dirty)
-        Me.SSPanel2.Controls.Add(Me.sspanel_Status)
         Me.SSPanel2.Location = New System.Drawing.Point(0, 458)
         Me.SSPanel2.Name = "SSPanel2"
         Me.SSPanel2.OcxState = CType(resources.GetObject("SSPanel2.OcxState"), System.Windows.Forms.AxHost.State)
         Me.SSPanel2.Size = New System.Drawing.Size(120, 60)
         Me.SSPanel2.TabIndex = 18
-        '
-        'sspanel_Dirty
-        '
-        Me.sspanel_Dirty.Location = New System.Drawing.Point(4, 4)
-        Me.sspanel_Dirty.Name = "sspanel_Dirty"
-        Me.sspanel_Dirty.OcxState = CType(resources.GetObject("sspanel_Dirty.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Dirty.Size = New System.Drawing.Size(120, 60)
-        Me.sspanel_Dirty.TabIndex = 19
-        '
-        'sspanel_Status
-        '
-        Me.sspanel_Status.Location = New System.Drawing.Point(148, 4)
-        Me.sspanel_Status.Name = "sspanel_Status"
-        Me.sspanel_Status.OcxState = CType(resources.GetObject("sspanel_Status.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Status.Size = New System.Drawing.Size(120, 60)
-        Me.sspanel_Status.TabIndex = 20
         '
         'SSFrame4
         '
@@ -2490,12 +2469,30 @@
         'txtWater
         '
         '
+        'sspanel_Status
+        '
+        Me.sspanel_Status.Location = New System.Drawing.Point(200, 445)
+        Me.sspanel_Status.Name = "sspanel_Status"
+        Me.sspanel_Status.OcxState = CType(resources.GetObject("sspanel_Status.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.sspanel_Status.Size = New System.Drawing.Size(421, 34)
+        Me.sspanel_Status.TabIndex = 100
+        '
+        'sspanel_Dirty
+        '
+        Me.sspanel_Dirty.Location = New System.Drawing.Point(0, 445)
+        Me.sspanel_Dirty.Name = "sspanel_Dirty"
+        Me.sspanel_Dirty.OcxState = CType(resources.GetObject("sspanel_Dirty.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.sspanel_Dirty.Size = New System.Drawing.Size(201, 34)
+        Me.sspanel_Dirty.TabIndex = 101
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(621, 485)
+        Me.ClientSize = New System.Drawing.Size(625, 485)
+        Me.Controls.Add(Me.sspanel_Dirty)
+        Me.Controls.Add(Me.sspanel_Status)
         Me.Controls.Add(Me._cmdNote_1)
         Me.Controls.Add(Me._cmdNote_0)
         Me.Controls.Add(Me.cmdWaterCorrelations)
@@ -2546,9 +2543,6 @@
         Me.ssframe_Water.ResumeLayout(False)
         Me.ssframe_Water.PerformLayout()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSPanel2.ResumeLayout(False)
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SSFrame4.ResumeLayout(False)
         CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2587,9 +2581,14 @@
         CType(Me.txtTime, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTimeUnits, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
+
+    Public WithEvents sspanel_Status As AxThreed.AxSSPanel
+    Public WithEvents sspanel_Dirty As AxThreed.AxSSPanel
 #End Region
 End Class
