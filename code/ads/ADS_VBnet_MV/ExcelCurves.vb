@@ -302,11 +302,20 @@ err_filesaveas:
 	
 	Public Sub mnuEditItem_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles mnuEditItem.Click
 		Dim Index As Short = mnuEditItem.GetIndex(eventSender)
+		Dim f1 As DataGridView
+		f1 = Me.f1bookDataGrid
+		f1.ClipboardCopyMode =
+		DataGridViewClipboardCopyMode.EnableWithoutHeaderText
 		Select Case Index
 			Case 10 'copy
 				'UPGRADE_WARNING: Couldn't resolve default property of object f1book.EditCopy. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			'	f1book.EditCopy()
+				'	f1book.EditCopy()
+				Clipboard.SetDataObject(f1.GetClipboardContent())
+
 			Case 20 'EDIT--COPY ENTIRE TABLE.
+
+				f1.SelectAll()
+				Clipboard.SetDataObject(f1.GetClipboardContent())
 				'UPGRADE_WARNING: Couldn't resolve default property of object f1book.SelStartCol. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				'	f1book.SelStartCol = 1
 				'UPGRADE_WARNING: Couldn't resolve default property of object f1book.SelEndCol. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
