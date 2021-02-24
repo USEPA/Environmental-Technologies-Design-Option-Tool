@@ -181,7 +181,7 @@
         Me._cboCorrel_9.Location = New System.Drawing.Point(350, 249)
         Me._cboCorrel_9.Name = "_cboCorrel_9"
         Me._cboCorrel_9.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_9.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_9.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_9.TabIndex = 16
         '
         '_cboCorrel_8
@@ -195,7 +195,7 @@
         Me._cboCorrel_8.Location = New System.Drawing.Point(350, 225)
         Me._cboCorrel_8.Name = "_cboCorrel_8"
         Me._cboCorrel_8.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_8.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_8.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_8.TabIndex = 15
         '
         '_cboCorrel_7
@@ -209,7 +209,7 @@
         Me._cboCorrel_7.Location = New System.Drawing.Point(350, 201)
         Me._cboCorrel_7.Name = "_cboCorrel_7"
         Me._cboCorrel_7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_7.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_7.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_7.TabIndex = 14
         '
         '_cboCorrel_6
@@ -223,7 +223,7 @@
         Me._cboCorrel_6.Location = New System.Drawing.Point(350, 177)
         Me._cboCorrel_6.Name = "_cboCorrel_6"
         Me._cboCorrel_6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_6.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_6.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_6.TabIndex = 13
         '
         '_cboCorrel_5
@@ -237,7 +237,7 @@
         Me._cboCorrel_5.Location = New System.Drawing.Point(350, 153)
         Me._cboCorrel_5.Name = "_cboCorrel_5"
         Me._cboCorrel_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_5.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_5.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_5.TabIndex = 12
         '
         '_cboCorrel_4
@@ -251,7 +251,7 @@
         Me._cboCorrel_4.Location = New System.Drawing.Point(350, 129)
         Me._cboCorrel_4.Name = "_cboCorrel_4"
         Me._cboCorrel_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_4.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_4.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_4.TabIndex = 11
         '
         '_cboCorrel_3
@@ -265,7 +265,7 @@
         Me._cboCorrel_3.Location = New System.Drawing.Point(350, 105)
         Me._cboCorrel_3.Name = "_cboCorrel_3"
         Me._cboCorrel_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_3.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_3.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_3.TabIndex = 10
         '
         '_cboCorrel_2
@@ -279,7 +279,7 @@
         Me._cboCorrel_2.Location = New System.Drawing.Point(350, 81)
         Me._cboCorrel_2.Name = "_cboCorrel_2"
         Me._cboCorrel_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_2.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_2.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_2.TabIndex = 9
         '
         '_cboCorrel_1
@@ -293,7 +293,7 @@
         Me._cboCorrel_1.Location = New System.Drawing.Point(350, 57)
         Me._cboCorrel_1.Name = "_cboCorrel_1"
         Me._cboCorrel_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_1.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_1.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_1.TabIndex = 8
         '
         '_cboCorrel_0
@@ -307,7 +307,7 @@
         Me._cboCorrel_0.Location = New System.Drawing.Point(350, 33)
         Me._cboCorrel_0.Name = "_cboCorrel_0"
         Me._cboCorrel_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboCorrel_0.Size = New System.Drawing.Size(166, 24)
+        Me._cboCorrel_0.Size = New System.Drawing.Size(166, 22)
         Me._cboCorrel_0.TabIndex = 7
         '
         '_lblName_9
@@ -470,7 +470,7 @@
         Me.cboType.Location = New System.Drawing.Point(62, 24)
         Me.cboType.Name = "cboType"
         Me.cboType.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboType.Size = New System.Drawing.Size(464, 24)
+        Me.cboType.Size = New System.Drawing.Size(464, 22)
         Me.cboType.TabIndex = 5
         '
         'Label5
@@ -606,6 +606,7 @@
         Me._chkUse_4.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_4.TabIndex = 21
         chkUse(4) = _chkUse_4
+
         '
         '_chkUse_5
         '
@@ -616,7 +617,6 @@
         Me._chkUse_5.TabIndex = 22
         chkUse(5) = _chkUse_5
 
-
         '
         '_chkUse_6
         '
@@ -626,6 +626,7 @@
         Me._chkUse_6.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_6.TabIndex = 23
         chkUse(6) = _chkUse_6
+
         '
         '_chkUse_7
         '
@@ -635,6 +636,7 @@
         Me._chkUse_7.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_7.TabIndex = 24
         chkUse(7) = _chkUse_7
+
         '
         '_chkUse_8
         '
@@ -644,6 +646,7 @@
         Me._chkUse_8.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_8.TabIndex = 25
         chkUse(8) = _chkUse_8
+
         '
         '_chkUse_9
         '
@@ -653,6 +656,7 @@
         Me._chkUse_9.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_9.TabIndex = 26
         chkUse(9) = _chkUse_9
+
         '
         'cmdEditCompo
         '
@@ -690,7 +694,7 @@
         '
         'frmFouling
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(628, 558)
