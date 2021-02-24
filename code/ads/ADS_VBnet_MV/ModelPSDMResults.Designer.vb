@@ -192,6 +192,7 @@
         Me.ssframe_SSConc.OcxState = CType(resources.GetObject("ssframe_SSConc.OcxState"), System.Windows.Forms.AxHost.State)
         Me.ssframe_SSConc.Size = New System.Drawing.Size(509, 52)
         Me.ssframe_SSConc.TabIndex = 42
+        Me.ssframe_SSConc.Visible = False
         '
         'cboGrid
         '
@@ -203,7 +204,7 @@
         Me.cboGrid.Location = New System.Drawing.Point(534, 144)
         Me.cboGrid.Name = "cboGrid"
         Me.cboGrid.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboGrid.Size = New System.Drawing.Size(174, 24)
+        Me.cboGrid.Size = New System.Drawing.Size(174, 22)
         Me.cboGrid.TabIndex = 33
         '
         'Frame3D1
@@ -251,7 +252,7 @@
         Me.cboCompo.Location = New System.Drawing.Point(6, 20)
         Me.cboCompo.Name = "cboCompo"
         Me.cboCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboCompo.Size = New System.Drawing.Size(258, 24)
+        Me.cboCompo.Size = New System.Drawing.Size(258, 22)
         Me.cboCompo.TabIndex = 3
         '
         '_lblLegend_0
@@ -704,7 +705,7 @@
         Me.CMDialog1.Location = New System.Drawing.Point(0, 0)
         Me.CMDialog1.Name = "CMDialog1"
         Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CMDialog1.Size = New System.Drawing.Size(40, 40)
+        Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
         Me.CMDialog1.TabIndex = 51
         '
         'cmdSelect
@@ -750,7 +751,7 @@
         Me.cboYAxisType.Location = New System.Drawing.Point(362, 494)
         Me.cboYAxisType.Name = "cboYAxisType"
         Me.cboYAxisType.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboYAxisType.Size = New System.Drawing.Size(151, 24)
+        Me.cboYAxisType.Size = New System.Drawing.Size(151, 22)
         Me.cboYAxisType.TabIndex = 47
         '
         'cmdViewProcessDiagram
@@ -826,10 +827,10 @@
         '
         'grpBreak
         '
-        Me.grpBreak.Location = New System.Drawing.Point(17, 214)
+        Me.grpBreak.Location = New System.Drawing.Point(17, 156)
         Me.grpBreak.Name = "grpBreak"
         Me.grpBreak.OcxState = CType(resources.GetObject("grpBreak.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.grpBreak.Size = New System.Drawing.Size(508, 243)
+        Me.grpBreak.Size = New System.Drawing.Size(508, 301)
         Me.grpBreak.TabIndex = 57
         '
         '_optType_0
@@ -872,7 +873,7 @@
         '
         'frmModelPSDMResults
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(736, 613)

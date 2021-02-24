@@ -155,103 +155,103 @@
         Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuEdit})
         Me.MainMenu1.Location = New System.Drawing.Point(0, 0)
         Me.MainMenu1.Name = "MainMenu1"
-        Me.MainMenu1.Size = New System.Drawing.Size(537, 28)
+        Me.MainMenu1.Size = New System.Drawing.Size(537, 24)
         Me.MainMenu1.TabIndex = 27
         '
         'mnuFile
         '
         Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuFileItem_0, Me._mnuFileItem_1, Me._mnuFileItem_2, Me._mnuFileItem_3, Me._mnuFileItem_190, Me._mnuFileItem_191, Me._mnuFileItem_192, Me._mnuFileItem_193, Me._mnuFileItem_194})
         Me.mnuFile.Name = "mnuFile"
-        Me.mnuFile.Size = New System.Drawing.Size(46, 24)
+        Me.mnuFile.Size = New System.Drawing.Size(37, 20)
         Me.mnuFile.Text = "&File"
         '
         '_mnuFileItem_0
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_0, CType(0, Short))
         Me._mnuFileItem_0.Name = "_mnuFileItem_0"
-        Me._mnuFileItem_0.Size = New System.Drawing.Size(176, 26)
+        Me._mnuFileItem_0.Size = New System.Drawing.Size(139, 22)
         Me._mnuFileItem_0.Text = "&New"
         '
         '_mnuFileItem_1
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_1, CType(1, Short))
         Me._mnuFileItem_1.Name = "_mnuFileItem_1"
-        Me._mnuFileItem_1.Size = New System.Drawing.Size(176, 26)
+        Me._mnuFileItem_1.Size = New System.Drawing.Size(139, 22)
         Me._mnuFileItem_1.Text = "&Open ..."
         '
         '_mnuFileItem_2
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_2, CType(2, Short))
         Me._mnuFileItem_2.Name = "_mnuFileItem_2"
-        Me._mnuFileItem_2.Size = New System.Drawing.Size(176, 26)
+        Me._mnuFileItem_2.Size = New System.Drawing.Size(139, 22)
         Me._mnuFileItem_2.Text = "&Save"
         '
         '_mnuFileItem_3
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_3, CType(3, Short))
         Me._mnuFileItem_3.Name = "_mnuFileItem_3"
-        Me._mnuFileItem_3.Size = New System.Drawing.Size(176, 26)
+        Me._mnuFileItem_3.Size = New System.Drawing.Size(139, 22)
         Me._mnuFileItem_3.Text = "Save &As ..."
         '
         '_mnuFileItem_190
         '
         Me._mnuFileItem_190.Name = "_mnuFileItem_190"
-        Me._mnuFileItem_190.Size = New System.Drawing.Size(173, 6)
+        Me._mnuFileItem_190.Size = New System.Drawing.Size(136, 6)
         '
         '_mnuFileItem_191
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_191, CType(191, Short))
         Me._mnuFileItem_191.Name = "_mnuFileItem_191"
-        Me._mnuFileItem_191.Size = New System.Drawing.Size(176, 26)
+        Me._mnuFileItem_191.Size = New System.Drawing.Size(139, 22)
         Me._mnuFileItem_191.Text = "&1 Old File #1"
         '
         '_mnuFileItem_192
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_192, CType(192, Short))
         Me._mnuFileItem_192.Name = "_mnuFileItem_192"
-        Me._mnuFileItem_192.Size = New System.Drawing.Size(176, 26)
+        Me._mnuFileItem_192.Size = New System.Drawing.Size(139, 22)
         Me._mnuFileItem_192.Text = "&2 Old File #2"
         '
         '_mnuFileItem_193
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_193, CType(193, Short))
         Me._mnuFileItem_193.Name = "_mnuFileItem_193"
-        Me._mnuFileItem_193.Size = New System.Drawing.Size(176, 26)
+        Me._mnuFileItem_193.Size = New System.Drawing.Size(139, 22)
         Me._mnuFileItem_193.Text = "&3 Old File #3"
         '
         '_mnuFileItem_194
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_194, CType(194, Short))
         Me._mnuFileItem_194.Name = "_mnuFileItem_194"
-        Me._mnuFileItem_194.Size = New System.Drawing.Size(176, 26)
+        Me._mnuFileItem_194.Size = New System.Drawing.Size(139, 22)
         Me._mnuFileItem_194.Text = "&4 Old File #4"
         '
         'mnuEdit
         '
         Me.mnuEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuEditItem_0, Me._mnuEditItem_1, Me._mnuEditItem_2})
         Me.mnuEdit.Name = "mnuEdit"
-        Me.mnuEdit.Size = New System.Drawing.Size(49, 24)
+        Me.mnuEdit.Size = New System.Drawing.Size(39, 20)
         Me.mnuEdit.Text = "&Edit"
         '
         '_mnuEditItem_0
         '
         Me.mnuEditItem.SetIndex(Me._mnuEditItem_0, CType(0, Short))
         Me._mnuEditItem_0.Name = "_mnuEditItem_0"
-        Me._mnuEditItem_0.Size = New System.Drawing.Size(126, 26)
+        Me._mnuEditItem_0.Size = New System.Drawing.Size(102, 22)
         Me._mnuEditItem_0.Text = "Cu&t"
         '
         '_mnuEditItem_1
         '
         Me.mnuEditItem.SetIndex(Me._mnuEditItem_1, CType(1, Short))
         Me._mnuEditItem_1.Name = "_mnuEditItem_1"
-        Me._mnuEditItem_1.Size = New System.Drawing.Size(126, 26)
+        Me._mnuEditItem_1.Size = New System.Drawing.Size(102, 22)
         Me._mnuEditItem_1.Text = "&Copy"
         '
         '_mnuEditItem_2
         '
         Me.mnuEditItem.SetIndex(Me._mnuEditItem_2, CType(2, Short))
         Me._mnuEditItem_2.Name = "_mnuEditItem_2"
-        Me._mnuEditItem_2.Size = New System.Drawing.Size(126, 26)
+        Me._mnuEditItem_2.Size = New System.Drawing.Size(102, 22)
         Me._mnuEditItem_2.Text = "&Paste"
         '
         'Picture1
@@ -310,7 +310,7 @@
         Me.CMDialog1.Location = New System.Drawing.Point(0, 0)
         Me.CMDialog1.Name = "CMDialog1"
         Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CMDialog1.Size = New System.Drawing.Size(40, 40)
+        Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
         Me.CMDialog1.TabIndex = 0
         '
         '_Label1_0
@@ -651,7 +651,7 @@
         '
         'frmVarConcentrations
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(537, 472)

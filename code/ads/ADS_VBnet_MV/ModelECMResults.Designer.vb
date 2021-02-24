@@ -108,7 +108,7 @@
         Me.cboGlob.Location = New System.Drawing.Point(516, 194)
         Me.cboGlob.Name = "cboGlob"
         Me.cboGlob.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboGlob.Size = New System.Drawing.Size(121, 24)
+        Me.cboGlob.Size = New System.Drawing.Size(121, 22)
         Me.cboGlob.TabIndex = 19
         '
         'grpGlob
@@ -134,7 +134,7 @@
         Me.CMDialog1.Location = New System.Drawing.Point(0, 0)
         Me.CMDialog1.Name = "CMDialog1"
         Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CMDialog1.Size = New System.Drawing.Size(40, 40)
+        Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
         Me.CMDialog1.TabIndex = 23
         '
         'cmdSelect
@@ -386,7 +386,7 @@
         '
         'frmModelECMResults
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(750, 516)
