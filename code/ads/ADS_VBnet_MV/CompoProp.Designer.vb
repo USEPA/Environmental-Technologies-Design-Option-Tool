@@ -249,9 +249,8 @@
         Me._txtDataComponentProperty_0.MaxLength = 0
         Me._txtDataComponentProperty_0.Name = "_txtDataComponentProperty_0"
         Me._txtDataComponentProperty_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_0.Size = New System.Drawing.Size(193, 23)
+        Me._txtDataComponentProperty_0.Size = New System.Drawing.Size(193, 20)
         Me._txtDataComponentProperty_0.TabIndex = 0
-        Me._txtDataComponentProperty_0.Text = "element 0"
         Me._txtDataComponentProperty_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtDataComponentProperty_1
@@ -267,9 +266,8 @@
         Me._txtDataComponentProperty_1.MaxLength = 0
         Me._txtDataComponentProperty_1.Name = "_txtDataComponentProperty_1"
         Me._txtDataComponentProperty_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_1.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_1.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_1.TabIndex = 1
-        Me._txtDataComponentProperty_1.Text = "element 1"
         Me._txtDataComponentProperty_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtDataComponentProperty_2
@@ -285,9 +283,8 @@
         Me._txtDataComponentProperty_2.MaxLength = 0
         Me._txtDataComponentProperty_2.Name = "_txtDataComponentProperty_2"
         Me._txtDataComponentProperty_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_2.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_2.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_2.TabIndex = 2
-        Me._txtDataComponentProperty_2.Text = "element 2"
         Me._txtDataComponentProperty_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtDataComponentProperty_4
@@ -303,9 +300,8 @@
         Me._txtDataComponentProperty_4.MaxLength = 0
         Me._txtDataComponentProperty_4.Name = "_txtDataComponentProperty_4"
         Me._txtDataComponentProperty_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_4.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_4.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_4.TabIndex = 4
-        Me._txtDataComponentProperty_4.Text = "element 4"
         Me._txtDataComponentProperty_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtDataComponentProperty_3
@@ -321,9 +317,8 @@
         Me._txtDataComponentProperty_3.MaxLength = 0
         Me._txtDataComponentProperty_3.Name = "_txtDataComponentProperty_3"
         Me._txtDataComponentProperty_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_3.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_3.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_3.TabIndex = 3
-        Me._txtDataComponentProperty_3.Text = "element 3"
         Me._txtDataComponentProperty_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtDataComponentProperty_7
@@ -339,9 +334,8 @@
         Me._txtDataComponentProperty_7.MaxLength = 0
         Me._txtDataComponentProperty_7.Name = "_txtDataComponentProperty_7"
         Me._txtDataComponentProperty_7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_7.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_7.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_7.TabIndex = 7
-        Me._txtDataComponentProperty_7.Text = "element 7"
         Me._txtDataComponentProperty_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtDataComponentProperty_8
@@ -357,9 +351,8 @@
         Me._txtDataComponentProperty_8.MaxLength = 0
         Me._txtDataComponentProperty_8.Name = "_txtDataComponentProperty_8"
         Me._txtDataComponentProperty_8.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_8.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_8.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_8.TabIndex = 8
-        Me._txtDataComponentProperty_8.Text = "element 8"
         Me._txtDataComponentProperty_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtDataComponentProperty_9
@@ -375,9 +368,8 @@
         Me._txtDataComponentProperty_9.MaxLength = 0
         Me._txtDataComponentProperty_9.Name = "_txtDataComponentProperty_9"
         Me._txtDataComponentProperty_9.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_9.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_9.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_9.TabIndex = 6
-        Me._txtDataComponentProperty_9.Text = "element 9"
         Me._txtDataComponentProperty_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtDataComponentProperty_10
@@ -393,9 +385,8 @@
         Me._txtDataComponentProperty_10.MaxLength = 0
         Me._txtDataComponentProperty_10.Name = "_txtDataComponentProperty_10"
         Me._txtDataComponentProperty_10.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_10.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_10.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_10.TabIndex = 5
-        Me._txtDataComponentProperty_10.Text = "element 10"
         Me._txtDataComponentProperty_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtPropUnits_1
@@ -409,7 +400,7 @@
         Me._txtPropUnits_1.Location = New System.Drawing.Point(402, 68)
         Me._txtPropUnits_1.Name = "_txtPropUnits_1"
         Me._txtPropUnits_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtPropUnits_1.Size = New System.Drawing.Size(85, 24)
+        Me._txtPropUnits_1.Size = New System.Drawing.Size(85, 22)
         Me._txtPropUnits_1.TabIndex = 20
         Me._txtPropUnits_1.TabStop = False
         '
@@ -424,7 +415,7 @@
         Me._txtPropUnits_2.Location = New System.Drawing.Point(402, 92)
         Me._txtPropUnits_2.Name = "_txtPropUnits_2"
         Me._txtPropUnits_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtPropUnits_2.Size = New System.Drawing.Size(85, 24)
+        Me._txtPropUnits_2.Size = New System.Drawing.Size(85, 22)
         Me._txtPropUnits_2.TabIndex = 19
         Me._txtPropUnits_2.TabStop = False
         '
@@ -439,7 +430,7 @@
         Me._txtPropUnits_7.Location = New System.Drawing.Point(402, 212)
         Me._txtPropUnits_7.Name = "_txtPropUnits_7"
         Me._txtPropUnits_7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtPropUnits_7.Size = New System.Drawing.Size(85, 24)
+        Me._txtPropUnits_7.Size = New System.Drawing.Size(85, 22)
         Me._txtPropUnits_7.TabIndex = 18
         Me._txtPropUnits_7.TabStop = False
         '
@@ -454,7 +445,7 @@
         Me._txtPropUnits_3.Location = New System.Drawing.Point(402, 116)
         Me._txtPropUnits_3.Name = "_txtPropUnits_3"
         Me._txtPropUnits_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtPropUnits_3.Size = New System.Drawing.Size(85, 24)
+        Me._txtPropUnits_3.Size = New System.Drawing.Size(85, 22)
         Me._txtPropUnits_3.TabIndex = 17
         Me._txtPropUnits_3.TabStop = False
         '
@@ -469,7 +460,7 @@
         Me._txtPropUnits_4.Location = New System.Drawing.Point(402, 140)
         Me._txtPropUnits_4.Name = "_txtPropUnits_4"
         Me._txtPropUnits_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtPropUnits_4.Size = New System.Drawing.Size(85, 24)
+        Me._txtPropUnits_4.Size = New System.Drawing.Size(85, 22)
         Me._txtPropUnits_4.TabIndex = 16
         Me._txtPropUnits_4.TabStop = False
         '
@@ -484,7 +475,7 @@
         Me._txtPropUnits_10.Location = New System.Drawing.Point(402, 164)
         Me._txtPropUnits_10.Name = "_txtPropUnits_10"
         Me._txtPropUnits_10.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtPropUnits_10.Size = New System.Drawing.Size(85, 24)
+        Me._txtPropUnits_10.Size = New System.Drawing.Size(85, 22)
         Me._txtPropUnits_10.TabIndex = 15
         Me._txtPropUnits_10.TabStop = False
         '
@@ -499,7 +490,7 @@
         Me._txtPropUnits_9.Location = New System.Drawing.Point(402, 188)
         Me._txtPropUnits_9.Name = "_txtPropUnits_9"
         Me._txtPropUnits_9.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtPropUnits_9.Size = New System.Drawing.Size(85, 24)
+        Me._txtPropUnits_9.Size = New System.Drawing.Size(85, 22)
         Me._txtPropUnits_9.TabIndex = 14
         Me._txtPropUnits_9.TabStop = False
         '
@@ -513,7 +504,7 @@
         Me.cboChemName.Location = New System.Drawing.Point(318, 2)
         Me.cboChemName.Name = "cboChemName"
         Me.cboChemName.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboChemName.Size = New System.Drawing.Size(193, 24)
+        Me.cboChemName.Size = New System.Drawing.Size(193, 22)
         Me.cboChemName.TabIndex = 13
         Me.cboChemName.TabStop = False
         '
@@ -530,9 +521,8 @@
         Me._txtDataComponentProperty_11.MaxLength = 0
         Me._txtDataComponentProperty_11.Name = "_txtDataComponentProperty_11"
         Me._txtDataComponentProperty_11.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_11.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_11.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_11.TabIndex = 9
-        Me._txtDataComponentProperty_11.Text = "element 11"
         Me._txtDataComponentProperty_11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_lblComponentProperty_0
@@ -776,9 +766,8 @@
         Me._txtDataComponentProperty_5.MaxLength = 0
         Me._txtDataComponentProperty_5.Name = "_txtDataComponentProperty_5"
         Me._txtDataComponentProperty_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_5.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_5.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_5.TabIndex = 61
-        Me._txtDataComponentProperty_5.Text = "element 5"
         Me._txtDataComponentProperty_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtDataComponentProperty_6
@@ -794,9 +783,8 @@
         Me._txtDataComponentProperty_6.MaxLength = 0
         Me._txtDataComponentProperty_6.Name = "_txtDataComponentProperty_6"
         Me._txtDataComponentProperty_6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDataComponentProperty_6.Size = New System.Drawing.Size(81, 23)
+        Me._txtDataComponentProperty_6.Size = New System.Drawing.Size(81, 20)
         Me._txtDataComponentProperty_6.TabIndex = 62
-        Me._txtDataComponentProperty_6.Text = "element 6"
         Me._txtDataComponentProperty_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtPropUnits
@@ -813,7 +801,7 @@
         Me._txtPropUnits_5.Location = New System.Drawing.Point(455, 322)
         Me._txtPropUnits_5.Name = "_txtPropUnits_5"
         Me._txtPropUnits_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtPropUnits_5.Size = New System.Drawing.Size(85, 24)
+        Me._txtPropUnits_5.Size = New System.Drawing.Size(85, 22)
         Me._txtPropUnits_5.TabIndex = 63
         Me._txtPropUnits_5.TabStop = False
         '
@@ -845,7 +833,7 @@
         Me.cboSource.Location = New System.Drawing.Point(349, 379)
         Me.cboSource.Name = "cboSource"
         Me.cboSource.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboSource.Size = New System.Drawing.Size(191, 24)
+        Me.cboSource.Size = New System.Drawing.Size(191, 22)
         Me.cboSource.TabIndex = 65
         Me.cboSource.TabStop = False
         '
@@ -947,7 +935,7 @@
         '
         'frmCompoProp
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(581, 533)
