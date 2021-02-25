@@ -312,7 +312,7 @@ Friend Class frmCompoProp
 		Call unitsys_register(Me, lblComponentProperty(9), txtDataComponentProperty(9), txtPropUnits(9), "concentration", PropertyUnits.Aqueous_Solubility, "mg/L", "", "", 100#, True)
 		Call unitsys_register(Me, lblComponentProperty(7), txtDataComponentProperty(7), txtPropUnits(7), "pressure", PropertyUnits.Vapor_Pressure, "Pa", "", "", 100#, True)
 		Call unitsys_register(Me, lblComponentProperty(8), txtDataComponentProperty(8), Nothing, "", "", "", "", "", 100#, False)
-		'	Call unitsys_register(Me, lblComponentProperty(11), txtDataComponentProperty(11), Nothing, "", "", "", "0", "0", 100#, False)  'NolblComponentProperty(11)
+		Call unitsys_register(Me, lblComponentProperty(11), txtDataComponentProperty(11), Nothing, "", "", "", "0", "0", 100.0#, False)
 		'FREUNDLICH K AND 1/N BLOCK.
 		Call unitsys_register(Me, lblComponentProperty(5), txtDataComponentProperty(5), txtPropUnits(5), "freundlich_k", PropertyUnits.k, "(mg/g)*(L/mg)^(1/n)", "", "", 100#, True)
 		Call unitsys_register(Me, lblComponentProperty(6), txtDataComponentProperty(6), Nothing, "", "", "", "", "", 100#, False)
