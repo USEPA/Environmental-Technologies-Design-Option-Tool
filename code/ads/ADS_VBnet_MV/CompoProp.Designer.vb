@@ -712,10 +712,10 @@
         Me._lblComponentProperty_5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblComponentProperty_5.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblComponentProperty.SetIndex(Me._lblComponentProperty_5, CType(5, Short))
-        Me._lblComponentProperty_5.Location = New System.Drawing.Point(188, 327)
+        Me._lblComponentProperty_5.Location = New System.Drawing.Point(209, 327)
         Me._lblComponentProperty_5.Name = "_lblComponentProperty_5"
         Me._lblComponentProperty_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._lblComponentProperty_5.Size = New System.Drawing.Size(134, 19)
+        Me._lblComponentProperty_5.Size = New System.Drawing.Size(113, 19)
         Me._lblComponentProperty_5.TabIndex = 60
         Me._lblComponentProperty_5.Text = "Freundlich K"
         Me._lblComponentProperty_5.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -727,10 +727,10 @@
         Me._lblComponentProperty_12.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblComponentProperty_12.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblComponentProperty.SetIndex(Me._lblComponentProperty_12, CType(12, Short))
-        Me._lblComponentProperty_12.Location = New System.Drawing.Point(191, 379)
+        Me._lblComponentProperty_12.Location = New System.Drawing.Point(206, 379)
         Me._lblComponentProperty_12.Name = "_lblComponentProperty_12"
         Me._lblComponentProperty_12.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._lblComponentProperty_12.Size = New System.Drawing.Size(152, 22)
+        Me._lblComponentProperty_12.Size = New System.Drawing.Size(116, 22)
         Me._lblComponentProperty_12.TabIndex = 64
         Me._lblComponentProperty_12.Text = "Source of K and 1/n"
         Me._lblComponentProperty_12.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -742,10 +742,10 @@
         Me._lblComponentProperty_6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblComponentProperty_6.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblComponentProperty.SetIndex(Me._lblComponentProperty_6, CType(6, Short))
-        Me._lblComponentProperty_6.Location = New System.Drawing.Point(188, 354)
+        Me._lblComponentProperty_6.Location = New System.Drawing.Point(209, 354)
         Me._lblComponentProperty_6.Name = "_lblComponentProperty_6"
         Me._lblComponentProperty_6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._lblComponentProperty_6.Size = New System.Drawing.Size(134, 19)
+        Me._lblComponentProperty_6.Size = New System.Drawing.Size(113, 19)
         Me._lblComponentProperty_6.TabIndex = 66
         Me._lblComponentProperty_6.Text = "Freundlich 1/n"
         Me._lblComponentProperty_6.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -762,7 +762,7 @@
         Me._txtDataComponentProperty_5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtDataComponentProperty_5.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtDataComponentProperty.SetIndex(Me._txtDataComponentProperty_5, CType(5, Short))
-        Me._txtDataComponentProperty_5.Location = New System.Drawing.Point(348, 322)
+        Me._txtDataComponentProperty_5.Location = New System.Drawing.Point(328, 322)
         Me._txtDataComponentProperty_5.MaxLength = 0
         Me._txtDataComponentProperty_5.Name = "_txtDataComponentProperty_5"
         Me._txtDataComponentProperty_5.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -779,7 +779,7 @@
         Me._txtDataComponentProperty_6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtDataComponentProperty_6.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtDataComponentProperty.SetIndex(Me._txtDataComponentProperty_6, CType(6, Short))
-        Me._txtDataComponentProperty_6.Location = New System.Drawing.Point(348, 350)
+        Me._txtDataComponentProperty_6.Location = New System.Drawing.Point(328, 348)
         Me._txtDataComponentProperty_6.MaxLength = 0
         Me._txtDataComponentProperty_6.Name = "_txtDataComponentProperty_6"
         Me._txtDataComponentProperty_6.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -795,13 +795,13 @@
         Me._txtPropUnits_5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me._txtPropUnits_5.Cursor = System.Windows.Forms.Cursors.Default
         Me._txtPropUnits_5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me._txtPropUnits_5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtPropUnits_5.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtPropUnits_5.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtPropUnits.SetIndex(Me._txtPropUnits_5, CType(5, Short))
-        Me._txtPropUnits_5.Location = New System.Drawing.Point(455, 322)
+        Me._txtPropUnits_5.Location = New System.Drawing.Point(415, 322)
         Me._txtPropUnits_5.Name = "_txtPropUnits_5"
         Me._txtPropUnits_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtPropUnits_5.Size = New System.Drawing.Size(85, 22)
+        Me._txtPropUnits_5.Size = New System.Drawing.Size(134, 23)
         Me._txtPropUnits_5.TabIndex = 63
         Me._txtPropUnits_5.TabStop = False
         '
@@ -830,10 +830,10 @@
         Me.cboSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSource.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboSource.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.cboSource.Location = New System.Drawing.Point(349, 379)
+        Me.cboSource.Location = New System.Drawing.Point(328, 379)
         Me.cboSource.Name = "cboSource"
         Me.cboSource.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboSource.Size = New System.Drawing.Size(191, 22)
+        Me.cboSource.Size = New System.Drawing.Size(221, 22)
         Me.cboSource.TabIndex = 65
         Me.cboSource.TabStop = False
         '
@@ -883,10 +883,10 @@
         '
         'SSFrame3
         '
-        Me.SSFrame3.Location = New System.Drawing.Point(179, 294)
+        Me.SSFrame3.Location = New System.Drawing.Point(192, 298)
         Me.SSFrame3.Name = "SSFrame3"
         Me.SSFrame3.OcxState = CType(resources.GetObject("SSFrame3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame3.Size = New System.Drawing.Size(378, 124)
+        Me.SSFrame3.Size = New System.Drawing.Size(366, 124)
         Me.SSFrame3.TabIndex = 46
         '
         'ssframe_StEPP
@@ -960,7 +960,6 @@
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.SSFrame3)
         Me.Controls.Add(Me.ssframe_StEPP)
         Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me._txtDataComponentProperty_0)
@@ -994,6 +993,7 @@
         Me.Controls.Add(Me._lblComponentProperty_9)
         Me.Controls.Add(Me._lblComponentProperty_10)
         Me.Controls.Add(Me._lblUnit_0)
+        Me.Controls.Add(Me.SSFrame3)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
