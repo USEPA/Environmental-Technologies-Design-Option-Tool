@@ -560,11 +560,11 @@
         Me._lstRange_0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lstRange_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lstRange.SetIndex(Me._lstRange_0, CType(0, Short))
-        Me._lstRange_0.ItemHeight = 16
+        Me._lstRange_0.ItemHeight = 14
         Me._lstRange_0.Location = New System.Drawing.Point(14, 76)
         Me._lstRange_0.Name = "_lstRange_0"
         Me._lstRange_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._lstRange_0.Size = New System.Drawing.Size(128, 98)
+        Me._lstRange_0.Size = New System.Drawing.Size(128, 86)
         Me._lstRange_0.TabIndex = 37
         '
         '_lstRange_1
@@ -575,11 +575,11 @@
         Me._lstRange_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lstRange_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lstRange.SetIndex(Me._lstRange_1, CType(1, Short))
-        Me._lstRange_1.ItemHeight = 16
+        Me._lstRange_1.ItemHeight = 14
         Me._lstRange_1.Location = New System.Drawing.Point(168, 76)
         Me._lstRange_1.Name = "_lstRange_1"
         Me._lstRange_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._lstRange_1.Size = New System.Drawing.Size(196, 98)
+        Me._lstRange_1.Size = New System.Drawing.Size(196, 86)
         Me._lstRange_1.TabIndex = 36
         '
         'txtInput
@@ -599,7 +599,7 @@
         Me._txtInput_13.Name = "_txtInput_13"
         Me._txtInput_13.ReadOnly = True
         Me._txtInput_13.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtInput_13.Size = New System.Drawing.Size(182, 23)
+        Me._txtInput_13.Size = New System.Drawing.Size(182, 20)
         Me._txtInput_13.TabIndex = 17
         Me._txtInput_13.Text = "txtInput(13)"
         Me._txtInput_13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -618,7 +618,7 @@
         Me._txtInput_0.Name = "_txtInput_0"
         Me._txtInput_0.ReadOnly = True
         Me._txtInput_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtInput_0.Size = New System.Drawing.Size(90, 23)
+        Me._txtInput_0.Size = New System.Drawing.Size(90, 20)
         Me._txtInput_0.TabIndex = 16
         Me._txtInput_0.Text = "txtInput(0)"
         Me._txtInput_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -637,7 +637,7 @@
         Me._txtInput_1.Name = "_txtInput_1"
         Me._txtInput_1.ReadOnly = True
         Me._txtInput_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtInput_1.Size = New System.Drawing.Size(90, 23)
+        Me._txtInput_1.Size = New System.Drawing.Size(90, 20)
         Me._txtInput_1.TabIndex = 15
         Me._txtInput_1.Text = "txtInput(1)"
         Me._txtInput_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -656,7 +656,7 @@
         Me._txtInput_10.Name = "_txtInput_10"
         Me._txtInput_10.ReadOnly = True
         Me._txtInput_10.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtInput_10.Size = New System.Drawing.Size(90, 23)
+        Me._txtInput_10.Size = New System.Drawing.Size(90, 20)
         Me._txtInput_10.TabIndex = 14
         Me._txtInput_10.Text = "txtInput(10)"
         Me._txtInput_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -674,7 +674,7 @@
         Me._txtInput_12.MaxLength = 0
         Me._txtInput_12.Name = "_txtInput_12"
         Me._txtInput_12.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtInput_12.Size = New System.Drawing.Size(87, 23)
+        Me._txtInput_12.Size = New System.Drawing.Size(87, 20)
         Me._txtInput_12.TabIndex = 24
         Me._txtInput_12.Text = "txtInput(12)"
         Me._txtInput_12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -692,7 +692,7 @@
         Me._txtInput_11.MaxLength = 0
         Me._txtInput_11.Name = "_txtInput_11"
         Me._txtInput_11.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtInput_11.Size = New System.Drawing.Size(87, 23)
+        Me._txtInput_11.Size = New System.Drawing.Size(87, 20)
         Me._txtInput_11.TabIndex = 23
         Me._txtInput_11.Text = "txtInput(11)"
         Me._txtInput_11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -709,7 +709,7 @@
         Me.UserK.MaxLength = 0
         Me.UserK.Name = "UserK"
         Me.UserK.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.UserK.Size = New System.Drawing.Size(65, 23)
+        Me.UserK.Size = New System.Drawing.Size(65, 20)
         Me.UserK.TabIndex = 62
         Me.UserK.Text = "UserK"
         Me.UserK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -726,7 +726,7 @@
         Me.UserOneOverN.MaxLength = 0
         Me.UserOneOverN.Name = "UserOneOverN"
         Me.UserOneOverN.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.UserOneOverN.Size = New System.Drawing.Size(78, 23)
+        Me.UserOneOverN.Size = New System.Drawing.Size(78, 20)
         Me.UserOneOverN.TabIndex = 61
         Me.UserOneOverN.Text = "UserOneOverN"
         Me.UserOneOverN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -754,7 +754,7 @@
         Me.cboMethod.Location = New System.Drawing.Point(6, 52)
         Me.cboMethod.Name = "cboMethod"
         Me.cboMethod.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboMethod.Size = New System.Drawing.Size(273, 24)
+        Me.cboMethod.Size = New System.Drawing.Size(273, 22)
         Me.cboMethod.TabIndex = 6
         '
         'lblEstimationMethod
@@ -820,11 +820,12 @@
         '
         'sspanel_StatusBar
         '
-        Me.sspanel_StatusBar.Location = New System.Drawing.Point(17, 607)
+        Me.sspanel_StatusBar.Location = New System.Drawing.Point(616, 593)
         Me.sspanel_StatusBar.Name = "sspanel_StatusBar"
         Me.sspanel_StatusBar.OcxState = CType(resources.GetObject("sspanel_StatusBar.OcxState"), System.Windows.Forms.AxHost.State)
         Me.sspanel_StatusBar.Size = New System.Drawing.Size(149, 44)
         Me.sspanel_StatusBar.TabIndex = 55
+        Me.sspanel_StatusBar.Visible = False
         '
         'cmdEditPolanyi
         '
@@ -926,18 +927,18 @@
         '
         'sspanel_Dirty
         '
-        Me.sspanel_Dirty.Location = New System.Drawing.Point(18, 9)
+        Me.sspanel_Dirty.Location = New System.Drawing.Point(14, 593)
         Me.sspanel_Dirty.Name = "sspanel_Dirty"
         Me.sspanel_Dirty.OcxState = CType(resources.GetObject("sspanel_Dirty.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Dirty.Size = New System.Drawing.Size(100, 50)
+        Me.sspanel_Dirty.Size = New System.Drawing.Size(142, 29)
         Me.sspanel_Dirty.TabIndex = 56
         '
         'sspanel_Status
         '
-        Me.sspanel_Status.Location = New System.Drawing.Point(148, 4)
+        Me.sspanel_Status.Location = New System.Drawing.Point(147, 593)
         Me.sspanel_Status.Name = "sspanel_Status"
         Me.sspanel_Status.OcxState = CType(resources.GetObject("sspanel_Status.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Status.Size = New System.Drawing.Size(100, 50)
+        Me.sspanel_Status.Size = New System.Drawing.Size(618, 29)
         Me.sspanel_Status.TabIndex = 57
         '
         'grpSource
@@ -1082,11 +1083,11 @@
         Me.lstCompo.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstCompo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCompo.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lstCompo.ItemHeight = 16
+        Me.lstCompo.ItemHeight = 14
         Me.lstCompo.Location = New System.Drawing.Point(8, 45)
         Me.lstCompo.Name = "lstCompo"
         Me.lstCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lstCompo.Size = New System.Drawing.Size(277, 130)
+        Me.lstCompo.Size = New System.Drawing.Size(277, 128)
         Me.lstCompo.TabIndex = 33
         '
         'cboSortMethod
@@ -1099,7 +1100,7 @@
         Me.cboSortMethod.Location = New System.Drawing.Point(182, 256)
         Me.cboSortMethod.Name = "cboSortMethod"
         Me.cboSortMethod.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboSortMethod.Size = New System.Drawing.Size(89, 24)
+        Me.cboSortMethod.Size = New System.Drawing.Size(89, 22)
         Me.cboSortMethod.TabIndex = 29
         '
         'grpTwo
@@ -1286,7 +1287,7 @@
         '
         'frmFreundlich
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(783, 657)
