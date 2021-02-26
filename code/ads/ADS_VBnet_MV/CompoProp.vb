@@ -943,4 +943,8 @@ err_cmdImportFromFile_Click:
 	Private Sub cmdImportFromFile_ClickEvent(sender As Object, e As EventArgs) Handles cmdImportFromFile.ClickEvent
 		Call cmdImportFromFile_Click()
 	End Sub
+
+	Private Sub sspanel_Status_Enter(sender As Object, e As EventArgs) Handles sspanel_Status.Enter
+
+	End Sub
 End Class

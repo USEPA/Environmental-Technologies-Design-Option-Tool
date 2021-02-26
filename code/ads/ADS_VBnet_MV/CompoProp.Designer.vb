@@ -839,7 +839,7 @@
         '
         'sspanel_Dirty
         '
-        Me.sspanel_Dirty.Location = New System.Drawing.Point(23, 365)
+        Me.sspanel_Dirty.Location = New System.Drawing.Point(0, 500)
         Me.sspanel_Dirty.Name = "sspanel_Dirty"
         Me.sspanel_Dirty.OcxState = CType(resources.GetObject("sspanel_Dirty.OcxState"), System.Windows.Forms.AxHost.State)
         Me.sspanel_Dirty.Size = New System.Drawing.Size(100, 32)
