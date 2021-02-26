@@ -384,7 +384,7 @@ err_unitsys_control_txtx_lostfocus_validate:
 			If (un = "G/ML") Then X = 1# * 1000#
             If (un = "KG/M³") Then X = 1.0#
 			'UPGRADE_ISSUE: The preceding line couldn't be parsed. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="82EBB1AE-1FCB-4FEF-9E6C-8736A316F8A7"'
-			If (un = "LB/FT") Then X = 1# * (0.45359237) / (0.028316847)
+			If (un = "LB/FT³") Then X = 1.0# * (0.45359237) / (0.028316847)
 			If (un = "LB/GAL") Then X = 1# * (0.45359237) / (0.00378541178)
 		End If
 		If (ut = "CONCENTRATION") Then
@@ -696,9 +696,9 @@ err_unitsys_control_txtx_lostfocus_validate:
 			'UPGRADE_WARNING: Couldn't resolve default property of object Cbc.AddItem. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			Cbc.Items.Add("g/mL")
 			'UPGRADE_WARNING: Couldn't resolve default property of object Cbc.AddItem. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Cbc.Items.Add("kg/m³""")
+			Cbc.Items.Add("kg/m³")
 			'UPGRADE_WARNING: Couldn't resolve default property of object Cbc.AddItem. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Cbc.Items.Add("lb/ft³""")
+			Cbc.Items.Add("lb/ft³")
 			'UPGRADE_WARNING: Couldn't resolve default property of object Cbc.AddItem. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			Cbc.Items.Add("lb/gal")
 		End If
