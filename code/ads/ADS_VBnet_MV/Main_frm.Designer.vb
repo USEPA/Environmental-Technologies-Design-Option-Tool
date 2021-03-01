@@ -674,6 +674,7 @@
         Me._mnuRunItem_10.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F6), System.Windows.Forms.Keys)
         Me._mnuRunItem_10.Size = New System.Drawing.Size(212, 22)
         Me._mnuRunItem_10.Text = "PSDMR in &Room"
+        Me._mnuRunItem_10.Visible = False
         '
         '_mnuRunItem_20
         '
