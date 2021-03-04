@@ -20,7 +20,6 @@
 	Public WithEvents _picLogos_0 As System.Windows.Forms.PictureBox
 	Public WithEvents _lbldesc_0 As System.Windows.Forms.Label
 	Public WithEvents _lbldesc_1 As System.Windows.Forms.Label
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents lblDisclaimer As System.Windows.Forms.Label
     Public WithEvents SSPanel3 As AxThreed.AxSSPanel
     Public WithEvents lblDisclaimerTitle As System.Windows.Forms.Label
@@ -63,10 +62,8 @@
         Me._picLogos_0 = New System.Windows.Forms.PictureBox()
         Me.lblDisclaimerTitle = New System.Windows.Forms.Label()
         Me.lblDisclaimer = New System.Windows.Forms.Label()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.sspanel_disclaimer = New AxThreed.AxSSPanel()
         Me.SSPanel3 = New AxThreed.AxSSPanel()
-        Me.sspanel_maintitle = New System.Windows.Forms.Panel()
         Me.sspanel_logos = New System.Windows.Forms.Panel()
         Me.sspNames = New System.Windows.Forms.Panel()
         Me.LabelAuthor = New System.Windows.Forms.Label()
@@ -80,7 +77,6 @@
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picLogos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._picLogos_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_disclaimer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.sspanel_logos.SuspendLayout()
@@ -284,15 +280,6 @@
         Me.lblDisclaimer.TabIndex = 9
         Me.lblDisclaimer.Text = "lblDisclaimer"
         '
-        'SSFrame1
-        '
-        Me.SSFrame1.Location = New System.Drawing.Point(650, 64)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(247, 137)
-        Me.SSFrame1.TabIndex = 10
-        Me.SSFrame1.Visible = False
-        '
         'sspanel_disclaimer
         '
         Me.sspanel_disclaimer.Location = New System.Drawing.Point(614, 326)
@@ -308,14 +295,6 @@
         Me.SSPanel3.OcxState = CType(resources.GetObject("SSPanel3.OcxState"), System.Windows.Forms.AxHost.State)
         Me.SSPanel3.Size = New System.Drawing.Size(539, 205)
         Me.SSPanel3.TabIndex = 8
-        '
-        'sspanel_maintitle
-        '
-        Me.sspanel_maintitle.BackColor = System.Drawing.Color.Silver
-        Me.sspanel_maintitle.Location = New System.Drawing.Point(6, 0)
-        Me.sspanel_maintitle.Name = "sspanel_maintitle"
-        Me.sspanel_maintitle.Size = New System.Drawing.Size(593, 67)
-        Me.sspanel_maintitle.TabIndex = 19
         '
         'sspanel_logos
         '
@@ -372,8 +351,6 @@
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(607, 382)
         Me.Controls.Add(Me.sspanel_logos)
-        Me.Controls.Add(Me.sspanel_maintitle)
-        Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me.sspanel_disclaimer)
         Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.cmdButton2)
@@ -397,7 +374,6 @@
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picLogos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._picLogos_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_disclaimer, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.sspanel_logos.ResumeLayout(False)
@@ -410,8 +386,6 @@
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents sspanel_maintitle As Panel
     Friend WithEvents sspanel_logos As Panel
     Friend WithEvents sspNames As Panel
     Friend WithEvents SSPanel1 As Panel
