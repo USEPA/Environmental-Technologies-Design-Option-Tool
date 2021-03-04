@@ -67,7 +67,6 @@
         Me.sspanel_disclaimer = New AxThreed.AxSSPanel()
         Me.SSPanel3 = New AxThreed.AxSSPanel()
         Me.sspanel_maintitle = New System.Windows.Forms.Panel()
-        Me.picTitle = New System.Windows.Forms.PictureBox()
         Me.sspanel_logos = New System.Windows.Forms.Panel()
         Me.sspNames = New System.Windows.Forms.Panel()
         Me.LabelAuthor = New System.Windows.Forms.Label()
@@ -84,8 +83,6 @@
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_disclaimer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.sspanel_maintitle.SuspendLayout()
-        CType(Me.picTitle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.sspanel_logos.SuspendLayout()
         Me.sspNames.SuspendLayout()
         Me.SSPanel1.SuspendLayout()
@@ -179,7 +176,7 @@
         Me.lblCompany.SetIndex(Me._lblCompany_0, CType(0, Short))
         Me._lblCompany_0.Location = New System.Drawing.Point(32, 135)
         Me._lblCompany_0.Name = "_lblCompany_0"
-        Me._lblCompany_0.Size = New System.Drawing.Size(136, 16)
+        Me._lblCompany_0.Size = New System.Drawing.Size(107, 14)
         Me._lblCompany_0.TabIndex = 21
         Me._lblCompany_0.Text = "{Set in Form_load}"
         '
@@ -190,7 +187,7 @@
         Me.lblVersionInfo.SetIndex(Me._lblVersionInfo_2, CType(2, Short))
         Me._lblVersionInfo_2.Location = New System.Drawing.Point(47, 69)
         Me._lblVersionInfo_2.Name = "_lblVersionInfo_2"
-        Me._lblVersionInfo_2.Size = New System.Drawing.Size(128, 16)
+        Me._lblVersionInfo_2.Size = New System.Drawing.Size(103, 14)
         Me._lblVersionInfo_2.TabIndex = 2
         Me._lblVersionInfo_2.Text = "Copyright {years}"
         '
@@ -201,7 +198,7 @@
         Me.lblVersionInfo.SetIndex(Me._lblVersionInfo_1, CType(1, Short))
         Me._lblVersionInfo_1.Location = New System.Drawing.Point(47, 40)
         Me._lblVersionInfo_1.Name = "_lblVersionInfo_1"
-        Me._lblVersionInfo_1.Size = New System.Drawing.Size(181, 16)
+        Me._lblVersionInfo_1.Size = New System.Drawing.Size(136, 14)
         Me._lblVersionInfo_1.TabIndex = 1
         Me._lblVersionInfo_1.Text = "Expires on MM/DD/YYYY"
         '
@@ -212,7 +209,7 @@
         Me.lblVersionInfo.SetIndex(Me._lblVersionInfo_0, CType(0, Short))
         Me._lblVersionInfo_0.Location = New System.Drawing.Point(47, 16)
         Me._lblVersionInfo_0.Name = "_lblVersionInfo_0"
-        Me._lblVersionInfo_0.Size = New System.Drawing.Size(187, 16)
+        Me._lblVersionInfo_0.Size = New System.Drawing.Size(147, 14)
         Me._lblVersionInfo_0.TabIndex = 0
         Me._lblVersionInfo_0.Text = "Version {ver} {STANDARD}"
         '
@@ -315,20 +312,10 @@
         'sspanel_maintitle
         '
         Me.sspanel_maintitle.BackColor = System.Drawing.Color.Silver
-        Me.sspanel_maintitle.Controls.Add(Me.picTitle)
         Me.sspanel_maintitle.Location = New System.Drawing.Point(6, 0)
         Me.sspanel_maintitle.Name = "sspanel_maintitle"
         Me.sspanel_maintitle.Size = New System.Drawing.Size(593, 67)
         Me.sspanel_maintitle.TabIndex = 19
-        '
-        'picTitle
-        '
-        Me.picTitle.Image = CType(resources.GetObject("picTitle.Image"), System.Drawing.Image)
-        Me.picTitle.Location = New System.Drawing.Point(34, 8)
-        Me.picTitle.Name = "picTitle"
-        Me.picTitle.Size = New System.Drawing.Size(528, 51)
-        Me.picTitle.TabIndex = 0
-        Me.picTitle.TabStop = False
         '
         'sspanel_logos
         '
@@ -354,7 +341,7 @@
         Me.LabelAuthor.AutoSize = True
         Me.LabelAuthor.Location = New System.Drawing.Point(47, 17)
         Me.LabelAuthor.Name = "LabelAuthor"
-        Me.LabelAuthor.Size = New System.Drawing.Size(92, 16)
+        Me.LabelAuthor.Size = New System.Drawing.Size(76, 14)
         Me.LabelAuthor.TabIndex = 22
         Me.LabelAuthor.Text = "Authors List"
         '
@@ -380,7 +367,7 @@
         '
         'frmSplash
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(607, 382)
@@ -413,8 +400,6 @@
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_disclaimer, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.sspanel_maintitle.ResumeLayout(False)
-        CType(Me.picTitle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.sspanel_logos.ResumeLayout(False)
         Me.sspNames.ResumeLayout(False)
         Me.sspNames.PerformLayout()
@@ -427,7 +412,6 @@
     End Sub
 
     Friend WithEvents sspanel_maintitle As Panel
-    Friend WithEvents picTitle As PictureBox
     Friend WithEvents sspanel_logos As Panel
     Friend WithEvents sspNames As Panel
     Friend WithEvents SSPanel1 As Panel
