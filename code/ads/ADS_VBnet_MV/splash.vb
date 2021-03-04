@@ -50,7 +50,7 @@ Friend Class frmSplash
 		'		ctr_location = SSPanelLogos.Width / 2 - VB6.PixelsToTwipsX(_picLogos_1.Width) / 2
 		'		_picLogos_1.Left = VB6.TwipsToPixelsX(ctr_location)
 		'UPGRADE_WARNING: Couldn't resolve default property of object SSPanelLogos.Width. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		ctr_location = SSPanelLogos.Width / 2 - VB6.PixelsToTwipsX(_picLogos_2.Width) / 2
+		'ctr_location = SSPanelLogos.Width / 2 - VB6.PixelsToTwipsX(_picLogos_2.Width) / 2
 		'	_picLogos_2.Left = VB6.TwipsToPixelsX(ctr_location)
 		'		_picLogos_1.Top = VB6.TwipsToPixelsY(50)
 		'UPGRADE_WARNING: Couldn't resolve default property of object SSPanelLogos.Height. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -87,7 +87,7 @@ Friend Class frmSplash
 				_lblCompany_0.Text = "Michigan Technological University" & Chr(13) & "Houghton, Michigan"
 				'			_picLogos_1.Visible = False
 				'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_maintitle.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				sspanel_maintitle.Text = AppName_For_Display_Long & " (" & AppName_For_Display_Short & ")"
+				'sssspanel_maintitle.Text = AppName_For_Display_Long & " (" & AppName_For_Display_Short & ")"
 				picTitle.Visible = False
 			Else
 				' DO NOTHING.
@@ -112,7 +112,7 @@ Friend Class frmSplash
 			' ETC.
 			'
 			'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_disclaimer.Visible. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			sspanel_disclaimer.Visible = False
+			'sspanel_disclaimer.Visible = False
 			'cmdButton1.SetFocus
 			cmdButton1.TabIndex = 0
 			'Call debug_output("L4")
@@ -137,15 +137,15 @@ Friend Class frmSplash
 			'cmdButton2.Visible = True
 			'cmdExit.Visible = True
 			'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_logos.Visible. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			sspanel_logos.Visible = False
+			'sspanel_logos.Visible = False
 			'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_disclaimer.Left. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_logos.Left. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			sspanel_disclaimer.Left = sspanel_logos.Left
+			'sspanel_disclaimer.Left = sspanel_logos.Left
 			'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_disclaimer.Top. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_logos.Top. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			sspanel_disclaimer.Top = sspanel_logos.Top
+			'sspanel_disclaimer.Top = sspanel_logos.Top
 			'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_disclaimer.Visible. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			sspanel_disclaimer.Visible = True
+			'sspanel_disclaimer.Visible = True
 			s = "By choosing " & Chr(34) & "I Agree" & Chr(34) & " you acknowledge that "
 			s = s & "this software is under development and not guaranteed to be free "
 			s = s & "of errors.  Furthermore there may be errors in the software that "
