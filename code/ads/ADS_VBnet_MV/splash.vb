@@ -63,7 +63,7 @@ Friend Class frmSplash
 		'UPGRADE_WARNING: Couldn't resolve default property of object sspNames.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		Me.LabelAuthor.Text = "David R. Hokanson" & Environment.NewLine & "David W. Hand" & Environment.NewLine & "John C. Crittenden" & Environment.NewLine & "Tony N. Rogers" & Environment.NewLine & "Eric J. Oman"
 		lblAdditionalNotice.Text = "This program is protected by U.S. and international" & vbCrLf & "copyright laws as described in Help About."
-		_lblCompany_0.Text = "National Center for" & vbCrLf & "Clean Industrial and Treatment Technologies" & vbCrLf & "Michigan Technological University" & vbCrLf & "Houghton, Michigan"
+		'_lblCompany_0.Text = "National Center for" & vbCrLf & "Clean Industrial and Treatment Technologies" & vbCrLf & "Michigan Technological University" & vbCrLf & "Houghton, Michigan"
 		'picTitle.Visible = True
 		'
 		' LICENSE-RELATED SETTINGS.
@@ -84,7 +84,7 @@ Friend Class frmSplash
 			If (Activate_PSDMInRoom = True) Then
 				''''sspanel_maintitle.Caption = "Indoor Air Filtration Model"
 				''''lblCompany(0).Caption = "MTU"
-				_lblCompany_0.Text = "Michigan Technological University" & Chr(13) & "Houghton, Michigan"
+				'_lblCompany_0.Text = "Michigan Technological University" & Chr(13) & "Houghton, Michigan"
 				'			_picLogos_1.Visible = False
 				'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_maintitle.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				'sssspanel_maintitle.Text = AppName_For_Display_Long & " (" & AppName_For_Display_Short & ")"

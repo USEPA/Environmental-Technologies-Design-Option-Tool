@@ -24,7 +24,6 @@
     Public WithEvents SSPanel3 As AxThreed.AxSSPanel
     Public WithEvents lblDisclaimerTitle As System.Windows.Forms.Label
     Public WithEvents sspanel_disclaimer As AxThreed.AxSSPanel
-    Public WithEvents _picLogos_2 As System.Windows.Forms.PictureBox
 
 
     Public WithEvents cmdExit As System.Windows.Forms.Button
@@ -41,16 +40,14 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim _picLogos_1 As System.Windows.Forms.PictureBox
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSplash))
+        Dim _picLogos_1 As System.Windows.Forms.PictureBox
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me._picLogos_2 = New System.Windows.Forms.PictureBox()
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.cmdButton2 = New System.Windows.Forms.Button()
         Me.cmdButton1 = New System.Windows.Forms.Button()
         Me.lblAdditionalNotice = New System.Windows.Forms.Label()
         Me.lblCompany = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
-        Me._lblCompany_0 = New System.Windows.Forms.Label()
         Me.lblVersionInfo = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me._lblVersionInfo_2 = New System.Windows.Forms.Label()
         Me._lblVersionInfo_1 = New System.Windows.Forms.Label()
@@ -69,9 +66,8 @@
         Me.LabelAuthor = New System.Windows.Forms.Label()
         Me.SSPanel1 = New System.Windows.Forms.Panel()
         Me.SSpanelLogos = New System.Windows.Forms.Panel()
+        Me._picLogos_2 = New System.Windows.Forms.PictureBox()
         _picLogos_1 = New System.Windows.Forms.PictureBox()
-        CType(_picLogos_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblCompany, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblVersionInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,33 +78,9 @@
         Me.sspanel_logos.SuspendLayout()
         Me.sspNames.SuspendLayout()
         Me.SSPanel1.SuspendLayout()
-        Me.SSpanelLogos.SuspendLayout()
+        CType(_picLogos_1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        '_picLogos_1
-        '
-        _picLogos_1.Image = CType(resources.GetObject("_picLogos_1.Image"), System.Drawing.Image)
-        Me.picLogos.SetIndex(_picLogos_1, CType(1, Short))
-        _picLogos_1.Location = New System.Drawing.Point(59, 10)
-        _picLogos_1.Name = "_picLogos_1"
-        _picLogos_1.Size = New System.Drawing.Size(130, 116)
-        _picLogos_1.TabIndex = 0
-        _picLogos_1.TabStop = False
-        '
-        '_picLogos_2
-        '
-        Me._picLogos_2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me._picLogos_2.Cursor = System.Windows.Forms.Cursors.Default
-        Me._picLogos_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._picLogos_2.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._picLogos_2.Image = CType(resources.GetObject("_picLogos_2.Image"), System.Drawing.Image)
-        Me.picLogos.SetIndex(Me._picLogos_2, CType(2, Short))
-        Me._picLogos_2.Location = New System.Drawing.Point(29, 196)
-        Me._picLogos_2.Name = "_picLogos_2"
-        Me._picLogos_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._picLogos_2.Size = New System.Drawing.Size(218, 48)
-        Me._picLogos_2.TabIndex = 17
-        Me._picLogos_2.TabStop = False
         '
         'cmdExit
         '
@@ -165,16 +137,6 @@
         Me.lblAdditionalNotice.TabIndex = 18
         Me.lblAdditionalNotice.Text = "{This program is protected by .... see code in Form_Load}"
         Me.lblAdditionalNotice.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        '_lblCompany_0
-        '
-        Me._lblCompany_0.AutoSize = True
-        Me.lblCompany.SetIndex(Me._lblCompany_0, CType(0, Short))
-        Me._lblCompany_0.Location = New System.Drawing.Point(32, 135)
-        Me._lblCompany_0.Name = "_lblCompany_0"
-        Me._lblCompany_0.Size = New System.Drawing.Size(107, 14)
-        Me._lblCompany_0.TabIndex = 21
-        Me._lblCompany_0.Text = "{Set in Form_load}"
         '
         '_lblVersionInfo_2
         '
@@ -336,13 +298,33 @@
         '
         'SSpanelLogos
         '
-        Me.SSpanelLogos.Controls.Add(Me._lblCompany_0)
-        Me.SSpanelLogos.Controls.Add(_picLogos_1)
-        Me.SSpanelLogos.Controls.Add(Me._picLogos_2)
         Me.SSpanelLogos.Location = New System.Drawing.Point(0, 3)
         Me.SSpanelLogos.Name = "SSpanelLogos"
         Me.SSpanelLogos.Size = New System.Drawing.Size(313, 256)
         Me.SSpanelLogos.TabIndex = 0
+        '
+        '_picLogos_1
+        '
+        _picLogos_1.Image = CType(resources.GetObject("_picLogos_1.Image"), System.Drawing.Image)
+        _picLogos_1.Location = New System.Drawing.Point(133, 12)
+        _picLogos_1.Name = "_picLogos_1"
+        _picLogos_1.Size = New System.Drawing.Size(80, 51)
+        _picLogos_1.TabIndex = 21
+        _picLogos_1.TabStop = False
+        '
+        '_picLogos_2
+        '
+        Me._picLogos_2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._picLogos_2.Cursor = System.Windows.Forms.Cursors.Default
+        Me._picLogos_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._picLogos_2.ForeColor = System.Drawing.SystemColors.WindowText
+        Me._picLogos_2.Image = CType(resources.GetObject("_picLogos_2.Image"), System.Drawing.Image)
+        Me._picLogos_2.Location = New System.Drawing.Point(257, 12)
+        Me._picLogos_2.Name = "_picLogos_2"
+        Me._picLogos_2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._picLogos_2.Size = New System.Drawing.Size(218, 48)
+        Me._picLogos_2.TabIndex = 22
+        Me._picLogos_2.TabStop = False
         '
         'frmSplash
         '
@@ -350,6 +332,8 @@
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(607, 382)
+        Me.Controls.Add(Me._picLogos_2)
+        Me.Controls.Add(_picLogos_1)
         Me.Controls.Add(Me.sspanel_logos)
         Me.Controls.Add(Me.sspanel_disclaimer)
         Me.Controls.Add(Me.cmdExit)
@@ -367,8 +351,6 @@
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Program Information"
-        CType(_picLogos_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblCompany, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblVersionInfo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).EndInit()
@@ -381,8 +363,8 @@
         Me.sspNames.PerformLayout()
         Me.SSPanel1.ResumeLayout(False)
         Me.SSPanel1.PerformLayout()
-        Me.SSpanelLogos.ResumeLayout(False)
-        Me.SSpanelLogos.PerformLayout()
+        CType(_picLogos_1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -393,7 +375,7 @@
     Friend WithEvents _lblVersionInfo_2 As Label
     Friend WithEvents _lblVersionInfo_1 As Label
     Friend WithEvents _lblVersionInfo_0 As Label
-    Friend WithEvents _lblCompany_0 As Label
     Friend WithEvents LabelAuthor As Label
+    Public WithEvents _picLogos_2 As PictureBox
 #End Region
 End Class
