@@ -23,14 +23,11 @@
     Public WithEvents lblDisclaimer As System.Windows.Forms.Label
     Public WithEvents SSPanel3 As AxThreed.AxSSPanel
     Public WithEvents lblDisclaimerTitle As System.Windows.Forms.Label
-    Public WithEvents sspanel_disclaimer As AxThreed.AxSSPanel
 
 
     Public WithEvents cmdExit As System.Windows.Forms.Button
     Public WithEvents cmdButton2 As System.Windows.Forms.Button
     Public WithEvents cmdButton1 As System.Windows.Forms.Button
-
-    Public WithEvents lblAdditionalNotice As System.Windows.Forms.Label
     Public WithEvents lblCompany As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lblVersionInfo As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lbldesc As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -46,7 +43,6 @@
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.cmdButton2 = New System.Windows.Forms.Button()
         Me.cmdButton1 = New System.Windows.Forms.Button()
-        Me.lblAdditionalNotice = New System.Windows.Forms.Label()
         Me.lblCompany = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me.lblVersionInfo = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me.lbldesc = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
@@ -56,13 +52,7 @@
         Me._picLogos_0 = New System.Windows.Forms.PictureBox()
         Me.lblDisclaimerTitle = New System.Windows.Forms.Label()
         Me.lblDisclaimer = New System.Windows.Forms.Label()
-        Me.sspanel_disclaimer = New AxThreed.AxSSPanel()
         Me.SSPanel3 = New AxThreed.AxSSPanel()
-        Me.sspanel_logos = New System.Windows.Forms.Panel()
-        Me.sspNames = New System.Windows.Forms.Panel()
-        Me.LabelAuthor = New System.Windows.Forms.Label()
-        Me.SSPanel1 = New System.Windows.Forms.Panel()
-        Me.SSpanelLogos = New System.Windows.Forms.Panel()
         Me._picLogos_2 = New System.Windows.Forms.PictureBox()
         _picLogos_1 = New System.Windows.Forms.PictureBox()
         CType(_picLogos_1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,21 +61,19 @@
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picLogos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._picLogos_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_disclaimer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.sspanel_logos.SuspendLayout()
-        Me.sspNames.SuspendLayout()
         CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         '_picLogos_1
         '
         _picLogos_1.Image = CType(resources.GetObject("_picLogos_1.Image"), System.Drawing.Image)
-        _picLogos_1.Location = New System.Drawing.Point(133, 12)
+        _picLogos_1.Location = New System.Drawing.Point(245, 50)
         _picLogos_1.Name = "_picLogos_1"
-        _picLogos_1.Size = New System.Drawing.Size(80, 51)
+        _picLogos_1.Size = New System.Drawing.Size(145, 138)
         _picLogos_1.TabIndex = 21
         _picLogos_1.TabStop = False
+        AddHandler _picLogos_1.Click, AddressOf Me._picLogos_1_Click
         '
         'cmdExit
         '
@@ -128,20 +116,6 @@
         Me.cmdButton1.TabIndex = 0
         Me.cmdButton1.Text = "&Continue"
         Me.cmdButton1.UseVisualStyleBackColor = False
-        '
-        'lblAdditionalNotice
-        '
-        Me.lblAdditionalNotice.BackColor = System.Drawing.SystemColors.Control
-        Me.lblAdditionalNotice.Cursor = System.Windows.Forms.Cursors.Default
-        Me.lblAdditionalNotice.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAdditionalNotice.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblAdditionalNotice.Location = New System.Drawing.Point(130, 342)
-        Me.lblAdditionalNotice.Name = "lblAdditionalNotice"
-        Me.lblAdditionalNotice.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblAdditionalNotice.Size = New System.Drawing.Size(366, 31)
-        Me.lblAdditionalNotice.TabIndex = 18
-        Me.lblAdditionalNotice.Text = "{This program is protected by .... see code in Form_Load}"
-        Me.lblAdditionalNotice.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         '_lbldesc_0
         '
@@ -214,63 +188,14 @@
         Me.lblDisclaimer.TabIndex = 9
         Me.lblDisclaimer.Text = "lblDisclaimer"
         '
-        'sspanel_disclaimer
-        '
-        Me.sspanel_disclaimer.Location = New System.Drawing.Point(614, 326)
-        Me.sspanel_disclaimer.Name = "sspanel_disclaimer"
-        Me.sspanel_disclaimer.OcxState = CType(resources.GetObject("sspanel_disclaimer.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_disclaimer.Size = New System.Drawing.Size(555, 253)
-        Me.sspanel_disclaimer.TabIndex = 6
-        '
         'SSPanel3
         '
-        Me.SSPanel3.Location = New System.Drawing.Point(8, 38)
+        Me.SSPanel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SSPanel3.Location = New System.Drawing.Point(45, 45)
         Me.SSPanel3.Name = "SSPanel3"
         Me.SSPanel3.OcxState = CType(resources.GetObject("SSPanel3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSPanel3.Size = New System.Drawing.Size(539, 205)
+        Me.SSPanel3.Size = New System.Drawing.Size(20, 20)
         Me.SSPanel3.TabIndex = 8
-        '
-        'sspanel_logos
-        '
-        Me.sspanel_logos.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.sspanel_logos.Controls.Add(Me.sspNames)
-        Me.sspanel_logos.Controls.Add(Me.SSPanel1)
-        Me.sspanel_logos.Controls.Add(Me.SSpanelLogos)
-        Me.sspanel_logos.Location = New System.Drawing.Point(6, 73)
-        Me.sspanel_logos.Name = "sspanel_logos"
-        Me.sspanel_logos.Size = New System.Drawing.Size(593, 259)
-        Me.sspanel_logos.TabIndex = 20
-        '
-        'sspNames
-        '
-        Me.sspNames.Controls.Add(Me.LabelAuthor)
-        Me.sspNames.Location = New System.Drawing.Point(319, 115)
-        Me.sspNames.Name = "sspNames"
-        Me.sspNames.Size = New System.Drawing.Size(267, 141)
-        Me.sspNames.TabIndex = 2
-        '
-        'LabelAuthor
-        '
-        Me.LabelAuthor.AutoSize = True
-        Me.LabelAuthor.Location = New System.Drawing.Point(47, 17)
-        Me.LabelAuthor.Name = "LabelAuthor"
-        Me.LabelAuthor.Size = New System.Drawing.Size(76, 14)
-        Me.LabelAuthor.TabIndex = 22
-        Me.LabelAuthor.Text = "Authors List"
-        '
-        'SSPanel1
-        '
-        Me.SSPanel1.Location = New System.Drawing.Point(319, 3)
-        Me.SSPanel1.Name = "SSPanel1"
-        Me.SSPanel1.Size = New System.Drawing.Size(267, 106)
-        Me.SSPanel1.TabIndex = 1
-        '
-        'SSpanelLogos
-        '
-        Me.SSpanelLogos.Location = New System.Drawing.Point(0, 3)
-        Me.SSpanelLogos.Name = "SSpanelLogos"
-        Me.SSpanelLogos.Size = New System.Drawing.Size(313, 256)
-        Me.SSpanelLogos.TabIndex = 0
         '
         '_picLogos_2
         '
@@ -279,7 +204,7 @@
         Me._picLogos_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._picLogos_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me._picLogos_2.Image = CType(resources.GetObject("_picLogos_2.Image"), System.Drawing.Image)
-        Me._picLogos_2.Location = New System.Drawing.Point(257, 12)
+        Me._picLogos_2.Location = New System.Drawing.Point(47, 234)
         Me._picLogos_2.Name = "_picLogos_2"
         Me._picLogos_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._picLogos_2.Size = New System.Drawing.Size(218, 48)
@@ -294,12 +219,9 @@
         Me.ClientSize = New System.Drawing.Size(607, 382)
         Me.Controls.Add(Me._picLogos_2)
         Me.Controls.Add(_picLogos_1)
-        Me.Controls.Add(Me.sspanel_logos)
-        Me.Controls.Add(Me.sspanel_disclaimer)
         Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.cmdButton2)
         Me.Controls.Add(Me.cmdButton1)
-        Me.Controls.Add(Me.lblAdditionalNotice)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.SystemColors.WindowText
@@ -317,20 +239,11 @@
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picLogos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._picLogos_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_disclaimer, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.sspanel_logos.ResumeLayout(False)
-        Me.sspNames.ResumeLayout(False)
-        Me.sspNames.PerformLayout()
         CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents sspanel_logos As Panel
-    Friend WithEvents sspNames As Panel
-    Friend WithEvents SSPanel1 As Panel
-    Friend WithEvents SSpanelLogos As Panel
-    Friend WithEvents LabelAuthor As Label
     Public WithEvents _picLogos_2 As PictureBox
 #End Region
 End Class

@@ -176,4 +176,8 @@ Friend Class frmSplash
 	Private Sub lblAuthors_Click(ByRef Index As Short)
 		
 	End Sub
+
+	Private Sub _picLogos_1_Click(sender As Object, e As EventArgs)
+
+	End Sub
 End Class
