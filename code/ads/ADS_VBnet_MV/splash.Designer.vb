@@ -21,7 +21,6 @@
 	Public WithEvents _lbldesc_0 As System.Windows.Forms.Label
 	Public WithEvents _lbldesc_1 As System.Windows.Forms.Label
     Public WithEvents lblDisclaimer As System.Windows.Forms.Label
-    Public WithEvents SSPanel3 As AxThreed.AxSSPanel
     Public WithEvents lblDisclaimerTitle As System.Windows.Forms.Label
 
 
@@ -52,7 +51,6 @@
         Me._picLogos_0 = New System.Windows.Forms.PictureBox()
         Me.lblDisclaimerTitle = New System.Windows.Forms.Label()
         Me.lblDisclaimer = New System.Windows.Forms.Label()
-        Me.SSPanel3 = New AxThreed.AxSSPanel()
         Me._picLogos_2 = New System.Windows.Forms.PictureBox()
         _picLogos_1 = New System.Windows.Forms.PictureBox()
         CType(_picLogos_1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,7 +59,6 @@
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picLogos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._picLogos_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -187,15 +184,8 @@
         Me.lblDisclaimer.Size = New System.Drawing.Size(523, 193)
         Me.lblDisclaimer.TabIndex = 9
         Me.lblDisclaimer.Text = "lblDisclaimer"
+
         '
-        'SSPanel3
-        '
-        Me.SSPanel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SSPanel3.Location = New System.Drawing.Point(45, 45)
-        Me.SSPanel3.Name = "SSPanel3"
-        Me.SSPanel3.OcxState = CType(resources.GetObject("SSPanel3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSPanel3.Size = New System.Drawing.Size(20, 20)
-        Me.SSPanel3.TabIndex = 8
         '
         '_picLogos_2
         '
@@ -239,11 +229,15 @@
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picLogos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._picLogos_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
+
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
+    End Sub
+
     Public WithEvents _picLogos_2 As PictureBox
 #End Region
 End Class
