@@ -117,6 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="_picLogos_1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_picLogos_1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk1uBwAAAAAAAD4AAAAoAAAAgAAAAHMAAAABAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAA/7+/
+        v///////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //wPAAAAAAAAAD//////////////////////////////////////////////////////////////////
+        ////////////////////////////AB/gAAD8AAAD/z///////wAf4AAB/AAAA/+f////////////////
+        //////////////////////////////////////////////////////AA//wAA/8AAAD+A//////gAP/8
+        AAP/AAAAfAH/////4AH//AAD/wAAAAAB////////////////////////////////////////////////
+        gAD/gAAP/8AAAAAAf////wAA/4AAD//AACMgAD////4AAB4AAP//wABhgAAf////////////////////
+        //////////////////////////wAMAAAD///ABAYAAAP///8AHAAAA///CAQEAAAB///+ADgAAAP//xw
+        ODAAAAf///gB4IAAD//9+Hz4AAAD////////////////////////8AP/AAAD///B/fwAAAP///AH/wAA
+        A/4vj/3+AAAB///gA/8AAAAAB9///gAAAf//4Af/8AABAA////AAAAH//+AH//AAA8yf///////////A
+        A//wAAPt////8gAAAP//wAP/8AAD7f////gAAAD//8AD//wAAX/////8AAAA///AAP//AAE//////AAA
+        AP//wAH//wAAP/////4AAAD//8AB/8+AAD/////8AAAA///AG//AAAA//////gAAAP//gA//AAYAH///
+        //AAAAD//4AH/PgPwA/P///8AAAA//+AA/H4D+AP5////gAAAP//gADA/A/gAgH///4AAAD//4AAAPwP
+        8AAA////AAAA//+AAAB/D/AAAB///gAAAP//gAAAAw/4AAAf//4AAAD//4AAAAAH/AAAB//4AAAA////
+        ////////////////////gAAAAAAAAAAAAAAAAAD//4AAAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA
+        AP//gAA/wf8eHgf48DwB4AD//4AA/+P/Hh4f+PA8AeAA//+AAfhnwx4eP5jwPAHgAP//gAHgD+AeHjwA
+        8DwB4AD//4AD4A98Hh58APA8AeAA//+AA8APHx4eeADwPAHgAP//gAPAB4+eHngA8DwB4AD//4AD4AP/
+        n/54APA8AeAA//+AAfAA/h/8PADwPAHgAP//gAD/wAAAAD8I8DwB4AD//4AA/8AAAAAf+PP///4A//+A
+        AB/AAAAAD/jz/9/+AP//gAAAAAAAAAAAAAAAAAD//4AAAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA
+        AP//gAAAAAAAAAAAAAAAA////+/P//9geAH//gAAAAcf///I9//5wnAB//8AAAAfH///wAP/+6FgAP//
+        wAAAPx///8AB//jA8AA//+AAAD8f///AAP/QAGADD//wAACNH///wAA/wADAAwP//AABAAC//gIAN0AA
+        QAMA//4ABEAAf+AAAAeABAABAP/9AAxAAP/AAAAAAAAAAAH//sAQQAA/wAAAAAAGAAgB3/AwYAAAH/AA
+        AAAABgAAA//8DIAAAB/gAAAAAAYACB3eTz0AAAB/8AAAEAAHAAgAj8AyAEAAD/AAH//////9+HbB///g
+        AC/oAAAcAAcADgQwAHAAYAD/4AAAHAAHAA4EAABwAEAA//QAABwABwAOAAAAMAACAAf8AH////////rA
+        D//8AAIB/ADAHAAPAA4GAABwAAAAFfwAQBwADwAOBAAAcAAaAP/+AP/////////z////1AB//wPAPAAP
+        AA4HAABwAPgB//4DwDwADwAOBwAAcAD0Af//A8A8AA8ADgcAAHAA7A///wP///////////////iB///B
+        wDwADwAOBwAAcAD/////x8A8AA8ADgcAAHAA/////8f////////////////////H////////////////
+        /////8A8AA///gcAAHAA////////////////////////////////////////////////////////////
+        ////////////+AAP//wHAAB/////////////////////////////////////////////////////////
+        /////////////////////////wAAf///////////////////////////
+</value>
+  </data>
   <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -132,7 +172,6 @@
   <metadata name="picLogos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>425, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_picLogos_0.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHMAAABxCAMAAADRVWzfAAAABGdBTUEAALGPC/xhBQAAAwBQTFRF////
@@ -201,45 +240,6 @@
         ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAdAAAAAIB
         AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAEEAAAAAAAEAkSwAAPMQ
         AAAPAAAACFNTUGFuZWwzCAAAgPDw8AD/AQADAAIAAAABAAAAAAD/AAAAAQAAAAAHAAAAAAAB/ws=
-</value>
-  </data>
-  <metadata name="_picLogos_1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="_picLogos_1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        Qk1uBwAAAAAAAD4AAAAoAAAAgAAAAHMAAAABAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAA/7+/
-        v///////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        //wPAAAAAAAAAD//////////////////////////////////////////////////////////////////
-        ////////////////////////////AB/gAAD8AAAD/z///////wAf4AAB/AAAA/+f////////////////
-        //////////////////////////////////////////////////////AA//wAA/8AAAD+A//////gAP/8
-        AAP/AAAAfAH/////4AH//AAD/wAAAAAB////////////////////////////////////////////////
-        gAD/gAAP/8AAAAAAf////wAA/4AAD//AACMgAD////4AAB4AAP//wABhgAAf////////////////////
-        //////////////////////////wAMAAAD///ABAYAAAP///8AHAAAA///CAQEAAAB///+ADgAAAP//xw
-        ODAAAAf///gB4IAAD//9+Hz4AAAD////////////////////////8AP/AAAD///B/fwAAAP///AH/wAA
-        A/4vj/3+AAAB///gA/8AAAAAB9///gAAAf//4Af/8AABAA////AAAAH//+AH//AAA8yf///////////A
-        A//wAAPt////8gAAAP//wAP/8AAD7f////gAAAD//8AD//wAAX/////8AAAA///AAP//AAE//////AAA
-        AP//wAH//wAAP/////4AAAD//8AB/8+AAD/////8AAAA///AG//AAAA//////gAAAP//gA//AAYAH///
-        //AAAAD//4AH/PgPwA/P///8AAAA//+AA/H4D+AP5////gAAAP//gADA/A/gAgH///4AAAD//4AAAPwP
-        8AAA////AAAA//+AAAB/D/AAAB///gAAAP//gAAAAw/4AAAf//4AAAD//4AAAAAH/AAAB//4AAAA////
-        ////////////////////gAAAAAAAAAAAAAAAAAD//4AAAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA
-        AP//gAA/wf8eHgf48DwB4AD//4AA/+P/Hh4f+PA8AeAA//+AAfhnwx4eP5jwPAHgAP//gAHgD+AeHjwA
-        8DwB4AD//4AD4A98Hh58APA8AeAA//+AA8APHx4eeADwPAHgAP//gAPAB4+eHngA8DwB4AD//4AD4AP/
-        n/54APA8AeAA//+AAfAA/h/8PADwPAHgAP//gAD/wAAAAD8I8DwB4AD//4AA/8AAAAAf+PP///4A//+A
-        AB/AAAAAD/jz/9/+AP//gAAAAAAAAAAAAAAAAAD//4AAAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA
-        AP//gAAAAAAAAAAAAAAAA////+/P//9geAH//gAAAAcf///I9//5wnAB//8AAAAfH///wAP/+6FgAP//
-        wAAAPx///8AB//jA8AA//+AAAD8f///AAP/QAGADD//wAACNH///wAA/wADAAwP//AABAAC//gIAN0AA
-        QAMA//4ABEAAf+AAAAeABAABAP/9AAxAAP/AAAAAAAAAAAH//sAQQAA/wAAAAAAGAAgB3/AwYAAAH/AA
-        AAAABgAAA//8DIAAAB/gAAAAAAYACB3eTz0AAAB/8AAAEAAHAAgAj8AyAEAAD/AAH//////9+HbB///g
-        AC/oAAAcAAcADgQwAHAAYAD/4AAAHAAHAA4EAABwAEAA//QAABwABwAOAAAAMAACAAf8AH////////rA
-        D//8AAIB/ADAHAAPAA4GAABwAAAAFfwAQBwADwAOBAAAcAAaAP/+AP/////////z////1AB//wPAPAAP
-        AA4HAABwAPgB//4DwDwADwAOBwAAcAD0Af//A8A8AA8ADgcAAHAA7A///wP///////////////iB///B
-        wDwADwAOBwAAcAD/////x8A8AA8ADgcAAHAA/////8f////////////////////H////////////////
-        /////8A8AA///gcAAHAA////////////////////////////////////////////////////////////
-        ////////////+AAP//wHAAB/////////////////////////////////////////////////////////
-        /////////////////////////wAAf///////////////////////////
 </value>
   </data>
   <data name="_picLogos_2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

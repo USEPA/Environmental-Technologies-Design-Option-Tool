@@ -40,8 +40,8 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSplash))
         Dim _picLogos_1 As System.Windows.Forms.PictureBox
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSplash))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.cmdButton2 = New System.Windows.Forms.Button()
@@ -49,9 +49,6 @@
         Me.lblAdditionalNotice = New System.Windows.Forms.Label()
         Me.lblCompany = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me.lblVersionInfo = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
-        Me._lblVersionInfo_2 = New System.Windows.Forms.Label()
-        Me._lblVersionInfo_1 = New System.Windows.Forms.Label()
-        Me._lblVersionInfo_0 = New System.Windows.Forms.Label()
         Me.lbldesc = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me._lbldesc_0 = New System.Windows.Forms.Label()
         Me._lbldesc_1 = New System.Windows.Forms.Label()
@@ -68,6 +65,7 @@
         Me.SSpanelLogos = New System.Windows.Forms.Panel()
         Me._picLogos_2 = New System.Windows.Forms.PictureBox()
         _picLogos_1 = New System.Windows.Forms.PictureBox()
+        CType(_picLogos_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblCompany, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblVersionInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,10 +75,17 @@
         CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.sspanel_logos.SuspendLayout()
         Me.sspNames.SuspendLayout()
-        Me.SSPanel1.SuspendLayout()
-        CType(_picLogos_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        '_picLogos_1
+        '
+        _picLogos_1.Image = CType(resources.GetObject("_picLogos_1.Image"), System.Drawing.Image)
+        _picLogos_1.Location = New System.Drawing.Point(133, 12)
+        _picLogos_1.Name = "_picLogos_1"
+        _picLogos_1.Size = New System.Drawing.Size(80, 51)
+        _picLogos_1.TabIndex = 21
+        _picLogos_1.TabStop = False
         '
         'cmdExit
         '
@@ -137,39 +142,6 @@
         Me.lblAdditionalNotice.TabIndex = 18
         Me.lblAdditionalNotice.Text = "{This program is protected by .... see code in Form_Load}"
         Me.lblAdditionalNotice.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        '_lblVersionInfo_2
-        '
-        Me._lblVersionInfo_2.AutoSize = True
-        Me._lblVersionInfo_2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblVersionInfo.SetIndex(Me._lblVersionInfo_2, CType(2, Short))
-        Me._lblVersionInfo_2.Location = New System.Drawing.Point(47, 69)
-        Me._lblVersionInfo_2.Name = "_lblVersionInfo_2"
-        Me._lblVersionInfo_2.Size = New System.Drawing.Size(103, 14)
-        Me._lblVersionInfo_2.TabIndex = 2
-        Me._lblVersionInfo_2.Text = "Copyright {years}"
-        '
-        '_lblVersionInfo_1
-        '
-        Me._lblVersionInfo_1.AutoSize = True
-        Me._lblVersionInfo_1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblVersionInfo.SetIndex(Me._lblVersionInfo_1, CType(1, Short))
-        Me._lblVersionInfo_1.Location = New System.Drawing.Point(47, 40)
-        Me._lblVersionInfo_1.Name = "_lblVersionInfo_1"
-        Me._lblVersionInfo_1.Size = New System.Drawing.Size(136, 14)
-        Me._lblVersionInfo_1.TabIndex = 1
-        Me._lblVersionInfo_1.Text = "Expires on MM/DD/YYYY"
-        '
-        '_lblVersionInfo_0
-        '
-        Me._lblVersionInfo_0.AutoSize = True
-        Me._lblVersionInfo_0.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblVersionInfo.SetIndex(Me._lblVersionInfo_0, CType(0, Short))
-        Me._lblVersionInfo_0.Location = New System.Drawing.Point(47, 16)
-        Me._lblVersionInfo_0.Name = "_lblVersionInfo_0"
-        Me._lblVersionInfo_0.Size = New System.Drawing.Size(147, 14)
-        Me._lblVersionInfo_0.TabIndex = 0
-        Me._lblVersionInfo_0.Text = "Version {ver} {STANDARD}"
         '
         '_lbldesc_0
         '
@@ -288,9 +260,6 @@
         '
         'SSPanel1
         '
-        Me.SSPanel1.Controls.Add(Me._lblVersionInfo_2)
-        Me.SSPanel1.Controls.Add(Me._lblVersionInfo_1)
-        Me.SSPanel1.Controls.Add(Me._lblVersionInfo_0)
         Me.SSPanel1.Location = New System.Drawing.Point(319, 3)
         Me.SSPanel1.Name = "SSPanel1"
         Me.SSPanel1.Size = New System.Drawing.Size(267, 106)
@@ -302,15 +271,6 @@
         Me.SSpanelLogos.Name = "SSpanelLogos"
         Me.SSpanelLogos.Size = New System.Drawing.Size(313, 256)
         Me.SSpanelLogos.TabIndex = 0
-        '
-        '_picLogos_1
-        '
-        _picLogos_1.Image = CType(resources.GetObject("_picLogos_1.Image"), System.Drawing.Image)
-        _picLogos_1.Location = New System.Drawing.Point(133, 12)
-        _picLogos_1.Name = "_picLogos_1"
-        _picLogos_1.Size = New System.Drawing.Size(80, 51)
-        _picLogos_1.TabIndex = 21
-        _picLogos_1.TabStop = False
         '
         '_picLogos_2
         '
@@ -351,6 +311,7 @@
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Program Information"
+        CType(_picLogos_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblCompany, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblVersionInfo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).EndInit()
@@ -361,9 +322,6 @@
         Me.sspanel_logos.ResumeLayout(False)
         Me.sspNames.ResumeLayout(False)
         Me.sspNames.PerformLayout()
-        Me.SSPanel1.ResumeLayout(False)
-        Me.SSPanel1.PerformLayout()
-        CType(_picLogos_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -372,9 +330,6 @@
     Friend WithEvents sspNames As Panel
     Friend WithEvents SSPanel1 As Panel
     Friend WithEvents SSpanelLogos As Panel
-    Friend WithEvents _lblVersionInfo_2 As Label
-    Friend WithEvents _lblVersionInfo_1 As Label
-    Friend WithEvents _lblVersionInfo_0 As Label
     Friend WithEvents LabelAuthor As Label
     Public WithEvents _picLogos_2 As PictureBox
 #End Region

@@ -61,8 +61,8 @@ Friend Class frmSplash
 		' MISCELLANEOUS SETTINGS.
 		'
 		'UPGRADE_WARNING: Couldn't resolve default property of object sspNames.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Me.LabelAuthor.Text = "David R. Hokanson" & Environment.NewLine & "David W. Hand" & Environment.NewLine & "John C. Crittenden" & Environment.NewLine & "Tony N. Rogers" & Environment.NewLine & "Eric J. Oman"
-		lblAdditionalNotice.Text = "This program is protected by U.S. and international" & vbCrLf & "copyright laws as described in Help About."
+		'Me.LabelAuthor.Text = "David R. Hokanson" & Environment.NewLine & "David W. Hand" & Environment.NewLine & "John C. Crittenden" & Environment.NewLine & "Tony N. Rogers" & Environment.NewLine & "Eric J. Oman"
+		'lblAdditionalNotice.Text = "This program is protected by U.S. and international" & vbCrLf & "copyright laws as described in Help About."
 		'_lblCompany_0.Text = "National Center for" & vbCrLf & "Clean Industrial and Treatment Technologies" & vbCrLf & "Michigan Technological University" & vbCrLf & "Houghton, Michigan"
 		'picTitle.Visible = True
 		'
@@ -71,12 +71,12 @@ Friend Class frmSplash
 		''''lblVersionInfo(0).Caption = _
 		'"Version " & get_program_version_with_build_info_VB4(True) & _
 		'" (" & get_program_releasetype() & ")"
-		_lblVersionInfo_0.Text = get_program_version_with_build_info_VB4(True)
+		'_lblVersionInfo_0.Text = get_program_version_with_build_info_VB4(True)
 		'lblVersionInfo(0).Caption = _
 		''    "Version 1.0"
 		'    MsgBox "Fix this !!!!  (contact ejoman@mtu.edu)"
-		_lblVersionInfo_1.Text = get_expiration_info(True)
-		_lblVersionInfo_2.Text = "Copyright " & AppCopyrightYears
+		'_lblVersionInfo_1.Text = get_expiration_info(True)
+		'_lblVersionInfo_2.Text = "Copyright " & AppCopyrightYears
 		'
 		' PROGRAM-SPECIFIC SETTINGS.
 		'
@@ -158,7 +158,7 @@ Friend Class frmSplash
 			s = s & "constitute or imply endorsement/recommendation by the authors or "
 			s = s & "the respective organizations under which the software "
 			s = s & "was developed."
-			lblDisclaimer.Text = s
+			'lblDisclaimer.Text = s
 			'cmdButton1.SetFocus
 			cmdButton1.TabIndex = 0
 			'Call debug_output("L6")
