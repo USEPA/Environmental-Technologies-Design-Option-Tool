@@ -168,8 +168,6 @@
     Public WithEvents _lblWaterUnit_0 As System.Windows.Forms.Label
     Public WithEvents ssframe_Water As AxThreed.AxSSFrame
     Public WithEvents SSPanel2 As AxThreed.AxSSPanel
-    Public WithEvents CommonDialog1 As AxMSComDlg.AxCommonDialog
-    Public WithEvents SSFrame4 As AxThreed.AxSSFrame
     Public WithEvents Combo1 As System.Windows.Forms.ComboBox
     Public WithEvents List1 As System.Windows.Forms.ListBox
     Public WithEvents Command1 As System.Windows.Forms.Button
@@ -366,8 +364,6 @@
         Me._lblWaterUnit_0 = New System.Windows.Forms.Label()
         Me.cmdWaterCorrelations = New System.Windows.Forms.Button()
         Me.SSPanel2 = New AxThreed.AxSSPanel()
-        Me.SSFrame4 = New AxThreed.AxSSFrame()
-        Me.CommonDialog1 = New AxMSComDlg.AxCommonDialog()
         Me.SSFrame2 = New AxThreed.AxSSFrame()
         Me.Combo1 = New System.Windows.Forms.ComboBox()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
@@ -408,6 +404,7 @@
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabelDirty = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabelStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.CommonDialog1 = New AxMSComDlg.AxCommonDialog()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame8, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -427,9 +424,6 @@
         CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_Water.SuspendLayout()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSFrame4.SuspendLayout()
-        CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SSFrame2.SuspendLayout()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -465,6 +459,7 @@
         CType(Me.txtTimeUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
+        CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Command4
@@ -2300,25 +2295,6 @@
         Me.SSPanel2.Size = New System.Drawing.Size(120, 60)
         Me.SSPanel2.TabIndex = 18
         '
-        'SSFrame4
-        '
-        Me.SSFrame4.Controls.Add(Me.CommonDialog1)
-        Me.SSFrame4.Location = New System.Drawing.Point(718, 44)
-        Me.SSFrame4.Name = "SSFrame4"
-        Me.SSFrame4.OcxState = CType(resources.GetObject("SSFrame4.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame4.Size = New System.Drawing.Size(241, 83)
-        Me.SSFrame4.TabIndex = 92
-        Me.SSFrame4.Visible = False
-        '
-        'CommonDialog1
-        '
-        Me.CommonDialog1.Enabled = True
-        Me.CommonDialog1.Location = New System.Drawing.Point(0, 0)
-        Me.CommonDialog1.Name = "CommonDialog1"
-        Me.CommonDialog1.OcxState = CType(resources.GetObject("CommonDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CommonDialog1.Size = New System.Drawing.Size(32, 32)
-        Me.CommonDialog1.TabIndex = 0
-        '
         'SSFrame2
         '
         Me.SSFrame2.Controls.Add(Me.Combo1)
@@ -2496,12 +2472,22 @@
         Me.ToolStripStatusLabelStatus.Size = New System.Drawing.Size(400, 17)
         Me.ToolStripStatusLabelStatus.Text = "ToolStripStatusLabelStatus"
         '
+        'CommonDialog1
+        '
+        Me.CommonDialog1.Enabled = True
+        Me.CommonDialog1.Location = New System.Drawing.Point(688, 60)
+        Me.CommonDialog1.Name = "CommonDialog1"
+        Me.CommonDialog1.OcxState = CType(resources.GetObject("CommonDialog1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.CommonDialog1.Size = New System.Drawing.Size(32, 32)
+        Me.CommonDialog1.TabIndex = 103
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(975, 485)
+        Me.Controls.Add(Me.CommonDialog1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me._cmdNote_1)
         Me.Controls.Add(Me._cmdNote_0)
@@ -2515,7 +2501,6 @@
         Me.Controls.Add(Me.ssframe_Component)
         Me.Controls.Add(Me.ssframe_Water)
         Me.Controls.Add(Me.SSPanel2)
-        Me.Controls.Add(Me.SSFrame4)
         Me.Controls.Add(Me.SSFrame2)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -2554,9 +2539,6 @@
         Me.ssframe_Water.ResumeLayout(False)
         Me.ssframe_Water.PerformLayout()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSFrame4.ResumeLayout(False)
-        CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SSFrame2.ResumeLayout(False)
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2594,6 +2576,7 @@
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2606,5 +2589,6 @@
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabelDirty As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabelStatus As ToolStripStatusLabel
+    Public WithEvents CommonDialog1 As AxMSComDlg.AxCommonDialog
 #End Region
 End Class
