@@ -405,6 +405,9 @@
         Me.ToolStripStatusLabelDirty = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabelStatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.CommonDialog1 = New AxMSComDlg.AxCommonDialog()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame8, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2481,6 +2484,10 @@
         Me.CommonDialog1.Size = New System.Drawing.Size(32, 32)
         Me.CommonDialog1.TabIndex = 103
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
@@ -2590,5 +2597,8 @@
     Friend WithEvents ToolStripStatusLabelDirty As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabelStatus As ToolStripStatusLabel
     Public WithEvents CommonDialog1 As AxMSComDlg.AxCommonDialog
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 #End Region
 End Class

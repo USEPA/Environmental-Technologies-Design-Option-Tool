@@ -264,7 +264,9 @@ Friend Class frmMain
 		Me.Height = VB6.TwipsToPixelsY(7600)
 		Call CenterOnScreen(Me)
 		'UPGRADE_WARNING: Couldn't resolve default property of object CommonDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		'CommonDialog1.Filename = My.Application.Info.DirectoryPath & "\examples\*.dat"
+		'CommonDialog1.FileName = My.Application.Info.DirectoryPath & "\examples\*.dat"
+		SaveFileDialog1.FileName = My.Application.Info.DirectoryPath & "\examples\*.dat"
+
 		lblWaterUnit(0).Text = "C"
 		lblWaterUnit(1).Text = "atm"
 		cmdNote(1).SetBounds(cmdNote(0).Left, cmdNote(0).Top, 0, 0, Windows.Forms.BoundsSpecified.X Or Windows.Forms.BoundsSpecified.Y)
@@ -1345,7 +1347,7 @@ Friend Class frmMain
 				Call File_SaveAs("")
 			Case 6 'Select Printer ...
 				'UPGRADE_WARNING: Couldn't resolve default property of object CommonDialog1.ShowPrinter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				'CommonDialog1.ShowPrinter()
+				CommonDialog1.ShowPrinter()
 				'Case 85:      'Print ...
 				'  frmPrint.Show 1
 			Case 191 To 194 'Last-few-files list
