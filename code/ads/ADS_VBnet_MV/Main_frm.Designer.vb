@@ -406,7 +406,6 @@
         Me.txtTimeUnits = New Microsoft.VisualBasic.Compatibility.VB6.ComboBoxArray(Me.components)
         Me.txtWater = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
         Me.sspanel_Status = New AxThreed.AxSSPanel()
-        Me.sspanel_Dirty = New AxThreed.AxSSPanel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabelDirty = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabelStatus = New System.Windows.Forms.ToolStripStatusLabel()
@@ -467,7 +466,6 @@
         CType(Me.txtTimeUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -2482,14 +2480,6 @@
         Me.sspanel_Status.Size = New System.Drawing.Size(421, 34)
         Me.sspanel_Status.TabIndex = 100
         '
-        'sspanel_Dirty
-        '
-        Me.sspanel_Dirty.Location = New System.Drawing.Point(0, 445)
-        Me.sspanel_Dirty.Name = "sspanel_Dirty"
-        Me.sspanel_Dirty.OcxState = CType(resources.GetObject("sspanel_Dirty.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Dirty.Size = New System.Drawing.Size(201, 34)
-        Me.sspanel_Dirty.TabIndex = 101
-        '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabelDirty, Me.ToolStripStatusLabelStatus})
@@ -2518,7 +2508,6 @@
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(625, 485)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.sspanel_Dirty)
         Me.Controls.Add(Me.sspanel_Status)
         Me.Controls.Add(Me._cmdNote_1)
         Me.Controls.Add(Me._cmdNote_0)
@@ -2610,7 +2599,6 @@
         CType(Me.txtTimeUnits, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -2619,7 +2607,6 @@
     End Sub
 
     Public WithEvents sspanel_Status As AxThreed.AxSSPanel
-    Public WithEvents sspanel_Dirty As AxThreed.AxSSPanel
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabelDirty As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabelStatus As ToolStripStatusLabel

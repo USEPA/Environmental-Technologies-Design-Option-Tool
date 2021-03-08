@@ -135,7 +135,8 @@ Module MiscUI
 	End Sub
 	Sub GenericStatus_Set(ByRef fn_Text As String)
 		'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.sspanel_Status. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		frmMain.sspanel_Status.Caption = fn_Text
+		'frmMain.sspanel_Status.Caption = fn_Text
+		frmMain.ToolStripStatusLabelStatus.Text = fn_Text
 	End Sub
 	Sub DirtyStatus_Set(ByRef newVal As Boolean)
 		If (IsThisADemo() = True) Then

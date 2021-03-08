@@ -257,7 +257,8 @@ Friend Class frmMain
 		'sspanel_Dirty.Caption = ""
 		ToolStripStatusLabelDirty.Text = ""
 		'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_Status.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		sspanel_Status.Caption = ""
+		'sspanel_Status.Caption = ""
+		ToolStripStatusLabelStatus.Text = ""
 		Me.Text = AppName_For_Display_Short
 		Me.Width = VB6.TwipsToPixelsX(9600)
 		Me.Height = VB6.TwipsToPixelsY(7600)
