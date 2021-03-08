@@ -140,20 +140,25 @@ Module MiscUI
 	Sub DirtyStatus_Set(ByRef newVal As Boolean)
 		If (IsThisADemo() = True) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			frmMain.sspanel_Dirty.Caption = "* DEMO VERSION *"
+			'frmMain.sspanel_Dirty.Caption = "* DEMO VERSION *"
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			frmMain.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
+			'frmMain.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
 		Else
 			If (newVal) Then
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.sspanel_Dirty.Caption = "Data Changed"
+				'frmMain.sspanel_Dirty.Caption = "Data Changed"
+				frmMain.ToolStripStatusLabelDirty.Text = "Data Changed"
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
+				'frmMain.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
+				frmMain.ToolStripStatusLabelDirty.ForeColor = Color.FromArgb(QBColor(12))
 			Else
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.sspanel_Dirty.Caption = "Unchanged"
+				'frmMain.sspanel_Dirty.Caption = "Unchanged"
+				frmMain.ToolStripStatusLabelDirty.Text = "Unchanged"
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(0))
+				'frmMain.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(0))
+				frmMain.ToolStripStatusLabelDirty.ForeColor = Color.FromArgb(QBColor(0))
+
 			End If
 		End If
 	End Sub

@@ -255,7 +255,7 @@ Friend Class frmMain
 		'
 		'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_Dirty.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'sspanel_Dirty.Caption = ""
-		ToolStripStatusLabel1.Text = ""
+		ToolStripStatusLabelDirty.Text = ""
 		'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_Status.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		sspanel_Status.Caption = ""
 		Me.Text = AppName_For_Display_Short
