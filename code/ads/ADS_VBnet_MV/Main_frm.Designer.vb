@@ -488,7 +488,7 @@
         Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuPhase, Me.mnuRun, Me.mnuDisplay, Me.mnuOptions, Me.mnuDatabase, Me.mnuHelp, Me._mnuOther_5, Me.mnuMTU, Me.mnuUnused})
         Me.MainMenu1.Location = New System.Drawing.Point(0, 0)
         Me.MainMenu1.Name = "MainMenu1"
-        Me.MainMenu1.Size = New System.Drawing.Size(625, 24)
+        Me.MainMenu1.Size = New System.Drawing.Size(975, 24)
         Me.MainMenu1.TabIndex = 99
         '
         'mnuFile
@@ -2303,7 +2303,7 @@
         'SSFrame4
         '
         Me.SSFrame4.Controls.Add(Me.CommonDialog1)
-        Me.SSFrame4.Location = New System.Drawing.Point(650, 42)
+        Me.SSFrame4.Location = New System.Drawing.Point(718, 44)
         Me.SSFrame4.Name = "SSFrame4"
         Me.SSFrame4.OcxState = CType(resources.GetObject("SSFrame4.OcxState"), System.Windows.Forms.AxHost.State)
         Me.SSFrame4.Size = New System.Drawing.Size(241, 83)
@@ -2467,6 +2467,9 @@
         'txtTime
         '
         '
+        'txtTimeUnits
+        '
+        '
         'txtWater
         '
         '
@@ -2475,7 +2478,7 @@
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabelDirty, Me.ToolStripStatusLabelStatus})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 463)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(625, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(975, 22)
         Me.StatusStrip1.TabIndex = 102
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -2498,7 +2501,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(625, 485)
+        Me.ClientSize = New System.Drawing.Size(975, 485)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me._cmdNote_1)
         Me.Controls.Add(Me._cmdNote_0)
@@ -2595,6 +2598,11 @@
         Me.PerformLayout()
 
     End Sub
+
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
+    End Sub
+
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabelDirty As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabelStatus As ToolStripStatusLabel

@@ -264,7 +264,7 @@ Friend Class frmMain
 		Me.Height = VB6.TwipsToPixelsY(7600)
 		Call CenterOnScreen(Me)
 		'UPGRADE_WARNING: Couldn't resolve default property of object CommonDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CommonDialog1.Filename = My.Application.Info.DirectoryPath & "\examples\*.dat"
+		'CommonDialog1.Filename = My.Application.Info.DirectoryPath & "\examples\*.dat"
 		lblWaterUnit(0).Text = "C"
 		lblWaterUnit(1).Text = "atm"
 		cmdNote(1).SetBounds(cmdNote(0).Left, cmdNote(0).Top, 0, 0, Windows.Forms.BoundsSpecified.X Or Windows.Forms.BoundsSpecified.Y)
@@ -276,7 +276,7 @@ Friend Class frmMain
 		is_internal_mtu = False
 		If (check_internal_to_mtu()) Then is_internal_mtu = True
 		mnuMTU.Visible = is_internal_mtu
-		
+
 		'///Modefication///Sinan///07/03/06, adding bouth the PSDM and the PSDM in room Models
 		'for the Run menu.
 		' PSDM IN ROOM INITS.
@@ -307,7 +307,7 @@ Friend Class frmMain
 		''''mnuResultsItem(10).Visible = Activate_PSDMInRoom
 		'cmdParamsPSDMInRoom.Visible = Activate_PSDMInRoom
 		'///End of Modefication.///
-		
+
 		' POPULATE UNITS INTO SCROLLBOX CONTROLS.
 		'
 		Call Populate_frmMain_Units()
@@ -332,8 +332,8 @@ Friend Class frmMain
 		Call frmMain_Close_All_Windows()
 		Call unitsys_unregister_all_on_form(Me)
 	End Sub
-	
-	
+
+
 	'UPGRADE_WARNING: Event lstComponents.SelectedIndexChanged may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub lstComponents_SelectedIndexChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles lstComponents.SelectedIndexChanged
 		Dim i As Short
@@ -346,8 +346,8 @@ Friend Class frmMain
 			Component(i + 1).Is_Selected_On_List = (lstComponents.GetSelected(i))
 		Next i
 	End Sub
-	
-	
+
+
 	Public Sub mnuDatabasesItem_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles mnuDatabasesItem.Click
 		Dim Index As Short = mnuDatabasesItem.GetIndex(eventSender)
 		Select Case Index
@@ -472,7 +472,7 @@ Friend Class frmMain
 					'RAISE DIRTY FLAG.
 					Call DirtyStatus_Throw()
 				End If
-				
+
 			Case 1 'INFLUENT CONCENTRATIONS.
 				'---- Options--Influent Concentrations
 				'-- Setup global variables to make the call
@@ -514,7 +514,7 @@ Friend Class frmMain
 				frmConcentrations_NumPoints = NData_Points
 				frmConcentrations_NumConcs = Number_Component
 				For i = 1 To frmConcentrations_NumPoints
-					frmConcentrations_Times(i) = T_Data_Points(i) * 24# * 60#
+					frmConcentrations_Times(i) = T_Data_Points(i) * 24.0# * 60.0#
 					For J = 1 To frmConcentrations_NumConcs
 						frmConcentrations_Concs(J, i) = C_Data_Points(J, i)
 					Next J
@@ -535,7 +535,7 @@ Friend Class frmMain
 					End If
 					Number_Component = frmConcentrations_NumConcs
 					For i = 1 To frmConcentrations_NumPoints
-						T_Data_Points(i) = frmConcentrations_Times(i) / 24# / 60#
+						T_Data_Points(i) = frmConcentrations_Times(i) / 24.0# / 60.0#
 						For J = 1 To frmConcentrations_NumConcs
 							C_Data_Points(J, i) = frmConcentrations_Concs(J, i)
 						Next J
@@ -683,8 +683,8 @@ Friend Class frmMain
 				Call ModelECM_Go()
 		End Select
 	End Sub
-	
-	
+
+
 	Private Sub spnNumberOfBeds_SpinDown()
 		If (Bed.NumberOfBeds > 1) Then
 			Bed.NumberOfBeds = Bed.NumberOfBeds - 1
@@ -701,8 +701,8 @@ Friend Class frmMain
 			Call frmMain_Refresh()
 		End If
 	End Sub
-	
-	
+
+
 	Private Sub spnPoint_SpinDown(ByRef Index As Short)
 		Select Case Index
 			Case 0 'AXIAL POINTS.
@@ -739,8 +739,8 @@ Friend Class frmMain
 				End If
 		End Select
 	End Sub
-	
-	
+
+
 	'UPGRADE_WARNING: Event txtBedUnits.SelectedIndexChanged may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub txtBedUnits_SelectedIndexChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtBedUnits.SelectedIndexChanged
 		Dim Index As Short = txtBedUnits.GetIndex(eventSender)
@@ -757,8 +757,8 @@ Friend Class frmMain
 			eventArgs.Handled = True
 		End If
 	End Sub
-	
-	
+
+
 	Private Sub txtBedValue_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtBedValue.Enter
 		Dim Index As Short = txtBedValue.GetIndex(eventSender)
 		Dim Ctl As System.Windows.Forms.Control
@@ -800,11 +800,11 @@ Friend Class frmMain
 		Dim Too_Small As Short
 		'NOTE: LOW AND HIGH VALUES IN BASE UNITS
 		If (Index = 4) Then
-			Val_Low = 1E-20 * 60#
-			Val_High = 1E+20 * 60#
+			Val_Low = 1.0E-20 * 60.0#
+			Val_High = 1.0E+20 * 60.0#
 		Else
-			Val_Low = 1E-20
-			Val_High = 1E+20
+			Val_Low = 1.0E-20
+			Val_High = 1.0E+20
 		End If
 		NewValue_Okay = False
 		If (unitsys_control_txtx_lostfocus_validate(Ctl, Val_Low, Val_High, NewValue, Raise_Dirty_Flag)) Then
@@ -859,7 +859,7 @@ Friend Class frmMain
 						Call Update_KP_Values()
 						'Call Update_Several_Bed_Properties(2)
 					Case 4 'BED EBCT.
-						Bed.Flowrate = Bed.length * PI * Bed.Diameter * Bed.Diameter / 4# / NewValue 'EBCT in sec
+						Bed.Flowrate = Bed.length * PI * Bed.Diameter * Bed.Diameter / 4.0# / NewValue 'EBCT in sec
 						''Call Update_Display       'Updates display of flowrate and EBCT.
 						Call Update_KP_Values()
 						'Call Update_Several_Bed_Properties(2)
@@ -873,8 +873,8 @@ Friend Class frmMain
 			Call frmMain_Refresh()
 		End If
 	End Sub
-	
-	
+
+
 	Private Sub txtCarbon_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtCarbon.Enter
 		Dim Index As Short = txtCarbon.GetIndex(eventSender)
 		Dim Ctl As System.Windows.Forms.Control
@@ -943,8 +943,8 @@ Friend Class frmMain
 			Exit Sub
 		End If
 		'NOTE: LOW AND HIGH VALUES IN BASE UNITS
-		Val_Low = 1E-20
-		Val_High = 1E+20
+		Val_Low = 1.0E-20
+		Val_High = 1.0E+20
 		NewValue_Okay = False
 		If (unitsys_control_txtx_lostfocus_validate(Ctl, Val_Low, Val_High, NewValue, Raise_Dirty_Flag)) Then
 			NewValue_Okay = True
@@ -992,8 +992,8 @@ Friend Class frmMain
 			Call frmMain_Refresh()
 		End If
 	End Sub
-	
-	
+
+
 	'UPGRADE_WARNING: Event txtCarbonUnits.SelectedIndexChanged may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub txtCarbonUnits_SelectedIndexChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtCarbonUnits.SelectedIndexChanged
 		Dim Index As Short = txtCarbonUnits.GetIndex(eventSender)
@@ -1010,8 +1010,8 @@ Friend Class frmMain
 			eventArgs.Handled = True
 		End If
 	End Sub
-	
-	
+
+
 	Private Sub txtNPoint_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtNPoint.Enter
 		Dim Index As Short = txtNPoint.GetIndex(eventSender)
 		Dim Ctl As System.Windows.Forms.Control
@@ -1048,10 +1048,10 @@ Friend Class frmMain
 		'NOTE: LOW AND HIGH VALUES IN BASE UNITS
 		Select Case Index
 			Case 0 'AXIAL DIR.
-				Val_Low = 1#
+				Val_Low = 1.0#
 				Val_High = CDbl(Max_Axial_Collocation)
 			Case 1 'RADIAL DIR.
-				Val_Low = 1#
+				Val_Low = 1.0#
 				Val_High = CDbl(Max_Radial_Collocation)
 		End Select
 		NewValue_Okay = False
@@ -1082,8 +1082,8 @@ Friend Class frmMain
 			Call frmMain_Refresh()
 		End If
 	End Sub
-	
-	
+
+
 	Private Sub txtNumberOfBeds_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtNumberOfBeds.Enter
 		Dim Ctl As System.Windows.Forms.Control
 		Ctl = txtNumberOfBeds
@@ -1110,7 +1110,7 @@ Friend Class frmMain
 		Dim Raise_Dirty_Flag As Boolean
 		Dim Too_Small As Short
 		'NOTE: LOW AND HIGH VALUES IN BASE UNITS
-		Val_Low = 1#
+		Val_Low = 1.0#
 		Val_High = CDbl(Maximum_Beds_In_Series)
 		NewValue_Okay = False
 		If (unitsys_control_txtx_lostfocus_validate(Ctl, Val_Low, Val_High, NewValue, Raise_Dirty_Flag)) Then
@@ -1135,8 +1135,8 @@ Friend Class frmMain
 			Call frmMain_Refresh()
 		End If
 	End Sub
-	
-	
+
+
 	Private Sub txtTime_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtTime.Enter
 		Dim Index As Short = txtTime.GetIndex(eventSender)
 		Dim Ctl As System.Windows.Forms.Control
@@ -1176,11 +1176,11 @@ Friend Class frmMain
 		'NOTE: LOW AND HIGH VALUES IN BASE UNITS
 		Select Case Index
 			Case 0, 2 'TOTAL RUN TIME, TIME STEP.
-				Val_Low = 1E-20
-				Val_High = 1E+20
+				Val_Low = 1.0E-20
+				Val_High = 1.0E+20
 			Case 1 'FIRST POINT DISPLAYED.
 				Val_Low = 0#
-				Val_High = 1E+20
+				Val_High = 1.0E+20
 		End Select
 		NewValue_Okay = False
 		If (unitsys_control_txtx_lostfocus_validate(Ctl, Val_Low, Val_High, NewValue, Raise_Dirty_Flag)) Then
@@ -1221,26 +1221,26 @@ Friend Class frmMain
 			Call frmMain_Refresh()
 		End If
 	End Sub
-	
-	
+
+
 	'UPGRADE_WARNING: Event txttimeunits.SelectedIndexChanged may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
-	Private Sub txttimeunits_SelectedIndexChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txttimeunits.SelectedIndexChanged
-		Dim Index As Short = txttimeunits.GetIndex(eventSender)
+	Private Sub txttimeunits_SelectedIndexChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtTimeUnits.SelectedIndexChanged
+		Dim Index As Short = txtTimeUnits.GetIndex(eventSender)
 		Dim Ctl As System.Windows.Forms.Control
 		Ctl = txtTimeUnits(Index)
 		Call unitsys_control_cbox_click(Ctl)
 	End Sub
-	Private Sub txttimeunits_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txttimeunits.KeyPress
+	Private Sub txttimeunits_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtTimeUnits.KeyPress
 		Dim KeyAscii As Short = Asc(eventArgs.KeyChar)
-		Dim Index As Short = txttimeunits.GetIndex(eventSender)
+		Dim Index As Short = txtTimeUnits.GetIndex(eventSender)
 		KeyAscii = Global_TextKeyPress(KeyAscii)
 		eventArgs.KeyChar = Chr(KeyAscii)
 		If KeyAscii = 0 Then
 			eventArgs.Handled = True
 		End If
 	End Sub
-	
-	
+
+
 	Private Sub txtWater_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtWater.Enter
 		Dim Index As Short = txtWater.GetIndex(eventSender)
 		Dim Ctl As System.Windows.Forms.Control
@@ -1279,10 +1279,10 @@ Friend Class frmMain
 		Select Case Index
 			Case 0 'TEMPERATURE (degC).
 				Val_Low = 0.01
-				Val_High = 100#
+				Val_High = 100.0#
 			Case 1 'PRESSURE (atm).
 				Val_Low = 0.001
-				Val_High = 100#
+				Val_High = 100.0#
 		End Select
 		NewValue_Okay = False
 		Raise_Dirty_Flag = True
@@ -1345,7 +1345,7 @@ Friend Class frmMain
 				Call File_SaveAs("")
 			Case 6 'Select Printer ...
 				'UPGRADE_WARNING: Couldn't resolve default property of object CommonDialog1.ShowPrinter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				CommonDialog1.ShowPrinter()
+				'CommonDialog1.ShowPrinter()
 				'Case 85:      'Print ...
 				'  frmPrint.Show 1
 			Case 191 To 194 'Last-few-files list
