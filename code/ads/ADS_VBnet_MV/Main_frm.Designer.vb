@@ -405,7 +405,6 @@
         Me.txtTime = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
         Me.txtTimeUnits = New Microsoft.VisualBasic.Compatibility.VB6.ComboBoxArray(Me.components)
         Me.txtWater = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
-        Me.sspanel_Status = New AxThreed.AxSSPanel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabelDirty = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabelStatus = New System.Windows.Forms.ToolStripStatusLabel()
@@ -465,7 +464,6 @@
         CType(Me.txtTime, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTimeUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -2472,14 +2470,6 @@
         'txtWater
         '
         '
-        'sspanel_Status
-        '
-        Me.sspanel_Status.Location = New System.Drawing.Point(200, 445)
-        Me.sspanel_Status.Name = "sspanel_Status"
-        Me.sspanel_Status.OcxState = CType(resources.GetObject("sspanel_Status.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Status.Size = New System.Drawing.Size(421, 34)
-        Me.sspanel_Status.TabIndex = 100
-        '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabelDirty, Me.ToolStripStatusLabelStatus})
@@ -2491,14 +2481,16 @@
         '
         'ToolStripStatusLabelDirty
         '
+        Me.ToolStripStatusLabelDirty.AutoSize = False
         Me.ToolStripStatusLabelDirty.Name = "ToolStripStatusLabelDirty"
         Me.ToolStripStatusLabelDirty.Size = New System.Drawing.Size(138, 17)
         Me.ToolStripStatusLabelDirty.Text = "ToolStripStatusLabelDirty"
         '
         'ToolStripStatusLabelStatus
         '
+        Me.ToolStripStatusLabelStatus.AutoSize = False
         Me.ToolStripStatusLabelStatus.Name = "ToolStripStatusLabelStatus"
-        Me.ToolStripStatusLabelStatus.Size = New System.Drawing.Size(145, 17)
+        Me.ToolStripStatusLabelStatus.Size = New System.Drawing.Size(400, 17)
         Me.ToolStripStatusLabelStatus.Text = "ToolStripStatusLabelStatus"
         '
         'frmMain
@@ -2508,7 +2500,6 @@
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(625, 485)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.sspanel_Status)
         Me.Controls.Add(Me._cmdNote_1)
         Me.Controls.Add(Me._cmdNote_0)
         Me.Controls.Add(Me.cmdWaterCorrelations)
@@ -2598,15 +2589,12 @@
         CType(Me.txtTime, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTimeUnits, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Public WithEvents sspanel_Status As AxThreed.AxSSPanel
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabelDirty As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabelStatus As ToolStripStatusLabel
