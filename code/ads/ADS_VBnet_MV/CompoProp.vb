@@ -434,28 +434,46 @@ Friend Class frmCompoProp
 		Const MAX_LINE_COUNT As Short = 1000 'SOMEWHAT ARBITRARY.
 		On Error GoTo err_cmdImportFromFile_Click
 		'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		frmMain.CommonDialog1.CancelError = True
-
+		'frmMain.CommonDialog1.CancelError = True
+		'cancel error appears useless
 		'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		frmMain.CommonDialog1.DialogTitle = "Load StEPP Export File"
+		'frmMain.CommonDialog1.DialogTitle = "Load StEPP Export File"
+
+		frmMain.OpenFileDialog1.Title = "Load StEPP Export File"
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		frmMain.CommonDialog1.Filter = "All Files (*.*)|*.*|StEPP Export Files (*.exp)|*.exp"
+		'frmMain.CommonDialog1.Filter = "All Files (*.*)|*.*|StEPP Export Files (*.exp)|*.exp"
+
+		frmMain.OpenFileDialog1.Filter = "All Files (*.*)|*.*|StEPP Export Files (*.exp)|*.exp"
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		frmMain.CommonDialog1.FilterIndex = 2
+		'frmMain.CommonDialog1.FilterIndex = 2
+
+		frmMain.OpenFileDialog1.FilterIndex = 2
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNFileMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		frmMain.CommonDialog1.Flags = cdlOFNFileMustExist + cdlOFNPathMustExist
+		'frmMain.CommonDialog1.Flags = cdlOFNFileMustExist + cdlOFNPathMustExist
+
+		'Not sure what to replace flags with
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		frmMain.CommonDialog1.Action = 1
+		'frmMain.CommonDialog1.Action = 1
+
+		'Not sure what to replace action with
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (frmMain.CommonDialog1.Filename = "") Then
+
+		frmMain.OpenFileDialog1.ShowDialog()
+
+		If (frmMain.OpenFileDialog1.FileName = "") Then
 			Exit Sub
 		End If
 		f = FreeFile
 		LineCount = 0
 		'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		FileOpen(f, frmMain.CommonDialog1.Filename, OpenMode.Input)
+		FileOpen(f, frmMain.OpenFileDialog1.FileName, OpenMode.Input)
 		InvalidFile = False
 		Do While (1 = 1)
 			If (EOF(f)) Then Exit Do
