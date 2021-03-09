@@ -83,7 +83,6 @@
 	Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
 	Public WithEvents Command4 As System.Windows.Forms.Button
-    Public WithEvents SSFrame8 As AxThreed.AxSSFrame
     Public WithEvents cmdViewDimensionless As System.Windows.Forms.Button
     Public WithEvents _txtCarbon_0 As System.Windows.Forms.TextBox
     Public WithEvents _txtCarbonUnits_2 As System.Windows.Forms.ComboBox
@@ -168,14 +167,6 @@
     Public WithEvents _lblWaterUnit_0 As System.Windows.Forms.Label
     Public WithEvents ssframe_Water As AxThreed.AxSSFrame
     Public WithEvents SSPanel2 As AxThreed.AxSSPanel
-    Public WithEvents Combo1 As System.Windows.Forms.ComboBox
-    Public WithEvents List1 As System.Windows.Forms.ListBox
-    Public WithEvents Command1 As System.Windows.Forms.Button
-    Public WithEvents Text1 As System.Windows.Forms.TextBox
-    Public WithEvents Label1 As System.Windows.Forms.Label
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
-    Public WithEvents SpinButton1 As AxSpin.AxSpinButton
-    Public WithEvents SSFrame2 As AxThreed.AxSSFrame
     Public WithEvents cmdADEComponent As Microsoft.VisualBasic.Compatibility.VB6.ButtonArray
     Public WithEvents cmdNote As Microsoft.VisualBasic.Compatibility.VB6.ButtonArray
     Public WithEvents lblBed As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -279,7 +270,6 @@
         Me.mnuBatch = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuBatchItem_0 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
-        Me.SSFrame8 = New AxThreed.AxSSFrame()
         Me.ssframe_Adsorbent = New AxThreed.AxSSFrame()
         Me.cmdViewDimensionless = New System.Windows.Forms.Button()
         Me._txtCarbon_0 = New System.Windows.Forms.TextBox()
@@ -364,14 +354,6 @@
         Me._lblWaterUnit_0 = New System.Windows.Forms.Label()
         Me.cmdWaterCorrelations = New System.Windows.Forms.Button()
         Me.SSPanel2 = New AxThreed.AxSSPanel()
-        Me.SSFrame2 = New AxThreed.AxSSFrame()
-        Me.Combo1 = New System.Windows.Forms.ComboBox()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me.List1 = New System.Windows.Forms.ListBox()
-        Me.Command1 = New System.Windows.Forms.Button()
-        Me.Text1 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.SpinButton1 = New AxSpin.AxSpinButton()
         Me.cmdADEComponent = New Microsoft.VisualBasic.Compatibility.VB6.ButtonArray(Me.components)
         Me.cmdNote = New Microsoft.VisualBasic.Compatibility.VB6.ButtonArray(Me.components)
         Me.lblBed = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
@@ -409,7 +391,6 @@
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_Adsorbent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_Adsorbent.SuspendLayout()
         CType(Me.ssframe_FixedBed, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -426,11 +407,6 @@
         CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_Water.SuspendLayout()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSFrame2.SuspendLayout()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSFrame1.SuspendLayout()
-        CType(Me.SpinButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -967,15 +943,6 @@
         Me.Picture1.TabIndex = 97
         Me.Picture1.TabStop = False
         Me.Picture1.Visible = False
-        '
-        'SSFrame8
-        '
-        Me.SSFrame8.Location = New System.Drawing.Point(622, 168)
-        Me.SSFrame8.Name = "SSFrame8"
-        Me.SSFrame8.OcxState = CType(resources.GetObject("SSFrame8.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame8.Size = New System.Drawing.Size(359, 239)
-        Me.SSFrame8.TabIndex = 96
-        Me.SSFrame8.Visible = False
         '
         'ssframe_Adsorbent
         '
@@ -2296,106 +2263,6 @@
         Me.SSPanel2.Size = New System.Drawing.Size(120, 60)
         Me.SSPanel2.TabIndex = 18
         '
-        'SSFrame2
-        '
-        Me.SSFrame2.Controls.Add(Me.Combo1)
-        Me.SSFrame2.Controls.Add(Me.SSFrame1)
-        Me.SSFrame2.Controls.Add(Me.SpinButton1)
-        Me.SSFrame2.Location = New System.Drawing.Point(718, 138)
-        Me.SSFrame2.Name = "SSFrame2"
-        Me.SSFrame2.OcxState = CType(resources.GetObject("SSFrame2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame2.Size = New System.Drawing.Size(354, 301)
-        Me.SSFrame2.TabIndex = 21
-        Me.SSFrame2.Visible = False
-        '
-        'Combo1
-        '
-        Me.Combo1.BackColor = System.Drawing.SystemColors.Window
-        Me.Combo1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Combo1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Combo1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Combo1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Combo1.Location = New System.Drawing.Point(172, 94)
-        Me.Combo1.Name = "Combo1"
-        Me.Combo1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Combo1.Size = New System.Drawing.Size(83, 22)
-        Me.Combo1.TabIndex = 28
-        '
-        'SSFrame1
-        '
-        Me.SSFrame1.Controls.Add(Me.List1)
-        Me.SSFrame1.Controls.Add(Me.Command1)
-        Me.SSFrame1.Controls.Add(Me.Text1)
-        Me.SSFrame1.Controls.Add(Me.Label1)
-        Me.SSFrame1.Location = New System.Drawing.Point(16, 20)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(169, 241)
-        Me.SSFrame1.TabIndex = 22
-        '
-        'List1
-        '
-        Me.List1.BackColor = System.Drawing.SystemColors.Window
-        Me.List1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.List1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.List1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.List1.ItemHeight = 14
-        Me.List1.Location = New System.Drawing.Point(22, 158)
-        Me.List1.Name = "List1"
-        Me.List1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.List1.Size = New System.Drawing.Size(83, 4)
-        Me.List1.TabIndex = 25
-        '
-        'Command1
-        '
-        Me.Command1.BackColor = System.Drawing.SystemColors.Control
-        Me.Command1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command1.Location = New System.Drawing.Point(22, 34)
-        Me.Command1.Name = "Command1"
-        Me.Command1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command1.Size = New System.Drawing.Size(83, 40)
-        Me.Command1.TabIndex = 24
-        Me.Command1.Text = "Command1"
-        Me.Command1.UseVisualStyleBackColor = False
-        '
-        'Text1
-        '
-        Me.Text1.AcceptsReturn = True
-        Me.Text1.BackColor = System.Drawing.SystemColors.Window
-        Me.Text1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Text1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Text1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Text1.Location = New System.Drawing.Point(20, 72)
-        Me.Text1.MaxLength = 0
-        Me.Text1.Name = "Text1"
-        Me.Text1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Text1.Size = New System.Drawing.Size(83, 20)
-        Me.Text1.TabIndex = 23
-        Me.Text1.Text = "Text1"
-        '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.SystemColors.Control
-        Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(22, 114)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(83, 35)
-        Me.Label1.TabIndex = 26
-        Me.Label1.Text = "Label1"
-        '
-        'SpinButton1
-        '
-        Me.SpinButton1.Location = New System.Drawing.Point(168, 32)
-        Me.SpinButton1.Name = "SpinButton1"
-        Me.SpinButton1.OcxState = CType(resources.GetObject("SpinButton1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SpinButton1.Size = New System.Drawing.Size(120, 60)
-        Me.SpinButton1.TabIndex = 27
-        '
         'cmdADEComponent
         '
         '
@@ -2489,14 +2356,12 @@
         Me.Controls.Add(Me.cmdWaterCorrelations)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
-        Me.Controls.Add(Me.SSFrame8)
         Me.Controls.Add(Me.ssframe_Adsorbent)
         Me.Controls.Add(Me.ssframe_FixedBed)
         Me.Controls.Add(Me.ssframe_PSDM)
         Me.Controls.Add(Me.ssframe_Component)
         Me.Controls.Add(Me.ssframe_Water)
         Me.Controls.Add(Me.SSPanel2)
-        Me.Controls.Add(Me.SSFrame2)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2512,7 +2377,6 @@
         Me.MainMenu1.ResumeLayout(False)
         Me.MainMenu1.PerformLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ssframe_Adsorbent, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ssframe_Adsorbent.ResumeLayout(False)
         Me.ssframe_Adsorbent.PerformLayout()
@@ -2534,12 +2398,6 @@
         Me.ssframe_Water.ResumeLayout(False)
         Me.ssframe_Water.PerformLayout()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSFrame2.ResumeLayout(False)
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSFrame1.ResumeLayout(False)
-        Me.SSFrame1.PerformLayout()
-        CType(Me.SpinButton1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).EndInit()
