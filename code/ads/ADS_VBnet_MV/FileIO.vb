@@ -256,21 +256,37 @@ err_file_open:
 			'INPUT NEW FILENAME.
 			On Error GoTo err_file_openas
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			frmMain.CommonDialog1.DialogTitle = "Open " & AppName_For_Display_Short & " File"
+			'frmMain.CommonDialog1.DialogTitle = "Open " & AppName_For_Display_Short & " File"
+
+			frmMain.OpenFileDialog1.Title = "Open " & AppName_For_Display_Short & " File"
+
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			frmMain.CommonDialog1.Filter = "All Files (*.*)|*.*|" & AppName_For_Display_Short & " Files (*.dat)|*.dat"
+			'frmMain.CommonDialog1.Filter = "All Files (*.*)|*.*|" & AppName_For_Display_Short & " Files (*.dat)|*.dat"
+
+			frmMain.OpenFileDialog1.Filter = "All Files (*.*)|*.*|" & AppName_For_Display_Short & " Files (*.dat)|*.dat"
+
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			frmMain.CommonDialog1.FilterIndex = 2
+			'frmMain.CommonDialog1.FilterIndex = 2
+
+			frmMain.OpenFileDialog1.FilterIndex = 2
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			frmMain.CommonDialog1.CancelError = True
+			'frmMain.CommonDialog1.CancelError = True
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNFileMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			frmMain.CommonDialog1.flags = cdlOFNFileMustExist + cdlOFNPathMustExist
+			'frmMain.CommonDialog1.flags = cdlOFNFileMustExist + cdlOFNPathMustExist
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.ShowOpen. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			frmMain.CommonDialog1.ShowOpen()
+			'frmMain.CommonDialog1.ShowOpen()
+
+			frmMain.OpenFileDialog1.ShowDialog()
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			fn_openas = Trim(frmMain.CommonDialog1.Filename)
+			fn_openas = Trim(frmMain.OpenFileDialog1.FileName)
 			If (fn_openas = "") Then
 				'DO NOTHING.
 				Exit Sub
@@ -357,21 +373,38 @@ err_File_Save:
 				'INPUT NEW FILENAME.
 				On Error GoTo err_File_SaveAs
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.CommonDialog1.DialogTitle = "Save " & AppName_For_Display_Short & " File"
+				'frmMain.CommonDialog1.DialogTitle = "Save " & AppName_For_Display_Short & " File"
+
+				frmMain.SaveFileDialog1.Title = "Save " & AppName_For_Display_Short & " File"
+
+
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.CommonDialog1.Filter = "All Files (*.*)|*.*|" & AppName_For_Display_Short & " Files (*.dat)|*.dat"
+				'frmMain.CommonDialog1.Filter = "All Files (*.*)|*.*|" & AppName_For_Display_Short & " Files (*.dat)|*.dat"
+
+				frmMain.SaveFileDialog1.Filter = "All Files (*.*)|*.*|" & AppName_For_Display_Short & " Files (*.dat)|*.dat"
+
+
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.CommonDialog1.FilterIndex = 2
+				'frmMain.CommonDialog1.FilterIndex = 2
+
+				frmMain.SaveFileDialog1.FilterIndex = 2
+
+
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.CommonDialog1.CancelError = True
+				'frmMain.CommonDialog1.CancelError = True
+
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.CommonDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+				'frmMain.CommonDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.ShowSave. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.CommonDialog1.ShowSave()
+				'frmMain.CommonDialog1.ShowSave()
+
+				frmMain.SaveFileDialog1.ShowDialog()
+
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.CommonDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				fn_saveas = Trim(frmMain.CommonDialog1.Filename)
+				fn_saveas = Trim(frmMain.SaveFileDialog1.FileName)
 				If (LAUNCHFILEVIA_IS_DEBUG_MODE_ON) Then
 					MsgBox("fn_saveas = `" & fn_saveas & "`")
 				End If

@@ -404,7 +404,6 @@
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabelDirty = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabelStatus = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.CommonDialog1 = New AxMSComDlg.AxCommonDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
@@ -462,7 +461,6 @@
         CType(Me.txtTimeUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
-        CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Command4
@@ -2475,15 +2473,6 @@
         Me.ToolStripStatusLabelStatus.Size = New System.Drawing.Size(400, 17)
         Me.ToolStripStatusLabelStatus.Text = "ToolStripStatusLabelStatus"
         '
-        'CommonDialog1
-        '
-        Me.CommonDialog1.Enabled = True
-        Me.CommonDialog1.Location = New System.Drawing.Point(688, 60)
-        Me.CommonDialog1.Name = "CommonDialog1"
-        Me.CommonDialog1.OcxState = CType(resources.GetObject("CommonDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CommonDialog1.Size = New System.Drawing.Size(32, 32)
-        Me.CommonDialog1.TabIndex = 103
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
@@ -2494,7 +2483,6 @@
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(975, 485)
-        Me.Controls.Add(Me.CommonDialog1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me._cmdNote_1)
         Me.Controls.Add(Me._cmdNote_0)
@@ -2583,7 +2571,6 @@
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
-        CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2596,7 +2583,6 @@
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabelDirty As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabelStatus As ToolStripStatusLabel
-    Public WithEvents CommonDialog1 As AxMSComDlg.AxCommonDialog
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
