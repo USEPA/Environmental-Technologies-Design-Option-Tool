@@ -59,8 +59,8 @@ Friend Class frmMain
 		Call unitsys_register(Me, lblTime(1), txtTime(1), txtTimeUnits(1), "time", "d", "min", "", "", 100#, True)
 		Call unitsys_register(Me, lblTime(2), txtTime(2), txtTimeUnits(2), "time", "d", "min", "", "", 100#, True)
 		'Call unitsys_register(Me, lblAxialElementsDesc, txtNumberOfBeds, Nothing, "", "", "", "0", "0", 100.0#, False)
-		Call unitsys_register(Me, lblText(0), txtNPoint(0), Nothing, "", "", "", "0", "0", 100.0#, False)
-		Call unitsys_register(Me, lblText(1), txtNPoint(1), Nothing, "", "", "", "0", "0", 100.0#, False)
+		'Call unitsys_register(Me, lblText(0), txtNPoint(0), Nothing, "", "", "", "0", "0", 100.0#, False)
+		'Call unitsys_register(Me, lblText(1), txtNPoint(1), Nothing, "", "", "", "0", "0", 100.0#, False)
 		'BED PROPERTIES.
 		Call unitsys_register(Me, lblBed(0), txtBedValue(0), txtBedUnits(0), "length", "m", "m", "", "", 100.0#, True)
 		Call unitsys_register(Me, lblBed(1), txtBedValue(1), txtBedUnits(1), "length", "m", "m", "", "", 100.0#, True)
@@ -707,42 +707,42 @@ Friend Class frmMain
 	End Sub
 
 
-	Private Sub spnPoint_SpinDown(ByRef Index As Short)
-		Select Case Index
-			Case 0 'AXIAL POINTS.
-				If (MC > 1) Then
-					MC = MC - 1
-					'THROW DIRTY FLAG AND REFRESH WINDOW.
-					Call DirtyStatus_Throw()
-					Call frmMain_Refresh()
-				End If
-			Case 1 'RADIAL POINTS.
-				If (NC > 1) Then
-					NC = NC - 1
-					'THROW DIRTY FLAG AND REFRESH WINDOW.
-					Call DirtyStatus_Throw()
-					Call frmMain_Refresh()
-				End If
-		End Select
-	End Sub
-	Private Sub spnPoint_SpinUp(ByRef Index As Short)
-		Select Case Index
-			Case 0 'AXIAL POINTS.
-				If (MC < Max_Axial_Collocation) Then
-					MC = MC + 1
-					'THROW DIRTY FLAG AND REFRESH WINDOW.
-					Call DirtyStatus_Throw()
-					Call frmMain_Refresh()
-				End If
-			Case 1 'RADIAL POINTS.
-				If (NC < Max_Radial_Collocation) Then
-					NC = NC + 1
-					'THROW DIRTY FLAG AND REFRESH WINDOW.
-					Call DirtyStatus_Throw()
-					Call frmMain_Refresh()
-				End If
-		End Select
-	End Sub
+	'Private Sub spnPoint_SpinDown(ByRef Index As Short)
+	'Select Case Index
+	'Case 0 'AXIAL POINTS.
+	'If (MC > 1) Then
+	'				MC = MC - 1
+	''THROW DIRTY FLAG AND REFRESH WINDOW.
+	'Call DirtyStatus_Throw()
+	'Call frmMain_Refresh()
+	'End If
+	'Case 1 'RADIAL POINTS.
+	'If (NC > 1) Then
+	'				NC = NC - 1
+	''THROW DIRTY FLAG AND REFRESH WINDOW.
+	'Call DirtyStatus_Throw()
+	'Call frmMain_Refresh()
+	'End If
+	'End Select
+	'End Sub
+	'Private Sub spnPoint_SpinUp(ByRef Index As Short)
+	'Select Case Index
+	'Case 0 'AXIAL POINTS.
+	'If (MC < Max_Axial_Collocation) Then
+	'				MC = MC + 1
+	''THROW DIRTY FLAG AND REFRESH WINDOW.
+	'Call DirtyStatus_Throw()
+	'Call frmMain_Refresh()
+	'End If
+	'Case 1 'RADIAL POINTS.
+	'If (NC < Max_Radial_Collocation) Then
+	'				NC = NC + 1
+	'THROW DIRTY FLAG AND REFRESH WINDOW.
+	'Call DirtyStatus_Throw()
+	'Call frmMain_Refresh()
+	'End If
+	'End Select
+	'End Sub
 
 
 	'UPGRADE_WARNING: Event txtBedUnits.SelectedIndexChanged may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
@@ -1030,62 +1030,62 @@ Friend Class frmMain
 		End Select
 		Call GenericStatus_Set(StatusMessagePanel)
 	End Sub
-	Private Sub txtNPoint_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtNPoint.KeyPress
-		Dim KeyAscii As Short = Asc(eventArgs.KeyChar)
-		Dim Index As Short = txtNPoint.GetIndex(eventSender)
-		KeyAscii = Global_NumericKeyPress(KeyAscii)
-		eventArgs.KeyChar = Chr(KeyAscii)
-		If KeyAscii = 0 Then
-			eventArgs.Handled = True
-		End If
-	End Sub
-	Private Sub txtNPoint_Leave(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtNPoint.Leave
-		Dim Index As Short = txtNPoint.GetIndex(eventSender)
-		Dim NewValue_Okay As Short
-		Dim NewValue As Double
-		Dim Ctl As System.Windows.Forms.Control
-		Ctl = txtNPoint(Index)
-		Dim Val_Low As Double
-		Dim Val_High As Double
-		Dim Raise_Dirty_Flag As Boolean
-		Dim Too_Small As Short
-		'NOTE: LOW AND HIGH VALUES IN BASE UNITS
-		Select Case Index
-			Case 0 'AXIAL DIR.
-				Val_Low = 1.0#
-				Val_High = CDbl(Max_Axial_Collocation)
-			Case 1 'RADIAL DIR.
-				Val_Low = 1.0#
-				Val_High = CDbl(Max_Radial_Collocation)
-		End Select
-		NewValue_Okay = False
-		If (unitsys_control_txtx_lostfocus_validate(Ctl, Val_Low, Val_High, NewValue, Raise_Dirty_Flag)) Then
-			NewValue_Okay = True
-		End If
-		Call unitsys_control_txtx_lostfocus(Ctl, NewValue)
-		Call GenericStatus_Set("")
-		If (NewValue_Okay) Then
-			If (IsThisADemo() = True) And (Raise_Dirty_Flag) Then
-				''''Call Demo_ShowError("Changing data values is not allowed in the demonstration version.")
-				Raise_Dirty_Flag = False
-			End If
-			If (Raise_Dirty_Flag) Then
-				'STORE TO MEMORY.
-				Select Case Index
-					Case 0 'AXIAL DIR.
-						MC = CShort(NewValue)
-					Case 1 'RADIAL DIR.
-						NC = CShort(NewValue)
-				End Select
-				If (Raise_Dirty_Flag) Then
-					'THROW DIRTY FLAG.
-					Call DirtyStatus_Throw()
-				End If
-			End If
-			'REFRESH WINDOW.
-			Call frmMain_Refresh()
-		End If
-	End Sub
+	'Private Sub txtNPoint_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtNPoint.KeyPress
+	'Dim KeyAscii As Short = Asc(eventArgs.KeyChar)
+	'Dim Index As Short = txtNPoint.GetIndex(eventSender)
+	'	KeyAscii = Global_NumericKeyPress(KeyAscii)
+	'	eventArgs.KeyChar = Chr(KeyAscii)
+	'If KeyAscii = 0 Then
+	'		eventArgs.Handled = True
+	'End If
+	'End Sub
+	'Private Sub txtNPoint_Leave(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtNPoint.Leave
+	'Dim Index As Short = txtNPoint.GetIndex(eventSender)
+	'Dim NewValue_Okay As Short
+	'Dim NewValue As Double
+	'Dim Ctl As System.Windows.Forms.Control
+	'	Ctl = txtNPoint(Index)
+	'Dim Val_Low As Double
+	'Dim Val_High As Double
+	'Dim Raise_Dirty_Flag As Boolean
+	'Dim Too_Small As Short
+	''NOTE: LOW AND HIGH VALUES IN BASE UNITS
+	'Select Case Index
+	'Case 0 'AXIAL DIR.
+	'			Val_Low = 1.0#
+	'			Val_High = CDbl(Max_Axial_Collocation)
+	'Case 1 'RADIAL DIR.
+	'			Val_Low = 1.0#
+	'			Val_High = CDbl(Max_Radial_Collocation)
+	'End Select
+	'	NewValue_Okay = False
+	'If (unitsys_control_txtx_lostfocus_validate(Ctl, Val_Low, Val_High, NewValue, Raise_Dirty_Flag)) Then
+	'		NewValue_Okay = True
+	'End If
+	'Call unitsys_control_txtx_lostfocus(Ctl, NewValue)
+	'Call GenericStatus_Set("")
+	'If (NewValue_Okay) Then
+	'If (IsThisADemo() = True) And (Raise_Dirty_Flag) Then
+	'			''''Call Demo_ShowError("Changing data values is not allowed in the demonstration version.")
+	'			Raise_Dirty_Flag = False
+	'End If
+	'If (Raise_Dirty_Flag) Then
+	'STORE TO MEMORY.
+	'Select Case Index
+	'Case 0 'AXIAL DIR.
+	'					MC = CShort(NewValue)
+	'Case 1 'RADIAL DIR.
+	'					NC = CShort(NewValue)
+	'End Select
+	'If (Raise_Dirty_Flag) Then
+	''THROW DIRTY FLAG.
+	'Call DirtyStatus_Throw()
+	'End If
+	'End If
+	'REFRESH WINDOW.
+	'Call frmMain_Refresh()
+	'End If
+	'End Sub
 
 
 	'Private Sub txtNumberOfBeds_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
@@ -1369,29 +1369,29 @@ Friend Class frmMain
 		End Select
 	End Sub
 
-	Private Sub spnNumberOfBeds_SpinUp(sender As Object, e As EventArgs)
-		Call spnNumberOfBeds_SpinUp()
-	End Sub
+	'Private Sub spnNumberOfBeds_SpinUp(sender As Object, e As EventArgs)
+	'Call spnNumberOfBeds_SpinUp()
+	'End Sub
 
-	Private Sub spnNumberOfBeds_SpinDown(sender As Object, e As EventArgs)
-		Call spnNumberOfBeds_SpinDown()
-	End Sub
+	'Private Sub spnNumberOfBeds_SpinDown(sender As Object, e As EventArgs)
+	'Call spnNumberOfBeds_SpinDown()
+	'End Sub
 
-	Private Sub _spnPoint_0_SpinDown(sender As Object, e As EventArgs) Handles _spnPoint_0.SpinDown
-		Call spnPoint_SpinDown(0)
-	End Sub
+	'Private Sub _spnPoint_0_SpinDown(sender As Object, e As EventArgs) Handles _spnPoint_0.SpinDown
+	'Call spnPoint_SpinDown(0)
+	'End Sub
 
-	Private Sub _spnPoint_0_SpinUp(sender As Object, e As EventArgs) Handles _spnPoint_0.SpinUp
-		Call spnPoint_SpinUp(0)
-	End Sub
+	'Private Sub _spnPoint_0_SpinUp(sender As Object, e As EventArgs) Handles _spnPoint_0.SpinUp
+	'Call spnPoint_SpinUp(0)
+	'End Sub
 
-	Private Sub _spnPoint_1_SpinDown(sender As Object, e As EventArgs) Handles _spnPoint_1.SpinDown
-		Call spnPoint_SpinDown(1)
-	End Sub
+	'Private Sub _spnPoint_1_SpinDown(sender As Object, e As EventArgs) Handles _spnPoint_1.SpinDown
+	'Call spnPoint_SpinDown(1)
+	'End Sub
 
-	Private Sub _spnPoint_1_SpinUp(sender As Object, e As EventArgs) Handles _spnPoint_1.SpinUp
-		Call spnPoint_SpinUp(1)
-	End Sub
+	'Private Sub _spnPoint_1_SpinUp(sender As Object, e As EventArgs) Handles _spnPoint_1.SpinUp
+	'Call spnPoint_SpinUp(1)
+	'End Sub
 
 	Private Sub ssframe_FixedBed_Enter(sender As Object, e As EventArgs) Handles ssframe_FixedBed.Enter
 
