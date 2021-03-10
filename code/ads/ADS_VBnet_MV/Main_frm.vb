@@ -1397,6 +1397,7 @@ Friend Class frmMain
 
 	End Sub
 	Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
+		'this numericupdown1 is used for "number of radial elements"
 		Bed.NumberOfBeds = NumericUpDown1.Value
 
 	End Sub
@@ -1405,4 +1406,35 @@ Friend Class frmMain
 		Call DirtyStatus_Throw()
 		Call frmMain_Refresh()
 	End Sub
+
+	Private Sub NumericUpDown1_Enter(sender As Object, e As EventArgs) Handles NumericUpDown1.Enter
+		Dim StatusMessagePanel As String
+		StatusMessagePanel = "Type in the number of axial elements (PSDM only)"
+		Call GenericStatus_Set(StatusMessagePanel)
+	End Sub
+
+	Private Sub NumericUpDown2_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown2.ValueChanged
+		'axial points
+		MC = NumericUpDown2.Value
+
+	End Sub
+
+	Private Sub NumericUpDown3_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown3.ValueChanged
+		'radial points
+		NC = NumericUpDown3.Value
+	End Sub
+
+	Private Sub NumericUpDown2_Enter(sender As Object, e As EventArgs) Handles NumericUpDown2.Enter
+		Dim StatusMessagePanel As String
+		StatusMessagePanel = "Type in the number of collocation points in the axial direction (PSDM only)"
+		Call GenericStatus_Set(StatusMessagePanel)
+	End Sub
+
+	Private Sub NumericUpDown3_Enter(sender As Object, e As EventArgs) Handles NumericUpDown3.Enter
+		Dim StatusMessagePanel As String
+		StatusMessagePanel = "Type in the number of collocation points in the radial direction (PSDM only)"
+		Call GenericStatus_Set(StatusMessagePanel)
+	End Sub
+
+
 End Class
