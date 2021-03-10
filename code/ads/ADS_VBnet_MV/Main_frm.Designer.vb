@@ -81,8 +81,8 @@
 	Public WithEvents _mnuBatchItem_0 As System.Windows.Forms.ToolStripMenuItem
 	Public WithEvents mnuUnused As System.Windows.Forms.ToolStripMenuItem
 	Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
-	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-	Public WithEvents Command4 As System.Windows.Forms.Button
+    Public WithEvents Picture1 As System.Windows.Forms.PictureBox
+    Public WithEvents Command4 As System.Windows.Forms.Button
     Public WithEvents cmdViewDimensionless As System.Windows.Forms.Button
     Public WithEvents _txtCarbon_0 As System.Windows.Forms.TextBox
     Public WithEvents _txtCarbonUnits_2 As System.Windows.Forms.ComboBox
@@ -166,7 +166,6 @@
     Public WithEvents _lblWaterUnit_1 As System.Windows.Forms.Label
     Public WithEvents _lblWaterUnit_0 As System.Windows.Forms.Label
     Public WithEvents ssframe_Water As AxThreed.AxSSFrame
-    Public WithEvents SSPanel2 As AxThreed.AxSSPanel
     Public WithEvents cmdADEComponent As Microsoft.VisualBasic.Compatibility.VB6.ButtonArray
     Public WithEvents cmdNote As Microsoft.VisualBasic.Compatibility.VB6.ButtonArray
     Public WithEvents lblBed As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -353,7 +352,6 @@
         Me._lblWaterUnit_1 = New System.Windows.Forms.Label()
         Me._lblWaterUnit_0 = New System.Windows.Forms.Label()
         Me.cmdWaterCorrelations = New System.Windows.Forms.Button()
-        Me.SSPanel2 = New AxThreed.AxSSPanel()
         Me.cmdADEComponent = New Microsoft.VisualBasic.Compatibility.VB6.ButtonArray(Me.components)
         Me.cmdNote = New Microsoft.VisualBasic.Compatibility.VB6.ButtonArray(Me.components)
         Me.lblBed = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
@@ -389,6 +387,7 @@
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_Adsorbent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -406,7 +405,6 @@
         Me.ssframe_Component.SuspendLayout()
         CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_Water.SuspendLayout()
-        CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -437,6 +435,7 @@
         CType(Me.txtTimeUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Command4
@@ -2255,14 +2254,6 @@
         Me.cmdWaterCorrelations.Text = "Correlations"
         Me.cmdWaterCorrelations.UseVisualStyleBackColor = False
         '
-        'SSPanel2
-        '
-        Me.SSPanel2.Location = New System.Drawing.Point(0, 458)
-        Me.SSPanel2.Name = "SSPanel2"
-        Me.SSPanel2.OcxState = CType(resources.GetObject("SSPanel2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSPanel2.Size = New System.Drawing.Size(120, 60)
-        Me.SSPanel2.TabIndex = 18
-        '
         'cmdADEComponent
         '
         '
@@ -2344,12 +2335,22 @@
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Location = New System.Drawing.Point(274, 312)
+        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(34, 20)
+        Me.NumericUpDown1.TabIndex = 103
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(975, 485)
+        Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me._cmdNote_1)
         Me.Controls.Add(Me._cmdNote_0)
@@ -2361,7 +2362,6 @@
         Me.Controls.Add(Me.ssframe_PSDM)
         Me.Controls.Add(Me.ssframe_Component)
         Me.Controls.Add(Me.ssframe_Water)
-        Me.Controls.Add(Me.SSPanel2)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2397,7 +2397,6 @@
         CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ssframe_Water.ResumeLayout(False)
         Me.ssframe_Water.PerformLayout()
-        CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2429,6 +2428,7 @@
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2444,5 +2444,6 @@
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents NumericUpDown1 As NumericUpDown
 #End Region
 End Class

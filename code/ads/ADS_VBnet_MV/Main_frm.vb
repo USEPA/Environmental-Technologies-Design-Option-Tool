@@ -1396,4 +1396,13 @@ Friend Class frmMain
 	Private Sub ssframe_FixedBed_Enter(sender As Object, e As EventArgs) Handles ssframe_FixedBed.Enter
 
 	End Sub
+	Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
+		Bed.NumberOfBeds = NumericUpDown1.Value
+
+	End Sub
+
+	Private Sub NumericUpDown1_Leave(sender As Object, e As EventArgs) Handles NumericUpDown1.Leave
+		Call DirtyStatus_Throw()
+		Call frmMain_Refresh()
+	End Sub
 End Class
