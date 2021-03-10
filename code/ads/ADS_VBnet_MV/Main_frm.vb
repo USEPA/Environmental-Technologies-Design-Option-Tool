@@ -1463,4 +1463,12 @@ Friend Class frmMain
 	Private Sub _cmdNote_1_Click(sender As Object, e As EventArgs) Handles _cmdNote_1.Click
 
 	End Sub
+
+	Private Sub _lblText_0_Click(sender As Object, e As EventArgs) Handles _lblText_0.Click
+
+	End Sub
+
+	Private Sub _lblText_1_Click(sender As Object, e As EventArgs) Handles _lblText_1.Click
+
+	End Sub
 End Class

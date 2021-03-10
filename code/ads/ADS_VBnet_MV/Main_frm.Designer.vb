@@ -100,7 +100,6 @@
     Public WithEvents _lblCarbon_0 As System.Windows.Forms.Label
     Public WithEvents _lblCarbon_4 As System.Windows.Forms.Label
     Public WithEvents _lblMiscUnits_1 As System.Windows.Forms.Label
-    Public WithEvents ssframe_Adsorbent As AxThreed.AxSSFrame
     Public WithEvents _cmdNote_0 As System.Windows.Forms.Button
     Public WithEvents _cmdNote_1 As System.Windows.Forms.Button
     Public WithEvents _txtBedUnits_4 As System.Windows.Forms.ComboBox
@@ -139,7 +138,6 @@
     Public WithEvents _txtTimeUnits_2 As System.Windows.Forms.ComboBox
     Public WithEvents _lblText_0 As System.Windows.Forms.Label
     Public WithEvents _lblText_1 As System.Windows.Forms.Label
-    Public WithEvents Frame3D2 As AxThreed.AxSSFrame
     Public WithEvents _lblTime_0 As System.Windows.Forms.Label
     Public WithEvents _lblTime_1 As System.Windows.Forms.Label
     Public WithEvents _lblTime_2 As System.Windows.Forms.Label
@@ -150,7 +148,6 @@
     Public WithEvents _cmdADEComponent_0 As System.Windows.Forms.Button
     Public WithEvents lstComponents As System.Windows.Forms.ListBox
     Public WithEvents cboSelectCompo As System.Windows.Forms.ComboBox
-    Public WithEvents ssframe_Component As AxThreed.AxSSFrame
     Public WithEvents cmdWaterCorrelations As System.Windows.Forms.Button
     Public WithEvents _txtWater_1 As System.Windows.Forms.TextBox
     Public WithEvents _txtWater_0 As System.Windows.Forms.TextBox
@@ -261,7 +258,6 @@
         Me.mnuBatch = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuBatchItem_0 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
-        Me.ssframe_Adsorbent = New AxThreed.AxSSFrame()
         Me.cmdViewDimensionless = New System.Windows.Forms.Button()
         Me._txtCarbon_0 = New System.Windows.Forms.TextBox()
         Me._txtCarbonUnits_2 = New System.Windows.Forms.ComboBox()
@@ -316,14 +312,12 @@
         Me._txtTimeUnits_0 = New System.Windows.Forms.ComboBox()
         Me._txtTimeUnits_1 = New System.Windows.Forms.ComboBox()
         Me._txtTimeUnits_2 = New System.Windows.Forms.ComboBox()
-        Me.Frame3D2 = New AxThreed.AxSSFrame()
         Me._lblText_0 = New System.Windows.Forms.Label()
         Me._lblText_1 = New System.Windows.Forms.Label()
         Me._lblTime_0 = New System.Windows.Forms.Label()
         Me._lblTime_1 = New System.Windows.Forms.Label()
         Me._lblTime_2 = New System.Windows.Forms.Label()
         Me.lblAxialElementsDesc = New System.Windows.Forms.Label()
-        Me.ssframe_Component = New AxThreed.AxSSFrame()
         Me._cmdADEComponent_2 = New System.Windows.Forms.Button()
         Me._cmdADEComponent_1 = New System.Windows.Forms.Button()
         Me._cmdADEComponent_0 = New System.Windows.Forms.Button()
@@ -376,16 +370,13 @@
         Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
         Me.watergroup = New System.Windows.Forms.GroupBox()
         Me.bedgroup = New System.Windows.Forms.GroupBox()
+        Me.adsorbentgroup = New System.Windows.Forms.GroupBox()
+        Me.componentgroup = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ssframe_Adsorbent, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ssframe_Adsorbent.SuspendLayout()
         CType(Me.ssframe_PSDM, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_PSDM.SuspendLayout()
-        CType(Me.Frame3D2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Frame3D2.SuspendLayout()
-        CType(Me.ssframe_Component, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ssframe_Component.SuspendLayout()
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -421,6 +412,9 @@
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.watergroup.SuspendLayout()
         Me.bedgroup.SuspendLayout()
+        Me.adsorbentgroup.SuspendLayout()
+        Me.componentgroup.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command4
@@ -920,7 +914,7 @@
         Me.Picture1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Picture1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Picture1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Picture1.Location = New System.Drawing.Point(648, 368)
+        Me.Picture1.Location = New System.Drawing.Point(685, 372)
         Me.Picture1.Name = "Picture1"
         Me.Picture1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Picture1.Size = New System.Drawing.Size(89, 57)
@@ -928,38 +922,13 @@
         Me.Picture1.TabStop = False
         Me.Picture1.Visible = False
         '
-        'ssframe_Adsorbent
-        '
-        Me.ssframe_Adsorbent.Controls.Add(Me.cmdViewDimensionless)
-        Me.ssframe_Adsorbent.Controls.Add(Me._txtCarbon_0)
-        Me.ssframe_Adsorbent.Controls.Add(Me._txtCarbonUnits_2)
-        Me.ssframe_Adsorbent.Controls.Add(Me._txtCarbonUnits_1)
-        Me.ssframe_Adsorbent.Controls.Add(Me._txtCarbon_3)
-        Me.ssframe_Adsorbent.Controls.Add(Me._txtCarbon_2)
-        Me.ssframe_Adsorbent.Controls.Add(Me._txtCarbon_1)
-        Me.ssframe_Adsorbent.Controls.Add(Me.cmdCarbon)
-        Me.ssframe_Adsorbent.Controls.Add(Me.cmdpolanyi)
-        Me.ssframe_Adsorbent.Controls.Add(Me._txtCarbon_4)
-        Me.ssframe_Adsorbent.Controls.Add(Me._lblMiscUnits_0)
-        Me.ssframe_Adsorbent.Controls.Add(Me._lblCarbon_3)
-        Me.ssframe_Adsorbent.Controls.Add(Me._lblCarbon_2)
-        Me.ssframe_Adsorbent.Controls.Add(Me._lblCarbon_1)
-        Me.ssframe_Adsorbent.Controls.Add(Me._lblCarbon_0)
-        Me.ssframe_Adsorbent.Controls.Add(Me._lblCarbon_4)
-        Me.ssframe_Adsorbent.Controls.Add(Me._lblMiscUnits_1)
-        Me.ssframe_Adsorbent.Location = New System.Drawing.Point(314, 260)
-        Me.ssframe_Adsorbent.Name = "ssframe_Adsorbent"
-        Me.ssframe_Adsorbent.OcxState = CType(resources.GetObject("ssframe_Adsorbent.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.ssframe_Adsorbent.Size = New System.Drawing.Size(368, 232)
-        Me.ssframe_Adsorbent.TabIndex = 43
-        '
         'cmdViewDimensionless
         '
         Me.cmdViewDimensionless.BackColor = System.Drawing.SystemColors.Control
         Me.cmdViewDimensionless.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdViewDimensionless.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdViewDimensionless.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdViewDimensionless.Location = New System.Drawing.Point(8, 154)
+        Me.cmdViewDimensionless.Location = New System.Drawing.Point(6, 156)
         Me.cmdViewDimensionless.Name = "cmdViewDimensionless"
         Me.cmdViewDimensionless.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdViewDimensionless.Size = New System.Drawing.Size(145, 21)
@@ -977,7 +946,7 @@
         Me._txtCarbon_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtCarbon_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtCarbon.SetIndex(Me._txtCarbon_0, CType(0, Short))
-        Me._txtCarbon_0.Location = New System.Drawing.Point(136, 42)
+        Me._txtCarbon_0.Location = New System.Drawing.Point(134, 44)
         Me._txtCarbon_0.MaxLength = 0
         Me._txtCarbon_0.Name = "_txtCarbon_0"
         Me._txtCarbon_0.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -994,7 +963,7 @@
         Me._txtCarbonUnits_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtCarbonUnits_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtCarbonUnits.SetIndex(Me._txtCarbonUnits_2, CType(2, Short))
-        Me._txtCarbonUnits_2.Location = New System.Drawing.Point(220, 84)
+        Me._txtCarbonUnits_2.Location = New System.Drawing.Point(218, 86)
         Me._txtCarbonUnits_2.Name = "_txtCarbonUnits_2"
         Me._txtCarbonUnits_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtCarbonUnits_2.Size = New System.Drawing.Size(80, 22)
@@ -1009,7 +978,7 @@
         Me._txtCarbonUnits_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtCarbonUnits_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtCarbonUnits.SetIndex(Me._txtCarbonUnits_1, CType(1, Short))
-        Me._txtCarbonUnits_1.Location = New System.Drawing.Point(220, 62)
+        Me._txtCarbonUnits_1.Location = New System.Drawing.Point(218, 64)
         Me._txtCarbonUnits_1.Name = "_txtCarbonUnits_1"
         Me._txtCarbonUnits_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtCarbonUnits_1.Size = New System.Drawing.Size(80, 22)
@@ -1025,7 +994,7 @@
         Me._txtCarbon_3.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtCarbon_3.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtCarbon.SetIndex(Me._txtCarbon_3, CType(3, Short))
-        Me._txtCarbon_3.Location = New System.Drawing.Point(136, 108)
+        Me._txtCarbon_3.Location = New System.Drawing.Point(134, 110)
         Me._txtCarbon_3.MaxLength = 0
         Me._txtCarbon_3.Name = "_txtCarbon_3"
         Me._txtCarbon_3.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1043,7 +1012,7 @@
         Me._txtCarbon_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtCarbon_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtCarbon.SetIndex(Me._txtCarbon_2, CType(2, Short))
-        Me._txtCarbon_2.Location = New System.Drawing.Point(136, 86)
+        Me._txtCarbon_2.Location = New System.Drawing.Point(134, 88)
         Me._txtCarbon_2.MaxLength = 0
         Me._txtCarbon_2.Name = "_txtCarbon_2"
         Me._txtCarbon_2.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1061,7 +1030,7 @@
         Me._txtCarbon_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtCarbon_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtCarbon.SetIndex(Me._txtCarbon_1, CType(1, Short))
-        Me._txtCarbon_1.Location = New System.Drawing.Point(136, 64)
+        Me._txtCarbon_1.Location = New System.Drawing.Point(134, 66)
         Me._txtCarbon_1.MaxLength = 0
         Me._txtCarbon_1.Name = "_txtCarbon_1"
         Me._txtCarbon_1.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1076,7 +1045,7 @@
         Me.cmdCarbon.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdCarbon.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdCarbon.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdCarbon.Location = New System.Drawing.Point(8, 16)
+        Me.cmdCarbon.Location = New System.Drawing.Point(6, 18)
         Me.cmdCarbon.Name = "cmdCarbon"
         Me.cmdCarbon.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdCarbon.Size = New System.Drawing.Size(289, 21)
@@ -1091,7 +1060,7 @@
         Me.cmdpolanyi.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdpolanyi.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdpolanyi.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdpolanyi.Location = New System.Drawing.Point(156, 154)
+        Me.cmdpolanyi.Location = New System.Drawing.Point(154, 156)
         Me.cmdpolanyi.Name = "cmdpolanyi"
         Me.cmdpolanyi.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdpolanyi.Size = New System.Drawing.Size(141, 21)
@@ -1109,7 +1078,7 @@
         Me._txtCarbon_4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtCarbon_4.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtCarbon.SetIndex(Me._txtCarbon_4, CType(4, Short))
-        Me._txtCarbon_4.Location = New System.Drawing.Point(136, 130)
+        Me._txtCarbon_4.Location = New System.Drawing.Point(134, 132)
         Me._txtCarbon_4.MaxLength = 0
         Me._txtCarbon_4.Name = "_txtCarbon_4"
         Me._txtCarbon_4.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1125,7 +1094,7 @@
         Me._lblMiscUnits_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblMiscUnits_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblMiscUnits.SetIndex(Me._lblMiscUnits_0, CType(0, Short))
-        Me._lblMiscUnits_0.Location = New System.Drawing.Point(220, 110)
+        Me._lblMiscUnits_0.Location = New System.Drawing.Point(218, 112)
         Me._lblMiscUnits_0.Name = "_lblMiscUnits_0"
         Me._lblMiscUnits_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblMiscUnits_0.Size = New System.Drawing.Size(80, 21)
@@ -1140,7 +1109,7 @@
         Me._lblCarbon_3.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblCarbon_3.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblCarbon.SetIndex(Me._lblCarbon_3, CType(3, Short))
-        Me._lblCarbon_3.Location = New System.Drawing.Point(16, 110)
+        Me._lblCarbon_3.Location = New System.Drawing.Point(14, 112)
         Me._lblCarbon_3.Name = "_lblCarbon_3"
         Me._lblCarbon_3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblCarbon_3.Size = New System.Drawing.Size(113, 17)
@@ -1155,7 +1124,7 @@
         Me._lblCarbon_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblCarbon_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblCarbon.SetIndex(Me._lblCarbon_2, CType(2, Short))
-        Me._lblCarbon_2.Location = New System.Drawing.Point(16, 88)
+        Me._lblCarbon_2.Location = New System.Drawing.Point(14, 90)
         Me._lblCarbon_2.Name = "_lblCarbon_2"
         Me._lblCarbon_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblCarbon_2.Size = New System.Drawing.Size(113, 17)
@@ -1170,7 +1139,7 @@
         Me._lblCarbon_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblCarbon_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblCarbon.SetIndex(Me._lblCarbon_1, CType(1, Short))
-        Me._lblCarbon_1.Location = New System.Drawing.Point(16, 66)
+        Me._lblCarbon_1.Location = New System.Drawing.Point(14, 68)
         Me._lblCarbon_1.Name = "_lblCarbon_1"
         Me._lblCarbon_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblCarbon_1.Size = New System.Drawing.Size(113, 17)
@@ -1185,7 +1154,7 @@
         Me._lblCarbon_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblCarbon_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblCarbon.SetIndex(Me._lblCarbon_0, CType(0, Short))
-        Me._lblCarbon_0.Location = New System.Drawing.Point(16, 44)
+        Me._lblCarbon_0.Location = New System.Drawing.Point(14, 46)
         Me._lblCarbon_0.Name = "_lblCarbon_0"
         Me._lblCarbon_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblCarbon_0.Size = New System.Drawing.Size(113, 17)
@@ -1200,7 +1169,7 @@
         Me._lblCarbon_4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblCarbon_4.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblCarbon.SetIndex(Me._lblCarbon_4, CType(4, Short))
-        Me._lblCarbon_4.Location = New System.Drawing.Point(4, 132)
+        Me._lblCarbon_4.Location = New System.Drawing.Point(2, 134)
         Me._lblCarbon_4.Name = "_lblCarbon_4"
         Me._lblCarbon_4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblCarbon_4.Size = New System.Drawing.Size(125, 17)
@@ -1215,7 +1184,7 @@
         Me._lblMiscUnits_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblMiscUnits_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblMiscUnits.SetIndex(Me._lblMiscUnits_1, CType(1, Short))
-        Me._lblMiscUnits_1.Location = New System.Drawing.Point(220, 132)
+        Me._lblMiscUnits_1.Location = New System.Drawing.Point(218, 134)
         Me._lblMiscUnits_1.Name = "_lblMiscUnits_1"
         Me._lblMiscUnits_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblMiscUnits_1.Size = New System.Drawing.Size(80, 21)
@@ -1698,7 +1667,6 @@
         Me.ssframe_PSDM.Controls.Add(Me._txtTimeUnits_0)
         Me.ssframe_PSDM.Controls.Add(Me._txtTimeUnits_1)
         Me.ssframe_PSDM.Controls.Add(Me._txtTimeUnits_2)
-        Me.ssframe_PSDM.Controls.Add(Me.Frame3D2)
         Me.ssframe_PSDM.Controls.Add(Me._lblTime_0)
         Me.ssframe_PSDM.Controls.Add(Me._lblTime_1)
         Me.ssframe_PSDM.Controls.Add(Me._lblTime_2)
@@ -1808,16 +1776,6 @@
         Me._txtTimeUnits_2.TabIndex = 44
         Me._txtTimeUnits_2.TabStop = False
         '
-        'Frame3D2
-        '
-        Me.Frame3D2.Controls.Add(Me._lblText_0)
-        Me.Frame3D2.Controls.Add(Me._lblText_1)
-        Me.Frame3D2.Location = New System.Drawing.Point(8, 110)
-        Me.Frame3D2.Name = "Frame3D2"
-        Me.Frame3D2.OcxState = CType(resources.GetObject("Frame3D2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.Frame3D2.Size = New System.Drawing.Size(347, 77)
-        Me.Frame3D2.TabIndex = 47
-        '
         '_lblText_0
         '
         Me._lblText_0.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -1825,7 +1783,7 @@
         Me._lblText_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblText_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblText.SetIndex(Me._lblText_0, CType(0, Short))
-        Me._lblText_0.Location = New System.Drawing.Point(36, 19)
+        Me._lblText_0.Location = New System.Drawing.Point(11, 22)
         Me._lblText_0.Name = "_lblText_0"
         Me._lblText_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblText_0.Size = New System.Drawing.Size(125, 17)
@@ -1840,7 +1798,7 @@
         Me._lblText_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblText_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblText.SetIndex(Me._lblText_1, CType(1, Short))
-        Me._lblText_1.Location = New System.Drawing.Point(36, 40)
+        Me._lblText_1.Location = New System.Drawing.Point(11, 43)
         Me._lblText_1.Name = "_lblText_1"
         Me._lblText_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblText_1.Size = New System.Drawing.Size(125, 17)
@@ -1907,19 +1865,6 @@
         Me.lblAxialElementsDesc.Text = "Number of Axial Elements"
         Me.lblAxialElementsDesc.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'ssframe_Component
-        '
-        Me.ssframe_Component.Controls.Add(Me._cmdADEComponent_2)
-        Me.ssframe_Component.Controls.Add(Me._cmdADEComponent_1)
-        Me.ssframe_Component.Controls.Add(Me._cmdADEComponent_0)
-        Me.ssframe_Component.Controls.Add(Me.lstComponents)
-        Me.ssframe_Component.Controls.Add(Me.cboSelectCompo)
-        Me.ssframe_Component.Location = New System.Drawing.Point(8, 88)
-        Me.ssframe_Component.Name = "ssframe_Component"
-        Me.ssframe_Component.OcxState = CType(resources.GetObject("ssframe_Component.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.ssframe_Component.Size = New System.Drawing.Size(368, 172)
-        Me.ssframe_Component.TabIndex = 35
-        '
         '_cmdADEComponent_2
         '
         Me._cmdADEComponent_2.BackColor = System.Drawing.SystemColors.Control
@@ -1927,7 +1872,7 @@
         Me._cmdADEComponent_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._cmdADEComponent_2.ForeColor = System.Drawing.SystemColors.ControlText
         Me.cmdADEComponent.SetIndex(Me._cmdADEComponent_2, CType(2, Short))
-        Me._cmdADEComponent_2.Location = New System.Drawing.Point(188, 112)
+        Me._cmdADEComponent_2.Location = New System.Drawing.Point(186, 114)
         Me._cmdADEComponent_2.Name = "_cmdADEComponent_2"
         Me._cmdADEComponent_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._cmdADEComponent_2.Size = New System.Drawing.Size(101, 21)
@@ -1943,7 +1888,7 @@
         Me._cmdADEComponent_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._cmdADEComponent_1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.cmdADEComponent.SetIndex(Me._cmdADEComponent_1, CType(1, Short))
-        Me._cmdADEComponent_1.Location = New System.Drawing.Point(120, 112)
+        Me._cmdADEComponent_1.Location = New System.Drawing.Point(118, 114)
         Me._cmdADEComponent_1.Name = "_cmdADEComponent_1"
         Me._cmdADEComponent_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._cmdADEComponent_1.Size = New System.Drawing.Size(65, 21)
@@ -1959,7 +1904,7 @@
         Me._cmdADEComponent_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._cmdADEComponent_0.ForeColor = System.Drawing.SystemColors.ControlText
         Me.cmdADEComponent.SetIndex(Me._cmdADEComponent_0, CType(0, Short))
-        Me._cmdADEComponent_0.Location = New System.Drawing.Point(16, 112)
+        Me._cmdADEComponent_0.Location = New System.Drawing.Point(14, 114)
         Me._cmdADEComponent_0.Name = "_cmdADEComponent_0"
         Me._cmdADEComponent_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._cmdADEComponent_0.Size = New System.Drawing.Size(69, 21)
@@ -1975,7 +1920,7 @@
         Me.lstComponents.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstComponents.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lstComponents.ItemHeight = 14
-        Me.lstComponents.Location = New System.Drawing.Point(8, 17)
+        Me.lstComponents.Location = New System.Drawing.Point(6, 19)
         Me.lstComponents.Name = "lstComponents"
         Me.lstComponents.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lstComponents.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
@@ -1990,7 +1935,7 @@
         Me.cboSelectCompo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSelectCompo.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboSelectCompo.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.cboSelectCompo.Location = New System.Drawing.Point(8, 87)
+        Me.cboSelectCompo.Location = New System.Drawing.Point(6, 89)
         Me.cboSelectCompo.Name = "cboSelectCompo"
         Me.cboSelectCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cboSelectCompo.Size = New System.Drawing.Size(281, 22)
@@ -2199,7 +2144,7 @@
         '
         'NumericUpDown2
         '
-        Me.NumericUpDown2.Location = New System.Drawing.Point(215, 353)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(142, 22)
         Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(82, 20)
@@ -2208,7 +2153,7 @@
         '
         'NumericUpDown3
         '
-        Me.NumericUpDown3.Location = New System.Drawing.Point(215, 372)
+        Me.NumericUpDown3.Location = New System.Drawing.Point(142, 41)
         Me.NumericUpDown3.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(82, 20)
@@ -2272,23 +2217,78 @@
         Me.bedgroup.TabStop = False
         Me.bedgroup.Text = "Fixed Bed Properties:"
         '
+        'adsorbentgroup
+        '
+        Me.adsorbentgroup.BackColor = System.Drawing.Color.White
+        Me.adsorbentgroup.Controls.Add(Me.cmdViewDimensionless)
+        Me.adsorbentgroup.Controls.Add(Me.cmdCarbon)
+        Me.adsorbentgroup.Controls.Add(Me._txtCarbon_0)
+        Me.adsorbentgroup.Controls.Add(Me._lblMiscUnits_1)
+        Me.adsorbentgroup.Controls.Add(Me._txtCarbonUnits_2)
+        Me.adsorbentgroup.Controls.Add(Me._lblCarbon_4)
+        Me.adsorbentgroup.Controls.Add(Me._txtCarbonUnits_1)
+        Me.adsorbentgroup.Controls.Add(Me._lblCarbon_0)
+        Me.adsorbentgroup.Controls.Add(Me._txtCarbon_3)
+        Me.adsorbentgroup.Controls.Add(Me._lblCarbon_1)
+        Me.adsorbentgroup.Controls.Add(Me._txtCarbon_2)
+        Me.adsorbentgroup.Controls.Add(Me._lblCarbon_2)
+        Me.adsorbentgroup.Controls.Add(Me._txtCarbon_1)
+        Me.adsorbentgroup.Controls.Add(Me._lblCarbon_3)
+        Me.adsorbentgroup.Controls.Add(Me._lblMiscUnits_0)
+        Me.adsorbentgroup.Controls.Add(Me.cmdpolanyi)
+        Me.adsorbentgroup.Controls.Add(Me._txtCarbon_4)
+        Me.adsorbentgroup.Location = New System.Drawing.Point(316, 263)
+        Me.adsorbentgroup.Name = "adsorbentgroup"
+        Me.adsorbentgroup.Size = New System.Drawing.Size(309, 193)
+        Me.adsorbentgroup.TabIndex = 108
+        Me.adsorbentgroup.TabStop = False
+        Me.adsorbentgroup.Text = "Adsorbent Properties:"
+        '
+        'componentgroup
+        '
+        Me.componentgroup.BackColor = System.Drawing.Color.White
+        Me.componentgroup.Controls.Add(Me._cmdADEComponent_2)
+        Me.componentgroup.Controls.Add(Me.lstComponents)
+        Me.componentgroup.Controls.Add(Me._cmdADEComponent_1)
+        Me.componentgroup.Controls.Add(Me.cboSelectCompo)
+        Me.componentgroup.Controls.Add(Me._cmdADEComponent_0)
+        Me.componentgroup.Location = New System.Drawing.Point(8, 92)
+        Me.componentgroup.Name = "componentgroup"
+        Me.componentgroup.Size = New System.Drawing.Size(307, 140)
+        Me.componentgroup.TabIndex = 109
+        Me.componentgroup.TabStop = False
+        Me.componentgroup.Text = "Component Properties:"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.White
+        Me.GroupBox1.Controls.Add(Me._lblText_0)
+        Me.GroupBox1.Controls.Add(Me._lblText_1)
+        Me.GroupBox1.Controls.Add(Me.NumericUpDown2)
+        Me.GroupBox1.Controls.Add(Me.NumericUpDown3)
+        Me.GroupBox1.Location = New System.Drawing.Point(620, 27)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(238, 84)
+        Me.GroupBox1.TabIndex = 110
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Number of Collocation Points"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1201, 485)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.componentgroup)
+        Me.Controls.Add(Me.adsorbentgroup)
         Me.Controls.Add(Me.bedgroup)
         Me.Controls.Add(Me.watergroup)
-        Me.Controls.Add(Me.NumericUpDown3)
-        Me.Controls.Add(Me.NumericUpDown2)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
-        Me.Controls.Add(Me.ssframe_Adsorbent)
         Me.Controls.Add(Me.ssframe_PSDM)
-        Me.Controls.Add(Me.ssframe_Component)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2304,16 +2304,9 @@
         Me.MainMenu1.ResumeLayout(False)
         Me.MainMenu1.PerformLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ssframe_Adsorbent, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ssframe_Adsorbent.ResumeLayout(False)
-        Me.ssframe_Adsorbent.PerformLayout()
         CType(Me.ssframe_PSDM, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ssframe_PSDM.ResumeLayout(False)
         Me.ssframe_PSDM.PerformLayout()
-        CType(Me.Frame3D2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Frame3D2.ResumeLayout(False)
-        CType(Me.ssframe_Component, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ssframe_Component.ResumeLayout(False)
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2352,6 +2345,10 @@
         Me.watergroup.PerformLayout()
         Me.bedgroup.ResumeLayout(False)
         Me.bedgroup.PerformLayout()
+        Me.adsorbentgroup.ResumeLayout(False)
+        Me.adsorbentgroup.PerformLayout()
+        Me.componentgroup.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2372,5 +2369,8 @@
     Friend WithEvents NumericUpDown3 As NumericUpDown
     Friend WithEvents watergroup As GroupBox
     Friend WithEvents bedgroup As GroupBox
+    Friend WithEvents adsorbentgroup As GroupBox
+    Friend WithEvents componentgroup As GroupBox
+    Friend WithEvents GroupBox1 As GroupBox
 #End Region
 End Class
