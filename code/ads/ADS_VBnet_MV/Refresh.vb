@@ -17,8 +17,8 @@ Module Refresh
 
 		'SIM PARAMS FOR PSDM ONLY.
 		'Call unitsys_set_number_in_base_units((frmMain.txtNumberOfBeds), CDbl(Bed.NumberOfBeds))
-		Call unitsys_set_number_in_base_units(frmMain.txtNPoint(0), CDbl(MC))
-		Call unitsys_set_number_in_base_units(frmMain.txtNPoint(1), CDbl(NC))
+		'Call unitsys_set_number_in_base_units(frmMain.txtNPoint(0), CDbl(MC))
+		'Call unitsys_set_number_in_base_units(frmMain.txtNPoint(1), CDbl(NC))
 		Call unitsys_set_number_in_base_units(frmMain.txtTime(0), TimeP.End_Renamed)
 		Call unitsys_set_number_in_base_units(frmMain.txtTime(1), TimeP.Init)
 		Call unitsys_set_number_in_base_units(frmMain.txtTime(2), TimeP.Step_Renamed)

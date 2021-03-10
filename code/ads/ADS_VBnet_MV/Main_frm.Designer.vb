@@ -138,10 +138,6 @@
     Public WithEvents _txtTimeUnits_0 As System.Windows.Forms.ComboBox
     Public WithEvents _txtTimeUnits_1 As System.Windows.Forms.ComboBox
     Public WithEvents _txtTimeUnits_2 As System.Windows.Forms.ComboBox
-    Public WithEvents _txtNPoint_0 As System.Windows.Forms.TextBox
-    Public WithEvents _txtNPoint_1 As System.Windows.Forms.TextBox
-    Public WithEvents _spnPoint_1 As AxSpin.AxSpinButton
-    Public WithEvents _spnPoint_0 As AxSpin.AxSpinButton
     Public WithEvents _lblText_0 As System.Windows.Forms.Label
     Public WithEvents _lblText_1 As System.Windows.Forms.Label
     Public WithEvents Frame3D2 As AxThreed.AxSSFrame
@@ -324,10 +320,6 @@
         Me._txtTimeUnits_1 = New System.Windows.Forms.ComboBox()
         Me._txtTimeUnits_2 = New System.Windows.Forms.ComboBox()
         Me.Frame3D2 = New AxThreed.AxSSFrame()
-        Me._txtNPoint_0 = New System.Windows.Forms.TextBox()
-        Me._txtNPoint_1 = New System.Windows.Forms.TextBox()
-        Me._spnPoint_1 = New AxSpin.AxSpinButton()
-        Me._spnPoint_0 = New AxSpin.AxSpinButton()
         Me._lblText_0 = New System.Windows.Forms.Label()
         Me._lblText_1 = New System.Windows.Forms.Label()
         Me._lblTime_0 = New System.Windows.Forms.Label()
@@ -396,8 +388,6 @@
         Me.ssframe_PSDM.SuspendLayout()
         CType(Me.Frame3D2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Frame3D2.SuspendLayout()
-        CType(Me._spnPoint_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._spnPoint_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_Component, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_Component.SuspendLayout()
         CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1860,10 +1850,6 @@
         '
         'Frame3D2
         '
-        Me.Frame3D2.Controls.Add(Me._txtNPoint_0)
-        Me.Frame3D2.Controls.Add(Me._txtNPoint_1)
-        Me.Frame3D2.Controls.Add(Me._spnPoint_1)
-        Me.Frame3D2.Controls.Add(Me._spnPoint_0)
         Me.Frame3D2.Controls.Add(Me._lblText_0)
         Me.Frame3D2.Controls.Add(Me._lblText_1)
         Me.Frame3D2.Location = New System.Drawing.Point(8, 110)
@@ -1871,58 +1857,6 @@
         Me.Frame3D2.OcxState = CType(resources.GetObject("Frame3D2.OcxState"), System.Windows.Forms.AxHost.State)
         Me.Frame3D2.Size = New System.Drawing.Size(347, 77)
         Me.Frame3D2.TabIndex = 47
-        '
-        '_txtNPoint_0
-        '
-        Me._txtNPoint_0.AcceptsReturn = True
-        Me._txtNPoint_0.BackColor = System.Drawing.SystemColors.Window
-        Me._txtNPoint_0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtNPoint_0.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtNPoint_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtNPoint_0.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtNPoint.SetIndex(Me._txtNPoint_0, CType(0, Short))
-        Me._txtNPoint_0.Location = New System.Drawing.Point(184, 17)
-        Me._txtNPoint_0.MaxLength = 0
-        Me._txtNPoint_0.Name = "_txtNPoint_0"
-        Me._txtNPoint_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtNPoint_0.Size = New System.Drawing.Size(49, 20)
-        Me._txtNPoint_0.TabIndex = 6
-        Me._txtNPoint_0.Text = "Test"
-        Me._txtNPoint_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        '_txtNPoint_1
-        '
-        Me._txtNPoint_1.AcceptsReturn = True
-        Me._txtNPoint_1.BackColor = System.Drawing.SystemColors.Window
-        Me._txtNPoint_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtNPoint_1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtNPoint_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtNPoint_1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtNPoint.SetIndex(Me._txtNPoint_1, CType(1, Short))
-        Me._txtNPoint_1.Location = New System.Drawing.Point(184, 40)
-        Me._txtNPoint_1.MaxLength = 0
-        Me._txtNPoint_1.Name = "_txtNPoint_1"
-        Me._txtNPoint_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtNPoint_1.Size = New System.Drawing.Size(49, 20)
-        Me._txtNPoint_1.TabIndex = 7
-        Me._txtNPoint_1.Text = "Test"
-        Me._txtNPoint_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        '_spnPoint_1
-        '
-        Me._spnPoint_1.Location = New System.Drawing.Point(232, 40)
-        Me._spnPoint_1.Name = "_spnPoint_1"
-        Me._spnPoint_1.OcxState = CType(resources.GetObject("_spnPoint_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._spnPoint_1.Size = New System.Drawing.Size(29, 20)
-        Me._spnPoint_1.TabIndex = 48
-        '
-        '_spnPoint_0
-        '
-        Me._spnPoint_0.Location = New System.Drawing.Point(232, 17)
-        Me._spnPoint_0.Name = "_spnPoint_0"
-        Me._spnPoint_0.OcxState = CType(resources.GetObject("_spnPoint_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._spnPoint_0.Size = New System.Drawing.Size(29, 20)
-        Me._spnPoint_0.TabIndex = 49
         '
         '_lblText_0
         '
@@ -2319,19 +2253,19 @@
         '
         'NumericUpDown2
         '
-        Me.NumericUpDown2.Location = New System.Drawing.Point(283, 351)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(215, 353)
         Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(41, 20)
+        Me.NumericUpDown2.Size = New System.Drawing.Size(82, 20)
         Me.NumericUpDown2.TabIndex = 104
         Me.NumericUpDown2.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown3
         '
-        Me.NumericUpDown3.Location = New System.Drawing.Point(283, 374)
+        Me.NumericUpDown3.Location = New System.Drawing.Point(215, 372)
         Me.NumericUpDown3.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
-        Me.NumericUpDown3.Size = New System.Drawing.Size(41, 20)
+        Me.NumericUpDown3.Size = New System.Drawing.Size(82, 20)
         Me.NumericUpDown3.TabIndex = 105
         Me.NumericUpDown3.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
@@ -2381,9 +2315,6 @@
         Me.ssframe_PSDM.PerformLayout()
         CType(Me.Frame3D2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Frame3D2.ResumeLayout(False)
-        Me.Frame3D2.PerformLayout()
-        CType(Me._spnPoint_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._spnPoint_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ssframe_Component, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ssframe_Component.ResumeLayout(False)
         CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).EndInit()
