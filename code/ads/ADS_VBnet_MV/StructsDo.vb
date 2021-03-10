@@ -396,7 +396,7 @@ Module StructsDo
 				'Bed.WaterDensity = Bed.WaterDensity / 1000#
 				'Bed.WaterViscosity = Bed.WaterViscosity * 10#
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.ssframe_Water.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.ssframe_Water.Caption = "Water Properties:"
+				frmMain.watergroup.Text = "Water Properties:"
 			Case 1
 				frmMain.mnuPhaseItem(0).Checked = False
 				frmMain.mnuPhaseItem(1).Checked = True
@@ -408,7 +408,7 @@ Module StructsDo
 				'Bed.WaterDensity = Bed.WaterDensity / 1000#
 				'Bed.WaterViscosity = Bed.WaterViscosity * 10#
 				'UPGRADE_WARNING: Couldn't resolve default property of object frmMain.ssframe_Water.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				frmMain.ssframe_Water.Caption = "Air Properties:"
+				frmMain.watergroup.Text = "Air Properties:"
 		End Select
 		Call Update_FluidDensity(Bed.Temperature, Bed.Pressure, Bed.WaterDensity)
 		Call Update_FluidViscosity(Bed.Temperature, Bed.WaterViscosity)

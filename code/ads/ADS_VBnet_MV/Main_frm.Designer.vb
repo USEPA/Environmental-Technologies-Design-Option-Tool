@@ -159,7 +159,6 @@
     Public WithEvents _lblWater_0 As System.Windows.Forms.Label
     Public WithEvents _lblWaterUnit_1 As System.Windows.Forms.Label
     Public WithEvents _lblWaterUnit_0 As System.Windows.Forms.Label
-    Public WithEvents ssframe_Water As AxThreed.AxSSFrame
     Public WithEvents cmdADEComponent As Microsoft.VisualBasic.Compatibility.VB6.ButtonArray
     Public WithEvents cmdNote As Microsoft.VisualBasic.Compatibility.VB6.ButtonArray
     Public WithEvents lblBed As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -332,7 +331,6 @@
         Me._cmdADEComponent_0 = New System.Windows.Forms.Button()
         Me.lstComponents = New System.Windows.Forms.ListBox()
         Me.cboSelectCompo = New System.Windows.Forms.ComboBox()
-        Me.ssframe_Water = New AxThreed.AxSSFrame()
         Me._txtWater_1 = New System.Windows.Forms.TextBox()
         Me._txtWater_0 = New System.Windows.Forms.TextBox()
         Me._lblWater_1 = New System.Windows.Forms.Label()
@@ -378,6 +376,7 @@
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
+        Me.watergroup = New System.Windows.Forms.GroupBox()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_Adsorbent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -390,8 +389,6 @@
         Me.Frame3D2.SuspendLayout()
         CType(Me.ssframe_Component, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_Component.SuspendLayout()
-        CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ssframe_Water.SuspendLayout()
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -425,6 +422,7 @@
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.watergroup.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command4
@@ -448,7 +446,7 @@
         Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuPhase, Me.mnuRun, Me.mnuDisplay, Me.mnuOptions, Me.mnuDatabase, Me.mnuHelp, Me._mnuOther_5, Me.mnuMTU, Me.mnuUnused})
         Me.MainMenu1.Location = New System.Drawing.Point(0, 0)
         Me.MainMenu1.Name = "MainMenu1"
-        Me.MainMenu1.Size = New System.Drawing.Size(975, 24)
+        Me.MainMenu1.Size = New System.Drawing.Size(1201, 24)
         Me.MainMenu1.TabIndex = 99
         '
         'mnuFile
@@ -2037,20 +2035,6 @@
         Me.cboSelectCompo.TabIndex = 36
         Me.cboSelectCompo.TabStop = False
         '
-        'ssframe_Water
-        '
-        Me.ssframe_Water.Controls.Add(Me._txtWater_1)
-        Me.ssframe_Water.Controls.Add(Me._txtWater_0)
-        Me.ssframe_Water.Controls.Add(Me._lblWater_1)
-        Me.ssframe_Water.Controls.Add(Me._lblWater_0)
-        Me.ssframe_Water.Controls.Add(Me._lblWaterUnit_1)
-        Me.ssframe_Water.Controls.Add(Me._lblWaterUnit_0)
-        Me.ssframe_Water.Location = New System.Drawing.Point(8, 28)
-        Me.ssframe_Water.Name = "ssframe_Water"
-        Me.ssframe_Water.OcxState = CType(resources.GetObject("ssframe_Water.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.ssframe_Water.Size = New System.Drawing.Size(368, 76)
-        Me.ssframe_Water.TabIndex = 29
-        '
         '_txtWater_1
         '
         Me._txtWater_1.AcceptsReturn = True
@@ -2060,7 +2044,7 @@
         Me._txtWater_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtWater_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtWater.SetIndex(Me._txtWater_1, CType(1, Short))
-        Me._txtWater_1.Location = New System.Drawing.Point(84, 18)
+        Me._txtWater_1.Location = New System.Drawing.Point(86, 17)
         Me._txtWater_1.MaxLength = 0
         Me._txtWater_1.Name = "_txtWater_1"
         Me._txtWater_1.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -2078,7 +2062,7 @@
         Me._txtWater_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtWater_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtWater.SetIndex(Me._txtWater_0, CType(0, Short))
-        Me._txtWater_0.Location = New System.Drawing.Point(84, 39)
+        Me._txtWater_0.Location = New System.Drawing.Point(86, 38)
         Me._txtWater_0.MaxLength = 0
         Me._txtWater_0.Name = "_txtWater_0"
         Me._txtWater_0.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -2094,7 +2078,7 @@
         Me._lblWater_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblWater_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblWater.SetIndex(Me._lblWater_1, CType(1, Short))
-        Me._lblWater_1.Location = New System.Drawing.Point(2, 20)
+        Me._lblWater_1.Location = New System.Drawing.Point(4, 19)
         Me._lblWater_1.Name = "_lblWater_1"
         Me._lblWater_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblWater_1.Size = New System.Drawing.Size(75, 17)
@@ -2109,7 +2093,7 @@
         Me._lblWater_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblWater_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblWater.SetIndex(Me._lblWater_0, CType(0, Short))
-        Me._lblWater_0.Location = New System.Drawing.Point(2, 40)
+        Me._lblWater_0.Location = New System.Drawing.Point(4, 39)
         Me._lblWater_0.Name = "_lblWater_0"
         Me._lblWater_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblWater_0.Size = New System.Drawing.Size(75, 17)
@@ -2124,7 +2108,7 @@
         Me._lblWaterUnit_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblWaterUnit_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblWaterUnit.SetIndex(Me._lblWaterUnit_1, CType(1, Short))
-        Me._lblWaterUnit_1.Location = New System.Drawing.Point(160, 20)
+        Me._lblWaterUnit_1.Location = New System.Drawing.Point(162, 19)
         Me._lblWaterUnit_1.Name = "_lblWaterUnit_1"
         Me._lblWaterUnit_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblWaterUnit_1.Size = New System.Drawing.Size(33, 17)
@@ -2138,7 +2122,7 @@
         Me._lblWaterUnit_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblWaterUnit_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblWaterUnit.SetIndex(Me._lblWaterUnit_0, CType(0, Short))
-        Me._lblWaterUnit_0.Location = New System.Drawing.Point(160, 40)
+        Me._lblWaterUnit_0.Location = New System.Drawing.Point(162, 39)
         Me._lblWaterUnit_0.Name = "_lblWaterUnit_0"
         Me._lblWaterUnit_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblWaterUnit_0.Size = New System.Drawing.Size(33, 17)
@@ -2151,7 +2135,7 @@
         Me.cmdWaterCorrelations.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdWaterCorrelations.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdWaterCorrelations.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdWaterCorrelations.Location = New System.Drawing.Point(204, 44)
+        Me.cmdWaterCorrelations.Location = New System.Drawing.Point(201, 15)
         Me.cmdWaterCorrelations.Name = "cmdWaterCorrelations"
         Me.cmdWaterCorrelations.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdWaterCorrelations.Size = New System.Drawing.Size(101, 41)
@@ -2219,7 +2203,7 @@
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabelDirty, Me.ToolStripStatusLabelStatus})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 463)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(975, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1201, 22)
         Me.StatusStrip1.TabIndex = 102
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -2269,26 +2253,42 @@
         Me.NumericUpDown3.TabIndex = 105
         Me.NumericUpDown3.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
+        'watergroup
+        '
+        Me.watergroup.BackColor = System.Drawing.Color.White
+        Me.watergroup.Controls.Add(Me._txtWater_1)
+        Me.watergroup.Controls.Add(Me.cmdWaterCorrelations)
+        Me.watergroup.Controls.Add(Me._lblWaterUnit_1)
+        Me.watergroup.Controls.Add(Me._txtWater_0)
+        Me.watergroup.Controls.Add(Me._lblWaterUnit_0)
+        Me.watergroup.Controls.Add(Me._lblWater_0)
+        Me.watergroup.Controls.Add(Me._lblWater_1)
+        Me.watergroup.Location = New System.Drawing.Point(8, 27)
+        Me.watergroup.Name = "watergroup"
+        Me.watergroup.Size = New System.Drawing.Size(308, 64)
+        Me.watergroup.TabIndex = 106
+        Me.watergroup.TabStop = False
+        Me.watergroup.Text = "Water Properties:"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(975, 485)
+        Me.ClientSize = New System.Drawing.Size(1201, 485)
+        Me.Controls.Add(Me.watergroup)
         Me.Controls.Add(Me.NumericUpDown3)
         Me.Controls.Add(Me.NumericUpDown2)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me._cmdNote_1)
         Me.Controls.Add(Me._cmdNote_0)
-        Me.Controls.Add(Me.cmdWaterCorrelations)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.ssframe_Adsorbent)
         Me.Controls.Add(Me.ssframe_FixedBed)
         Me.Controls.Add(Me.ssframe_PSDM)
         Me.Controls.Add(Me.ssframe_Component)
-        Me.Controls.Add(Me.ssframe_Water)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2317,9 +2317,6 @@
         Me.Frame3D2.ResumeLayout(False)
         CType(Me.ssframe_Component, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ssframe_Component.ResumeLayout(False)
-        CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ssframe_Water.ResumeLayout(False)
-        Me.ssframe_Water.PerformLayout()
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2354,6 +2351,8 @@
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.watergroup.ResumeLayout(False)
+        Me.watergroup.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2372,5 +2371,6 @@
     Friend WithEvents NumericUpDown1 As NumericUpDown
     Friend WithEvents NumericUpDown2 As NumericUpDown
     Friend WithEvents NumericUpDown3 As NumericUpDown
+    Friend WithEvents watergroup As GroupBox
 #End Region
 End Class

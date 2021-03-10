@@ -1436,5 +1436,27 @@ Friend Class frmMain
 		Call GenericStatus_Set(StatusMessagePanel)
 	End Sub
 
+	Private Sub _lblWaterUnit_1_Click(sender As Object, e As EventArgs) Handles _lblWaterUnit_1.Click
 
+	End Sub
+
+	Private Sub _lblWaterUnit_0_Click(sender As Object, e As EventArgs) Handles _lblWaterUnit_0.Click
+
+	End Sub
+
+	Private Sub _txtWater_0_TextChanged(sender As Object, e As EventArgs) Handles _txtWater_0.TextChanged
+
+	End Sub
+
+	Private Sub _txtWater_1_TextChanged(sender As Object, e As EventArgs) Handles _txtWater_1.TextChanged
+
+	End Sub
+
+	Private Sub _lblWater_1_Click(sender As Object, e As EventArgs) Handles _lblWater_1.Click
+
+	End Sub
+
+	Private Sub _lblWater_0_Click(sender As Object, e As EventArgs) Handles _lblWater_0.Click
+
+	End Sub
 End Class
