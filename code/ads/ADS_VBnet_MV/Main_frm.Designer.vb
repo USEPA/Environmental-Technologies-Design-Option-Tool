@@ -142,7 +142,6 @@
     Public WithEvents _lblTime_1 As System.Windows.Forms.Label
     Public WithEvents _lblTime_2 As System.Windows.Forms.Label
     Public WithEvents lblAxialElementsDesc As System.Windows.Forms.Label
-    Public WithEvents ssframe_PSDM As AxThreed.AxSSFrame
     Public WithEvents _cmdADEComponent_2 As System.Windows.Forms.Button
     Public WithEvents _cmdADEComponent_1 As System.Windows.Forms.Button
     Public WithEvents _cmdADEComponent_0 As System.Windows.Forms.Button
@@ -305,7 +304,6 @@
         Me._lblBed_9 = New System.Windows.Forms.Label()
         Me._cmdNote_0 = New System.Windows.Forms.Button()
         Me._cmdNote_1 = New System.Windows.Forms.Button()
-        Me.ssframe_PSDM = New AxThreed.AxSSFrame()
         Me._txtTime_0 = New System.Windows.Forms.TextBox()
         Me._txtTime_1 = New System.Windows.Forms.TextBox()
         Me._txtTime_2 = New System.Windows.Forms.TextBox()
@@ -373,10 +371,9 @@
         Me.adsorbentgroup = New System.Windows.Forms.GroupBox()
         Me.componentgroup = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ssframe_PSDM, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ssframe_PSDM.SuspendLayout()
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -415,6 +412,7 @@
         Me.adsorbentgroup.SuspendLayout()
         Me.componentgroup.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command4
@@ -423,7 +421,7 @@
         Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Command4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(104, 417)
+        Me.Command4.Location = New System.Drawing.Point(86, 195)
         Me.Command4.Name = "Command4"
         Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Command4.Size = New System.Drawing.Size(97, 22)
@@ -1659,24 +1657,6 @@
         Me._cmdNote_1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me._cmdNote_1.UseVisualStyleBackColor = False
         '
-        'ssframe_PSDM
-        '
-        Me.ssframe_PSDM.Controls.Add(Me._txtTime_0)
-        Me.ssframe_PSDM.Controls.Add(Me._txtTime_1)
-        Me.ssframe_PSDM.Controls.Add(Me._txtTime_2)
-        Me.ssframe_PSDM.Controls.Add(Me._txtTimeUnits_0)
-        Me.ssframe_PSDM.Controls.Add(Me._txtTimeUnits_1)
-        Me.ssframe_PSDM.Controls.Add(Me._txtTimeUnits_2)
-        Me.ssframe_PSDM.Controls.Add(Me._lblTime_0)
-        Me.ssframe_PSDM.Controls.Add(Me._lblTime_1)
-        Me.ssframe_PSDM.Controls.Add(Me._lblTime_2)
-        Me.ssframe_PSDM.Controls.Add(Me.lblAxialElementsDesc)
-        Me.ssframe_PSDM.Location = New System.Drawing.Point(8, 224)
-        Me.ssframe_PSDM.Name = "ssframe_PSDM"
-        Me.ssframe_PSDM.OcxState = CType(resources.GetObject("ssframe_PSDM.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.ssframe_PSDM.Size = New System.Drawing.Size(368, 232)
-        Me.ssframe_PSDM.TabIndex = 41
-        '
         '_txtTime_0
         '
         Me._txtTime_0.AcceptsReturn = True
@@ -1686,7 +1666,7 @@
         Me._txtTime_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtTime_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtTime.SetIndex(Me._txtTime_0, CType(0, Short))
-        Me._txtTime_0.Location = New System.Drawing.Point(140, 19)
+        Me._txtTime_0.Location = New System.Drawing.Point(134, 21)
         Me._txtTime_0.MaxLength = 0
         Me._txtTime_0.Name = "_txtTime_0"
         Me._txtTime_0.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1704,7 +1684,7 @@
         Me._txtTime_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtTime_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtTime.SetIndex(Me._txtTime_1, CType(1, Short))
-        Me._txtTime_1.Location = New System.Drawing.Point(140, 41)
+        Me._txtTime_1.Location = New System.Drawing.Point(134, 43)
         Me._txtTime_1.MaxLength = 0
         Me._txtTime_1.Name = "_txtTime_1"
         Me._txtTime_1.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1722,7 +1702,7 @@
         Me._txtTime_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtTime_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtTime.SetIndex(Me._txtTime_2, CType(2, Short))
-        Me._txtTime_2.Location = New System.Drawing.Point(140, 64)
+        Me._txtTime_2.Location = New System.Drawing.Point(134, 66)
         Me._txtTime_2.MaxLength = 0
         Me._txtTime_2.Name = "_txtTime_2"
         Me._txtTime_2.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1739,7 +1719,7 @@
         Me._txtTimeUnits_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtTimeUnits_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtTimeUnits.SetIndex(Me._txtTimeUnits_0, CType(0, Short))
-        Me._txtTimeUnits_0.Location = New System.Drawing.Point(224, 18)
+        Me._txtTimeUnits_0.Location = New System.Drawing.Point(218, 20)
         Me._txtTimeUnits_0.Name = "_txtTimeUnits_0"
         Me._txtTimeUnits_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtTimeUnits_0.Size = New System.Drawing.Size(69, 22)
@@ -1754,7 +1734,7 @@
         Me._txtTimeUnits_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtTimeUnits_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtTimeUnits.SetIndex(Me._txtTimeUnits_1, CType(1, Short))
-        Me._txtTimeUnits_1.Location = New System.Drawing.Point(224, 40)
+        Me._txtTimeUnits_1.Location = New System.Drawing.Point(218, 42)
         Me._txtTimeUnits_1.Name = "_txtTimeUnits_1"
         Me._txtTimeUnits_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtTimeUnits_1.Size = New System.Drawing.Size(69, 22)
@@ -1769,7 +1749,7 @@
         Me._txtTimeUnits_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtTimeUnits_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtTimeUnits.SetIndex(Me._txtTimeUnits_2, CType(2, Short))
-        Me._txtTimeUnits_2.Location = New System.Drawing.Point(224, 62)
+        Me._txtTimeUnits_2.Location = New System.Drawing.Point(218, 64)
         Me._txtTimeUnits_2.Name = "_txtTimeUnits_2"
         Me._txtTimeUnits_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtTimeUnits_2.Size = New System.Drawing.Size(69, 22)
@@ -1813,7 +1793,7 @@
         Me._lblTime_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblTime_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblTime.SetIndex(Me._lblTime_0, CType(0, Short))
-        Me._lblTime_0.Location = New System.Drawing.Point(12, 21)
+        Me._lblTime_0.Location = New System.Drawing.Point(6, 23)
         Me._lblTime_0.Name = "_lblTime_0"
         Me._lblTime_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblTime_0.Size = New System.Drawing.Size(125, 17)
@@ -1828,7 +1808,7 @@
         Me._lblTime_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblTime_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblTime.SetIndex(Me._lblTime_1, CType(1, Short))
-        Me._lblTime_1.Location = New System.Drawing.Point(12, 42)
+        Me._lblTime_1.Location = New System.Drawing.Point(6, 44)
         Me._lblTime_1.Name = "_lblTime_1"
         Me._lblTime_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblTime_1.Size = New System.Drawing.Size(125, 17)
@@ -1843,7 +1823,7 @@
         Me._lblTime_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblTime_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblTime.SetIndex(Me._lblTime_2, CType(2, Short))
-        Me._lblTime_2.Location = New System.Drawing.Point(12, 66)
+        Me._lblTime_2.Location = New System.Drawing.Point(6, 68)
         Me._lblTime_2.Name = "_lblTime_2"
         Me._lblTime_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblTime_2.Size = New System.Drawing.Size(125, 17)
@@ -1857,10 +1837,10 @@
         Me.lblAxialElementsDesc.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblAxialElementsDesc.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAxialElementsDesc.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblAxialElementsDesc.Location = New System.Drawing.Point(16, 90)
+        Me.lblAxialElementsDesc.Location = New System.Drawing.Point(19, 92)
         Me.lblAxialElementsDesc.Name = "lblAxialElementsDesc"
         Me.lblAxialElementsDesc.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblAxialElementsDesc.Size = New System.Drawing.Size(165, 17)
+        Me.lblAxialElementsDesc.Size = New System.Drawing.Size(146, 18)
         Me.lblAxialElementsDesc.TabIndex = 53
         Me.lblAxialElementsDesc.Text = "Number of Axial Elements"
         Me.lblAxialElementsDesc.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -2134,10 +2114,10 @@
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(215, 312)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(171, 90)
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(82, 20)
+        Me.NumericUpDown1.Size = New System.Drawing.Size(116, 20)
         Me.NumericUpDown1.TabIndex = 103
         Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
@@ -2149,6 +2129,7 @@
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(82, 20)
         Me.NumericUpDown2.TabIndex = 104
+        Me.NumericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.NumericUpDown2.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown3
@@ -2158,6 +2139,7 @@
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(82, 20)
         Me.NumericUpDown3.TabIndex = 105
+        Me.NumericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.NumericUpDown3.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'watergroup
@@ -2266,12 +2248,35 @@
         Me.GroupBox1.Controls.Add(Me._lblText_1)
         Me.GroupBox1.Controls.Add(Me.NumericUpDown2)
         Me.GroupBox1.Controls.Add(Me.NumericUpDown3)
-        Me.GroupBox1.Location = New System.Drawing.Point(620, 27)
+        Me.GroupBox1.Location = New System.Drawing.Point(29, 116)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(238, 84)
+        Me.GroupBox1.Size = New System.Drawing.Size(238, 77)
         Me.GroupBox1.TabIndex = 110
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Number of Collocation Points"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.White
+        Me.GroupBox2.Controls.Add(Me._txtTime_0)
+        Me.GroupBox2.Controls.Add(Me.GroupBox1)
+        Me.GroupBox2.Controls.Add(Me._txtTimeUnits_0)
+        Me.GroupBox2.Controls.Add(Me._txtTime_1)
+        Me.GroupBox2.Controls.Add(Me.lblAxialElementsDesc)
+        Me.GroupBox2.Controls.Add(Me._txtTime_2)
+        Me.GroupBox2.Controls.Add(Me._lblTime_2)
+        Me.GroupBox2.Controls.Add(Me.Command4)
+        Me.GroupBox2.Controls.Add(Me.NumericUpDown1)
+        Me.GroupBox2.Controls.Add(Me._lblTime_1)
+        Me.GroupBox2.Controls.Add(Me._txtTimeUnits_1)
+        Me.GroupBox2.Controls.Add(Me._lblTime_0)
+        Me.GroupBox2.Controls.Add(Me._txtTimeUnits_2)
+        Me.GroupBox2.Location = New System.Drawing.Point(8, 233)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(308, 223)
+        Me.GroupBox2.TabIndex = 111
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Simulation Parameters for PSDM Only:"
         '
         'frmMain
         '
@@ -2279,16 +2284,13 @@
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1201, 485)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.componentgroup)
         Me.Controls.Add(Me.adsorbentgroup)
         Me.Controls.Add(Me.bedgroup)
         Me.Controls.Add(Me.watergroup)
-        Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.Command4)
-        Me.Controls.Add(Me.ssframe_PSDM)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2304,9 +2306,6 @@
         Me.MainMenu1.ResumeLayout(False)
         Me.MainMenu1.PerformLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ssframe_PSDM, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ssframe_PSDM.ResumeLayout(False)
-        Me.ssframe_PSDM.PerformLayout()
         CType(Me.cmdADEComponent, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdNote, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblBed, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2349,6 +2348,8 @@
         Me.adsorbentgroup.PerformLayout()
         Me.componentgroup.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2372,5 +2373,6 @@
     Friend WithEvents adsorbentgroup As GroupBox
     Friend WithEvents componentgroup As GroupBox
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
 #End Region
 End Class
