@@ -58,23 +58,23 @@ Friend Class frmMain
 		Call unitsys_register(Me, lblTime(0), txtTime(0), txtTimeUnits(0), "time", "d", "min", "", "", 100#, True)
 		Call unitsys_register(Me, lblTime(1), txtTime(1), txtTimeUnits(1), "time", "d", "min", "", "", 100#, True)
 		Call unitsys_register(Me, lblTime(2), txtTime(2), txtTimeUnits(2), "time", "d", "min", "", "", 100#, True)
-		Call unitsys_register(Me, lblAxialElementsDesc, txtNumberOfBeds, Nothing, "", "", "", "0", "0", 100#, False)
-		Call unitsys_register(Me, lblText(0), txtNPoint(0), Nothing, "", "", "", "0", "0", 100#, False)
-		Call unitsys_register(Me, lblText(1), txtNPoint(1), Nothing, "", "", "", "0", "0", 100#, False)
+		'Call unitsys_register(Me, lblAxialElementsDesc, txtNumberOfBeds, Nothing, "", "", "", "0", "0", 100.0#, False)
+		Call unitsys_register(Me, lblText(0), txtNPoint(0), Nothing, "", "", "", "0", "0", 100.0#, False)
+		Call unitsys_register(Me, lblText(1), txtNPoint(1), Nothing, "", "", "", "0", "0", 100.0#, False)
 		'BED PROPERTIES.
-		Call unitsys_register(Me, lblBed(0), txtBedValue(0), txtBedUnits(0), "length", "m", "m", "", "", 100#, True)
-		Call unitsys_register(Me, lblBed(1), txtBedValue(1), txtBedUnits(1), "length", "m", "m", "", "", 100#, True)
-		Call unitsys_register(Me, lblBed(2), txtBedValue(2), txtBedUnits(2), "mass", "kg", "kg", "", "", 100#, True)
-		Call unitsys_register(Me, lblBed(3), txtBedValue(3), txtBedUnits(3), "flow_volumetric", "m³/s", "m³/s", "", "", 100#, True)
-		Call unitsys_register(Me, lblBed(4), txtBedValue(4), txtBedUnits(4), "time", "s", "s", "", "", 100#, True)
+		Call unitsys_register(Me, lblBed(0), txtBedValue(0), txtBedUnits(0), "length", "m", "m", "", "", 100.0#, True)
+		Call unitsys_register(Me, lblBed(1), txtBedValue(1), txtBedUnits(1), "length", "m", "m", "", "", 100.0#, True)
+		Call unitsys_register(Me, lblBed(2), txtBedValue(2), txtBedUnits(2), "mass", "kg", "kg", "", "", 100.0#, True)
+		Call unitsys_register(Me, lblBed(3), txtBedValue(3), txtBedUnits(3), "flow_volumetric", "m³/s", "m³/s", "", "", 100.0#, True)
+		Call unitsys_register(Me, lblBed(4), txtBedValue(4), txtBedUnits(4), "time", "s", "s", "", "", 100.0#, True)
 		'ADSORBENT PROPERTIES.
-		Call unitsys_register(Me, lblCarbon(1), txtCarbon(1), txtCarbonUnits(1), "density", "g/mL", "g/mL", "", "", 100#, True)
-		Call unitsys_register(Me, lblCarbon(2), txtCarbon(2), txtCarbonUnits(2), "length", "m", "m", "", "", 100#, True)
-		Call unitsys_register(Me, lblCarbon(3), txtCarbon(3), Nothing, "", "", "", "", "", 100#, False)
-		Call unitsys_register(Me, lblCarbon(4), txtCarbon(4), Nothing, "", "", "", "", "", 100#, False)
+		Call unitsys_register(Me, lblCarbon(1), txtCarbon(1), txtCarbonUnits(1), "density", "g/mL", "g/mL", "", "", 100.0#, True)
+		Call unitsys_register(Me, lblCarbon(2), txtCarbon(2), txtCarbonUnits(2), "length", "m", "m", "", "", 100.0#, True)
+		Call unitsys_register(Me, lblCarbon(3), txtCarbon(3), Nothing, "", "", "", "", "", 100.0#, False)
+		Call unitsys_register(Me, lblCarbon(4), txtCarbon(4), Nothing, "", "", "", "", "", 100.0#, False)
 	End Sub
-	
-	
+
+
 	Private Sub cmdADEComponent_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdADEComponent.Click
 		Dim Index As Short = cmdADEComponent.GetIndex(eventSender)
 		Dim Raise_Dirty_Flag As Boolean
@@ -191,9 +191,9 @@ Friend Class frmMain
 		'UPDATE WINDOW DISPLAY.
 		Call frmMain_Refresh()
 	End Sub
-	
-	
-	
+
+
+
 	Private Sub cmdNote_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdNote.Click
 		Dim Index As Short = cmdNote.GetIndex(eventSender)
 		Dim Temp_FileNote As String
@@ -246,7 +246,7 @@ Friend Class frmMain
 		' Set focus back to form.
 		Me.Activate()
 	End Sub
-	
+
 	Private Sub frmMain_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim is_internal_mtu As Boolean
 		Dim TurnOff_ForPSDMInRoom As Boolean
@@ -1088,57 +1088,57 @@ Friend Class frmMain
 	End Sub
 
 
-	Private Sub txtNumberOfBeds_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtNumberOfBeds.Enter
-		Dim Ctl As System.Windows.Forms.Control
-		Ctl = txtNumberOfBeds
-		Dim StatusMessagePanel As String
-		Call unitsys_control_txtx_gotfocus(Ctl)
-		StatusMessagePanel = "Type in the number of axial elements (PSDM only)"
-		Call GenericStatus_Set(StatusMessagePanel)
-	End Sub
-	Private Sub txtNumberOfBeds_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtNumberOfBeds.KeyPress
-		Dim KeyAscii As Short = Asc(eventArgs.KeyChar)
-		KeyAscii = Global_NumericKeyPress(KeyAscii)
-		eventArgs.KeyChar = Chr(KeyAscii)
-		If KeyAscii = 0 Then
-			eventArgs.Handled = True
-		End If
-	End Sub
-	Private Sub txtNumberOfBeds_Leave(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtNumberOfBeds.Leave
-		Dim NewValue_Okay As Short
-		Dim NewValue As Double
-		Dim Ctl As System.Windows.Forms.Control
-		Ctl = txtNumberOfBeds
-		Dim Val_Low As Double
-		Dim Val_High As Double
-		Dim Raise_Dirty_Flag As Boolean
-		Dim Too_Small As Short
-		'NOTE: LOW AND HIGH VALUES IN BASE UNITS
-		Val_Low = 1.0#
-		Val_High = CDbl(Maximum_Beds_In_Series)
-		NewValue_Okay = False
-		If (unitsys_control_txtx_lostfocus_validate(Ctl, Val_Low, Val_High, NewValue, Raise_Dirty_Flag)) Then
-			NewValue_Okay = True
-		End If
-		Call unitsys_control_txtx_lostfocus(Ctl, NewValue)
-		Call GenericStatus_Set("")
-		If (NewValue_Okay) Then
-			If (IsThisADemo() = True) And (Raise_Dirty_Flag) Then
-				''''Call Demo_ShowError("Changing data values is not allowed in the demonstration version.")
-				Raise_Dirty_Flag = False
-			End If
-			If (Raise_Dirty_Flag) Then
-				'STORE TO MEMORY.
-				Bed.NumberOfBeds = CShort(NewValue)
-				If (Raise_Dirty_Flag) Then
-					'THROW DIRTY FLAG.
-					Call DirtyStatus_Throw()
-				End If
-			End If
-			'REFRESH WINDOW.
-			Call frmMain_Refresh()
-		End If
-	End Sub
+	'Private Sub txtNumberOfBeds_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
+	'Dim Ctl As System.Windows.Forms.Control
+	'	Ctl = txtNumberOfBeds
+	'Dim StatusMessagePanel As String
+	'Call unitsys_control_txtx_gotfocus(Ctl)
+	'	StatusMessagePanel = "Type in the number of axial elements (PSDM only)"
+	'Call GenericStatus_Set(StatusMessagePanel)
+	'End Sub
+	'Private Sub txtNumberOfBeds_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs)
+	'Dim KeyAscii As Short = Asc(eventArgs.KeyChar)
+	'	KeyAscii = Global_NumericKeyPress(KeyAscii)
+	'	eventArgs.KeyChar = Chr(KeyAscii)
+	'If KeyAscii = 0 Then
+	'		eventArgs.Handled = True
+	'End If
+	'End Sub
+	'Private Sub txtNumberOfBeds_Leave(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
+	'Dim NewValue_Okay As Short
+	'Dim NewValue As Double
+	'Dim Ctl As System.Windows.Forms.Control
+	'	Ctl = txtNumberOfBeds
+	'Dim Val_Low As Double
+	'Dim Val_High As Double
+	'Dim Raise_Dirty_Flag As Boolean
+	'Dim Too_Small As Short
+	'	'NOTE: LOW AND HIGH VALUES IN BASE UNITS
+	'	Val_Low = 1.0#
+	'	Val_High = CDbl(Maximum_Beds_In_Series)
+	'	NewValue_Okay = False
+	'If (unitsys_control_txtx_lostfocus_validate(Ctl, Val_Low, Val_High, NewValue, Raise_Dirty_Flag)) Then
+	'		NewValue_Okay = True
+	'End If
+	'Call unitsys_control_txtx_lostfocus(Ctl, NewValue)
+	'Call GenericStatus_Set("")
+	'If (NewValue_Okay) Then
+	'If (IsThisADemo() = True) And (Raise_Dirty_Flag) Then
+	'			''''Call Demo_ShowError("Changing data values is not allowed in the demonstration version.")
+	'			Raise_Dirty_Flag = False
+	'End If
+	'If (Raise_Dirty_Flag) Then
+	'			'STORE TO MEMORY.
+	'			Bed.NumberOfBeds = CShort(NewValue)
+	'If (Raise_Dirty_Flag) Then
+	''THROW DIRTY FLAG.
+	'Call DirtyStatus_Throw()
+	'End If
+	'End If
+	'REFRESH WINDOW.
+	'Call frmMain_Refresh()
+	'End If
+	'End Sub
 
 
 	Private Sub txtTime_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtTime.Enter
@@ -1369,11 +1369,11 @@ Friend Class frmMain
 		End Select
 	End Sub
 
-	Private Sub spnNumberOfBeds_SpinUp(sender As Object, e As EventArgs) Handles spnNumberOfBeds.SpinUp
+	Private Sub spnNumberOfBeds_SpinUp(sender As Object, e As EventArgs)
 		Call spnNumberOfBeds_SpinUp()
 	End Sub
 
-	Private Sub spnNumberOfBeds_SpinDown(sender As Object, e As EventArgs) Handles spnNumberOfBeds.SpinDown
+	Private Sub spnNumberOfBeds_SpinDown(sender As Object, e As EventArgs)
 		Call spnNumberOfBeds_SpinDown()
 	End Sub
 

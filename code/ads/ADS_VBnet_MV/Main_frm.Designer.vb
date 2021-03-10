@@ -135,7 +135,6 @@
     Public WithEvents _txtTime_0 As System.Windows.Forms.TextBox
     Public WithEvents _txtTime_1 As System.Windows.Forms.TextBox
     Public WithEvents _txtTime_2 As System.Windows.Forms.TextBox
-    Public WithEvents txtNumberOfBeds As System.Windows.Forms.TextBox
     Public WithEvents _txtTimeUnits_0 As System.Windows.Forms.ComboBox
     Public WithEvents _txtTimeUnits_1 As System.Windows.Forms.ComboBox
     Public WithEvents _txtTimeUnits_2 As System.Windows.Forms.ComboBox
@@ -146,7 +145,6 @@
     Public WithEvents _lblText_0 As System.Windows.Forms.Label
     Public WithEvents _lblText_1 As System.Windows.Forms.Label
     Public WithEvents Frame3D2 As AxThreed.AxSSFrame
-    Public WithEvents spnNumberOfBeds As AxSpin.AxSpinButton
     Public WithEvents _lblTime_0 As System.Windows.Forms.Label
     Public WithEvents _lblTime_1 As System.Windows.Forms.Label
     Public WithEvents _lblTime_2 As System.Windows.Forms.Label
@@ -322,7 +320,6 @@
         Me._txtTime_0 = New System.Windows.Forms.TextBox()
         Me._txtTime_1 = New System.Windows.Forms.TextBox()
         Me._txtTime_2 = New System.Windows.Forms.TextBox()
-        Me.txtNumberOfBeds = New System.Windows.Forms.TextBox()
         Me._txtTimeUnits_0 = New System.Windows.Forms.ComboBox()
         Me._txtTimeUnits_1 = New System.Windows.Forms.ComboBox()
         Me._txtTimeUnits_2 = New System.Windows.Forms.ComboBox()
@@ -333,7 +330,6 @@
         Me._spnPoint_0 = New AxSpin.AxSpinButton()
         Me._lblText_0 = New System.Windows.Forms.Label()
         Me._lblText_1 = New System.Windows.Forms.Label()
-        Me.spnNumberOfBeds = New AxSpin.AxSpinButton()
         Me._lblTime_0 = New System.Windows.Forms.Label()
         Me._lblTime_1 = New System.Windows.Forms.Label()
         Me._lblTime_2 = New System.Windows.Forms.Label()
@@ -400,7 +396,6 @@
         Me.Frame3D2.SuspendLayout()
         CType(Me._spnPoint_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._spnPoint_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.spnNumberOfBeds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_Component, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_Component.SuspendLayout()
         CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1746,12 +1741,10 @@
         Me.ssframe_PSDM.Controls.Add(Me._txtTime_0)
         Me.ssframe_PSDM.Controls.Add(Me._txtTime_1)
         Me.ssframe_PSDM.Controls.Add(Me._txtTime_2)
-        Me.ssframe_PSDM.Controls.Add(Me.txtNumberOfBeds)
         Me.ssframe_PSDM.Controls.Add(Me._txtTimeUnits_0)
         Me.ssframe_PSDM.Controls.Add(Me._txtTimeUnits_1)
         Me.ssframe_PSDM.Controls.Add(Me._txtTimeUnits_2)
         Me.ssframe_PSDM.Controls.Add(Me.Frame3D2)
-        Me.ssframe_PSDM.Controls.Add(Me.spnNumberOfBeds)
         Me.ssframe_PSDM.Controls.Add(Me._lblTime_0)
         Me.ssframe_PSDM.Controls.Add(Me._lblTime_1)
         Me.ssframe_PSDM.Controls.Add(Me._lblTime_2)
@@ -1815,23 +1808,6 @@
         Me._txtTime_2.TabIndex = 4
         Me._txtTime_2.Text = "txtTime"
         Me._txtTime_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtNumberOfBeds
-        '
-        Me.txtNumberOfBeds.AcceptsReturn = True
-        Me.txtNumberOfBeds.BackColor = System.Drawing.SystemColors.Window
-        Me.txtNumberOfBeds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtNumberOfBeds.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtNumberOfBeds.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNumberOfBeds.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtNumberOfBeds.Location = New System.Drawing.Point(192, 88)
-        Me.txtNumberOfBeds.MaxLength = 0
-        Me.txtNumberOfBeds.Name = "txtNumberOfBeds"
-        Me.txtNumberOfBeds.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtNumberOfBeds.Size = New System.Drawing.Size(49, 20)
-        Me.txtNumberOfBeds.TabIndex = 5
-        Me.txtNumberOfBeds.Text = "Test"
-        Me.txtNumberOfBeds.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         '_txtTimeUnits_0
         '
@@ -1973,14 +1949,6 @@
         Me._lblText_1.TabIndex = 50
         Me._lblText_1.Text = "Radial Direction"
         Me._lblText_1.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'spnNumberOfBeds
-        '
-        Me.spnNumberOfBeds.Location = New System.Drawing.Point(240, 88)
-        Me.spnNumberOfBeds.Name = "spnNumberOfBeds"
-        Me.spnNumberOfBeds.OcxState = CType(resources.GetObject("spnNumberOfBeds.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.spnNumberOfBeds.Size = New System.Drawing.Size(29, 20)
-        Me.spnNumberOfBeds.TabIndex = 52
         '
         '_lblTime_0
         '
@@ -2391,7 +2359,6 @@
         Me.Frame3D2.PerformLayout()
         CType(Me._spnPoint_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._spnPoint_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.spnNumberOfBeds, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ssframe_Component, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ssframe_Component.ResumeLayout(False)
         CType(Me.ssframe_Water, System.ComponentModel.ISupportInitialize).EndInit()

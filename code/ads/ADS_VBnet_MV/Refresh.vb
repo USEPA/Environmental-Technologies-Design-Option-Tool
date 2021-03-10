@@ -14,9 +14,9 @@ Module Refresh
 		'frmMain.txtWater(1) = Format$(Bed.Pressure, "0.000")
 		''txtWater(2) = Format$(Bed.WaterDensity, "0.000E+00")
 		''txtWater(3) = Format$(Bed.WaterViscosity, "0.00E+00")
-		
+
 		'SIM PARAMS FOR PSDM ONLY.
-		Call unitsys_set_number_in_base_units((frmMain.txtNumberOfBeds), CDbl(Bed.NumberOfBeds))
+		'Call unitsys_set_number_in_base_units((frmMain.txtNumberOfBeds), CDbl(Bed.NumberOfBeds))
 		Call unitsys_set_number_in_base_units(frmMain.txtNPoint(0), CDbl(MC))
 		Call unitsys_set_number_in_base_units(frmMain.txtNPoint(1), CDbl(NC))
 		Call unitsys_set_number_in_base_units(frmMain.txtTime(0), TimeP.End_Renamed)
