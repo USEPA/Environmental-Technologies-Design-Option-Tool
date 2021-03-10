@@ -1393,7 +1393,7 @@ Friend Class frmMain
 	'Call spnPoint_SpinUp(1)
 	'End Sub
 
-	Private Sub ssframe_FixedBed_Enter(sender As Object, e As EventArgs) Handles ssframe_FixedBed.Enter
+	Private Sub ssframe_FixedBed_Enter(sender As Object, e As EventArgs)
 
 	End Sub
 	Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
@@ -1457,6 +1457,10 @@ Friend Class frmMain
 	End Sub
 
 	Private Sub _lblWater_0_Click(sender As Object, e As EventArgs) Handles _lblWater_0.Click
+
+	End Sub
+
+	Private Sub _cmdNote_1_Click(sender As Object, e As EventArgs) Handles _cmdNote_1.Click
 
 	End Sub
 End Class

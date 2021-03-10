@@ -131,7 +131,6 @@
     Public WithEvents _lblBed_7 As System.Windows.Forms.Label
     Public WithEvents _lblBed_8 As System.Windows.Forms.Label
     Public WithEvents _lblBed_9 As System.Windows.Forms.Label
-    Public WithEvents ssframe_FixedBed As AxThreed.AxSSFrame
     Public WithEvents _txtTime_0 As System.Windows.Forms.TextBox
     Public WithEvents _txtTime_1 As System.Windows.Forms.TextBox
     Public WithEvents _txtTime_2 As System.Windows.Forms.TextBox
@@ -280,7 +279,6 @@
         Me._lblCarbon_0 = New System.Windows.Forms.Label()
         Me._lblCarbon_4 = New System.Windows.Forms.Label()
         Me._lblMiscUnits_1 = New System.Windows.Forms.Label()
-        Me.ssframe_FixedBed = New AxThreed.AxSSFrame()
         Me._txtBedUnits_4 = New System.Windows.Forms.ComboBox()
         Me._txtBedUnits_3 = New System.Windows.Forms.ComboBox()
         Me._txtBedUnits_2 = New System.Windows.Forms.ComboBox()
@@ -377,12 +375,11 @@
         Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
         Me.watergroup = New System.Windows.Forms.GroupBox()
+        Me.bedgroup = New System.Windows.Forms.GroupBox()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_Adsorbent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_Adsorbent.SuspendLayout()
-        CType(Me.ssframe_FixedBed, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ssframe_FixedBed.SuspendLayout()
         CType(Me.ssframe_PSDM, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ssframe_PSDM.SuspendLayout()
         CType(Me.Frame3D2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -423,6 +420,7 @@
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.watergroup.SuspendLayout()
+        Me.bedgroup.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command4
@@ -1225,42 +1223,6 @@
         Me._lblMiscUnits_1.Text = "-"
         Me._lblMiscUnits_1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'ssframe_FixedBed
-        '
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedUnits_4)
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedUnits_3)
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedUnits_2)
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedUnits_1)
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedUnits_0)
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedValue_0)
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedValue_1)
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedValue_2)
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedValue_3)
-        Me.ssframe_FixedBed.Controls.Add(Me._txtBedValue_4)
-        Me.ssframe_FixedBed.Controls.Add(Me.cmdAdsorberDB)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblBed_0)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblBed_1)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblBed_2)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblBed_3)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblBed_4)
-        Me.ssframe_FixedBed.Controls.Add(Me.lblBedDensityDisplay)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblBed_5)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblMiscUnits_2)
-        Me.ssframe_FixedBed.Controls.Add(Me.lblporosity)
-        Me.ssframe_FixedBed.Controls.Add(Me.lblInterstitialVelocity)
-        Me.ssframe_FixedBed.Controls.Add(Me.lblSuperficialVelocity)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblMiscUnits_3)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblMiscUnits_4)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblMiscUnits_5)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblBed_7)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblBed_8)
-        Me.ssframe_FixedBed.Controls.Add(Me._lblBed_9)
-        Me.ssframe_FixedBed.Location = New System.Drawing.Point(314, 28)
-        Me.ssframe_FixedBed.Name = "ssframe_FixedBed"
-        Me.ssframe_FixedBed.OcxState = CType(resources.GetObject("ssframe_FixedBed.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.ssframe_FixedBed.Size = New System.Drawing.Size(368, 282)
-        Me.ssframe_FixedBed.TabIndex = 42
-        '
         '_txtBedUnits_4
         '
         Me._txtBedUnits_4.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -1269,7 +1231,7 @@
         Me._txtBedUnits_4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedUnits_4.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedUnits.SetIndex(Me._txtBedUnits_4, CType(4, Short))
-        Me._txtBedUnits_4.Location = New System.Drawing.Point(220, 122)
+        Me._txtBedUnits_4.Location = New System.Drawing.Point(218, 123)
         Me._txtBedUnits_4.Name = "_txtBedUnits_4"
         Me._txtBedUnits_4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtBedUnits_4.Size = New System.Drawing.Size(80, 22)
@@ -1284,7 +1246,7 @@
         Me._txtBedUnits_3.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedUnits_3.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedUnits.SetIndex(Me._txtBedUnits_3, CType(3, Short))
-        Me._txtBedUnits_3.Location = New System.Drawing.Point(220, 102)
+        Me._txtBedUnits_3.Location = New System.Drawing.Point(218, 103)
         Me._txtBedUnits_3.Name = "_txtBedUnits_3"
         Me._txtBedUnits_3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtBedUnits_3.Size = New System.Drawing.Size(80, 22)
@@ -1299,7 +1261,7 @@
         Me._txtBedUnits_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedUnits_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedUnits.SetIndex(Me._txtBedUnits_2, CType(2, Short))
-        Me._txtBedUnits_2.Location = New System.Drawing.Point(220, 82)
+        Me._txtBedUnits_2.Location = New System.Drawing.Point(218, 83)
         Me._txtBedUnits_2.Name = "_txtBedUnits_2"
         Me._txtBedUnits_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtBedUnits_2.Size = New System.Drawing.Size(80, 22)
@@ -1314,7 +1276,7 @@
         Me._txtBedUnits_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedUnits_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedUnits.SetIndex(Me._txtBedUnits_1, CType(1, Short))
-        Me._txtBedUnits_1.Location = New System.Drawing.Point(220, 62)
+        Me._txtBedUnits_1.Location = New System.Drawing.Point(218, 63)
         Me._txtBedUnits_1.Name = "_txtBedUnits_1"
         Me._txtBedUnits_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtBedUnits_1.Size = New System.Drawing.Size(80, 22)
@@ -1329,7 +1291,7 @@
         Me._txtBedUnits_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedUnits_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedUnits.SetIndex(Me._txtBedUnits_0, CType(0, Short))
-        Me._txtBedUnits_0.Location = New System.Drawing.Point(220, 42)
+        Me._txtBedUnits_0.Location = New System.Drawing.Point(218, 43)
         Me._txtBedUnits_0.Name = "_txtBedUnits_0"
         Me._txtBedUnits_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._txtBedUnits_0.Size = New System.Drawing.Size(80, 22)
@@ -1345,7 +1307,7 @@
         Me._txtBedValue_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedValue_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedValue.SetIndex(Me._txtBedValue_0, CType(0, Short))
-        Me._txtBedValue_0.Location = New System.Drawing.Point(136, 44)
+        Me._txtBedValue_0.Location = New System.Drawing.Point(134, 45)
         Me._txtBedValue_0.MaxLength = 0
         Me._txtBedValue_0.Name = "_txtBedValue_0"
         Me._txtBedValue_0.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1363,7 +1325,7 @@
         Me._txtBedValue_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedValue_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedValue.SetIndex(Me._txtBedValue_1, CType(1, Short))
-        Me._txtBedValue_1.Location = New System.Drawing.Point(136, 64)
+        Me._txtBedValue_1.Location = New System.Drawing.Point(134, 65)
         Me._txtBedValue_1.MaxLength = 0
         Me._txtBedValue_1.Name = "_txtBedValue_1"
         Me._txtBedValue_1.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1381,7 +1343,7 @@
         Me._txtBedValue_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedValue_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedValue.SetIndex(Me._txtBedValue_2, CType(2, Short))
-        Me._txtBedValue_2.Location = New System.Drawing.Point(136, 84)
+        Me._txtBedValue_2.Location = New System.Drawing.Point(134, 85)
         Me._txtBedValue_2.MaxLength = 0
         Me._txtBedValue_2.Name = "_txtBedValue_2"
         Me._txtBedValue_2.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1399,7 +1361,7 @@
         Me._txtBedValue_3.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedValue_3.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedValue.SetIndex(Me._txtBedValue_3, CType(3, Short))
-        Me._txtBedValue_3.Location = New System.Drawing.Point(136, 104)
+        Me._txtBedValue_3.Location = New System.Drawing.Point(134, 105)
         Me._txtBedValue_3.MaxLength = 0
         Me._txtBedValue_3.Name = "_txtBedValue_3"
         Me._txtBedValue_3.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1417,7 +1379,7 @@
         Me._txtBedValue_4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtBedValue_4.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtBedValue.SetIndex(Me._txtBedValue_4, CType(4, Short))
-        Me._txtBedValue_4.Location = New System.Drawing.Point(136, 124)
+        Me._txtBedValue_4.Location = New System.Drawing.Point(134, 125)
         Me._txtBedValue_4.MaxLength = 0
         Me._txtBedValue_4.Name = "_txtBedValue_4"
         Me._txtBedValue_4.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1432,7 +1394,7 @@
         Me.cmdAdsorberDB.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdAdsorberDB.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdAdsorberDB.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdAdsorberDB.Location = New System.Drawing.Point(8, 18)
+        Me.cmdAdsorberDB.Location = New System.Drawing.Point(6, 19)
         Me.cmdAdsorberDB.Name = "cmdAdsorberDB"
         Me.cmdAdsorberDB.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdAdsorberDB.Size = New System.Drawing.Size(289, 21)
@@ -1448,7 +1410,7 @@
         Me._lblBed_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblBed_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblBed.SetIndex(Me._lblBed_0, CType(0, Short))
-        Me._lblBed_0.Location = New System.Drawing.Point(16, 46)
+        Me._lblBed_0.Location = New System.Drawing.Point(14, 47)
         Me._lblBed_0.Name = "_lblBed_0"
         Me._lblBed_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblBed_0.Size = New System.Drawing.Size(113, 17)
@@ -1463,7 +1425,7 @@
         Me._lblBed_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblBed_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblBed.SetIndex(Me._lblBed_1, CType(1, Short))
-        Me._lblBed_1.Location = New System.Drawing.Point(16, 66)
+        Me._lblBed_1.Location = New System.Drawing.Point(14, 67)
         Me._lblBed_1.Name = "_lblBed_1"
         Me._lblBed_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblBed_1.Size = New System.Drawing.Size(113, 17)
@@ -1478,7 +1440,7 @@
         Me._lblBed_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblBed_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblBed.SetIndex(Me._lblBed_2, CType(2, Short))
-        Me._lblBed_2.Location = New System.Drawing.Point(24, 86)
+        Me._lblBed_2.Location = New System.Drawing.Point(22, 87)
         Me._lblBed_2.Name = "_lblBed_2"
         Me._lblBed_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblBed_2.Size = New System.Drawing.Size(105, 17)
@@ -1493,7 +1455,7 @@
         Me._lblBed_3.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblBed_3.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblBed.SetIndex(Me._lblBed_3, CType(3, Short))
-        Me._lblBed_3.Location = New System.Drawing.Point(16, 106)
+        Me._lblBed_3.Location = New System.Drawing.Point(14, 107)
         Me._lblBed_3.Name = "_lblBed_3"
         Me._lblBed_3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblBed_3.Size = New System.Drawing.Size(113, 17)
@@ -1508,7 +1470,7 @@
         Me._lblBed_4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblBed_4.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblBed.SetIndex(Me._lblBed_4, CType(4, Short))
-        Me._lblBed_4.Location = New System.Drawing.Point(16, 126)
+        Me._lblBed_4.Location = New System.Drawing.Point(14, 127)
         Me._lblBed_4.Name = "_lblBed_4"
         Me._lblBed_4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblBed_4.Size = New System.Drawing.Size(114, 17)
@@ -1523,7 +1485,7 @@
         Me.lblBedDensityDisplay.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblBedDensityDisplay.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBedDensityDisplay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblBedDensityDisplay.Location = New System.Drawing.Point(136, 145)
+        Me.lblBedDensityDisplay.Location = New System.Drawing.Point(134, 146)
         Me.lblBedDensityDisplay.Name = "lblBedDensityDisplay"
         Me.lblBedDensityDisplay.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblBedDensityDisplay.Size = New System.Drawing.Size(81, 19)
@@ -1538,7 +1500,7 @@
         Me._lblBed_5.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblBed_5.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblBed.SetIndex(Me._lblBed_5, CType(5, Short))
-        Me._lblBed_5.Location = New System.Drawing.Point(16, 146)
+        Me._lblBed_5.Location = New System.Drawing.Point(14, 147)
         Me._lblBed_5.Name = "_lblBed_5"
         Me._lblBed_5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblBed_5.Size = New System.Drawing.Size(114, 17)
@@ -1553,7 +1515,7 @@
         Me._lblMiscUnits_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblMiscUnits_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblMiscUnits.SetIndex(Me._lblMiscUnits_2, CType(2, Short))
-        Me._lblMiscUnits_2.Location = New System.Drawing.Point(220, 146)
+        Me._lblMiscUnits_2.Location = New System.Drawing.Point(218, 147)
         Me._lblMiscUnits_2.Name = "_lblMiscUnits_2"
         Me._lblMiscUnits_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblMiscUnits_2.Size = New System.Drawing.Size(80, 17)
@@ -1568,7 +1530,7 @@
         Me.lblporosity.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblporosity.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblporosity.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblporosity.Location = New System.Drawing.Point(136, 166)
+        Me.lblporosity.Location = New System.Drawing.Point(134, 167)
         Me.lblporosity.Name = "lblporosity"
         Me.lblporosity.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblporosity.Size = New System.Drawing.Size(81, 19)
@@ -1583,7 +1545,7 @@
         Me.lblInterstitialVelocity.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblInterstitialVelocity.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblInterstitialVelocity.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblInterstitialVelocity.Location = New System.Drawing.Point(136, 206)
+        Me.lblInterstitialVelocity.Location = New System.Drawing.Point(134, 207)
         Me.lblInterstitialVelocity.Name = "lblInterstitialVelocity"
         Me.lblInterstitialVelocity.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblInterstitialVelocity.Size = New System.Drawing.Size(81, 19)
@@ -1598,7 +1560,7 @@
         Me.lblSuperficialVelocity.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblSuperficialVelocity.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSuperficialVelocity.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblSuperficialVelocity.Location = New System.Drawing.Point(136, 186)
+        Me.lblSuperficialVelocity.Location = New System.Drawing.Point(134, 187)
         Me.lblSuperficialVelocity.Name = "lblSuperficialVelocity"
         Me.lblSuperficialVelocity.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblSuperficialVelocity.Size = New System.Drawing.Size(81, 19)
@@ -1613,7 +1575,7 @@
         Me._lblMiscUnits_3.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblMiscUnits_3.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblMiscUnits.SetIndex(Me._lblMiscUnits_3, CType(3, Short))
-        Me._lblMiscUnits_3.Location = New System.Drawing.Point(220, 207)
+        Me._lblMiscUnits_3.Location = New System.Drawing.Point(218, 208)
         Me._lblMiscUnits_3.Name = "_lblMiscUnits_3"
         Me._lblMiscUnits_3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblMiscUnits_3.Size = New System.Drawing.Size(80, 15)
@@ -1628,7 +1590,7 @@
         Me._lblMiscUnits_4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblMiscUnits_4.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblMiscUnits.SetIndex(Me._lblMiscUnits_4, CType(4, Short))
-        Me._lblMiscUnits_4.Location = New System.Drawing.Point(220, 187)
+        Me._lblMiscUnits_4.Location = New System.Drawing.Point(218, 188)
         Me._lblMiscUnits_4.Name = "_lblMiscUnits_4"
         Me._lblMiscUnits_4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblMiscUnits_4.Size = New System.Drawing.Size(80, 21)
@@ -1643,7 +1605,7 @@
         Me._lblMiscUnits_5.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblMiscUnits_5.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblMiscUnits.SetIndex(Me._lblMiscUnits_5, CType(5, Short))
-        Me._lblMiscUnits_5.Location = New System.Drawing.Point(220, 167)
+        Me._lblMiscUnits_5.Location = New System.Drawing.Point(218, 168)
         Me._lblMiscUnits_5.Name = "_lblMiscUnits_5"
         Me._lblMiscUnits_5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblMiscUnits_5.Size = New System.Drawing.Size(80, 21)
@@ -1658,7 +1620,7 @@
         Me._lblBed_7.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblBed_7.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblBed.SetIndex(Me._lblBed_7, CType(7, Short))
-        Me._lblBed_7.Location = New System.Drawing.Point(16, 207)
+        Me._lblBed_7.Location = New System.Drawing.Point(14, 208)
         Me._lblBed_7.Name = "_lblBed_7"
         Me._lblBed_7.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblBed_7.Size = New System.Drawing.Size(114, 17)
@@ -1673,7 +1635,7 @@
         Me._lblBed_8.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblBed_8.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblBed.SetIndex(Me._lblBed_8, CType(8, Short))
-        Me._lblBed_8.Location = New System.Drawing.Point(16, 187)
+        Me._lblBed_8.Location = New System.Drawing.Point(14, 188)
         Me._lblBed_8.Name = "_lblBed_8"
         Me._lblBed_8.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblBed_8.Size = New System.Drawing.Size(114, 17)
@@ -1688,7 +1650,7 @@
         Me._lblBed_9.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblBed_9.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblBed.SetIndex(Me._lblBed_9, CType(9, Short))
-        Me._lblBed_9.Location = New System.Drawing.Point(16, 167)
+        Me._lblBed_9.Location = New System.Drawing.Point(14, 168)
         Me._lblBed_9.Name = "_lblBed_9"
         Me._lblBed_9.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblBed_9.Size = New System.Drawing.Size(114, 17)
@@ -1704,7 +1666,7 @@
         Me._cmdNote_0.ForeColor = System.Drawing.SystemColors.ControlText
         Me._cmdNote_0.Image = CType(resources.GetObject("_cmdNote_0.Image"), System.Drawing.Image)
         Me.cmdNote.SetIndex(Me._cmdNote_0, CType(0, Short))
-        Me._cmdNote_0.Location = New System.Drawing.Point(322, 134)
+        Me._cmdNote_0.Location = New System.Drawing.Point(6, 107)
         Me._cmdNote_0.Name = "_cmdNote_0"
         Me._cmdNote_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._cmdNote_0.Size = New System.Drawing.Size(37, 45)
@@ -1720,7 +1682,7 @@
         Me._cmdNote_1.ForeColor = System.Drawing.SystemColors.ControlText
         Me._cmdNote_1.Image = CType(resources.GetObject("_cmdNote_1.Image"), System.Drawing.Image)
         Me.cmdNote.SetIndex(Me._cmdNote_1, CType(1, Short))
-        Me._cmdNote_1.Location = New System.Drawing.Point(322, 126)
+        Me._cmdNote_1.Location = New System.Drawing.Point(6, 107)
         Me._cmdNote_1.Name = "_cmdNote_1"
         Me._cmdNote_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._cmdNote_1.Size = New System.Drawing.Size(37, 45)
@@ -2270,23 +2232,61 @@
         Me.watergroup.TabStop = False
         Me.watergroup.Text = "Water Properties:"
         '
+        'bedgroup
+        '
+        Me.bedgroup.BackColor = System.Drawing.Color.White
+        Me.bedgroup.Controls.Add(Me._txtBedUnits_4)
+        Me.bedgroup.Controls.Add(Me._txtBedUnits_3)
+        Me.bedgroup.Controls.Add(Me._lblBed_9)
+        Me.bedgroup.Controls.Add(Me._txtBedUnits_2)
+        Me.bedgroup.Controls.Add(Me._lblBed_8)
+        Me.bedgroup.Controls.Add(Me._txtBedUnits_1)
+        Me.bedgroup.Controls.Add(Me._cmdNote_1)
+        Me.bedgroup.Controls.Add(Me._lblBed_7)
+        Me.bedgroup.Controls.Add(Me._cmdNote_0)
+        Me.bedgroup.Controls.Add(Me._txtBedUnits_0)
+        Me.bedgroup.Controls.Add(Me._lblMiscUnits_5)
+        Me.bedgroup.Controls.Add(Me._txtBedValue_0)
+        Me.bedgroup.Controls.Add(Me._lblMiscUnits_4)
+        Me.bedgroup.Controls.Add(Me._txtBedValue_1)
+        Me.bedgroup.Controls.Add(Me._lblMiscUnits_3)
+        Me.bedgroup.Controls.Add(Me._txtBedValue_2)
+        Me.bedgroup.Controls.Add(Me.lblSuperficialVelocity)
+        Me.bedgroup.Controls.Add(Me._txtBedValue_3)
+        Me.bedgroup.Controls.Add(Me.lblInterstitialVelocity)
+        Me.bedgroup.Controls.Add(Me._txtBedValue_4)
+        Me.bedgroup.Controls.Add(Me.lblporosity)
+        Me.bedgroup.Controls.Add(Me.cmdAdsorberDB)
+        Me.bedgroup.Controls.Add(Me._lblMiscUnits_2)
+        Me.bedgroup.Controls.Add(Me._lblBed_0)
+        Me.bedgroup.Controls.Add(Me._lblBed_5)
+        Me.bedgroup.Controls.Add(Me._lblBed_1)
+        Me.bedgroup.Controls.Add(Me.lblBedDensityDisplay)
+        Me.bedgroup.Controls.Add(Me._lblBed_2)
+        Me.bedgroup.Controls.Add(Me._lblBed_4)
+        Me.bedgroup.Controls.Add(Me._lblBed_3)
+        Me.bedgroup.Location = New System.Drawing.Point(316, 27)
+        Me.bedgroup.Name = "bedgroup"
+        Me.bedgroup.Size = New System.Drawing.Size(309, 236)
+        Me.bedgroup.TabIndex = 107
+        Me.bedgroup.TabStop = False
+        Me.bedgroup.Text = "Fixed Bed Properties:"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1201, 485)
+        Me.Controls.Add(Me.bedgroup)
         Me.Controls.Add(Me.watergroup)
         Me.Controls.Add(Me.NumericUpDown3)
         Me.Controls.Add(Me.NumericUpDown2)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me._cmdNote_1)
-        Me.Controls.Add(Me._cmdNote_0)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.ssframe_Adsorbent)
-        Me.Controls.Add(Me.ssframe_FixedBed)
         Me.Controls.Add(Me.ssframe_PSDM)
         Me.Controls.Add(Me.ssframe_Component)
         Me.Controls.Add(Me.MainMenu1)
@@ -2307,9 +2307,6 @@
         CType(Me.ssframe_Adsorbent, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ssframe_Adsorbent.ResumeLayout(False)
         Me.ssframe_Adsorbent.PerformLayout()
-        CType(Me.ssframe_FixedBed, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ssframe_FixedBed.ResumeLayout(False)
-        Me.ssframe_FixedBed.PerformLayout()
         CType(Me.ssframe_PSDM, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ssframe_PSDM.ResumeLayout(False)
         Me.ssframe_PSDM.PerformLayout()
@@ -2353,6 +2350,8 @@
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.watergroup.ResumeLayout(False)
         Me.watergroup.PerformLayout()
+        Me.bedgroup.ResumeLayout(False)
+        Me.bedgroup.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2372,5 +2371,6 @@
     Friend WithEvents NumericUpDown2 As NumericUpDown
     Friend WithEvents NumericUpDown3 As NumericUpDown
     Friend WithEvents watergroup As GroupBox
+    Friend WithEvents bedgroup As GroupBox
 #End Region
 End Class
