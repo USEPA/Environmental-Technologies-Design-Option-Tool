@@ -1,6 +1,6 @@
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> Partial Class frmCompoProp
 #Region "Windows Form Designer generated code "
-	<System.Diagnostics.DebuggerNonUserCode()> Public Sub New()
+    <System.Diagnostics.DebuggerNonUserCode()> Public Sub New()
 		MyBase.New()
 		'This call is required by the Windows Form Designer.
 		InitializeComponent()
@@ -28,7 +28,6 @@
     Public WithEvents Label2 As System.Windows.Forms.Label
     Public WithEvents ssframe_StEPP As AxThreed.AxSSFrame
     Public WithEvents cmdCancelOld As System.Windows.Forms.Button
-    Public WithEvents cmdIPES As AxThreed.AxSSCommand
     Public WithEvents Label1 As System.Windows.Forms.Label
     Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents _txtDataComponentProperty_5 As System.Windows.Forms.TextBox
@@ -133,7 +132,6 @@
         Me.SSFrame3 = New AxThreed.AxSSFrame()
         Me.ssframe_StEPP = New AxThreed.AxSSFrame()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me.cmdIPES = New AxThreed.AxSSCommand()
         Me.cmdFreundlich = New System.Windows.Forms.Button()
         Me.cmdKinetics = New System.Windows.Forms.Button()
         Me.cmdImportClipboard = New System.Windows.Forms.Button()
@@ -148,7 +146,6 @@
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_StEPP, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdIPES, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Command4
@@ -865,15 +862,7 @@
         Me.SSFrame1.Size = New System.Drawing.Size(217, 191)
         Me.SSFrame1.TabIndex = 37
         Me.SSFrame1.Visible = False
-        '
-        'cmdIPES
-        '
-        Me.cmdIPES.Location = New System.Drawing.Point(108, 60)
-        Me.cmdIPES.Name = "cmdIPES"
-        Me.cmdIPES.OcxState = CType(resources.GetObject("cmdIPES.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdIPES.Size = New System.Drawing.Size(100, 50)
-        Me.cmdIPES.TabIndex = 39
-        Me.cmdIPES.Visible = False
+
         '
         'cmdFreundlich
         '
@@ -994,7 +983,6 @@
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ssframe_StEPP, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdIPES, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
