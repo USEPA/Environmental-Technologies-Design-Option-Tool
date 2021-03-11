@@ -74,11 +74,12 @@ Friend Class frmNewName
 		Call Global_LostFocus(txtCtl)
 	End Sub
 
-	Private Sub _Button_0_ClickEvent(sender As Object, e As EventArgs) Handles _Button_0.ClickEvent
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		Call Button_Click(0)
 	End Sub
 
-	Private Sub _Button_1_ClickEvent(sender As Object, e As EventArgs) Handles _Button_1.ClickEvent
+	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 		Call Button_Click(1)
 	End Sub
 End Class

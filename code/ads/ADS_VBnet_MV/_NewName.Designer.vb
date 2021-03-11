@@ -18,8 +18,6 @@
 	Private components As System.ComponentModel.IContainer
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents txtdata As System.Windows.Forms.TextBox
-    Public WithEvents _Button_0 As AxThreed.AxSSCommand
-    Public WithEvents _Button_1 As AxThreed.AxSSCommand
     Public WithEvents lblInstructions As System.Windows.Forms.Label
     '   Public WithEvents Button As SSCommandArray
     'NOTE: The following procedure is required by the Windows Form Designer
@@ -27,14 +25,11 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNewName))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.txtdata = New System.Windows.Forms.TextBox()
-        Me._Button_0 = New AxThreed.AxSSCommand()
-        Me._Button_1 = New AxThreed.AxSSCommand()
         Me.lblInstructions = New System.Windows.Forms.Label()
-        CType(Me._Button_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._Button_1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtdata
@@ -48,27 +43,9 @@
         Me.txtdata.MaxLength = 0
         Me.txtdata.Name = "txtdata"
         Me.txtdata.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtdata.Size = New System.Drawing.Size(367, 26)
+        Me.txtdata.Size = New System.Drawing.Size(367, 22)
         Me.txtdata.TabIndex = 0
         Me.txtdata.Text = "txtdata"
-        '
-        '_Button_0
-        '
-        Me._Button_0.Location = New System.Drawing.Point(6, 80)
-        Me._Button_0.Name = "_Button_0"
-        Me._Button_0.OcxState = CType(resources.GetObject("_Button_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._Button_0.Size = New System.Drawing.Size(100, 50)
-        Me._Button_0.TabIndex = 2
-        Me._Button_0.TabStop = False
-        '
-        '_Button_1
-        '
-        Me._Button_1.Location = New System.Drawing.Point(273, 80)
-        Me._Button_1.Name = "_Button_1"
-        Me._Button_1.OcxState = CType(resources.GetObject("_Button_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._Button_1.Size = New System.Drawing.Size(100, 50)
-        Me._Button_1.TabIndex = 3
-        Me._Button_1.TabStop = False
         '
         'lblInstructions
         '
@@ -83,16 +60,34 @@
         Me.lblInstructions.TabIndex = 1
         Me.lblInstructions.Text = "lblInstructions"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(66, 78)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(92, 50)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "OK"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(203, 78)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(92, 50)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "Cancel"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frmNewName
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(485, 154)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtdata)
-        Me.Controls.Add(Me._Button_0)
-        Me.Controls.Add(Me._Button_1)
         Me.Controls.Add(Me.lblInstructions)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -105,11 +100,12 @@
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "{use_title}"
-        CType(Me._Button_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._Button_1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 #End Region
 End Class
