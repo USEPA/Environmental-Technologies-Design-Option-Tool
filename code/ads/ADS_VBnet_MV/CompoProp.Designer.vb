@@ -30,7 +30,6 @@
     Public WithEvents Label2 As System.Windows.Forms.Label
     Public WithEvents ssframe_StEPP As AxThreed.AxSSFrame
     Public WithEvents cmdCancelOld As System.Windows.Forms.Button
-    Public WithEvents cmdCaData As AxThreed.AxSSCommand
     Public WithEvents cmdIPES As AxThreed.AxSSCommand
     Public WithEvents Label1 As System.Windows.Forms.Label
     Public WithEvents SSFrame1 As AxThreed.AxSSFrame
@@ -137,7 +136,6 @@
         Me.cboSource = New System.Windows.Forms.ComboBox()
         Me.sspanel_Dirty = New AxThreed.AxSSPanel()
         Me.sspanel_Status = New AxThreed.AxSSPanel()
-        Me.cmdCaData = New AxThreed.AxSSCommand()
         Me.cmdImportClipboard = New AxThreed.AxSSCommand()
         Me.cmdImportFromFile = New AxThreed.AxSSCommand()
         Me.SSFrame3 = New AxThreed.AxSSFrame()
@@ -153,7 +151,6 @@
         CType(Me.txtPropUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdCaData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdImportClipboard, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdImportFromFile, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -854,15 +851,6 @@
         Me.sspanel_Status.Size = New System.Drawing.Size(581, 33)
         Me.sspanel_Status.TabIndex = 68
         '
-        'cmdCaData
-        '
-        Me.cmdCaData.Location = New System.Drawing.Point(710, 90)
-        Me.cmdCaData.Name = "cmdCaData"
-        Me.cmdCaData.OcxState = CType(resources.GetObject("cmdCaData.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdCaData.Size = New System.Drawing.Size(100, 50)
-        Me.cmdCaData.TabIndex = 38
-        Me.cmdCaData.Visible = False
-        '
         'cmdImportClipboard
         '
         Me.cmdImportClipboard.Location = New System.Drawing.Point(8, 126)
@@ -952,7 +940,6 @@
         Me.Controls.Add(Me.sspanel_Status)
         Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.CancelButton)
-        Me.Controls.Add(Me.cmdCaData)
         Me.Controls.Add(Me.cmdImportClipboard)
         Me.Controls.Add(Me.cmdCancelOld)
         Me.Controls.Add(Me.cmdImportFromFile)
@@ -1011,7 +998,6 @@
         CType(Me.txtPropUnits, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdCaData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdImportClipboard, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdImportFromFile, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
