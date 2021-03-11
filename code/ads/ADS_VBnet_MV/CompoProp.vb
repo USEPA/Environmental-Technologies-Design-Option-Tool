@@ -541,7 +541,7 @@ err_cmdImportFromFile_Click:
 			'---- VARIOUS VISIBILITY SETTINGS.
 			cboChemName.Visible = False
 			'UPGRADE_WARNING: Couldn't resolve default property of object ssframe_StEPP.Visible. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			ssframe_StEPP.Visible = True
+			steppframe.Visible = True
 			''---- DATA ALREADY CONSIDERED CHANGED (DUE TO ADD MODE).
 			'Call frmCompoProp_DirtyStatus_Throw
 			'---- DATA UNCHANGED AS YET.
@@ -568,7 +568,7 @@ err_cmdImportFromFile_Click:
 			'---- VARIOUS VISIBILITY SETTINGS.
 			cboChemName.Visible = True
 			'UPGRADE_WARNING: Couldn't resolve default property of object ssframe_StEPP.Visible. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			ssframe_StEPP.Visible = False
+			steppframe.Visible = False
 			'---- DATA UNCHANGED AS YET.
 			Call frmCompoProp_DirtyStatus_Clear()
 		End If

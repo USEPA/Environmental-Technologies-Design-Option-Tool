@@ -26,7 +26,6 @@
     Public WithEvents _lblComponentProperty_11 As System.Windows.Forms.Label
     Public WithEvents SSFrame3 As AxThreed.AxSSFrame
     Public WithEvents Label2 As System.Windows.Forms.Label
-    Public WithEvents ssframe_StEPP As AxThreed.AxSSFrame
     Public WithEvents cmdCancelOld As System.Windows.Forms.Button
     Public WithEvents Label1 As System.Windows.Forms.Label
     Public WithEvents SSFrame1 As AxThreed.AxSSFrame
@@ -130,12 +129,12 @@
         Me.sspanel_Dirty = New AxThreed.AxSSPanel()
         Me.sspanel_Status = New AxThreed.AxSSPanel()
         Me.SSFrame3 = New AxThreed.AxSSFrame()
-        Me.ssframe_StEPP = New AxThreed.AxSSFrame()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.cmdFreundlich = New System.Windows.Forms.Button()
         Me.cmdKinetics = New System.Windows.Forms.Button()
         Me.cmdImportClipboard = New System.Windows.Forms.Button()
         Me.cmdImportFromFile = New System.Windows.Forms.Button()
+        Me.steppframe = New System.Windows.Forms.GroupBox()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblComponentProperty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,8 +143,8 @@
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ssframe_StEPP, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.steppframe.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command4
@@ -183,7 +182,7 @@
         Me.Label2.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label2.Location = New System.Drawing.Point(5, 48)
+        Me.Label2.Location = New System.Drawing.Point(2, 16)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label2.Size = New System.Drawing.Size(165, 41)
@@ -846,14 +845,6 @@
         Me.SSFrame3.Size = New System.Drawing.Size(366, 124)
         Me.SSFrame3.TabIndex = 46
         '
-        'ssframe_StEPP
-        '
-        Me.ssframe_StEPP.Location = New System.Drawing.Point(2, 18)
-        Me.ssframe_StEPP.Name = "ssframe_StEPP"
-        Me.ssframe_StEPP.OcxState = CType(resources.GetObject("ssframe_StEPP.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.ssframe_StEPP.Size = New System.Drawing.Size(179, 146)
-        Me.ssframe_StEPP.TabIndex = 42
-        '
         'SSFrame1
         '
         Me.SSFrame1.Location = New System.Drawing.Point(602, 40)
@@ -862,7 +853,6 @@
         Me.SSFrame1.Size = New System.Drawing.Size(217, 191)
         Me.SSFrame1.TabIndex = 37
         Me.SSFrame1.Visible = False
-
         '
         'cmdFreundlich
         '
@@ -887,7 +877,7 @@
         'cmdImportClipboard
         '
         Me.cmdImportClipboard.BackColor = System.Drawing.Color.White
-        Me.cmdImportClipboard.Location = New System.Drawing.Point(8, 128)
+        Me.cmdImportClipboard.Location = New System.Drawing.Point(1, 108)
         Me.cmdImportClipboard.Name = "cmdImportClipboard"
         Me.cmdImportClipboard.Size = New System.Drawing.Size(145, 30)
         Me.cmdImportClipboard.TabIndex = 71
@@ -897,12 +887,24 @@
         'cmdImportFromFile
         '
         Me.cmdImportFromFile.BackColor = System.Drawing.Color.White
-        Me.cmdImportFromFile.Location = New System.Drawing.Point(8, 94)
+        Me.cmdImportFromFile.Location = New System.Drawing.Point(1, 71)
         Me.cmdImportFromFile.Name = "cmdImportFromFile"
         Me.cmdImportFromFile.Size = New System.Drawing.Size(145, 31)
         Me.cmdImportFromFile.TabIndex = 72
         Me.cmdImportFromFile.Text = "StEPP &Export File"
         Me.cmdImportFromFile.UseVisualStyleBackColor = False
+        '
+        'steppframe
+        '
+        Me.steppframe.Controls.Add(Me.Label2)
+        Me.steppframe.Controls.Add(Me.cmdImportClipboard)
+        Me.steppframe.Controls.Add(Me.cmdImportFromFile)
+        Me.steppframe.Location = New System.Drawing.Point(7, 12)
+        Me.steppframe.Name = "steppframe"
+        Me.steppframe.Size = New System.Drawing.Size(179, 153)
+        Me.steppframe.TabIndex = 73
+        Me.steppframe.TabStop = False
+        Me.steppframe.Text = "StEPP Link:"
         '
         'frmCompoProp
         '
@@ -911,8 +913,7 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(581, 533)
         Me.ControlBox = False
-        Me.Controls.Add(Me.cmdImportFromFile)
-        Me.Controls.Add(Me.cmdImportClipboard)
+        Me.Controls.Add(Me.steppframe)
         Me.Controls.Add(Me.cmdKinetics)
         Me.Controls.Add(Me.cmdFreundlich)
         Me.Controls.Add(Me._lblComponentProperty_11)
@@ -929,10 +930,8 @@
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.cmdCancelOld)
         Me.Controls.Add(Me.Command4)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.ssframe_StEPP)
         Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me._txtDataComponentProperty_0)
         Me.Controls.Add(Me._txtDataComponentProperty_1)
@@ -981,8 +980,8 @@
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ssframe_StEPP, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.steppframe.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -994,6 +993,7 @@
     Friend WithEvents cmdKinetics As Button
     Friend WithEvents cmdImportClipboard As Button
     Friend WithEvents cmdImportFromFile As Button
+    Friend WithEvents steppframe As GroupBox
 
 
 
