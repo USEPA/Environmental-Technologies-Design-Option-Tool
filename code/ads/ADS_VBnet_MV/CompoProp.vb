@@ -587,20 +587,20 @@ err_cmdImportFromFile_Click:
 
 	Sub frmCompoProp_GenericStatus_Set(ByRef fn_Text As String)
 		'UPGRADE_WARNING: Couldn't resolve default property of object Me.sspanel_Status. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Me.sspanel_Status.Caption = ""
-		Me.sspanel_Status.Caption = fn_Text
+		Me.StatusLabel.Text = ""
+		Me.StatusLabel.Text = fn_Text
 	End Sub
 	Sub frmCompoProp_DirtyStatus_Set(ByRef newVal As Boolean)
 		If (newVal) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmCompoProp.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.Caption = "Data Changed"
+			Me.DirtyLabel.Text = "Data Changed"
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmCompoProp.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.ForeColor = Color.FromName("LightRed") ' 'QBColor(12)
+			Me.DirtyLabel.ForeColor = Color.FromArgb(QBColor(12))
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmCompoProp.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.Caption = "Unchanged"
+			Me.DirtyLabel.Text = "Unchanged"
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmCompoProp.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.ForeColor = Color.FromName("Black") 'QBColor(0)
+			Me.DirtyLabel.ForeColor = Color.FromArgb(QBColor(0))
 		End If
 	End Sub
 	Sub frmCompoProp_DirtyStatus_Set_Current()
@@ -960,9 +960,6 @@ err_cmdImportFromFile_Click:
 		Call cmdImportFromFile_Click()
 	End Sub
 
-	Private Sub sspanel_Status_Enter(sender As Object, e As EventArgs) Handles sspanel_Status.Enter
-
-	End Sub
 
 	Private Sub Freundlich_Click(sender As Object, e As EventArgs) Handles cmdFreundlich.Click
 		Call cmdFreundlich_Click()
@@ -978,5 +975,9 @@ err_cmdImportFromFile_Click:
 
 	Private Sub ImportFromFile_Click(sender As Object, e As EventArgs) Handles cmdImportFromFile.Click
 		Call cmdImportFromFile_Click()
+	End Sub
+
+	Private Sub ToolStripStatusLabel1_Click(sender As Object, e As EventArgs) Handles DirtyLabel.Click
+
 	End Sub
 End Class

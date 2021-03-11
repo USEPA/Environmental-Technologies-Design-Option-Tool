@@ -47,8 +47,6 @@
     Public WithEvents _txtPropUnits_9 As System.Windows.Forms.ComboBox
     Public WithEvents cboChemName As System.Windows.Forms.ComboBox
     Public WithEvents _txtDataComponentProperty_11 As System.Windows.Forms.TextBox
-    Public WithEvents sspanel_Dirty As AxThreed.AxSSPanel
-    Public WithEvents sspanel_Status As AxThreed.AxSSPanel
     Public WithEvents _lblComponentProperty_0 As System.Windows.Forms.Label
     Public WithEvents _lblComponentProperty_1 As System.Windows.Forms.Label
     Public WithEvents _lblComponentProperty_2 As System.Windows.Forms.Label
@@ -124,21 +122,21 @@
         Me.CancelButton = New System.Windows.Forms.Button()
         Me.OKButton = New System.Windows.Forms.Button()
         Me.cboSource = New System.Windows.Forms.ComboBox()
-        Me.sspanel_Dirty = New AxThreed.AxSSPanel()
-        Me.sspanel_Status = New AxThreed.AxSSPanel()
         Me.cmdFreundlich = New System.Windows.Forms.Button()
         Me.cmdKinetics = New System.Windows.Forms.Button()
         Me.cmdImportClipboard = New System.Windows.Forms.Button()
         Me.cmdImportFromFile = New System.Windows.Forms.Button()
         Me.steppframe = New System.Windows.Forms.GroupBox()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.DirtyLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.StatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblComponentProperty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDataComponentProperty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPropUnits, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.steppframe.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command4
@@ -813,23 +811,6 @@
         Me.cboSource.Size = New System.Drawing.Size(221, 22)
         Me.cboSource.TabIndex = 65
         Me.cboSource.TabStop = False
-        '
-        'sspanel_Dirty
-        '
-        Me.sspanel_Dirty.Location = New System.Drawing.Point(0, 500)
-        Me.sspanel_Dirty.Name = "sspanel_Dirty"
-        Me.sspanel_Dirty.OcxState = CType(resources.GetObject("sspanel_Dirty.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Dirty.Size = New System.Drawing.Size(100, 32)
-        Me.sspanel_Dirty.TabIndex = 58
-        '
-        'sspanel_Status
-        '
-        Me.sspanel_Status.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.sspanel_Status.Location = New System.Drawing.Point(0, 500)
-        Me.sspanel_Status.Name = "sspanel_Status"
-        Me.sspanel_Status.OcxState = CType(resources.GetObject("sspanel_Status.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Status.Size = New System.Drawing.Size(581, 33)
-        Me.sspanel_Status.TabIndex = 68
 
         '
         'cmdFreundlich
@@ -884,6 +865,29 @@
         Me.steppframe.TabStop = False
         Me.steppframe.Text = "StEPP Link:"
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirtyLabel, Me.StatusLabel})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 478)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(581, 22)
+        Me.StatusStrip1.TabIndex = 74
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'DirtyLabel
+        '
+        Me.DirtyLabel.AutoSize = False
+        Me.DirtyLabel.Name = "DirtyLabel"
+        Me.DirtyLabel.Size = New System.Drawing.Size(90, 17)
+        Me.DirtyLabel.Text = "DirtyLabel"
+        '
+        'StatusLabel
+        '
+        Me.StatusLabel.AutoSize = False
+        Me.StatusLabel.Name = "StatusLabel"
+        Me.StatusLabel.Size = New System.Drawing.Size(400, 17)
+        Me.StatusLabel.Text = "StatusLabel"
+        '
         'frmCompoProp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -891,6 +895,7 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(581, 533)
         Me.ControlBox = False
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.steppframe)
         Me.Controls.Add(Me.cmdKinetics)
         Me.Controls.Add(Me.cmdFreundlich)
@@ -902,8 +907,6 @@
         Me.Controls.Add(Me._txtDataComponentProperty_6)
         Me.Controls.Add(Me._txtDataComponentProperty_5)
         Me.Controls.Add(Me._lblComponentProperty_5)
-        Me.Controls.Add(Me.sspanel_Dirty)
-        Me.Controls.Add(Me.sspanel_Status)
         Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.cmdCancelOld)
@@ -954,9 +957,9 @@
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDataComponentProperty, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPropUnits, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
         Me.steppframe.ResumeLayout(False)
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -969,6 +972,9 @@
     Friend WithEvents cmdImportClipboard As Button
     Friend WithEvents cmdImportFromFile As Button
     Friend WithEvents steppframe As GroupBox
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents DirtyLabel As ToolStripStatusLabel
+    Friend WithEvents StatusLabel As ToolStripStatusLabel
 
 
 
