@@ -947,23 +947,36 @@ err_cmdImportFromFile_Click:
 		Exit Sub
 	End Sub
 
-	Private Sub cmdKinetics_ClickEvent(sender As Object, e As EventArgs) Handles cmdKinetics.ClickEvent
+	Private Sub cmdKinetics_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdKinetics_Click()
 	End Sub
 
-	Private Sub cmdFreundlich_ClickEvent(sender As Object, e As EventArgs) Handles cmdFreundlich.ClickEvent
+	Private Sub cmdFreundlich_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdFreundlich_Click()
 	End Sub
 
-	Private Sub cmdImportClipboard_ClickEvent(sender As Object, e As EventArgs) Handles cmdImportClipboard.ClickEvent
-		Call cmdImportClipboard_Click()
-	End Sub
 
-	Private Sub cmdImportFromFile_ClickEvent(sender As Object, e As EventArgs) Handles cmdImportFromFile.ClickEvent
+	Private Sub cmdImportFromFile_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdImportFromFile_Click()
 	End Sub
 
 	Private Sub sspanel_Status_Enter(sender As Object, e As EventArgs) Handles sspanel_Status.Enter
 
+	End Sub
+
+	Private Sub Freundlich_Click(sender As Object, e As EventArgs) Handles cmdFreundlich.Click
+		Call cmdFreundlich_Click()
+	End Sub
+
+	Private Sub Kinetics_Click(sender As Object, e As EventArgs) Handles cmdKinetics.Click
+		Call cmdKinetics_Click()
+	End Sub
+
+	Private Sub Clipboard_Click(sender As Object, e As EventArgs) Handles cmdImportClipboard.Click
+		Call cmdImportClipboard_Click()
+	End Sub
+
+	Private Sub ImportFromFile_Click(sender As Object, e As EventArgs) Handles cmdImportFromFile.Click
+		Call cmdImportFromFile_Click()
 	End Sub
 End Class

@@ -25,8 +25,6 @@
 
     Public WithEvents _lblComponentProperty_11 As System.Windows.Forms.Label
     Public WithEvents SSFrame3 As AxThreed.AxSSFrame
-    Public WithEvents cmdImportClipboard As AxThreed.AxSSCommand
-    Public WithEvents cmdImportFromFile As AxThreed.AxSSCommand
     Public WithEvents Label2 As System.Windows.Forms.Label
     Public WithEvents ssframe_StEPP As AxThreed.AxSSFrame
     Public WithEvents cmdCancelOld As System.Windows.Forms.Button
@@ -53,10 +51,6 @@
     Public WithEvents _txtPropUnits_9 As System.Windows.Forms.ComboBox
     Public WithEvents cboChemName As System.Windows.Forms.ComboBox
     Public WithEvents _txtDataComponentProperty_11 As System.Windows.Forms.TextBox
-
-
-    Public WithEvents cmdFreundlich As AxThreed.AxSSCommand
-    Public WithEvents cmdKinetics As AxThreed.AxSSCommand
     Public WithEvents sspanel_Dirty As AxThreed.AxSSPanel
     Public WithEvents sspanel_Status As AxThreed.AxSSPanel
     Public WithEvents _lblComponentProperty_0 As System.Windows.Forms.Label
@@ -136,14 +130,14 @@
         Me.cboSource = New System.Windows.Forms.ComboBox()
         Me.sspanel_Dirty = New AxThreed.AxSSPanel()
         Me.sspanel_Status = New AxThreed.AxSSPanel()
-        Me.cmdImportClipboard = New AxThreed.AxSSCommand()
-        Me.cmdImportFromFile = New AxThreed.AxSSCommand()
         Me.SSFrame3 = New AxThreed.AxSSFrame()
         Me.ssframe_StEPP = New AxThreed.AxSSFrame()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me.cmdFreundlich = New AxThreed.AxSSCommand()
-        Me.cmdKinetics = New AxThreed.AxSSCommand()
         Me.cmdIPES = New AxThreed.AxSSCommand()
+        Me.cmdFreundlich = New System.Windows.Forms.Button()
+        Me.cmdKinetics = New System.Windows.Forms.Button()
+        Me.cmdImportClipboard = New System.Windows.Forms.Button()
+        Me.cmdImportFromFile = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblComponentProperty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,13 +145,9 @@
         CType(Me.txtPropUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdImportClipboard, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdImportFromFile, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_StEPP, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdFreundlich, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdKinetics, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdIPES, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -851,24 +841,6 @@
         Me.sspanel_Status.Size = New System.Drawing.Size(581, 33)
         Me.sspanel_Status.TabIndex = 68
         '
-        'cmdImportClipboard
-        '
-        Me.cmdImportClipboard.Location = New System.Drawing.Point(8, 126)
-        Me.cmdImportClipboard.Name = "cmdImportClipboard"
-        Me.cmdImportClipboard.OcxState = CType(resources.GetObject("cmdImportClipboard.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdImportClipboard.Size = New System.Drawing.Size(145, 26)
-        Me.cmdImportClipboard.TabIndex = 43
-        Me.cmdImportClipboard.TabStop = False
-        '
-        'cmdImportFromFile
-        '
-        Me.cmdImportFromFile.Location = New System.Drawing.Point(8, 92)
-        Me.cmdImportFromFile.Name = "cmdImportFromFile"
-        Me.cmdImportFromFile.OcxState = CType(resources.GetObject("cmdImportFromFile.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdImportFromFile.Size = New System.Drawing.Size(145, 30)
-        Me.cmdImportFromFile.TabIndex = 44
-        Me.cmdImportFromFile.TabStop = False
-        '
         'SSFrame3
         '
         Me.SSFrame3.Location = New System.Drawing.Point(192, 298)
@@ -894,24 +866,6 @@
         Me.SSFrame1.TabIndex = 37
         Me.SSFrame1.Visible = False
         '
-        'cmdFreundlich
-        '
-        Me.cmdFreundlich.Location = New System.Drawing.Point(8, 219)
-        Me.cmdFreundlich.Name = "cmdFreundlich"
-        Me.cmdFreundlich.OcxState = CType(resources.GetObject("cmdFreundlich.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdFreundlich.Size = New System.Drawing.Size(145, 54)
-        Me.cmdFreundlich.TabIndex = 21
-        Me.cmdFreundlich.TabStop = False
-        '
-        'cmdKinetics
-        '
-        Me.cmdKinetics.Location = New System.Drawing.Point(8, 166)
-        Me.cmdKinetics.Name = "cmdKinetics"
-        Me.cmdKinetics.OcxState = CType(resources.GetObject("cmdKinetics.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdKinetics.Size = New System.Drawing.Size(145, 47)
-        Me.cmdKinetics.TabIndex = 23
-        Me.cmdKinetics.TabStop = False
-        '
         'cmdIPES
         '
         Me.cmdIPES.Location = New System.Drawing.Point(108, 60)
@@ -921,6 +875,46 @@
         Me.cmdIPES.TabIndex = 39
         Me.cmdIPES.Visible = False
         '
+        'cmdFreundlich
+        '
+        Me.cmdFreundlich.BackColor = System.Drawing.Color.White
+        Me.cmdFreundlich.Location = New System.Drawing.Point(8, 219)
+        Me.cmdFreundlich.Name = "cmdFreundlich"
+        Me.cmdFreundlich.Size = New System.Drawing.Size(145, 47)
+        Me.cmdFreundlich.TabIndex = 69
+        Me.cmdFreundlich.Text = "&Freundlich K and 1/n"
+        Me.cmdFreundlich.UseVisualStyleBackColor = False
+        '
+        'cmdKinetics
+        '
+        Me.cmdKinetics.BackColor = System.Drawing.Color.White
+        Me.cmdKinetics.Location = New System.Drawing.Point(8, 170)
+        Me.cmdKinetics.Name = "cmdKinetics"
+        Me.cmdKinetics.Size = New System.Drawing.Size(145, 47)
+        Me.cmdKinetics.TabIndex = 70
+        Me.cmdKinetics.Text = "&Kinetics"
+        Me.cmdKinetics.UseVisualStyleBackColor = False
+        '
+        'cmdImportClipboard
+        '
+        Me.cmdImportClipboard.BackColor = System.Drawing.Color.White
+        Me.cmdImportClipboard.Location = New System.Drawing.Point(8, 128)
+        Me.cmdImportClipboard.Name = "cmdImportClipboard"
+        Me.cmdImportClipboard.Size = New System.Drawing.Size(145, 30)
+        Me.cmdImportClipboard.TabIndex = 71
+        Me.cmdImportClipboard.Text = "Clip&board"
+        Me.cmdImportClipboard.UseVisualStyleBackColor = False
+        '
+        'cmdImportFromFile
+        '
+        Me.cmdImportFromFile.BackColor = System.Drawing.Color.White
+        Me.cmdImportFromFile.Location = New System.Drawing.Point(8, 94)
+        Me.cmdImportFromFile.Name = "cmdImportFromFile"
+        Me.cmdImportFromFile.Size = New System.Drawing.Size(145, 31)
+        Me.cmdImportFromFile.TabIndex = 72
+        Me.cmdImportFromFile.Text = "StEPP &Export File"
+        Me.cmdImportFromFile.UseVisualStyleBackColor = False
+        '
         'frmCompoProp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -928,6 +922,10 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(581, 533)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdImportFromFile)
+        Me.Controls.Add(Me.cmdImportClipboard)
+        Me.Controls.Add(Me.cmdKinetics)
+        Me.Controls.Add(Me.cmdFreundlich)
         Me.Controls.Add(Me._lblComponentProperty_11)
         Me.Controls.Add(Me._lblComponentProperty_6)
         Me.Controls.Add(Me.cboSource)
@@ -940,9 +938,7 @@
         Me.Controls.Add(Me.sspanel_Status)
         Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.CancelButton)
-        Me.Controls.Add(Me.cmdImportClipboard)
         Me.Controls.Add(Me.cmdCancelOld)
-        Me.Controls.Add(Me.cmdImportFromFile)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -967,8 +963,6 @@
         Me.Controls.Add(Me._txtPropUnits_9)
         Me.Controls.Add(Me.cboChemName)
         Me.Controls.Add(Me._txtDataComponentProperty_11)
-        Me.Controls.Add(Me.cmdFreundlich)
-        Me.Controls.Add(Me.cmdKinetics)
         Me.Controls.Add(Me._lblComponentProperty_0)
         Me.Controls.Add(Me._lblComponentProperty_1)
         Me.Controls.Add(Me._lblComponentProperty_2)
@@ -980,7 +974,6 @@
         Me.Controls.Add(Me._lblComponentProperty_9)
         Me.Controls.Add(Me._lblComponentProperty_10)
         Me.Controls.Add(Me._lblUnit_0)
-        Me.Controls.Add(Me.SSFrame3)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -998,13 +991,9 @@
         CType(Me.txtPropUnits, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdImportClipboard, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdImportFromFile, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ssframe_StEPP, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdFreundlich, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdKinetics, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdIPES, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1013,6 +1002,10 @@
 
     Friend WithEvents CancelButton As Button
     Friend WithEvents OKButton As Button
+    Friend WithEvents cmdFreundlich As Button
+    Friend WithEvents cmdKinetics As Button
+    Friend WithEvents cmdImportClipboard As Button
+    Friend WithEvents cmdImportFromFile As Button
 
 
 
