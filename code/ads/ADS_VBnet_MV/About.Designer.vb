@@ -24,7 +24,6 @@
 	Public WithEvents lblUserName As System.Windows.Forms.Label
 	Public WithEvents lblUserCompany As System.Windows.Forms.Label
 	Public WithEvents Label1 As System.Windows.Forms.Label
-    Public WithEvents SSPanel1 As AxThreed.AxSSPanel
     Public WithEvents _lblVersionInfo_5 As System.Windows.Forms.Label
     Public WithEvents _lblWarning_5 As System.Windows.Forms.Label
     Public WithEvents _lblWarning_4 As System.Windows.Forms.Label
@@ -56,7 +55,6 @@
         Me.cmdLaunchWebSite = New System.Windows.Forms.Button()
         Me.cmdOK = New System.Windows.Forms.Button()
         Me.picIcon = New System.Windows.Forms.PictureBox()
-        Me.SSPanel1 = New AxThreed.AxSSPanel()
         Me.lblSerialNumber = New System.Windows.Forms.Label()
         Me.lblUserName = New System.Windows.Forms.Label()
         Me.lblUserCompany = New System.Windows.Forms.Label()
@@ -78,12 +76,12 @@
         Me.lblVersionInfo = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me.lblWarning = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me.lbldesc = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.picIcon, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSPanel1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSPanel1.SuspendLayout()
         CType(Me.lblVersionInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblWarning, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ShapeContainer1
@@ -150,25 +148,13 @@
         Me.picIcon.TabIndex = 7
         Me.picIcon.TabStop = False
         '
-        'SSPanel1
-        '
-        Me.SSPanel1.Controls.Add(Me.lblSerialNumber)
-        Me.SSPanel1.Controls.Add(Me.lblUserName)
-        Me.SSPanel1.Controls.Add(Me.lblUserCompany)
-        Me.SSPanel1.Controls.Add(Me.Label1)
-        Me.SSPanel1.Location = New System.Drawing.Point(4, 124)
-        Me.SSPanel1.Name = "SSPanel1"
-        Me.SSPanel1.OcxState = CType(resources.GetObject("SSPanel1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSPanel1.Size = New System.Drawing.Size(367, 71)
-        Me.SSPanel1.TabIndex = 15
-        '
         'lblSerialNumber
         '
         Me.lblSerialNumber.BackColor = System.Drawing.Color.Transparent
         Me.lblSerialNumber.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblSerialNumber.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSerialNumber.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblSerialNumber.Location = New System.Drawing.Point(6, 50)
+        Me.lblSerialNumber.Location = New System.Drawing.Point(3, 44)
         Me.lblSerialNumber.Name = "lblSerialNumber"
         Me.lblSerialNumber.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblSerialNumber.Size = New System.Drawing.Size(355, 15)
@@ -182,7 +168,7 @@
         Me.lblUserName.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblUserName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserName.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblUserName.Location = New System.Drawing.Point(6, 6)
+        Me.lblUserName.Location = New System.Drawing.Point(3, 0)
         Me.lblUserName.Name = "lblUserName"
         Me.lblUserName.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblUserName.Size = New System.Drawing.Size(355, 15)
@@ -196,7 +182,7 @@
         Me.lblUserCompany.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblUserCompany.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserCompany.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblUserCompany.Location = New System.Drawing.Point(6, 20)
+        Me.lblUserCompany.Location = New System.Drawing.Point(3, 14)
         Me.lblUserCompany.Name = "lblUserCompany"
         Me.lblUserCompany.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblUserCompany.Size = New System.Drawing.Size(355, 15)
@@ -210,7 +196,7 @@
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label1.Location = New System.Drawing.Point(6, 34)
+        Me.Label1.Location = New System.Drawing.Point(3, 30)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label1.Size = New System.Drawing.Size(71, 15)
@@ -412,17 +398,29 @@
         Me.lblProgramName.TabIndex = 0
         Me.lblProgramName.Text = "{AppName}"
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.lblUserName)
+        Me.Panel1.Controls.Add(Me.lblSerialNumber)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.lblUserCompany)
+        Me.Panel1.Location = New System.Drawing.Point(15, 135)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(356, 64)
+        Me.Panel1.TabIndex = 23
+        '
         'frmAbout
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CancelButton = Me.cmdLaunchWebSite
         Me.ClientSize = New System.Drawing.Size(650, 446)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.cmdLaunchWebSite)
         Me.Controls.Add(Me.cmdOK)
         Me.Controls.Add(Me.picIcon)
-        Me.Controls.Add(Me.SSPanel1)
         Me.Controls.Add(Me._lblVersionInfo_5)
         Me.Controls.Add(Me._lblWarning_5)
         Me.Controls.Add(Me._lblWarning_4)
@@ -450,13 +448,14 @@
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "About"
         CType(Me.picIcon, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSPanel1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSPanel1.ResumeLayout(False)
         CType(Me.lblVersionInfo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblWarning, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lbldesc, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents Panel1 As Panel
 #End Region
 End Class
