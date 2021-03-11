@@ -24,11 +24,9 @@
 	Public WithEvents _txtPropUnits_5 As System.Windows.Forms.ComboBox
 
     Public WithEvents _lblComponentProperty_11 As System.Windows.Forms.Label
-    Public WithEvents SSFrame3 As AxThreed.AxSSFrame
     Public WithEvents Label2 As System.Windows.Forms.Label
     Public WithEvents cmdCancelOld As System.Windows.Forms.Button
     Public WithEvents Label1 As System.Windows.Forms.Label
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents _txtDataComponentProperty_5 As System.Windows.Forms.TextBox
     Public WithEvents _txtDataComponentProperty_6 As System.Windows.Forms.TextBox
     Public WithEvents _txtDataComponentProperty_0 As System.Windows.Forms.TextBox
@@ -128,8 +126,6 @@
         Me.cboSource = New System.Windows.Forms.ComboBox()
         Me.sspanel_Dirty = New AxThreed.AxSSPanel()
         Me.sspanel_Status = New AxThreed.AxSSPanel()
-        Me.SSFrame3 = New AxThreed.AxSSFrame()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.cmdFreundlich = New System.Windows.Forms.Button()
         Me.cmdKinetics = New System.Windows.Forms.Button()
         Me.cmdImportClipboard = New System.Windows.Forms.Button()
@@ -142,8 +138,6 @@
         CType(Me.txtPropUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.steppframe.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -836,23 +830,7 @@
         Me.sspanel_Status.OcxState = CType(resources.GetObject("sspanel_Status.OcxState"), System.Windows.Forms.AxHost.State)
         Me.sspanel_Status.Size = New System.Drawing.Size(581, 33)
         Me.sspanel_Status.TabIndex = 68
-        '
-        'SSFrame3
-        '
-        Me.SSFrame3.Location = New System.Drawing.Point(192, 298)
-        Me.SSFrame3.Name = "SSFrame3"
-        Me.SSFrame3.OcxState = CType(resources.GetObject("SSFrame3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame3.Size = New System.Drawing.Size(366, 124)
-        Me.SSFrame3.TabIndex = 46
-        '
-        'SSFrame1
-        '
-        Me.SSFrame1.Location = New System.Drawing.Point(602, 40)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(217, 191)
-        Me.SSFrame1.TabIndex = 37
-        Me.SSFrame1.Visible = False
+
         '
         'cmdFreundlich
         '
@@ -932,7 +910,6 @@
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me._txtDataComponentProperty_0)
         Me.Controls.Add(Me._txtDataComponentProperty_1)
         Me.Controls.Add(Me._txtDataComponentProperty_2)
@@ -979,8 +956,6 @@
         CType(Me.txtPropUnits, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.steppframe.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
