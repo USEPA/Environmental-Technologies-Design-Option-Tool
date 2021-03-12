@@ -290,7 +290,7 @@ err_adsorber_db_saveall:
 			'UPGRADE_WARNING: Couldn't resolve default property of object cmdCancel.Visible. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			cmdCancel.Visible = True
 			'UPGRADE_WARNING: Couldn't resolve default property of object cmdCancel.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			cmdCancel.Caption = "E&xit"
+			cmdCancel.Text = "E&xit"
 			lblData(7).Visible = False
 			lblDesc(7).Visible = False
 			lblUnits(7).Visible = False
@@ -547,14 +547,6 @@ err_adsorber_db_saveall:
 		End If
 	End Sub
 
-	Private Sub cmdOK_ClickEvent(sender As Object, e As EventArgs) Handles cmdOK.ClickEvent
-		Call cmdOK_Click()
-	End Sub
-
-	Private Sub cmdCancel_ClickEvent(sender As Object, e As EventArgs) Handles cmdCancel.ClickEvent
-		Call cmdCancel_Click()
-	End Sub
-
 
 	Private Sub _optphase_1_CheckedChanged(sender As Object, e As EventArgs) Handles _optphase_1.CheckedChanged
 		Call optPhase_Click(1, 0)
@@ -562,5 +554,13 @@ err_adsorber_db_saveall:
 
 	Private Sub _optphase_2_CheckedChanged(sender As Object, e As EventArgs) Handles _optphase_2.CheckedChanged
 		Call optPhase_Click(2, 0)
+	End Sub
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+		Call cmdCancel_Click()
+	End Sub
+
+	Private Sub OK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
+		Call cmdOK_Click()
 	End Sub
 End Class
