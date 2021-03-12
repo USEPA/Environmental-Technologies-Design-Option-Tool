@@ -53,7 +53,6 @@
     Public WithEvents _lblUnits_7 As System.Windows.Forms.Label
     Public WithEvents _lblData_7 As System.Windows.Forms.Label
     Public WithEvents _lblDesc_7 As System.Windows.Forms.Label
-    Public WithEvents SSFrame4 As AxThreed.AxSSFrame
     Public WithEvents lblData As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lblDesc As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lblUnits As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -65,7 +64,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditAdsorber))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip()
@@ -108,7 +106,6 @@
         Me.mnuManufacturerItem = New Microsoft.VisualBasic.Compatibility.VB6.ToolStripMenuItemArray(Me.components)
         Me.lstManu = New System.Windows.Forms.ListBox()
         Me.lstName = New System.Windows.Forms.ListBox()
-        Me.SSFrame4 = New AxThreed.AxSSFrame()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me._optphase_2 = New System.Windows.Forms.CheckBox()
@@ -123,7 +120,6 @@
         CType(Me.lblUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuAdsorberItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuManufacturerItem, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -611,14 +607,6 @@
         Me.lstName.Size = New System.Drawing.Size(221, 170)
         Me.lstName.TabIndex = 3
         '
-        'SSFrame4
-        '
-        Me.SSFrame4.Location = New System.Drawing.Point(260, 28)
-        Me.SSFrame4.Name = "SSFrame4"
-        Me.SSFrame4.OcxState = CType(resources.GetObject("SSFrame4.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame4.Size = New System.Drawing.Size(343, 281)
-        Me.SSFrame4.TabIndex = 2
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.lstManu)
@@ -686,7 +674,7 @@
         Me.GroupBox4.Controls.Add(Me._lblData_7)
         Me.GroupBox4.Controls.Add(Me._lblDesc_7)
         Me.GroupBox4.Controls.Add(Me._lblUnits_7)
-        Me.GroupBox4.Location = New System.Drawing.Point(260, 50)
+        Me.GroupBox4.Location = New System.Drawing.Point(277, 28)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(341, 256)
         Me.GroupBox4.TabIndex = 37
@@ -727,7 +715,6 @@
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
-        Me.Controls.Add(Me.SSFrame4)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -747,7 +734,6 @@
         CType(Me.lblUnits, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuAdsorberItem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuManufacturerItem, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
