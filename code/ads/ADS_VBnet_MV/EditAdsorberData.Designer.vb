@@ -40,8 +40,6 @@
     Public WithEvents _lblUnits_0 As System.Windows.Forms.Label
     Public WithEvents _lblDesc_0 As System.Windows.Forms.Label
     Public WithEvents _lblDesc_7 As System.Windows.Forms.Label
-    Public WithEvents cmdSave As AxThreed.AxSSCommand
-    Public WithEvents cmdCancel As AxThreed.AxSSCommand
     Public WithEvents lblDesc As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lblUnits As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     '   Public WithEvents optPhase As SSOptionArray
@@ -51,7 +49,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditAdsorberData))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.lblDesc = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
@@ -79,18 +76,16 @@
         Me._txtData_6 = New System.Windows.Forms.TextBox()
         Me._txtData_0 = New System.Windows.Forms.TextBox()
         Me._txtData_7 = New System.Windows.Forms.TextBox()
-        Me.cmdSave = New AxThreed.AxSSCommand()
-        Me.cmdCancel = New AxThreed.AxSSCommand()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me._optphase_2 = New System.Windows.Forms.CheckBox()
         Me._optphase_1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cmdCancel = New System.Windows.Forms.Button()
+        Me.cmdSave = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdSave, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdCancel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -335,7 +330,7 @@
         Me._txtData_1.MaxLength = 0
         Me._txtData_1.Name = "_txtData_1"
         Me._txtData_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_1.Size = New System.Drawing.Size(107, 23)
+        Me._txtData_1.Size = New System.Drawing.Size(107, 20)
         Me._txtData_1.TabIndex = 2
         Me._txtData_1.Text = "txtData(1)"
         Me._txtData_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -353,7 +348,7 @@
         Me._txtData_2.MaxLength = 0
         Me._txtData_2.Name = "_txtData_2"
         Me._txtData_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_2.Size = New System.Drawing.Size(107, 23)
+        Me._txtData_2.Size = New System.Drawing.Size(107, 20)
         Me._txtData_2.TabIndex = 3
         Me._txtData_2.Text = "txtData(2)"
         Me._txtData_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -371,7 +366,7 @@
         Me._txtData_3.MaxLength = 0
         Me._txtData_3.Name = "_txtData_3"
         Me._txtData_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_3.Size = New System.Drawing.Size(107, 23)
+        Me._txtData_3.Size = New System.Drawing.Size(107, 20)
         Me._txtData_3.TabIndex = 4
         Me._txtData_3.Text = "txtData(3)"
         Me._txtData_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -389,7 +384,7 @@
         Me._txtData_4.MaxLength = 0
         Me._txtData_4.Name = "_txtData_4"
         Me._txtData_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_4.Size = New System.Drawing.Size(107, 23)
+        Me._txtData_4.Size = New System.Drawing.Size(107, 20)
         Me._txtData_4.TabIndex = 5
         Me._txtData_4.Text = "txtData(4)"
         Me._txtData_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -407,7 +402,7 @@
         Me._txtData_5.MaxLength = 0
         Me._txtData_5.Name = "_txtData_5"
         Me._txtData_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_5.Size = New System.Drawing.Size(107, 23)
+        Me._txtData_5.Size = New System.Drawing.Size(107, 20)
         Me._txtData_5.TabIndex = 6
         Me._txtData_5.Text = "txtData(5)"
         Me._txtData_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -425,7 +420,7 @@
         Me._txtData_6.MaxLength = 0
         Me._txtData_6.Name = "_txtData_6"
         Me._txtData_6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_6.Size = New System.Drawing.Size(275, 23)
+        Me._txtData_6.Size = New System.Drawing.Size(275, 20)
         Me._txtData_6.TabIndex = 7
         Me._txtData_6.Text = "txtData(6)"
         Me._txtData_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -443,7 +438,7 @@
         Me._txtData_0.MaxLength = 0
         Me._txtData_0.Name = "_txtData_0"
         Me._txtData_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_0.Size = New System.Drawing.Size(107, 23)
+        Me._txtData_0.Size = New System.Drawing.Size(107, 20)
         Me._txtData_0.TabIndex = 1
         Me._txtData_0.Text = "txtData(0)"
         Me._txtData_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -461,28 +456,10 @@
         Me._txtData_7.MaxLength = 0
         Me._txtData_7.Name = "_txtData_7"
         Me._txtData_7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_7.Size = New System.Drawing.Size(171, 23)
+        Me._txtData_7.Size = New System.Drawing.Size(171, 20)
         Me._txtData_7.TabIndex = 0
         Me._txtData_7.Text = "txtData(7)"
         Me._txtData_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'cmdSave
-        '
-        Me.cmdSave.Location = New System.Drawing.Point(27, 311)
-        Me.cmdSave.Name = "cmdSave"
-        Me.cmdSave.OcxState = CType(resources.GetObject("cmdSave.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdSave.Size = New System.Drawing.Size(100, 50)
-        Me.cmdSave.TabIndex = 26
-        Me.cmdSave.TabStop = False
-        '
-        'cmdCancel
-        '
-        Me.cmdCancel.Location = New System.Drawing.Point(216, 311)
-        Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.OcxState = CType(resources.GetObject("cmdCancel.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdCancel.Size = New System.Drawing.Size(100, 50)
-        Me.cmdCancel.TabIndex = 27
-        Me.cmdCancel.TabStop = False
         '
         'GroupBox1
         '
@@ -500,7 +477,7 @@
         Me._optphase_2.AutoSize = True
         Me._optphase_2.Location = New System.Drawing.Point(150, 31)
         Me._optphase_2.Name = "_optphase_2"
-        Me._optphase_2.Size = New System.Drawing.Size(100, 20)
+        Me._optphase_2.Size = New System.Drawing.Size(79, 18)
         Me._optphase_2.TabIndex = 1
         Me._optphase_2.Text = "Gas Phase"
         Me._optphase_2.UseVisualStyleBackColor = True
@@ -510,7 +487,7 @@
         Me._optphase_1.AutoSize = True
         Me._optphase_1.Location = New System.Drawing.Point(0, 31)
         Me._optphase_1.Name = "_optphase_1"
-        Me._optphase_1.Size = New System.Drawing.Size(112, 20)
+        Me._optphase_1.Size = New System.Drawing.Size(87, 18)
         Me._optphase_1.TabIndex = 0
         Me._optphase_1.Text = "Liquid Phase"
         Me._optphase_1.UseVisualStyleBackColor = True
@@ -546,18 +523,38 @@
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Adsorber Properties:"
         '
+        'cmdCancel
+        '
+        Me.cmdCancel.BackColor = System.Drawing.Color.White
+        Me.cmdCancel.Location = New System.Drawing.Point(170, 311)
+        Me.cmdCancel.Name = "cmdCancel"
+        Me.cmdCancel.Size = New System.Drawing.Size(104, 45)
+        Me.cmdCancel.TabIndex = 31
+        Me.cmdCancel.Text = "&Cancel"
+        Me.cmdCancel.UseVisualStyleBackColor = False
+        '
+        'cmdSave
+        '
+        Me.cmdSave.BackColor = System.Drawing.Color.White
+        Me.cmdSave.Location = New System.Drawing.Point(52, 311)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(87, 45)
+        Me.cmdSave.TabIndex = 32
+        Me.cmdSave.Text = "&Save"
+        Me.cmdSave.UseVisualStyleBackColor = False
+        '
         'frmEditAdsorberData
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(452, 373)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdSave)
+        Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.cmdSave)
-        Me.Controls.Add(Me.cmdCancel)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -572,8 +569,6 @@
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblUnits, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdSave, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdCancel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -586,5 +581,7 @@
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents _optphase_2 As CheckBox
     Friend WithEvents _optphase_1 As CheckBox
+    Friend WithEvents cmdCancel As Button
+    Friend WithEvents cmdSave As Button
 #End Region
 End Class

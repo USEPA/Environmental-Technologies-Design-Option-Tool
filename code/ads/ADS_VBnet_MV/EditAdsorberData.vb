@@ -294,21 +294,19 @@ Friend Class frmEditAdsorberData
 		End If
 	End Sub
 
-	Private Sub cmdSave_ClickEvent(sender As Object, e As EventArgs) Handles cmdSave.ClickEvent
-		Call cmdSave_Click()
-
-	End Sub
-
-	Private Sub cmdCancel_ClickEvent(sender As Object, e As EventArgs) Handles cmdCancel.ClickEvent
-		Call cmdCancel_Click()
-	End Sub
-
-
 	Private Sub _optphase_1_CheckedChanged(sender As Object, e As EventArgs) Handles _optphase_1.CheckedChanged
 		Call optPhase_Click(1, 0)
 	End Sub
 
 	Private Sub _optphase_2_CheckedChanged(sender As Object, e As EventArgs) Handles _optphase_2.CheckedChanged
 		Call optPhase_Click(2, 0)
+	End Sub
+
+	Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+		Call cmdCancel_Click()
+	End Sub
+
+	Private Sub Save_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
+		Call cmdSave_Click()
 	End Sub
 End Class
