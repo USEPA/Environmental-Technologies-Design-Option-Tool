@@ -44,11 +44,9 @@ Friend Class frmDimensionless
 		'frmDimensionlessDefs.Show
 		'Me.Show
 	End Sub
-	Private Sub cmdOK_Click()
-		Me.Close()
-	End Sub
-	
-	
+
+
+
 	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles Command4.Click
 		Dim Printer As New Printer
 		Picture2.Image = CaptureActiveWindow()
@@ -89,7 +87,9 @@ Friend Class frmDimensionless
 		Call Global_LostFocus(Ctl)
 	End Sub
 
-	Private Sub cmdOK_ClickEvent(sender As Object, e As EventArgs) Handles cmdOK.ClickEvent
+
+
+	Private Sub Close_Click(sender As Object, e As EventArgs) Handles cmdclose.Click
 		Me.Close()
 	End Sub
 End Class

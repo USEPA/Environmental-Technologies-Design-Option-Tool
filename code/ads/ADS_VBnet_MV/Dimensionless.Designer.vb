@@ -20,8 +20,6 @@
 	Public WithEvents Picture2 As System.Windows.Forms.PictureBox
 	Public WithEvents Command4 As System.Windows.Forms.Button
     Public WithEvents cboSelectCompo As System.Windows.Forms.ComboBox
-    Public WithEvents cmdDefs As AxThreed.AxSSCommand
-    Public WithEvents cmdOK As AxThreed.AxSSCommand
     Public WithEvents lblDimless As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents txtDimless As Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray
     'NOTE: The following procedure is required by the Windows Form Designer
@@ -50,16 +48,13 @@
         Me._txtDimless_1 = New System.Windows.Forms.TextBox()
         Me._txtDimless_0 = New System.Windows.Forms.TextBox()
         Me.cboSelectCompo = New System.Windows.Forms.ComboBox()
-        Me.cmdOK = New AxThreed.AxSSCommand()
-        Me.cmdDefs = New AxThreed.AxSSCommand()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmdclose = New System.Windows.Forms.Button()
         CType(Me.Picture2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblDimless, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDimless, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdOK, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdDefs, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -67,11 +62,11 @@
         '
         'Command4
         '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
+        Me.Command4.BackColor = System.Drawing.Color.White
         Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(17, 377)
+        Me.Command4.Location = New System.Drawing.Point(17, 369)
         Me.Command4.Name = "Command4"
         Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Command4.Size = New System.Drawing.Size(120, 34)
@@ -217,7 +212,7 @@
         Me._txtDimless_6.Name = "_txtDimless_6"
         Me._txtDimless_6.ReadOnly = True
         Me._txtDimless_6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDimless_6.Size = New System.Drawing.Size(80, 23)
+        Me._txtDimless_6.Size = New System.Drawing.Size(80, 20)
         Me._txtDimless_6.TabIndex = 7
         Me._txtDimless_6.Text = "txtDimless(6)"
         '
@@ -235,7 +230,7 @@
         Me._txtDimless_5.Name = "_txtDimless_5"
         Me._txtDimless_5.ReadOnly = True
         Me._txtDimless_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDimless_5.Size = New System.Drawing.Size(80, 23)
+        Me._txtDimless_5.Size = New System.Drawing.Size(80, 20)
         Me._txtDimless_5.TabIndex = 6
         Me._txtDimless_5.Text = "txtDimless(5)"
         '
@@ -253,7 +248,7 @@
         Me._txtDimless_4.Name = "_txtDimless_4"
         Me._txtDimless_4.ReadOnly = True
         Me._txtDimless_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDimless_4.Size = New System.Drawing.Size(80, 23)
+        Me._txtDimless_4.Size = New System.Drawing.Size(80, 20)
         Me._txtDimless_4.TabIndex = 5
         Me._txtDimless_4.Text = "txtDimless(4)"
         '
@@ -271,7 +266,7 @@
         Me._txtDimless_3.Name = "_txtDimless_3"
         Me._txtDimless_3.ReadOnly = True
         Me._txtDimless_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDimless_3.Size = New System.Drawing.Size(80, 23)
+        Me._txtDimless_3.Size = New System.Drawing.Size(80, 20)
         Me._txtDimless_3.TabIndex = 4
         Me._txtDimless_3.Text = "txtDimless(3)"
         '
@@ -289,7 +284,7 @@
         Me._txtDimless_2.Name = "_txtDimless_2"
         Me._txtDimless_2.ReadOnly = True
         Me._txtDimless_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDimless_2.Size = New System.Drawing.Size(80, 23)
+        Me._txtDimless_2.Size = New System.Drawing.Size(80, 20)
         Me._txtDimless_2.TabIndex = 3
         Me._txtDimless_2.Text = "txtDimless(2)"
         '
@@ -307,7 +302,7 @@
         Me._txtDimless_1.Name = "_txtDimless_1"
         Me._txtDimless_1.ReadOnly = True
         Me._txtDimless_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDimless_1.Size = New System.Drawing.Size(80, 23)
+        Me._txtDimless_1.Size = New System.Drawing.Size(80, 20)
         Me._txtDimless_1.TabIndex = 2
         Me._txtDimless_1.Text = "txtDimless(1)"
         '
@@ -325,7 +320,7 @@
         Me._txtDimless_0.Name = "_txtDimless_0"
         Me._txtDimless_0.ReadOnly = True
         Me._txtDimless_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtDimless_0.Size = New System.Drawing.Size(80, 23)
+        Me._txtDimless_0.Size = New System.Drawing.Size(80, 20)
         Me._txtDimless_0.TabIndex = 1
         Me._txtDimless_0.Text = "txtDimless(0)"
         '
@@ -339,28 +334,9 @@
         Me.cboSelectCompo.Location = New System.Drawing.Point(8, 20)
         Me.cboSelectCompo.Name = "cboSelectCompo"
         Me.cboSelectCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboSelectCompo.Size = New System.Drawing.Size(325, 24)
+        Me.cboSelectCompo.Size = New System.Drawing.Size(325, 22)
         Me.cboSelectCompo.TabIndex = 9
         Me.cboSelectCompo.TabStop = False
-        '
-        'cmdOK
-        '
-        Me.cmdOK.Location = New System.Drawing.Point(238, 361)
-        Me.cmdOK.Name = "cmdOK"
-        Me.cmdOK.OcxState = CType(resources.GetObject("cmdOK.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdOK.Size = New System.Drawing.Size(100, 50)
-        Me.cmdOK.TabIndex = 19
-        Me.cmdOK.TabStop = False
-        '
-        'cmdDefs
-        '
-        Me.cmdDefs.Location = New System.Drawing.Point(113, 272)
-        Me.cmdDefs.Name = "cmdDefs"
-        Me.cmdDefs.OcxState = CType(resources.GetObject("cmdDefs.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdDefs.Size = New System.Drawing.Size(100, 33)
-        Me.cmdDefs.TabIndex = 17
-        Me.cmdDefs.TabStop = False
-        Me.cmdDefs.Visible = False
         '
         'Picture1
         '
@@ -394,7 +370,6 @@
         Me.GroupBox2.Controls.Add(Me._txtDimless_4)
         Me.GroupBox2.Controls.Add(Me._txtDimless_5)
         Me.GroupBox2.Controls.Add(Me._txtDimless_6)
-        Me.GroupBox2.Controls.Add(Me.cmdDefs)
         Me.GroupBox2.Location = New System.Drawing.Point(6, 12)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(372, 325)
@@ -411,18 +386,28 @@
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Select Component"
         '
+        'cmdclose
+        '
+        Me.cmdclose.BackColor = System.Drawing.Color.White
+        Me.cmdclose.Location = New System.Drawing.Point(207, 362)
+        Me.cmdclose.Name = "cmdclose"
+        Me.cmdclose.Size = New System.Drawing.Size(98, 49)
+        Me.cmdclose.TabIndex = 23
+        Me.cmdclose.Text = "&Close"
+        Me.cmdclose.UseVisualStyleBackColor = False
+        '
         'frmDimensionless
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1043, 436)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdclose)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Picture2)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.cmdOK)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -436,8 +421,6 @@
         CType(Me.Picture2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblDimless, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDimless, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdOK, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdDefs, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -463,5 +446,6 @@
     Public WithEvents _lblDimless_0 As Label
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents cmdclose As Button
 #End Region
 End Class
