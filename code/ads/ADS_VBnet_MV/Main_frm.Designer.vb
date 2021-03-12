@@ -2125,6 +2125,7 @@
         'NumericUpDown2
         '
         Me.NumericUpDown2.Location = New System.Drawing.Point(142, 22)
+        Me.NumericUpDown2.Maximum = New Decimal(New Integer() {18, 0, 0, 0})
         Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(82, 20)
@@ -2135,6 +2136,7 @@
         'NumericUpDown3
         '
         Me.NumericUpDown3.Location = New System.Drawing.Point(142, 41)
+        Me.NumericUpDown3.Maximum = New Decimal(New Integer() {18, 0, 0, 0})
         Me.NumericUpDown3.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(82, 20)

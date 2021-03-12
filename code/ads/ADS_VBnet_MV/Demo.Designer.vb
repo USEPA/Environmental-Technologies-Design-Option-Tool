@@ -19,8 +19,7 @@
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents cmdButton1 As System.Windows.Forms.Button
 	Public WithEvents cmdExit As System.Windows.Forms.Button
-	Public WithEvents lblDisclaimer As System.Windows.Forms.Label
-    Public WithEvents SSPanel3 As AxThreed.AxSSPanel
+    Public WithEvents lblDisclaimer As System.Windows.Forms.Label
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
@@ -30,10 +29,7 @@
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmdButton1 = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
-        Me.SSPanel3 = New AxThreed.AxSSPanel()
         Me.lblDisclaimer = New System.Windows.Forms.Label()
-        CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'cmdButton1
@@ -63,15 +59,7 @@
         Me.cmdExit.TabIndex = 1
         Me.cmdExit.Text = "E&xit"
         Me.cmdExit.UseVisualStyleBackColor = False
-        '
-        'SSPanel3
-        '
-        Me.SSPanel3.Controls.Add(Me.lblDisclaimer)
-        Me.SSPanel3.Location = New System.Drawing.Point(8, 8)
-        Me.SSPanel3.Name = "SSPanel3"
-        Me.SSPanel3.OcxState = CType(resources.GetObject("SSPanel3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSPanel3.Size = New System.Drawing.Size(539, 205)
-        Me.SSPanel3.TabIndex = 2
+
         '
         'lblDisclaimer
         '
@@ -106,10 +94,12 @@
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Demo Version"
-        CType(Me.SSPanel3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSPanel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
+    End Sub
+
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
     End Sub
 #End Region
 End Class
