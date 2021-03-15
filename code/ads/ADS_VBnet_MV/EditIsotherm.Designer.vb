@@ -31,8 +31,6 @@
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
 	Public WithEvents Command4 As System.Windows.Forms.Button
 	Public WithEvents lstCompo As System.Windows.Forms.ListBox
-    Public WithEvents _cmdFind_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdFind_0 As AxThreed.AxSSCommand
     Public WithEvents lblEmpty_lstCompo As System.Windows.Forms.Label
     Public WithEvents _lstRange_1 As System.Windows.Forms.ListBox
     Public WithEvents _lstRange_0 As System.Windows.Forms.ListBox
@@ -66,7 +64,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditIsotherm))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip()
@@ -108,13 +105,13 @@
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lblComments = New System.Windows.Forms.Label()
-        Me._cmdFind_1 = New AxThreed.AxSSCommand()
-        Me._cmdFind_0 = New AxThreed.AxSSCommand()
-        Me.cmdSelect = New AxThreed.AxSSCommand()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me._optSort_1 = New System.Windows.Forms.RadioButton()
         Me._optSort_0 = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me._cmdFind_0 = New System.Windows.Forms.Button()
+        Me._cmdFind_1 = New System.Windows.Forms.Button()
+        Me.cmdSelect = New System.Windows.Forms.Button()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Label5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,9 +120,6 @@
         CType(Me.lstRange, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuChemicalItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuIsothermItem, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdFind_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdFind_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdSelect, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -151,76 +145,76 @@
         Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuChemical, Me.mnuIsotherm, Me.mnuExit})
         Me.MainMenu1.Location = New System.Drawing.Point(0, 0)
         Me.MainMenu1.Name = "MainMenu1"
-        Me.MainMenu1.Size = New System.Drawing.Size(731, 28)
+        Me.MainMenu1.Size = New System.Drawing.Size(731, 24)
         Me.MainMenu1.TabIndex = 30
         '
         'mnuChemical
         '
         Me.mnuChemical.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuChemicalItem_1, Me._mnuChemicalItem_2, Me._mnuChemicalItem_3})
         Me.mnuChemical.Name = "mnuChemical"
-        Me.mnuChemical.Size = New System.Drawing.Size(84, 24)
+        Me.mnuChemical.Size = New System.Drawing.Size(69, 20)
         Me.mnuChemical.Text = "C&hemical"
         '
         '_mnuChemicalItem_1
         '
         Me.mnuChemicalItem.SetIndex(Me._mnuChemicalItem_1, CType(1, Short))
         Me._mnuChemicalItem_1.Name = "_mnuChemicalItem_1"
-        Me._mnuChemicalItem_1.Size = New System.Drawing.Size(188, 26)
+        Me._mnuChemicalItem_1.Size = New System.Drawing.Size(150, 22)
         Me._mnuChemicalItem_1.Text = "&New"
         '
         '_mnuChemicalItem_2
         '
         Me.mnuChemicalItem.SetIndex(Me._mnuChemicalItem_2, CType(2, Short))
         Me._mnuChemicalItem_2.Name = "_mnuChemicalItem_2"
-        Me._mnuChemicalItem_2.Size = New System.Drawing.Size(188, 26)
+        Me._mnuChemicalItem_2.Size = New System.Drawing.Size(150, 22)
         Me._mnuChemicalItem_2.Text = "&Edit Current"
         '
         '_mnuChemicalItem_3
         '
         Me.mnuChemicalItem.SetIndex(Me._mnuChemicalItem_3, CType(3, Short))
         Me._mnuChemicalItem_3.Name = "_mnuChemicalItem_3"
-        Me._mnuChemicalItem_3.Size = New System.Drawing.Size(188, 26)
+        Me._mnuChemicalItem_3.Size = New System.Drawing.Size(150, 22)
         Me._mnuChemicalItem_3.Text = "&Delete Current"
         '
         'mnuIsotherm
         '
         Me.mnuIsotherm.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuIsothermItem_1, Me._mnuIsothermItem_2, Me._mnuIsothermItem_3, Me._mnuIsothermItem_4})
         Me.mnuIsotherm.Name = "mnuIsotherm"
-        Me.mnuIsotherm.Size = New System.Drawing.Size(81, 24)
+        Me.mnuIsotherm.Size = New System.Drawing.Size(66, 20)
         Me.mnuIsotherm.Text = "&Isotherm"
         '
         '_mnuIsothermItem_1
         '
         Me.mnuIsothermItem.SetIndex(Me._mnuIsothermItem_1, CType(1, Short))
         Me._mnuIsothermItem_1.Name = "_mnuIsothermItem_1"
-        Me._mnuIsothermItem_1.Size = New System.Drawing.Size(188, 26)
+        Me._mnuIsothermItem_1.Size = New System.Drawing.Size(150, 22)
         Me._mnuIsothermItem_1.Text = "&New"
         '
         '_mnuIsothermItem_2
         '
         Me.mnuIsothermItem.SetIndex(Me._mnuIsothermItem_2, CType(2, Short))
         Me._mnuIsothermItem_2.Name = "_mnuIsothermItem_2"
-        Me._mnuIsothermItem_2.Size = New System.Drawing.Size(188, 26)
+        Me._mnuIsothermItem_2.Size = New System.Drawing.Size(150, 22)
         Me._mnuIsothermItem_2.Text = "&Edit Current"
         '
         '_mnuIsothermItem_3
         '
         Me.mnuIsothermItem.SetIndex(Me._mnuIsothermItem_3, CType(3, Short))
         Me._mnuIsothermItem_3.Name = "_mnuIsothermItem_3"
-        Me._mnuIsothermItem_3.Size = New System.Drawing.Size(188, 26)
+        Me._mnuIsothermItem_3.Size = New System.Drawing.Size(150, 22)
         Me._mnuIsothermItem_3.Text = "&Delete Current"
         '
         '_mnuIsothermItem_4
         '
         Me.mnuIsothermItem.SetIndex(Me._mnuIsothermItem_4, CType(4, Short))
         Me._mnuIsothermItem_4.Name = "_mnuIsothermItem_4"
-        Me._mnuIsothermItem_4.Size = New System.Drawing.Size(188, 26)
+        Me._mnuIsothermItem_4.Size = New System.Drawing.Size(150, 22)
         Me._mnuIsothermItem_4.Text = "Delete &All"
         '
         'mnuExit
         '
         Me.mnuExit.Name = "mnuExit"
-        Me.mnuExit.Size = New System.Drawing.Size(47, 24)
+        Me.mnuExit.Size = New System.Drawing.Size(38, 20)
         Me.mnuExit.Text = "E&xit"
         '
         'Picture1
@@ -357,11 +351,11 @@
         Me._lstRange_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lstRange_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lstRange.SetIndex(Me._lstRange_1, CType(1, Short))
-        Me._lstRange_1.ItemHeight = 16
+        Me._lstRange_1.ItemHeight = 14
         Me._lstRange_1.Location = New System.Drawing.Point(139, 82)
         Me._lstRange_1.Name = "_lstRange_1"
         Me._lstRange_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._lstRange_1.Size = New System.Drawing.Size(213, 162)
+        Me._lstRange_1.Size = New System.Drawing.Size(213, 156)
         Me._lstRange_1.TabIndex = 6
         '
         '_lstRange_0
@@ -372,11 +366,11 @@
         Me._lstRange_0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lstRange_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lstRange.SetIndex(Me._lstRange_0, CType(0, Short))
-        Me._lstRange_0.ItemHeight = 16
+        Me._lstRange_0.ItemHeight = 14
         Me._lstRange_0.Location = New System.Drawing.Point(8, 82)
         Me._lstRange_0.Name = "_lstRange_0"
         Me._lstRange_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._lstRange_0.Size = New System.Drawing.Size(125, 162)
+        Me._lstRange_0.Size = New System.Drawing.Size(125, 156)
         Me._lstRange_0.TabIndex = 5
         '
         'mnuChemicalItem
@@ -392,11 +386,11 @@
         Me.lstCompo.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstCompo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCompo.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lstCompo.ItemHeight = 16
+        Me.lstCompo.ItemHeight = 14
         Me.lstCompo.Location = New System.Drawing.Point(7, 76)
         Me.lstCompo.Name = "lstCompo"
         Me.lstCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lstCompo.Size = New System.Drawing.Size(270, 258)
+        Me.lstCompo.Size = New System.Drawing.Size(270, 254)
         Me.lstCompo.TabIndex = 4
         '
         'lblEmpty_lstCompo
@@ -553,39 +547,15 @@
         Me.lblComments.Text = "lblComments"
         Me.lblComments.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        '_cmdFind_1
-        '
-        Me._cmdFind_1.Location = New System.Drawing.Point(150, 342)
-        Me._cmdFind_1.Name = "_cmdFind_1"
-        Me._cmdFind_1.OcxState = CType(resources.GetObject("_cmdFind_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdFind_1.Size = New System.Drawing.Size(100, 34)
-        Me._cmdFind_1.TabIndex = 26
-        '
-        '_cmdFind_0
-        '
-        Me._cmdFind_0.Location = New System.Drawing.Point(27, 342)
-        Me._cmdFind_0.Name = "_cmdFind_0"
-        Me._cmdFind_0.OcxState = CType(resources.GetObject("_cmdFind_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdFind_0.Size = New System.Drawing.Size(100, 34)
-        Me._cmdFind_0.TabIndex = 27
-        '
-        'cmdSelect
-        '
-        Me.cmdSelect.Location = New System.Drawing.Point(12, 395)
-        Me.cmdSelect.Name = "cmdSelect"
-        Me.cmdSelect.OcxState = CType(resources.GetObject("cmdSelect.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdSelect.Size = New System.Drawing.Size(250, 28)
-        Me.cmdSelect.TabIndex = 31
-        '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me._optSort_1)
-        Me.GroupBox1.Controls.Add(Me._optSort_0)
         Me.GroupBox1.Controls.Add(Me.cmdSelect)
+        Me.GroupBox1.Controls.Add(Me._optSort_1)
+        Me.GroupBox1.Controls.Add(Me._cmdFind_1)
+        Me.GroupBox1.Controls.Add(Me._cmdFind_0)
+        Me.GroupBox1.Controls.Add(Me._optSort_0)
         Me.GroupBox1.Controls.Add(Me.lblEmpty_lstCompo)
         Me.GroupBox1.Controls.Add(Me.lstCompo)
-        Me.GroupBox1.Controls.Add(Me._cmdFind_0)
-        Me.GroupBox1.Controls.Add(Me._cmdFind_1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 44)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(289, 443)
@@ -598,7 +568,7 @@
         Me._optSort_1.AutoSize = True
         Me._optSort_1.Location = New System.Drawing.Point(123, 19)
         Me._optSort_1.Name = "_optSort_1"
-        Me._optSort_1.Size = New System.Drawing.Size(159, 20)
+        Me._optSort_1.Size = New System.Drawing.Size(125, 18)
         Me._optSort_1.TabIndex = 33
         Me._optSort_1.Text = "Sort by CAS Number"
         Me._optSort_1.UseVisualStyleBackColor = True
@@ -609,7 +579,7 @@
         Me._optSort_0.Checked = True
         Me._optSort_0.Location = New System.Drawing.Point(5, 19)
         Me._optSort_0.Name = "_optSort_0"
-        Me._optSort_0.Size = New System.Drawing.Size(114, 20)
+        Me._optSort_0.Size = New System.Drawing.Size(90, 18)
         Me._optSort_0.TabIndex = 32
         Me._optSort_0.TabStop = True
         Me._optSort_0.Text = "Sort by Name"
@@ -643,9 +613,39 @@
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "fraTwo"
         '
+        '_cmdFind_0
+        '
+        Me._cmdFind_0.BackColor = System.Drawing.Color.White
+        Me._cmdFind_0.Location = New System.Drawing.Point(24, 347)
+        Me._cmdFind_0.Name = "_cmdFind_0"
+        Me._cmdFind_0.Size = New System.Drawing.Size(103, 30)
+        Me._cmdFind_0.TabIndex = 34
+        Me._cmdFind_0.Text = "&Find"
+        Me._cmdFind_0.UseVisualStyleBackColor = False
+        '
+        '_cmdFind_1
+        '
+        Me._cmdFind_1.BackColor = System.Drawing.Color.White
+        Me._cmdFind_1.Location = New System.Drawing.Point(150, 347)
+        Me._cmdFind_1.Name = "_cmdFind_1"
+        Me._cmdFind_1.Size = New System.Drawing.Size(98, 30)
+        Me._cmdFind_1.TabIndex = 35
+        Me._cmdFind_1.Text = "Find &Again"
+        Me._cmdFind_1.UseVisualStyleBackColor = False
+        '
+        'cmdSelect
+        '
+        Me.cmdSelect.BackColor = System.Drawing.Color.White
+        Me.cmdSelect.Location = New System.Drawing.Point(12, 383)
+        Me.cmdSelect.Name = "cmdSelect"
+        Me.cmdSelect.Size = New System.Drawing.Size(249, 32)
+        Me.cmdSelect.TabIndex = 36
+        Me.cmdSelect.Text = "Select Chemic&al"
+        Me.cmdSelect.UseVisualStyleBackColor = False
+        '
         'frmEditIsotherm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(731, 576)
@@ -674,9 +674,6 @@
         CType(Me.lstRange, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuChemicalItem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuIsothermItem, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdFind_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdFind_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdSelect, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -684,11 +681,12 @@
         Me.PerformLayout()
 
     End Sub
-
-    Public WithEvents cmdSelect As AxThreed.AxSSCommand
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents _optSort_1 As RadioButton
     Friend WithEvents _optSort_0 As RadioButton
+    Friend WithEvents _cmdFind_0 As Button
+    Friend WithEvents _cmdFind_1 As Button
+    Friend WithEvents cmdSelect As Button
 #End Region
 End Class

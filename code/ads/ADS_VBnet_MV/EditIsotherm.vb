@@ -1280,15 +1280,27 @@ err_mnuIsothermItem_Click:
 		Call optSort_Click(1, 0)
 	End Sub
 
-	Private Sub _cmdFind_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdFind_0.ClickEvent
+	Private Sub _cmdFind_0_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdFind_Click(0)
 	End Sub
 
-	Private Sub _cmdFind_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdFind_1.ClickEvent
+	Private Sub _cmdFind_1_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdFind_Click(1)
 	End Sub
 
-	Private Sub cmdSelect_ClickEvent(sender As Object, e As EventArgs) Handles cmdSelect.ClickEvent
+	Private Sub cmdSelect_ClickEvent(sender As Object, e As EventArgs)
+		Call Do_Select_Component(lstCompo.SelectedIndex)
+	End Sub
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles _cmdFind_0.Click
+		Call cmdFind_Click(0)
+	End Sub
+
+	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles _cmdFind_1.Click
+		Call cmdFind_Click(1)
+	End Sub
+
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
 		Call Do_Select_Component(lstCompo.SelectedIndex)
 	End Sub
 End Class
