@@ -692,21 +692,23 @@
         '
         'cmdCancel
         '
+        Me.cmdCancel.BackColor = System.Drawing.Color.White
         Me.cmdCancel.Location = New System.Drawing.Point(542, 411)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(75, 41)
         Me.cmdCancel.TabIndex = 38
         Me.cmdCancel.Text = "&Cancel"
-        Me.cmdCancel.UseVisualStyleBackColor = True
+        Me.cmdCancel.UseVisualStyleBackColor = False
         '
         'cmdOK
         '
+        Me.cmdOK.BackColor = System.Drawing.Color.White
         Me.cmdOK.Location = New System.Drawing.Point(284, 411)
         Me.cmdOK.Name = "cmdOK"
         Me.cmdOK.Size = New System.Drawing.Size(238, 41)
         Me.cmdOK.TabIndex = 39
         Me.cmdOK.Text = "&Use these Adsorbent Specifications"
-        Me.cmdOK.UseVisualStyleBackColor = True
+        Me.cmdOK.UseVisualStyleBackColor = False
         '
         'frmEditCarbon
         '

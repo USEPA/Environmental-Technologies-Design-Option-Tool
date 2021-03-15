@@ -869,11 +869,11 @@ err_mnuManufacturerItem_Click:
 		optPhase_Click(1, 0)
 	End Sub
 
-	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+	Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
 		Call cmdCancel_Click()
 	End Sub
 
-	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
+	Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
 		Call cmdOK_Click()
 	End Sub
 End Class
