@@ -53,8 +53,6 @@
     Public WithEvents lblUnitB As System.Windows.Forms.Label
     Public WithEvents lstName As System.Windows.Forms.ListBox
     Public WithEvents lblEmpty_lstName As System.Windows.Forms.Label
-    Public WithEvents cmdOK As AxThreed.AxSSCommand
-    Public WithEvents cmdCancel As AxThreed.AxSSCommand
     Public WithEvents lblData As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lblDesc As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lblUnit As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -66,7 +64,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditCarbon))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip()
@@ -109,14 +106,14 @@
         Me.lblUnitB = New System.Windows.Forms.Label()
         Me.lstName = New System.Windows.Forms.ListBox()
         Me.lblEmpty_lstName = New System.Windows.Forms.Label()
-        Me.cmdOK = New AxThreed.AxSSCommand()
-        Me.cmdCancel = New AxThreed.AxSSCommand()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me._optPhase_1 = New System.Windows.Forms.RadioButton()
         Me._optPhase_0 = New System.Windows.Forms.RadioButton()
+        Me.cmdCancel = New System.Windows.Forms.Button()
+        Me.cmdOK = New System.Windows.Forms.Button()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,8 +121,6 @@
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuAdsorbentItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuManufacturerItem, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdOK, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdCancel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -153,63 +148,63 @@
         Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuManufacturer, Me.mnuAdsorbent})
         Me.MainMenu1.Location = New System.Drawing.Point(0, 0)
         Me.MainMenu1.Name = "MainMenu1"
-        Me.MainMenu1.Size = New System.Drawing.Size(666, 28)
+        Me.MainMenu1.Size = New System.Drawing.Size(666, 24)
         Me.MainMenu1.TabIndex = 34
         '
         'mnuManufacturer
         '
         Me.mnuManufacturer.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuManufacturerItem_1, Me._mnuManufacturerItem_2, Me._mnuManufacturerItem_3})
         Me.mnuManufacturer.Name = "mnuManufacturer"
-        Me.mnuManufacturer.Size = New System.Drawing.Size(111, 24)
+        Me.mnuManufacturer.Size = New System.Drawing.Size(91, 20)
         Me.mnuManufacturer.Text = "&Manufacturer"
         '
         '_mnuManufacturerItem_1
         '
         Me.mnuManufacturerItem.SetIndex(Me._mnuManufacturerItem_1, CType(1, Short))
         Me._mnuManufacturerItem_1.Name = "_mnuManufacturerItem_1"
-        Me._mnuManufacturerItem_1.Size = New System.Drawing.Size(188, 26)
+        Me._mnuManufacturerItem_1.Size = New System.Drawing.Size(150, 22)
         Me._mnuManufacturerItem_1.Text = "&New"
         '
         '_mnuManufacturerItem_2
         '
         Me.mnuManufacturerItem.SetIndex(Me._mnuManufacturerItem_2, CType(2, Short))
         Me._mnuManufacturerItem_2.Name = "_mnuManufacturerItem_2"
-        Me._mnuManufacturerItem_2.Size = New System.Drawing.Size(188, 26)
+        Me._mnuManufacturerItem_2.Size = New System.Drawing.Size(150, 22)
         Me._mnuManufacturerItem_2.Text = "&Edit Current"
         '
         '_mnuManufacturerItem_3
         '
         Me.mnuManufacturerItem.SetIndex(Me._mnuManufacturerItem_3, CType(3, Short))
         Me._mnuManufacturerItem_3.Name = "_mnuManufacturerItem_3"
-        Me._mnuManufacturerItem_3.Size = New System.Drawing.Size(188, 26)
+        Me._mnuManufacturerItem_3.Size = New System.Drawing.Size(150, 22)
         Me._mnuManufacturerItem_3.Text = "&Delete Current"
         '
         'mnuAdsorbent
         '
         Me.mnuAdsorbent.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuAdsorbentItem_1, Me._mnuAdsorbentItem_2, Me._mnuAdsorbentItem_3})
         Me.mnuAdsorbent.Name = "mnuAdsorbent"
-        Me.mnuAdsorbent.Size = New System.Drawing.Size(92, 24)
+        Me.mnuAdsorbent.Size = New System.Drawing.Size(74, 20)
         Me.mnuAdsorbent.Text = "&Adsorbent"
         '
         '_mnuAdsorbentItem_1
         '
         Me.mnuAdsorbentItem.SetIndex(Me._mnuAdsorbentItem_1, CType(1, Short))
         Me._mnuAdsorbentItem_1.Name = "_mnuAdsorbentItem_1"
-        Me._mnuAdsorbentItem_1.Size = New System.Drawing.Size(224, 26)
+        Me._mnuAdsorbentItem_1.Size = New System.Drawing.Size(150, 22)
         Me._mnuAdsorbentItem_1.Text = "&New"
         '
         '_mnuAdsorbentItem_2
         '
         Me.mnuAdsorbentItem.SetIndex(Me._mnuAdsorbentItem_2, CType(2, Short))
         Me._mnuAdsorbentItem_2.Name = "_mnuAdsorbentItem_2"
-        Me._mnuAdsorbentItem_2.Size = New System.Drawing.Size(224, 26)
+        Me._mnuAdsorbentItem_2.Size = New System.Drawing.Size(150, 22)
         Me._mnuAdsorbentItem_2.Text = "&Edit Current"
         '
         '_mnuAdsorbentItem_3
         '
         Me.mnuAdsorbentItem.SetIndex(Me._mnuAdsorbentItem_3, CType(3, Short))
         Me._mnuAdsorbentItem_3.Name = "_mnuAdsorbentItem_3"
-        Me._mnuAdsorbentItem_3.Size = New System.Drawing.Size(224, 26)
+        Me._mnuAdsorbentItem_3.Size = New System.Drawing.Size(150, 22)
         Me._mnuAdsorbentItem_3.Text = "&Delete Current"
         '
         'Picture1
@@ -547,11 +542,11 @@
         Me.lstManu.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstManu.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstManu.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lstManu.ItemHeight = 16
+        Me.lstManu.ItemHeight = 14
         Me.lstManu.Location = New System.Drawing.Point(8, 26)
         Me.lstManu.Name = "lstManu"
         Me.lstManu.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lstManu.Size = New System.Drawing.Size(233, 146)
+        Me.lstManu.Size = New System.Drawing.Size(233, 142)
         Me.lstManu.TabIndex = 3
         '
         'lblEmpty_lstManu
@@ -589,11 +584,11 @@
         Me.lstName.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstName.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lstName.ItemHeight = 16
+        Me.lstName.ItemHeight = 14
         Me.lstName.Location = New System.Drawing.Point(0, 80)
         Me.lstName.Name = "lstName"
         Me.lstName.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lstName.Size = New System.Drawing.Size(233, 130)
+        Me.lstName.Size = New System.Drawing.Size(233, 128)
         Me.lstName.TabIndex = 6
         '
         'lblEmpty_lstName
@@ -610,22 +605,6 @@
         Me.lblEmpty_lstName.Text = "No Adsorbents Available"
         Me.lblEmpty_lstName.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.lblEmpty_lstName.Visible = False
-        '
-        'cmdOK
-        '
-        Me.cmdOK.Location = New System.Drawing.Point(276, 406)
-        Me.cmdOK.Name = "cmdOK"
-        Me.cmdOK.OcxState = CType(resources.GetObject("cmdOK.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdOK.Size = New System.Drawing.Size(262, 50)
-        Me.cmdOK.TabIndex = 7
-        '
-        'cmdCancel
-        '
-        Me.cmdCancel.Location = New System.Drawing.Point(544, 406)
-        Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.OcxState = CType(resources.GetObject("cmdCancel.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdCancel.Size = New System.Drawing.Size(100, 50)
-        Me.cmdCancel.TabIndex = 8
         '
         'GroupBox1
         '
@@ -694,7 +673,7 @@
         Me._optPhase_1.AutoSize = True
         Me._optPhase_1.Location = New System.Drawing.Point(118, 7)
         Me._optPhase_1.Name = "_optPhase_1"
-        Me._optPhase_1.Size = New System.Drawing.Size(99, 20)
+        Me._optPhase_1.Size = New System.Drawing.Size(78, 18)
         Me._optPhase_1.TabIndex = 39
         Me._optPhase_1.Text = "Gas Phase"
         Me._optPhase_1.UseVisualStyleBackColor = True
@@ -705,26 +684,44 @@
         Me._optPhase_0.Checked = True
         Me._optPhase_0.Location = New System.Drawing.Point(6, 7)
         Me._optPhase_0.Name = "_optPhase_0"
-        Me._optPhase_0.Size = New System.Drawing.Size(111, 20)
+        Me._optPhase_0.Size = New System.Drawing.Size(86, 18)
         Me._optPhase_0.TabIndex = 38
         Me._optPhase_0.TabStop = True
         Me._optPhase_0.Text = "Liquid Phase"
         Me._optPhase_0.UseVisualStyleBackColor = True
         '
+        'cmdCancel
+        '
+        Me.cmdCancel.Location = New System.Drawing.Point(542, 411)
+        Me.cmdCancel.Name = "cmdCancel"
+        Me.cmdCancel.Size = New System.Drawing.Size(75, 41)
+        Me.cmdCancel.TabIndex = 38
+        Me.cmdCancel.Text = "&Cancel"
+        Me.cmdCancel.UseVisualStyleBackColor = True
+        '
+        'cmdOK
+        '
+        Me.cmdOK.Location = New System.Drawing.Point(284, 411)
+        Me.cmdOK.Name = "cmdOK"
+        Me.cmdOK.Size = New System.Drawing.Size(238, 41)
+        Me.cmdOK.TabIndex = 39
+        Me.cmdOK.Text = "&Use these Adsorbent Specifications"
+        Me.cmdOK.UseVisualStyleBackColor = True
+        '
         'frmEditCarbon
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(666, 464)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdOK)
+        Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
-        Me.Controls.Add(Me.cmdOK)
-        Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -744,8 +741,6 @@
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuAdsorbentItem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuManufacturerItem, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdOK, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdCancel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
@@ -762,5 +757,7 @@
     Friend WithEvents Panel1 As Panel
     Friend WithEvents _optPhase_1 As RadioButton
     Friend WithEvents _optPhase_0 As RadioButton
+    Friend WithEvents cmdCancel As Button
+    Friend WithEvents cmdOK As Button
 #End Region
 End Class
