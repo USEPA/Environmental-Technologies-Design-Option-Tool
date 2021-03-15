@@ -50,14 +50,12 @@
         Me.txtData = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
         Me._chkData_0 = New AxThreed.AxSSCheck()
         Me._chkData_1 = New AxThreed.AxSSCheck()
-        Me._cmdSaveCancel_0 = New AxThreed.AxSSCommand()
-        Me._cmdSaveCancel_1 = New AxThreed.AxSSCommand()
+        Me._cmdSaveCancel_0 = New System.Windows.Forms.Button()
+        Me._cmdSaveCancel_1 = New System.Windows.Forms.Button()
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._chkData_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._chkData_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdSaveCancel_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdSaveCancel_1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         '_txtData_3
@@ -73,7 +71,7 @@
         Me._txtData_3.MaxLength = 0
         Me._txtData_3.Name = "_txtData_3"
         Me._txtData_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_3.Size = New System.Drawing.Size(300, 23)
+        Me._txtData_3.Size = New System.Drawing.Size(300, 20)
         Me._txtData_3.TabIndex = 6
         Me._txtData_3.Text = "txtData(3)"
         '
@@ -90,7 +88,7 @@
         Me._txtData_2.MaxLength = 0
         Me._txtData_2.Name = "_txtData_2"
         Me._txtData_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_2.Size = New System.Drawing.Size(159, 23)
+        Me._txtData_2.Size = New System.Drawing.Size(159, 20)
         Me._txtData_2.TabIndex = 4
         Me._txtData_2.Text = "txtData(2)"
         '
@@ -107,7 +105,7 @@
         Me._txtData_1.MaxLength = 0
         Me._txtData_1.Name = "_txtData_1"
         Me._txtData_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_1.Size = New System.Drawing.Size(300, 23)
+        Me._txtData_1.Size = New System.Drawing.Size(300, 20)
         Me._txtData_1.TabIndex = 2
         Me._txtData_1.Text = "txtData(1)"
         '
@@ -124,7 +122,7 @@
         Me._txtData_0.MaxLength = 0
         Me._txtData_0.Name = "_txtData_0"
         Me._txtData_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_0.Size = New System.Drawing.Size(159, 23)
+        Me._txtData_0.Size = New System.Drawing.Size(159, 20)
         Me._txtData_0.TabIndex = 0
         Me._txtData_0.Text = "txtData(0)"
         '
@@ -196,7 +194,7 @@
         Me._chkData_0.Location = New System.Drawing.Point(23, 107)
         Me._chkData_0.Name = "_chkData_0"
         Me._chkData_0.OcxState = CType(resources.GetObject("_chkData_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkData_0.Size = New System.Drawing.Size(390, 25)
+        Me._chkData_0.Size = New System.Drawing.Size(89, 25)
         Me._chkData_0.TabIndex = 8
         '
         '_chkData_1
@@ -204,28 +202,32 @@
         Me._chkData_1.Location = New System.Drawing.Point(23, 138)
         Me._chkData_1.Name = "_chkData_1"
         Me._chkData_1.OcxState = CType(resources.GetObject("_chkData_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkData_1.Size = New System.Drawing.Size(390, 25)
+        Me._chkData_1.Size = New System.Drawing.Size(89, 25)
         Me._chkData_1.TabIndex = 9
         '
         '_cmdSaveCancel_0
         '
-        Me._cmdSaveCancel_0.Location = New System.Drawing.Point(108, 180)
+        Me._cmdSaveCancel_0.BackColor = System.Drawing.Color.White
+        Me._cmdSaveCancel_0.Location = New System.Drawing.Point(108, 169)
         Me._cmdSaveCancel_0.Name = "_cmdSaveCancel_0"
-        Me._cmdSaveCancel_0.OcxState = CType(resources.GetObject("_cmdSaveCancel_0.OcxState"), System.Windows.Forms.AxHost.State)
         Me._cmdSaveCancel_0.Size = New System.Drawing.Size(116, 39)
-        Me._cmdSaveCancel_0.TabIndex = 10
+        Me._cmdSaveCancel_0.TabIndex = 12
+        Me._cmdSaveCancel_0.Text = "&Save"
+        Me._cmdSaveCancel_0.UseVisualStyleBackColor = False
         '
         '_cmdSaveCancel_1
         '
-        Me._cmdSaveCancel_1.Location = New System.Drawing.Point(297, 180)
+        Me._cmdSaveCancel_1.BackColor = System.Drawing.Color.White
+        Me._cmdSaveCancel_1.Location = New System.Drawing.Point(297, 169)
         Me._cmdSaveCancel_1.Name = "_cmdSaveCancel_1"
-        Me._cmdSaveCancel_1.OcxState = CType(resources.GetObject("_cmdSaveCancel_1.OcxState"), System.Windows.Forms.AxHost.State)
         Me._cmdSaveCancel_1.Size = New System.Drawing.Size(116, 39)
-        Me._cmdSaveCancel_1.TabIndex = 11
+        Me._cmdSaveCancel_1.TabIndex = 13
+        Me._cmdSaveCancel_1.Text = "&Cancel"
+        Me._cmdSaveCancel_1.UseVisualStyleBackColor = False
         '
         'frmEditIsothermCAS
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(502, 239)
@@ -256,8 +258,6 @@
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._chkData_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._chkData_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdSaveCancel_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdSaveCancel_1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -265,7 +265,7 @@
 
     Friend WithEvents _chkData_0 As AxThreed.AxSSCheck
     Friend WithEvents _chkData_1 As AxThreed.AxSSCheck
-    Friend WithEvents _cmdSaveCancel_0 As AxThreed.AxSSCommand
-    Friend WithEvents _cmdSaveCancel_1 As AxThreed.AxSSCommand
+    Friend WithEvents _cmdSaveCancel_0 As Button
+    Friend WithEvents _cmdSaveCancel_1 As Button
 #End Region
 End Class

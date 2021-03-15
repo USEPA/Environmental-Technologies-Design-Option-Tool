@@ -1292,15 +1292,15 @@ err_mnuIsothermItem_Click:
 		Call Do_Select_Component(lstCompo.SelectedIndex)
 	End Sub
 
-	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles _cmdFind_0.Click
+	Private Sub Find_Click(sender As Object, e As EventArgs) Handles _cmdFind_0.Click
 		Call cmdFind_Click(0)
 	End Sub
 
-	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles _cmdFind_1.Click
+	Private Sub FindAgain_Click(sender As Object, e As EventArgs) Handles _cmdFind_1.Click
 		Call cmdFind_Click(1)
 	End Sub
 
-	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
+	Private Sub Select_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
 		Call Do_Select_Component(lstCompo.SelectedIndex)
 	End Sub
 End Class

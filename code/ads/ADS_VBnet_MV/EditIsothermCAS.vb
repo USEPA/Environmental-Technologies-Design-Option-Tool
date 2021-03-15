@@ -91,7 +91,7 @@ Friend Class frmEditIsothermCAS
 		'MISC INITS.
 		Me.Text = Use_Title
 		'UPGRADE_WARNING: Couldn't resolve default property of object cmdSaveCancel().Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		_cmdSaveCancel_0.Caption = Use_OK_Caption
+		_cmdSaveCancel_0.Text = Use_OK_Caption
 		If (VB.Left(Use_TextLabel_1a, 1) = "^") Then
 			Use_TextLabel_1a = VB.Right(Use_TextLabel_1a, Len(Use_TextLabel_1a) - 1)
 			txtData(0).ReadOnly = True
@@ -171,11 +171,19 @@ Friend Class frmEditIsothermCAS
 
     End Sub
 
-	Private Sub _cmdSaveCancel_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdSaveCancel_0.ClickEvent
+	Private Sub _cmdSaveCancel_0_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdSaveCancel_Click(0)
 	End Sub
 
-	Private Sub _cmdSaveCancel_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdSaveCancel_1.ClickEvent
+	Private Sub _cmdSaveCancel_1_ClickEvent(sender As Object, e As EventArgs)
+		Call cmdSaveCancel_Click(1)
+	End Sub
+
+	Private Sub Save_Click(sender As Object, e As EventArgs) Handles _cmdSaveCancel_0.Click
+		Call cmdSaveCancel_Click(0)
+	End Sub
+
+	Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles _cmdSaveCancel_1.Click
 		Call cmdSaveCancel_Click(1)
 	End Sub
 End Class
