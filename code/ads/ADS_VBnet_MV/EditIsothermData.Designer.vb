@@ -40,9 +40,6 @@
     Public WithEvents _txtData_8 As System.Windows.Forms.TextBox
     Public WithEvents Label1 As System.Windows.Forms.Label
     Public WithEvents Label2 As System.Windows.Forms.Label
-    Public WithEvents _cmdSaveCancel_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdSaveCancel_0 As AxThreed.AxSSCommand
-    Public WithEvents _cmdSaveCancel_2 As AxThreed.AxSSCommand
     '   Public WithEvents cmdSaveCancel As SSCommandArray
     Public WithEvents lblData As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     '  Public WithEvents optPhase As SSOptionArray
@@ -52,9 +49,16 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditIsothermData))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lblData = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
+        Me._lblData_0 = New System.Windows.Forms.Label()
+        Me._lblData_4 = New System.Windows.Forms.Label()
+        Me._lblData_1 = New System.Windows.Forms.Label()
+        Me._lblData_5 = New System.Windows.Forms.Label()
+        Me._lblData_2 = New System.Windows.Forms.Label()
+        Me._lblData_6 = New System.Windows.Forms.Label()
+        Me._lblData_3 = New System.Windows.Forms.Label()
+        Me._lblData_7 = New System.Windows.Forms.Label()
         Me.txtData = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
         Me._txtData_10 = New System.Windows.Forms.TextBox()
         Me._txtData_0 = New System.Windows.Forms.TextBox()
@@ -65,23 +69,12 @@
         Me._txtData_5 = New System.Windows.Forms.TextBox()
         Me._txtData_6 = New System.Windows.Forms.TextBox()
         Me._txtData_7 = New System.Windows.Forms.TextBox()
-        Me._lblData_0 = New System.Windows.Forms.Label()
-        Me._lblData_4 = New System.Windows.Forms.Label()
-        Me._lblData_1 = New System.Windows.Forms.Label()
-        Me._lblData_5 = New System.Windows.Forms.Label()
-        Me._lblData_2 = New System.Windows.Forms.Label()
-        Me._lblData_6 = New System.Windows.Forms.Label()
-        Me._lblData_3 = New System.Windows.Forms.Label()
-        Me._lblData_7 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me._txtData_11 = New System.Windows.Forms.TextBox()
         Me._txtData_9 = New System.Windows.Forms.TextBox()
         Me._txtData_8 = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me._cmdSaveCancel_1 = New AxThreed.AxSSCommand()
-        Me._cmdSaveCancel_0 = New AxThreed.AxSSCommand()
-        Me._cmdSaveCancel_2 = New AxThreed.AxSSCommand()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me._optphase_2 = New System.Windows.Forms.RadioButton()
         Me._optphase_1 = New System.Windows.Forms.RadioButton()
@@ -89,11 +82,11 @@
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me._cmdSaveCancel_0 = New System.Windows.Forms.Button()
+        Me._cmdSaveCancel_1 = New System.Windows.Forms.Button()
+        Me._cmdSaveCancel_2 = New System.Windows.Forms.Button()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdSaveCancel_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdSaveCancel_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdSaveCancel_2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -101,176 +94,15 @@
         Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
-        'txtData
-        '
-        '
-        '_txtData_10
-        '
-        Me._txtData_10.AcceptsReturn = True
-        Me._txtData_10.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_10.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_10.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_10.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_10.Location = New System.Drawing.Point(96, 20)
-        Me._txtData_10.MaxLength = 0
-        Me._txtData_10.Name = "_txtData_10"
-        Me.txtData.SetIndex(_txtData_10, CType(10, Short))
-        Me._txtData_10.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_10.Size = New System.Drawing.Size(401, 23)
-        Me._txtData_10.TabIndex = 10
-        Me._txtData_10.Text = "txtData(10)"
-        '
-        '_txtData_0
-        '
-        Me._txtData_0.AcceptsReturn = True
-        Me._txtData_0.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_0.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_0.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_0.Location = New System.Drawing.Point(137, 16)
-        Me._txtData_0.MaxLength = 0
-        Me._txtData_0.Name = "_txtData_0"
-        Me.txtData.SetIndex(_txtData_0, CType(0, Short))
-        Me._txtData_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_0.Size = New System.Drawing.Size(109, 23)
-        Me._txtData_0.TabIndex = 2
-        Me._txtData_0.Text = "txtData(0)"
-        '
-        '_txtData_1
-        '
-        Me._txtData_1.AcceptsReturn = True
-        Me._txtData_1.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_1.Location = New System.Drawing.Point(137, 40)
-        Me._txtData_1.MaxLength = 0
-        Me._txtData_1.Name = "_txtData_1"
-        Me.txtData.SetIndex(_txtData_1, CType(1, Short))
-        Me._txtData_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_1.Size = New System.Drawing.Size(109, 23)
-        Me._txtData_1.TabIndex = 4
-        Me._txtData_1.Text = "txtData(1)"
-        '
-        '_txtData_2
-        '
-        Me._txtData_2.AcceptsReturn = True
-        Me._txtData_2.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_2.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_2.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_2.Location = New System.Drawing.Point(137, 64)
-        Me._txtData_2.MaxLength = 0
-        Me._txtData_2.Name = "_txtData_2"
-        Me.txtData.SetIndex(_txtData_2, CType(2, Short))
-        Me._txtData_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_2.Size = New System.Drawing.Size(109, 23)
-        Me._txtData_2.TabIndex = 6
-        Me._txtData_2.Text = "txtData(2)"
-        '
-        '_txtData_3
-        '
-        Me._txtData_3.AcceptsReturn = True
-        Me._txtData_3.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_3.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_3.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_3.Location = New System.Drawing.Point(137, 88)
-        Me._txtData_3.MaxLength = 0
-        Me._txtData_3.Name = "_txtData_3"
-        Me.txtData.SetIndex(_txtData_3, CType(3, Short))
-        Me._txtData_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_3.Size = New System.Drawing.Size(109, 23)
-        Me._txtData_3.TabIndex = 8
-        Me._txtData_3.Text = "txtData(3)"
-        '
-        '_txtData_4
-        '
-        Me._txtData_4.AcceptsReturn = True
-        Me._txtData_4.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_4.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_4.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_4.Location = New System.Drawing.Point(365, 16)
-        Me._txtData_4.MaxLength = 0
-        Me._txtData_4.Name = "_txtData_4"
-        Me.txtData.SetIndex(_txtData_4, CType(4, Short))
-
-        Me._txtData_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_4.Size = New System.Drawing.Size(109, 23)
-        Me._txtData_4.TabIndex = 3
-        Me._txtData_4.Text = "txtData(4)"
-        '
-        '_txtData_5
-        '
-        Me._txtData_5.AcceptsReturn = True
-        Me._txtData_5.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_5.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_5.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_5.Location = New System.Drawing.Point(365, 40)
-        Me._txtData_5.MaxLength = 0
-        Me._txtData_5.Name = "_txtData_5"
-        Me.txtData.SetIndex(_txtData_5, CType(5, Short))
-
-        Me._txtData_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_5.Size = New System.Drawing.Size(109, 23)
-        Me._txtData_5.TabIndex = 5
-        Me._txtData_5.Text = "txtData(5)"
-        '
-        '_txtData_6
-        '
-        Me._txtData_6.AcceptsReturn = True
-        Me._txtData_6.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_6.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_6.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_6.Location = New System.Drawing.Point(365, 64)
-        Me._txtData_6.MaxLength = 0
-        Me._txtData_6.Name = "_txtData_6"
-        Me.txtData.SetIndex(_txtData_6, CType(6, Short))
-
-        Me._txtData_6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_6.Size = New System.Drawing.Size(109, 23)
-        Me._txtData_6.TabIndex = 7
-        Me._txtData_6.Text = "txtData(6)"
-        '
-        '_txtData_7
-        '
-        Me._txtData_7.AcceptsReturn = True
-        Me._txtData_7.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_7.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_7.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_7.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_7.Location = New System.Drawing.Point(365, 88)
-        Me._txtData_7.MaxLength = 0
-        Me._txtData_7.Name = "_txtData_7"
-        Me.txtData.SetIndex(_txtData_7, CType(7, Short))
-
-        Me._txtData_7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_7.Size = New System.Drawing.Size(109, 23)
-        Me._txtData_7.TabIndex = 9
-        Me._txtData_7.Text = "txtData(7)"
-        '
         '_lblData_0
         '
         Me._lblData_0.BackColor = System.Drawing.Color.Transparent
         Me._lblData_0.Cursor = System.Windows.Forms.Cursors.Default
         Me._lblData_0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_0.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.lblData.SetIndex(Me._lblData_0, CType(0, Short))
         Me._lblData_0.Location = New System.Drawing.Point(12, 16)
         Me._lblData_0.Name = "_lblData_0"
-        Me.lblData.SetIndex(_lblData_0, CType(0, Short))
-
         Me._lblData_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_0.Size = New System.Drawing.Size(119, 26)
         Me._lblData_0.TabIndex = 27
@@ -283,9 +115,9 @@
         Me._lblData_4.Cursor = System.Windows.Forms.Cursors.Default
         Me._lblData_4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_4.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.lblData.SetIndex(Me._lblData_4, CType(4, Short))
         Me._lblData_4.Location = New System.Drawing.Point(252, 18)
         Me._lblData_4.Name = "_lblData_4"
-        Me.lblData.SetIndex(_lblData_4, CType(4, Short))
         Me._lblData_4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_4.Size = New System.Drawing.Size(107, 17)
         Me._lblData_4.TabIndex = 26
@@ -298,9 +130,9 @@
         Me._lblData_1.Cursor = System.Windows.Forms.Cursors.Default
         Me._lblData_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_1.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.lblData.SetIndex(Me._lblData_1, CType(1, Short))
         Me._lblData_1.Location = New System.Drawing.Point(7, 40)
         Me._lblData_1.Name = "_lblData_1"
-        Me.lblData.SetIndex(_lblData_1, CType(1, Short))
         Me._lblData_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_1.Size = New System.Drawing.Size(124, 23)
         Me._lblData_1.TabIndex = 25
@@ -313,9 +145,9 @@
         Me._lblData_5.Cursor = System.Windows.Forms.Cursors.Default
         Me._lblData_5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_5.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.lblData.SetIndex(Me._lblData_5, CType(5, Short))
         Me._lblData_5.Location = New System.Drawing.Point(252, 42)
         Me._lblData_5.Name = "_lblData_5"
-        Me.lblData.SetIndex(_lblData_5, CType(5, Short))
         Me._lblData_5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_5.Size = New System.Drawing.Size(107, 21)
         Me._lblData_5.TabIndex = 24
@@ -328,9 +160,9 @@
         Me._lblData_2.Cursor = System.Windows.Forms.Cursors.Default
         Me._lblData_2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_2.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.lblData.SetIndex(Me._lblData_2, CType(2, Short))
         Me._lblData_2.Location = New System.Drawing.Point(9, 64)
         Me._lblData_2.Name = "_lblData_2"
-        Me.lblData.SetIndex(_lblData_2, CType(2, Short))
         Me._lblData_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_2.Size = New System.Drawing.Size(122, 23)
         Me._lblData_2.TabIndex = 23
@@ -343,9 +175,9 @@
         Me._lblData_6.Cursor = System.Windows.Forms.Cursors.Default
         Me._lblData_6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_6.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.lblData.SetIndex(Me._lblData_6, CType(6, Short))
         Me._lblData_6.Location = New System.Drawing.Point(256, 66)
         Me._lblData_6.Name = "_lblData_6"
-        Me.lblData.SetIndex(_lblData_6, CType(6, Short))
         Me._lblData_6.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_6.Size = New System.Drawing.Size(103, 21)
         Me._lblData_6.TabIndex = 22
@@ -358,9 +190,9 @@
         Me._lblData_3.Cursor = System.Windows.Forms.Cursors.Default
         Me._lblData_3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_3.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.lblData.SetIndex(Me._lblData_3, CType(3, Short))
         Me._lblData_3.Location = New System.Drawing.Point(6, 87)
         Me._lblData_3.Name = "_lblData_3"
-        Me.lblData.SetIndex(_lblData_3, CType(3, Short))
         Me._lblData_3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_3.Size = New System.Drawing.Size(125, 20)
         Me._lblData_3.TabIndex = 21
@@ -373,14 +205,221 @@
         Me._lblData_7.Cursor = System.Windows.Forms.Cursors.Default
         Me._lblData_7.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_7.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.lblData.SetIndex(Me._lblData_7, CType(7, Short))
         Me._lblData_7.Location = New System.Drawing.Point(256, 90)
         Me._lblData_7.Name = "_lblData_7"
-        Me.lblData.SetIndex(_lblData_7, CType(7, Short))
         Me._lblData_7.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_7.Size = New System.Drawing.Size(103, 24)
         Me._lblData_7.TabIndex = 20
         Me._lblData_7.Text = "Carbon type"
         Me._lblData_7.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'txtData
+        '
+        '
+        '_txtData_10
+        '
+        Me._txtData_10.AcceptsReturn = True
+        Me._txtData_10.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_10.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_10.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_10.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_10, CType(10, Short))
+        Me._txtData_10.Location = New System.Drawing.Point(96, 20)
+        Me._txtData_10.MaxLength = 0
+        Me._txtData_10.Name = "_txtData_10"
+        Me._txtData_10.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_10.Size = New System.Drawing.Size(401, 20)
+        Me._txtData_10.TabIndex = 10
+        Me._txtData_10.Text = "txtData(10)"
+        '
+        '_txtData_0
+        '
+        Me._txtData_0.AcceptsReturn = True
+        Me._txtData_0.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_0.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_0.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_0, CType(0, Short))
+        Me._txtData_0.Location = New System.Drawing.Point(137, 16)
+        Me._txtData_0.MaxLength = 0
+        Me._txtData_0.Name = "_txtData_0"
+        Me._txtData_0.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_0.Size = New System.Drawing.Size(109, 20)
+        Me._txtData_0.TabIndex = 2
+        Me._txtData_0.Text = "txtData(0)"
+        '
+        '_txtData_1
+        '
+        Me._txtData_1.AcceptsReturn = True
+        Me._txtData_1.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_1.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_1.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_1, CType(1, Short))
+        Me._txtData_1.Location = New System.Drawing.Point(137, 40)
+        Me._txtData_1.MaxLength = 0
+        Me._txtData_1.Name = "_txtData_1"
+        Me._txtData_1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_1.Size = New System.Drawing.Size(109, 20)
+        Me._txtData_1.TabIndex = 4
+        Me._txtData_1.Text = "txtData(1)"
+        '
+        '_txtData_2
+        '
+        Me._txtData_2.AcceptsReturn = True
+        Me._txtData_2.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_2.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_2.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_2, CType(2, Short))
+        Me._txtData_2.Location = New System.Drawing.Point(137, 64)
+        Me._txtData_2.MaxLength = 0
+        Me._txtData_2.Name = "_txtData_2"
+        Me._txtData_2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_2.Size = New System.Drawing.Size(109, 20)
+        Me._txtData_2.TabIndex = 6
+        Me._txtData_2.Text = "txtData(2)"
+        '
+        '_txtData_3
+        '
+        Me._txtData_3.AcceptsReturn = True
+        Me._txtData_3.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_3.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_3.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_3, CType(3, Short))
+        Me._txtData_3.Location = New System.Drawing.Point(137, 88)
+        Me._txtData_3.MaxLength = 0
+        Me._txtData_3.Name = "_txtData_3"
+        Me._txtData_3.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_3.Size = New System.Drawing.Size(109, 20)
+        Me._txtData_3.TabIndex = 8
+        Me._txtData_3.Text = "txtData(3)"
+        '
+        '_txtData_4
+        '
+        Me._txtData_4.AcceptsReturn = True
+        Me._txtData_4.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_4.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_4.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_4, CType(4, Short))
+        Me._txtData_4.Location = New System.Drawing.Point(365, 16)
+        Me._txtData_4.MaxLength = 0
+        Me._txtData_4.Name = "_txtData_4"
+        Me._txtData_4.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_4.Size = New System.Drawing.Size(109, 20)
+        Me._txtData_4.TabIndex = 3
+        Me._txtData_4.Text = "txtData(4)"
+        '
+        '_txtData_5
+        '
+        Me._txtData_5.AcceptsReturn = True
+        Me._txtData_5.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_5.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_5.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_5, CType(5, Short))
+        Me._txtData_5.Location = New System.Drawing.Point(365, 40)
+        Me._txtData_5.MaxLength = 0
+        Me._txtData_5.Name = "_txtData_5"
+        Me._txtData_5.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_5.Size = New System.Drawing.Size(109, 20)
+        Me._txtData_5.TabIndex = 5
+        Me._txtData_5.Text = "txtData(5)"
+        '
+        '_txtData_6
+        '
+        Me._txtData_6.AcceptsReturn = True
+        Me._txtData_6.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_6.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_6.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_6, CType(6, Short))
+        Me._txtData_6.Location = New System.Drawing.Point(365, 64)
+        Me._txtData_6.MaxLength = 0
+        Me._txtData_6.Name = "_txtData_6"
+        Me._txtData_6.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_6.Size = New System.Drawing.Size(109, 20)
+        Me._txtData_6.TabIndex = 7
+        Me._txtData_6.Text = "txtData(6)"
+        '
+        '_txtData_7
+        '
+        Me._txtData_7.AcceptsReturn = True
+        Me._txtData_7.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_7.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_7.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_7.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_7, CType(7, Short))
+        Me._txtData_7.Location = New System.Drawing.Point(365, 88)
+        Me._txtData_7.MaxLength = 0
+        Me._txtData_7.Name = "_txtData_7"
+        Me._txtData_7.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_7.Size = New System.Drawing.Size(109, 20)
+        Me._txtData_7.TabIndex = 9
+        Me._txtData_7.Text = "txtData(7)"
+        '
+        '_txtData_11
+        '
+        Me._txtData_11.AcceptsReturn = True
+        Me._txtData_11.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_11.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_11.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_11.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_11, CType(11, Short))
+        Me._txtData_11.Location = New System.Drawing.Point(89, 14)
+        Me._txtData_11.MaxLength = 0
+        Me._txtData_11.Name = "_txtData_11"
+        Me._txtData_11.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_11.Size = New System.Drawing.Size(401, 20)
+        Me._txtData_11.TabIndex = 11
+        Me._txtData_11.Text = "txtData(11)"
+        '
+        '_txtData_9
+        '
+        Me._txtData_9.AcceptsReturn = True
+        Me._txtData_9.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_9.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_9.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_9, CType(9, Short))
+        Me._txtData_9.Location = New System.Drawing.Point(122, 40)
+        Me._txtData_9.MaxLength = 0
+        Me._txtData_9.Name = "_txtData_9"
+        Me._txtData_9.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_9.Size = New System.Drawing.Size(381, 20)
+        Me._txtData_9.TabIndex = 1
+        Me._txtData_9.Text = "txtData(9)"
+        '
+        '_txtData_8
+        '
+        Me._txtData_8.AcceptsReturn = True
+        Me._txtData_8.BackColor = System.Drawing.SystemColors.Window
+        Me._txtData_8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me._txtData_8.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtData_8.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._txtData_8.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.txtData.SetIndex(Me._txtData_8, CType(8, Short))
+        Me._txtData_8.Location = New System.Drawing.Point(122, 16)
+        Me._txtData_8.MaxLength = 0
+        Me._txtData_8.Name = "_txtData_8"
+        Me._txtData_8.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me._txtData_8.Size = New System.Drawing.Size(225, 20)
+        Me._txtData_8.TabIndex = 0
+        Me._txtData_8.Text = "txtData(8)"
         '
         'Label11
         '
@@ -395,59 +434,6 @@
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "* K in (mg/g)x(L/mg)^1/n"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        '_txtData_11
-        '
-        Me._txtData_11.AcceptsReturn = True
-        Me._txtData_11.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_11.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_11.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_11.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_11.Location = New System.Drawing.Point(89, 14)
-        Me._txtData_11.MaxLength = 0
-        Me._txtData_11.Name = "_txtData_11"
-        Me.txtData.SetIndex(_txtData_11, CType(11, Short))
-
-        Me._txtData_11.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_11.Size = New System.Drawing.Size(401, 23)
-        Me._txtData_11.TabIndex = 11
-        Me._txtData_11.Text = "txtData(11)"
-        '
-        '_txtData_9
-        '
-        Me._txtData_9.AcceptsReturn = True
-        Me._txtData_9.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_9.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_9.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_9.Location = New System.Drawing.Point(122, 40)
-        Me._txtData_9.MaxLength = 0
-        Me._txtData_9.Name = "_txtData_9"
-        Me.txtData.SetIndex(_txtData_9, CType(9, Short))
-        Me._txtData_9.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_9.Size = New System.Drawing.Size(381, 23)
-        Me._txtData_9.TabIndex = 1
-        Me._txtData_9.Text = "txtData(9)"
-        '
-        '_txtData_8
-        '
-        Me._txtData_8.AcceptsReturn = True
-        Me._txtData_8.BackColor = System.Drawing.SystemColors.Window
-        Me._txtData_8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me._txtData_8.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me._txtData_8.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._txtData_8.ForeColor = System.Drawing.SystemColors.WindowText
-        Me._txtData_8.Location = New System.Drawing.Point(122, 16)
-        Me._txtData_8.MaxLength = 0
-        Me._txtData_8.Name = "_txtData_8"
-        Me.txtData.SetIndex(_txtData_8, CType(8, Short))
-
-        Me._txtData_8.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_8.Size = New System.Drawing.Size(225, 23)
-        Me._txtData_8.TabIndex = 0
-        Me._txtData_8.Text = "txtData(8)"
         '
         'Label1
         '
@@ -477,33 +463,6 @@
         Me.Label2.Text = "Name"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        '_cmdSaveCancel_1
-        '
-        Me._cmdSaveCancel_1.Location = New System.Drawing.Point(175, 391)
-        Me._cmdSaveCancel_1.Name = "_cmdSaveCancel_1"
-        Me._cmdSaveCancel_1.OcxState = CType(resources.GetObject("_cmdSaveCancel_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdSaveCancel_1.Size = New System.Drawing.Size(172, 41)
-        Me._cmdSaveCancel_1.TabIndex = 30
-        Me._cmdSaveCancel_1.TabStop = False
-        '
-        '_cmdSaveCancel_0
-        '
-        Me._cmdSaveCancel_0.Location = New System.Drawing.Point(26, 389)
-        Me._cmdSaveCancel_0.Name = "_cmdSaveCancel_0"
-        Me._cmdSaveCancel_0.OcxState = CType(resources.GetObject("_cmdSaveCancel_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdSaveCancel_0.Size = New System.Drawing.Size(100, 41)
-        Me._cmdSaveCancel_0.TabIndex = 31
-        Me._cmdSaveCancel_0.TabStop = False
-        '
-        '_cmdSaveCancel_2
-        '
-        Me._cmdSaveCancel_2.Location = New System.Drawing.Point(383, 391)
-        Me._cmdSaveCancel_2.Name = "_cmdSaveCancel_2"
-        Me._cmdSaveCancel_2.OcxState = CType(resources.GetObject("_cmdSaveCancel_2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdSaveCancel_2.Size = New System.Drawing.Size(100, 41)
-        Me._cmdSaveCancel_2.TabIndex = 32
-        Me._cmdSaveCancel_2.TabStop = False
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me._optphase_2)
@@ -520,7 +479,7 @@
         Me._optphase_2.AutoSize = True
         Me._optphase_2.Location = New System.Drawing.Point(259, 17)
         Me._optphase_2.Name = "_optphase_2"
-        Me._optphase_2.Size = New System.Drawing.Size(55, 20)
+        Me._optphase_2.Size = New System.Drawing.Size(45, 18)
         Me._optphase_2.TabIndex = 30
         Me._optphase_2.Text = "&Gas"
         Me._optphase_2.UseVisualStyleBackColor = True
@@ -531,7 +490,7 @@
         Me._optphase_1.Checked = True
         Me._optphase_1.Location = New System.Drawing.Point(96, 17)
         Me._optphase_1.Name = "_optphase_1"
-        Me._optphase_1.Size = New System.Drawing.Size(67, 20)
+        Me._optphase_1.Size = New System.Drawing.Size(53, 18)
         Me._optphase_1.TabIndex = 29
         Me._optphase_1.TabStop = True
         Me._optphase_1.Text = "&Liquid"
@@ -596,21 +555,51 @@
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Chemical"
         '
+        '_cmdSaveCancel_0
+        '
+        Me._cmdSaveCancel_0.BackColor = System.Drawing.Color.White
+        Me._cmdSaveCancel_0.Location = New System.Drawing.Point(26, 403)
+        Me._cmdSaveCancel_0.Name = "_cmdSaveCancel_0"
+        Me._cmdSaveCancel_0.Size = New System.Drawing.Size(100, 46)
+        Me._cmdSaveCancel_0.TabIndex = 38
+        Me._cmdSaveCancel_0.Text = "&Save"
+        Me._cmdSaveCancel_0.UseVisualStyleBackColor = False
+        '
+        '_cmdSaveCancel_1
+        '
+        Me._cmdSaveCancel_1.BackColor = System.Drawing.Color.White
+        Me._cmdSaveCancel_1.Location = New System.Drawing.Point(175, 403)
+        Me._cmdSaveCancel_1.Name = "_cmdSaveCancel_1"
+        Me._cmdSaveCancel_1.Size = New System.Drawing.Size(172, 46)
+        Me._cmdSaveCancel_1.TabIndex = 39
+        Me._cmdSaveCancel_1.Text = "Save &As New Record"
+        Me._cmdSaveCancel_1.UseVisualStyleBackColor = False
+        '
+        '_cmdSaveCancel_2
+        '
+        Me._cmdSaveCancel_2.BackColor = System.Drawing.Color.White
+        Me._cmdSaveCancel_2.Location = New System.Drawing.Point(383, 403)
+        Me._cmdSaveCancel_2.Name = "_cmdSaveCancel_2"
+        Me._cmdSaveCancel_2.Size = New System.Drawing.Size(97, 43)
+        Me._cmdSaveCancel_2.TabIndex = 40
+        Me._cmdSaveCancel_2.Text = "&Cancel"
+        Me._cmdSaveCancel_2.UseVisualStyleBackColor = False
+        '
         'frmEditIsothermData
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(521, 442)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(521, 469)
         Me.ControlBox = False
+        Me.Controls.Add(Me._cmdSaveCancel_2)
+        Me.Controls.Add(Me._cmdSaveCancel_1)
+        Me.Controls.Add(Me._cmdSaveCancel_0)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me._cmdSaveCancel_1)
-        Me.Controls.Add(Me._cmdSaveCancel_0)
-        Me.Controls.Add(Me._cmdSaveCancel_2)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -624,9 +613,6 @@
         Me.Text = "Editing an Isotherm"
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdSaveCancel_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdSaveCancel_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdSaveCancel_2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -648,5 +634,8 @@
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents _optphase_2 As RadioButton
     Friend WithEvents _optphase_1 As RadioButton
+    Friend WithEvents _cmdSaveCancel_0 As Button
+    Friend WithEvents _cmdSaveCancel_1 As Button
+    Friend WithEvents _cmdSaveCancel_2 As Button
 #End Region
 End Class

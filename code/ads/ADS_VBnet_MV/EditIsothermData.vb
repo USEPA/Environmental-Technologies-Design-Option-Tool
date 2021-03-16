@@ -268,15 +268,27 @@ Friend Class frmEditIsothermData
 		End If
 	End Sub
 
-	Private Sub _cmdSaveCancel_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdSaveCancel_0.ClickEvent
+	Private Sub _cmdSaveCancel_0_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdSaveCancel_Click(0)
 	End Sub
 
-	Private Sub _cmdSaveCancel_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdSaveCancel_1.ClickEvent
+	Private Sub _cmdSaveCancel_1_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdSaveCancel_Click(1)
 	End Sub
 
-	Private Sub _cmdSaveCancel_2_ClickEvent(sender As Object, e As EventArgs) Handles _cmdSaveCancel_2.ClickEvent
+	Private Sub _cmdSaveCancel_2_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdSaveCancel_Click(2)
+	End Sub
+
+	Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles _cmdSaveCancel_2.Click
+		Call cmdSaveCancel_Click(2)
+	End Sub
+
+	Private Sub SaveNew_Click(sender As Object, e As EventArgs) Handles _cmdSaveCancel_1.Click
+		Call cmdSaveCancel_Click(1)
+	End Sub
+
+	Private Sub Save_Click(sender As Object, e As EventArgs) Handles _cmdSaveCancel_0.Click
+		Call cmdSaveCancel_Click(0)
 	End Sub
 End Class
