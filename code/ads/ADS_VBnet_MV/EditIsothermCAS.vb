@@ -69,9 +69,9 @@ Friend Class frmEditIsothermCAS
 				VarText_2a = txtData(2).Text
 				VarText_2b = txtData(3).Text
 				'UPGRADE_WARNING: Couldn't resolve default property of object chkData().Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				VarBool_1 = _chkData_0.Value
+				VarBool_1 = _chkData_0.Checked
 				'UPGRADE_WARNING: Couldn't resolve default property of object chkData().Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				VarBool_2 = _chkData_1.Value
+				VarBool_2 = _chkData_1.Checked
 				'EXIT OUT OF HERE.
 				USER_HIT_CANCEL = False
 				USER_HIT_OK = True
@@ -107,17 +107,17 @@ Friend Class frmEditIsothermCAS
 		lblDesc(2).Text = Use_TextLabel_2a
 		lblDesc(3).Text = Use_TextLabel_2b
 		'UPGRADE_WARNING: Couldn't resolve default property of object chkData().Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		_chkData_0.Caption = Use_OptionLabel_1
+		_chkData_0.Text = Use_OptionLabel_1
 		'UPGRADE_WARNING: Couldn't resolve default property of object chkData().Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		_chkData_1.Caption = Use_OptionLabel_2
+		_chkData_1.Text = Use_OptionLabel_2
 		txtData(0).Text = VarText_1a
 		txtData(1).Text = VarText_1b
 		txtData(2).Text = VarText_2a
 		txtData(3).Text = VarText_2b
 		'UPGRADE_WARNING: Couldn't resolve default property of object chkData().Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		_chkData_0.Value = VarBool_1
+		_chkData_0.Checked = VarBool_1
 		'UPGRADE_WARNING: Couldn't resolve default property of object chkData().Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		_chkData_1.Value = VarBool_2
+		_chkData_1.Checked = VarBool_2
 		If (lblDesc(2).Text = "*") Then
 			lblDesc(2).Visible = False
 			lblDesc(3).Visible = False
@@ -125,7 +125,7 @@ Friend Class frmEditIsothermCAS
 			txtData(3).Visible = False
 		End If
 		'UPGRADE_WARNING: Couldn't resolve default property of object chkData(0).Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (_chkData_0.Caption = "*") Then
+		If (_chkData_0.Text = "*") Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object chkData().Visible. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			_chkData_0.Visible = False
 			'UPGRADE_WARNING: Couldn't resolve default property of object chkData().Visible. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'

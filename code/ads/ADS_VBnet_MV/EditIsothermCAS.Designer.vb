@@ -36,7 +36,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditIsothermCAS))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me._txtData_3 = New System.Windows.Forms.TextBox()
         Me._txtData_2 = New System.Windows.Forms.TextBox()
@@ -48,14 +47,12 @@
         Me._lblDesc_0 = New System.Windows.Forms.Label()
         Me.lblDesc = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me.txtData = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
-        Me._chkData_0 = New AxThreed.AxSSCheck()
-        Me._chkData_1 = New AxThreed.AxSSCheck()
         Me._cmdSaveCancel_0 = New System.Windows.Forms.Button()
         Me._cmdSaveCancel_1 = New System.Windows.Forms.Button()
+        Me._chkData_0 = New System.Windows.Forms.CheckBox()
+        Me._chkData_1 = New System.Windows.Forms.CheckBox()
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkData_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkData_1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         '_txtData_3
@@ -189,28 +186,12 @@
         'txtData
         '
         '
-        '_chkData_0
-        '
-        Me._chkData_0.Location = New System.Drawing.Point(23, 107)
-        Me._chkData_0.Name = "_chkData_0"
-        Me._chkData_0.OcxState = CType(resources.GetObject("_chkData_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkData_0.Size = New System.Drawing.Size(89, 25)
-        Me._chkData_0.TabIndex = 8
-        '
-        '_chkData_1
-        '
-        Me._chkData_1.Location = New System.Drawing.Point(23, 138)
-        Me._chkData_1.Name = "_chkData_1"
-        Me._chkData_1.OcxState = CType(resources.GetObject("_chkData_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkData_1.Size = New System.Drawing.Size(89, 25)
-        Me._chkData_1.TabIndex = 9
-        '
         '_cmdSaveCancel_0
         '
         Me._cmdSaveCancel_0.BackColor = System.Drawing.Color.White
-        Me._cmdSaveCancel_0.Location = New System.Drawing.Point(108, 169)
+        Me._cmdSaveCancel_0.Location = New System.Drawing.Point(109, 155)
         Me._cmdSaveCancel_0.Name = "_cmdSaveCancel_0"
-        Me._cmdSaveCancel_0.Size = New System.Drawing.Size(116, 39)
+        Me._cmdSaveCancel_0.Size = New System.Drawing.Size(116, 46)
         Me._cmdSaveCancel_0.TabIndex = 12
         Me._cmdSaveCancel_0.Text = "&Save"
         Me._cmdSaveCancel_0.UseVisualStyleBackColor = False
@@ -218,24 +199,44 @@
         '_cmdSaveCancel_1
         '
         Me._cmdSaveCancel_1.BackColor = System.Drawing.Color.White
-        Me._cmdSaveCancel_1.Location = New System.Drawing.Point(297, 169)
+        Me._cmdSaveCancel_1.Location = New System.Drawing.Point(298, 155)
         Me._cmdSaveCancel_1.Name = "_cmdSaveCancel_1"
-        Me._cmdSaveCancel_1.Size = New System.Drawing.Size(116, 39)
+        Me._cmdSaveCancel_1.Size = New System.Drawing.Size(116, 46)
         Me._cmdSaveCancel_1.TabIndex = 13
         Me._cmdSaveCancel_1.Text = "&Cancel"
         Me._cmdSaveCancel_1.UseVisualStyleBackColor = False
+        '
+        '_chkData_0
+        '
+        Me._chkData_0.AutoSize = True
+        Me._chkData_0.Location = New System.Drawing.Point(22, 107)
+        Me._chkData_0.Name = "_chkData_0"
+        Me._chkData_0.Size = New System.Drawing.Size(81, 18)
+        Me._chkData_0.TabIndex = 14
+        Me._chkData_0.Text = "CheckBox1"
+        Me._chkData_0.UseVisualStyleBackColor = True
+        '
+        '_chkData_1
+        '
+        Me._chkData_1.AutoSize = True
+        Me._chkData_1.Location = New System.Drawing.Point(22, 131)
+        Me._chkData_1.Name = "_chkData_1"
+        Me._chkData_1.Size = New System.Drawing.Size(81, 18)
+        Me._chkData_1.TabIndex = 15
+        Me._chkData_1.Text = "CheckBox2"
+        Me._chkData_1.UseVisualStyleBackColor = True
         '
         'frmEditIsothermCAS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(502, 239)
+        Me.ClientSize = New System.Drawing.Size(502, 224)
         Me.ControlBox = False
-        Me.Controls.Add(Me._cmdSaveCancel_1)
-        Me.Controls.Add(Me._cmdSaveCancel_0)
         Me.Controls.Add(Me._chkData_1)
         Me.Controls.Add(Me._chkData_0)
+        Me.Controls.Add(Me._cmdSaveCancel_1)
+        Me.Controls.Add(Me._cmdSaveCancel_0)
         Me.Controls.Add(Me._txtData_3)
         Me.Controls.Add(Me._txtData_2)
         Me.Controls.Add(Me._txtData_1)
@@ -256,16 +257,13 @@
         Me.Text = "{me.caption}"
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkData_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkData_1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents _chkData_0 As AxThreed.AxSSCheck
-    Friend WithEvents _chkData_1 As AxThreed.AxSSCheck
     Friend WithEvents _cmdSaveCancel_0 As Button
     Friend WithEvents _cmdSaveCancel_1 As Button
+    Friend WithEvents _chkData_0 As CheckBox
+    Friend WithEvents _chkData_1 As CheckBox
 #End Region
 End Class
