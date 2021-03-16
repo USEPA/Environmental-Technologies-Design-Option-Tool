@@ -29,7 +29,6 @@
     Public WithEvents _mnuEditItem_20 As System.Windows.Forms.ToolStripMenuItem
     Public WithEvents mnuEdit As System.Windows.Forms.ToolStripMenuItem
     Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
-    Public WithEvents CommonDialog1 As AxMSComDlg.AxCommonDialog
     Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     '   Public WithEvents f1book As VCIF1Lib.F1Book
     Public WithEvents f1bookDataGrid As DataGridView  'Replace f1book
@@ -55,14 +54,12 @@
         Me._mnuEditItem_10 = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuEditItem_20 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me.CommonDialog1 = New AxMSComDlg.AxCommonDialog()
         Me.f1bookDataGrid = New System.Windows.Forms.DataGridView()
         Me.mnuEditItem = New Microsoft.VisualBasic.Compatibility.VB6.ToolStripMenuItemArray(Me.components)
         Me.mnuFileItem = New Microsoft.VisualBasic.Compatibility.VB6.ToolStripMenuItemArray(Me.components)
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.MainMenu1.SuspendLayout()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSFrame1.SuspendLayout()
-        CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.f1bookDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuEditItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuFileItem, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,66 +71,66 @@
         Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuEdit})
         Me.MainMenu1.Location = New System.Drawing.Point(0, 0)
         Me.MainMenu1.Name = "MainMenu1"
-        Me.MainMenu1.Size = New System.Drawing.Size(592, 28)
+        Me.MainMenu1.Size = New System.Drawing.Size(592, 24)
         Me.MainMenu1.TabIndex = 2
         '
         'mnuFile
         '
         Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuFileItem_40, Me._mnuFileItem_49, Me._mnuFileItem_50, Me._mnuFileItem_55, Me._mnuFileItem_60, Me._mnuFileItem_198, Me._mnuFileItem_199})
         Me.mnuFile.Name = "mnuFile"
-        Me.mnuFile.Size = New System.Drawing.Size(46, 24)
+        Me.mnuFile.Size = New System.Drawing.Size(37, 20)
         Me.mnuFile.Text = "&File"
         '
         '_mnuFileItem_40
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_40, CType(40, Short))
         Me._mnuFileItem_40.Name = "_mnuFileItem_40"
-        Me._mnuFileItem_40.Size = New System.Drawing.Size(272, 26)
+        Me._mnuFileItem_40.Size = New System.Drawing.Size(222, 22)
         Me._mnuFileItem_40.Text = "Save &As ..."
         '
         '_mnuFileItem_49
         '
         Me._mnuFileItem_49.Name = "_mnuFileItem_49"
-        Me._mnuFileItem_49.Size = New System.Drawing.Size(269, 6)
+        Me._mnuFileItem_49.Size = New System.Drawing.Size(219, 6)
         '
         '_mnuFileItem_50
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_50, CType(50, Short))
         Me._mnuFileItem_50.Name = "_mnuFileItem_50"
-        Me._mnuFileItem_50.Size = New System.Drawing.Size(272, 26)
+        Me._mnuFileItem_50.Size = New System.Drawing.Size(222, 22)
         Me._mnuFileItem_50.Text = "Page Setup ..."
         '
         '_mnuFileItem_55
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_55, CType(55, Short))
         Me._mnuFileItem_55.Name = "_mnuFileItem_55"
-        Me._mnuFileItem_55.Size = New System.Drawing.Size(272, 26)
+        Me._mnuFileItem_55.Size = New System.Drawing.Size(222, 22)
         Me._mnuFileItem_55.Text = "Printer Setup ..."
         '
         '_mnuFileItem_60
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_60, CType(60, Short))
         Me._mnuFileItem_60.Name = "_mnuFileItem_60"
-        Me._mnuFileItem_60.Size = New System.Drawing.Size(272, 26)
+        Me._mnuFileItem_60.Size = New System.Drawing.Size(222, 22)
         Me._mnuFileItem_60.Text = "&Print (Current Sheet Only) ..."
         '
         '_mnuFileItem_198
         '
         Me._mnuFileItem_198.Name = "_mnuFileItem_198"
-        Me._mnuFileItem_198.Size = New System.Drawing.Size(269, 6)
+        Me._mnuFileItem_198.Size = New System.Drawing.Size(219, 6)
         '
         '_mnuFileItem_199
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_199, CType(199, Short))
         Me._mnuFileItem_199.Name = "_mnuFileItem_199"
-        Me._mnuFileItem_199.Size = New System.Drawing.Size(272, 26)
+        Me._mnuFileItem_199.Size = New System.Drawing.Size(222, 22)
         Me._mnuFileItem_199.Text = "&Close"
         '
         'mnuEdit
         '
         Me.mnuEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuEditItem_10, Me._mnuEditItem_20})
         Me.mnuEdit.Name = "mnuEdit"
-        Me.mnuEdit.Size = New System.Drawing.Size(49, 24)
+        Me.mnuEdit.Size = New System.Drawing.Size(39, 20)
         Me.mnuEdit.Text = "&Edit"
         '
         '_mnuEditItem_10
@@ -141,7 +138,7 @@
         Me.mnuEditItem.SetIndex(Me._mnuEditItem_10, CType(10, Short))
         Me._mnuEditItem_10.Name = "_mnuEditItem_10"
         Me._mnuEditItem_10.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me._mnuEditItem_10.Size = New System.Drawing.Size(345, 26)
+        Me._mnuEditItem_10.Size = New System.Drawing.Size(274, 22)
         Me._mnuEditItem_10.Text = "&Copy Selection to Clipboard"
         '
         '_mnuEditItem_20
@@ -149,27 +146,17 @@
         Me.mnuEditItem.SetIndex(Me._mnuEditItem_20, CType(20, Short))
         Me._mnuEditItem_20.Name = "_mnuEditItem_20"
         Me._mnuEditItem_20.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
-        Me._mnuEditItem_20.Size = New System.Drawing.Size(345, 26)
+        Me._mnuEditItem_20.Size = New System.Drawing.Size(274, 22)
         Me._mnuEditItem_20.Text = "Copy &Entire Table to Clipboard"
         '
         'SSFrame1
         '
-        Me.SSFrame1.Controls.Add(Me.CommonDialog1)
         Me.SSFrame1.Location = New System.Drawing.Point(140, 350)
         Me.SSFrame1.Name = "SSFrame1"
         Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.SSFrame1.Size = New System.Drawing.Size(187, 59)
         Me.SSFrame1.TabIndex = 1
         Me.SSFrame1.Visible = False
-        '
-        'CommonDialog1
-        '
-        Me.CommonDialog1.Enabled = True
-        Me.CommonDialog1.Location = New System.Drawing.Point(0, 0)
-        Me.CommonDialog1.Name = "CommonDialog1"
-        Me.CommonDialog1.OcxState = CType(resources.GetObject("CommonDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CommonDialog1.Size = New System.Drawing.Size(40, 40)
-        Me.CommonDialog1.TabIndex = 0
         '
         'f1bookDataGrid
         '
@@ -188,7 +175,7 @@
         '
         'frmExcelCurves
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(592, 445)
@@ -207,8 +194,6 @@
         Me.MainMenu1.ResumeLayout(False)
         Me.MainMenu1.PerformLayout()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSFrame1.ResumeLayout(False)
-        CType(Me.CommonDialog1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.f1bookDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuEditItem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuFileItem, System.ComponentModel.ISupportInitialize).EndInit()
@@ -216,5 +201,7 @@
         Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 #End Region
 End Class

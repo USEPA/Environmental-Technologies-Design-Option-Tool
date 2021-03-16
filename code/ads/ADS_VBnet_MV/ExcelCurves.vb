@@ -205,19 +205,27 @@ Friend Class frmExcelCurves
 			'INPUT NEW FILENAME.
 			On Error GoTo err_filesaveas
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmExcelCurves.CommonDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.CommonDialog1.Filter = "All Files (*.*)|*.*|Excel Files (*.xls)|*.xls"
+			'Me.CommonDialog1.Filter = "All Files (*.*)|*.*|Excel Files (*.xls)|*.xls"
+			Me.SaveFileDialog1.Filter = "All Files (*.*)|*.*|Excel Files (*.xls)|*.xls"
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmExcelCurves.CommonDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.CommonDialog1.FilterIndex = 2
+			'Me.CommonDialog1.FilterIndex = 2
+			Me.SaveFileDialog1.FilterIndex = 2
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmExcelCurves.CommonDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.CommonDialog1.CancelError = True
+			'Me.CommonDialog1.CancelError = True
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmExcelCurves.CommonDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.CommonDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+			'Me.CommonDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmExcelCurves.CommonDialog1.ShowSave. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.CommonDialog1.ShowSave()
+			'Me.CommonDialog1.ShowSave()
+			Me.SaveFileDialog1.ShowDialog()
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmExcelCurves.CommonDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			fn_saveas = Trim(Me.CommonDialog1.Filename)
+			fn_saveas = Trim(Me.SaveFileDialog1.FileName)
 			If (fn_saveas = "") Then
 				GoTo exit_save_did_not_go_okay
 			End If
