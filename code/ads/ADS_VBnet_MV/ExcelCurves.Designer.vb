@@ -29,7 +29,6 @@
     Public WithEvents _mnuEditItem_20 As System.Windows.Forms.ToolStripMenuItem
     Public WithEvents mnuEdit As System.Windows.Forms.ToolStripMenuItem
     Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     '   Public WithEvents f1book As VCIF1Lib.F1Book
     Public WithEvents f1bookDataGrid As DataGridView  'Replace f1book
     Public WithEvents mnuEditItem As Microsoft.VisualBasic.Compatibility.VB6.ToolStripMenuItemArray
@@ -39,7 +38,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmExcelCurves))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip()
         Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
@@ -53,13 +51,11 @@
         Me.mnuEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuEditItem_10 = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuEditItem_20 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.f1bookDataGrid = New System.Windows.Forms.DataGridView()
         Me.mnuEditItem = New Microsoft.VisualBasic.Compatibility.VB6.ToolStripMenuItemArray(Me.components)
         Me.mnuFileItem = New Microsoft.VisualBasic.Compatibility.VB6.ToolStripMenuItemArray(Me.components)
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.MainMenu1.SuspendLayout()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.f1bookDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuEditItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuFileItem, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,15 +145,6 @@
         Me._mnuEditItem_20.Size = New System.Drawing.Size(274, 22)
         Me._mnuEditItem_20.Text = "Copy &Entire Table to Clipboard"
         '
-        'SSFrame1
-        '
-        Me.SSFrame1.Location = New System.Drawing.Point(140, 350)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(187, 59)
-        Me.SSFrame1.TabIndex = 1
-        Me.SSFrame1.Visible = False
-        '
         'f1bookDataGrid
         '
         Me.f1bookDataGrid.ColumnHeadersHeight = 29
@@ -180,7 +167,6 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(592, 445)
         Me.Controls.Add(Me.f1bookDataGrid)
-        Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -193,7 +179,6 @@
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MainMenu1.ResumeLayout(False)
         Me.MainMenu1.PerformLayout()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.f1bookDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuEditItem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuFileItem, System.ComponentModel.ISupportInitialize).EndInit()
