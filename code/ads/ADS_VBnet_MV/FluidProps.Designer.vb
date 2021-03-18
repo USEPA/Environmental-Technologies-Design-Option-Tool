@@ -35,8 +35,6 @@
     ' Friend WithEvents TextBox2 As TextBox
     Public WithEvents SSFrame3 As AxThreed.AxSSFrame
     Public WithEvents SSFrame1 As AxThreed.AxSSFrame
-    Public WithEvents _cmdCancelOK_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdCancelOK_0 As AxThreed.AxSSCommand
     '   Public WithEvents chkCorr As SSCheckArray
     '   Public WithEvents cmdCancelOK As SSCommandArray
     Public WithEvents lblUnit As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -57,18 +55,16 @@
         Me._txtWater_0 = New System.Windows.Forms.TextBox()
         Me._txtWater_1 = New System.Windows.Forms.TextBox()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me._cmdCancelOK_1 = New AxThreed.AxSSCommand()
-        Me._cmdCancelOK_0 = New AxThreed.AxSSCommand()
         Me._chkCorr_0 = New AxThreed.AxSSCheck()
         Me._chkCorr_1 = New AxThreed.AxSSCheck()
         Me.SSFrame2 = New AxThreed.AxSSFrame()
         Me.SSFrame3 = New AxThreed.AxSSFrame()
+        Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
+        Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._chkCorr_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._chkCorr_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -155,24 +151,6 @@
         Me.SSFrame1.TabIndex = 4
         Me.SSFrame1.Visible = False
         '
-        '_cmdCancelOK_1
-        '
-        Me._cmdCancelOK_1.Location = New System.Drawing.Point(37, 135)
-        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
-        Me._cmdCancelOK_1.OcxState = CType(resources.GetObject("_cmdCancelOK_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_1.Size = New System.Drawing.Size(100, 32)
-        Me._cmdCancelOK_1.TabIndex = 9
-        Me._cmdCancelOK_1.TabStop = False
-        '
-        '_cmdCancelOK_0
-        '
-        Me._cmdCancelOK_0.Location = New System.Drawing.Point(178, 135)
-        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
-        Me._cmdCancelOK_0.OcxState = CType(resources.GetObject("_cmdCancelOK_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_0.Size = New System.Drawing.Size(100, 32)
-        Me._cmdCancelOK_0.TabIndex = 10
-        Me._cmdCancelOK_0.TabStop = False
-        '
         '_chkCorr_0
         '
         Me._chkCorr_0.Location = New System.Drawing.Point(37, 15)
@@ -205,13 +183,35 @@
         Me.SSFrame3.Size = New System.Drawing.Size(163, 67)
         Me.SSFrame3.TabIndex = 6
         '
+        '_cmdCancelOK_1
+        '
+        Me._cmdCancelOK_1.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_1.Location = New System.Drawing.Point(48, 148)
+        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
+        Me._cmdCancelOK_1.Size = New System.Drawing.Size(100, 32)
+        Me._cmdCancelOK_1.TabIndex = 17
+        Me._cmdCancelOK_1.Text = "Cancel"
+        Me._cmdCancelOK_1.UseVisualStyleBackColor = False
+        '
+        '_cmdCancelOK_0
+        '
+        Me._cmdCancelOK_0.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_0.Location = New System.Drawing.Point(189, 148)
+        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
+        Me._cmdCancelOK_0.Size = New System.Drawing.Size(100, 32)
+        Me._cmdCancelOK_0.TabIndex = 18
+        Me._cmdCancelOK_0.Text = "OK"
+        Me._cmdCancelOK_0.UseVisualStyleBackColor = False
+        '
         'frmFluidProps
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(356, 206)
+        Me.ClientSize = New System.Drawing.Size(356, 201)
         Me.ControlBox = False
+        Me.Controls.Add(Me._cmdCancelOK_0)
+        Me.Controls.Add(Me._cmdCancelOK_1)
         Me.Controls.Add(Me._txtWater_0)
         Me.Controls.Add(Me._txtWater_1)
         Me.Controls.Add(Me._lblunit_0)
@@ -219,8 +219,6 @@
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.SSFrame1)
-        Me.Controls.Add(Me._cmdCancelOK_1)
-        Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me._chkCorr_0)
         Me.Controls.Add(Me._chkCorr_1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -237,8 +235,6 @@
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._chkCorr_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._chkCorr_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -247,6 +243,9 @@
         Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents _cmdCancelOK_1 As Button
+    Friend WithEvents _cmdCancelOK_0 As Button
 
 
 

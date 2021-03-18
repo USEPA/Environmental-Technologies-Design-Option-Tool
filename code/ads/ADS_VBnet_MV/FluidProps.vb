@@ -177,13 +177,13 @@ Friend Class frmFluidProps
 		End If
 	End Sub
 
-	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.ClickEvent
+	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs)
 		USER_HIT_CANCEL = True
 		USER_HIT_OK = False
 		Me.Close()
 	End Sub
 
-	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.ClickEvent
+	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs)
 		'EXIT OUT OF HERE.
 		USER_HIT_CANCEL = False
 		USER_HIT_OK = True
@@ -212,5 +212,17 @@ Friend Class frmFluidProps
 
 		'REFRESH DISPLAY.
 		Call frmFluidProps_Refresh()
+	End Sub
+
+	Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.Click
+		USER_HIT_CANCEL = True
+		USER_HIT_OK = False
+		Me.Close()
+	End Sub
+
+	Private Sub OK_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
+		USER_HIT_CANCEL = False
+		USER_HIT_OK = True
+		Me.Close()
 	End Sub
 End Class
