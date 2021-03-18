@@ -21,7 +21,7 @@
 	Public WithEvents Command4 As System.Windows.Forms.Button
 
 
-    Public WithEvents SSFrame2 As AxThreed.AxSSFrame
+
 
     Friend WithEvents _lblunit_0 As System.Windows.Forms.Label
     Friend WithEvents _lblunit_1 As System.Windows.Forms.Label
@@ -31,8 +31,6 @@
     ' Friend WithEvents Label2 As Label
     ' Friend WithEvents TextBox1 As TextBox
     ' Friend WithEvents TextBox2 As TextBox
-    Public WithEvents SSFrame3 As AxThreed.AxSSFrame
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     '   Public WithEvents chkCorr As SSCheckArray
     '   Public WithEvents cmdCancelOK As SSCommandArray
     Public WithEvents lblUnit As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -52,9 +50,6 @@
         Me.txtWater = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
         Me._txtWater_0 = New System.Windows.Forms.TextBox()
         Me._txtWater_1 = New System.Windows.Forms.TextBox()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me.SSFrame2 = New AxThreed.AxSSFrame()
-        Me.SSFrame3 = New AxThreed.AxSSFrame()
         Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
         Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
         Me._chkCorr_0 = New System.Windows.Forms.CheckBox()
@@ -62,9 +57,6 @@
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Command4
@@ -138,31 +130,6 @@
         Me._txtWater_1.TabIndex = 16
         Me._txtWater_1.Text = "txtWater(1)"
         '
-        'SSFrame1
-        '
-        Me.SSFrame1.Location = New System.Drawing.Point(168, 12)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(166, 101)
-        Me.SSFrame1.TabIndex = 4
-        Me.SSFrame1.Visible = False
-        '
-        'SSFrame2
-        '
-        Me.SSFrame2.Location = New System.Drawing.Point(8, 18)
-        Me.SSFrame2.Name = "SSFrame2"
-        Me.SSFrame2.OcxState = CType(resources.GetObject("SSFrame2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame2.Size = New System.Drawing.Size(127, 67)
-        Me.SSFrame2.TabIndex = 5
-        '
-        'SSFrame3
-        '
-        Me.SSFrame3.Location = New System.Drawing.Point(134, 18)
-        Me.SSFrame3.Name = "SSFrame3"
-        Me.SSFrame3.OcxState = CType(resources.GetObject("SSFrame3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame3.Size = New System.Drawing.Size(163, 67)
-        Me.SSFrame3.TabIndex = 6
-        '
         '_cmdCancelOK_1
         '
         Me._cmdCancelOK_1.BackColor = System.Drawing.Color.White
@@ -220,7 +187,6 @@
         Me.Controls.Add(Me._lblunit_1)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
-        Me.Controls.Add(Me.SSFrame1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -234,12 +200,13 @@
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
+    End Sub
+
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
     End Sub
 
     Friend WithEvents _cmdCancelOK_1 As Button
