@@ -19,8 +19,6 @@
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
 	Public WithEvents Command4 As System.Windows.Forms.Button
-    Public WithEvents _chkCorr_0 As AxThreed.AxSSCheck
-    Public WithEvents _chkCorr_1 As AxThreed.AxSSCheck
 
 
     Public WithEvents SSFrame2 As AxThreed.AxSSFrame
@@ -55,18 +53,16 @@
         Me._txtWater_0 = New System.Windows.Forms.TextBox()
         Me._txtWater_1 = New System.Windows.Forms.TextBox()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me._chkCorr_0 = New AxThreed.AxSSCheck()
-        Me._chkCorr_1 = New AxThreed.AxSSCheck()
         Me.SSFrame2 = New AxThreed.AxSSFrame()
         Me.SSFrame3 = New AxThreed.AxSSFrame()
         Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
         Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
+        Me._chkCorr_0 = New System.Windows.Forms.CheckBox()
+        Me._chkCorr_1 = New System.Windows.Forms.CheckBox()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkCorr_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkCorr_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -151,22 +147,6 @@
         Me.SSFrame1.TabIndex = 4
         Me.SSFrame1.Visible = False
         '
-        '_chkCorr_0
-        '
-        Me._chkCorr_0.Location = New System.Drawing.Point(37, 15)
-        Me._chkCorr_0.Name = "_chkCorr_0"
-        Me._chkCorr_0.OcxState = CType(resources.GetObject("_chkCorr_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkCorr_0.Size = New System.Drawing.Size(70, 38)
-        Me._chkCorr_0.TabIndex = 0
-        '
-        '_chkCorr_1
-        '
-        Me._chkCorr_1.Location = New System.Drawing.Point(37, 67)
-        Me._chkCorr_1.Name = "_chkCorr_1"
-        Me._chkCorr_1.OcxState = CType(resources.GetObject("_chkCorr_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkCorr_1.Size = New System.Drawing.Size(70, 30)
-        Me._chkCorr_1.TabIndex = 1
-        '
         'SSFrame2
         '
         Me.SSFrame2.Location = New System.Drawing.Point(8, 18)
@@ -203,6 +183,26 @@
         Me._cmdCancelOK_0.Text = "OK"
         Me._cmdCancelOK_0.UseVisualStyleBackColor = False
         '
+        '_chkCorr_0
+        '
+        Me._chkCorr_0.AutoSize = True
+        Me._chkCorr_0.Location = New System.Drawing.Point(12, 36)
+        Me._chkCorr_0.Name = "_chkCorr_0"
+        Me._chkCorr_0.Size = New System.Drawing.Size(62, 18)
+        Me._chkCorr_0.TabIndex = 19
+        Me._chkCorr_0.Text = "Density"
+        Me._chkCorr_0.UseVisualStyleBackColor = True
+        '
+        '_chkCorr_1
+        '
+        Me._chkCorr_1.AutoSize = True
+        Me._chkCorr_1.Location = New System.Drawing.Point(12, 69)
+        Me._chkCorr_1.Name = "_chkCorr_1"
+        Me._chkCorr_1.Size = New System.Drawing.Size(71, 18)
+        Me._chkCorr_1.TabIndex = 20
+        Me._chkCorr_1.Text = "Viscosity"
+        Me._chkCorr_1.UseVisualStyleBackColor = True
+        '
         'frmFluidProps
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -210,6 +210,8 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(356, 201)
         Me.ControlBox = False
+        Me.Controls.Add(Me._chkCorr_1)
+        Me.Controls.Add(Me._chkCorr_0)
         Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me._cmdCancelOK_1)
         Me.Controls.Add(Me._txtWater_0)
@@ -219,8 +221,6 @@
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.SSFrame1)
-        Me.Controls.Add(Me._chkCorr_0)
-        Me.Controls.Add(Me._chkCorr_1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -235,8 +235,6 @@
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtWater, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkCorr_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkCorr_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -246,6 +244,8 @@
 
     Friend WithEvents _cmdCancelOK_1 As Button
     Friend WithEvents _cmdCancelOK_0 As Button
+    Friend WithEvents _chkCorr_0 As CheckBox
+    Friend WithEvents _chkCorr_1 As CheckBox
 
 
 

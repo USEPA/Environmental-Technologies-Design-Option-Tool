@@ -716,9 +716,9 @@ Module Refresh
 		Call frmFluidProps_Repopulate_Values()
 		'UPDATE CORRELATION USAGE BOXES.
 		'UPGRADE_ISSUE: Control chkCorr could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm._chkCorr_0.Value = State_Check_Water(1)
+		Frm._chkCorr_0.Checked = State_Check_Water(1)
 		'UPGRADE_ISSUE: Control chkCorr could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm._chkCorr_1.Value = State_Check_Water(2)
+		Frm._chkCorr_1.Checked = State_Check_Water(2)
 		'UPGRADE_ISSUE: Control txtWater could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		Frm.txtWater(0).Enabled = Not State_Check_Water(1)
 		'UPGRADE_ISSUE: Control txtWater could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'

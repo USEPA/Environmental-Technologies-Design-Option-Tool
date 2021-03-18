@@ -190,11 +190,11 @@ Friend Class frmFluidProps
 		Me.Close()
 	End Sub
 
-	Private Sub _chkCorr_0_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkCorr_0.ClickEvent
+	Private Sub _chkCorr_0_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 
-		State_Check_Water(1) = _chkCorr_0.Value
+		State_Check_Water(1) = _chkCorr_0.Checked
 
-		If _chkCorr_0.Value Then
+		If _chkCorr_0.Checked Then
 			'_chkCorr_1.Value = False
 			Call Update_FluidDensity(Bed.Temperature, Bed.Pressure, Bed.WaterDensity)
 		End If
@@ -203,9 +203,9 @@ Friend Class frmFluidProps
 		Call frmFluidProps_Refresh()
 	End Sub
 
-	Private Sub _chkCorr_1_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkCorr_1.ClickEvent
-		State_Check_Water(2) = _chkCorr_1.Value
-		If _chkCorr_1.Value Then
+	Private Sub _chkCorr_1_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
+		State_Check_Water(2) = _chkCorr_1.Checked
+		If _chkCorr_1.Checked Then
 			'_chkCorr_0.Value = False
 			Call Update_FluidViscosity(Bed.Temperature, Bed.WaterViscosity)
 		End If
@@ -224,5 +224,28 @@ Friend Class frmFluidProps
 		USER_HIT_CANCEL = False
 		USER_HIT_OK = True
 		Me.Close()
+	End Sub
+
+	Private Sub _chkCorr_0_CheckedChanged(sender As Object, e As EventArgs) Handles _chkCorr_0.CheckedChanged
+		State_Check_Water(1) = _chkCorr_0.Checked
+
+		If _chkCorr_0.Checked Then
+			'_chkCorr_1.Value = False
+			Call Update_FluidDensity(Bed.Temperature, Bed.Pressure, Bed.WaterDensity)
+		End If
+
+		'REFRESH DISPLAY.
+		Call frmFluidProps_Refresh()
+	End Sub
+
+	Private Sub _chkCorr_1_CheckedChanged(sender As Object, e As EventArgs) Handles _chkCorr_1.CheckedChanged
+		State_Check_Water(2) = _chkCorr_1.Checked
+		If _chkCorr_1.Checked Then
+			'_chkCorr_0.Value = False
+			Call Update_FluidViscosity(Bed.Temperature, Bed.WaterViscosity)
+		End If
+
+		'REFRESH DISPLAY.
+		Call frmFluidProps_Refresh()
 	End Sub
 End Class
