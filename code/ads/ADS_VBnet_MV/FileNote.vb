@@ -69,11 +69,11 @@ Friend Class frmFileNote
 	End Sub
 
 
-	'	Private Sub cmdButton_Click(ByRef Index As Short)
-	Private Sub cmdbutton_click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
+	Private Sub cmdButton_Click(ByRef Index As Short)
+		'Private Sub cmdbutton_click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
 		Dim RetVal As Short
-		Dim Index As Short
-		Index = Array.IndexOf(cmdButton, eventSender)
+		'Dim Index As Short
+		'Index = Array.IndexOf(cmdButton, eventSender)
 		Select Case Index
 			Case 0 'DELETE.
 				RetVal = MsgBox("Are you sure you want to delete this " & "file note ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, AppName_For_Display_Short & " : Delete File Note ?")
@@ -120,7 +120,7 @@ Friend Class frmFileNote
 		' Set focus back to form.
 		Me.Activate()
 	End Sub
-	
+
 	Private Sub frmFileNote_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		'MISC INITS.
 		Call CenterOnForm(Me, frmMain)
@@ -128,8 +128,8 @@ Friend Class frmFileNote
 		Call frmFileNote_Refresh()
 		RaiseDirtyFlag = False
 	End Sub
-	
-	
+
+
 	Private Sub txtData_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtData.Enter
 		Dim Ctl As System.Windows.Forms.Control
 		Ctl = txtData
@@ -210,6 +210,30 @@ Friend Class frmFileNote
 		'      Call frmEditIsothermData_Refresh
 		'    End If
 		'  End If
+	End Sub
+
+	Private Sub _cmdButton_0_Click(sender As Object, e As EventArgs) Handles _cmdButton_0.Click
+		Call cmdButton_Click(0)
+	End Sub
+
+	Private Sub _cmdButton_1_Click(sender As Object, e As EventArgs) Handles _cmdButton_1.Click
+		Call cmdButton_Click(1)
+	End Sub
+
+	Private Sub _cmdButton_2_Click(sender As Object, e As EventArgs) Handles _cmdButton_2.Click
+		Call cmdButton_Click(2)
+	End Sub
+
+	Private Sub _cmdButton_5_Click(sender As Object, e As EventArgs) Handles _cmdButton_5.Click
+		Call cmdbutton_click(5)
+	End Sub
+
+	Private Sub _cmdButton_3_Click(sender As Object, e As EventArgs) Handles _cmdButton_3.Click
+		Call cmdButton_Click(3)
+	End Sub
+
+	Private Sub _cmdButton_4_Click(sender As Object, e As EventArgs) Handles _cmdButton_4.Click
+		Call cmdButton_Click(4)
 	End Sub
 
 	'	Private Sub _cmdButton_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdButton_1.ClickEvent
