@@ -1371,7 +1371,7 @@ err_FRMBREAK_UserPrefs_Load:
 
 	End Sub
 
-	Private Sub cmdFile_ClickEvent(sender As Object, e As EventArgs) Handles cmdFile.ClickEvent
+	Private Sub cmdFile_ClickEvent(sender As Object, e As EventArgs)
 		Dim cdlCancel As Object
 		Dim cdlOFNPathMustExist As Object
 		Dim cdlOFNOverwritePrompt As Object
@@ -1645,7 +1645,7 @@ File_Error:
 Exit_Print_File:
 	End Sub
 
-	Private Sub cmdSave_ClickEvent(sender As Object, e As EventArgs) Handles cmdSave.ClickEvent
+	Private Sub cmdSave_ClickEvent(sender As Object, e As EventArgs)
 		Dim cdlCancel As Object
 		Dim cdlOFNPathMustExist As Object
 		Dim cdlOFNOverwritePrompt As Object
@@ -1719,15 +1719,15 @@ Exit_Save_Results_PF:
 
 	End Sub
 
-	Private Sub cmdExcel_ClickEvent(sender As Object, e As EventArgs) Handles cmdExcel.ClickEvent
+	Private Sub cmdExcel_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdExcel_Click()
 	End Sub
 
-	Private Sub cmdSelect_ClickEvent(sender As Object, e As EventArgs) Handles cmdSelect.ClickEvent
-		cmdSelect_Click()
+	Private Sub cmdSelect_ClickEvent(sender As Object, e As EventArgs)
+		Call cmdSelect_Click()
 	End Sub
 
-	Private Sub cmdPrint_ClickEvent(sender As Object, e As EventArgs) Handles cmdPrint.ClickEvent
+	Private Sub cmdPrint_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdPrint_Click()
 	End Sub
 
@@ -1736,4 +1736,27 @@ Exit_Save_Results_PF:
 	Private Sub cmdTreatA_ClickEvent(sender As Object, e As EventArgs) Handles cmdTreatA.ClickEvent
 		Call cmdTreat_Click()
 	End Sub
+
+	Private Sub SaveCurves_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
+		Call cmdSave_Click()
+	End Sub
+
+	Private Sub PrinttoFile_Click(sender As Object, e As EventArgs) Handles cmdFile.Click
+		Call cmdFile_Click()
+	End Sub
+
+	Private Sub Excel_Click(sender As Object, e As EventArgs) Handles cmdExcel.Click
+		Call cmdExcel_Click()
+	End Sub
+
+	Private Sub Select_Printer_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
+		Call cmdSelect_Click()
+	End Sub
+
+	Private Sub Print_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
+		Call cmdPrint_Click()
+	End Sub
+
+
+
 End Class

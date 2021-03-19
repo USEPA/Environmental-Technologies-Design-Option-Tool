@@ -21,7 +21,7 @@ Friend Class frmAbout2
 		msg = msg & "Fr" & Chr(233) & "d" & Chr(233) & "ric Gobin" & Chr(13)
 		msg = msg & "Eric J. Oman"
 		'UPGRADE_WARNING: Couldn't resolve default property of object pnl_title().Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		_pnl_title_3.Caption = msg
+		_pnl_title_3.Text = msg
 		'UPGRADE_WARNING: Couldn't resolve default property of object pnl_title().BackColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'	_pnl_title_3.BackColor = &HC0C0C0
 		'UPGRADE_WARNING: Couldn't resolve default property of object pnl_title().ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
