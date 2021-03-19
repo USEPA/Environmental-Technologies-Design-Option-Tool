@@ -21,13 +21,11 @@
     Public WithEvents _lblMisc_0 As Label
     Public WithEvents lblSSValue As Label
     Public WithEvents lblSSValueUnits As Label
-    Friend WithEvents cmdTreatA As AxThreed.AxSSCommand
     Public WithEvents Command4 As System.Windows.Forms.Button
     Public WithEvents Picture1 As System.Windows.Forms.PictureBox
     Public WithEvents ssframe_SSConc As AxThreed.AxSSFrame
     Public WithEvents cboGrid As System.Windows.Forms.ComboBox
     Public WithEvents cboCompo As System.Windows.Forms.ComboBox
-    Public WithEvents cmdTreat As AxThreed.AxSSCommand
     Public WithEvents _lblLegend_0 As System.Windows.Forms.Label
     Public WithEvents _lblLegend_1 As System.Windows.Forms.Label
     Public WithEvents _lblLegend_2 As System.Windows.Forms.Label
@@ -56,7 +54,6 @@
     Public WithEvents Label2 As System.Windows.Forms.Label
     Public WithEvents Frame3D1 As AxThreed.AxSSFrame
     Public WithEvents CMDialog1 As AxMSComDlg.AxCommonDialog
-    Public WithEvents cmdExit As AxThreed.AxSSCommand
     Public WithEvents cboYAxisType As System.Windows.Forms.ComboBox
     Public WithEvents SSFrame3 As AxThreed.AxSSFrame
     Public WithEvents Label1 As System.Windows.Forms.Label
@@ -103,9 +100,7 @@
         Me._lblData_15 = New System.Windows.Forms.Label()
         Me.lblMTZ = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmdTreat = New AxThreed.AxSSCommand()
         Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
-        Me.cmdExit = New AxThreed.AxSSCommand()
         Me.SSFrame3 = New AxThreed.AxSSFrame()
         Me.cboYAxisType = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -115,7 +110,6 @@
         Me._lblMisc_0 = New System.Windows.Forms.Label()
         Me.lblSSValue = New System.Windows.Forms.Label()
         Me.lblSSValueUnits = New System.Windows.Forms.Label()
-        Me.cmdTreatA = New AxThreed.AxSSCommand()
         Me.grpBreak = New AxGraphLib.AxGraph()
         Me._optType_0 = New System.Windows.Forms.RadioButton()
         Me._optType_1 = New System.Windows.Forms.RadioButton()
@@ -126,18 +120,17 @@
         Me.cmdSelect = New System.Windows.Forms.Button()
         Me.cmdPrint = New System.Windows.Forms.Button()
         Me.cmdFile = New System.Windows.Forms.Button()
+        Me.cmdExit = New System.Windows.Forms.Button()
+        Me.cmdTreatA = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_SSConc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Frame3D1.SuspendLayout()
-        CType(Me.cmdTreat, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdExit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblMisc, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdTreatA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -654,14 +647,6 @@
         Me.Label2.Text = "Length of the MTZ (cm):"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'cmdTreat
-        '
-        Me.cmdTreat.Location = New System.Drawing.Point(14, 111)
-        Me.cmdTreat.Name = "cmdTreat"
-        Me.cmdTreat.OcxState = CType(resources.GetObject("cmdTreat.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdTreat.Size = New System.Drawing.Size(166, 30)
-        Me.cmdTreat.TabIndex = 2
-        '
         'CMDialog1
         '
         Me.CMDialog1.Enabled = True
@@ -670,15 +655,6 @@
         Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
         Me.CMDialog1.TabIndex = 51
-        '
-        'cmdExit
-        '
-        Me.cmdExit.Location = New System.Drawing.Point(570, 13)
-        Me.cmdExit.Name = "cmdExit"
-        Me.cmdExit.OcxState = CType(resources.GetObject("cmdExit.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdExit.Size = New System.Drawing.Size(123, 33)
-        Me.cmdExit.TabIndex = 37
-        Me.cmdExit.TabStop = False
         '
         'SSFrame3
         '
@@ -754,14 +730,6 @@
         Me.lblSSValueUnits.Size = New System.Drawing.Size(85, 17)
         Me.lblSSValueUnits.TabIndex = 55
         Me.lblSSValueUnits.Text = "{u}g/L"
-        '
-        'cmdTreatA
-        '
-        Me.cmdTreatA.Location = New System.Drawing.Point(10, 112)
-        Me.cmdTreatA.Name = "cmdTreatA"
-        Me.cmdTreatA.OcxState = CType(resources.GetObject("cmdTreatA.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdTreatA.Size = New System.Drawing.Size(177, 29)
-        Me.cmdTreatA.TabIndex = 56
         '
         'grpBreak
         '
@@ -859,6 +827,26 @@
         Me.cmdFile.Text = "Print to &File"
         Me.cmdFile.UseVisualStyleBackColor = False
         '
+        'cmdExit
+        '
+        Me.cmdExit.BackColor = System.Drawing.Color.White
+        Me.cmdExit.Location = New System.Drawing.Point(566, 28)
+        Me.cmdExit.Name = "cmdExit"
+        Me.cmdExit.Size = New System.Drawing.Size(122, 33)
+        Me.cmdExit.TabIndex = 68
+        Me.cmdExit.Text = "&Close"
+        Me.cmdExit.UseVisualStyleBackColor = False
+        '
+        'cmdTreatA
+        '
+        Me.cmdTreatA.BackColor = System.Drawing.Color.White
+        Me.cmdTreatA.Location = New System.Drawing.Point(10, 108)
+        Me.cmdTreatA.Name = "cmdTreatA"
+        Me.cmdTreatA.Size = New System.Drawing.Size(177, 33)
+        Me.cmdTreatA.TabIndex = 69
+        Me.cmdTreatA.Text = "Treatment Objective"
+        Me.cmdTreatA.UseVisualStyleBackColor = False
+        '
         'frmModelPSDMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -866,6 +854,8 @@
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(833, 635)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdTreatA)
+        Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.cmdFile)
         Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.cmdSelect)
@@ -873,19 +863,16 @@
         Me.Controls.Add(Me.cmdExcel)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.grpBreak)
-        Me.Controls.Add(Me.cmdTreatA)
         Me.Controls.Add(Me.lblSSValueUnits)
         Me.Controls.Add(Me.lblSSValue)
         Me.Controls.Add(Me._lblMisc_0)
         Me.Controls.Add(Me.cboYAxisType)
         Me.Controls.Add(Me.Command4)
-        Me.Controls.Add(Me.cmdTreat)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.ssframe_SSConc)
         Me.Controls.Add(Me.cboGrid)
         Me.Controls.Add(Me.Frame3D1)
         Me.Controls.Add(Me.CMDialog1)
-        Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.SSFrame3)
         Me.Controls.Add(Me.Label1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -903,14 +890,11 @@
         CType(Me.ssframe_SSConc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Frame3D1.ResumeLayout(False)
-        CType(Me.cmdTreat, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdExit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblMisc, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdTreatA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -927,6 +911,8 @@
     Friend WithEvents cmdSelect As Button
     Friend WithEvents cmdPrint As Button
     Friend WithEvents cmdFile As Button
+    Friend WithEvents cmdExit As Button
+    Friend WithEvents cmdTreatA As Button
 
 
 #End Region

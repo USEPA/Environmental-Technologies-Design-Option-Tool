@@ -1366,7 +1366,7 @@ err_FRMBREAK_UserPrefs_Load:
 
 	End Sub
 
-	Private Sub cmdExit_ClickEvent(sender As Object, e As EventArgs) Handles cmdExit.ClickEvent
+	Private Sub cmdExit_ClickEvent(sender As Object, e As EventArgs)
 		Me.Dispose()   'Shang from Close to Dispose so that results are updated correctly with regard to component selection
 
 	End Sub
@@ -1733,7 +1733,7 @@ Exit_Save_Results_PF:
 
 
 
-	Private Sub cmdTreatA_ClickEvent(sender As Object, e As EventArgs) Handles cmdTreatA.ClickEvent
+	Private Sub cmdTreatA_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdTreat_Click()
 	End Sub
 
@@ -1757,6 +1757,11 @@ Exit_Save_Results_PF:
 		Call cmdPrint_Click()
 	End Sub
 
+	Private Sub cmdExit_Click(sender As Object, e As EventArgs) Handles cmdExit.Click
+		Me.Dispose() 'dispose instead of close
+	End Sub
 
-
+	Private Sub cmdTreatA_Click(sender As Object, e As EventArgs) Handles cmdTreatA.Click
+		Call cmdTreat_Click()
+	End Sub
 End Class
