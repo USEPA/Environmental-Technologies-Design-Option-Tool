@@ -981,9 +981,10 @@ Exit_Save_Results_PF:
 		'CMDialog1.flags = PD_PRINTSETUP
 		'CMDialog1.Action = 5
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = False
+		'CMDialog1.CancelError = False
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.ShowPrinter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.ShowPrinter()
+		'CMDialog1.ShowPrinter()
+
 		Exit Sub
 Select_Print_Error:
 		Call Show_Trapped_Error("cmdSelect_Click")

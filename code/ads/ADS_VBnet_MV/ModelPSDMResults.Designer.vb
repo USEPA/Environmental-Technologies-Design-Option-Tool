@@ -53,7 +53,6 @@
     Public WithEvents lblMTZ As System.Windows.Forms.Label
     Public WithEvents Label2 As System.Windows.Forms.Label
     Public WithEvents Frame3D1 As AxThreed.AxSSFrame
-    Public WithEvents CMDialog1 As AxMSComDlg.AxCommonDialog
     Public WithEvents cboYAxisType As System.Windows.Forms.ComboBox
     Public WithEvents SSFrame3 As AxThreed.AxSSFrame
     Public WithEvents Label1 As System.Windows.Forms.Label
@@ -100,7 +99,6 @@
         Me._lblData_15 = New System.Windows.Forms.Label()
         Me.lblMTZ = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
         Me.SSFrame3 = New AxThreed.AxSSFrame()
         Me.cboYAxisType = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -128,7 +126,6 @@
         CType(Me.ssframe_SSConc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Frame3D1.SuspendLayout()
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -649,15 +646,6 @@
         Me.Label2.Text = "Length of the MTZ (cm):"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'CMDialog1
-        '
-        Me.CMDialog1.Enabled = True
-        Me.CMDialog1.Location = New System.Drawing.Point(0, 0)
-        Me.CMDialog1.Name = "CMDialog1"
-        Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
-        Me.CMDialog1.TabIndex = 51
-        '
         'SSFrame3
         '
         Me.SSFrame3.Location = New System.Drawing.Point(351, 468)
@@ -878,7 +866,6 @@
         Me.Controls.Add(Me.ssframe_SSConc)
         Me.Controls.Add(Me.cboGrid)
         Me.Controls.Add(Me.Frame3D1)
-        Me.Controls.Add(Me.CMDialog1)
         Me.Controls.Add(Me.SSFrame3)
         Me.Controls.Add(Me.Label1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -896,7 +883,6 @@
         CType(Me.ssframe_SSConc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Frame3D1.ResumeLayout(False)
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).EndInit()
