@@ -122,6 +122,8 @@
         Me.cmdFile = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.cmdTreatA = New System.Windows.Forms.Button()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_SSConc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -847,6 +849,10 @@
         Me.cmdTreatA.Text = "Treatment Objective"
         Me.cmdTreatA.UseVisualStyleBackColor = False
         '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.UseEXDialog = True
+        '
         'frmModelPSDMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -913,6 +919,8 @@
     Friend WithEvents cmdFile As Button
     Friend WithEvents cmdExit As Button
     Friend WithEvents cmdTreatA As Button
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents PrintDialog1 As PrintDialog
 
 
 #End Region
