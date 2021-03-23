@@ -52,7 +52,6 @@
     Public WithEvents _lblData_15 As System.Windows.Forms.Label
     Public WithEvents lblMTZ As System.Windows.Forms.Label
     Public WithEvents Label2 As System.Windows.Forms.Label
-    Public WithEvents Frame3D1 As AxThreed.AxSSFrame
     Public WithEvents cboYAxisType As System.Windows.Forms.ComboBox
     Public WithEvents SSFrame3 As AxThreed.AxSSFrame
     Public WithEvents Label1 As System.Windows.Forms.Label
@@ -71,7 +70,6 @@
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.ssframe_SSConc = New AxThreed.AxSSFrame()
         Me.cboGrid = New System.Windows.Forms.ComboBox()
-        Me.Frame3D1 = New AxThreed.AxSSFrame()
         Me.cboCompo = New System.Windows.Forms.ComboBox()
         Me._lblLegend_0 = New System.Windows.Forms.Label()
         Me._lblLegend_1 = New System.Windows.Forms.Label()
@@ -122,10 +120,9 @@
         Me.cmdTreatA = New System.Windows.Forms.Button()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssframe_SSConc, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Frame3D1.SuspendLayout()
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -186,41 +183,6 @@
         Me.cboGrid.Size = New System.Drawing.Size(174, 22)
         Me.cboGrid.TabIndex = 33
         '
-        'Frame3D1
-        '
-        Me.Frame3D1.Controls.Add(Me.cboCompo)
-        Me.Frame3D1.Controls.Add(Me._lblLegend_0)
-        Me.Frame3D1.Controls.Add(Me._lblLegend_1)
-        Me.Frame3D1.Controls.Add(Me._lblLegend_2)
-        Me.Frame3D1.Controls.Add(Me._lblLegend_3)
-        Me.Frame3D1.Controls.Add(Me._lblLegend_4)
-        Me.Frame3D1.Controls.Add(Me._lblLegend_5)
-        Me.Frame3D1.Controls.Add(Me._lblLegend_6)
-        Me.Frame3D1.Controls.Add(Me._lblData_0)
-        Me.Frame3D1.Controls.Add(Me._lblData_1)
-        Me.Frame3D1.Controls.Add(Me._lblData_2)
-        Me.Frame3D1.Controls.Add(Me._lblData_3)
-        Me.Frame3D1.Controls.Add(Me._lblData_4)
-        Me.Frame3D1.Controls.Add(Me._lblData_5)
-        Me.Frame3D1.Controls.Add(Me._lblData_6)
-        Me.Frame3D1.Controls.Add(Me._lblData_7)
-        Me.Frame3D1.Controls.Add(Me._lblData_8)
-        Me.Frame3D1.Controls.Add(Me._lblData_9)
-        Me.Frame3D1.Controls.Add(Me._lblData_10)
-        Me.Frame3D1.Controls.Add(Me._lblData_11)
-        Me.Frame3D1.Controls.Add(Me._lblLegend_7)
-        Me.Frame3D1.Controls.Add(Me._lblData_12)
-        Me.Frame3D1.Controls.Add(Me._lblData_13)
-        Me.Frame3D1.Controls.Add(Me._lblData_14)
-        Me.Frame3D1.Controls.Add(Me._lblData_15)
-        Me.Frame3D1.Controls.Add(Me.lblMTZ)
-        Me.Frame3D1.Controls.Add(Me.Label2)
-        Me.Frame3D1.Location = New System.Drawing.Point(4, 0)
-        Me.Frame3D1.Name = "Frame3D1"
-        Me.Frame3D1.OcxState = CType(resources.GetObject("Frame3D1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.Frame3D1.Size = New System.Drawing.Size(524, 150)
-        Me.Frame3D1.TabIndex = 0
-        '
         'cboCompo
         '
         Me.cboCompo.BackColor = System.Drawing.SystemColors.Window
@@ -228,7 +190,7 @@
         Me.cboCompo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCompo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCompo.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.cboCompo.Location = New System.Drawing.Point(6, 20)
+        Me.cboCompo.Location = New System.Drawing.Point(17, 34)
         Me.cboCompo.Name = "cboCompo"
         Me.cboCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cboCompo.Size = New System.Drawing.Size(258, 22)
@@ -242,7 +204,7 @@
         Me._lblLegend_0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblLegend_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblLegend.SetIndex(Me._lblLegend_0, CType(0, Short))
-        Me._lblLegend_0.Location = New System.Drawing.Point(6, 44)
+        Me._lblLegend_0.Location = New System.Drawing.Point(17, 58)
         Me._lblLegend_0.Name = "_lblLegend_0"
         Me._lblLegend_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblLegend_0.Size = New System.Drawing.Size(177, 17)
@@ -257,7 +219,7 @@
         Me._lblLegend_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblLegend_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblLegend.SetIndex(Me._lblLegend_1, CType(1, Short))
-        Me._lblLegend_1.Location = New System.Drawing.Point(182, 44)
+        Me._lblLegend_1.Location = New System.Drawing.Point(193, 58)
         Me._lblLegend_1.Name = "_lblLegend_1"
         Me._lblLegend_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblLegend_1.Size = New System.Drawing.Size(81, 17)
@@ -273,7 +235,7 @@
         Me._lblLegend_2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblLegend_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblLegend.SetIndex(Me._lblLegend_2, CType(2, Short))
-        Me._lblLegend_2.Location = New System.Drawing.Point(262, 44)
+        Me._lblLegend_2.Location = New System.Drawing.Point(273, 58)
         Me._lblLegend_2.Name = "_lblLegend_2"
         Me._lblLegend_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblLegend_2.Size = New System.Drawing.Size(81, 17)
@@ -289,7 +251,7 @@
         Me._lblLegend_3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblLegend_3.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblLegend.SetIndex(Me._lblLegend_3, CType(3, Short))
-        Me._lblLegend_3.Location = New System.Drawing.Point(342, 44)
+        Me._lblLegend_3.Location = New System.Drawing.Point(353, 58)
         Me._lblLegend_3.Name = "_lblLegend_3"
         Me._lblLegend_3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblLegend_3.Size = New System.Drawing.Size(81, 17)
@@ -305,7 +267,7 @@
         Me._lblLegend_4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblLegend_4.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblLegend.SetIndex(Me._lblLegend_4, CType(4, Short))
-        Me._lblLegend_4.Location = New System.Drawing.Point(6, 60)
+        Me._lblLegend_4.Location = New System.Drawing.Point(17, 74)
         Me._lblLegend_4.Name = "_lblLegend_4"
         Me._lblLegend_4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblLegend_4.Size = New System.Drawing.Size(177, 17)
@@ -321,7 +283,7 @@
         Me._lblLegend_5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblLegend_5.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblLegend.SetIndex(Me._lblLegend_5, CType(5, Short))
-        Me._lblLegend_5.Location = New System.Drawing.Point(6, 76)
+        Me._lblLegend_5.Location = New System.Drawing.Point(17, 90)
         Me._lblLegend_5.Name = "_lblLegend_5"
         Me._lblLegend_5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblLegend_5.Size = New System.Drawing.Size(177, 17)
@@ -337,7 +299,7 @@
         Me._lblLegend_6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblLegend_6.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblLegend.SetIndex(Me._lblLegend_6, CType(6, Short))
-        Me._lblLegend_6.Location = New System.Drawing.Point(6, 92)
+        Me._lblLegend_6.Location = New System.Drawing.Point(17, 106)
         Me._lblLegend_6.Name = "_lblLegend_6"
         Me._lblLegend_6.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblLegend_6.Size = New System.Drawing.Size(177, 17)
@@ -353,7 +315,7 @@
         Me._lblData_0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_0.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_0, CType(0, Short))
-        Me._lblData_0.Location = New System.Drawing.Point(182, 60)
+        Me._lblData_0.Location = New System.Drawing.Point(193, 74)
         Me._lblData_0.Name = "_lblData_0"
         Me._lblData_0.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_0.Size = New System.Drawing.Size(81, 17)
@@ -369,7 +331,7 @@
         Me._lblData_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_1, CType(1, Short))
-        Me._lblData_1.Location = New System.Drawing.Point(182, 76)
+        Me._lblData_1.Location = New System.Drawing.Point(193, 90)
         Me._lblData_1.Name = "_lblData_1"
         Me._lblData_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_1.Size = New System.Drawing.Size(81, 17)
@@ -385,7 +347,7 @@
         Me._lblData_2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_2, CType(2, Short))
-        Me._lblData_2.Location = New System.Drawing.Point(182, 92)
+        Me._lblData_2.Location = New System.Drawing.Point(193, 106)
         Me._lblData_2.Name = "_lblData_2"
         Me._lblData_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_2.Size = New System.Drawing.Size(81, 17)
@@ -401,7 +363,7 @@
         Me._lblData_3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_3.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_3, CType(3, Short))
-        Me._lblData_3.Location = New System.Drawing.Point(262, 60)
+        Me._lblData_3.Location = New System.Drawing.Point(273, 74)
         Me._lblData_3.Name = "_lblData_3"
         Me._lblData_3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_3.Size = New System.Drawing.Size(81, 17)
@@ -417,7 +379,7 @@
         Me._lblData_4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_4.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_4, CType(4, Short))
-        Me._lblData_4.Location = New System.Drawing.Point(262, 76)
+        Me._lblData_4.Location = New System.Drawing.Point(273, 90)
         Me._lblData_4.Name = "_lblData_4"
         Me._lblData_4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_4.Size = New System.Drawing.Size(81, 17)
@@ -433,7 +395,7 @@
         Me._lblData_5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_5.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_5, CType(5, Short))
-        Me._lblData_5.Location = New System.Drawing.Point(262, 92)
+        Me._lblData_5.Location = New System.Drawing.Point(273, 106)
         Me._lblData_5.Name = "_lblData_5"
         Me._lblData_5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_5.Size = New System.Drawing.Size(81, 17)
@@ -449,7 +411,7 @@
         Me._lblData_6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_6.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_6, CType(6, Short))
-        Me._lblData_6.Location = New System.Drawing.Point(342, 60)
+        Me._lblData_6.Location = New System.Drawing.Point(353, 74)
         Me._lblData_6.Name = "_lblData_6"
         Me._lblData_6.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_6.Size = New System.Drawing.Size(81, 17)
@@ -465,7 +427,7 @@
         Me._lblData_7.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_7.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_7, CType(7, Short))
-        Me._lblData_7.Location = New System.Drawing.Point(342, 76)
+        Me._lblData_7.Location = New System.Drawing.Point(353, 90)
         Me._lblData_7.Name = "_lblData_7"
         Me._lblData_7.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_7.Size = New System.Drawing.Size(81, 17)
@@ -481,7 +443,7 @@
         Me._lblData_8.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_8.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_8, CType(8, Short))
-        Me._lblData_8.Location = New System.Drawing.Point(342, 92)
+        Me._lblData_8.Location = New System.Drawing.Point(353, 106)
         Me._lblData_8.Name = "_lblData_8"
         Me._lblData_8.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_8.Size = New System.Drawing.Size(81, 17)
@@ -497,7 +459,7 @@
         Me._lblData_9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_9.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_9, CType(9, Short))
-        Me._lblData_9.Location = New System.Drawing.Point(422, 60)
+        Me._lblData_9.Location = New System.Drawing.Point(433, 74)
         Me._lblData_9.Name = "_lblData_9"
         Me._lblData_9.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_9.Size = New System.Drawing.Size(89, 17)
@@ -513,7 +475,7 @@
         Me._lblData_10.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_10.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_10, CType(10, Short))
-        Me._lblData_10.Location = New System.Drawing.Point(422, 76)
+        Me._lblData_10.Location = New System.Drawing.Point(433, 90)
         Me._lblData_10.Name = "_lblData_10"
         Me._lblData_10.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_10.Size = New System.Drawing.Size(89, 17)
@@ -529,7 +491,7 @@
         Me._lblData_11.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_11.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_11, CType(11, Short))
-        Me._lblData_11.Location = New System.Drawing.Point(422, 92)
+        Me._lblData_11.Location = New System.Drawing.Point(433, 106)
         Me._lblData_11.Name = "_lblData_11"
         Me._lblData_11.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_11.Size = New System.Drawing.Size(89, 17)
@@ -545,7 +507,7 @@
         Me._lblLegend_7.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblLegend_7.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblLegend.SetIndex(Me._lblLegend_7, CType(7, Short))
-        Me._lblLegend_7.Location = New System.Drawing.Point(422, 44)
+        Me._lblLegend_7.Location = New System.Drawing.Point(433, 58)
         Me._lblLegend_7.Name = "_lblLegend_7"
         Me._lblLegend_7.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblLegend_7.Size = New System.Drawing.Size(89, 17)
@@ -561,7 +523,7 @@
         Me._lblData_12.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_12.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_12, CType(12, Short))
-        Me._lblData_12.Location = New System.Drawing.Point(182, 108)
+        Me._lblData_12.Location = New System.Drawing.Point(193, 122)
         Me._lblData_12.Name = "_lblData_12"
         Me._lblData_12.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_12.Size = New System.Drawing.Size(81, 17)
@@ -577,7 +539,7 @@
         Me._lblData_13.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_13.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_13, CType(13, Short))
-        Me._lblData_13.Location = New System.Drawing.Point(262, 108)
+        Me._lblData_13.Location = New System.Drawing.Point(273, 122)
         Me._lblData_13.Name = "_lblData_13"
         Me._lblData_13.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_13.Size = New System.Drawing.Size(81, 17)
@@ -593,7 +555,7 @@
         Me._lblData_14.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_14.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_14, CType(14, Short))
-        Me._lblData_14.Location = New System.Drawing.Point(342, 108)
+        Me._lblData_14.Location = New System.Drawing.Point(353, 122)
         Me._lblData_14.Name = "_lblData_14"
         Me._lblData_14.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_14.Size = New System.Drawing.Size(81, 17)
@@ -609,7 +571,7 @@
         Me._lblData_15.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblData_15.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblData.SetIndex(Me._lblData_15, CType(15, Short))
-        Me._lblData_15.Location = New System.Drawing.Point(422, 108)
+        Me._lblData_15.Location = New System.Drawing.Point(433, 122)
         Me._lblData_15.Name = "_lblData_15"
         Me._lblData_15.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblData_15.Size = New System.Drawing.Size(89, 17)
@@ -624,7 +586,7 @@
         Me.lblMTZ.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblMTZ.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMTZ.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblMTZ.Location = New System.Drawing.Point(439, 19)
+        Me.lblMTZ.Location = New System.Drawing.Point(450, 33)
         Me.lblMTZ.Name = "lblMTZ"
         Me.lblMTZ.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblMTZ.Size = New System.Drawing.Size(81, 17)
@@ -638,7 +600,7 @@
         Me.Label2.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label2.Location = New System.Drawing.Point(268, 20)
+        Me.Label2.Location = New System.Drawing.Point(279, 34)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label2.Size = New System.Drawing.Size(175, 20)
@@ -830,7 +792,7 @@
         'cmdTreatA
         '
         Me.cmdTreatA.BackColor = System.Drawing.Color.White
-        Me.cmdTreatA.Location = New System.Drawing.Point(10, 108)
+        Me.cmdTreatA.Location = New System.Drawing.Point(-490, 328)
         Me.cmdTreatA.Name = "cmdTreatA"
         Me.cmdTreatA.Size = New System.Drawing.Size(177, 33)
         Me.cmdTreatA.TabIndex = 69
@@ -841,33 +803,70 @@
         '
         Me.PrintDialog1.UseEXDialog = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(23, 14)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(82, 16)
+        Me.Label3.TabIndex = 70
+        Me.Label3.Text = "Results For:"
+        '
         'frmModelPSDMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(833, 635)
+        Me.ClientSize = New System.Drawing.Size(833, 749)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me._lblData_4)
+        Me.Controls.Add(Me.cboCompo)
+        Me.Controls.Add(Me._lblLegend_0)
         Me.Controls.Add(Me.cmdTreatA)
+        Me.Controls.Add(Me._lblLegend_1)
         Me.Controls.Add(Me.cmdExit)
+        Me.Controls.Add(Me._lblLegend_2)
         Me.Controls.Add(Me.cmdFile)
+        Me.Controls.Add(Me._lblLegend_3)
         Me.Controls.Add(Me.cmdPrint)
+        Me.Controls.Add(Me._lblLegend_4)
         Me.Controls.Add(Me.cmdSelect)
+        Me.Controls.Add(Me._lblLegend_5)
         Me.Controls.Add(Me.cmdSave)
+        Me.Controls.Add(Me._lblLegend_6)
         Me.Controls.Add(Me.cmdExcel)
+        Me.Controls.Add(Me._lblData_0)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me._lblData_1)
         Me.Controls.Add(Me.grpBreak)
+        Me.Controls.Add(Me._lblData_2)
         Me.Controls.Add(Me.lblSSValueUnits)
+        Me.Controls.Add(Me._lblData_3)
         Me.Controls.Add(Me.lblSSValue)
         Me.Controls.Add(Me._lblMisc_0)
+        Me.Controls.Add(Me._lblData_5)
         Me.Controls.Add(Me.cboYAxisType)
+        Me.Controls.Add(Me._lblData_6)
         Me.Controls.Add(Me.Command4)
+        Me.Controls.Add(Me._lblData_7)
         Me.Controls.Add(Me.Picture1)
+        Me.Controls.Add(Me._lblData_8)
         Me.Controls.Add(Me.ssframe_SSConc)
+        Me.Controls.Add(Me._lblData_9)
         Me.Controls.Add(Me.cboGrid)
-        Me.Controls.Add(Me.Frame3D1)
+        Me.Controls.Add(Me._lblData_10)
+        Me.Controls.Add(Me._lblData_11)
         Me.Controls.Add(Me.SSFrame3)
+        Me.Controls.Add(Me._lblLegend_7)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me._lblData_12)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me._lblData_13)
+        Me.Controls.Add(Me.lblMTZ)
+        Me.Controls.Add(Me._lblData_14)
+        Me.Controls.Add(Me._lblData_15)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -881,8 +880,6 @@
         Me.Text = "Results for the Pore and Surface Diffusion Model (PSDM)"
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ssframe_SSConc, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Frame3D1.ResumeLayout(False)
         CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).EndInit()
@@ -890,6 +887,7 @@
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -907,6 +905,7 @@
     Friend WithEvents cmdTreatA As Button
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents PrintDialog1 As PrintDialog
+    Friend WithEvents Label3 As Label
 
 
 #End Region
