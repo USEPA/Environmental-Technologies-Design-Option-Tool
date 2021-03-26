@@ -57,8 +57,6 @@
     Public WithEvents _lblName_1 As System.Windows.Forms.Label
     Public WithEvents _lblName_0 As System.Windows.Forms.Label
     Public WithEvents fraCompo As AxThreed.AxSSFrame
-    Public WithEvents _cmdCancelOK_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdCancelOK_0 As AxThreed.AxSSCommand
     Public WithEvents cboCorrel As Microsoft.VisualBasic.Compatibility.VB6.ComboBoxArray
     '   Public WithEvents chkUse As SSCheckArray
     '   Public WithEvents cmdCancelOK As SSCommandArray
@@ -111,9 +109,9 @@
         Me._chkUse_8 = New AxThreed.AxSSCheck()
         Me._chkUse_9 = New AxThreed.AxSSCheck()
         Me.cmdEditCompo = New AxThreed.AxSSCommand()
-        Me._cmdCancelOK_1 = New AxThreed.AxSSCommand()
-        Me._cmdCancelOK_0 = New AxThreed.AxSSCommand()
         Me.cmdEdit = New AxThreed.AxSSCommand()
+        Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
+        Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboCorrel, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblName, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,8 +130,6 @@
         CType(Me._chkUse_8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._chkUse_9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdEditCompo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdEdit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -606,7 +602,6 @@
         Me._chkUse_4.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_4.TabIndex = 21
         chkUse(4) = _chkUse_4
-
         '
         '_chkUse_5
         '
@@ -616,7 +611,6 @@
         Me._chkUse_5.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_5.TabIndex = 22
         chkUse(5) = _chkUse_5
-
         '
         '_chkUse_6
         '
@@ -626,7 +620,6 @@
         Me._chkUse_6.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_6.TabIndex = 23
         chkUse(6) = _chkUse_6
-
         '
         '_chkUse_7
         '
@@ -636,7 +629,6 @@
         Me._chkUse_7.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_7.TabIndex = 24
         chkUse(7) = _chkUse_7
-
         '
         '_chkUse_8
         '
@@ -646,7 +638,6 @@
         Me._chkUse_8.Size = New System.Drawing.Size(100, 25)
         Me._chkUse_8.TabIndex = 25
         chkUse(8) = _chkUse_8
-
         '
         '_chkUse_9
         '
@@ -657,7 +648,6 @@
         Me._chkUse_9.TabIndex = 26
         chkUse(9) = _chkUse_9
 
-        '
         'cmdEditCompo
         '
         Me.cmdEditCompo.Location = New System.Drawing.Point(115, 393)
@@ -665,24 +655,6 @@
         Me.cmdEditCompo.OcxState = CType(resources.GetObject("cmdEditCompo.OcxState"), System.Windows.Forms.AxHost.State)
         Me.cmdEditCompo.Size = New System.Drawing.Size(363, 24)
         Me.cmdEditCompo.TabIndex = 43
-        '
-        '_cmdCancelOK_1
-        '
-        Me._cmdCancelOK_1.Location = New System.Drawing.Point(45, 474)
-        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
-        Me._cmdCancelOK_1.OcxState = CType(resources.GetObject("_cmdCancelOK_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_1.Size = New System.Drawing.Size(100, 50)
-        Me._cmdCancelOK_1.TabIndex = 2
-        Me._cmdCancelOK_1.TabStop = False
-        '
-        '_cmdCancelOK_0
-        '
-        Me._cmdCancelOK_0.Location = New System.Drawing.Point(294, 474)
-        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
-        Me._cmdCancelOK_0.OcxState = CType(resources.GetObject("_cmdCancelOK_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_0.Size = New System.Drawing.Size(100, 50)
-        Me._cmdCancelOK_0.TabIndex = 3
-        Me._cmdCancelOK_0.TabStop = False
         '
         'cmdEdit
         '
@@ -692,21 +664,39 @@
         Me.cmdEdit.Size = New System.Drawing.Size(363, 24)
         Me.cmdEdit.TabIndex = 42
         '
+        '_cmdCancelOK_1
+        '
+        Me._cmdCancelOK_1.Location = New System.Drawing.Point(36, 474)
+        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
+        Me._cmdCancelOK_1.Size = New System.Drawing.Size(98, 21)
+        Me._cmdCancelOK_1.TabIndex = 44
+        Me._cmdCancelOK_1.Text = "OK"
+        Me._cmdCancelOK_1.UseVisualStyleBackColor = True
+        '
+        '_cmdCancelOK_0
+        '
+        Me._cmdCancelOK_0.Location = New System.Drawing.Point(296, 474)
+        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
+        Me._cmdCancelOK_0.Size = New System.Drawing.Size(99, 21)
+        Me._cmdCancelOK_0.TabIndex = 45
+        Me._cmdCancelOK_0.Text = "Cancel"
+        Me._cmdCancelOK_0.UseVisualStyleBackColor = True
+        '
         'frmFouling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(628, 558)
+        Me.ClientSize = New System.Drawing.Size(628, 513)
         Me.ControlBox = False
+        Me.Controls.Add(Me._cmdCancelOK_0)
+        Me.Controls.Add(Me._cmdCancelOK_1)
         Me.Controls.Add(Me.cmdEdit)
         Me.Controls.Add(Me.cmdEditCompo)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.fraWater)
         Me.Controls.Add(Me.fraCompo)
-        Me.Controls.Add(Me._cmdCancelOK_1)
-        Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -735,14 +725,14 @@
         CType(Me._chkUse_8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._chkUse_9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdEditCompo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdEdit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Public WithEvents cmdEdit As AxThreed.AxSSCommand
+    Friend WithEvents _cmdCancelOK_1 As Button
+    Friend WithEvents _cmdCancelOK_0 As Button
 
 #End Region
 End Class

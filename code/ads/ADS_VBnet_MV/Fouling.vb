@@ -379,7 +379,7 @@ Exit_Corr_Water:
 		Call Populate_cboCorrel()
 	End Sub
 
-	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.ClickEvent
+	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs)
 		Dim i As Short
 		'	Dim msg As String
 		Dim IsInvalid As Boolean
@@ -430,7 +430,7 @@ Exit_Corr_Water:
 
 	End Sub
 
-	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.ClickEvent
+	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs)
 		Raise_Dirty_Flag = False
 		Me.Dispose()  'Dispose Shang
 	End Sub
@@ -483,5 +483,61 @@ Exit_Corr_Water:
 
 	Private Sub _chkUse_9_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_9.ClickEvent
 		Call chkUse_Click(9)
+	End Sub
+
+	Private Sub _cmdCancelOK_1_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.Click
+		Raise_Dirty_Flag = False
+		Me.Dispose()  'Dispose Shang
+	End Sub
+
+	Private Sub _cmdCancelOK_0_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
+		Dim i As Short
+		'	Dim msg As String
+		Dim IsInvalid As Boolean
+		IsInvalid = True
+		If (cboType.SelectedIndex >= 0) Then
+			If (cboType.Items.Count >= 1) Then
+				If (Trim(VB6.GetItemString(cboType, cboType.SelectedIndex)) <> "") Then
+					IsInvalid = False
+				End If
+			End If
+		End If
+		If (IsInvalid) Then
+			Call Show_Error("You must first select a water correlation type.")
+			Exit Sub
+		End If
+		'      If (DemoMode) Then
+		'        If (0 = StrComp(Trim$(cboType.Text), "Organic Free Water")) Then GoTo DEMO_00_CONTINUE
+		'        If (0 = StrComp(Trim$(cboType.Text), "Groundwater from the city of Karlsruhe, Germany", 1)) Then GoTo DEMO_00_CONTINUE
+		'        msg$ = "In Demonstration version you can only use two types of water:" + NL + NL
+		'        msg$ = msg$ + Chr$(9) + "- Organic Free Water" + NL
+		'        msg$ = msg$ + Chr$(9) + "- Groundwater from the city of Karlsruhe, Germany" + NL
+		'        MsgBox msg$
+		'        Exit Sub
+		'      End If
+		'DEMO_00_CONTINUE:
+		For i = 1 To Number_Component
+			If cboCorrel(i - 1).SelectedIndex > -1 Then
+				Component(i).Correlation.Name = Trim(VB6.GetItemString(cboCorrel(i - 1), cboCorrel(i - 1).SelectedIndex))
+				'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+				Component(i).K_Reduction = chkUse(i - 1).Value
+				'^changed from .enabled to .value
+				Component(i).Correlation.Coeff(1) = Correlations_For_Classes(cboCorrel(i - 1).SelectedIndex + 1).Coeff(1)
+				Component(i).Correlation.Coeff(2) = Correlations_For_Classes(cboCorrel(i - 1).SelectedIndex + 1).Coeff(2)
+			Else
+				Component(i).K_Reduction = False
+			End If
+		Next i
+		If cboType.SelectedIndex = -1 Then cboType.SelectedIndex = 0
+		Bed.Water_Correlation.Name = Correlations_For_Water(cboType.SelectedIndex + 1).Name
+		For i = 1 To 4
+			Bed.Water_Correlation.Coeff(i) = Correlations_For_Water(cboType.SelectedIndex + 1).Coeff(i)
+		Next i
+		'
+		' STORE SIGNAL TO RAISE DIRTY FLAG AND THEN EXIT.
+		Raise_Dirty_Flag = True
+		Me.Dispose()
+
+
 	End Sub
 End Class
