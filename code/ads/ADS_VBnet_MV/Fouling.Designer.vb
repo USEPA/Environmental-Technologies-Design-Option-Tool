@@ -17,7 +17,8 @@
 	'Required by the Windows Form Designer
 	Private components As System.ComponentModel.IContainer
     Public ToolTip1 As System.Windows.Forms.ToolTip
-    Public chkUse(10) As AxThreed.AxSSCheck
+    'Public chkUse(10) As AxThreed.AxSSCheck
+    Public chkUse(10) As System.Windows.Forms.CheckBox
     Public WithEvents Picture1 As System.Windows.Forms.PictureBox
 	Public WithEvents Command4 As System.Windows.Forms.Button
 	Public WithEvents cboType As System.Windows.Forms.ComboBox
@@ -33,16 +34,6 @@
     Public WithEvents _cboCorrel_1 As System.Windows.Forms.ComboBox
     Public WithEvents _cboCorrel_0 As System.Windows.Forms.ComboBox
     Public WithEvents cmdEditCompo As AxThreed.AxSSCommand
-    Public WithEvents _chkUse_0 As AxThreed.AxSSCheck
-    Public WithEvents _chkUse_1 As AxThreed.AxSSCheck
-    Public WithEvents _chkUse_2 As AxThreed.AxSSCheck
-    Public WithEvents _chkUse_3 As AxThreed.AxSSCheck
-    Public WithEvents _chkUse_4 As AxThreed.AxSSCheck
-    Public WithEvents _chkUse_5 As AxThreed.AxSSCheck
-    Public WithEvents _chkUse_6 As AxThreed.AxSSCheck
-    Public WithEvents _chkUse_7 As AxThreed.AxSSCheck
-    Public WithEvents _chkUse_8 As AxThreed.AxSSCheck
-    Public WithEvents _chkUse_9 As AxThreed.AxSSCheck
     Public WithEvents Label5 As System.Windows.Forms.Label
     Public WithEvents Label4 As System.Windows.Forms.Label
     Public WithEvents Label1 As System.Windows.Forms.Label
@@ -98,20 +89,20 @@
         Me.Label1 = New System.Windows.Forms.Label()
         Me.fraWater = New AxThreed.AxSSFrame()
         Me.fraCompo = New AxThreed.AxSSFrame()
-        Me._chkUse_0 = New AxThreed.AxSSCheck()
-        Me._chkUse_1 = New AxThreed.AxSSCheck()
-        Me._chkUse_2 = New AxThreed.AxSSCheck()
-        Me._chkUse_3 = New AxThreed.AxSSCheck()
-        Me._chkUse_4 = New AxThreed.AxSSCheck()
-        Me._chkUse_5 = New AxThreed.AxSSCheck()
-        Me._chkUse_6 = New AxThreed.AxSSCheck()
-        Me._chkUse_7 = New AxThreed.AxSSCheck()
-        Me._chkUse_8 = New AxThreed.AxSSCheck()
-        Me._chkUse_9 = New AxThreed.AxSSCheck()
         Me.cmdEditCompo = New AxThreed.AxSSCommand()
         Me.cmdEdit = New AxThreed.AxSSCommand()
         Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
         Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
+        Me._chkUse_0 = New System.Windows.Forms.CheckBox()
+        Me._chkUse_1 = New System.Windows.Forms.CheckBox()
+        Me._chkUse_2 = New System.Windows.Forms.CheckBox()
+        Me._chkUse_3 = New System.Windows.Forms.CheckBox()
+        Me._chkUse_4 = New System.Windows.Forms.CheckBox()
+        Me._chkUse_5 = New System.Windows.Forms.CheckBox()
+        Me._chkUse_6 = New System.Windows.Forms.CheckBox()
+        Me._chkUse_7 = New System.Windows.Forms.CheckBox()
+        Me._chkUse_8 = New System.Windows.Forms.CheckBox()
+        Me._chkUse_9 = New System.Windows.Forms.CheckBox()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboCorrel, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblName, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,16 +110,6 @@
         Me.fraWater.SuspendLayout()
         CType(Me.fraCompo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.fraCompo.SuspendLayout()
-        CType(Me._chkUse_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkUse_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkUse_2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkUse_3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkUse_4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkUse_5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkUse_6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkUse_7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkUse_8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkUse_9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdEditCompo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdEdit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -524,130 +505,30 @@
         '
         Me.fraCompo.Controls.Add(Me._cboCorrel_0)
         Me.fraCompo.Controls.Add(Me._lblName_0)
-        Me.fraCompo.Controls.Add(Me._chkUse_0)
         Me.fraCompo.Controls.Add(Me._cboCorrel_1)
         Me.fraCompo.Controls.Add(Me._lblName_1)
-        Me.fraCompo.Controls.Add(Me._chkUse_1)
         Me.fraCompo.Controls.Add(Me._cboCorrel_2)
         Me.fraCompo.Controls.Add(Me._lblName_2)
-        Me.fraCompo.Controls.Add(Me._chkUse_2)
         Me.fraCompo.Controls.Add(Me._cboCorrel_3)
         Me.fraCompo.Controls.Add(Me._lblName_3)
-        Me.fraCompo.Controls.Add(Me._chkUse_3)
         Me.fraCompo.Controls.Add(Me._cboCorrel_4)
         Me.fraCompo.Controls.Add(Me._lblName_4)
-        Me.fraCompo.Controls.Add(Me._chkUse_4)
         Me.fraCompo.Controls.Add(Me._cboCorrel_5)
         Me.fraCompo.Controls.Add(Me._lblName_5)
-        Me.fraCompo.Controls.Add(Me._chkUse_5)
         Me.fraCompo.Controls.Add(Me._cboCorrel_6)
         Me.fraCompo.Controls.Add(Me._lblName_6)
-        Me.fraCompo.Controls.Add(Me._chkUse_6)
         Me.fraCompo.Controls.Add(Me._cboCorrel_7)
         Me.fraCompo.Controls.Add(Me._lblName_7)
-        Me.fraCompo.Controls.Add(Me._chkUse_7)
         Me.fraCompo.Controls.Add(Me._cboCorrel_8)
         Me.fraCompo.Controls.Add(Me._lblName_8)
-        Me.fraCompo.Controls.Add(Me._chkUse_8)
         Me.fraCompo.Controls.Add(Me._cboCorrel_9)
         Me.fraCompo.Controls.Add(Me._lblName_9)
-        Me.fraCompo.Controls.Add(Me._chkUse_9)
         Me.fraCompo.Location = New System.Drawing.Point(12, 114)
         Me.fraCompo.Name = "fraCompo"
         Me.fraCompo.OcxState = CType(resources.GetObject("fraCompo.OcxState"), System.Windows.Forms.AxHost.State)
         Me.fraCompo.Size = New System.Drawing.Size(552, 317)
         Me.fraCompo.TabIndex = 1
         '
-        '_chkUse_0
-        '
-        Me._chkUse_0.Location = New System.Drawing.Point(22, 33)
-        Me._chkUse_0.Name = "_chkUse_0"
-        Me._chkUse_0.OcxState = CType(resources.GetObject("_chkUse_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_0.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_0.TabIndex = 17
-        chkUse(0) = _chkUse_0
-        '
-        '_chkUse_1
-        '
-        Me._chkUse_1.Location = New System.Drawing.Point(22, 58)
-        Me._chkUse_1.Name = "_chkUse_1"
-        Me._chkUse_1.OcxState = CType(resources.GetObject("_chkUse_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_1.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_1.TabIndex = 18
-        chkUse(1) = _chkUse_1
-        '
-        '_chkUse_2
-        '
-        Me._chkUse_2.Location = New System.Drawing.Point(22, 82)
-        Me._chkUse_2.Name = "_chkUse_2"
-        Me._chkUse_2.OcxState = CType(resources.GetObject("_chkUse_2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_2.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_2.TabIndex = 19
-        chkUse(2) = _chkUse_2
-        '
-        '_chkUse_3
-        '
-        Me._chkUse_3.Location = New System.Drawing.Point(22, 106)
-        Me._chkUse_3.Name = "_chkUse_3"
-        Me._chkUse_3.OcxState = CType(resources.GetObject("_chkUse_3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_3.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_3.TabIndex = 20
-        chkUse(3) = _chkUse_3
-        '
-        '_chkUse_4
-        '
-        Me._chkUse_4.Location = New System.Drawing.Point(22, 132)
-        Me._chkUse_4.Name = "_chkUse_4"
-        Me._chkUse_4.OcxState = CType(resources.GetObject("_chkUse_4.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_4.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_4.TabIndex = 21
-        chkUse(4) = _chkUse_4
-        '
-        '_chkUse_5
-        '
-        Me._chkUse_5.Location = New System.Drawing.Point(22, 156)
-        Me._chkUse_5.Name = "_chkUse_5"
-        Me._chkUse_5.OcxState = CType(resources.GetObject("_chkUse_5.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_5.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_5.TabIndex = 22
-        chkUse(5) = _chkUse_5
-        '
-        '_chkUse_6
-        '
-        Me._chkUse_6.Location = New System.Drawing.Point(22, 180)
-        Me._chkUse_6.Name = "_chkUse_6"
-        Me._chkUse_6.OcxState = CType(resources.GetObject("_chkUse_6.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_6.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_6.TabIndex = 23
-        chkUse(6) = _chkUse_6
-        '
-        '_chkUse_7
-        '
-        Me._chkUse_7.Location = New System.Drawing.Point(22, 203)
-        Me._chkUse_7.Name = "_chkUse_7"
-        Me._chkUse_7.OcxState = CType(resources.GetObject("_chkUse_7.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_7.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_7.TabIndex = 24
-        chkUse(7) = _chkUse_7
-        '
-        '_chkUse_8
-        '
-        Me._chkUse_8.Location = New System.Drawing.Point(22, 228)
-        Me._chkUse_8.Name = "_chkUse_8"
-        Me._chkUse_8.OcxState = CType(resources.GetObject("_chkUse_8.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_8.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_8.TabIndex = 25
-        chkUse(8) = _chkUse_8
-        '
-        '_chkUse_9
-        '
-        Me._chkUse_9.Location = New System.Drawing.Point(22, 252)
-        Me._chkUse_9.Name = "_chkUse_9"
-        Me._chkUse_9.OcxState = CType(resources.GetObject("_chkUse_9.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkUse_9.Size = New System.Drawing.Size(100, 25)
-        Me._chkUse_9.TabIndex = 26
-        chkUse(9) = _chkUse_9
-
         'cmdEditCompo
         '
         Me.cmdEditCompo.Location = New System.Drawing.Point(115, 393)
@@ -682,6 +563,116 @@
         Me._cmdCancelOK_0.Text = "Cancel"
         Me._cmdCancelOK_0.UseVisualStyleBackColor = True
         '
+        '_chkUse_0
+        '
+        Me._chkUse_0.AutoSize = True
+        Me._chkUse_0.Location = New System.Drawing.Point(36, 149)
+        Me._chkUse_0.Name = "_chkUse_0"
+        Me._chkUse_0.Size = New System.Drawing.Size(81, 18)
+        Me._chkUse_0.TabIndex = 46
+        Me._chkUse_0.Text = "CheckBox1"
+        Me._chkUse_0.UseVisualStyleBackColor = True
+        chkUse(0) = Me._chkUse_0
+        '
+        '_chkUse_1
+        '
+        Me._chkUse_1.AutoSize = True
+        Me._chkUse_1.Location = New System.Drawing.Point(36, 171)
+        Me._chkUse_1.Name = "_chkUse_1"
+        Me._chkUse_1.Size = New System.Drawing.Size(81, 18)
+        Me._chkUse_1.TabIndex = 47
+        Me._chkUse_1.Text = "CheckBox2"
+        Me._chkUse_1.UseVisualStyleBackColor = True
+        chkUse(1) = _chkUse_1
+        '
+        '_chkUse_2
+        '
+        Me._chkUse_2.AutoSize = True
+        Me._chkUse_2.Location = New System.Drawing.Point(36, 195)
+        Me._chkUse_2.Name = "_chkUse_2"
+        Me._chkUse_2.Size = New System.Drawing.Size(81, 18)
+        Me._chkUse_2.TabIndex = 48
+        Me._chkUse_2.Text = "CheckBox3"
+        Me._chkUse_2.UseVisualStyleBackColor = True
+        chkUse(2) = _chkUse_2
+        '
+        '_chkUse_3
+        '
+        Me._chkUse_3.AutoSize = True
+        Me._chkUse_3.Location = New System.Drawing.Point(36, 219)
+        Me._chkUse_3.Name = "_chkUse_3"
+        Me._chkUse_3.Size = New System.Drawing.Size(81, 18)
+        Me._chkUse_3.TabIndex = 49
+        Me._chkUse_3.Text = "CheckBox4"
+        Me._chkUse_3.UseVisualStyleBackColor = True
+        chkUse(3) = _chkUse_3
+        '
+        '_chkUse_4
+        '
+        Me._chkUse_4.AutoSize = True
+        Me._chkUse_4.Location = New System.Drawing.Point(36, 243)
+        Me._chkUse_4.Name = "_chkUse_4"
+        Me._chkUse_4.Size = New System.Drawing.Size(81, 18)
+        Me._chkUse_4.TabIndex = 50
+        Me._chkUse_4.Text = "CheckBox5"
+        Me._chkUse_4.UseVisualStyleBackColor = True
+        chkUse(4) = _chkUse_4
+        '
+        '_chkUse_5
+        '
+        Me._chkUse_5.AutoSize = True
+        Me._chkUse_5.Location = New System.Drawing.Point(36, 267)
+        Me._chkUse_5.Name = "_chkUse_5"
+        Me._chkUse_5.Size = New System.Drawing.Size(81, 18)
+        Me._chkUse_5.TabIndex = 51
+        Me._chkUse_5.Text = "CheckBox6"
+        Me._chkUse_5.UseVisualStyleBackColor = True
+        chkUse(5) = _chkUse_5
+        '
+        '_chkUse_6
+        '
+        Me._chkUse_6.AutoSize = True
+        Me._chkUse_6.Location = New System.Drawing.Point(36, 291)
+        Me._chkUse_6.Name = "_chkUse_6"
+        Me._chkUse_6.Size = New System.Drawing.Size(81, 18)
+        Me._chkUse_6.TabIndex = 52
+        Me._chkUse_6.Text = "CheckBox7"
+        Me._chkUse_6.UseVisualStyleBackColor = True
+        chkUse(6) = _chkUse_6
+        '
+        '_chkUse_7
+        '
+        Me._chkUse_7.AutoSize = True
+        Me._chkUse_7.Location = New System.Drawing.Point(36, 315)
+        Me._chkUse_7.Name = "_chkUse_7"
+        Me._chkUse_7.Size = New System.Drawing.Size(81, 18)
+        Me._chkUse_7.TabIndex = 53
+        Me._chkUse_7.Text = "CheckBox8"
+        Me._chkUse_7.UseVisualStyleBackColor = True
+        chkUse(7) = _chkUse_7
+        '
+        '_chkUse_8
+        '
+        Me._chkUse_8.AutoSize = True
+        Me._chkUse_8.Location = New System.Drawing.Point(36, 339)
+        Me._chkUse_8.Name = "_chkUse_8"
+        Me._chkUse_8.Size = New System.Drawing.Size(81, 18)
+        Me._chkUse_8.TabIndex = 54
+        Me._chkUse_8.Text = "CheckBox9"
+        Me._chkUse_8.UseVisualStyleBackColor = True
+        chkUse(8) = _chkUse_8
+        '
+        '_chkUse_9
+        '
+        Me._chkUse_9.AutoSize = True
+        Me._chkUse_9.Location = New System.Drawing.Point(36, 363)
+        Me._chkUse_9.Name = "_chkUse_9"
+        Me._chkUse_9.Size = New System.Drawing.Size(87, 18)
+        Me._chkUse_9.TabIndex = 55
+        Me._chkUse_9.Text = "CheckBox10"
+        Me._chkUse_9.UseVisualStyleBackColor = True
+        chkUse(9) = _chkUse_9
+        '
         'frmFouling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -689,6 +680,16 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(628, 513)
         Me.ControlBox = False
+        Me.Controls.Add(Me._chkUse_9)
+        Me.Controls.Add(Me._chkUse_8)
+        Me.Controls.Add(Me._chkUse_7)
+        Me.Controls.Add(Me._chkUse_6)
+        Me.Controls.Add(Me._chkUse_5)
+        Me.Controls.Add(Me._chkUse_4)
+        Me.Controls.Add(Me._chkUse_3)
+        Me.Controls.Add(Me._chkUse_2)
+        Me.Controls.Add(Me._chkUse_1)
+        Me.Controls.Add(Me._chkUse_0)
         Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me._cmdCancelOK_1)
         Me.Controls.Add(Me.cmdEdit)
@@ -714,25 +715,26 @@
         Me.fraWater.ResumeLayout(False)
         CType(Me.fraCompo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.fraCompo.ResumeLayout(False)
-        CType(Me._chkUse_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkUse_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkUse_2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkUse_3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkUse_4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkUse_5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkUse_6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkUse_7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkUse_8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkUse_9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdEditCompo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdEdit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Public WithEvents cmdEdit As AxThreed.AxSSCommand
     Friend WithEvents _cmdCancelOK_1 As Button
     Friend WithEvents _cmdCancelOK_0 As Button
+    Friend WithEvents _chkUse_0 As CheckBox
+    Friend WithEvents _chkUse_1 As CheckBox
+    Friend WithEvents _chkUse_2 As CheckBox
+    Friend WithEvents _chkUse_3 As CheckBox
+    Friend WithEvents _chkUse_4 As CheckBox
+    Friend WithEvents _chkUse_5 As CheckBox
+    Friend WithEvents _chkUse_6 As CheckBox
+    Friend WithEvents _chkUse_7 As CheckBox
+    Friend WithEvents _chkUse_8 As CheckBox
+    Friend WithEvents _chkUse_9 As CheckBox
 
 #End Region
 End Class

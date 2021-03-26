@@ -19,16 +19,16 @@ Friend Class frmFouling
 		Me.ShowDialog()
 		OUT_Raise_Dirty_Flag = Raise_Dirty_Flag
 	End Sub
-	
-	
+
+
 	Sub LOCAL___Reset_DemoVersionDisablings()
 		If (IsThisADemo() = True) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object cmdCancelOK().Enabled. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			_cmdCancelOK_1.Enabled = False
 		End If
 	End Sub
-	
-	
+
+
 	Sub Populate_cboType()
 		Dim i As Short
 		i = False
@@ -73,13 +73,13 @@ Friend Class frmFouling
 
 			'K_reduction not properly defined, returns false, commented out to prevent disabling
 			'change to .value instead of .enable?
-			chkUse(i).Value = Component(i + 1).K_Reduction
+			chkUse(i).Checked = Component(i + 1).K_Reduction
 			lblName(i).Visible = True
 			lblName(i).Text = Trim(Component(i + 1).Name)
 		Next i
 	End Sub
-	
-	
+
+
 	'UPGRADE_WARNING: Event cboCorrel.SelectedIndexChanged may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub cboCorrel_SelectedIndexChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cboCorrel.SelectedIndexChanged
 		Dim Index As Short = cboCorrel.GetIndex(eventSender)
@@ -92,8 +92,8 @@ Friend Class frmFouling
 		'    If (0 = StrComp(Trim$(lblName(index).Caption), "1,2-dichlorobenzene", 1)) Then cboCorrel(index).ListIndex = 3
 		'End If
 	End Sub
-	
-	
+
+
 	'UPGRADE_WARNING: Event cboType.SelectedIndexChanged may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub cboType_SelectedIndexChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cboType.SelectedIndexChanged
 		Dim msg As String
@@ -132,7 +132,7 @@ Friend Class frmFouling
 			If (Is_Invalid) Then
 				Call Show_Error("You must select a correlation " & "type before you can apply fouling for this chemical.")
 				'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				chkUse(Index).Value = False
+				chkUse(Index).Checked = False
 				Exit Sub
 			End If
 		End If
@@ -204,8 +204,8 @@ Friend Class frmFouling
 		Call frmFoulingCompoundDatabase.frmFoulingCompoundDatabase_Edit()
 		Call Populate_cboCorrel()
 	End Sub
-	
-	
+
+
 	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles Command4.Click
 		Dim Printer As New Printer
 		Picture1.Image = CaptureActiveWindow()
@@ -214,7 +214,7 @@ Friend Class frmFouling
 		' Set focus back to form.
 		Me.Activate()
 	End Sub
-	
+
 	Private Sub frmFouling_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim i As Short
 		Dim J As Short
@@ -274,12 +274,12 @@ Friend Class frmFouling
 		'
 		Call LOCAL___Reset_DemoVersionDisablings()
 	End Sub
-	
-	
+
+
 	Private Sub Load_Correlation_Compounds(ByRef flag As Short)
 		Dim N, f, i As Short
 		On Error GoTo Error_In_Reading_Corr
-		f = FreeFile
+		f = FreeFile()
 		FileOpen(f, Database_Path & "\corr_com.txt", OpenMode.Input)
 		Input(f, N)
 		If N > Max_Number_Correlation_Compo Then
@@ -301,16 +301,16 @@ Friend Class frmFouling
 		Number_Correlations_Compounds = N
 		flag = False
 		Exit Sub
-Error_In_Reading_Corr: 
+Error_In_Reading_Corr:
 		Call Show_Error("Error while reading the file containing correlations.")
 		flag = True
 		Resume Exit_Corr_Compound
-Exit_Corr_Compound: 
+Exit_Corr_Compound:
 	End Sub
 	Private Sub Load_Correlations_Water(ByRef flag As Short)
 		Dim N, f, i As Short
 		On Error GoTo Error_In_Reading_WCorr
-		f = FreeFile
+		f = FreeFile()
 		FileOpen(f, Database_Path & "\water_co.txt", OpenMode.Input)
 		Input(f, N)
 		If N > Max_Number_Water_Correlations Then
@@ -335,12 +335,12 @@ Exit_Corr_Compound:
 		Number_Water_Correlations = N
 		flag = False
 		Exit Sub
-Error_In_Reading_WCorr: 
+Error_In_Reading_WCorr:
 		Call Show_Error("Error while reading the file containing correlations.")
 		flag = True
 		FileClose((f))
 		Resume Exit_Corr_Water
-Exit_Corr_Water: 
+Exit_Corr_Water:
 	End Sub
 	Private Function Set_Number_Correlation(ByRef i As Short) As Short
 		Dim ST As String
@@ -409,7 +409,7 @@ Exit_Corr_Water:
 			If cboCorrel(i - 1).SelectedIndex > -1 Then
 				Component(i).Correlation.Name = Trim(VB6.GetItemString(cboCorrel(i - 1), cboCorrel(i - 1).SelectedIndex))
 				'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				Component(i).K_Reduction = chkUse(i - 1).Value
+				Component(i).K_Reduction = chkUse(i - 1).Checked
 				'^changed from .enabled to .value
 				Component(i).Correlation.Coeff(1) = Correlations_For_Classes(cboCorrel(i - 1).SelectedIndex + 1).Coeff(1)
 				Component(i).Correlation.Coeff(2) = Correlations_For_Classes(cboCorrel(i - 1).SelectedIndex + 1).Coeff(2)
@@ -445,52 +445,49 @@ Exit_Corr_Water:
 		Call Populate_cboCorrel()
 	End Sub
 
-	Private Sub _chkUse_0_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_0.ClickEvent
+	Private Sub _chkUse_0_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(0)
 	End Sub
 
-	Private Sub _chkUse_1_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_1.ClickEvent
+	Private Sub _chkUse_1_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(1)
 	End Sub
 
-	Private Sub _chkUse_2_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_2.ClickEvent
+	Private Sub _chkUse_2_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(2)
 	End Sub
 
-	Private Sub _chkUse_3_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_3.ClickEvent
+	Private Sub _chkUse_3_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(3)
 	End Sub
 
-	Private Sub _chkUse_4_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_4.ClickEvent
+	Private Sub _chkUse_4_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(4)
 	End Sub
 
-	Private Sub _chkUse_5_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_5.ClickEvent
+	Private Sub _chkUse_5_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(5)
 	End Sub
 
-	Private Sub _chkUse_6_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_6.ClickEvent
+	Private Sub _chkUse_6_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(6)
 	End Sub
 
-	Private Sub _chkUse_7_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_7.ClickEvent
+	Private Sub _chkUse_7_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(7)
 	End Sub
 
-	Private Sub _chkUse_8_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_8.ClickEvent
+	Private Sub _chkUse_8_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(8)
 	End Sub
 
-	Private Sub _chkUse_9_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent) Handles _chkUse_9.ClickEvent
+	Private Sub _chkUse_9_ClickEvent(sender As Object, e As AxThreed.ISSCBCtrlEvents_ClickEvent)
 		Call chkUse_Click(9)
 	End Sub
 
 	Private Sub _cmdCancelOK_1_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.Click
-		Raise_Dirty_Flag = False
-		Me.Dispose()  'Dispose Shang
-	End Sub
+		'ok
 
-	Private Sub _cmdCancelOK_0_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
 		Dim i As Short
 		'	Dim msg As String
 		Dim IsInvalid As Boolean
@@ -520,7 +517,7 @@ Exit_Corr_Water:
 			If cboCorrel(i - 1).SelectedIndex > -1 Then
 				Component(i).Correlation.Name = Trim(VB6.GetItemString(cboCorrel(i - 1), cboCorrel(i - 1).SelectedIndex))
 				'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				Component(i).K_Reduction = chkUse(i - 1).Value
+				Component(i).K_Reduction = chkUse(i - 1).Checked
 				'^changed from .enabled to .value
 				Component(i).Correlation.Coeff(1) = Correlations_For_Classes(cboCorrel(i - 1).SelectedIndex + 1).Coeff(1)
 				Component(i).Correlation.Coeff(2) = Correlations_For_Classes(cboCorrel(i - 1).SelectedIndex + 1).Coeff(2)
@@ -535,9 +532,55 @@ Exit_Corr_Water:
 		Next i
 		'
 		' STORE SIGNAL TO RAISE DIRTY FLAG AND THEN EXIT.
-		Raise_Dirty_Flag = True
-		Me.Dispose()
+		Raise_Dirty_Flag = False
+		Me.Dispose()  'Dispose Shang
 
+	End Sub
 
+	Private Sub _cmdCancelOK_0_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
+		'cancel
+		Raise_Dirty_Flag = False
+		Me.Dispose()  'Dispose Shang
+
+	End Sub
+
+	Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_0.CheckedChanged
+		Call chkUse_Click(0)
+	End Sub
+
+	Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_1.CheckedChanged
+		Call chkUse_Click(1)
+	End Sub
+
+	Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_2.CheckedChanged
+		Call chkUse_Click(2)
+	End Sub
+
+	Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_3.CheckedChanged
+		Call chkUse_Click(3)
+	End Sub
+
+	Private Sub CheckBox5_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_4.CheckedChanged
+		Call chkUse_Click(4)
+	End Sub
+
+	Private Sub CheckBox6_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_5.CheckedChanged
+		Call chkUse_Click(5)
+	End Sub
+
+	Private Sub CheckBox7_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_6.CheckedChanged
+		Call chkUse_Click(6)
+	End Sub
+
+	Private Sub CheckBox8_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_7.CheckedChanged
+		Call chkUse_Click(7)
+	End Sub
+
+	Private Sub CheckBox9_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_8.CheckedChanged
+		Call chkUse_Click(8)
+	End Sub
+
+	Private Sub CheckBox10_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_9.CheckedChanged
+		Call chkUse_Click(9)
 	End Sub
 End Class
