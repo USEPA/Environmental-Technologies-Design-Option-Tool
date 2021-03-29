@@ -146,26 +146,6 @@
         dCBTYW5zIFNlcmlmAAAAAAAAAAAAAAH/Cw==
 </value>
   </data>
-  <data name="cmdEditCompo.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAlwAAAAIB
-        AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAGQAAAAAAAEAhCUAAHsC
-        AABOAAAAICZFZGl0IENoZW1pY2FsIFR5cGUgQ29ycmVsYXRpb24gEgAAgAADUuMLkY/OEZ3jAKoAS7hR
-        AQAAAJAB+CQBAAVBcmlhbAECAAAAAAEBAAAAAP//Cw==
-</value>
-  </data>
-  <data name="cmdEdit.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAkwAAAAIB
-        AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAGAAAAAAAAEAhCUAAHsC
-        AABOAAAAHEVkaXQgJldhdGVyIFR5cGUgQ29ycmVsYXRpb24JAACAAANS4wuRj84RneMAqgBLuFEBAAAA
-        kAH4JAEABUFyaWFsAQIAAAAAAQEAAAAA//8L
-</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

@@ -33,7 +33,6 @@
     Public WithEvents _cboCorrel_2 As System.Windows.Forms.ComboBox
     Public WithEvents _cboCorrel_1 As System.Windows.Forms.ComboBox
     Public WithEvents _cboCorrel_0 As System.Windows.Forms.ComboBox
-    Public WithEvents cmdEditCompo As AxThreed.AxSSCommand
     Public WithEvents Label5 As System.Windows.Forms.Label
     Public WithEvents Label4 As System.Windows.Forms.Label
     Public WithEvents Label1 As System.Windows.Forms.Label
@@ -89,8 +88,6 @@
         Me.Label1 = New System.Windows.Forms.Label()
         Me.fraWater = New AxThreed.AxSSFrame()
         Me.fraCompo = New AxThreed.AxSSFrame()
-        Me.cmdEditCompo = New AxThreed.AxSSCommand()
-        Me.cmdEdit = New AxThreed.AxSSCommand()
         Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
         Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
         Me._chkUse_0 = New System.Windows.Forms.CheckBox()
@@ -103,6 +100,8 @@
         Me._chkUse_7 = New System.Windows.Forms.CheckBox()
         Me._chkUse_8 = New System.Windows.Forms.CheckBox()
         Me._chkUse_9 = New System.Windows.Forms.CheckBox()
+        Me.cmdEditCompo = New System.Windows.Forms.Button()
+        Me.cmdEdit = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboCorrel, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblName, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,8 +109,6 @@
         Me.fraWater.SuspendLayout()
         CType(Me.fraCompo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.fraCompo.SuspendLayout()
-        CType(Me.cmdEditCompo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdEdit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Command4
@@ -529,22 +526,6 @@
         Me.fraCompo.Size = New System.Drawing.Size(552, 317)
         Me.fraCompo.TabIndex = 1
         '
-        'cmdEditCompo
-        '
-        Me.cmdEditCompo.Location = New System.Drawing.Point(115, 393)
-        Me.cmdEditCompo.Name = "cmdEditCompo"
-        Me.cmdEditCompo.OcxState = CType(resources.GetObject("cmdEditCompo.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdEditCompo.Size = New System.Drawing.Size(363, 24)
-        Me.cmdEditCompo.TabIndex = 43
-        '
-        'cmdEdit
-        '
-        Me.cmdEdit.Location = New System.Drawing.Point(115, 66)
-        Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.OcxState = CType(resources.GetObject("cmdEdit.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdEdit.Size = New System.Drawing.Size(363, 24)
-        Me.cmdEdit.TabIndex = 42
-        '
         '_cmdCancelOK_1
         '
         Me._cmdCancelOK_1.Location = New System.Drawing.Point(36, 474)
@@ -572,7 +553,8 @@
         Me._chkUse_0.TabIndex = 46
         Me._chkUse_0.Text = "CheckBox1"
         Me._chkUse_0.UseVisualStyleBackColor = True
-        chkUse(0) = Me._chkUse_0
+
+        chkUse(0) = _chkUse_0
         '
         '_chkUse_1
         '
@@ -583,6 +565,7 @@
         Me._chkUse_1.TabIndex = 47
         Me._chkUse_1.Text = "CheckBox2"
         Me._chkUse_1.UseVisualStyleBackColor = True
+
         chkUse(1) = _chkUse_1
         '
         '_chkUse_2
@@ -594,6 +577,7 @@
         Me._chkUse_2.TabIndex = 48
         Me._chkUse_2.Text = "CheckBox3"
         Me._chkUse_2.UseVisualStyleBackColor = True
+
         chkUse(2) = _chkUse_2
         '
         '_chkUse_3
@@ -605,6 +589,7 @@
         Me._chkUse_3.TabIndex = 49
         Me._chkUse_3.Text = "CheckBox4"
         Me._chkUse_3.UseVisualStyleBackColor = True
+
         chkUse(3) = _chkUse_3
         '
         '_chkUse_4
@@ -616,6 +601,7 @@
         Me._chkUse_4.TabIndex = 50
         Me._chkUse_4.Text = "CheckBox5"
         Me._chkUse_4.UseVisualStyleBackColor = True
+
         chkUse(4) = _chkUse_4
         '
         '_chkUse_5
@@ -627,6 +613,7 @@
         Me._chkUse_5.TabIndex = 51
         Me._chkUse_5.Text = "CheckBox6"
         Me._chkUse_5.UseVisualStyleBackColor = True
+
         chkUse(5) = _chkUse_5
         '
         '_chkUse_6
@@ -638,6 +625,7 @@
         Me._chkUse_6.TabIndex = 52
         Me._chkUse_6.Text = "CheckBox7"
         Me._chkUse_6.UseVisualStyleBackColor = True
+
         chkUse(6) = _chkUse_6
         '
         '_chkUse_7
@@ -649,6 +637,7 @@
         Me._chkUse_7.TabIndex = 53
         Me._chkUse_7.Text = "CheckBox8"
         Me._chkUse_7.UseVisualStyleBackColor = True
+
         chkUse(7) = _chkUse_7
         '
         '_chkUse_8
@@ -660,6 +649,7 @@
         Me._chkUse_8.TabIndex = 54
         Me._chkUse_8.Text = "CheckBox9"
         Me._chkUse_8.UseVisualStyleBackColor = True
+
         chkUse(8) = _chkUse_8
         '
         '_chkUse_9
@@ -671,7 +661,26 @@
         Me._chkUse_9.TabIndex = 55
         Me._chkUse_9.Text = "CheckBox10"
         Me._chkUse_9.UseVisualStyleBackColor = True
+
         chkUse(9) = _chkUse_9
+        '
+        'cmdEditCompo
+        '
+        Me.cmdEditCompo.Location = New System.Drawing.Point(194, 400)
+        Me.cmdEditCompo.Name = "cmdEditCompo"
+        Me.cmdEditCompo.Size = New System.Drawing.Size(212, 20)
+        Me.cmdEditCompo.TabIndex = 56
+        Me.cmdEditCompo.Text = "&Edit Chemical Type Correlation"
+        Me.cmdEditCompo.UseVisualStyleBackColor = True
+        '
+        'cmdEdit
+        '
+        Me.cmdEdit.Location = New System.Drawing.Point(158, 64)
+        Me.cmdEdit.Name = "cmdEdit"
+        Me.cmdEdit.Size = New System.Drawing.Size(277, 25)
+        Me.cmdEdit.TabIndex = 57
+        Me.cmdEdit.Text = "Edit &Water Type Correlation"
+        Me.cmdEdit.UseVisualStyleBackColor = True
         '
         'frmFouling
         '
@@ -680,6 +689,8 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(628, 513)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdEdit)
+        Me.Controls.Add(Me.cmdEditCompo)
         Me.Controls.Add(Me._chkUse_9)
         Me.Controls.Add(Me._chkUse_8)
         Me.Controls.Add(Me._chkUse_7)
@@ -692,8 +703,6 @@
         Me.Controls.Add(Me._chkUse_0)
         Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me._cmdCancelOK_1)
-        Me.Controls.Add(Me.cmdEdit)
-        Me.Controls.Add(Me.cmdEditCompo)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.fraWater)
@@ -715,14 +724,15 @@
         Me.fraWater.ResumeLayout(False)
         CType(Me.fraCompo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.fraCompo.ResumeLayout(False)
-        CType(Me.cmdEditCompo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdEdit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Public WithEvents cmdEdit As AxThreed.AxSSCommand
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
+    End Sub
+
     Friend WithEvents _cmdCancelOK_1 As Button
     Friend WithEvents _cmdCancelOK_0 As Button
     Friend WithEvents _chkUse_0 As CheckBox
@@ -735,6 +745,8 @@
     Friend WithEvents _chkUse_7 As CheckBox
     Friend WithEvents _chkUse_8 As CheckBox
     Friend WithEvents _chkUse_9 As CheckBox
+    Friend WithEvents cmdEditCompo As Button
+    Friend WithEvents cmdEdit As Button
 
 #End Region
 End Class

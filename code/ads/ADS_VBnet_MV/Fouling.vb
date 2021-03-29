@@ -369,12 +369,12 @@ Exit_Corr_Water:
 		Next J
 	End Function
 
-	Private Sub cmdEdit_ClickEvent(sender As Object, e As EventArgs) Handles cmdEdit.ClickEvent
+	Private Sub cmdEdit_ClickEvent(sender As Object, e As EventArgs)
 		Call frmFoulingWaterDatabase.frmFoulingWaterDatabase_Edit()
 		Call Populate_cboType()
 	End Sub
 
-	Private Sub cmdEditCompo_ClickEvent(sender As Object, e As EventArgs) Handles cmdEditCompo.ClickEvent
+	Private Sub cmdEditCompo_ClickEvent(sender As Object, e As EventArgs)
 		Call frmFoulingCompoundDatabase.frmFoulingCompoundDatabase_Edit()
 		Call Populate_cboCorrel()
 	End Sub
@@ -435,12 +435,12 @@ Exit_Corr_Water:
 		Me.Dispose()  'Dispose Shang
 	End Sub
 
-	Private Sub cmdEdit_Enter(sender As Object, e As EventArgs) Handles cmdEdit.Enter
+	Private Sub cmdEdit_Enter(sender As Object, e As EventArgs)
 		'Call frmFoulingWaterDatabase.frmFoulingWaterDatabase_Edit()
 		Call Populate_cboType()
 	End Sub
 
-	Private Sub cmdEditCompo_Enter(sender As Object, e As EventArgs) Handles cmdEditCompo.Enter
+	Private Sub cmdEditCompo_Enter(sender As Object, e As EventArgs)
 		'Call frmFoulingCompoundDatabase.frmFoulingCompoundDatabase_Edit()
 		Call Populate_cboCorrel()
 	End Sub
@@ -582,5 +582,16 @@ Exit_Corr_Water:
 
 	Private Sub CheckBox10_CheckedChanged(sender As Object, e As EventArgs) Handles _chkUse_9.CheckedChanged
 		Call chkUse_Click(9)
+	End Sub
+
+
+
+	Private Sub ECTC_Click(sender As Object, e As EventArgs) Handles cmdEditCompo.Click
+		Call Populate_cboCorrel()
+	End Sub
+
+	Private Sub Edit_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
+		Call frmFoulingWaterDatabase.frmFoulingWaterDatabase_Edit()
+		Call Populate_cboType()
 	End Sub
 End Class
