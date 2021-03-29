@@ -587,11 +587,16 @@ Exit_Corr_Water:
 
 
 	Private Sub ECTC_Click(sender As Object, e As EventArgs) Handles cmdEditCompo.Click
+		Call frmFoulingCompoundDatabase.frmFoulingCompoundDatabase_Edit()
 		Call Populate_cboCorrel()
 	End Sub
 
 	Private Sub Edit_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
 		Call frmFoulingWaterDatabase.frmFoulingWaterDatabase_Edit()
 		Call Populate_cboType()
+	End Sub
+
+	Private Sub Picture1_Click(sender As Object, e As EventArgs) Handles Picture1.Click
+
 	End Sub
 End Class
