@@ -5,7 +5,9 @@ Friend Class frmFoulingCompoundDatabase
 	
 	'UPGRADE_WARNING: Array Local_Correlation may need to have individual elements initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="B97B714D-9338-48AC-B03F-345B617E2B02"'
 	Dim Local_Correlation(Max_Number_Correlation_Compo) As Correlation_Compound_Type
-	
+
+
+
 	Dim FORM_MODE As Short
 	Const FORM_MODE_VIEW As Short = 1
 	Const FORM_MODE_EDIT As Short = 2
@@ -281,6 +283,9 @@ Exit_Here:
 					Case FORM_MODE_ADDNEW
 						Number_Correlations_Compounds = Number_Correlations_Compounds + 1
 						New_Rec_Index = Number_Correlations_Compounds
+						For i = 1 To New_Rec_Index
+							Local_Correlation(i).Initialize()
+						Next
 						Call Store_Local_Record(New_Rec_Index)
 				End Select
 				FORM_MODE = FORM_MODE_VIEW

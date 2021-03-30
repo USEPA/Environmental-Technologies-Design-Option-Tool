@@ -110,7 +110,9 @@ Module Structs
 	Structure Correlation_Compound_Type
 		Dim Name As String
 		<VBFixedArray(2)> Dim Coeff() As Double
-		
+		'Dim Coeff(2) As Double
+
+
 		'UPGRADE_TODO: "Initialize" must be called to initialize instances of this structure. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="B4BFF9E0-8631-45CF-910E-62AB3970F27B"'
 		Public Sub Initialize()
 			If Coeff Is Nothing Then ReDim Coeff(2)
@@ -124,7 +126,7 @@ Module Structs
 		'UPGRADE_TODO: "Initialize" must be called to initialize instances of this structure. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="B4BFF9E0-8631-45CF-910E-62AB3970F27B"'
 		Public Sub Initialize()
 			If Coeff Is Nothing Then ReDim Coeff(4)
-        End Sub
+		End Sub
 	End Structure
 	
 	Public Const KNSOURCE_ISOTHERMDB As Short = 1
