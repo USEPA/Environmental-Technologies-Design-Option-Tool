@@ -6,4 +6,4 @@
 "Groundwater from Wausau, Wisconsin",0.83,-9.12E-07,0.17,-0.000265
 "Groundwater from Houghton, Michigan",0.66,-1.55E-07,0.34,-0.000104
 "New Water Correlation",0.5,1E-10,1E-10,1E-10
-"New Water Correlation 2",0.999,-4E-06,1E-10,1E-10
+"New Water Correlation 3",1,0,0.7,0

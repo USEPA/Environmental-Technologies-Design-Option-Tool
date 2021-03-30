@@ -1,6 +1,7 @@
 Option Strict Off
 Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
+Imports System.Windows.Forms.DataVisualization.Charting
 Friend Class frmModelPSDMResults
 	Inherits System.Windows.Forms.Form
 
@@ -1104,6 +1105,16 @@ Exit_lblLegend_Click:
 		'  End If
 		'Next j
 		biggest_numpoints = Results.npoints
+
+
+		Dim s As New Series
+		s.ChartType = SeriesChartType.Line
+
+		s.Points.AddXY("1990", 27)
+		s.Points.AddXY("1991", 15)
+		s.Points.AddXY("1992", 17)
+
+		Chart1.Series.Add(s)
 
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumSets. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		For J = 1 To grpBreak.NumSets
