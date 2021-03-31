@@ -1110,9 +1110,20 @@ Exit_lblLegend_Click:
 		Dim s As New Series
 		s.ChartType = SeriesChartType.Line
 
-		s.Points.AddXY("1990", 27)
-		s.Points.AddXY("1991", 15)
-		s.Points.AddXY("1992", 17)
+		Dim arr As Integer() = {2, 3, 7}
+		Dim newItem As Integer = 4
+
+		Array.Resize(arr, arr.Length + 1)
+		arr(arr.Length - 1) = newItem
+
+		For i = 1 To arr.Length
+			Console.WriteLine(arr(i))
+			s.Points.AddXY(i, i)
+		Next i
+
+		's.Points.AddXY("1990", 27)
+		's.Points.AddXY("1991", 15)
+		's.Points.AddXY("1992", 17)
 
 		Chart1.Series.Add(s)
 
