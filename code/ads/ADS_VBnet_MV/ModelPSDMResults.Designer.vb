@@ -830,10 +830,12 @@
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
+        Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(506, 346)
         Me.Chart1.TabIndex = 71
         Me.Chart1.Text = "Chart1"
+        Me.Chart1.UseWaitCursor = True
         '
         'frmModelPSDMResults
         '

@@ -1110,22 +1110,20 @@ Exit_lblLegend_Click:
 		Dim s As New Series
 		s.ChartType = SeriesChartType.Line
 
-		Dim arr As Integer() = {2, 3, 7}
-		Dim newItem As Integer = 4
+		'add to end of list
+		'Dim arr As Integer() = {2, 3, 7}
+		'Dim newItem As Integer = 4
 
-		Array.Resize(arr, arr.Length + 1)
-		arr(arr.Length - 1) = newItem
+		Dim arr As Double() = {0}
 
-		For i = 1 To arr.Length
-			Console.WriteLine(arr(i))
-			s.Points.AddXY(i, i)
-		Next i
 
-		's.Points.AddXY("1990", 27)
-		's.Points.AddXY("1991", 15)
-		's.Points.AddXY("1992", 17)
+		'Array.Resize(arr, arr.Length + 1)
+		'arr(arr.Length - 1) = newItem
 
-		Chart1.Series.Add(s)
+		'add points to series
+		'For i = 0 To (arr.Length - 1)
+		's.Points.AddXY(i, arr(i))
+		'Next i
 
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumSets. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		For J = 1 To grpBreak.NumSets
@@ -1167,6 +1165,12 @@ Exit_lblLegend_Click:
 						''''grpBreak.GraphData = Results.CP(j, i)
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						grpBreak.GraphData = dblConvertedCP
+
+						'add converted to s
+						
+						s.Points.AddXY(X_Values(i), dblConvertedCP)
+
+
 					End If
 					If (end_the_plot = False) Then
 						'grpBreak.ThisPoint = i
@@ -1194,6 +1198,10 @@ Exit_lblLegend_Click:
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			grpBreak.LegendText = Trim(Results.Component(J).Name)
 		Next J
+
+		Chart1.Series.Add(s)
+		Chart1.ChartAreas(0).AxisX.Minimum = 0
+		Chart1.ChartAreas(0).AxisX.Maximum = 200
 
 		''Next, set values for remaining sets with # points < biggest_numpoints
 		'For j = 1 To grpBreak.NumSets
