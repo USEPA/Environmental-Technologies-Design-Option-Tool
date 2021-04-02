@@ -2,6 +2,7 @@ Option Strict Off
 Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Imports System.Windows.Forms.DataVisualization.Charting
+Imports System.Math
 Friend Class frmModelPSDMResults
 	Inherits System.Windows.Forms.Form
 
@@ -1201,7 +1202,24 @@ Exit_lblLegend_Click:
 
 		Chart1.Series.Add(s)
 		Chart1.ChartAreas(0).AxisX.Minimum = 0
-		Chart1.ChartAreas(0).AxisX.Maximum = 200
+
+		'rouding for max
+		Dim roundmax As Integer
+		Dim logscaler As Double 'used for sclaing log
+		logscaler = Math.Log10(most_recent_x)
+		logscaler = Math.Floor(logscaler)
+		logscaler = logscaler - 1
+		logscaler = 10 ^ logscaler
+
+		roundmax = Math.Ceiling(most_recent_x / logscaler) * logscaler
+
+		Chart1.ChartAreas(0).AxisX.Maximum = roundmax
+
+		Chart1.ChartAreas(0).AxisX.Title = Bottom_Title
+		Chart1.ChartAreas(0).AxisX.LabelStyle.Font = New System.Drawing.Font("Times New Roman", 10.25F)
+
+		Chart1.ChartAreas(0).AxisY.Title = OUT_strYAxisTitle
+		Chart1.ChartAreas(0).AxisY.LabelStyle.Font = New System.Drawing.Font("Times New Roman", 10.25F)
 
 		''Next, set values for remaining sets with # points < biggest_numpoints
 		'For j = 1 To grpBreak.NumSets

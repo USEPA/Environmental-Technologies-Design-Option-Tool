@@ -820,11 +820,14 @@
         '
         'Chart1
         '
+        ChartArea1.AxisX.LabelAutoFitMaxFontSize = 12
+        ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Garamond", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea1.AxisY.TitleFont = New System.Drawing.Font("Garamond", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(727, 66)
+        Me.Chart1.Location = New System.Drawing.Point(714, 58)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
@@ -835,7 +838,6 @@
         Me.Chart1.Size = New System.Drawing.Size(506, 346)
         Me.Chart1.TabIndex = 71
         Me.Chart1.Text = "Chart1"
-        Me.Chart1.UseWaitCursor = True
         '
         'frmModelPSDMResults
         '
