@@ -1108,14 +1108,11 @@ Exit_lblLegend_Click:
 		biggest_numpoints = Results.npoints
 
 
-		Dim s As New Series
-		s.ChartType = SeriesChartType.Line
-
 		'add to end of list
 		'Dim arr As Integer() = {2, 3, 7}
 		'Dim newItem As Integer = 4
 
-		Dim arr As Double() = {0}
+		'Dim arr As Double() = {0}
 
 
 		'Array.Resize(arr, arr.Length + 1)
@@ -1145,6 +1142,10 @@ Exit_lblLegend_Click:
 		Dim OUT_strYAxisTitle As String
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumSets. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		For J = 1 To grpBreak.NumSets
+
+			Dim s As New Series
+			s.ChartType = SeriesChartType.Line
+
 			dbl_CPConversionFactor = CBOYAXISTYPE_GetUnitConversion(CShort(VB6.GetItemData(cboYAxisType, cboYAxisType.SelectedIndex)), Results.is_psdm_in_room_model, Results.AnyCrCloseToZero, J, Results.Bed.Phase, OUT_strYAxisTitle)
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			grpBreak.ThisSet = J
@@ -1168,9 +1169,8 @@ Exit_lblLegend_Click:
 						grpBreak.GraphData = dblConvertedCP
 
 						'add converted to s
-						
-						s.Points.AddXY(X_Values(i), dblConvertedCP)
 
+						s.Points.AddXY(X_Values(i), dblConvertedCP)
 
 					End If
 					If (end_the_plot = False) Then
@@ -1198,9 +1198,14 @@ Exit_lblLegend_Click:
 			grpBreak.ThisPoint = J
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			grpBreak.LegendText = Trim(Results.Component(J).Name)
+
+			s.LegendText = Trim(Results.Component(J).Name)
+			Chart1.Series.Add(s)
+
 		Next J
 
-		Chart1.Series.Add(s)
+		Chart1.Legends(0).Title = "Component Property:"
+
 		Chart1.ChartAreas(0).AxisX.Minimum = 0
 
 		'rouding for max
