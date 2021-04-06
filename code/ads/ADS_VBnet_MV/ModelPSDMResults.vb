@@ -150,6 +150,21 @@ Friend Class frmModelPSDMResults
 			'grpBreak.GridStyle = cboGrid.SelectedIndex
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.DrawMode. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'grpBreak.DrawMode = 2
+			Select Case cboGrid.SelectedIndex
+				Case 0
+					Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 0
+					Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 0
+				Case 1
+					Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 0
+					Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 1
+				Case 2
+					Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 1
+					Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 0
+				Case 3
+					Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 1
+					Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 1
+			End Select
+
 		End If
 	End Sub
 
@@ -1224,7 +1239,8 @@ Exit_lblLegend_Click:
 
 		roundmax = Math.Ceiling(most_recent_x / logscaler) * logscaler
 
-		Chart1.ChartAreas(0).AxisX.Maximum = roundmax
+		'Chart1.ChartAreas(0).AxisX.Maximum = roundmax
+		'Dont need this method anymore!
 
 		Chart1.ChartAreas(0).AxisX.Title = Bottom_Title
 		Chart1.ChartAreas(0).AxisX.LabelStyle.Font = New System.Drawing.Font("Times New Roman", 10.25F)
@@ -1367,6 +1383,8 @@ Exit_lblLegend_Click:
 		'UPGRADE_WARNING: Screen property Screen.MousePointer has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6BA9B8D2-2A32-4B6E-8D36-44949974A5B4"'
 		System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default
 		'grpBreak.GridStyle = 0
+		Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 0
+		Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 0
 	End Sub
 	Private Sub frmModelPSDMResults_FormClosed(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
 		Call UserPrefs_Save()
