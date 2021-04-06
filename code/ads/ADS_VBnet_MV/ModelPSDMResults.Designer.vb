@@ -23,7 +23,6 @@
     Public WithEvents lblSSValueUnits As Label
     Public WithEvents Command4 As System.Windows.Forms.Button
     Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-    Public WithEvents ssframe_SSConc As AxThreed.AxSSFrame
     Public WithEvents cboGrid As System.Windows.Forms.ComboBox
     Public WithEvents cboCompo As System.Windows.Forms.ComboBox
     Public WithEvents _lblLegend_0 As System.Windows.Forms.Label
@@ -53,7 +52,6 @@
     Public WithEvents lblMTZ As System.Windows.Forms.Label
     Public WithEvents Label2 As System.Windows.Forms.Label
     Public WithEvents cboYAxisType As System.Windows.Forms.ComboBox
-    Public WithEvents SSFrame3 As AxThreed.AxSSFrame
     Public WithEvents Label1 As System.Windows.Forms.Label
     Public WithEvents lblData As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lblLegend As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -64,14 +62,12 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmModelPSDMResults))
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
-        Me.ssframe_SSConc = New AxThreed.AxSSFrame()
         Me.cboGrid = New System.Windows.Forms.ComboBox()
         Me.cboCompo = New System.Windows.Forms.ComboBox()
         Me._lblLegend_0 = New System.Windows.Forms.Label()
@@ -100,7 +96,6 @@
         Me._lblData_15 = New System.Windows.Forms.Label()
         Me.lblMTZ = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.SSFrame3 = New AxThreed.AxSSFrame()
         Me.cboYAxisType = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblData = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
@@ -109,7 +104,6 @@
         Me._lblMisc_0 = New System.Windows.Forms.Label()
         Me.lblSSValue = New System.Windows.Forms.Label()
         Me.lblSSValueUnits = New System.Windows.Forms.Label()
-        Me.grpBreak = New AxGraphLib.AxGraph()
         Me._optType_0 = New System.Windows.Forms.RadioButton()
         Me._optType_1 = New System.Windows.Forms.RadioButton()
         Me._optType_2 = New System.Windows.Forms.RadioButton()
@@ -125,15 +119,14 @@
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ssframe_SSConc, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblMisc, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command4
@@ -165,15 +158,6 @@
         Me.Picture1.TabIndex = 49
         Me.Picture1.TabStop = False
         Me.Picture1.Visible = False
-        '
-        'ssframe_SSConc
-        '
-        Me.ssframe_SSConc.Location = New System.Drawing.Point(16, 156)
-        Me.ssframe_SSConc.Name = "ssframe_SSConc"
-        Me.ssframe_SSConc.OcxState = CType(resources.GetObject("ssframe_SSConc.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.ssframe_SSConc.Size = New System.Drawing.Size(509, 52)
-        Me.ssframe_SSConc.TabIndex = 42
-        Me.ssframe_SSConc.Visible = False
         '
         'cboGrid
         '
@@ -613,14 +597,6 @@
         Me.Label2.Text = "Length of the MTZ (cm):"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'SSFrame3
-        '
-        Me.SSFrame3.Location = New System.Drawing.Point(351, 468)
-        Me.SSFrame3.Name = "SSFrame3"
-        Me.SSFrame3.OcxState = CType(resources.GetObject("SSFrame3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame3.Size = New System.Drawing.Size(174, 76)
-        Me.SSFrame3.TabIndex = 46
-        '
         'cboYAxisType
         '
         Me.cboYAxisType.BackColor = System.Drawing.SystemColors.Window
@@ -628,7 +604,7 @@
         Me.cboYAxisType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboYAxisType.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboYAxisType.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.cboYAxisType.Location = New System.Drawing.Point(362, 494)
+        Me.cboYAxisType.Location = New System.Drawing.Point(14, 25)
         Me.cboYAxisType.Name = "cboYAxisType"
         Me.cboYAxisType.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cboYAxisType.Size = New System.Drawing.Size(151, 22)
@@ -687,14 +663,6 @@
         Me.lblSSValueUnits.Size = New System.Drawing.Size(85, 17)
         Me.lblSSValueUnits.TabIndex = 55
         Me.lblSSValueUnits.Text = "{u}g/L"
-        '
-        'grpBreak
-        '
-        Me.grpBreak.Location = New System.Drawing.Point(17, 156)
-        Me.grpBreak.Name = "grpBreak"
-        Me.grpBreak.OcxState = CType(resources.GetObject("grpBreak.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.grpBreak.Size = New System.Drawing.Size(508, 301)
-        Me.grpBreak.TabIndex = 57
         '
         '_optType_0
         '
@@ -827,7 +795,7 @@
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(714, 58)
+        Me.Chart1.Location = New System.Drawing.Point(12, 160)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
@@ -835,17 +803,28 @@
         Series1.Name = "Series1"
         Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(506, 346)
+        Me.Chart1.Size = New System.Drawing.Size(506, 302)
         Me.Chart1.TabIndex = 71
         Me.Chart1.Text = "Chart1"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.cboYAxisType)
+        Me.GroupBox2.Location = New System.Drawing.Point(353, 468)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(178, 76)
+        Me.GroupBox2.TabIndex = 72
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Y Axis Type"
         '
         'frmModelPSDMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1257, 749)
+        Me.ClientSize = New System.Drawing.Size(757, 566)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me._lblData_4)
@@ -867,25 +846,21 @@
         Me.Controls.Add(Me._lblData_0)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me._lblData_1)
-        Me.Controls.Add(Me.grpBreak)
         Me.Controls.Add(Me._lblData_2)
         Me.Controls.Add(Me.lblSSValueUnits)
         Me.Controls.Add(Me._lblData_3)
         Me.Controls.Add(Me.lblSSValue)
         Me.Controls.Add(Me._lblMisc_0)
         Me.Controls.Add(Me._lblData_5)
-        Me.Controls.Add(Me.cboYAxisType)
         Me.Controls.Add(Me._lblData_6)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me._lblData_7)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me._lblData_8)
-        Me.Controls.Add(Me.ssframe_SSConc)
         Me.Controls.Add(Me._lblData_9)
         Me.Controls.Add(Me.cboGrid)
         Me.Controls.Add(Me._lblData_10)
         Me.Controls.Add(Me._lblData_11)
-        Me.Controls.Add(Me.SSFrame3)
         Me.Controls.Add(Me._lblLegend_7)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me._lblData_12)
@@ -906,20 +881,16 @@
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Results for the Pore and Surface Diffusion Model (PSDM)"
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ssframe_SSConc, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblMisc, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents grpBreak As AxGraphLib.AxGraph
     Public WithEvents _optType_0 As RadioButton
     Public WithEvents _optType_1 As RadioButton
     Public WithEvents _optType_2 As RadioButton
@@ -935,6 +906,7 @@
     Friend WithEvents PrintDialog1 As PrintDialog
     Friend WithEvents Label3 As Label
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents GroupBox2 As GroupBox
 
 
 #End Region
