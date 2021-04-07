@@ -28,8 +28,6 @@
     Public WithEvents _lblDesc_1 As System.Windows.Forms.Label
     Public WithEvents _lblDesc_2 As System.Windows.Forms.Label
     Public WithEvents SSFrame2 As AxThreed.AxSSFrame
-    Public WithEvents _cmdCancelOK_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdCancelOK_0 As AxThreed.AxSSCommand
     Public cmdCancelOK(2) As AxThreed.AxSSCommand
     Public cmdRecord(5) As AxThreed.AxSSCommand
     ' Public WithEvents cmdRecord As SSCommandArray
@@ -55,26 +53,19 @@
         Me.lblCoeff1 = New System.Windows.Forms.Label()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.SSFrame2 = New AxThreed.AxSSFrame()
-        Me._cmdCancelOK_0 = New AxThreed.AxSSCommand()
-        Me._cmdCancelOK_1 = New AxThreed.AxSSCommand()
-        Me._cmdRecord_0 = New AxThreed.AxSSCommand()
-        Me._cmdRecord_1 = New AxThreed.AxSSCommand()
-        Me._cmdRecord_2 = New AxThreed.AxSSCommand()
-        Me._cmdRecord_3 = New AxThreed.AxSSCommand()
-        Me._cmdRecord_4 = New AxThreed.AxSSCommand()
+        Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
+        Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
+        Me._cmdRecord_0 = New System.Windows.Forms.Button()
+        Me._cmdRecord_1 = New System.Windows.Forms.Button()
+        Me._cmdRecord_2 = New System.Windows.Forms.Button()
+        Me._cmdRecord_3 = New System.Windows.Forms.Button()
+        Me._cmdRecord_4 = New System.Windows.Forms.Button()
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCoeff, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SSFrame1.SuspendLayout()
         CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SSFrame2.SuspendLayout()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdRecord_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdRecord_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdRecord_2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdRecord_3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdRecord_4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         '_lblDesc_1
@@ -123,7 +114,7 @@
         Me._txtCoeff_2.MaxLength = 0
         Me._txtCoeff_2.Name = "_txtCoeff_2"
         Me._txtCoeff_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtCoeff_2.Size = New System.Drawing.Size(81, 23)
+        Me._txtCoeff_2.Size = New System.Drawing.Size(81, 20)
         Me._txtCoeff_2.TabIndex = 4
         Me._txtCoeff_2.Text = "txtCoeff(2)"
         Me._txtCoeff_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -141,7 +132,7 @@
         Me._txtCoeff_1.MaxLength = 0
         Me._txtCoeff_1.Name = "_txtCoeff_1"
         Me._txtCoeff_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtCoeff_1.Size = New System.Drawing.Size(81, 23)
+        Me._txtCoeff_1.Size = New System.Drawing.Size(81, 20)
         Me._txtCoeff_1.TabIndex = 3
         Me._txtCoeff_1.Text = "txtCoeff(1)"
         Me._txtCoeff_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -153,11 +144,11 @@
         Me.lstCorrelations.Cursor = System.Windows.Forms.Cursors.Default
         Me.lstCorrelations.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCorrelations.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lstCorrelations.ItemHeight = 16
+        Me.lstCorrelations.ItemHeight = 14
         Me.lstCorrelations.Location = New System.Drawing.Point(8, 20)
         Me.lstCorrelations.Name = "lstCorrelations"
         Me.lstCorrelations.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lstCorrelations.Size = New System.Drawing.Size(365, 146)
+        Me.lstCorrelations.Size = New System.Drawing.Size(365, 142)
         Me.lstCorrelations.TabIndex = 2
         '
         'txtName
@@ -172,7 +163,7 @@
         Me.txtName.MaxLength = 0
         Me.txtName.Name = "txtName"
         Me.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtName.Size = New System.Drawing.Size(347, 23)
+        Me.txtName.Size = New System.Drawing.Size(347, 20)
         Me.txtName.TabIndex = 5
         Me.txtName.Text = "txtName"
         Me.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -242,80 +233,92 @@
         Me.SSFrame2.Size = New System.Drawing.Size(397, 163)
         Me.SSFrame2.TabIndex = 1
         '
-        '_cmdCancelOK_0
-        '
-        Me._cmdCancelOK_0.Location = New System.Drawing.Point(219, 363)
-        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
-        Me._cmdCancelOK_0.OcxState = CType(resources.GetObject("_cmdCancelOK_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_0.Size = New System.Drawing.Size(100, 34)
-        Me._cmdCancelOK_0.TabIndex = 12
-        Me._cmdCancelOK_0.TabStop = False
-        '
         '_cmdCancelOK_1
         '
-        Me._cmdCancelOK_1.Location = New System.Drawing.Point(70, 365)
+        Me._cmdCancelOK_1.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_1.Location = New System.Drawing.Point(83, 363)
         Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
-        Me._cmdCancelOK_1.OcxState = CType(resources.GetObject("_cmdCancelOK_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_1.Size = New System.Drawing.Size(100, 32)
-        Me._cmdCancelOK_1.TabIndex = 29
-        Me._cmdCancelOK_1.TabStop = False
+        Me._cmdCancelOK_1.Size = New System.Drawing.Size(104, 34)
+        Me._cmdCancelOK_1.TabIndex = 35
+        Me._cmdCancelOK_1.Text = "OK"
+        Me._cmdCancelOK_1.UseVisualStyleBackColor = False
+        '
+        '_cmdCancelOK_0
+        '
+        Me._cmdCancelOK_0.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_0.Location = New System.Drawing.Point(228, 363)
+        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
+        Me._cmdCancelOK_0.Size = New System.Drawing.Size(104, 34)
+        Me._cmdCancelOK_0.TabIndex = 36
+        Me._cmdCancelOK_0.Text = "Cancel"
+        Me._cmdCancelOK_0.UseVisualStyleBackColor = False
         '
         '_cmdRecord_0
         '
-        Me._cmdRecord_0.Location = New System.Drawing.Point(35, 312)
+        Me._cmdRecord_0.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_0.Location = New System.Drawing.Point(17, 309)
         Me._cmdRecord_0.Name = "_cmdRecord_0"
-        Me._cmdRecord_0.OcxState = CType(resources.GetObject("_cmdRecord_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdRecord_0.Size = New System.Drawing.Size(72, 27)
-        Me._cmdRecord_0.TabIndex = 30
+        Me._cmdRecord_0.Size = New System.Drawing.Size(67, 31)
+        Me._cmdRecord_0.TabIndex = 37
+        Me._cmdRecord_0.Text = "&New"
+        Me._cmdRecord_0.UseVisualStyleBackColor = False
         '
         '_cmdRecord_1
         '
-        Me._cmdRecord_1.Location = New System.Drawing.Point(106, 312)
+        Me._cmdRecord_1.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_1.Location = New System.Drawing.Point(90, 309)
         Me._cmdRecord_1.Name = "_cmdRecord_1"
-        Me._cmdRecord_1.OcxState = CType(resources.GetObject("_cmdRecord_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdRecord_1.Size = New System.Drawing.Size(72, 27)
-        Me._cmdRecord_1.TabIndex = 31
+        Me._cmdRecord_1.Size = New System.Drawing.Size(72, 31)
+        Me._cmdRecord_1.TabIndex = 38
+        Me._cmdRecord_1.Text = "&Edit"
+        Me._cmdRecord_1.UseVisualStyleBackColor = False
         '
         '_cmdRecord_2
         '
-        Me._cmdRecord_2.Location = New System.Drawing.Point(177, 312)
+        Me._cmdRecord_2.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_2.Location = New System.Drawing.Point(168, 309)
         Me._cmdRecord_2.Name = "_cmdRecord_2"
-        Me._cmdRecord_2.OcxState = CType(resources.GetObject("_cmdRecord_2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdRecord_2.Size = New System.Drawing.Size(72, 27)
-        Me._cmdRecord_2.TabIndex = 32
+        Me._cmdRecord_2.Size = New System.Drawing.Size(72, 31)
+        Me._cmdRecord_2.TabIndex = 39
+        Me._cmdRecord_2.Text = "&Delete"
+        Me._cmdRecord_2.UseVisualStyleBackColor = False
         '
         '_cmdRecord_3
         '
-        Me._cmdRecord_3.Location = New System.Drawing.Point(248, 312)
+        Me._cmdRecord_3.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_3.Location = New System.Drawing.Point(246, 309)
         Me._cmdRecord_3.Name = "_cmdRecord_3"
-        Me._cmdRecord_3.OcxState = CType(resources.GetObject("_cmdRecord_3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdRecord_3.Size = New System.Drawing.Size(72, 27)
-        Me._cmdRecord_3.TabIndex = 33
+        Me._cmdRecord_3.Size = New System.Drawing.Size(72, 31)
+        Me._cmdRecord_3.TabIndex = 40
+        Me._cmdRecord_3.Text = "&Save"
+        Me._cmdRecord_3.UseVisualStyleBackColor = False
         '
         '_cmdRecord_4
         '
-        Me._cmdRecord_4.Location = New System.Drawing.Point(320, 312)
+        Me._cmdRecord_4.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_4.Location = New System.Drawing.Point(324, 309)
         Me._cmdRecord_4.Name = "_cmdRecord_4"
-        Me._cmdRecord_4.OcxState = CType(resources.GetObject("_cmdRecord_4.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdRecord_4.Size = New System.Drawing.Size(80, 27)
-        Me._cmdRecord_4.TabIndex = 34
+        Me._cmdRecord_4.Size = New System.Drawing.Size(73, 31)
+        Me._cmdRecord_4.TabIndex = 41
+        Me._cmdRecord_4.Text = "Cancel Edit"
+        Me._cmdRecord_4.UseVisualStyleBackColor = False
         '
         'frmFoulingCompoundDatabase
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(421, 409)
         Me.ControlBox = False
-        Me.Controls.Add(Me._cmdRecord_0)
-        Me.Controls.Add(Me._cmdRecord_1)
-        Me.Controls.Add(Me._cmdRecord_2)
-        Me.Controls.Add(Me._cmdRecord_3)
         Me.Controls.Add(Me._cmdRecord_4)
+        Me.Controls.Add(Me._cmdRecord_3)
+        Me.Controls.Add(Me._cmdRecord_2)
+        Me.Controls.Add(Me._cmdRecord_1)
+        Me.Controls.Add(Me._cmdRecord_0)
+        Me.Controls.Add(Me._cmdCancelOK_0)
+        Me.Controls.Add(Me._cmdCancelOK_1)
         Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me.SSFrame2)
-        Me.Controls.Add(Me._cmdCancelOK_1)
-        Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -333,22 +336,16 @@
         CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SSFrame2.ResumeLayout(False)
         Me.SSFrame2.PerformLayout()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdRecord_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdRecord_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdRecord_2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdRecord_3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdRecord_4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Public WithEvents _cmdRecord_0 As AxThreed.AxSSCommand
-    Public WithEvents _cmdRecord_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdRecord_2 As AxThreed.AxSSCommand
-    Public WithEvents _cmdRecord_3 As AxThreed.AxSSCommand
-    Public WithEvents _cmdRecord_4 As AxThreed.AxSSCommand
+    Friend WithEvents _cmdCancelOK_1 As Button
+    Friend WithEvents _cmdCancelOK_0 As Button
+    Friend WithEvents _cmdRecord_0 As Button
+    Friend WithEvents _cmdRecord_1 As Button
+    Friend WithEvents _cmdRecord_2 As Button
+    Friend WithEvents _cmdRecord_3 As Button
+    Friend WithEvents _cmdRecord_4 As Button
 
 
 
