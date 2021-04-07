@@ -1078,8 +1078,8 @@ Exit_lblLegend_Click:
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object optType(1). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			If CBool(_optType_1.Checked) Then 'BVF         mn * (mn/s) * (m3/s) / m / (m2) -> dimensionless
-				factor = 60.0# * Results.Bed.Flowrate / (Results.Bed.length * PI * (Results.Bed.Diameter / 2.0#) ^ 2)
-				Bottom_Title = "Bed Volumes Treated"
+				factor = (60.0# * Results.Bed.Flowrate / (Results.Bed.length * PI * (Results.Bed.Diameter / 2.0#) ^ 2)) / 1000
+				Bottom_Title = "Bed Volumes Treated (x1000)"
 			Else 'Treatment Capacity
 				factor = 60.0# * Results.Bed.Flowrate / Results.Bed.Weight 'mn * (s/mn) * (m3/s) / (kg) -> m3/kg
 				'factor = 60# * Results.Bed.Flowrate / Results.Bed.Length / Pi / (Results.Bed.Diameter / 2#) ^ 2
