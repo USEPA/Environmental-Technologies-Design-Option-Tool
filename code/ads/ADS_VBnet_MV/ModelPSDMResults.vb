@@ -1225,7 +1225,7 @@ Exit_lblLegend_Click:
 
 		Next J
 
-		Chart1.Legends(0).Title = "Component Property:"
+		Chart1.Legends(0).Title = "Component:"
 
 		Chart1.ChartAreas(0).AxisX.Minimum = 0
 

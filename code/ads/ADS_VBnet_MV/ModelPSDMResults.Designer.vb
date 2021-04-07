@@ -135,7 +135,7 @@
         Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(529, 412)
+        Me.Command4.Location = New System.Drawing.Point(561, 411)
         Me.Command4.Name = "Command4"
         Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Command4.Size = New System.Drawing.Size(174, 22)
@@ -151,7 +151,7 @@
         Me.Picture1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Picture1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Picture1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Picture1.Location = New System.Drawing.Point(640, 479)
+        Me.Picture1.Location = New System.Drawing.Point(672, 478)
         Me.Picture1.Name = "Picture1"
         Me.Picture1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Picture1.Size = New System.Drawing.Size(84, 57)
@@ -166,7 +166,7 @@
         Me.cboGrid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboGrid.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboGrid.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.cboGrid.Location = New System.Drawing.Point(534, 144)
+        Me.cboGrid.Location = New System.Drawing.Point(566, 143)
         Me.cboGrid.Name = "cboGrid"
         Me.cboGrid.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cboGrid.Size = New System.Drawing.Size(174, 22)
@@ -616,7 +616,7 @@
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label1.Location = New System.Drawing.Point(531, 124)
+        Me.Label1.Location = New System.Drawing.Point(563, 123)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label1.Size = New System.Drawing.Size(89, 17)
@@ -705,7 +705,7 @@
         'cmdExcel
         '
         Me.cmdExcel.BackColor = System.Drawing.Color.White
-        Me.cmdExcel.Location = New System.Drawing.Point(534, 189)
+        Me.cmdExcel.Location = New System.Drawing.Point(566, 188)
         Me.cmdExcel.Name = "cmdExcel"
         Me.cmdExcel.Size = New System.Drawing.Size(174, 38)
         Me.cmdExcel.TabIndex = 63
@@ -715,7 +715,7 @@
         'cmdSave
         '
         Me.cmdSave.BackColor = System.Drawing.Color.White
-        Me.cmdSave.Location = New System.Drawing.Point(534, 227)
+        Me.cmdSave.Location = New System.Drawing.Point(566, 226)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(174, 39)
         Me.cmdSave.TabIndex = 64
@@ -725,7 +725,7 @@
         'cmdSelect
         '
         Me.cmdSelect.BackColor = System.Drawing.Color.White
-        Me.cmdSelect.Location = New System.Drawing.Point(534, 266)
+        Me.cmdSelect.Location = New System.Drawing.Point(566, 265)
         Me.cmdSelect.Name = "cmdSelect"
         Me.cmdSelect.Size = New System.Drawing.Size(174, 42)
         Me.cmdSelect.TabIndex = 65
@@ -735,7 +735,7 @@
         'cmdPrint
         '
         Me.cmdPrint.BackColor = System.Drawing.Color.White
-        Me.cmdPrint.Location = New System.Drawing.Point(534, 307)
+        Me.cmdPrint.Location = New System.Drawing.Point(566, 306)
         Me.cmdPrint.Name = "cmdPrint"
         Me.cmdPrint.Size = New System.Drawing.Size(174, 38)
         Me.cmdPrint.TabIndex = 66
@@ -745,7 +745,7 @@
         'cmdFile
         '
         Me.cmdFile.BackColor = System.Drawing.Color.White
-        Me.cmdFile.Location = New System.Drawing.Point(534, 346)
+        Me.cmdFile.Location = New System.Drawing.Point(566, 345)
         Me.cmdFile.Name = "cmdFile"
         Me.cmdFile.Size = New System.Drawing.Size(174, 38)
         Me.cmdFile.TabIndex = 67
@@ -794,7 +794,10 @@
         ChartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.BackwardDiagonal
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.AutoFitMinFontSize = 5
+        Legend1.Font = New System.Drawing.Font("Agency FB", 8.0!)
         Legend1.Name = "Legend1"
+        Legend1.TextWrapThreshold = 10
         Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(12, 160)
         Me.Chart1.Name = "Chart1"
@@ -804,7 +807,7 @@
         Series1.Name = "Series1"
         Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(506, 302)
+        Me.Chart1.Size = New System.Drawing.Size(548, 302)
         Me.Chart1.TabIndex = 71
         Me.Chart1.Text = "Chart1"
         '
