@@ -120,6 +120,7 @@
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cmdTreat = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -796,6 +797,7 @@
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.AutoFitMinFontSize = 5
         Legend1.Font = New System.Drawing.Font("Agency FB", 8.0!)
+        Legend1.IsTextAutoFit = False
         Legend1.Name = "Legend1"
         Legend1.TextWrapThreshold = 10
         Me.Chart1.Legends.Add(Legend1)
@@ -821,6 +823,18 @@
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Y Axis Type"
         '
+        'cmdTreat
+        '
+        Me.cmdTreat.BackColor = System.Drawing.Color.White
+        Me.cmdTreat.Font = New System.Drawing.Font("Arial Rounded MT Bold", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdTreat.Location = New System.Drawing.Point(17, 123)
+        Me.cmdTreat.Name = "cmdTreat"
+        Me.cmdTreat.Size = New System.Drawing.Size(176, 17)
+        Me.cmdTreat.TabIndex = 73
+        Me.cmdTreat.Text = "Treatment Objective"
+        Me.cmdTreat.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.cmdTreat.UseVisualStyleBackColor = False
+        '
         'frmModelPSDMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -828,6 +842,7 @@
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(757, 566)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdTreat)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Label3)
@@ -911,6 +926,7 @@
     Friend WithEvents Label3 As Label
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents cmdTreat As Button
 
 
 #End Region

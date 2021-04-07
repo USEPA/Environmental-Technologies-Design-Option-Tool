@@ -1526,4 +1526,8 @@ err_FRMBREAK_UserPrefs_Load:
 	Private Sub cmdTreatA_Click(sender As Object, e As EventArgs) Handles cmdTreatA.Click
 		Call cmdTreat_Click()
 	End Sub
+
+	Private Sub cmdTreat_Click(sender As Object, e As EventArgs) Handles cmdTreat.Click
+		Call cmdTreat_Click()
+	End Sub
 End Class
