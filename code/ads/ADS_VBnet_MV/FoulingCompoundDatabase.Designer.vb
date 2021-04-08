@@ -18,7 +18,6 @@
 	Private components As System.ComponentModel.IContainer
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents lstCorrelations As System.Windows.Forms.ListBox
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents txtName As System.Windows.Forms.TextBox
     Public WithEvents _txtCoeff_2 As System.Windows.Forms.TextBox
     Public WithEvents _txtCoeff_1 As System.Windows.Forms.TextBox
@@ -27,7 +26,6 @@
     Public WithEvents lblCoeff1 As System.Windows.Forms.Label
     Public WithEvents _lblDesc_1 As System.Windows.Forms.Label
     Public WithEvents _lblDesc_2 As System.Windows.Forms.Label
-    Public WithEvents SSFrame2 As AxThreed.AxSSFrame
     Public cmdCancelOK(2) As AxThreed.AxSSCommand
     Public cmdRecord(5) As AxThreed.AxSSCommand
     ' Public WithEvents cmdRecord As SSCommandArray
@@ -38,7 +36,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFoulingCompoundDatabase))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lblDesc = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me._lblDesc_1 = New System.Windows.Forms.Label()
@@ -51,8 +48,6 @@
         Me.lblName = New System.Windows.Forms.Label()
         Me.lblCoeff2 = New System.Windows.Forms.Label()
         Me.lblCoeff1 = New System.Windows.Forms.Label()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me.SSFrame2 = New AxThreed.AxSSFrame()
         Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
         Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
         Me._cmdRecord_0 = New System.Windows.Forms.Button()
@@ -60,12 +55,12 @@
         Me._cmdRecord_2 = New System.Windows.Forms.Button()
         Me._cmdRecord_3 = New System.Windows.Forms.Button()
         Me._cmdRecord_4 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCoeff, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSFrame1.SuspendLayout()
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSFrame2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         '_lblDesc_1
@@ -75,7 +70,7 @@
         Me._lblDesc_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblDesc_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblDesc.SetIndex(Me._lblDesc_1, CType(1, Short))
-        Me._lblDesc_1.Location = New System.Drawing.Point(84, 48)
+        Me._lblDesc_1.Location = New System.Drawing.Point(84, 49)
         Me._lblDesc_1.Name = "_lblDesc_1"
         Me._lblDesc_1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblDesc_1.Size = New System.Drawing.Size(65, 17)
@@ -90,7 +85,7 @@
         Me._lblDesc_2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._lblDesc_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lblDesc.SetIndex(Me._lblDesc_2, CType(2, Short))
-        Me._lblDesc_2.Location = New System.Drawing.Point(84, 76)
+        Me._lblDesc_2.Location = New System.Drawing.Point(84, 77)
         Me._lblDesc_2.Name = "_lblDesc_2"
         Me._lblDesc_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._lblDesc_2.Size = New System.Drawing.Size(65, 17)
@@ -110,7 +105,7 @@
         Me._txtCoeff_2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtCoeff_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtCoeff.SetIndex(Me._txtCoeff_2, CType(2, Short))
-        Me._txtCoeff_2.Location = New System.Drawing.Point(156, 74)
+        Me._txtCoeff_2.Location = New System.Drawing.Point(156, 75)
         Me._txtCoeff_2.MaxLength = 0
         Me._txtCoeff_2.Name = "_txtCoeff_2"
         Me._txtCoeff_2.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -128,7 +123,7 @@
         Me._txtCoeff_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtCoeff_1.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtCoeff.SetIndex(Me._txtCoeff_1, CType(1, Short))
-        Me._txtCoeff_1.Location = New System.Drawing.Point(156, 46)
+        Me._txtCoeff_1.Location = New System.Drawing.Point(156, 47)
         Me._txtCoeff_1.MaxLength = 0
         Me._txtCoeff_1.Name = "_txtCoeff_1"
         Me._txtCoeff_1.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -145,7 +140,7 @@
         Me.lstCorrelations.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCorrelations.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lstCorrelations.ItemHeight = 14
-        Me.lstCorrelations.Location = New System.Drawing.Point(8, 20)
+        Me.lstCorrelations.Location = New System.Drawing.Point(10, 19)
         Me.lstCorrelations.Name = "lstCorrelations"
         Me.lstCorrelations.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lstCorrelations.Size = New System.Drawing.Size(365, 142)
@@ -159,7 +154,7 @@
         Me.txtName.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtName.Location = New System.Drawing.Point(10, 18)
+        Me.txtName.Location = New System.Drawing.Point(10, 19)
         Me.txtName.MaxLength = 0
         Me.txtName.Name = "txtName"
         Me.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -211,28 +206,6 @@
         Me.lblCoeff1.TabIndex = 8
         Me.lblCoeff1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'SSFrame1
-        '
-        Me.SSFrame1.Controls.Add(Me.lstCorrelations)
-        Me.SSFrame1.Location = New System.Drawing.Point(8, 6)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(401, 184)
-        Me.SSFrame1.TabIndex = 0
-        '
-        'SSFrame2
-        '
-        Me.SSFrame2.Controls.Add(Me.txtName)
-        Me.SSFrame2.Controls.Add(Me._txtCoeff_1)
-        Me.SSFrame2.Controls.Add(Me._txtCoeff_2)
-        Me.SSFrame2.Controls.Add(Me._lblDesc_1)
-        Me.SSFrame2.Controls.Add(Me._lblDesc_2)
-        Me.SSFrame2.Location = New System.Drawing.Point(12, 196)
-        Me.SSFrame2.Name = "SSFrame2"
-        Me.SSFrame2.OcxState = CType(resources.GetObject("SSFrame2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame2.Size = New System.Drawing.Size(397, 163)
-        Me.SSFrame2.TabIndex = 1
-        '
         '_cmdCancelOK_1
         '
         Me._cmdCancelOK_1.BackColor = System.Drawing.Color.White
@@ -256,7 +229,7 @@
         '_cmdRecord_0
         '
         Me._cmdRecord_0.BackColor = System.Drawing.Color.White
-        Me._cmdRecord_0.Location = New System.Drawing.Point(17, 309)
+        Me._cmdRecord_0.Location = New System.Drawing.Point(10, 112)
         Me._cmdRecord_0.Name = "_cmdRecord_0"
         Me._cmdRecord_0.Size = New System.Drawing.Size(67, 31)
         Me._cmdRecord_0.TabIndex = 37
@@ -266,7 +239,7 @@
         '_cmdRecord_1
         '
         Me._cmdRecord_1.BackColor = System.Drawing.Color.White
-        Me._cmdRecord_1.Location = New System.Drawing.Point(90, 309)
+        Me._cmdRecord_1.Location = New System.Drawing.Point(83, 112)
         Me._cmdRecord_1.Name = "_cmdRecord_1"
         Me._cmdRecord_1.Size = New System.Drawing.Size(72, 31)
         Me._cmdRecord_1.TabIndex = 38
@@ -276,7 +249,7 @@
         '_cmdRecord_2
         '
         Me._cmdRecord_2.BackColor = System.Drawing.Color.White
-        Me._cmdRecord_2.Location = New System.Drawing.Point(168, 309)
+        Me._cmdRecord_2.Location = New System.Drawing.Point(161, 112)
         Me._cmdRecord_2.Name = "_cmdRecord_2"
         Me._cmdRecord_2.Size = New System.Drawing.Size(72, 31)
         Me._cmdRecord_2.TabIndex = 39
@@ -286,7 +259,7 @@
         '_cmdRecord_3
         '
         Me._cmdRecord_3.BackColor = System.Drawing.Color.White
-        Me._cmdRecord_3.Location = New System.Drawing.Point(246, 309)
+        Me._cmdRecord_3.Location = New System.Drawing.Point(239, 112)
         Me._cmdRecord_3.Name = "_cmdRecord_3"
         Me._cmdRecord_3.Size = New System.Drawing.Size(72, 31)
         Me._cmdRecord_3.TabIndex = 40
@@ -296,29 +269,53 @@
         '_cmdRecord_4
         '
         Me._cmdRecord_4.BackColor = System.Drawing.Color.White
-        Me._cmdRecord_4.Location = New System.Drawing.Point(324, 309)
+        Me._cmdRecord_4.Location = New System.Drawing.Point(317, 112)
         Me._cmdRecord_4.Name = "_cmdRecord_4"
         Me._cmdRecord_4.Size = New System.Drawing.Size(73, 31)
         Me._cmdRecord_4.TabIndex = 41
         Me._cmdRecord_4.Text = "Cancel Edit"
         Me._cmdRecord_4.UseVisualStyleBackColor = False
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.lstCorrelations)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(397, 176)
+        Me.GroupBox1.TabIndex = 42
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Select a Chemical Type:"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me._cmdRecord_0)
+        Me.GroupBox2.Controls.Add(Me.txtName)
+        Me.GroupBox2.Controls.Add(Me._cmdRecord_1)
+        Me.GroupBox2.Controls.Add(Me._cmdRecord_2)
+        Me.GroupBox2.Controls.Add(Me._txtCoeff_1)
+        Me.GroupBox2.Controls.Add(Me._lblDesc_2)
+        Me.GroupBox2.Controls.Add(Me._txtCoeff_2)
+        Me.GroupBox2.Controls.Add(Me._cmdRecord_3)
+        Me.GroupBox2.Controls.Add(Me._cmdRecord_4)
+        Me.GroupBox2.Controls.Add(Me._lblDesc_1)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 205)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(396, 149)
+        Me.GroupBox2.TabIndex = 43
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Empirical Constants For:"
+        '
         'frmFoulingCompoundDatabase
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(421, 409)
+        Me.ClientSize = New System.Drawing.Size(427, 412)
         Me.ControlBox = False
-        Me.Controls.Add(Me._cmdRecord_4)
-        Me.Controls.Add(Me._cmdRecord_3)
-        Me.Controls.Add(Me._cmdRecord_2)
-        Me.Controls.Add(Me._cmdRecord_1)
-        Me.Controls.Add(Me._cmdRecord_0)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me._cmdCancelOK_1)
-        Me.Controls.Add(Me.SSFrame1)
-        Me.Controls.Add(Me.SSFrame2)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -331,11 +328,9 @@
         Me.Text = "Water Fouling Compound Correlation Database"
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCoeff, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSFrame1.ResumeLayout(False)
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSFrame2.ResumeLayout(False)
-        Me.SSFrame2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -346,6 +341,8 @@
     Friend WithEvents _cmdRecord_2 As Button
     Friend WithEvents _cmdRecord_3 As Button
     Friend WithEvents _cmdRecord_4 As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
 
 
 
