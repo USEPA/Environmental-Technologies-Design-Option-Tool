@@ -20,12 +20,6 @@
 	Public WithEvents Command4 As System.Windows.Forms.Button
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
     Public WithEvents chkTortuosity_Corr As AxThreed.AxSSCheck
-    Public WithEvents _optKF_old_0 As AxThreed.AxSSOption
-    Public WithEvents _optKF_old_1 As AxThreed.AxSSOption
-    Public WithEvents _optDS_old_0 As AxThreed.AxSSOption
-    Public WithEvents _optDS_old_1 As AxThreed.AxSSOption
-    Public WithEvents _optDP_old_0 As AxThreed.AxSSOption
-    Public WithEvents _optDP_old_1 As AxThreed.AxSSOption
     Public WithEvents lblDP_OLD As System.Windows.Forms.Label
     Public WithEvents lblDS_OLD As System.Windows.Forms.Label
     Public WithEvents lblKF_OLD As System.Windows.Forms.Label
@@ -85,12 +79,6 @@
         Me.chkTortuosity_Corr = New AxThreed.AxSSCheck()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.SSPanel2 = New AxThreed.AxSSPanel()
-        Me._optKF_old_0 = New AxThreed.AxSSOption()
-        Me._optKF_old_1 = New AxThreed.AxSSOption()
-        Me._optDS_old_0 = New AxThreed.AxSSOption()
-        Me._optDS_old_1 = New AxThreed.AxSSOption()
-        Me._optDP_old_0 = New AxThreed.AxSSOption()
-        Me._optDP_old_1 = New AxThreed.AxSSOption()
         Me.sspanel_Dirty = New AxThreed.AxSSPanel()
         Me.sspanel_Status = New AxThreed.AxSSPanel()
         Me._fraKP_0 = New System.Windows.Forms.GroupBox()
@@ -117,12 +105,6 @@
         CType(Me.chkTortuosity_Corr, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optKF_old_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optKF_old_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optDS_old_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optDS_old_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optDP_old_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optDP_old_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
         Me._fraKP_0.SuspendLayout()
@@ -457,60 +439,7 @@
         Me.SSPanel2.OcxState = CType(resources.GetObject("SSPanel2.OcxState"), System.Windows.Forms.AxHost.State)
         Me.SSPanel2.Size = New System.Drawing.Size(100, 50)
         Me.SSPanel2.TabIndex = 28
-        '
-        '_optKF_old_0
-        '
-        Me._optKF_old_0.Location = New System.Drawing.Point(112, 104)
-        Me._optKF_old_0.Name = "_optKF_old_0"
-        Me._optKF_old_0.OcxState = CType(resources.GetObject("_optKF_old_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optKF_old_0.Size = New System.Drawing.Size(100, 50)
-        Me._optKF_old_0.TabIndex = 31
-        Me._optKF_old_0.TabStop = False
-        '
-        '_optKF_old_1
-        '
-        Me._optKF_old_1.Location = New System.Drawing.Point(112, 128)
-        Me._optKF_old_1.Name = "_optKF_old_1"
-        Me._optKF_old_1.OcxState = CType(resources.GetObject("_optKF_old_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optKF_old_1.Size = New System.Drawing.Size(100, 50)
-        Me._optKF_old_1.TabIndex = 32
-        Me._optKF_old_1.TabStop = False
-        '
-        '_optDS_old_0
-        '
-        Me._optDS_old_0.Location = New System.Drawing.Point(148, 100)
-        Me._optDS_old_0.Name = "_optDS_old_0"
-        Me._optDS_old_0.OcxState = CType(resources.GetObject("_optDS_old_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optDS_old_0.Size = New System.Drawing.Size(100, 50)
-        Me._optDS_old_0.TabIndex = 33
-        Me._optDS_old_0.TabStop = False
-        '
-        '_optDS_old_1
-        '
-        Me._optDS_old_1.Location = New System.Drawing.Point(148, 124)
-        Me._optDS_old_1.Name = "_optDS_old_1"
-        Me._optDS_old_1.OcxState = CType(resources.GetObject("_optDS_old_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optDS_old_1.Size = New System.Drawing.Size(100, 50)
-        Me._optDS_old_1.TabIndex = 34
-        Me._optDS_old_1.TabStop = False
-        '
-        '_optDP_old_0
-        '
-        Me._optDP_old_0.Location = New System.Drawing.Point(178, 102)
-        Me._optDP_old_0.Name = "_optDP_old_0"
-        Me._optDP_old_0.OcxState = CType(resources.GetObject("_optDP_old_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optDP_old_0.Size = New System.Drawing.Size(100, 50)
-        Me._optDP_old_0.TabIndex = 35
-        Me._optDP_old_0.TabStop = False
-        '
-        '_optDP_old_1
-        '
-        Me._optDP_old_1.Location = New System.Drawing.Point(178, 126)
-        Me._optDP_old_1.Name = "_optDP_old_1"
-        Me._optDP_old_1.OcxState = CType(resources.GetObject("_optDP_old_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optDP_old_1.Size = New System.Drawing.Size(100, 50)
-        Me._optDP_old_1.TabIndex = 36
-        Me._optDP_old_1.TabStop = False
+
         '
         'sspanel_Dirty
         '
@@ -760,12 +689,6 @@
         CType(Me.chkTortuosity_Corr, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optKF_old_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optKF_old_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optDS_old_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optDS_old_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optDP_old_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optDP_old_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
         Me._fraKP_0.ResumeLayout(False)
