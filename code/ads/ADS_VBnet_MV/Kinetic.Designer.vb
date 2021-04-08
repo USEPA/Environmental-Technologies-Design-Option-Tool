@@ -32,8 +32,6 @@
     Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents txtSPDFR As System.Windows.Forms.TextBox
     Public WithEvents txtTort As System.Windows.Forms.TextBox
-    Public WithEvents _cmdCancelOK_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdCancelOK_0 As AxThreed.AxSSCommand
     Public cmdCancelOK(2) As AxThreed.AxSSCommand
     Public WithEvents SSPanel2 As AxThreed.AxSSPanel
     Public WithEvents _Label1_1 As System.Windows.Forms.Label
@@ -86,8 +84,6 @@
         Me.lblKF_OLD = New System.Windows.Forms.Label()
         Me.chkTortuosity_Corr = New AxThreed.AxSSCheck()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me._cmdCancelOK_1 = New AxThreed.AxSSCommand()
-        Me._cmdCancelOK_0 = New AxThreed.AxSSCommand()
         Me.SSPanel2 = New AxThreed.AxSSPanel()
         Me._optKF_old_0 = New AxThreed.AxSSOption()
         Me._optKF_old_1 = New AxThreed.AxSSOption()
@@ -110,6 +106,8 @@
         Me.txtDP = New System.Windows.Forms.TextBox()
         Me.lblCorrelationDP = New System.Windows.Forms.Label()
         Me._fraKP_2 = New System.Windows.Forms.GroupBox()
+        Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
+        Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Label1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,8 +116,6 @@
         CType(Me.optKF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkTortuosity_Corr, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._optKF_old_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._optKF_old_1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -175,7 +171,7 @@
         Me.txtSPDFR.MaxLength = 0
         Me.txtSPDFR.Name = "txtSPDFR"
         Me.txtSPDFR.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtSPDFR.Size = New System.Drawing.Size(73, 23)
+        Me.txtSPDFR.Size = New System.Drawing.Size(73, 20)
         Me.txtSPDFR.TabIndex = 3
         Me.txtSPDFR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -191,7 +187,7 @@
         Me.txtTort.MaxLength = 0
         Me.txtTort.Name = "txtTort"
         Me.txtTort.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtTort.Size = New System.Drawing.Size(73, 23)
+        Me.txtTort.Size = New System.Drawing.Size(73, 20)
         Me.txtTort.TabIndex = 4
         Me.txtTort.Text = "txtTort"
         Me.txtTort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -320,7 +316,7 @@
         Me.optDP.SetIndex(Me._optDP_0, CType(0, Short))
         Me._optDP_0.Location = New System.Drawing.Point(10, 53)
         Me._optDP_0.Name = "_optDP_0"
-        Me._optDP_0.Size = New System.Drawing.Size(17, 16)
+        Me._optDP_0.Size = New System.Drawing.Size(14, 13)
         Me._optDP_0.TabIndex = 54
         Me._optDP_0.TabStop = True
         Me._optDP_0.UseVisualStyleBackColor = True
@@ -331,7 +327,7 @@
         Me.optDP.SetIndex(Me._optDP_1, CType(1, Short))
         Me._optDP_1.Location = New System.Drawing.Point(10, 81)
         Me._optDP_1.Name = "_optDP_1"
-        Me._optDP_1.Size = New System.Drawing.Size(17, 16)
+        Me._optDP_1.Size = New System.Drawing.Size(14, 13)
         Me._optDP_1.TabIndex = 55
         Me._optDP_1.UseVisualStyleBackColor = True
         '
@@ -345,7 +341,7 @@
         Me.optDS.SetIndex(Me._optDS_0, CType(0, Short))
         Me._optDS_0.Location = New System.Drawing.Point(16, 53)
         Me._optDS_0.Name = "_optDS_0"
-        Me._optDS_0.Size = New System.Drawing.Size(17, 16)
+        Me._optDS_0.Size = New System.Drawing.Size(14, 13)
         Me._optDS_0.TabIndex = 53
         Me._optDS_0.TabStop = True
         Me._optDS_0.UseVisualStyleBackColor = True
@@ -356,7 +352,7 @@
         Me.optDS.SetIndex(Me._optDS_1, CType(1, Short))
         Me._optDS_1.Location = New System.Drawing.Point(16, 81)
         Me._optDS_1.Name = "_optDS_1"
-        Me._optDS_1.Size = New System.Drawing.Size(17, 16)
+        Me._optDS_1.Size = New System.Drawing.Size(14, 13)
         Me._optDS_1.TabIndex = 54
         Me._optDS_1.UseVisualStyleBackColor = True
         '
@@ -453,24 +449,6 @@
         Me.SSFrame1.Size = New System.Drawing.Size(233, 155)
         Me.SSFrame1.TabIndex = 24
         Me.SSFrame1.Visible = False
-        '
-        '_cmdCancelOK_1
-        '
-        Me._cmdCancelOK_1.Location = New System.Drawing.Point(141, 376)
-        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
-        Me._cmdCancelOK_1.OcxState = CType(resources.GetObject("_cmdCancelOK_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_1.Size = New System.Drawing.Size(100, 27)
-        Me._cmdCancelOK_1.TabIndex = 10
-        Me._cmdCancelOK_1.TabStop = False
-        '
-        '_cmdCancelOK_0
-        '
-        Me._cmdCancelOK_0.Location = New System.Drawing.Point(272, 376)
-        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
-        Me._cmdCancelOK_0.OcxState = CType(resources.GetObject("_cmdCancelOK_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_0.Size = New System.Drawing.Size(100, 27)
-        Me._cmdCancelOK_0.TabIndex = 11
-        Me._cmdCancelOK_0.TabStop = False
         '
         'SSPanel2
         '
@@ -590,7 +568,7 @@
         Me.txtKF.MaxLength = 0
         Me.txtKF.Name = "txtKF"
         Me.txtKF.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtKF.Size = New System.Drawing.Size(81, 23)
+        Me.txtKF.Size = New System.Drawing.Size(81, 20)
         Me.txtKF.TabIndex = 39
         Me.txtKF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -607,7 +585,7 @@
         Me.lblKF.Name = "lblKF"
         Me.lblKF.ReadOnly = True
         Me.lblKF.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblKF.Size = New System.Drawing.Size(81, 23)
+        Me.lblKF.Size = New System.Drawing.Size(81, 20)
         Me.lblKF.TabIndex = 42
         Me.lblKF.TabStop = False
         Me.lblKF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -640,7 +618,7 @@
         Me.lblDS.Name = "lblDS"
         Me.lblDS.ReadOnly = True
         Me.lblDS.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblDS.Size = New System.Drawing.Size(81, 23)
+        Me.lblDS.Size = New System.Drawing.Size(81, 20)
         Me.lblDS.TabIndex = 25
         Me.lblDS.TabStop = False
         Me.lblDS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -657,7 +635,7 @@
         Me.txtDS.MaxLength = 0
         Me.txtDS.Name = "txtDS"
         Me.txtDS.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtDS.Size = New System.Drawing.Size(81, 23)
+        Me.txtDS.Size = New System.Drawing.Size(81, 20)
         Me.txtDS.TabIndex = 23
         Me.txtDS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -678,14 +656,14 @@
         '
         Me.lblDP.Location = New System.Drawing.Point(41, 75)
         Me.lblDP.Name = "lblDP"
-        Me.lblDP.Size = New System.Drawing.Size(81, 23)
+        Me.lblDP.Size = New System.Drawing.Size(81, 20)
         Me.lblDP.TabIndex = 27
         '
         'txtDP
         '
         Me.txtDP.Location = New System.Drawing.Point(41, 46)
         Me.txtDP.Name = "txtDP"
-        Me.txtDP.Size = New System.Drawing.Size(81, 23)
+        Me.txtDP.Size = New System.Drawing.Size(81, 20)
         Me.txtDP.TabIndex = 26
         '
         'lblCorrelationDP
@@ -716,13 +694,35 @@
         Me._fraKP_2.TabStop = False
         Me._fraKP_2.Text = "Pore Diffusion"
         '
+        '_cmdCancelOK_0
+        '
+        Me._cmdCancelOK_0.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_0.Location = New System.Drawing.Point(272, 381)
+        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
+        Me._cmdCancelOK_0.Size = New System.Drawing.Size(100, 27)
+        Me._cmdCancelOK_0.TabIndex = 53
+        Me._cmdCancelOK_0.Text = "&Cancel"
+        Me._cmdCancelOK_0.UseVisualStyleBackColor = False
+        '
+        '_cmdCancelOK_1
+        '
+        Me._cmdCancelOK_1.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_1.Location = New System.Drawing.Point(141, 381)
+        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
+        Me._cmdCancelOK_1.Size = New System.Drawing.Size(102, 27)
+        Me._cmdCancelOK_1.TabIndex = 54
+        Me._cmdCancelOK_1.Text = "&OK"
+        Me._cmdCancelOK_1.UseVisualStyleBackColor = False
+        '
         'frmKinetic
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(567, 488)
         Me.ControlBox = False
+        Me.Controls.Add(Me._cmdCancelOK_1)
+        Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me._fraKP_2)
         Me.Controls.Add(Me._fraKP_1)
         Me.Controls.Add(Me._fraKP_0)
@@ -734,8 +734,6 @@
         Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me.txtSPDFR)
         Me.Controls.Add(Me.txtTort)
-        Me.Controls.Add(Me._cmdCancelOK_1)
-        Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me.SSPanel2)
         Me.Controls.Add(Me._Label1_1)
         Me.Controls.Add(Me._Label1_0)
@@ -761,8 +759,6 @@
         CType(Me.optKF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkTortuosity_Corr, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._optKF_old_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._optKF_old_1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -808,6 +804,8 @@
     Friend WithEvents _optDS_0 As RadioButton
     Friend WithEvents _optDP_1 As RadioButton
     Friend WithEvents _optDP_0 As RadioButton
+    Friend WithEvents _cmdCancelOK_0 As Button
+    Friend WithEvents _cmdCancelOK_1 As Button
 
 
 #End Region
