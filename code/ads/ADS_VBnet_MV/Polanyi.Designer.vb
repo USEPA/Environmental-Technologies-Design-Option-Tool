@@ -23,8 +23,6 @@
 	Public WithEvents _txtInput_2 As System.Windows.Forms.TextBox
 	Public WithEvents _txtInput_1 As System.Windows.Forms.TextBox
 	Public WithEvents _txtInput_0 As System.Windows.Forms.TextBox
-    Public WithEvents _cmdCancelOK_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdCancelOK_0 As AxThreed.AxSSCommand
     Public WithEvents _lblInput_2 As System.Windows.Forms.Label
     Public WithEvents _lblInput_1 As System.Windows.Forms.Label
     Public WithEvents _lblInput_0 As System.Windows.Forms.Label
@@ -37,7 +35,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPolanyi))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
@@ -45,17 +42,15 @@
         Me._txtInput_2 = New System.Windows.Forms.TextBox()
         Me._txtInput_1 = New System.Windows.Forms.TextBox()
         Me._txtInput_0 = New System.Windows.Forms.TextBox()
-        Me._cmdCancelOK_1 = New AxThreed.AxSSCommand()
-        Me._cmdCancelOK_0 = New AxThreed.AxSSCommand()
         Me._lblInput_2 = New System.Windows.Forms.Label()
         Me._lblInput_1 = New System.Windows.Forms.Label()
         Me._lblInput_0 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.lblInput = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me.txtInput = New Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray(Me.components)
+        Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
+        Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblInput, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -103,7 +98,7 @@
         Me.txtPolanyi.Name = "txtPolanyi"
         Me.txtPolanyi.ReadOnly = True
         Me.txtPolanyi.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtPolanyi.Size = New System.Drawing.Size(177, 23)
+        Me.txtPolanyi.Size = New System.Drawing.Size(177, 20)
         Me.txtPolanyi.TabIndex = 7
         Me.txtPolanyi.TabStop = False
         Me.txtPolanyi.Text = "txtPolanyi"
@@ -122,7 +117,7 @@
         Me._txtInput_2.MaxLength = 0
         Me._txtInput_2.Name = "_txtInput_2"
         Me._txtInput_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtInput_2.Size = New System.Drawing.Size(73, 23)
+        Me._txtInput_2.Size = New System.Drawing.Size(73, 20)
         Me._txtInput_2.TabIndex = 2
         Me._txtInput_2.Text = "txtInput(2)"
         Me._txtInput_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -140,7 +135,7 @@
         Me._txtInput_1.MaxLength = 0
         Me._txtInput_1.Name = "_txtInput_1"
         Me._txtInput_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtInput_1.Size = New System.Drawing.Size(73, 23)
+        Me._txtInput_1.Size = New System.Drawing.Size(73, 20)
         Me._txtInput_1.TabIndex = 1
         Me._txtInput_1.Text = "txtInput(1)"
         Me._txtInput_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -158,28 +153,10 @@
         Me._txtInput_0.MaxLength = 0
         Me._txtInput_0.Name = "_txtInput_0"
         Me._txtInput_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtInput_0.Size = New System.Drawing.Size(73, 23)
+        Me._txtInput_0.Size = New System.Drawing.Size(73, 20)
         Me._txtInput_0.TabIndex = 0
         Me._txtInput_0.Text = "txtInput(0)"
         Me._txtInput_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        '_cmdCancelOK_1
-        '
-        Me._cmdCancelOK_1.Location = New System.Drawing.Point(78, 128)
-        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
-        Me._cmdCancelOK_1.OcxState = CType(resources.GetObject("_cmdCancelOK_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_1.Size = New System.Drawing.Size(100, 50)
-        Me._cmdCancelOK_1.TabIndex = 8
-        Me._cmdCancelOK_1.TabStop = False
-        '
-        '_cmdCancelOK_0
-        '
-        Me._cmdCancelOK_0.Location = New System.Drawing.Point(182, 128)
-        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
-        Me._cmdCancelOK_0.OcxState = CType(resources.GetObject("_cmdCancelOK_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_0.Size = New System.Drawing.Size(100, 50)
-        Me._cmdCancelOK_0.TabIndex = 9
-        Me._cmdCancelOK_0.TabStop = False
         '
         '_lblInput_2
         '
@@ -243,21 +220,41 @@
         'txtInput
         '
         '
+        '_cmdCancelOK_1
+        '
+        Me._cmdCancelOK_1.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_1.Location = New System.Drawing.Point(78, 142)
+        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
+        Me._cmdCancelOK_1.Size = New System.Drawing.Size(99, 50)
+        Me._cmdCancelOK_1.TabIndex = 12
+        Me._cmdCancelOK_1.Text = "OK"
+        Me._cmdCancelOK_1.UseVisualStyleBackColor = False
+        '
+        '_cmdCancelOK_0
+        '
+        Me._cmdCancelOK_0.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_0.Location = New System.Drawing.Point(182, 142)
+        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
+        Me._cmdCancelOK_0.Size = New System.Drawing.Size(99, 50)
+        Me._cmdCancelOK_0.TabIndex = 13
+        Me._cmdCancelOK_0.Text = "Cancel"
+        Me._cmdCancelOK_0.UseVisualStyleBackColor = False
+        '
         'frmPolanyi
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(355, 178)
+        Me.ClientSize = New System.Drawing.Size(351, 216)
         Me.ControlBox = False
+        Me.Controls.Add(Me._cmdCancelOK_0)
+        Me.Controls.Add(Me._cmdCancelOK_1)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.txtPolanyi)
         Me.Controls.Add(Me._txtInput_2)
         Me.Controls.Add(Me._txtInput_1)
         Me.Controls.Add(Me._txtInput_0)
-        Me.Controls.Add(Me._cmdCancelOK_1)
-        Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me._lblInput_2)
         Me.Controls.Add(Me._lblInput_1)
         Me.Controls.Add(Me._lblInput_0)
@@ -274,13 +271,14 @@
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Polanyi Parameters of Adsorbent"
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblInput, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents _cmdCancelOK_1 As Button
+    Friend WithEvents _cmdCancelOK_0 As Button
 #End Region
 End Class

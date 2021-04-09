@@ -144,11 +144,19 @@ Friend Class frmPolanyi
 		End If
 	End Sub
 
-	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.ClickEvent
+	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs)
 		Call cmdCancelOK_Click(0)
 	End Sub
 
-	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.ClickEvent
+	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs)
+		Call cmdCancelOK_Click(1)
+	End Sub
+
+	Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
+		Call cmdCancelOK_Click(0)
+	End Sub
+
+	Private Sub OK_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.Click
 		Call cmdCancelOK_Click(1)
 	End Sub
 End Class
