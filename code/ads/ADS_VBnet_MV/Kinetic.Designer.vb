@@ -19,15 +19,12 @@
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents Command4 As System.Windows.Forms.Button
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-    Public WithEvents chkTortuosity_Corr As AxThreed.AxSSCheck
     Public WithEvents lblDP_OLD As System.Windows.Forms.Label
     Public WithEvents lblDS_OLD As System.Windows.Forms.Label
     Public WithEvents lblKF_OLD As System.Windows.Forms.Label
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents txtSPDFR As System.Windows.Forms.TextBox
     Public WithEvents txtTort As System.Windows.Forms.TextBox
     Public cmdCancelOK(2) As AxThreed.AxSSCommand
-    Public WithEvents SSPanel2 As AxThreed.AxSSPanel
     Public WithEvents _Label1_1 As System.Windows.Forms.Label
     Public WithEvents _Label1_0 As System.Windows.Forms.Label
     Public WithEvents lblSPDFR As System.Windows.Forms.Label
@@ -48,7 +45,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmKinetic))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
@@ -76,11 +72,6 @@
         Me.lblDP_OLD = New System.Windows.Forms.Label()
         Me.lblDS_OLD = New System.Windows.Forms.Label()
         Me.lblKF_OLD = New System.Windows.Forms.Label()
-        Me.chkTortuosity_Corr = New AxThreed.AxSSCheck()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me.SSPanel2 = New AxThreed.AxSSPanel()
-        Me.sspanel_Dirty = New AxThreed.AxSSPanel()
-        Me.sspanel_Status = New AxThreed.AxSSPanel()
         Me._fraKP_0 = New System.Windows.Forms.GroupBox()
         Me.lblCorrelationKF = New System.Windows.Forms.Label()
         Me.txtKF = New System.Windows.Forms.TextBox()
@@ -96,20 +87,20 @@
         Me._fraKP_2 = New System.Windows.Forms.GroupBox()
         Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
         Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
+        Me.chkTortuosity_Corr = New System.Windows.Forms.CheckBox()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabelDirty = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabelStatus = New System.Windows.Forms.ToolStripLabel()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Label1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblUnit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.optDP, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.optDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.optKF, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.chkTortuosity_Corr, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
         Me._fraKP_0.SuspendLayout()
         Me._fraKP_1.SuspendLayout()
         Me._fraKP_2.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command4
@@ -415,48 +406,6 @@
         Me.lblKF_OLD.TabIndex = 25
         Me.lblKF_OLD.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'chkTortuosity_Corr
-        '
-        Me.chkTortuosity_Corr.Location = New System.Drawing.Point(104, 321)
-        Me.chkTortuosity_Corr.Name = "chkTortuosity_Corr"
-        Me.chkTortuosity_Corr.OcxState = CType(resources.GetObject("chkTortuosity_Corr.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.chkTortuosity_Corr.Size = New System.Drawing.Size(292, 40)
-        Me.chkTortuosity_Corr.TabIndex = 43
-        '
-        'SSFrame1
-        '
-        Me.SSFrame1.Location = New System.Drawing.Point(622, 88)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(233, 155)
-        Me.SSFrame1.TabIndex = 24
-        Me.SSFrame1.Visible = False
-        '
-        'SSPanel2
-        '
-        Me.SSPanel2.Location = New System.Drawing.Point(672, 249)
-        Me.SSPanel2.Name = "SSPanel2"
-        Me.SSPanel2.OcxState = CType(resources.GetObject("SSPanel2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSPanel2.Size = New System.Drawing.Size(100, 50)
-        Me.SSPanel2.TabIndex = 28
-
-        '
-        'sspanel_Dirty
-        '
-        Me.sspanel_Dirty.Location = New System.Drawing.Point(0, 454)
-        Me.sspanel_Dirty.Name = "sspanel_Dirty"
-        Me.sspanel_Dirty.OcxState = CType(resources.GetObject("sspanel_Dirty.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Dirty.Size = New System.Drawing.Size(165, 28)
-        Me.sspanel_Dirty.TabIndex = 46
-        '
-        'sspanel_Status
-        '
-        Me.sspanel_Status.Location = New System.Drawing.Point(167, 454)
-        Me.sspanel_Status.Name = "sspanel_Status"
-        Me.sspanel_Status.OcxState = CType(resources.GetObject("sspanel_Status.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Status.Size = New System.Drawing.Size(397, 28)
-        Me.sspanel_Status.TabIndex = 47
-        '
         '_fraKP_0
         '
         Me._fraKP_0.Controls.Add(Me.lblCorrelationKF)
@@ -643,6 +592,41 @@
         Me._cmdCancelOK_1.Text = "&OK"
         Me._cmdCancelOK_1.UseVisualStyleBackColor = False
         '
+        'chkTortuosity_Corr
+        '
+        Me.chkTortuosity_Corr.AutoSize = True
+        Me.chkTortuosity_Corr.Location = New System.Drawing.Point(110, 322)
+        Me.chkTortuosity_Corr.Name = "chkTortuosity_Corr"
+        Me.chkTortuosity_Corr.Size = New System.Drawing.Size(234, 18)
+        Me.chkTortuosity_Corr.TabIndex = 55
+        Me.chkTortuosity_Corr.Text = "Use Pore Diffusion Correlation for &Totuosity"
+        Me.chkTortuosity_Corr.UseVisualStyleBackColor = True
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabelDirty, Me.ToolStripLabelStatus})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 463)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(567, 25)
+        Me.ToolStrip1.TabIndex = 56
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripLabelDirty
+        '
+        Me.ToolStripLabelDirty.AutoSize = False
+        Me.ToolStripLabelDirty.Name = "ToolStripLabelDirty"
+        Me.ToolStripLabelDirty.Size = New System.Drawing.Size(150, 22)
+        Me.ToolStripLabelDirty.Text = "ToolStripLabelDirty"
+        '
+        'ToolStripLabelStatus
+        '
+        Me.ToolStripLabelStatus.AutoSize = False
+        Me.ToolStripLabelStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.ToolStripLabelStatus.Name = "ToolStripLabelStatus"
+        Me.ToolStripLabelStatus.Size = New System.Drawing.Size(350, 22)
+        Me.ToolStripLabelStatus.Text = "ToolStripLabelStatus"
+        '
         'frmKinetic
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -650,20 +634,17 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(567, 488)
         Me.ControlBox = False
+        Me.Controls.Add(Me.ToolStrip1)
+        Me.Controls.Add(Me.chkTortuosity_Corr)
         Me.Controls.Add(Me._cmdCancelOK_1)
         Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me._fraKP_2)
         Me.Controls.Add(Me._fraKP_1)
         Me.Controls.Add(Me._fraKP_0)
-        Me.Controls.Add(Me.sspanel_Status)
-        Me.Controls.Add(Me.sspanel_Dirty)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.chkTortuosity_Corr)
-        Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me.txtSPDFR)
         Me.Controls.Add(Me.txtTort)
-        Me.Controls.Add(Me.SSPanel2)
         Me.Controls.Add(Me._Label1_1)
         Me.Controls.Add(Me._Label1_0)
         Me.Controls.Add(Me.lblSPDFR)
@@ -686,24 +667,18 @@
         CType(Me.optDP, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.optDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.optKF, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.chkTortuosity_Corr, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
         Me._fraKP_0.ResumeLayout(False)
         Me._fraKP_0.PerformLayout()
         Me._fraKP_1.ResumeLayout(False)
         Me._fraKP_1.PerformLayout()
         Me._fraKP_2.ResumeLayout(False)
         Me._fraKP_2.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents sspanel_Dirty As AxThreed.AxSSPanel
-    Friend WithEvents sspanel_Status As AxThreed.AxSSPanel
     Friend WithEvents _fraKP_0 As GroupBox
     Public WithEvents lblCorrelationKF As Label
     Public WithEvents txtKF As TextBox
@@ -729,6 +704,10 @@
     Friend WithEvents _optDP_0 As RadioButton
     Friend WithEvents _cmdCancelOK_0 As Button
     Friend WithEvents _cmdCancelOK_1 As Button
+    Friend WithEvents chkTortuosity_Corr As CheckBox
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents ToolStripLabelDirty As ToolStripLabel
+    Friend WithEvents ToolStripLabelStatus As ToolStripLabel
 
 
 #End Region

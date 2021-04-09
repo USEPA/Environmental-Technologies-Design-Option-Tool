@@ -35,19 +35,19 @@ Friend Class frmKinetic
 	
 	Sub frmKinetic_GenericStatus_Set(ByRef fn_Text As String)
 		'UPGRADE_WARNING: Couldn't resolve default property of object Me.sspanel_Status. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Me.sspanel_Status.Caption = fn_Text
+		Me.ToolStripLabelStatus.Text = fn_Text
 	End Sub
 	Sub frmKinetic_DirtyStatus_Set(ByRef newVal As Boolean)
 		If (newVal) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmKinetic.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.Caption = "Data Changed"
+			Me.ToolStripLabelDirty.Text = "Data Changed"
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmKinetic.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
+			Me.ToolStripLabelDirty.ForeColor = Color.FromArgb(QBColor(12))
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmKinetic.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.Caption = "Unchanged"
+			Me.ToolStripLabelDirty.Text = "Unchanged"
 			'UPGRADE_WARNING: Couldn't resolve default property of object frmKinetic.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(0))
+			Me.ToolStripLabelDirty.ForeColor = Color.FromArgb(QBColor(0))
 		End If
 	End Sub
 	Sub frmKinetic_DirtyStatus_Set_Current()
@@ -199,7 +199,7 @@ Friend Class frmKinetic
 				End If
 				'SAVE CURRENT VALUE FOR TORTUOSITY AND CORRELATION SETTINGS.
 				'UPGRADE_WARNING: Couldn't resolve default property of object chkTortuosity_Corr.Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				If (chkTortuosity_Corr.Value) Then
+				If (chkTortuosity_Corr.Checked) Then
 					Component(0).Use_Tortuosity_Correlation = True
 					Component(0).Constant_Tortuosity = False
 					Component(0).Tortuosity = 1
@@ -239,10 +239,10 @@ Friend Class frmKinetic
 		lblTortCorrelation.Visible = False
 		If (Component(0).Use_Tortuosity_Correlation) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object chkTortuosity_Corr.Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			chkTortuosity_Corr.Value = True
+			chkTortuosity_Corr.Checked = True
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object chkTortuosity_Corr.Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			chkTortuosity_Corr.Value = False
+			chkTortuosity_Corr.Checked = False
 		End If
 		'DISPLAY USER/CORRELATION SELECTION OPTIONBOXES.
 		optKF(0).Checked = Not (Component(0).Corr(1))
@@ -475,5 +475,40 @@ Friend Class frmKinetic
 
 	Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
 		Call cmdCancelOK_Click(0)
+	End Sub
+
+	Private Sub chkTortuosity_Corr_CheckedChanged(sender As Object, e As EventArgs) Handles chkTortuosity_Corr.CheckedChanged
+
+	End Sub
+
+	Private Sub chkTortuosity_Corr_Click(sender As Object, e As EventArgs) Handles chkTortuosity_Corr.Click
+		If (chkTortuosity_Corr.Checked = True) Then
+			'---- Turn tortuosity(time) correlation ON!
+			Component(0).Use_Tortuosity_Correlation = True
+			Component(0).Constant_Tortuosity = False
+			'frmprint!chkSelect(4).Enabled = True
+			'---- Update SPDFR to 1.000e-30!
+			Component(0).SPDFR = 1.0E-30
+			'txtSPDFR.Text = "1.000E-30"
+			'txtSPDFR = Format_It(Component(0).SPDFR, 3)
+			Call frmKinetic_Refresh()
+			'THIS REDISPLAYS txtSPDFR AND lblKF,lblDS,lblDP.
+			'---- LOCK SPDFR.
+			txtSPDFR.ReadOnly = True
+		Else
+			'---- Turn tortuosity(time) correlation OFF!
+			Component(0).Use_Tortuosity_Correlation = False
+			Component(0).Constant_Tortuosity = False
+			'frmprint!chkSelect(4).Enabled = False
+			'---- UNLOCK SPDFR.
+			txtSPDFR.ReadOnly = False
+		End If
+		'lblDS = Format$(Ds(0), "0.00E+00")
+		Call Update_Ds_and_Dp_Editability()
+		Call Update_Tortuosity_Display()
+		'THROW DIRTY FLAG.
+		Call frmKinetic_DirtyStatus_Throw()
+		'REFRESH WINDOW.
+		Call frmKinetic_Refresh()
 	End Sub
 End Class
