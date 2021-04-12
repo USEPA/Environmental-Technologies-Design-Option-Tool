@@ -931,213 +931,11 @@ Bad_Treament_Objective:
 Exit_lblLegend_Click:
 	End Sub
 
-	Private Sub cmdFile_ClickEvent(sender As Object, e As EventArgs) Handles cmdFile.ClickEvent
-		Dim cdlCancel As Object
-		Dim cdlOFNPathMustExist As Object
-		Dim cdlOFNOverwritePrompt As Object
-		Dim f, Error_Code As Short
-		Dim temp As String
-		Dim J, i, k As Short
-		Dim Eq1 As String
-		Dim Filename_Input As String
+	Private Sub cmdFile_ClickEvent(sender As Object, e As EventArgs)
 
-		On Error GoTo File_Error
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FileName = ""
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.DialogTitle = "Print to File"
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FilterIndex = 2
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Action = 2
-
-		'f = FileNameIsValid(Filename_Input, CMDialog1)
-		'If Not (f) Then Exit Sub
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Filename_Input = CMDialog1.FileName
-
-		f = FreeFile()
-		FileOpen(f, Filename_Input, OpenMode.Output)
-
-		PrintLine(f, "Input data for the Constant Pattern Model")
-		'-- Print Filename
-
-		PrintLine(f)
-		PrintLine(f, "From Data File :", Filename)
-
-
-		PrintLine(f)
-		PrintLine(f, "Chemical:", TAB(10), Trim(CPM_Results.Component.Name))
-		PrintLine(f, TAB(5), "Molecular weight: ", TAB(28), VB6.Format(CPM_Results.Component.MW, "0.00") & " g/mol")
-		PrintLine(f, TAB(5), "Normal Boiling Point: ", TAB(28), VB6.Format(CPM_Results.Component.BP, "0.00") & " C")
-		PrintLine(f, TAB(5), "Molar Volume @ NBP: ", TAB(28), Format_It(CPM_Results.Component.MolarVolume, 2) & " cm" & Chr(179) & "/mol")
-		PrintLine(f, TAB(5), "Initial Concentration: ", TAB(28), Format_It(CPM_Results.Component.InitialConcentration, 2) & " mg/L")
-		PrintLine(f, TAB(5), "K: ", TAB(28), VB6.Format(CPM_Results.Component.Use_K, "0.000") & " (mg/g)(L/mg)^(1/n)")
-		PrintLine(f, TAB(5), "1/n: ", TAB(28), VB6.Format(CPM_Results.Component.Use_OneOverN, "0.000"))
-		PrintLine(f)
-
-		'-----------------------Bed Data ----------------------
-		PrintLine(f, "Bed Data:")
-
-		PrintLine(f, TAB(5), "Bed Length: ", TAB(28), VB6.Format(CPM_Results.Bed.length, "0.000E+00") & " m")
-		PrintLine(f, TAB(5), "Bed Diameter: ", TAB(28), VB6.Format(CPM_Results.Bed.Diameter, "0.000E+00") & " m")
-		PrintLine(f, TAB(5), "Weight of GAC: ", TAB(28), VB6.Format(CPM_Results.Bed.Weight, "0.000E+00") & " kg")
-		PrintLine(f, TAB(5), "Inlet Flowrate: ", TAB(28), VB6.Format(CPM_Results.Bed.Flowrate, "0.000E+00") & " m" & Chr(179) & "/s")
-		PrintLine(f, TAB(5), "EBCT: ", TAB(28), VB6.Format(CPM_Results.Bed.length * PI * CPM_Results.Bed.Diameter * CPM_Results.Bed.Diameter / 4.0# / CPM_Results.Bed.Flowrate / 60.0#, "0.000E+00") & " mn")
-		PrintLine(f)
-		PrintLine(f, TAB(5), "Temperature:", TAB(28), VB6.Format(CPM_Results.Bed.Temperature, "0.00") & " C")
-		If CPM_Results.Bed.Phase = 0 Then
-			PrintLine(f, TAB(5), "Water Density:", TAB(28), VB6.Format(CPM_Results.Bed.WaterDensity, "0.0000") & " g/cm" & Chr(179))
-			PrintLine(f, TAB(5), "Water Viscosity:", TAB(28), VB6.Format(CPM_Results.Bed.WaterViscosity, "0.00E+00") & " g/cm.s")
-		Else
-			PrintLine(f, TAB(5), "Pressure:", TAB(28), VB6.Format(CPM_Results.Bed.Pressure, "0.00000") & " atm")
-			PrintLine(f, TAB(5), "Air Density:", TAB(28), VB6.Format(CPM_Results.Bed.WaterDensity, "0.0000") & " g/cm" & Chr(179))
-			PrintLine(f, TAB(5), "Air Viscosity:", TAB(28), VB6.Format(CPM_Results.Bed.WaterViscosity, "0.00E+00") & " g/cm.s")
-		End If
-		PrintLine(f)
-
-		'-----------------Carbon Properties -------------------------------
-		PrintLine(f, "Carbon Properties:")
-
-		PrintLine(f, TAB(5), "Name: ", TAB(28), Trim(CPM_Results.Carbon.Name))
-		PrintLine(f, TAB(5), "Apparent Density: ", TAB(28), VB6.Format(CPM_Results.Carbon.Density, "0.000") & " g/cm" & Chr(179))
-		PrintLine(f, TAB(5), "Particle Radius: ", TAB(28), VB6.Format(CPM_Results.Carbon.ParticleRadius * 100.0#, "0.000000") & " cm")
-		PrintLine(f, TAB(5), "Porosity: ", TAB(28), VB6.Format(CPM_Results.Carbon.Porosity, "0.000"))
-		PrintLine(f, TAB(5), "Shape Factor: ", TAB(28), VB6.Format(CPM_Results.Carbon.ShapeFactor, "0.000"))
-		'Print #f, Tab(5); "Tortuosity: "; Tab(28); Format$(CPM_Results.Carbon.Tortuosity, "0.000")
-		PrintLine(f)
-
-		'---------------Kinetic Parameters -----------------------------------------
-		PrintLine(f, "Kinetic parameters:")
-		PrintLine(f, TAB(5), "kf", TAB(28), Format_It(CPM_Results.Component.kf, 2) & " cm/s")
-		PrintLine(f, TAB(5), "Ds", TAB(28), Format_It(CPM_Results.Component.Ds, 2) & " cm" & Chr(178) & "/s")
-		PrintLine(f, TAB(5), "SPDFR", TAB(28), Format_It(CPM_Results.Component.SPDFR, 2))
-
-		'UPGRADE_WARNING: Couldn't resolve default property of object Component(0). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Component(0) = CPM_Results.Component
-		PrintLine(f, TAB(5), "St", TAB(28), Format_It(ST(0), 2))
-		'UPGRADE_WARNING: Couldn't resolve default property of object Eds(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		PrintLine(f, TAB(5), "Eds", TAB(28), Format_It(Eds(0), 2))
-
-		PrintLine(f)
-
-		'Fouling-----------------------------------------
-		PrintLine(f, "Fouling correlations:")
-		PrintLine(f)
-		PrintLine(f)
-		PrintLine(f, " Water type : " & Trim(CPM_Results.Bed.Water_Correlation.Name))
-		Eq1 = VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(1), "0.00")
-
-		If CPM_Results.Bed.Water_Correlation.Coeff(2) > 0 Then
-			Eq1 = Eq1 & " + " & VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(2), "0.00E+00") & "* t "
-		Else
-			If CPM_Results.Bed.Water_Correlation.Coeff(2) < 0 Then
-				Eq1 = Eq1 & " - " & VB6.Format(System.Math.Abs(CPM_Results.Bed.Water_Correlation.Coeff(2)), "0.00E+00") & "* t "
-			End If
-		End If
-		If CPM_Results.Bed.Water_Correlation.Coeff(3) > 0 Then
-			Eq1 = Eq1 & " + " & VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(3), "0.00") & "* EXP("
-		Else
-			If CPM_Results.Bed.Water_Correlation.Coeff(3) < 0 Then
-				Eq1 = Eq1 & " - " & VB6.Format(System.Math.Abs(CPM_Results.Bed.Water_Correlation.Coeff(3)), "0.00") & "* EXP("
-			End If
-		End If
-		If CPM_Results.Bed.Water_Correlation.Coeff(3) <> 0 Then
-			If CPM_Results.Bed.Water_Correlation.Coeff(4) > 0 Then
-				Eq1 = Eq1 & VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(4), "0.00E+00") & "* t)"
-			Else
-				If CPM_Results.Bed.Water_Correlation.Coeff(4) < 0 Then
-					Eq1 = Eq1 & VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(4), "0.00E+00") & "* t)"
-				End If
-			End If
-		End If
-		PrintLine(f, "K(t)/K0 = " & Eq1)
-		PrintLine(f, "(t in minutes)")
-		PrintLine(f)
-
-		Eq1 = ""
-		If CPM_Results.Component.Correlation.Coeff(1) = 1.0# Then
-			Eq1 = "(K/K0) "
-		Else
-			If CPM_Results.Component.Correlation.Coeff(1) <> 0 Then Eq1 = VB6.Format(CPM_Results.Component.Correlation.Coeff(1), "0.00") & " * (K/K0) "
-		End If
-		If CPM_Results.Component.Correlation.Coeff(2) > 0 Then
-			Eq1 = Eq1 & "+ " & VB6.Format(CPM_Results.Component.Correlation.Coeff(2), "0.00")
-		Else
-			If CPM_Results.Component.Correlation.Coeff(2) <> 0 Then Eq1 = Eq1 & "- " & VB6.Format(System.Math.Abs(CPM_Results.Component.Correlation.Coeff(2)), "0.00")
-		End If
-		If Trim(Eq1) = "" Then
-			Eq1 = "K/K0"
-		End If
-		PrintLine(f, Trim(CPM_Results.Component.Name) & ":")
-		PrintLine(f, TAB(10), "Correlation type: " & Trim(CPM_Results.Component.Correlation.Name))
-		PrintLine(f, TAB(10), "K/K0 = " & Eq1)
-		PrintLine(f)
-
-		If (CPM_Results.Component.Use_Tortuosity_Correlation) Then
-			If (CPM_Results.Component.Constant_Tortuosity) Then
-				PrintLine(f, "Correlation used when SOC competition is important:")
-				PrintLine(f, " Tortuosity = 0.782 * EBCT^0.925 ")
-			Else
-				PrintLine(f, "Correlation used when NOM fouling is important:")
-				PrintLine(f, " Tortuosity = 1.0 if t< 70 days")
-				PrintLine(f, " Tortuosity = 0.334 + 6.610E-06 * EBCT")
-			End If
-		End If
-		PrintLine(f)
-
-		'--------- CPM Results ----------------------------------
-		PrintLine(f, "Constant Pattern Model Results for " & Trim(CPM_Results.Component.Name) & ":")
-		PrintLine(f)
-		PrintLine(f, "Minimum Stanton number:", TAB(30), Format_It(CPM_Results.Par(1), 2))
-		PrintLine(f, "Minimum EBCT:", TAB(30), Format_It(CPM_Results.Par(2), 2) & " min")
-		PrintLine(f, "Minimum Column Length:", TAB(30), Format_It(CPM_Results.Par(3), 2) & " cm")
-		PrintLine(f, "Throughput at 95% of the MTZ:", TAB(30), Format_It(CPM_Results.Par(4), 2))
-		PrintLine(f, "Throughput at 5% of the MTZ:", TAB(30), Format_It(CPM_Results.Par(5), 2))
-		PrintLine(f, "EBCT of the MTZ:", TAB(30), Format_It(CPM_Results.Par(6), 2) & " min")
-		PrintLine(f, "Length of the MTZ:", TAB(30), Format_It(CPM_Results.Par(7), 2) & " cm")
-
-		PrintLine(f)
-		PrintLine(f, TAB(30), "Time(days)", TAB(40), "BVT", TAB(50), "TC", TAB(60), "C (mg/L)")
-		PrintLine(f, "5% of the influent conc.", TAB(30), Format_It(CPM_Results.ThroughPut_05.T, 2), TAB(40), Format_It(CPM_Results.ThroughPut_05.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (Bed.Diameter / 2) ^ 2, 2), TAB(50), Format_It(CPM_Results.ThroughPut_05.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2), TAB(60), Format_It(CPM_Results.ThroughPut_05.C, 2))
-		PrintLine(f, "50% of the influent conc.", TAB(30), Format_It(CPM_Results.ThroughPut_50.T, 2), TAB(40), Format_It(CPM_Results.ThroughPut_50.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (Bed.Diameter / 2) ^ 2, 2), TAB(50), Format_It(CPM_Results.ThroughPut_50.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2), TAB(60), Format_It(CPM_Results.ThroughPut_50.C, 2))
-		PrintLine(f, "95% of the influent conc.", TAB(30), Format_It(CPM_Results.ThroughPut_95.T, 2), TAB(40), Format_It(CPM_Results.ThroughPut_95.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (Bed.Diameter / 2) ^ 2, 2), TAB(50), Format_It(CPM_Results.ThroughPut_95.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2), TAB(60), Format_It(CPM_Results.ThroughPut_95.C, 2))
-		PrintLine(f)
-		PrintLine(f, "TC (Treatment Capacity) is in m" & Chr(179) & "  / kg of GAC")
-		PrintLine(f)
-
-		If Flag_TO Then
-			PrintLine(f, "Treatment Objective: " & Format_It(Treatment_Objective.C, 2) & " mg/L")
-			PrintLine(f)
-			PrintLine(f, "Time (days):", TAB(20), Format_It(Treatment_Objective.T, 2))
-			PrintLine(f, "BVT:", TAB(20), Format_It(Treatment_Objective.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (CPM_Results.Bed.Diameter / 2) ^ 2, 2))
-			PrintLine(f, "Tr. Capacity:", TAB(20), Format_It(Treatment_Objective.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2))
-		Else
-			PrintLine(f, "The breakthrough time for the treatment objective (" & Format_It(Treatment_Objective.C, 2) & "mg/L) could not be calculated.")
-		End If
-		FileClose((f))
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FileName = ""
-		Exit Sub
-
-File_Error:
-		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
-			'DO NOTHING.
-		Else
-			Call Show_Trapped_Error("cmdFile_Click")
-		End If
-		Resume Exit_Print_File
-Exit_Print_File:
 	End Sub
 
-	Private Sub cmdSave_ClickEvent(sender As Object, e As EventArgs) Handles cmdSave.ClickEvent
+	Private Sub cmdSave_ClickEvent(sender As Object, e As EventArgs)
 		Dim cdlCancel As Object
 		Dim cdlOFNPathMustExist As Object
 		Dim cdlOFNOverwritePrompt As Object
@@ -1202,13 +1000,13 @@ Exit_Save_Results_CPM:
 
 
 
-	Private Sub cmdExcel_ClickEvent(sender As Object, e As EventArgs) Handles cmdExcel.ClickEvent
+	Private Sub cmdExcel_Click(sender As Object, e As EventArgs) Handles cmdExcel.Click
 		PFPSDM_Excel = False
 		CPHSDM_Excel = True
 		frmExcelCurves.ShowDialog()
 	End Sub
 
-	Private Sub cmdSelect_ClickEvent(sender As Object, e As EventArgs) Handles cmdSelect.ClickEvent
+	Private Sub cmdSelect_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
 		Dim Error_Code As Short
 		Dim temp As String
 		On Error GoTo Select_Print_Error
@@ -1225,7 +1023,7 @@ Select_Print_Error:
 Exit_Select_Print:
 	End Sub
 
-	Private Sub cmdPrint_ClickEvent(sender As Object, e As EventArgs) Handles cmdPrint.ClickEvent
+	Private Sub cmdPrint_ClickEvent(sender As Object, e As EventArgs)
 		Dim Printer As New Printer
 		Dim Error_Code As Short
 		Dim temp As String
@@ -1498,4 +1296,218 @@ Exit_Print:
 
 	End Sub
 
+	Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
+		Call cmdSave_Click()
+	End Sub
+
+
+	Private Sub cmdPrint_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
+		cmdPrint_Click()
+	End Sub
+
+	Private Sub cmdFile_Click(sender As Object, e As EventArgs) Handles cmdFile.Click
+		Dim cdlCancel As Object
+		Dim cdlOFNPathMustExist As Object
+		Dim cdlOFNOverwritePrompt As Object
+		Dim f, Error_Code As Short
+		Dim temp As String
+		Dim J, i, k As Short
+		Dim Eq1 As String
+		Dim Filename_Input As String
+
+		On Error GoTo File_Error
+		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		CMDialog1.FileName = ""
+		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		CMDialog1.DialogTitle = "Print to File"
+		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		CMDialog1.FilterIndex = 2
+		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		CMDialog1.Flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		CMDialog1.Action = 2
+
+		'f = FileNameIsValid(Filename_Input, CMDialog1)
+		'If Not (f) Then Exit Sub
+		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		Filename_Input = CMDialog1.FileName
+
+		f = FreeFile()
+		FileOpen(f, Filename_Input, OpenMode.Output)
+
+		PrintLine(f, "Input data for the Constant Pattern Model")
+		'-- Print Filename
+
+		PrintLine(f)
+		PrintLine(f, "From Data File :", Filename)
+
+
+		PrintLine(f)
+		PrintLine(f, "Chemical:", TAB(10), Trim(CPM_Results.Component.Name))
+		PrintLine(f, TAB(5), "Molecular weight: ", TAB(28), VB6.Format(CPM_Results.Component.MW, "0.00") & " g/mol")
+		PrintLine(f, TAB(5), "Normal Boiling Point: ", TAB(28), VB6.Format(CPM_Results.Component.BP, "0.00") & " C")
+		PrintLine(f, TAB(5), "Molar Volume @ NBP: ", TAB(28), Format_It(CPM_Results.Component.MolarVolume, 2) & " cm" & Chr(179) & "/mol")
+		PrintLine(f, TAB(5), "Initial Concentration: ", TAB(28), Format_It(CPM_Results.Component.InitialConcentration, 2) & " mg/L")
+		PrintLine(f, TAB(5), "K: ", TAB(28), VB6.Format(CPM_Results.Component.Use_K, "0.000") & " (mg/g)(L/mg)^(1/n)")
+		PrintLine(f, TAB(5), "1/n: ", TAB(28), VB6.Format(CPM_Results.Component.Use_OneOverN, "0.000"))
+		PrintLine(f)
+
+		'-----------------------Bed Data ----------------------
+		PrintLine(f, "Bed Data:")
+
+		PrintLine(f, TAB(5), "Bed Length: ", TAB(28), VB6.Format(CPM_Results.Bed.length, "0.000E+00") & " m")
+		PrintLine(f, TAB(5), "Bed Diameter: ", TAB(28), VB6.Format(CPM_Results.Bed.Diameter, "0.000E+00") & " m")
+		PrintLine(f, TAB(5), "Weight of GAC: ", TAB(28), VB6.Format(CPM_Results.Bed.Weight, "0.000E+00") & " kg")
+		PrintLine(f, TAB(5), "Inlet Flowrate: ", TAB(28), VB6.Format(CPM_Results.Bed.Flowrate, "0.000E+00") & " m" & Chr(179) & "/s")
+		PrintLine(f, TAB(5), "EBCT: ", TAB(28), VB6.Format(CPM_Results.Bed.length * PI * CPM_Results.Bed.Diameter * CPM_Results.Bed.Diameter / 4.0# / CPM_Results.Bed.Flowrate / 60.0#, "0.000E+00") & " mn")
+		PrintLine(f)
+		PrintLine(f, TAB(5), "Temperature:", TAB(28), VB6.Format(CPM_Results.Bed.Temperature, "0.00") & " C")
+		If CPM_Results.Bed.Phase = 0 Then
+			PrintLine(f, TAB(5), "Water Density:", TAB(28), VB6.Format(CPM_Results.Bed.WaterDensity, "0.0000") & " g/cm" & Chr(179))
+			PrintLine(f, TAB(5), "Water Viscosity:", TAB(28), VB6.Format(CPM_Results.Bed.WaterViscosity, "0.00E+00") & " g/cm.s")
+		Else
+			PrintLine(f, TAB(5), "Pressure:", TAB(28), VB6.Format(CPM_Results.Bed.Pressure, "0.00000") & " atm")
+			PrintLine(f, TAB(5), "Air Density:", TAB(28), VB6.Format(CPM_Results.Bed.WaterDensity, "0.0000") & " g/cm" & Chr(179))
+			PrintLine(f, TAB(5), "Air Viscosity:", TAB(28), VB6.Format(CPM_Results.Bed.WaterViscosity, "0.00E+00") & " g/cm.s")
+		End If
+		PrintLine(f)
+
+		'-----------------Carbon Properties -------------------------------
+		PrintLine(f, "Carbon Properties:")
+
+		PrintLine(f, TAB(5), "Name: ", TAB(28), Trim(CPM_Results.Carbon.Name))
+		PrintLine(f, TAB(5), "Apparent Density: ", TAB(28), VB6.Format(CPM_Results.Carbon.Density, "0.000") & " g/cm" & Chr(179))
+		PrintLine(f, TAB(5), "Particle Radius: ", TAB(28), VB6.Format(CPM_Results.Carbon.ParticleRadius * 100.0#, "0.000000") & " cm")
+		PrintLine(f, TAB(5), "Porosity: ", TAB(28), VB6.Format(CPM_Results.Carbon.Porosity, "0.000"))
+		PrintLine(f, TAB(5), "Shape Factor: ", TAB(28), VB6.Format(CPM_Results.Carbon.ShapeFactor, "0.000"))
+		'Print #f, Tab(5); "Tortuosity: "; Tab(28); Format$(CPM_Results.Carbon.Tortuosity, "0.000")
+		PrintLine(f)
+
+		'---------------Kinetic Parameters -----------------------------------------
+		PrintLine(f, "Kinetic parameters:")
+		PrintLine(f, TAB(5), "kf", TAB(28), Format_It(CPM_Results.Component.kf, 2) & " cm/s")
+		PrintLine(f, TAB(5), "Ds", TAB(28), Format_It(CPM_Results.Component.Ds, 2) & " cm" & Chr(178) & "/s")
+		PrintLine(f, TAB(5), "SPDFR", TAB(28), Format_It(CPM_Results.Component.SPDFR, 2))
+
+		'UPGRADE_WARNING: Couldn't resolve default property of object Component(0). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		Component(0) = CPM_Results.Component
+		PrintLine(f, TAB(5), "St", TAB(28), Format_It(ST(0), 2))
+		'UPGRADE_WARNING: Couldn't resolve default property of object Eds(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		PrintLine(f, TAB(5), "Eds", TAB(28), Format_It(Eds(0), 2))
+
+		PrintLine(f)
+
+		'Fouling-----------------------------------------
+		PrintLine(f, "Fouling correlations:")
+		PrintLine(f)
+		PrintLine(f)
+		PrintLine(f, " Water type : " & Trim(CPM_Results.Bed.Water_Correlation.Name))
+		Eq1 = VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(1), "0.00")
+
+		If CPM_Results.Bed.Water_Correlation.Coeff(2) > 0 Then
+			Eq1 = Eq1 & " + " & VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(2), "0.00E+00") & "* t "
+		Else
+			If CPM_Results.Bed.Water_Correlation.Coeff(2) < 0 Then
+				Eq1 = Eq1 & " - " & VB6.Format(System.Math.Abs(CPM_Results.Bed.Water_Correlation.Coeff(2)), "0.00E+00") & "* t "
+			End If
+		End If
+		If CPM_Results.Bed.Water_Correlation.Coeff(3) > 0 Then
+			Eq1 = Eq1 & " + " & VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(3), "0.00") & "* EXP("
+		Else
+			If CPM_Results.Bed.Water_Correlation.Coeff(3) < 0 Then
+				Eq1 = Eq1 & " - " & VB6.Format(System.Math.Abs(CPM_Results.Bed.Water_Correlation.Coeff(3)), "0.00") & "* EXP("
+			End If
+		End If
+		If CPM_Results.Bed.Water_Correlation.Coeff(3) <> 0 Then
+			If CPM_Results.Bed.Water_Correlation.Coeff(4) > 0 Then
+				Eq1 = Eq1 & VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(4), "0.00E+00") & "* t)"
+			Else
+				If CPM_Results.Bed.Water_Correlation.Coeff(4) < 0 Then
+					Eq1 = Eq1 & VB6.Format(CPM_Results.Bed.Water_Correlation.Coeff(4), "0.00E+00") & "* t)"
+				End If
+			End If
+		End If
+		PrintLine(f, "K(t)/K0 = " & Eq1)
+		PrintLine(f, "(t in minutes)")
+		PrintLine(f)
+
+		Eq1 = ""
+		If CPM_Results.Component.Correlation.Coeff(1) = 1.0# Then
+			Eq1 = "(K/K0) "
+		Else
+			If CPM_Results.Component.Correlation.Coeff(1) <> 0 Then Eq1 = VB6.Format(CPM_Results.Component.Correlation.Coeff(1), "0.00") & " * (K/K0) "
+		End If
+		If CPM_Results.Component.Correlation.Coeff(2) > 0 Then
+			Eq1 = Eq1 & "+ " & VB6.Format(CPM_Results.Component.Correlation.Coeff(2), "0.00")
+		Else
+			If CPM_Results.Component.Correlation.Coeff(2) <> 0 Then Eq1 = Eq1 & "- " & VB6.Format(System.Math.Abs(CPM_Results.Component.Correlation.Coeff(2)), "0.00")
+		End If
+		If Trim(Eq1) = "" Then
+			Eq1 = "K/K0"
+		End If
+		PrintLine(f, Trim(CPM_Results.Component.Name) & ":")
+		PrintLine(f, TAB(10), "Correlation type: " & Trim(CPM_Results.Component.Correlation.Name))
+		PrintLine(f, TAB(10), "K/K0 = " & Eq1)
+		PrintLine(f)
+
+		If (CPM_Results.Component.Use_Tortuosity_Correlation) Then
+			If (CPM_Results.Component.Constant_Tortuosity) Then
+				PrintLine(f, "Correlation used when SOC competition is important:")
+				PrintLine(f, " Tortuosity = 0.782 * EBCT^0.925 ")
+			Else
+				PrintLine(f, "Correlation used when NOM fouling is important:")
+				PrintLine(f, " Tortuosity = 1.0 if t< 70 days")
+				PrintLine(f, " Tortuosity = 0.334 + 6.610E-06 * EBCT")
+			End If
+		End If
+		PrintLine(f)
+
+		'--------- CPM Results ----------------------------------
+		PrintLine(f, "Constant Pattern Model Results for " & Trim(CPM_Results.Component.Name) & ":")
+		PrintLine(f)
+		PrintLine(f, "Minimum Stanton number:", TAB(30), Format_It(CPM_Results.Par(1), 2))
+		PrintLine(f, "Minimum EBCT:", TAB(30), Format_It(CPM_Results.Par(2), 2) & " min")
+		PrintLine(f, "Minimum Column Length:", TAB(30), Format_It(CPM_Results.Par(3), 2) & " cm")
+		PrintLine(f, "Throughput at 95% of the MTZ:", TAB(30), Format_It(CPM_Results.Par(4), 2))
+		PrintLine(f, "Throughput at 5% of the MTZ:", TAB(30), Format_It(CPM_Results.Par(5), 2))
+		PrintLine(f, "EBCT of the MTZ:", TAB(30), Format_It(CPM_Results.Par(6), 2) & " min")
+		PrintLine(f, "Length of the MTZ:", TAB(30), Format_It(CPM_Results.Par(7), 2) & " cm")
+
+		PrintLine(f)
+		PrintLine(f, TAB(30), "Time(days)", TAB(40), "BVT", TAB(50), "TC", TAB(60), "C (mg/L)")
+		PrintLine(f, "5% of the influent conc.", TAB(30), Format_It(CPM_Results.ThroughPut_05.T, 2), TAB(40), Format_It(CPM_Results.ThroughPut_05.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (Bed.Diameter / 2) ^ 2, 2), TAB(50), Format_It(CPM_Results.ThroughPut_05.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2), TAB(60), Format_It(CPM_Results.ThroughPut_05.C, 2))
+		PrintLine(f, "50% of the influent conc.", TAB(30), Format_It(CPM_Results.ThroughPut_50.T, 2), TAB(40), Format_It(CPM_Results.ThroughPut_50.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (Bed.Diameter / 2) ^ 2, 2), TAB(50), Format_It(CPM_Results.ThroughPut_50.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2), TAB(60), Format_It(CPM_Results.ThroughPut_50.C, 2))
+		PrintLine(f, "95% of the influent conc.", TAB(30), Format_It(CPM_Results.ThroughPut_95.T, 2), TAB(40), Format_It(CPM_Results.ThroughPut_95.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (Bed.Diameter / 2) ^ 2, 2), TAB(50), Format_It(CPM_Results.ThroughPut_95.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2), TAB(60), Format_It(CPM_Results.ThroughPut_95.C, 2))
+		PrintLine(f)
+		PrintLine(f, "TC (Treatment Capacity) is in m" & Chr(179) & "  / kg of GAC")
+		PrintLine(f)
+
+		If Flag_TO Then
+			PrintLine(f, "Treatment Objective: " & Format_It(Treatment_Objective.C, 2) & " mg/L")
+			PrintLine(f)
+			PrintLine(f, "Time (days):", TAB(20), Format_It(Treatment_Objective.T, 2))
+			PrintLine(f, "BVT:", TAB(20), Format_It(Treatment_Objective.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (CPM_Results.Bed.Diameter / 2) ^ 2, 2))
+			PrintLine(f, "Tr. Capacity:", TAB(20), Format_It(Treatment_Objective.T * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2))
+		Else
+			PrintLine(f, "The breakthrough time for the treatment objective (" & Format_It(Treatment_Objective.C, 2) & "mg/L) could not be calculated.")
+		End If
+		FileClose((f))
+		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		CMDialog1.FileName = ""
+		Exit Sub
+
+File_Error:
+		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		If (Err.Number = cdlCancel) Then
+			'DO NOTHING.
+		Else
+			Call Show_Trapped_Error("cmdFile_Click")
+		End If
+		Resume Exit_Print_File
+Exit_Print_File:
+	End Sub
 End Class

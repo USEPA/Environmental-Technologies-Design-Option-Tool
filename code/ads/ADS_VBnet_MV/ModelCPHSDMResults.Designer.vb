@@ -57,12 +57,7 @@
     Public WithEvents _lblData_17 As System.Windows.Forms.Label
     Public WithEvents _lblData_18 As System.Windows.Forms.Label
     Public WithEvents Frame3D1 As AxThreed.AxSSFrame
-    Public WithEvents cmdFile As AxThreed.AxSSCommand
-    Public WithEvents cmdExcel As AxThreed.AxSSCommand
     Public WithEvents CMDialog1 As AxMSComDlg.AxCommonDialog
-    Public WithEvents cmdSave As AxThreed.AxSSCommand
-    Public WithEvents cmdSelect As AxThreed.AxSSCommand
-    Public WithEvents cmdPrint As AxThreed.AxSSCommand
     Public WithEvents cmdExit As AxThreed.AxSSCommand
     Public WithEvents Label1 As System.Windows.Forms.Label
     Public WithEvents lblData As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -120,17 +115,17 @@
         Me.grpBreak = New AxGraphLib.AxGraph()
         Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
         Me.Frame3D1 = New AxThreed.AxSSFrame()
-        Me.cmdFile = New AxThreed.AxSSCommand()
-        Me.cmdExcel = New AxThreed.AxSSCommand()
-        Me.cmdSave = New AxThreed.AxSSCommand()
-        Me.cmdSelect = New AxThreed.AxSSCommand()
-        Me.cmdPrint = New AxThreed.AxSSCommand()
         Me.cmdExit = New AxThreed.AxSSCommand()
         Me.cmdTreat = New AxThreed.AxSSCommand()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me._optType_2 = New System.Windows.Forms.RadioButton()
         Me._optType_1 = New System.Windows.Forms.RadioButton()
         Me._optType_0 = New System.Windows.Forms.RadioButton()
+        Me.cmdExcel = New System.Windows.Forms.Button()
+        Me.cmdSave = New System.Windows.Forms.Button()
+        Me.cmdSelect = New System.Windows.Forms.Button()
+        Me.cmdPrint = New System.Windows.Forms.Button()
+        Me.cmdFile = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,11 +134,6 @@
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdFile, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdExcel, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdSave, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdSelect, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdPrint, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdExit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdTreat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -189,7 +179,7 @@
         Me.cboGrid.Location = New System.Drawing.Point(531, 176)
         Me.cboGrid.Name = "cboGrid"
         Me.cboGrid.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboGrid.Size = New System.Drawing.Size(100, 24)
+        Me.cboGrid.Size = New System.Drawing.Size(100, 22)
         Me.cboGrid.TabIndex = 41
         '
         'Label1
@@ -559,7 +549,7 @@
         Me.CMDialog1.Location = New System.Drawing.Point(582, 80)
         Me.CMDialog1.Name = "CMDialog1"
         Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CMDialog1.Size = New System.Drawing.Size(40, 40)
+        Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
         Me.CMDialog1.TabIndex = 49
         '
         'Frame3D1
@@ -569,51 +559,6 @@
         Me.Frame3D1.OcxState = CType(resources.GetObject("Frame3D1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.Frame3D1.Size = New System.Drawing.Size(501, 188)
         Me.Frame3D1.TabIndex = 3
-        '
-        'cmdFile
-        '
-        Me.cmdFile.Location = New System.Drawing.Point(531, 368)
-        Me.cmdFile.Name = "cmdFile"
-        Me.cmdFile.OcxState = CType(resources.GetObject("cmdFile.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdFile.Size = New System.Drawing.Size(100, 44)
-        Me.cmdFile.TabIndex = 38
-        Me.cmdFile.TabStop = False
-        '
-        'cmdExcel
-        '
-        Me.cmdExcel.Location = New System.Drawing.Point(531, 206)
-        Me.cmdExcel.Name = "cmdExcel"
-        Me.cmdExcel.OcxState = CType(resources.GetObject("cmdExcel.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdExcel.Size = New System.Drawing.Size(100, 44)
-        Me.cmdExcel.TabIndex = 39
-        Me.cmdExcel.TabStop = False
-        '
-        'cmdSave
-        '
-        Me.cmdSave.Location = New System.Drawing.Point(531, 247)
-        Me.cmdSave.Name = "cmdSave"
-        Me.cmdSave.OcxState = CType(resources.GetObject("cmdSave.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdSave.Size = New System.Drawing.Size(100, 44)
-        Me.cmdSave.TabIndex = 40
-        Me.cmdSave.TabStop = False
-        '
-        'cmdSelect
-        '
-        Me.cmdSelect.Location = New System.Drawing.Point(531, 287)
-        Me.cmdSelect.Name = "cmdSelect"
-        Me.cmdSelect.OcxState = CType(resources.GetObject("cmdSelect.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdSelect.Size = New System.Drawing.Size(100, 44)
-        Me.cmdSelect.TabIndex = 42
-        Me.cmdSelect.TabStop = False
-        '
-        'cmdPrint
-        '
-        Me.cmdPrint.Location = New System.Drawing.Point(531, 327)
-        Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.OcxState = CType(resources.GetObject("cmdPrint.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdPrint.Size = New System.Drawing.Size(100, 44)
-        Me.cmdPrint.TabIndex = 43
-        Me.cmdPrint.TabStop = False
         '
         'cmdExit
         '
@@ -649,7 +594,7 @@
         Me._optType_2.AutoSize = True
         Me._optType_2.Location = New System.Drawing.Point(177, 19)
         Me._optType_2.Name = "_optType_2"
-        Me._optType_2.Size = New System.Drawing.Size(184, 20)
+        Me._optType_2.Size = New System.Drawing.Size(144, 18)
         Me._optType_2.TabIndex = 2
         Me._optType_2.TabStop = True
         Me._optType_2.Text = "Volume Treated by Mass"
@@ -660,7 +605,7 @@
         Me._optType_1.AutoSize = True
         Me._optType_1.Location = New System.Drawing.Point(92, 19)
         Me._optType_1.Name = "_optType_1"
-        Me._optType_1.Size = New System.Drawing.Size(56, 20)
+        Me._optType_1.Size = New System.Drawing.Size(46, 18)
         Me._optType_1.TabIndex = 1
         Me._optType_1.Text = "BVT"
         Me._optType_1.UseVisualStyleBackColor = True
@@ -671,19 +616,69 @@
         Me._optType_0.Checked = True
         Me._optType_0.Location = New System.Drawing.Point(8, 19)
         Me._optType_0.Name = "_optType_0"
-        Me._optType_0.Size = New System.Drawing.Size(59, 20)
+        Me._optType_0.Size = New System.Drawing.Size(47, 18)
         Me._optType_0.TabIndex = 0
         Me._optType_0.TabStop = True
         Me._optType_0.Text = "Time"
         Me._optType_0.UseVisualStyleBackColor = True
         '
+        'cmdExcel
+        '
+        Me.cmdExcel.Location = New System.Drawing.Point(531, 206)
+        Me.cmdExcel.Name = "cmdExcel"
+        Me.cmdExcel.Size = New System.Drawing.Size(100, 44)
+        Me.cmdExcel.TabIndex = 92
+        Me.cmdExcel.Text = "&Excel"
+        Me.cmdExcel.UseVisualStyleBackColor = True
+        '
+        'cmdSave
+        '
+        Me.cmdSave.Location = New System.Drawing.Point(531, 247)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(100, 44)
+        Me.cmdSave.TabIndex = 93
+        Me.cmdSave.Text = "S&ave Curve"
+        Me.cmdSave.UseVisualStyleBackColor = True
+        '
+        'cmdSelect
+        '
+        Me.cmdSelect.Location = New System.Drawing.Point(531, 288)
+        Me.cmdSelect.Name = "cmdSelect"
+        Me.cmdSelect.Size = New System.Drawing.Size(100, 44)
+        Me.cmdSelect.TabIndex = 94
+        Me.cmdSelect.Text = "&Select Printer"
+        Me.cmdSelect.UseVisualStyleBackColor = True
+        '
+        'cmdPrint
+        '
+        Me.cmdPrint.Location = New System.Drawing.Point(531, 328)
+        Me.cmdPrint.Name = "cmdPrint"
+        Me.cmdPrint.Size = New System.Drawing.Size(100, 44)
+        Me.cmdPrint.TabIndex = 95
+        Me.cmdPrint.Text = "&Print"
+        Me.cmdPrint.UseVisualStyleBackColor = True
+        '
+        'cmdFile
+        '
+        Me.cmdFile.Location = New System.Drawing.Point(531, 368)
+        Me.cmdFile.Name = "cmdFile"
+        Me.cmdFile.Size = New System.Drawing.Size(100, 44)
+        Me.cmdFile.TabIndex = 96
+        Me.cmdFile.Text = "Print to &File"
+        Me.cmdFile.UseVisualStyleBackColor = True
+        '
         'frmModelCPHSDMResults
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(661, 532)
+        Me.ClientSize = New System.Drawing.Size(736, 532)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdFile)
+        Me.Controls.Add(Me.cmdPrint)
+        Me.Controls.Add(Me.cmdSelect)
+        Me.Controls.Add(Me.cmdSave)
+        Me.Controls.Add(Me.cmdExcel)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cmdTreat)
         Me.Controls.Add(Me._lblData_18)
@@ -723,12 +718,7 @@
         Me.Controls.Add(Me.grpBreak)
         Me.Controls.Add(Me.cboGrid)
         Me.Controls.Add(Me.Frame3D1)
-        Me.Controls.Add(Me.cmdFile)
-        Me.Controls.Add(Me.cmdExcel)
         Me.Controls.Add(Me.CMDialog1)
-        Me.Controls.Add(Me.cmdSave)
-        Me.Controls.Add(Me.cmdSelect)
-        Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.Label1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -749,11 +739,6 @@
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdFile, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdExcel, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdSave, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdSelect, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdPrint, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdExit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdTreat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -766,6 +751,11 @@
     Friend WithEvents _optType_2 As RadioButton
     Friend WithEvents _optType_1 As RadioButton
     Friend WithEvents _optType_0 As RadioButton
+    Friend WithEvents cmdExcel As Button
+    Friend WithEvents cmdSave As Button
+    Friend WithEvents cmdSelect As Button
+    Friend WithEvents cmdPrint As Button
+    Friend WithEvents cmdFile As Button
 
     'Friend WithEvents cmdTreatA As AxThreed.AxSSCommand
     '  Friend WithEvents _lblLegend_1A As Label
