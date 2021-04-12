@@ -54,8 +54,6 @@
     Public WithEvents _lblData_16 As System.Windows.Forms.Label
     Public WithEvents _lblData_17 As System.Windows.Forms.Label
     Public WithEvents _lblData_18 As System.Windows.Forms.Label
-    Public WithEvents Frame3D1 As AxThreed.AxSSFrame
-    Public WithEvents CMDialog1 As AxMSComDlg.AxCommonDialog
     Public WithEvents Label1 As System.Windows.Forms.Label
     Public WithEvents lblData As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lblLegend As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -110,8 +108,6 @@
         Me._lblParaValue_6 = New System.Windows.Forms.Label()
         Me._lblParaValue_2 = New System.Windows.Forms.Label()
         Me.grpBreak = New AxGraphLib.AxGraph()
-        Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
-        Me.Frame3D1 = New AxThreed.AxSSFrame()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me._optType_2 = New System.Windows.Forms.RadioButton()
         Me._optType_1 = New System.Windows.Forms.RadioButton()
@@ -123,14 +119,14 @@
         Me.cmdFile = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.cmdTreat = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblPara, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblParaValue, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -538,23 +534,6 @@
         Me.grpBreak.Size = New System.Drawing.Size(489, 249)
         Me.grpBreak.TabIndex = 46
         '
-        'CMDialog1
-        '
-        Me.CMDialog1.Enabled = True
-        Me.CMDialog1.Location = New System.Drawing.Point(582, 80)
-        Me.CMDialog1.Name = "CMDialog1"
-        Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
-        Me.CMDialog1.TabIndex = 49
-        '
-        'Frame3D1
-        '
-        Me.Frame3D1.Location = New System.Drawing.Point(24, 12)
-        Me.Frame3D1.Name = "Frame3D1"
-        Me.Frame3D1.OcxState = CType(resources.GetObject("Frame3D1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.Frame3D1.Size = New System.Drawing.Size(501, 188)
-        Me.Frame3D1.TabIndex = 3
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me._optType_2)
@@ -663,12 +642,21 @@
         Me.cmdTreat.Text = "Treatment Objective"
         Me.cmdTreat.UseVisualStyleBackColor = True
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(513, 188)
+        Me.GroupBox2.TabIndex = 99
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Results For (Component Name)"
+        '
         'frmModelCPHSDMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(736, 532)
+        Me.ClientSize = New System.Drawing.Size(654, 532)
         Me.ControlBox = False
         Me.Controls.Add(Me.cmdTreat)
         Me.Controls.Add(Me.cmdExit)
@@ -714,9 +702,8 @@
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.grpBreak)
         Me.Controls.Add(Me.cboGrid)
-        Me.Controls.Add(Me.Frame3D1)
-        Me.Controls.Add(Me.CMDialog1)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -733,8 +720,6 @@
         CType(Me.lblPara, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblParaValue, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -752,6 +737,8 @@
     Friend WithEvents cmdFile As Button
     Friend WithEvents cmdExit As Button
     Friend WithEvents cmdTreat As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 
     'Friend WithEvents cmdTreatA As AxThreed.AxSSCommand
     '  Friend WithEvents _lblLegend_1A As Label

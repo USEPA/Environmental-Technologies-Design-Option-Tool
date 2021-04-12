@@ -160,25 +160,30 @@ Friend Class frmModelCPHSDMResults
 		
 		On Error GoTo File_Error
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filename = ""
+		'CMDialog1.FileName = ""
+		SaveFileDialog1.FileName = ""
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.DialogTitle = "Print to File"
+		'CMDialog1.DialogTitle = "Print to File"
+		SaveFileDialog1.Title = "Print to File"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		'CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FilterIndex = 2
+		'CMDialog1.FilterIndex = 2
+		SaveFileDialog1.FilterIndex = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+		'CMDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Action = 2
-		
+		'CMDialog1.Action = 2
+
 		'f = FileNameIsValid(Filename_Input, CMDialog1)
 		'If Not (f) Then Exit Sub
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Filename_Input = CMDialog1.Filename
-		
+		'Filename_Input = CMDialog1.FileName
+		Filename_Input = SaveFileDialog1.FileName
+
 		f = FreeFile
 		FileOpen(f, Filename_Input, OpenMode.Output)
 		
@@ -340,7 +345,8 @@ Friend Class frmModelCPHSDMResults
 		End If
 		FileClose((f))
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filename = ""
+		'CMDialog1.FileName = ""
+		SaveFileDialog1.FileName = ""
 		Exit Sub
 		
 File_Error: 
@@ -638,27 +644,33 @@ Exit_Print:
 		Dim Filename_CPM As String
 		On Error GoTo Save_Results_CPM_Error
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = True
+		'CMDialog1.CancelError = True
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filename = ""
+		'CMDialog1.FileName = ""
+		SaveFileDialog1.FileName = ""
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		'CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FilterIndex = 2
+		'CMDialog1.FilterIndex = 2
+		SaveFileDialog1.FilterIndex = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.DialogTitle = "Save curve from Constant Pattern Model"
+		'CMDialog1.DialogTitle = "Save curve from Constant Pattern Model"
+		SaveFileDialog1.Title = "Save curve from Constant Pattern Model"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+		'CMDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Action = 2
-		
+		'CMDialog1.Action = 2
+
 		'f = FileNameIsValid(Filename_CPM, CMDialog1)
 		'If Not (f) Then Exit Sub
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Filename_CPM = CMDialog1.Filename
-		
+		'Filename_CPM = CMDialog1.FileName
+		Filename_CPM = SaveFileDialog1.FileName
+
+
 		f = FreeFile
 		FileOpen(f, Filename_CPM, OpenMode.Output)
 		WriteLine(f, "Results file for Constant Pattern Model")
@@ -678,7 +690,8 @@ Exit_Print:
 		Next i
 		FileClose(f)
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filename = ""
+		'CMDialog1.FileName = ""
+		SaveFileDialog1.FileName = ""
 		Exit Sub
 Save_Results_CPM_Error: 
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -699,9 +712,9 @@ Exit_Save_Results_CPM:
 		'CMDialog1.flags = PD_PRINTSETUP
 		'CMDialog1.Action = 5
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = False
+		'CMDialog1.CancelError = False
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.ShowPrinter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.ShowPrinter()
+		'CMDialog1.ShowPrinter()
 		Exit Sub
 Select_Print_Error: 
 		Call Show_Trapped_Error("cmdSelect_Click")
@@ -768,9 +781,9 @@ Exit_lblLegend_Click:
 		
 		'Move frmPFPSDM.Left + (frmPFPSDM.Width / 2) - (frmCPM.Width / 2), frmPFPSDM.Top + (frmPFPSDM.Height / 2) - (frmCPM.Height / 2)
 		Call CenterOnForm(Me, frmMain)
-		
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object Frame3D1.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Frame3D1.Caption = "Results for " & Trim(CPM_Results.Component.Name) & ":"
+		GroupBox2.Text = "Results for " & Trim(CPM_Results.Component.Name) & ":"
 		lblParaValue(0).Text = Format_It(CPM_Results.Par(1), 2) 'Minimum Stanton
 		lblParaValue(2).Text = Format_It(CPM_Results.Par(7), 2) 'MTZ Length
 		lblParaValue(5).Text = Format_It(CPM_Results.Par(2), 2) 'Minimum EBCT
@@ -935,68 +948,6 @@ Exit_lblLegend_Click:
 
 	End Sub
 
-	Private Sub cmdSave_ClickEvent(sender As Object, e As EventArgs)
-		Dim cdlCancel As Object
-		Dim cdlOFNPathMustExist As Object
-		Dim cdlOFNOverwritePrompt As Object
-		Dim f, i As Short
-		Dim temp As String
-		Dim Filename_CPM As String
-		On Error GoTo Save_Results_CPM_Error
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = True
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FileName = ""
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FilterIndex = 2
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.DialogTitle = "Save curve from Constant Pattern Model"
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Action = 2
-
-		'f = FileNameIsValid(Filename_CPM, CMDialog1)
-		'If Not (f) Then Exit Sub
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Filename_CPM = CMDialog1.FileName
-
-		f = FreeFile()
-		FileOpen(f, Filename_CPM, OpenMode.Output)
-		WriteLine(f, "Results file for Constant Pattern Model")
-		temp = "Time(days)       "
-		temp = temp & "BVT" & "        " & "Usage Rate " & "     " & Trim(CPM_Results.Component.Name)
-		PrintLine(f, temp)
-		PrintLine(f, " days             -         m" & Chr(179) & "/kg GAC  ")
-		WriteLine(f)
-		temp = ""
-		For i = 1 To 100
-			temp = VB6.Format(CPM_Results.T(i), "0.00")
-			temp = temp & "       " & VB6.Format(CPM_Results.T(i) * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (CPM_Results.Bed.Diameter / 2.0#) ^ 2, "0.00")
-			temp = temp & "       " & VB6.Format(CPM_Results.T(i) * 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, "0.00")
-			temp = temp & "       " & VB6.Format(CPM_Results.C_Over_C0(i), "0.000")
-			PrintLine(f, temp)
-			temp = ""
-		Next i
-		FileClose(f)
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FileName = ""
-		Exit Sub
-Save_Results_CPM_Error:
-		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
-			'DO NOTHING.
-		Else
-			Call Show_Trapped_Error("cmdSave_Click")
-		End If
-		Resume Exit_Save_Results_CPM
-Exit_Save_Results_CPM:
-
-	End Sub
 
 
 
@@ -1013,9 +964,9 @@ Exit_Save_Results_CPM:
 		'CMDialog1.flags = PD_PRINTSETUP
 		'CMDialog1.Action = 5
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = False
+		'CMDialog1.CancelError = False
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.ShowPrinter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.ShowPrinter()
+		'CMDialog1.ShowPrinter()
 		Exit Sub
 Select_Print_Error:
 		Call Show_Trapped_Error("cmdSelect_Click")
@@ -1317,24 +1268,29 @@ Exit_Print:
 
 		On Error GoTo File_Error
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FileName = ""
+		'CMDialog1.FileName = ""
+		SaveFileDialog1.FileName = ""
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.DialogTitle = "Print to File"
+		'CMDialog1.DialogTitle = "Print to File"
+		SaveFileDialog1.Title = "Print to File"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		'CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FilterIndex = 2
+		'CMDialog1.FilterIndex = 2
+		SaveFileDialog1.FilterIndex = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+		'CMDialog1.Flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Action = 2
+		'CMDialog1.Action = 2
 
 		'f = FileNameIsValid(Filename_Input, CMDialog1)
 		'If Not (f) Then Exit Sub
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Filename_Input = CMDialog1.FileName
+		'Filename_Input = CMDialog1.FileName
+		Filename_Input = SaveFileDialog1.FileName
 
 		f = FreeFile()
 		FileOpen(f, Filename_Input, OpenMode.Output)
@@ -1497,7 +1453,8 @@ Exit_Print:
 		End If
 		FileClose((f))
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FileName = ""
+		'CMDialog1.FileName = ""
+		SaveFileDialog1.FileName = ""
 		Exit Sub
 
 File_Error:
