@@ -813,10 +813,10 @@ Exit_lblLegend_Click:
 		lblData(6).Text = Format_It(CPM_Results.ThroughPut_05.T * 24# * 3600# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2)
 		lblData(7).Text = Format_It(CPM_Results.ThroughPut_50.T * 24# * 3600# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2)
 		lblData(8).Text = Format_It(CPM_Results.ThroughPut_95.T * 24# * 3600# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight, 2)
-		
+
 		'-----Treatment Objective------
 		'UPGRADE_WARNING: Couldn't resolve default property of object cmdTreat.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		cmdTreat.Caption = "Treat. Objective"
+		cmdTreat.Text = "Treat. Objective"
 		lblData(15).Text = lblData(0).Text
 		lblData(16).Text = lblData(3).Text
 		lblData(17).Text = lblData(6).Text
@@ -892,11 +892,11 @@ err_FRMCPM_UserPrefs_Load:
 		Call INI_PutSetting("FRMCPM_optType", Trim(CStr(X)))
 	End Sub
 
-	Private Sub cmdExit_ClickEvent(sender As Object, e As EventArgs) Handles cmdExit.ClickEvent
+	Private Sub cmdExit_ClickEvent(sender As Object, e As EventArgs)
 		Me.Dispose()   'Shang
 	End Sub
 
-	Private Sub cmdTreat_ClickEvent(sender As Object, e As EventArgs) Handles cmdTreat.ClickEvent
+	Private Sub cmdTreat_ClickEvent(sender As Object, e As EventArgs)
 		Dim Objective As String
 		Dim temp, Tr_Obj As Double
 		Dim J As Short
@@ -1509,5 +1509,13 @@ File_Error:
 		End If
 		Resume Exit_Print_File
 Exit_Print_File:
+	End Sub
+
+	Private Sub cmdExit_Click(sender As Object, e As EventArgs) Handles cmdExit.Click
+		Me.Close()
+	End Sub
+
+	Private Sub cmdTreat_Click(sender As Object, e As EventArgs) Handles cmdTreat.Click
+		Call cmdTreat_Click()
 	End Sub
 End Class

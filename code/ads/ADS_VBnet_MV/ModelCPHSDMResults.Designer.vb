@@ -22,8 +22,6 @@
 	Public WithEvents Command4 As System.Windows.Forms.Button
     Public WithEvents grpBreak As AxGraphLib.AxGraph
     Public WithEvents cboGrid As System.Windows.Forms.ComboBox
-
-    Public WithEvents cmdTreat As AxThreed.AxSSCommand
     Public WithEvents _lblLegend_7 As System.Windows.Forms.Label
     Public WithEvents _lblData_11 As System.Windows.Forms.Label
     Public WithEvents _lblData_10 As System.Windows.Forms.Label
@@ -58,7 +56,6 @@
     Public WithEvents _lblData_18 As System.Windows.Forms.Label
     Public WithEvents Frame3D1 As AxThreed.AxSSFrame
     Public WithEvents CMDialog1 As AxMSComDlg.AxCommonDialog
-    Public WithEvents cmdExit As AxThreed.AxSSCommand
     Public WithEvents Label1 As System.Windows.Forms.Label
     Public WithEvents lblData As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents lblLegend As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -115,8 +112,6 @@
         Me.grpBreak = New AxGraphLib.AxGraph()
         Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
         Me.Frame3D1 = New AxThreed.AxSSFrame()
-        Me.cmdExit = New AxThreed.AxSSCommand()
-        Me.cmdTreat = New AxThreed.AxSSCommand()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me._optType_2 = New System.Windows.Forms.RadioButton()
         Me._optType_1 = New System.Windows.Forms.RadioButton()
@@ -126,6 +121,8 @@
         Me.cmdSelect = New System.Windows.Forms.Button()
         Me.cmdPrint = New System.Windows.Forms.Button()
         Me.cmdFile = New System.Windows.Forms.Button()
+        Me.cmdExit = New System.Windows.Forms.Button()
+        Me.cmdTreat = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -134,8 +131,6 @@
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdExit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdTreat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -560,23 +555,6 @@
         Me.Frame3D1.Size = New System.Drawing.Size(501, 188)
         Me.Frame3D1.TabIndex = 3
         '
-        'cmdExit
-        '
-        Me.cmdExit.Location = New System.Drawing.Point(555, 17)
-        Me.cmdExit.Name = "cmdExit"
-        Me.cmdExit.OcxState = CType(resources.GetObject("cmdExit.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdExit.Size = New System.Drawing.Size(100, 50)
-        Me.cmdExit.TabIndex = 45
-        Me.cmdExit.TabStop = False
-        '
-        'cmdTreat
-        '
-        Me.cmdTreat.Location = New System.Drawing.Point(37, 165)
-        Me.cmdTreat.Name = "cmdTreat"
-        Me.cmdTreat.OcxState = CType(resources.GetObject("cmdTreat.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdTreat.Size = New System.Drawing.Size(189, 18)
-        Me.cmdTreat.TabIndex = 87
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me._optType_2)
@@ -667,6 +645,24 @@
         Me.cmdFile.Text = "Print to &File"
         Me.cmdFile.UseVisualStyleBackColor = True
         '
+        'cmdExit
+        '
+        Me.cmdExit.Location = New System.Drawing.Point(546, 12)
+        Me.cmdExit.Name = "cmdExit"
+        Me.cmdExit.Size = New System.Drawing.Size(85, 57)
+        Me.cmdExit.TabIndex = 97
+        Me.cmdExit.Text = "&Close"
+        Me.cmdExit.UseVisualStyleBackColor = True
+        '
+        'cmdTreat
+        '
+        Me.cmdTreat.Location = New System.Drawing.Point(37, 165)
+        Me.cmdTreat.Name = "cmdTreat"
+        Me.cmdTreat.Size = New System.Drawing.Size(189, 18)
+        Me.cmdTreat.TabIndex = 98
+        Me.cmdTreat.Text = "Treatment Objective"
+        Me.cmdTreat.UseVisualStyleBackColor = True
+        '
         'frmModelCPHSDMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -674,13 +670,14 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(736, 532)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdTreat)
+        Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.cmdFile)
         Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.cmdSelect)
         Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.cmdExcel)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.cmdTreat)
         Me.Controls.Add(Me._lblData_18)
         Me.Controls.Add(Me._lblData_17)
         Me.Controls.Add(Me._lblData_16)
@@ -719,7 +716,6 @@
         Me.Controls.Add(Me.cboGrid)
         Me.Controls.Add(Me.Frame3D1)
         Me.Controls.Add(Me.CMDialog1)
-        Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.Label1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -739,8 +735,6 @@
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Frame3D1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdExit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdTreat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -756,6 +750,8 @@
     Friend WithEvents cmdSelect As Button
     Friend WithEvents cmdPrint As Button
     Friend WithEvents cmdFile As Button
+    Friend WithEvents cmdExit As Button
+    Friend WithEvents cmdTreat As Button
 
     'Friend WithEvents cmdTreatA As AxThreed.AxSSCommand
     '  Friend WithEvents _lblLegend_1A As Label
