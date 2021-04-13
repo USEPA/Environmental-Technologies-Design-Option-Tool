@@ -65,7 +65,7 @@
         '_picLogos_1
         '
         _picLogos_1.Image = CType(resources.GetObject("_picLogos_1.Image"), System.Drawing.Image)
-        _picLogos_1.Location = New System.Drawing.Point(245, 50)
+        _picLogos_1.Location = New System.Drawing.Point(233, 46)
         _picLogos_1.Name = "_picLogos_1"
         _picLogos_1.Size = New System.Drawing.Size(145, 138)
         _picLogos_1.TabIndex = 21
@@ -184,8 +184,6 @@
         Me.lblDisclaimer.Size = New System.Drawing.Size(523, 193)
         Me.lblDisclaimer.TabIndex = 9
         Me.lblDisclaimer.Text = "lblDisclaimer"
-
-        '
         '
         '_picLogos_2
         '
@@ -194,7 +192,7 @@
         Me._picLogos_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._picLogos_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me._picLogos_2.Image = CType(resources.GetObject("_picLogos_2.Image"), System.Drawing.Image)
-        Me._picLogos_2.Location = New System.Drawing.Point(47, 234)
+        Me._picLogos_2.Location = New System.Drawing.Point(201, 230)
         Me._picLogos_2.Name = "_picLogos_2"
         Me._picLogos_2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._picLogos_2.Size = New System.Drawing.Size(218, 48)
@@ -221,7 +219,7 @@
         Me.MinimizeBox = False
         Me.Name = "frmSplash"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Program Information"
         CType(_picLogos_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblCompany, System.ComponentModel.ISupportInitialize).EndInit()
