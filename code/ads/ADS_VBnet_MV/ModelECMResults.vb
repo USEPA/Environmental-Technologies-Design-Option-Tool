@@ -642,11 +642,11 @@ err_FRMGLOBAL_UserPrefs_Load:
 		
 	End Sub
 
-	Private Sub cmdClose_ClickEvent(sender As Object, e As EventArgs) Handles cmdClose.ClickEvent
+	Private Sub cmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
 		Me.Dispose()
 	End Sub
 
-	Private Sub cmdFile_ClickEvent(sender As Object, e As EventArgs) Handles cmdFile.ClickEvent
+	Private Sub cmdFile_Click(sender As Object, e As EventArgs) Handles cmdFile.Click
 		Dim cdlCancel As Object
 		Dim cdlOFNPathMustExist As Object
 		Dim cdlOFNOverwritePrompt As Object
@@ -793,7 +793,7 @@ File_Error:
 Exit_Print_File:
 	End Sub
 
-	Private Sub cmdSelect_ClickEvent(sender As Object, e As EventArgs) Handles cmdSelect.ClickEvent
+	Private Sub cmdSelect_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
 		Dim Error_Code As Short
 		Dim temp As String
 		On Error GoTo Select_Print_Error
@@ -810,7 +810,7 @@ Select_Print_Error:
 Exit_Select_Print:
 	End Sub
 
-	Private Sub cmdPrint_ClickEvent(sender As Object, e As EventArgs) Handles cmdPrint.ClickEvent
+	Private Sub cmdPrint_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
 		Dim Printer As New Printer
 		Dim Error_Code As Short
 		Dim temp As String
@@ -956,5 +956,6 @@ Print_Error:
 Exit_Print:
 
 	End Sub
+
 
 End Class

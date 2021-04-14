@@ -21,11 +21,7 @@
 	Public WithEvents Command4 As System.Windows.Forms.Button
 	Public WithEvents cboGlob As System.Windows.Forms.ComboBox
     Public WithEvents grpGlob As AxGraphLib.AxGraph
-    Public WithEvents cmdFile As AxThreed.AxSSCommand
     Public WithEvents CMDialog1 As AxMSComDlg.AxCommonDialog
-    Public WithEvents cmdSelect As AxThreed.AxSSCommand
-    Public WithEvents cmdPrint As AxThreed.AxSSCommand
-    Public WithEvents cmdClose As AxThreed.AxSSCommand
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
@@ -37,11 +33,7 @@
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.cboGlob = New System.Windows.Forms.ComboBox()
         Me.grpGlob = New AxGraphLib.AxGraph()
-        Me.cmdFile = New AxThreed.AxSSCommand()
         Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
-        Me.cmdSelect = New AxThreed.AxSSCommand()
-        Me.cmdPrint = New AxThreed.AxSSCommand()
-        Me.cmdClose = New AxThreed.AxSSCommand()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblData5 = New System.Windows.Forms.Label()
         Me.lblCompo = New System.Windows.Forms.Label()
@@ -57,13 +49,13 @@
         Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblData1 = New System.Windows.Forms.Label()
+        Me.cmdSelect = New System.Windows.Forms.Button()
+        Me.cmdPrint = New System.Windows.Forms.Button()
+        Me.cmdFile = New System.Windows.Forms.Button()
+        Me.cmdClose = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpGlob, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdFile, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdSelect, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdPrint, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdClose, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SSFrame1.SuspendLayout()
         Me.SuspendLayout()
@@ -120,14 +112,6 @@
         Me.grpGlob.TabIndex = 15
         Me.grpGlob.TabStop = False
         '
-        'cmdFile
-        '
-        Me.cmdFile.Location = New System.Drawing.Point(516, 310)
-        Me.cmdFile.Name = "cmdFile"
-        Me.cmdFile.OcxState = CType(resources.GetObject("cmdFile.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdFile.Size = New System.Drawing.Size(100, 30)
-        Me.cmdFile.TabIndex = 16
-        '
         'CMDialog1
         '
         Me.CMDialog1.Enabled = True
@@ -136,30 +120,6 @@
         Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
         Me.CMDialog1.TabIndex = 23
-        '
-        'cmdSelect
-        '
-        Me.cmdSelect.Location = New System.Drawing.Point(516, 238)
-        Me.cmdSelect.Name = "cmdSelect"
-        Me.cmdSelect.OcxState = CType(resources.GetObject("cmdSelect.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdSelect.Size = New System.Drawing.Size(100, 30)
-        Me.cmdSelect.TabIndex = 17
-        '
-        'cmdPrint
-        '
-        Me.cmdPrint.Location = New System.Drawing.Point(516, 274)
-        Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.OcxState = CType(resources.GetObject("cmdPrint.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdPrint.Size = New System.Drawing.Size(100, 30)
-        Me.cmdPrint.TabIndex = 18
-        '
-        'cmdClose
-        '
-        Me.cmdClose.Location = New System.Drawing.Point(516, 346)
-        Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.OcxState = CType(resources.GetObject("cmdClose.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdClose.Size = New System.Drawing.Size(100, 30)
-        Me.cmdClose.TabIndex = 20
         '
         'Label7
         '
@@ -384,6 +344,42 @@
         Me.lblData1.Text = " "
         Me.lblData1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'cmdSelect
+        '
+        Me.cmdSelect.Location = New System.Drawing.Point(516, 234)
+        Me.cmdSelect.Name = "cmdSelect"
+        Me.cmdSelect.Size = New System.Drawing.Size(89, 30)
+        Me.cmdSelect.TabIndex = 24
+        Me.cmdSelect.Text = "Select Printer"
+        Me.cmdSelect.UseVisualStyleBackColor = True
+        '
+        'cmdPrint
+        '
+        Me.cmdPrint.Location = New System.Drawing.Point(516, 270)
+        Me.cmdPrint.Name = "cmdPrint"
+        Me.cmdPrint.Size = New System.Drawing.Size(89, 30)
+        Me.cmdPrint.TabIndex = 25
+        Me.cmdPrint.Text = "Print"
+        Me.cmdPrint.UseVisualStyleBackColor = True
+        '
+        'cmdFile
+        '
+        Me.cmdFile.Location = New System.Drawing.Point(516, 306)
+        Me.cmdFile.Name = "cmdFile"
+        Me.cmdFile.Size = New System.Drawing.Size(89, 30)
+        Me.cmdFile.TabIndex = 26
+        Me.cmdFile.Text = "Save"
+        Me.cmdFile.UseVisualStyleBackColor = True
+        '
+        'cmdClose
+        '
+        Me.cmdClose.Location = New System.Drawing.Point(516, 342)
+        Me.cmdClose.Name = "cmdClose"
+        Me.cmdClose.Size = New System.Drawing.Size(89, 30)
+        Me.cmdClose.TabIndex = 27
+        Me.cmdClose.Text = "Close"
+        Me.cmdClose.UseVisualStyleBackColor = True
+        '
         'frmModelECMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -391,16 +387,16 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(750, 516)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdClose)
+        Me.Controls.Add(Me.cmdFile)
+        Me.Controls.Add(Me.cmdPrint)
+        Me.Controls.Add(Me.cmdSelect)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.cboGlob)
         Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me.grpGlob)
-        Me.Controls.Add(Me.cmdFile)
         Me.Controls.Add(Me.CMDialog1)
-        Me.Controls.Add(Me.cmdSelect)
-        Me.Controls.Add(Me.cmdPrint)
-        Me.Controls.Add(Me.cmdClose)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -413,11 +409,7 @@
         Me.Text = "Results for the Equilibrium Column Model (ECM)"
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpGlob, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdFile, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdSelect, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdPrint, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdClose, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SSFrame1.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -439,5 +431,9 @@
     Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents Label3 As Label
     Public WithEvents lblData1 As Label
+    Friend WithEvents cmdSelect As Button
+    Friend WithEvents cmdPrint As Button
+    Friend WithEvents cmdFile As Button
+    Friend WithEvents cmdClose As Button
 #End Region
 End Class
