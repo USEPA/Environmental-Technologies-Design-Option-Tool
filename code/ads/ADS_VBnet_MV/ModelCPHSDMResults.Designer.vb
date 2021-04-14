@@ -20,7 +20,6 @@
     Public optType(3) As AxThreed.AxSSOption
     Public WithEvents Picture1 As System.Windows.Forms.PictureBox
 	Public WithEvents Command4 As System.Windows.Forms.Button
-    Public WithEvents grpBreak As AxGraphLib.AxGraph
     Public WithEvents cboGrid As System.Windows.Forms.ComboBox
     Public WithEvents _lblLegend_7 As System.Windows.Forms.Label
     Public WithEvents _lblData_11 As System.Windows.Forms.Label
@@ -65,7 +64,9 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmModelCPHSDMResults))
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
@@ -107,7 +108,6 @@
         Me._lblParaValue_5 = New System.Windows.Forms.Label()
         Me._lblParaValue_6 = New System.Windows.Forms.Label()
         Me._lblParaValue_2 = New System.Windows.Forms.Label()
-        Me.grpBreak = New AxGraphLib.AxGraph()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me._optType_2 = New System.Windows.Forms.RadioButton()
         Me._optType_1 = New System.Windows.Forms.RadioButton()
@@ -121,13 +121,14 @@
         Me.cmdTreat = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblPara, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblParaValue, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Command4
@@ -136,10 +137,10 @@
         Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(531, 433)
+        Me.Command4.Location = New System.Drawing.Point(541, 433)
         Me.Command4.Name = "Command4"
         Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(110, 22)
+        Me.Command4.Size = New System.Drawing.Size(100, 22)
         Me.Command4.TabIndex = 47
         Me.Command4.Text = "Print Screen"
         Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
@@ -526,14 +527,6 @@
         Me._lblParaValue_2.TabIndex = 61
         Me._lblParaValue_2.Text = "Label8"
         '
-        'grpBreak
-        '
-        Me.grpBreak.Location = New System.Drawing.Point(24, 206)
-        Me.grpBreak.Name = "grpBreak"
-        Me.grpBreak.OcxState = CType(resources.GetObject("grpBreak.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.grpBreak.Size = New System.Drawing.Size(489, 249)
-        Me.grpBreak.TabIndex = 46
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me._optType_2)
@@ -581,7 +574,7 @@
         '
         'cmdExcel
         '
-        Me.cmdExcel.Location = New System.Drawing.Point(531, 206)
+        Me.cmdExcel.Location = New System.Drawing.Point(541, 206)
         Me.cmdExcel.Name = "cmdExcel"
         Me.cmdExcel.Size = New System.Drawing.Size(100, 44)
         Me.cmdExcel.TabIndex = 92
@@ -590,7 +583,7 @@
         '
         'cmdSave
         '
-        Me.cmdSave.Location = New System.Drawing.Point(531, 247)
+        Me.cmdSave.Location = New System.Drawing.Point(541, 247)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(100, 44)
         Me.cmdSave.TabIndex = 93
@@ -599,7 +592,7 @@
         '
         'cmdSelect
         '
-        Me.cmdSelect.Location = New System.Drawing.Point(531, 288)
+        Me.cmdSelect.Location = New System.Drawing.Point(541, 288)
         Me.cmdSelect.Name = "cmdSelect"
         Me.cmdSelect.Size = New System.Drawing.Size(100, 44)
         Me.cmdSelect.TabIndex = 94
@@ -608,7 +601,7 @@
         '
         'cmdPrint
         '
-        Me.cmdPrint.Location = New System.Drawing.Point(531, 328)
+        Me.cmdPrint.Location = New System.Drawing.Point(541, 328)
         Me.cmdPrint.Name = "cmdPrint"
         Me.cmdPrint.Size = New System.Drawing.Size(100, 44)
         Me.cmdPrint.TabIndex = 95
@@ -617,7 +610,7 @@
         '
         'cmdFile
         '
-        Me.cmdFile.Location = New System.Drawing.Point(531, 368)
+        Me.cmdFile.Location = New System.Drawing.Point(541, 368)
         Me.cmdFile.Name = "cmdFile"
         Me.cmdFile.Size = New System.Drawing.Size(100, 44)
         Me.cmdFile.TabIndex = 96
@@ -651,13 +644,30 @@
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Results For (Component Name)"
         '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(12, 206)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(523, 249)
+        Me.Chart1.TabIndex = 100
+        Me.Chart1.Text = "Chart1"
+        '
         'frmModelCPHSDMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(654, 532)
+        Me.ClientSize = New System.Drawing.Size(658, 532)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.cmdTreat)
         Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.cmdFile)
@@ -700,7 +710,6 @@
         Me.Controls.Add(Me._lblPara_0)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
-        Me.Controls.Add(Me.grpBreak)
         Me.Controls.Add(Me.cboGrid)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox2)
@@ -719,9 +728,9 @@
         CType(Me.lblLegend, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblPara, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblParaValue, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -739,6 +748,7 @@
     Friend WithEvents cmdTreat As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 
     'Friend WithEvents cmdTreatA As AxThreed.AxSSCommand
     '  Friend WithEvents _lblLegend_1A As Label

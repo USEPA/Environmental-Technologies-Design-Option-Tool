@@ -1,6 +1,9 @@
 Option Strict Off
 Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
+Imports System.Windows.Forms.DataVisualization.Charting
+Imports System.Math
+
 Friend Class frmModelCPHSDMResults
 	Inherits System.Windows.Forms.Form
 	
@@ -21,7 +24,10 @@ Friend Class frmModelCPHSDMResults
 		Dim Bottom_Title As String
 		'UPGRADE_WARNING: Lower bound of array X_Values was changed from 1 to 0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
 		Dim X_Values(CPM_Max_Points) As Double
-		
+
+
+		Chart1.Series.Clear()
+		Chart1.ChartAreas(0).RecalculateAxesScale()
 		'UPGRADE_WARNING: Screen property Screen.MousePointer has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6BA9B8D2-2A32-4B6E-8D36-44949974A5B4"'
 		System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor
 
@@ -42,18 +48,18 @@ Friend Class frmModelCPHSDMResults
 		For i = 1 To CPM_Max_Points
 			X_Values(i) = CPM_Results.T(i) * factor
 		Next i
-		
+
 		'Define Graph
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumSets. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.NumSets = 1
+		'grpBreak.NumSets = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphType. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.GraphType = 6 'SCATTER
+		'grpBreak.GraphType = 6 'SCATTER
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.GraphStyle = 4
+		'grpBreak.GraphStyle = 4
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.NumPoints = 100
-		
-		
+		'grpBreak.NumPoints = 100
+
+
 		'TEMP BEGINS.
 		'grpBreak.ThisSet = 1
 		'grpBreak.NumPoints = 100
@@ -64,64 +70,98 @@ Friend Class frmModelCPHSDMResults
 		'  grpBreak.XPosData = CDbl(i)
 		'Next i
 		'TEMP ENDS.
-		
-		
+
+		Dim s As New Series
+		s.ChartType = SeriesChartType.Line
+
+		Chart1.ChartAreas(0).AxisX.Minimum = 0
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.AutoInc. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.AutoInc = 0
+		'grpBreak.AutoInc = 0
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GridStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.GridStyle = cboGrid.SelectedIndex
+		'grpBreak.GridStyle = cboGrid.SelectedIndex
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.ThisSet = 1
+		'grpBreak.ThisSet = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		For i = 1 To grpBreak.NumPoints
+		For i = 1 To 100 'numpoints = 100
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.ThisPoint = i
+			'grpBreak.ThisPoint = i
 			If CPM_Results.C_Over_C0(i) < 0 Then
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.GraphData = 0#
+				'grpBreak.GraphData = 0#
 			Else
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.GraphData = CPM_Results.C_Over_C0(i)
+				'grpBreak.GraphData = CPM_Results.C_Over_C0(i)
+				s.Points.AddXY(X_Values(i), CPM_Results.C_Over_C0(i))
 			End If
 			''''grpBreak.ThisPoint = i
 			''''grpBreak.LabelText = ""
 			''''grpBreak.ThisPoint = i
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.XPosData = X_Values(i)
+			'grpBreak.XPosData = X_Values(i)
 		Next i
+
+		Dim X_max As Double
+		X_max = X_Values(100)
+
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.ThisPoint = 1
+		'grpBreak.ThisPoint = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.PatternData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.PatternData = 0
+		'grpBreak.PatternData = 0
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.PatternedLines. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.PatternedLines = 0
+		'grpBreak.PatternedLines = 0
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.YAxisStyle = 2
+		'grpBreak.YAxisStyle = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisMin. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.YAxisMin = 0#
+		'grpBreak.YAxisMin = 0#
 		Data_Max = 0
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		For i = 1 To grpBreak.NumPoints
+		For i = 1 To 100 'numpoints
 			If CPM_Results.C_Over_C0(i) > Data_Max Then
 				Data_Max = CPM_Results.C_Over_C0(i)
 			End If
 		Next i
+
+		'rouding for max
+		Dim roundmax As Integer
+		Dim logscaler As Double 'used for sclaing log
+		logscaler = Math.Log10(X_max)
+		logscaler = Math.Floor(logscaler)
+		logscaler = logscaler - 1
+		logscaler = 10 ^ logscaler
+
+		roundmax = Math.Ceiling(X_max / logscaler) * logscaler
+
+		'Chart1.ChartAreas(0).AxisX.Maximum = roundmax
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisMax. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.YAxisMax = (Int(Data_Max * 10# + 1)) / 10#
+		'grpBreak.YAxisMax = (Int(Data_Max * 10# + 1)) / 10#
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisTicks. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.YAxisTicks = 4
+		'grpBreak.YAxisTicks = 4
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.BottomTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.BottomTitle = Bottom_Title
+		'grpBreak.BottomTitle = Bottom_Title
 		''''grpBreak.BottomTitle = "Testing"
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LeftTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.LeftTitle = "C/Co"
-		
+		'grpBreak.LeftTitle = "C/Co"
+
+		Chart1.Legends(0).Title = "Component:"
+		s.LegendText = Trim(CPM_Results.Component.Name)
+
+		Chart1.ChartAreas(0).AxisX.Title = Bottom_Title
+		Chart1.ChartAreas(0).AxisX.LabelStyle.Font = New System.Drawing.Font("Times New Roman", 10.25F)
+
+		Chart1.ChartAreas(0).AxisY.Title = "C/Co"
+		Chart1.ChartAreas(0).AxisY.LabelStyle.Font = New System.Drawing.Font("Times New Roman", 10.25F)
+
+		Chart1.Series.Add(s)
+
 		'UPGRADE_WARNING: Screen property Screen.MousePointer has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6BA9B8D2-2A32-4B6E-8D36-44949974A5B4"'
 		System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default
-		
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.DrawMode. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.DrawMode = 2
-		
+		'grpBreak.DrawMode = 2
+
 	End Sub
 	
 	
@@ -129,9 +169,24 @@ Friend Class frmModelCPHSDMResults
 	Private Sub cboGrid_SelectedIndexChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cboGrid.SelectedIndexChanged
 		If (Not PopulatingScrollboxes) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GridStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.GridStyle = cboGrid.SelectedIndex
+			'grpBreak.GridStyle = cboGrid.SelectedIndex
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.DrawMode. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.DrawMode = 2
+			'grpBreak.DrawMode = 2
+			Select Case cboGrid.SelectedIndex
+				Case 0
+					Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 0
+					Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 0
+				Case 1
+					Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 0
+					Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 1
+				Case 2
+					Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 1
+					Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 0
+				Case 3
+					Chart1.ChartAreas(0).AxisX.MajorGrid.LineWidth = 1
+					Chart1.ChartAreas(0).AxisY.MajorGrid.LineWidth = 1
+			End Select
+
 		End If
 	End Sub
 	
