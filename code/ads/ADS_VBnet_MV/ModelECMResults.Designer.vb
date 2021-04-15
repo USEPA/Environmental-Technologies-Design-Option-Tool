@@ -27,6 +27,9 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmModelECMResults))
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
@@ -52,9 +55,11 @@
         Me.cmdClose = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpGlob, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Command4
@@ -369,6 +374,22 @@
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
         '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(748, 33)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(474, 261)
+        Me.Chart1.TabIndex = 31
+        Me.Chart1.Text = "Chart1"
+        '
         'frmModelECMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -376,6 +397,7 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1266, 516)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cmdClose)
         Me.Controls.Add(Me.cmdFile)
@@ -398,6 +420,7 @@
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpGlob, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -422,5 +445,6 @@
     Friend WithEvents cmdClose As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 #End Region
 End Class
