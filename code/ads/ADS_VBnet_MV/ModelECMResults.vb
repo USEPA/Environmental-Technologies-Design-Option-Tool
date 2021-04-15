@@ -46,156 +46,9 @@ Friend Class frmModelECMResults
 	Private Sub cmdClose_Click()
 		Me.Close()
 	End Sub
-	
-	
-	Private Sub cmdFile_Click()
-		Dim cdlCancel As Object
-		Dim cdlOFNPathMustExist As Object
-		Dim cdlOFNOverwritePrompt As Object
-		Dim f, Error_Code As Short
-		Dim temp As String
-		Dim J, i, k As Short
-		Dim Filename_Input As String
-		
-		On Error GoTo File_Error
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = True
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.DialogTitle = "Print to File"
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FilterIndex = 2
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Action = 2
-		
-		'f = FileNameIsValid(Filename_Input, CMDialog1)
-		'If Not (f) Then Exit Sub
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Filename_Input = CMDialog1.Filename
-		f = FreeFile
-		FileOpen(f, Filename_Input, OpenMode.Output)
-		PrintLine(f, "Input data for the Equilibrium Colum Model")
-		'-- Print Filename
-		
-		PrintLine(f)
-		PrintLine(f, "From Data File : " & Filename)
-		PrintLine(f, "Date/time stamp: " & DateString & " " & TimeString)
-		
-		PrintLine(f)
-		PrintLine(f, "Component", TAB(30), "K*", TAB(38), "1/n", TAB(45), "Init. Conc.", TAB(59), "MW")
-		PrintLine(f, TAB(39), "-", TAB(48), "mg/L", TAB(58), "g/mol")
-		
-		For i = 1 To Number_Component_ECM
-			'K = Component_Index_ECM(i)
-			k = IndexW(i)
-			'        Print #f, Trim$(Mid$(LTrim$(Component(K).Name), 1, 25)); Tab(29); Format$(Component(K).Use_K, "###,##0.000"); Tab(37); Format$(Component(K).Use_OneOverN, "0.000"); Tab(48); Format_It(Component(K).InitialConcentration, 2); Tab(58); Format$(Component(K).MW, "0.00")
-			PrintLine(f, Trim(Mid(LTrim(Component(k).Name), 1, 25)), TAB(29), VB6.Format(Component(k).Use_K, "###,##0.000"), TAB(37), VB6.Format(Component(k).Use_OneOverN, "0.000"), TAB(48), Format_It(Component(k).InitialConcentration, 2), TAB(58), VB6.Format(Component(k).MW, "0.00"))
-		Next i
-		PrintLine(f)
-		PrintLine(f, "* K in (mg/g)*(L/mg)^(1/n)")
-		
-		PrintLine(f)
-		
-		'-----------------------Bed Data ----------------------
-		PrintLine(f, "Bed Data:")
-		
-		PrintLine(f, TAB(5), "Bed Length: ", TAB(28), VB6.Format(Bed.length, "0.000E+00") & " m")
-		PrintLine(f, TAB(5), "Bed Diameter: ", TAB(28), VB6.Format(Bed.Diameter, "0.000E+00") & " m")
-		PrintLine(f, TAB(5), "Weight of GAC: ", TAB(28), VB6.Format(Bed.Weight, "0.000E+00") & " kg")
-		PrintLine(f, TAB(5), "Inlet Flowrate: ", TAB(28), VB6.Format(Bed.Flowrate, "0.000E+00") & " m" & Chr(179) & "/s")
-		PrintLine(f, TAB(5), "EBCT: ", TAB(28), VB6.Format(Bed.length * PI * Bed.Diameter * Bed.Diameter / 4# / Bed.Flowrate / 60#, "0.000E+00") & " mn")
-		PrintLine(f)
-		PrintLine(f, TAB(5), "Temperature:", TAB(28), VB6.Format(Bed.Temperature, "0.00") & " C")
-		If Bed.Phase = 0 Then
-			PrintLine(f, TAB(5), "Water Density:", TAB(28), VB6.Format(Bed.WaterDensity, "0.0000") & " g/cm" & Chr(179))
-			PrintLine(f, TAB(5), "Water Viscosity:", TAB(28), VB6.Format(Bed.WaterViscosity, "0.00E+00") & " g/cm.s")
-		Else
-			PrintLine(f, TAB(5), "Pressure:", TAB(28), VB6.Format(Bed.Pressure, "0.00000") & " atm")
-			PrintLine(f, TAB(5), "Air Density:", TAB(28), VB6.Format(Bed.WaterDensity, "0.0000") & " g/cm" & Chr(179))
-			PrintLine(f, TAB(5), "Air Viscosity:", TAB(28), VB6.Format(Bed.WaterViscosity, "0.00E+00") & " g/cm.s")
-		End If
-		PrintLine(f)
-		
-		'-----------------Carbon Properties -------------------------------
-		PrintLine(f, "Carbon Properties:")
-		
-		PrintLine(f, TAB(5), "Name: ", TAB(28), Trim(Carbon.Name))
-		PrintLine(f, TAB(5), "Apparent Density: ", TAB(28), VB6.Format(Carbon.Density, "0.000") & " g/cm" & Chr(179))
-		PrintLine(f, TAB(5), "Particle Radius: ", TAB(28), VB6.Format(Carbon.ParticleRadius * 100#, "0.000000") & " cm")
-		PrintLine(f, TAB(5), "Porosity: ", TAB(28), VB6.Format(Carbon.Porosity, "0.000"))
-		PrintLine(f, TAB(5), "Shape Factor: ", TAB(28), VB6.Format(Carbon.ShapeFactor, "0.000"))
-		'Print #f, Tab(5); "Tortuosity: "; Tab(28); Format$(Carbon.Tortuosity, "0.000")
-		PrintLine(f)
-		
-		PrintLine(f)
-		'--- Print the results from the table
-		PrintLine(f, "Results for the Equilibrium Column Model")
-		
-		PrintLine(f)
-		PrintLine(f, "Zone", TAB(9), "Component", TAB(35), "BVF", TAB(44), "Wave Vel.", TAB(54), "TC", TAB(63), "Breakthrough")
-		PrintLine(f, TAB(45), "cm/s", TAB(54), "m3/kg", TAB(63), Time_Unit)
-		For i = 1 To Number_Component_ECM
-			PrintLine(f, "Zone " & VB6.Format(i, "0"), TAB(9), Mid(Trim(Component(IndexW(i)).Name), 1, 25), TAB(35), Format_It(Output_ECM(i).Bed_Volume_Fed, 2), TAB(45), Format_It(Output_ECM(i).Wave_Velocity, 2), TAB(54), Format_It(1 / Output_ECM(i).Carbon_Usage_Rate * 1000, 2), TAB(63), Format_It(Time_Break(i), 2))
-			
-			'Change made: (ejo, 3/1/96)
-			'==========================
-			'was: Format_It(Output_ECM(i).Carbon_Usage_Rate, 2)
-			'is now: Format_It(1 / Output_ECM(i).Carbon_Usage_Rate * 1000, 2)
-			
-		Next i
-		PrintLine(f)
-		PrintLine(f, "TC (Treatment Capacity) is in m" & Chr(179) & "  / kg of GAC")
-		PrintLine(f)
-		
-		For i = 1 To Number_Component_ECM
-			PrintLine(f, Mid(Trim(Component(IndexW(i)).Name), 1, 25))
-			PrintLine(f, "Zone ", TAB(9), "C/Co", TAB(19), "C (mg/L)", TAB(29), "Q (mg/L)")
-			For J = 1 To Number_Component_ECM
-				'UPGRADE_WARNING: Couldn't resolve default property of object Solid_ConcW(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				'UPGRADE_WARNING: Couldn't resolve default property of object Liquid_ConcW(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				PrintLine(f, "Zone " & VB6.Format(J, "0"), TAB(9), Format_It(CoCW(i, J), 2), TAB(19), Format_It(Liquid_ConcW(i, J) / 1000#, 2), TAB(29), Format_It(Solid_ConcW(i, J) / 1000#, 2))
-			Next J
-			PrintLine(f)
-		Next i
-		
-		PrintLine(f)
-		PrintLine(f)
-		'--- Print the mass balance results
-		PrintLine(f, "Mass Balance Results")
-		PrintLine(f)
-		PrintLine(f, "Component", TAB(30), "Percent Err.")
-		'Print #f, ""; Tab(30); "(ug/cm2/s)"; Tab(45); "(ug/cm2/s)"; Tab(60); "(%)"
-		PrintLine(f, "", TAB(30), "(%)")
-		For i = 1 To Number_Component_ECM
-			'        Print #f, Mid$(Trim$(Component(i).Name), 1, 25); Tab(30); Format_It(Output_ECM_MASSBAL.MASSBAL_C0_e_Vf(IndexW(i)), 3); Tab(45); Format_It(Output_ECM_MASSBAL.MASSBAL_TERM_SUM(IndexW(i)), 3); Tab(60); Format_It(Output_ECM_MASSBAL.MASSBAL_PERCENT_ERR(IndexW(i)), 3)
-			'        Print #f, Mid$(Trim$(Component(IndexW(i)).Name), 1, 25); Tab(30); Format_It(Output_ECM_MASSBAL.MASSBAL_C0_e_Vf(i), 3); Tab(45); Format_It(Output_ECM_MASSBAL.MASSBAL_TERM_SUM(i), 3); Tab(60); Format_It(Output_ECM_MASSBAL.MASSBAL_PERCENT_ERR(i), 3)
-			PrintLine(f, Mid(Trim(Component(IndexW(i)).Name), 1, 25), TAB(30), Format_It(Output_ECM_MASSBAL.MASSBAL_PERCENT_ERR(IndexW(i)), 3))
-		Next i
-		PrintLine(f)
-		
-		
-		FileClose((f))
-		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filename = ""
-		Exit Sub
-		
-File_Error: 
-		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
-			'DO NOTHING.
-		Else
-			Call Show_Trapped_Error("cmdFile_Click")
-		End If
-		Resume Exit_Print_File
-Exit_Print_File: 
-	End Sub
-	
-	
+
+
+
 	Private Sub cmdPrint_Click()
 		Dim Printer As New Printer
 		Dim Error_Code As Short
@@ -351,9 +204,9 @@ Exit_Print:
 		'CMDialog1.flags = PD_PRINTSETUP
 		'CMDialog1.Action = 5
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = False
+		'CMDialog1.CancelError = False
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.ShowPrinter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.ShowPrinter()
+		'CMDialog1.ShowPrinter()
 		Exit Sub
 Select_Print_Error: 
 		Call Show_Trapped_Error("cmdSelect_Click")
@@ -657,24 +510,28 @@ err_FRMGLOBAL_UserPrefs_Load:
 
 		On Error GoTo File_Error
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = True
+		'CMDialog1.CancelError = True
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.DialogTitle = "Print to File"
+		'CMDialog1.DialogTitle = "Print to File"
+		SaveFileDialog1.Title = "Print to File"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FilterIndex = 2
+		SaveFileDialog1.FilterIndex = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+		'CMDialog1.Flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Action = 2
+		'CMDialog1.Action = 2
+
+		SaveFileDialog1.ShowDialog()
 
 		'f = FileNameIsValid(Filename_Input, CMDialog1)
 		'If Not (f) Then Exit Sub
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Filename_Input = CMDialog1.FileName
+		'Filename_Input = CMDialog1.FileName
+		Filename_Input = SaveFileDialog1.FileName
 		f = FreeFile()
 		FileOpen(f, Filename_Input, OpenMode.Output)
 		PrintLine(f, "Input data for the Equilibrium Colum Model")
@@ -779,7 +636,8 @@ err_FRMGLOBAL_UserPrefs_Load:
 
 		FileClose((f))
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FileName = ""
+		'CMDialog1.FileName = ""
+		SaveFileDialog1.FileName = ""
 		Exit Sub
 
 File_Error:
@@ -800,9 +658,9 @@ Exit_Print_File:
 		'CMDialog1.flags = PD_PRINTSETUP
 		'CMDialog1.Action = 5
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = False
+		'CMDialog1.CancelError = False
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.ShowPrinter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.ShowPrinter()
+		'CMDialog1.ShowPrinter()
 		Exit Sub
 Select_Print_Error:
 		Call Show_Trapped_Error("cmdSelect_Click")

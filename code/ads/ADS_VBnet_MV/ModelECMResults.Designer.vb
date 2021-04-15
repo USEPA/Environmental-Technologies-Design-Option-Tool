@@ -21,7 +21,6 @@
 	Public WithEvents Command4 As System.Windows.Forms.Button
 	Public WithEvents cboGlob As System.Windows.Forms.ComboBox
     Public WithEvents grpGlob As AxGraphLib.AxGraph
-    Public WithEvents CMDialog1 As AxMSComDlg.AxCommonDialog
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
@@ -33,7 +32,6 @@
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.cboGlob = New System.Windows.Forms.ComboBox()
         Me.grpGlob = New AxGraphLib.AxGraph()
-        Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblData5 = New System.Windows.Forms.Label()
         Me.lblCompo = New System.Windows.Forms.Label()
@@ -46,18 +44,17 @@
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblData1 = New System.Windows.Forms.Label()
         Me.cmdSelect = New System.Windows.Forms.Button()
         Me.cmdPrint = New System.Windows.Forms.Button()
         Me.cmdFile = New System.Windows.Forms.Button()
         Me.cmdClose = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpGlob, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSFrame1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command4
@@ -112,22 +109,13 @@
         Me.grpGlob.TabIndex = 15
         Me.grpGlob.TabStop = False
         '
-        'CMDialog1
-        '
-        Me.CMDialog1.Enabled = True
-        Me.CMDialog1.Location = New System.Drawing.Point(0, 0)
-        Me.CMDialog1.Name = "CMDialog1"
-        Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
-        Me.CMDialog1.TabIndex = 23
-        '
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label7.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label7.Location = New System.Drawing.Point(536, 14)
+        Me.Label7.Location = New System.Drawing.Point(536, 13)
         Me.Label7.Name = "Label7"
         Me.Label7.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label7.Size = New System.Drawing.Size(87, 33)
@@ -142,7 +130,7 @@
         Me.lblData5.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblData5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblData5.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblData5.Location = New System.Drawing.Point(530, 47)
+        Me.lblData5.Location = New System.Drawing.Point(530, 46)
         Me.lblData5.Name = "lblData5"
         Me.lblData5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblData5.Size = New System.Drawing.Size(93, 132)
@@ -157,7 +145,7 @@
         Me.lblCompo.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblCompo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCompo.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblCompo.Location = New System.Drawing.Point(34, 47)
+        Me.lblCompo.Location = New System.Drawing.Point(34, 46)
         Me.lblCompo.Name = "lblCompo"
         Me.lblCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblCompo.Size = New System.Drawing.Size(128, 132)
@@ -171,7 +159,7 @@
         Me.lblData4.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblData4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblData4.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblData4.Location = New System.Drawing.Point(441, 47)
+        Me.lblData4.Location = New System.Drawing.Point(441, 46)
         Me.lblData4.Name = "lblData4"
         Me.lblData4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblData4.Size = New System.Drawing.Size(89, 132)
@@ -185,7 +173,7 @@
         Me.Label6.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label6.Location = New System.Drawing.Point(438, 14)
+        Me.Label6.Location = New System.Drawing.Point(438, 13)
         Me.Label6.Name = "Label6"
         Me.Label6.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label6.Size = New System.Drawing.Size(89, 33)
@@ -200,7 +188,7 @@
         Me.lblZone.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblZone.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblZone.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblZone.Location = New System.Drawing.Point(7, 47)
+        Me.lblZone.Location = New System.Drawing.Point(7, 46)
         Me.lblZone.Name = "lblZone"
         Me.lblZone.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblZone.Size = New System.Drawing.Size(27, 132)
@@ -215,7 +203,7 @@
         Me.lblData2.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblData2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblData2.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblData2.Location = New System.Drawing.Point(262, 47)
+        Me.lblData2.Location = New System.Drawing.Point(262, 46)
         Me.lblData2.Name = "lblData2"
         Me.lblData2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblData2.Size = New System.Drawing.Size(88, 132)
@@ -230,7 +218,7 @@
         Me.lblData3.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblData3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblData3.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblData3.Location = New System.Drawing.Point(350, 47)
+        Me.lblData3.Location = New System.Drawing.Point(350, 46)
         Me.lblData3.Name = "lblData3"
         Me.lblData3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblData3.Size = New System.Drawing.Size(93, 132)
@@ -244,7 +232,7 @@
         Me.Label5.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label5.Location = New System.Drawing.Point(6, 27)
+        Me.Label5.Location = New System.Drawing.Point(6, 26)
         Me.Label5.Name = "Label5"
         Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label5.Size = New System.Drawing.Size(50, 17)
@@ -257,7 +245,7 @@
         Me.Label4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label4.Location = New System.Drawing.Point(49, 27)
+        Me.Label4.Location = New System.Drawing.Point(49, 26)
         Me.Label4.Name = "Label4"
         Me.Label4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label4.Size = New System.Drawing.Size(114, 20)
@@ -271,7 +259,7 @@
         Me.Label2.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label2.Location = New System.Drawing.Point(262, 14)
+        Me.Label2.Location = New System.Drawing.Point(262, 13)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label2.Size = New System.Drawing.Size(89, 33)
@@ -285,7 +273,7 @@
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label1.Location = New System.Drawing.Point(354, 14)
+        Me.Label1.Location = New System.Drawing.Point(354, 13)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label1.Size = New System.Drawing.Size(94, 33)
@@ -293,35 +281,13 @@
         Me.Label1.Text = "VTM         (mg GAC/L)"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'SSFrame1
-        '
-        Me.SSFrame1.Controls.Add(Me.Label1)
-        Me.SSFrame1.Controls.Add(Me.Label2)
-        Me.SSFrame1.Controls.Add(Me.Label3)
-        Me.SSFrame1.Controls.Add(Me.Label4)
-        Me.SSFrame1.Controls.Add(Me.Label5)
-        Me.SSFrame1.Controls.Add(Me.lblData3)
-        Me.SSFrame1.Controls.Add(Me.lblData2)
-        Me.SSFrame1.Controls.Add(Me.lblData1)
-        Me.SSFrame1.Controls.Add(Me.lblZone)
-        Me.SSFrame1.Controls.Add(Me.Label6)
-        Me.SSFrame1.Controls.Add(Me.lblData4)
-        Me.SSFrame1.Controls.Add(Me.lblCompo)
-        Me.SSFrame1.Controls.Add(Me.lblData5)
-        Me.SSFrame1.Controls.Add(Me.Label7)
-        Me.SSFrame1.Location = New System.Drawing.Point(46, 0)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(634, 188)
-        Me.SSFrame1.TabIndex = 0
-        '
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label3.Location = New System.Drawing.Point(162, 14)
+        Me.Label3.Location = New System.Drawing.Point(162, 13)
         Me.Label3.Name = "Label3"
         Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Label3.Size = New System.Drawing.Size(106, 33)
@@ -336,7 +302,7 @@
         Me.lblData1.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblData1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblData1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblData1.Location = New System.Drawing.Point(162, 47)
+        Me.lblData1.Location = New System.Drawing.Point(162, 46)
         Me.lblData1.Name = "lblData1"
         Me.lblData1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblData1.Size = New System.Drawing.Size(100, 132)
@@ -380,13 +346,37 @@
         Me.cmdClose.Text = "Close"
         Me.cmdClose.UseVisualStyleBackColor = True
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.lblCompo)
+        Me.GroupBox1.Controls.Add(Me.lblData5)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.lblData4)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.lblZone)
+        Me.GroupBox1.Controls.Add(Me.lblData1)
+        Me.GroupBox1.Controls.Add(Me.lblData2)
+        Me.GroupBox1.Controls.Add(Me.lblData3)
+        Me.GroupBox1.Location = New System.Drawing.Point(38, 7)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(641, 181)
+        Me.GroupBox1.TabIndex = 30
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "GroupBox1"
+        '
         'frmModelECMResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(750, 516)
+        Me.ClientSize = New System.Drawing.Size(1266, 516)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cmdClose)
         Me.Controls.Add(Me.cmdFile)
         Me.Controls.Add(Me.cmdPrint)
@@ -394,9 +384,7 @@
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.cboGlob)
-        Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me.grpGlob)
-        Me.Controls.Add(Me.CMDialog1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -409,9 +397,7 @@
         Me.Text = "Results for the Equilibrium Column Model (ECM)"
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpGlob, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSFrame1.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -428,12 +414,13 @@
     Public WithEvents Label4 As Label
     Public WithEvents Label2 As Label
     Public WithEvents Label1 As Label
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents Label3 As Label
     Public WithEvents lblData1 As Label
     Friend WithEvents cmdSelect As Button
     Friend WithEvents cmdPrint As Button
     Friend WithEvents cmdFile As Button
     Friend WithEvents cmdClose As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 #End Region
 End Class
