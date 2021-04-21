@@ -222,8 +222,10 @@ Exit_Select_Print:
 		Num_Compo = Number_Component_ECM
 		Dim J, i, k, Numpoints As Short
 
-		Dim s As New Series
-		s.ChartType = SeriesChartType.Column
+		Dim s(NumW) As Series
+
+
+
 
 		Chart1.Titles.Clear()
 		Chart1.Series.Clear()
@@ -243,6 +245,7 @@ Exit_Select_Print:
 				For J = 1 To NumW
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'grpGlob.ThisSet = J
+					s(J).ChartType = SeriesChartType.Column
 					If Num_Compo >= 2 Then
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						Numpoints = NumW
@@ -268,7 +271,7 @@ Exit_Select_Print:
 					'grpGlob.ThisPoint = J
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'grpGlob.LegendText = Name_CompW(J)
-					s.LegendText = Name_CompW(J)
+					s(J).LegendText = Name_CompW(J)
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					For i = 1 To Numpoints
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -281,7 +284,8 @@ Exit_Select_Print:
 						'grpGlob.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'grpGlob.GraphData = CoCW(k, i)
-						s.Points.Add(CoCW(J, i))
+						Console.WriteLine(CoCW(J, i))
+						s(J).Points.Add(CoCW(J, i))
 
 					Next i
 				Next J
@@ -323,7 +327,7 @@ Exit_Select_Print:
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'grpGlob.ThisPoint = J
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					s.LegendText = Name_CompW(J)
+					s(J).LegendText = Name_CompW(J)
 
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					For i = 1 To NumW 'grpGlob.NumPoints
@@ -338,7 +342,7 @@ Exit_Select_Print:
 						'grpGlob.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'UPGRADE_WARNING: Couldn't resolve default property of object Solid_ConcW(k, i). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						s.Points.Add(Solid_ConcW(J, i))
+						s(J).Points.Add(Solid_ConcW(J, i))
 					Next i
 				Next J
 
@@ -378,7 +382,7 @@ Exit_Select_Print:
 					'grpGlob.ThisPoint = J
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'grpGlob.LegendText = Name_CompW(k)
-					s.LegendText = Name_CompW(J)
+					s(J).LegendText = Name_CompW(J)
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					For i = 1 To NumW ' grpGlob.NumPoints
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -391,7 +395,7 @@ Exit_Select_Print:
 						'grpGlob.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'UPGRADE_WARNING: Couldn't resolve default property of object Liquid_ConcW(k, i). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						s.Points.Add(Liquid_ConcW(J, i))
+						s(J).Points.Add(Liquid_ConcW(J, i))
 					Next i
 				Next J
 		End Select
@@ -401,9 +405,9 @@ Exit_Select_Print:
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.LabelText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'grpGlob.LabelText = ""
 		'End If
-
-		Chart1.Series.Add(s)
-
+		For J = 1 To NumW
+			Chart1.Series.Add(s(J))
+		Next J
 	End Sub
 	
 	Private Sub frmModelECMResults_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
@@ -468,12 +472,12 @@ Exit_Select_Print:
 		
 		Call Populate_Scrollboxes()
 		Call cboGlob_SelectedIndexChanged(cboGlob, New System.EventArgs())
-		
-		
+
+		'Chart1.ChartAreas(0).
 		'Call Draw(1)
 		'grpGlob.DrawMode = 2
-		
-		
+
+
 	End Sub
 	
 	Private Sub frmModelECMResults_FormClosed(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
