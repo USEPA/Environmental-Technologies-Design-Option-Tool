@@ -224,12 +224,9 @@ Exit_Select_Print:
 
 		Dim s(NumW) As Series
 
-
-
-
 		Chart1.Titles.Clear()
 		Chart1.Series.Clear()
-
+		Chart1.ChartAreas(0).RecalculateAxesScale()
 
 		Select Case GFlag
 			Case 1
@@ -245,6 +242,7 @@ Exit_Select_Print:
 				For J = 1 To NumW
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'grpGlob.ThisSet = J
+					s(J) = New Series
 					s(J).ChartType = SeriesChartType.Column
 					If Num_Compo >= 2 Then
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -284,7 +282,6 @@ Exit_Select_Print:
 						'grpGlob.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'grpGlob.GraphData = CoCW(k, i)
-						Console.WriteLine(CoCW(J, i))
 						s(J).Points.Add(CoCW(J, i))
 
 					Next i
@@ -327,6 +324,7 @@ Exit_Select_Print:
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'grpGlob.ThisPoint = J
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+					s(J) = New Series
 					s(J).LegendText = Name_CompW(J)
 
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -382,6 +380,7 @@ Exit_Select_Print:
 					'grpGlob.ThisPoint = J
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'grpGlob.LegendText = Name_CompW(k)
+					s(J) = New Series
 					s(J).LegendText = Name_CompW(J)
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					For i = 1 To NumW ' grpGlob.NumPoints
