@@ -40,7 +40,7 @@ Friend Class frmModelECMResults
 			If cboGlob.Text = "C (Liquid Conc.)" Then i = 3
 			Call Draw(i)
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.DrawMode. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpGlob.DrawMode = 2
+			'grpGlob.DrawMode = 2
 		End If
 		
 	End Sub
@@ -282,7 +282,12 @@ Exit_Select_Print:
 						'grpGlob.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'grpGlob.GraphData = CoCW(k, i)
-						s(J).Points.Add(CoCW(J, i))
+						If CoCW(J, i) = 0 Then
+							s(J).Points.Add(0.0001)
+						Else
+							s(J).Points.Add(CoCW(J, i))
+						End If
+
 
 					Next i
 				Next J
@@ -340,7 +345,11 @@ Exit_Select_Print:
 						'grpGlob.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'UPGRADE_WARNING: Couldn't resolve default property of object Solid_ConcW(k, i). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						s(J).Points.Add(Solid_ConcW(J, i))
+						If Solid_ConcW(J, i) = 0 Then
+							s(J).Points.Add(0.0001)
+						Else
+							s(J).Points.Add(Solid_ConcW(J, i))
+						End If
 					Next i
 				Next J
 
@@ -394,7 +403,13 @@ Exit_Select_Print:
 						'grpGlob.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'UPGRADE_WARNING: Couldn't resolve default property of object Liquid_ConcW(k, i). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						s(J).Points.Add(Liquid_ConcW(J, i))
+
+						If Liquid_ConcW(J, i) = 0 Then
+							s(J).Points.Add(0.0001)
+						Else
+							s(J).Points.Add(Liquid_ConcW(J, i))
+						End If
+
 					Next i
 				Next J
 		End Select

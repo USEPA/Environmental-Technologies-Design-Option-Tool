@@ -376,6 +376,8 @@
         '
         'Chart1
         '
+        ChartArea1.Area3DStyle.Enable3D = True
+        ChartArea1.Area3DStyle.IsClustered = True
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
