@@ -278,6 +278,7 @@ Exit_Select_Print:
 
 						'grpGlob.LabelText = "Zone " & VB6.Format(i, "0")
 
+
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'grpGlob.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpGlob.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -422,6 +423,11 @@ Exit_Select_Print:
 		For J = 1 To NumW
 			Chart1.Series.Add(s(J))
 		Next J
+
+		Chart1.ChartAreas(0).AxisX.Title = "Zone:"
+		Chart1.ChartAreas(0).AxisX.LabelStyle.Font = New System.Drawing.Font("Times New Roman", 10.25F)
+		Chart1.ChartAreas(0).AxisY.LabelStyle.Font = New System.Drawing.Font("Times New Roman", 10.25F)
+
 	End Sub
 	
 	Private Sub frmModelECMResults_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load

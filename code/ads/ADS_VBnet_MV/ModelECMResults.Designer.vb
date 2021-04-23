@@ -20,21 +20,18 @@
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
 	Public WithEvents Command4 As System.Windows.Forms.Button
 	Public WithEvents cboGlob As System.Windows.Forms.ComboBox
-    Public WithEvents grpGlob As AxGraphLib.AxGraph
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmModelECMResults))
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.cboGlob = New System.Windows.Forms.ComboBox()
-        Me.grpGlob = New AxGraphLib.AxGraph()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblData5 = New System.Windows.Forms.Label()
         Me.lblCompo = New System.Windows.Forms.Label()
@@ -57,7 +54,6 @@
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grpGlob, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -68,10 +64,10 @@
         Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
         Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(500, 399)
+        Me.Command4.Location = New System.Drawing.Point(578, 417)
         Me.Command4.Name = "Command4"
         Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(113, 22)
+        Me.Command4.Size = New System.Drawing.Size(119, 22)
         Me.Command4.TabIndex = 21
         Me.Command4.Text = "Print Screen"
         Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
@@ -84,10 +80,10 @@
         Me.Picture1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Picture1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Picture1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Picture1.Location = New System.Drawing.Point(622, 399)
+        Me.Picture1.Location = New System.Drawing.Point(700, 417)
         Me.Picture1.Name = "Picture1"
         Me.Picture1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Picture1.Size = New System.Drawing.Size(89, 57)
+        Me.Picture1.Size = New System.Drawing.Size(95, 57)
         Me.Picture1.TabIndex = 22
         Me.Picture1.TabStop = False
         Me.Picture1.Visible = False
@@ -99,20 +95,11 @@
         Me.cboGlob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboGlob.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboGlob.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.cboGlob.Location = New System.Drawing.Point(516, 194)
+        Me.cboGlob.Location = New System.Drawing.Point(594, 212)
         Me.cboGlob.Name = "cboGlob"
         Me.cboGlob.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboGlob.Size = New System.Drawing.Size(121, 22)
+        Me.cboGlob.Size = New System.Drawing.Size(95, 22)
         Me.cboGlob.TabIndex = 19
-        '
-        'grpGlob
-        '
-        Me.grpGlob.Location = New System.Drawing.Point(4, 194)
-        Me.grpGlob.Name = "grpGlob"
-        Me.grpGlob.OcxState = CType(resources.GetObject("grpGlob.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.grpGlob.Size = New System.Drawing.Size(490, 310)
-        Me.grpGlob.TabIndex = 15
-        Me.grpGlob.TabStop = False
         '
         'Label7
         '
@@ -317,36 +304,36 @@
         '
         'cmdSelect
         '
-        Me.cmdSelect.Location = New System.Drawing.Point(516, 234)
+        Me.cmdSelect.Location = New System.Drawing.Point(594, 252)
         Me.cmdSelect.Name = "cmdSelect"
-        Me.cmdSelect.Size = New System.Drawing.Size(89, 30)
+        Me.cmdSelect.Size = New System.Drawing.Size(95, 30)
         Me.cmdSelect.TabIndex = 24
         Me.cmdSelect.Text = "Select Printer"
         Me.cmdSelect.UseVisualStyleBackColor = True
         '
         'cmdPrint
         '
-        Me.cmdPrint.Location = New System.Drawing.Point(516, 270)
+        Me.cmdPrint.Location = New System.Drawing.Point(594, 288)
         Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(89, 30)
+        Me.cmdPrint.Size = New System.Drawing.Size(95, 30)
         Me.cmdPrint.TabIndex = 25
         Me.cmdPrint.Text = "Print"
         Me.cmdPrint.UseVisualStyleBackColor = True
         '
         'cmdFile
         '
-        Me.cmdFile.Location = New System.Drawing.Point(516, 306)
+        Me.cmdFile.Location = New System.Drawing.Point(594, 324)
         Me.cmdFile.Name = "cmdFile"
-        Me.cmdFile.Size = New System.Drawing.Size(89, 30)
+        Me.cmdFile.Size = New System.Drawing.Size(95, 30)
         Me.cmdFile.TabIndex = 26
         Me.cmdFile.Text = "Save"
         Me.cmdFile.UseVisualStyleBackColor = True
         '
         'cmdClose
         '
-        Me.cmdClose.Location = New System.Drawing.Point(516, 342)
+        Me.cmdClose.Location = New System.Drawing.Point(594, 360)
         Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(89, 30)
+        Me.cmdClose.Size = New System.Drawing.Size(95, 30)
         Me.cmdClose.TabIndex = 27
         Me.cmdClose.Text = "Close"
         Me.cmdClose.UseVisualStyleBackColor = True
@@ -372,23 +359,25 @@
         Me.GroupBox1.Size = New System.Drawing.Size(641, 181)
         Me.GroupBox1.TabIndex = 30
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
+        Me.GroupBox1.Text = "Results:"
         '
         'Chart1
         '
-        ChartArea1.Area3DStyle.Enable3D = True
-        ChartArea1.Area3DStyle.IsClustered = True
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(748, 33)
+        ChartArea2.Area3DStyle.Enable3D = True
+        ChartArea2.Area3DStyle.IsClustered = True
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea2)
+        Legend2.Font = New System.Drawing.Font("Agency FB", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend2.IsTextAutoFit = False
+        Legend2.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend2)
+        Me.Chart1.Location = New System.Drawing.Point(12, 195)
         Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(474, 261)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart1.Series.Add(Series2)
+        Me.Chart1.Size = New System.Drawing.Size(560, 291)
         Me.Chart1.TabIndex = 31
         Me.Chart1.Text = "Chart1"
         '
@@ -397,7 +386,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1266, 516)
+        Me.ClientSize = New System.Drawing.Size(711, 516)
         Me.ControlBox = False
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.GroupBox1)
@@ -408,7 +397,6 @@
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.cboGlob)
-        Me.Controls.Add(Me.grpGlob)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -420,7 +408,6 @@
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Results for the Equilibrium Column Model (ECM)"
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grpGlob, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
