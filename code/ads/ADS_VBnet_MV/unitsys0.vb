@@ -320,129 +320,131 @@ err_unitsys_control_txtx_lostfocus_validate:
 		
 		X = 0#
 		ut = UCase(Trim(UnitType))
-		un = UCase(Trim(unitname))
+		un = LCase(Trim(unitname))
+		'changed all from UCase to LCase bc of the nasty µ
+
 		If (ut = "LENGTH") Then
-			If (un = "M") Then X = 1#
-			If (un = "CM") Then X = 0.01
-			If (un = "FT") Then X = 0.3048
-			If (un = "IN") Then X = 0.0254
+			If (un = "m") Then X = 1.0#
+			If (un = "cm") Then X = 0.01
+			If (un = "ft") Then X = 0.3048
+			If (un = "in") Then X = 0.0254
 		End If
 		If (ut = "MASS") Then
-			If (un = "KG") Then X = 1#
-			If (un = "G") Then X = 1# / 1000#
-			If (un = "LB") Then X = 0.45359237
+			If (un = "kg") Then X = 1.0#
+			If (un = "g") Then X = 1.0# / 1000.0#
+			If (un = "lb") Then X = 0.45359237
 		End If
 		If (ut = "TIME") Then
-			If (un = "S") Then X = 1#
-			If (un = "MIN") Then X = 1# * 60#
-			If (un = "HR") Then X = 1# * 60# * 60#
-			If (un = "D") Then X = 1# * 60# * 60# * 24#
-			If (un = "YEAR") Then X = 1# * 60# * 60# * 24# * 365.25
+			If (un = "s") Then X = 1.0#
+			If (un = "min") Then X = 1.0# * 60.0#
+			If (un = "hr") Then X = 1.0# * 60.0# * 60.0#
+			If (un = "d") Then X = 1.0# * 60.0# * 60.0# * 24.0#
+			If (un = "year") Then X = 1.0# * 60.0# * 60.0# * 24.0# * 365.25
 		End If
 		If (ut = "INVERSE_TIME") Then
-			If (un = "1/S") Then X = 1#
-			If (un = "1/MIN") Then X = 1# / 60#
-			If (un = "1/HR") Then X = 1# / 60# / 60#
-			If (un = "1/DAY") Then X = 1# / 60# / 60# / 24#
-			If (un = "1/YEAR") Then X = 1# / 60# / 60# / 24# / 365.25
+			If (un = "1/s") Then X = 1.0#
+			If (un = "1/min") Then X = 1.0# / 60.0#
+			If (un = "1/hr") Then X = 1.0# / 60.0# / 60.0#
+			If (un = "1/day") Then X = 1.0# / 60.0# / 60.0# / 24.0#
+			If (un = "1/year") Then X = 1.0# / 60.0# / 60.0# / 24.0# / 365.25
 		End If
 		If (ut = "REACTION_SOLIDPHASE") Then
-			If (un = "1/S") Then X = 1#
-			If (un = "1/MIN") Then X = 1# / 60#
-			If (un = "1/HR") Then X = 1# / 60# / 60#
-			If (un = "1/DAY") Then X = 1# / 60# / 60# / 24#
-			If (un = "1/YEAR") Then X = 1# / 60# / 60# / 24# / 365.25
+			If (un = "1/s") Then X = 1.0#
+			If (un = "1/min") Then X = 1.0# / 60.0#
+			If (un = "1/hr") Then X = 1.0# / 60.0# / 60.0#
+			If (un = "1/day") Then X = 1.0# / 60.0# / 60.0# / 24.0#
+			If (un = "1/year") Then X = 1.0# / 60.0# / 60.0# / 24.0# / 365.25
 		End If
 		If (ut = "REACTION_LIQUIDPHASE") Then
-			If (un = "L/µMOL-S") Then X = 1#
-			If (un = "CM³/µMOL-S") Then X = 1# / 1000#
+			If (un = "l/µmol-s") Then X = 1.0#
+			If (un = "cm³/µmol-s") Then X = 1.0# / 1000.0#
 		End If
 		If (ut = "REACTION_GASPHASE") Then
-			If (un = "L/µMOL-S") Then X = 1#
-			If (un = "CM³/µMOL-S") Then X = 1# / 1000#
+			If (un = "l/µmol-s") Then X = 1.0#
+			If (un = "cm³/µmol-s") Then X = 1.0# / 1000.0#
 		End If
 		If (ut = "LANGMUIR_QM") Then
-			If (un = "µMOL/G") Then X = 1#
+			If (un = "µmol/g") Then X = 1.0#
 		End If
 		If (ut = "LANGMUIR_B") Then
-			If (un = "L/µMOL") Then X = 1#
+			If (un = "l/µmol") Then X = 1.0#
 		End If
 		If (ut = "FLOW_VOLUMETRIC") Then
-			If (un = "M³/S") Then X = 1#
-			If (un = "M³/D") Then X = 1# / (60# * 60# * 24#)
-			If (un = "CM³/S") Then X = 1# / (100# * 100# * 100#)
-			If (un = "ML/MIN") Then X = 1# / (100# * 100# * 100#) / (60#)
-			If (un = "FT³/S") Then X = 1# / (35.31466672)
-			If (un = "FT³/D") Then X = 1# / (35.31466672) / (60# * 60# * 24#)
-			If (un = "GPM") Then X = 1# / (264.1720524) / (60#)
-			If (un = "GPD") Then X = 1# / (264.1720524) / (60# * 60# * 24#)
-			If (un = "MGD") Then X = (1000# * 1000#) / (264.1720524) / (60# * 60# * 24#)
+			If (un = "m³/s") Then X = 1.0#
+			If (un = "m³/d") Then X = 1.0# / (60.0# * 60.0# * 24.0#)
+			If (un = "cm³/s") Then X = 1.0# / (100.0# * 100.0# * 100.0#)
+			If (un = "ml/min") Then X = 1.0# / (100.0# * 100.0# * 100.0#) / (60.0#)
+			If (un = "ft³/s") Then X = 1.0# / (35.31466672)
+			If (un = "ft³/d") Then X = 1.0# / (35.31466672) / (60.0# * 60.0# * 24.0#)
+			If (un = "gpm") Then X = 1.0# / (264.1720524) / (60.0#)
+			If (un = "gpd") Then X = 1.0# / (264.1720524) / (60.0# * 60.0# * 24.0#)
+			If (un = "mgd") Then X = (1000.0# * 1000.0#) / (264.1720524) / (60.0# * 60.0# * 24.0#)
 			''''If (un = "FT³/MIN") Then X = 1# / (35.31466672) / (60# * 24#)
-			If (un = "FT³/MIN") Then X = 1# / (35.31466672) / 60#
+			If (un = "ft³/min") Then X = 1.0# / (35.31466672) / 60.0#
 		End If
 		If (ut = "DENSITY") Then
-			If (un = "G/ML") Then X = 1# * 1000#
-            If (un = "KG/M³") Then X = 1.0#
+			If (un = "g/ml") Then X = 1.0# * 1000.0#
+			If (un = "kg/m³") Then X = 1.0#
 			'UPGRADE_ISSUE: The preceding line couldn't be parsed. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="82EBB1AE-1FCB-4FEF-9E6C-8736A316F8A7"'
-			If (un = "LB/FT³") Then X = 1.0# * (0.45359237) / (0.028316847)
-			If (un = "LB/GAL") Then X = 1# * (0.45359237) / (0.00378541178)
+			If (un = "lb/ft³") Then X = 1.0# * (0.45359237) / (0.028316847)
+			If (un = "lb/gal") Then X = 1.0# * (0.45359237) / (0.00378541178)
 		End If
 		If (ut = "CONCENTRATION") Then
-			If (un = "G/L") Then X = 1# * 1000# * 1000#
-			If (un = "MG/L") Then X = 1# * 1000#
-			If (un = "µG/L") Then X = 1#
+			If (un = "g/l") Then X = 1.0# * 1000.0# * 1000.0#
+			If (un = "mg/l") Then X = 1.0# * 1000.0#
+			If (un = "µg/l") Then X = 1.0#
 		End If
 		If (ut = "PRESSURE") Then
 			''If (un = "N/M²") Then X = 1#
 			'If (un = "PA") Then x = 1#
 			'If (un = "LBF/IN²") Then x = 1# * 6894.75729
 			'If (un = "ATM") Then x = 1# * 101325#
-			If (un = "PA") Then X = 1#
-			If (un = "KPA") Then X = 1# / (1# / 1000#)
-			If (un = "BARS") Then X = 1# / (1# / 100000#)
-			If (un = "ATM") Then X = 1# / (1# / 101325#)
-			If (un = "PSI") Then X = 1# / (14.696 / 101325#)
-			If (un = "MMHG") Then X = 1# / (760# / 101325#)
-			If (un = "MH20") Then X = 1# / (10.333 / 101325#)
-			If (un = "FTH20") Then X = 1# / (33.9 / 101325#)
-			If (un = "INHG") Then X = 1# / (29.921 / 101325#)
+			If (un = "pa") Then X = 1.0#
+			If (un = "kpa") Then X = 1.0# / (1.0# / 1000.0#)
+			If (un = "bars") Then X = 1.0# / (1.0# / 100000.0#)
+			If (un = "atm") Then X = 1.0# / (1.0# / 101325.0#)
+			If (un = "psi") Then X = 1.0# / (14.696 / 101325.0#)
+			If (un = "mmhg") Then X = 1.0# / (760.0# / 101325.0#)
+			If (un = "mh20") Then X = 1.0# / (10.333 / 101325.0#)
+			If (un = "fth20") Then X = 1.0# / (33.9 / 101325.0#)
+			If (un = "inhg") Then X = 1.0# / (29.921 / 101325.0#)
 		End If
 		If (ut = "VELOCITY") Then
-			If (un = "M/S") Then X = 1#
-			If (un = "M/HR") Then X = 1# * 0.0002777777
-			If (un = "FT/S") Then X = 1# * 0.3048
-			If (un = "FT/HR") Then X = 1# * 0.3048 * 0.0002777777
+			If (un = "m/s") Then X = 1.0#
+			If (un = "m/hr") Then X = 1.0# * 0.0002777777
+			If (un = "ft/s") Then X = 1.0# * 0.3048
+			If (un = "ft/hr") Then X = 1.0# * 0.3048 * 0.0002777777
 		End If
 		If (ut = "MOLAR_VOLUME") Then
-			If (un = "M³/KMOL") Then X = 1# * 0.001
-			If (un = "M³/GMOL") Then X = 1#
-			If (un = "L/GMOL") Then X = 1# * 0.001
-			If (un = "ML/GMOL") Then X = 1# * 0.000001
+			If (un = "m³/kmol") Then X = 1.0# * 0.001
+			If (un = "m³/gmol") Then X = 1.0#
+			If (un = "l/gmol") Then X = 1.0# * 0.001
+			If (un = "ml/gmol") Then X = 1.0# * 0.000001
 		End If
 		If (ut = "VISCOSITY") Then
-			If (un = "KG/M-S") Then X = 1#
-			If (un = "G/CM-S") Then X = 1# * 0.1
-			If (un = "CP") Then X = 1# * 0.001
+			If (un = "kg/m-s") Then X = 1.0#
+			If (un = "g/cm-s") Then X = 1.0# * 0.1
+			If (un = "cp") Then X = 1.0# * 0.001
 		End If
 		If (ut = "MOLECULAR_WEIGHT") Then
-			If (un = "MG/MMOL") Then X = 1#
-			If (un = "µG/µMOL") Then X = 1#
-			If (un = "G/GMOL") Then X = 1#
-			If (un = "KG/KMOL") Then X = 1#
+			If (un = "mg/mmol") Then X = 1.0#
+			If (un = "µg/µmol") Then X = 1.0#
+			If (un = "g/gmol") Then X = 1.0#
+			If (un = "kg/kmol") Then X = 1.0#
 		End If
 		If (ut = "VOLUME") Then
-			If (un = "M") Then X = 1#
-			If (un = "CM") Then X = 0.000001
-			If (un = "LITER") Then X = 0.001
-			If (un = "FT") Then X = 0.028316846592
-			If (un = "GAL") Then X = 0.003785411784
+			If (un = "m") Then X = 1.0#
+			If (un = "cm") Then X = 0.000001
+			If (un = "liter") Then X = 0.001
+			If (un = "ft") Then X = 0.028316846592
+			If (un = "gal") Then X = 0.003785411784
 		End If
 		If (ut = "MASS_EMISSION_RATE") Then
-			If (un = "µG/S") Then X = 1#
-			If (un = "µG/MIN") Then X = 1# / 60#
-			If (un = "MG/S") Then X = 1# * 1000#
-			If (un = "MG/MIN") Then X = 1000# / 60#
-			
+			If (un = "µg/s") Then X = 1.0#
+			If (un = "µg/min") Then X = 1.0# / 60.0#
+			If (un = "mg/s") Then X = 1.0# * 1000.0#
+			If (un = "mg/min") Then X = 1000.0# / 60.0#
+
 			'If (un = "µG/S") Then X = 1#
 			'If (un = "µG/MIN") Then X = 1# * 1000#
 			'If (un = "MG/S") Then X = 1# / 60#

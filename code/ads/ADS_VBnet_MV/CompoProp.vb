@@ -980,4 +980,8 @@ err_cmdImportFromFile_Click:
 	Private Sub ToolStripStatusLabel1_Click(sender As Object, e As EventArgs) Handles DirtyLabel.Click
 
 	End Sub
+
+	Private Sub _txtPropUnits_2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles _txtPropUnits_2.SelectedIndexChanged
+
+	End Sub
 End Class

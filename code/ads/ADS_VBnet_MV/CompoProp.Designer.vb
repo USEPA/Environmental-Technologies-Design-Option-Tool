@@ -72,7 +72,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCompoProp))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
@@ -811,7 +810,6 @@
         Me.cboSource.Size = New System.Drawing.Size(221, 22)
         Me.cboSource.TabIndex = 65
         Me.cboSource.TabStop = False
-
         '
         'cmdFreundlich
         '
@@ -868,7 +866,7 @@
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirtyLabel, Me.StatusLabel})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 478)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 511)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(581, 22)
         Me.StatusStrip1.TabIndex = 74
