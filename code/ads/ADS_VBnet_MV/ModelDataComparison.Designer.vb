@@ -18,16 +18,12 @@
 	Private components As System.ComponentModel.IContainer
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-    Public WithEvents cmdClose As AxThreed.AxSSCommand
     Public WithEvents cboCUnits As System.Windows.Forms.ComboBox
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents cboGraphType As System.Windows.Forms.ComboBox
     Public WithEvents cboCompo As System.Windows.Forms.ComboBox
     Public WithEvents cboGrid As System.Windows.Forms.ComboBox
     Public WithEvents grpBreak As AxGraphLib.AxGraph
     Public WithEvents cboTUnits As System.Windows.Forms.ComboBox
-    Public WithEvents SSFrame2 As AxThreed.AxSSFrame
-    Public WithEvents cmdPrint As AxThreed.AxSSCommand
     Public WithEvents Label3 As System.Windows.Forms.Label
     Public WithEvents Label4 As System.Windows.Forms.Label
     Public WithEvents Label5 As System.Windows.Forms.Label
@@ -39,25 +35,23 @@
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmModelDataComparison))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Picture1 = New System.Windows.Forms.PictureBox()
-        Me.cmdClose = New AxThreed.AxSSCommand()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.cboCUnits = New System.Windows.Forms.ComboBox()
         Me.cboGraphType = New System.Windows.Forms.ComboBox()
         Me.cboCompo = New System.Windows.Forms.ComboBox()
         Me.cboGrid = New System.Windows.Forms.ComboBox()
         Me.grpBreak = New AxGraphLib.AxGraph()
-        Me.SSFrame2 = New AxThreed.AxSSFrame()
         Me.cboTUnits = New System.Windows.Forms.ComboBox()
-        Me.cmdPrint = New AxThreed.AxSSCommand()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cmdClose = New System.Windows.Forms.Button()
+        Me.cmdPrint = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdClose, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdPrint, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Picture1
@@ -75,22 +69,6 @@
         Me.Picture1.TabStop = False
         Me.Picture1.Visible = False
         '
-        'cmdClose
-        '
-        Me.cmdClose.Location = New System.Drawing.Point(586, 4)
-        Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.OcxState = CType(resources.GetObject("cmdClose.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdClose.Size = New System.Drawing.Size(100, 28)
-        Me.cmdClose.TabIndex = 11
-        '
-        'SSFrame1
-        '
-        Me.SSFrame1.Location = New System.Drawing.Point(11, 34)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(100, 60)
-        Me.SSFrame1.TabIndex = 7
-        '
         'cboCUnits
         '
         Me.cboCUnits.BackColor = System.Drawing.SystemColors.Window
@@ -98,10 +76,10 @@
         Me.cboCUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCUnits.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCUnits.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.cboCUnits.Location = New System.Drawing.Point(21, 59)
+        Me.cboCUnits.Location = New System.Drawing.Point(6, 19)
         Me.cboCUnits.Name = "cboCUnits"
         Me.cboCUnits.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboCUnits.Size = New System.Drawing.Size(76, 24)
+        Me.cboCUnits.Size = New System.Drawing.Size(76, 22)
         Me.cboCUnits.TabIndex = 8
         '
         'cboGraphType
@@ -114,7 +92,7 @@
         Me.cboGraphType.Location = New System.Drawing.Point(490, 4)
         Me.cboGraphType.Name = "cboGraphType"
         Me.cboGraphType.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboGraphType.Size = New System.Drawing.Size(89, 24)
+        Me.cboGraphType.Size = New System.Drawing.Size(89, 22)
         Me.cboGraphType.TabIndex = 2
         '
         'cboCompo
@@ -127,7 +105,7 @@
         Me.cboCompo.Location = New System.Drawing.Point(157, 4)
         Me.cboCompo.Name = "cboCompo"
         Me.cboCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboCompo.Size = New System.Drawing.Size(213, 24)
+        Me.cboCompo.Size = New System.Drawing.Size(213, 22)
         Me.cboCompo.TabIndex = 1
         '
         'cboGrid
@@ -140,7 +118,7 @@
         Me.cboGrid.Location = New System.Drawing.Point(490, 28)
         Me.cboGrid.Name = "cboGrid"
         Me.cboGrid.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboGrid.Size = New System.Drawing.Size(89, 24)
+        Me.cboGrid.Size = New System.Drawing.Size(89, 22)
         Me.cboGrid.TabIndex = 0
         '
         'grpBreak
@@ -151,14 +129,6 @@
         Me.grpBreak.Size = New System.Drawing.Size(680, 375)
         Me.grpBreak.TabIndex = 3
         '
-        'SSFrame2
-        '
-        Me.SSFrame2.Location = New System.Drawing.Point(129, 34)
-        Me.SSFrame2.Name = "SSFrame2"
-        Me.SSFrame2.OcxState = CType(resources.GetObject("SSFrame2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame2.Size = New System.Drawing.Size(98, 60)
-        Me.SSFrame2.TabIndex = 9
-        '
         'cboTUnits
         '
         Me.cboTUnits.BackColor = System.Drawing.SystemColors.Window
@@ -166,19 +136,11 @@
         Me.cboTUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboTUnits.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTUnits.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.cboTUnits.Location = New System.Drawing.Point(137, 59)
+        Me.cboTUnits.Location = New System.Drawing.Point(6, 19)
         Me.cboTUnits.Name = "cboTUnits"
         Me.cboTUnits.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboTUnits.Size = New System.Drawing.Size(78, 24)
+        Me.cboTUnits.Size = New System.Drawing.Size(78, 22)
         Me.cboTUnits.TabIndex = 10
-        '
-        'cmdPrint
-        '
-        Me.cmdPrint.Location = New System.Drawing.Point(586, 34)
-        Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.OcxState = CType(resources.GetObject("cmdPrint.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdPrint.Size = New System.Drawing.Size(100, 30)
-        Me.cmdPrint.TabIndex = 12
         '
         'Label3
         '
@@ -222,23 +184,59 @@
         Me.Label5.Text = "Grid Style:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.cboCUnits)
+        Me.GroupBox1.Location = New System.Drawing.Point(24, 43)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(95, 51)
+        Me.GroupBox1.TabIndex = 14
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "C Units"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.cboTUnits)
+        Me.GroupBox2.Location = New System.Drawing.Point(125, 43)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(95, 51)
+        Me.GroupBox2.TabIndex = 15
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "T Units"
+        '
+        'cmdClose
+        '
+        Me.cmdClose.Location = New System.Drawing.Point(586, 3)
+        Me.cmdClose.Name = "cmdClose"
+        Me.cmdClose.Size = New System.Drawing.Size(100, 22)
+        Me.cmdClose.TabIndex = 16
+        Me.cmdClose.Text = "E&xit"
+        Me.cmdClose.UseVisualStyleBackColor = True
+        '
+        'cmdPrint
+        '
+        Me.cmdPrint.Location = New System.Drawing.Point(586, 28)
+        Me.cmdPrint.Name = "cmdPrint"
+        Me.cmdPrint.Size = New System.Drawing.Size(100, 22)
+        Me.cmdPrint.TabIndex = 17
+        Me.cmdPrint.Text = "&Print File"
+        Me.cmdPrint.UseVisualStyleBackColor = True
+        '
         'frmModelDataComparison
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(725, 524)
-        Me.Controls.Add(Me.cboCUnits)
-        Me.Controls.Add(Me.cboTUnits)
-        Me.Controls.Add(Me.Picture1)
+        Me.ClientSize = New System.Drawing.Size(1299, 524)
+        Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.cmdClose)
-        Me.Controls.Add(Me.SSFrame1)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.cboGraphType)
         Me.Controls.Add(Me.cboCompo)
         Me.Controls.Add(Me.cboGrid)
         Me.Controls.Add(Me.grpBreak)
-        Me.Controls.Add(Me.SSFrame2)
-        Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label5)
@@ -250,13 +248,16 @@
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Data Comparison"
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdClose, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdPrint, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents cmdClose As Button
+    Friend WithEvents cmdPrint As Button
 #End Region
 End Class

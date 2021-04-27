@@ -636,12 +636,12 @@ err_DATAPRED_UserPrefs_Load:
 		Call INI_PutSetting("DATAPRED_cboGrid", Trim(CStr(X)))
 	End Sub
 
-	Private Sub cmdClose_ClickEvent(sender As Object, e As EventArgs) Handles cmdClose.ClickEvent
+	Private Sub cmdClose_ClickEvent(sender As Object, e As EventArgs)
 		'Me.Close()    'not working after reopening
 		Me.Dispose()   'Shang 
 	End Sub
 
-	Private Sub cmdPrint_ClickEvent(sender As Object, e As EventArgs) Handles cmdPrint.ClickEvent
+	Private Sub cmdPrint_ClickEvent(sender As Object, e As EventArgs)
 		Dim Printer As New Printer
 		Picture1.Image = CaptureActiveWindow()
 		PrintPictureToFitPage(Printer, (Picture1.Image))
