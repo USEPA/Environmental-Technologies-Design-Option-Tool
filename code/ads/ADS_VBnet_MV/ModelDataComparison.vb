@@ -1,6 +1,7 @@
 Option Strict Off
 Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
+Imports System.Windows.Forms.DataVisualization.Charting
 Friend Class frmModelDataComparison
 	Inherits System.Windows.Forms.Form
 	
@@ -202,6 +203,14 @@ Friend Class frmModelDataComparison
 		Dim comp_data As ComponentPropertyType
 		Dim num_model_points As Short
 
+		Dim numsets, numpoints As Short
+		Dim myX, myY As Short
+
+		Chart1.Series.Clear()
+		Chart1.ChartAreas(0).RecalculateAxesScale()
+
+
+
 		'	grpBreak.DrawMode = 1   empty graph
 		Select Case frmCompareData_WhichSet
 			Case frmCompareData_WhichSet_PSDM
@@ -246,9 +255,11 @@ Friend Class frmModelDataComparison
 		If (Number_Influent_Points = 0) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumSets. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			grpBreak.NumSets = 2
+			numsets = 2
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumSets. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			grpBreak.NumSets = 3
+			numsets = 3
 		End If
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphType. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.GraphType = 6 'Lines/Symbols
@@ -332,7 +343,7 @@ Friend Class frmModelDataComparison
 		
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.AutoInc. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.AutoInc = 0 'No autoincrementation
-		
+
 		'**************************************************************
 		'   grpBreak.ThisSet = 1
 		'   For I = 1 To grpBreak.NumPoints
@@ -349,25 +360,34 @@ Friend Class frmModelDataComparison
 		'   Next I
 		'   grpBreak.ThisPoint = 1
 		'   grpBreak.LegendText = Trim$(Results.Component(Component_Index).Name)
-		
+
 		'---- I. Display Effluent Prediction
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		Dim s As New Series
+		s.ChartType = SeriesChartType.Line
+
 		grpBreak.ThisSet = 1
 		Select Case frmCompareData_WhichSet
 			Case frmCompareData_WhichSet_PSDM
 				For i = 1 To num_model_points
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					grpBreak.ThisPoint = i
+
 					If (Results.CP(Component_Index, i) < 0) Then
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						grpBreak.GraphData = 0#
+						myY = 0
+
 					Else
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						grpBreak.GraphData = Results.CP(Component_Index, i) * c_factor
+						myY = Results.CP(Component_Index, i) * c_factor
 					End If
 					''''grpBreak.LabelText = ""
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					grpBreak.XPosData = Results.T(i) * t_factor 'X_Values(I)
+					myX = Results.T(i) * t_factor 'X_Values(I)
+					s.Points.AddXY(myX, myY)
 				Next i
 			Case frmCompareData_WhichSet_CPHSDM
 				For i = 1 To num_model_points
@@ -376,24 +396,32 @@ Friend Class frmModelDataComparison
 					If (CPM_Results.C_Over_C0(i) < 0) Then
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						grpBreak.GraphData = 0#
+						myY = 0
 					Else
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						grpBreak.GraphData = CPM_Results.C_Over_C0(i) * c_factor
+						myY = CPM_Results.C_Over_C0(i) * c_factor
 					End If
 					''''grpBreak.LabelText = ""
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.XPosData = CPM_Results.T(i) * 24# * 60# * t_factor
+					grpBreak.XPosData = CPM_Results.T(i) * 24.0# * 60.0# * t_factor
+					myX = CPM_Results.T(i) * 24.0# * 60.0# * t_factor
+					s.Points.AddXY(myX, myY)
 				Next i
 		End Select
-		
+
+
+		Chart1.Series.Add(s)
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.ThisPoint = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.LegendText = "Effluent Prediction"
 		'grpBreak.LegendText = Trim$(Results.Component(Component_Index).Name)
-		
+
 		'---- II. Display Effluent Data
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+		Dim e As New Series
+		e.ChartType = SeriesChartType.Point
 		grpBreak.ThisSet = 2
 		For i = 1 To NData_Points
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -401,20 +429,29 @@ Friend Class frmModelDataComparison
 			If (C_Data_Points(Component_Index, i) < 0) Then
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				grpBreak.GraphData = 0#
+				myY = 0
 			Else
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				grpBreak.GraphData = C_Data_Points(Component_Index, i) * c_factor
+				myY = C_Data_Points(Component_Index, i) * c_factor
 			End If
 			''''grpBreak.LabelText = ""
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.XPosData = T_Data_Points(i) * 24# * 60# * t_factor
+			grpBreak.XPosData = T_Data_Points(i) * 24.0# * 60.0# * t_factor
+			myX = T_Data_Points(i) * 24.0# * 60.0# * t_factor
+			e.Points.AddXY(myX, myY)
 		Next i
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.ThisPoint = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.LegendText = "Effluent Data"
-		
+
+
+		Chart1.Series.Add(e)
+
 		'---- III. Display Influent Data
+		Dim f As New Series
+		f.ChartType = SeriesChartType.Point
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
 		Else
@@ -426,20 +463,26 @@ Friend Class frmModelDataComparison
 				If (C_Influent(Component_Index, i) < 0) Then
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					grpBreak.GraphData = 0#
+					myY = 0
 				Else
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					grpBreak.GraphData = C_Influent(Component_Index, i) / comp_data.InitialConcentration * c_factor
+					myY = C_Influent(Component_Index, i) / comp_data.InitialConcentration * c_factor
 				End If
 				''''grpBreak.LabelText = ""
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				grpBreak.XPosData = T_Influent(i) * t_factor
+				myX = T_Influent(i) * t_factor
+				f.Points.AddXY(myX, myY)
 			Next i
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			grpBreak.ThisPoint = 3
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			grpBreak.LegendText = "Influent Data"
 		End If
-		
+
+		Chart1.Series.Add(f)
+
 		'---- Run the kludge mentioned above.
 		If (bigger > NData_Points) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -636,12 +679,12 @@ err_DATAPRED_UserPrefs_Load:
 		Call INI_PutSetting("DATAPRED_cboGrid", Trim(CStr(X)))
 	End Sub
 
-	Private Sub cmdClose_ClickEvent(sender As Object, e As EventArgs)
+	Private Sub cmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
 		'Me.Close()    'not working after reopening
 		Me.Dispose()   'Shang 
 	End Sub
 
-	Private Sub cmdPrint_ClickEvent(sender As Object, e As EventArgs)
+	Private Sub cmdPrint_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
 		Dim Printer As New Printer
 		Picture1.Image = CaptureActiveWindow()
 		PrintPictureToFitPage(Printer, (Picture1.Image))

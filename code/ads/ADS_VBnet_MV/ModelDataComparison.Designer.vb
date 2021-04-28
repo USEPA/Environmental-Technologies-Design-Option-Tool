@@ -33,6 +33,9 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmModelDataComparison))
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.cboCUnits = New System.Windows.Forms.ComboBox()
@@ -48,10 +51,12 @@
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cmdClose = New System.Windows.Forms.Button()
         Me.cmdPrint = New System.Windows.Forms.Button()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Picture1
@@ -61,7 +66,7 @@
         Me.Picture1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Picture1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Picture1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Picture1.Location = New System.Drawing.Point(725, 56)
+        Me.Picture1.Location = New System.Drawing.Point(735, 27)
         Me.Picture1.Name = "Picture1"
         Me.Picture1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Picture1.Size = New System.Drawing.Size(89, 57)
@@ -215,12 +220,28 @@
         '
         'cmdPrint
         '
-        Me.cmdPrint.Location = New System.Drawing.Point(586, 28)
+        Me.cmdPrint.Location = New System.Drawing.Point(586, 29)
         Me.cmdPrint.Name = "cmdPrint"
         Me.cmdPrint.Size = New System.Drawing.Size(100, 22)
         Me.cmdPrint.TabIndex = 17
         Me.cmdPrint.Text = "&Print File"
         Me.cmdPrint.UseVisualStyleBackColor = True
+        '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(735, 111)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(552, 375)
+        Me.Chart1.TabIndex = 18
+        Me.Chart1.Text = "Chart1"
         '
         'frmModelDataComparison
         '
@@ -228,6 +249,7 @@
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1299, 524)
+        Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.cmdClose)
         Me.Controls.Add(Me.GroupBox2)
@@ -251,6 +273,7 @@
         CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -259,5 +282,6 @@
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents cmdClose As Button
     Friend WithEvents cmdPrint As Button
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 #End Region
 End Class
