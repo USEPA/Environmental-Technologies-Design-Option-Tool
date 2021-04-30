@@ -203,13 +203,11 @@ Friend Class frmModelDataComparison
 		Dim comp_data As ComponentPropertyType
 		Dim num_model_points As Short
 
-		Dim numsets, numpoints As Short
-		Dim myX, myY As Short
+		Dim numsets, numpoints(2) As Short
+		Dim myX, myY As Double
 
 		Chart1.Series.Clear()
 		Chart1.ChartAreas(0).RecalculateAxesScale()
-
-
 
 		'	grpBreak.DrawMode = 1   empty graph
 		Select Case frmCompareData_WhichSet
@@ -295,10 +293,12 @@ Friend Class frmModelDataComparison
 		grpBreak.ThisSet = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.NumPoints = bigger
+		numpoints(0) = bigger
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.ThisSet = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.NumPoints = bigger
+		numpoints(1) = bigger
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
 		Else
@@ -306,12 +306,14 @@ Friend Class frmModelDataComparison
 			grpBreak.ThisSet = 3
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			grpBreak.NumPoints = bigger
+			numpoints(2) = bigger
 		End If
 		
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.SymbolData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.SymbolData = 2 'triangle
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.SymbolData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.SymbolData = 6 'square
+
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
 		Else
@@ -363,8 +365,8 @@ Friend Class frmModelDataComparison
 
 		'---- I. Display Effluent Prediction
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Dim s As New Series
-		s.ChartType = SeriesChartType.Line
+		Dim s As New Series 'first
+		s.ChartType = SeriesChartType.Point
 
 		grpBreak.ThisSet = 1
 		Select Case frmCompareData_WhichSet
@@ -410,8 +412,7 @@ Friend Class frmModelDataComparison
 				Next i
 		End Select
 
-
-		Chart1.Series.Add(s)
+		s.LegendText = Trim$(Results.Component(Component_Index).Name) + " Prediction"
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.ThisPoint = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -420,7 +421,7 @@ Friend Class frmModelDataComparison
 
 		'---- II. Display Effluent Data
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Dim e As New Series
+		Dim e As New Series 'second
 		e.ChartType = SeriesChartType.Point
 		grpBreak.ThisSet = 2
 		For i = 1 To NData_Points
@@ -446,11 +447,11 @@ Friend Class frmModelDataComparison
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.LegendText = "Effluent Data"
 
+		e.LegendText = "Effluent Data"
 
-		Chart1.Series.Add(e)
 
 		'---- III. Display Influent Data
-		Dim f As New Series
+		Dim f As New Series 'third
 		f.ChartType = SeriesChartType.Point
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
@@ -481,14 +482,16 @@ Friend Class frmModelDataComparison
 			grpBreak.LegendText = "Influent Data"
 		End If
 
-		Chart1.Series.Add(f)
+		f.LegendText = "Influent Data"
+
+
 
 		'---- Run the kludge mentioned above.
 		If (bigger > NData_Points) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			grpBreak.ThisSet = 2
 			LastPointI = NData_Points
-			
+
 			'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			SameX = T_Data_Points(LastPointI) * 24# * 60# * t_factor
 			SameY = C_Data_Points(Component_Index, LastPointI) * c_factor
@@ -501,6 +504,9 @@ Friend Class frmModelDataComparison
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				grpBreak.XPosData = SameX
+
+				e.Points.AddXY(SameX, SameY)
+
 			Next i
 		End If
 		Select Case frmCompareData_WhichSet
@@ -521,6 +527,7 @@ Friend Class frmModelDataComparison
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						grpBreak.XPosData = SameX
+						s.Points.AddXY(SameX, SameY)
 					Next i
 				End If
 			Case frmCompareData_WhichSet_CPHSDM
@@ -540,6 +547,7 @@ Friend Class frmModelDataComparison
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						grpBreak.XPosData = SameX
+						s.Points.AddXY(SameX, SameY)
 					Next i
 				End If
 		End Select
@@ -562,6 +570,7 @@ Friend Class frmModelDataComparison
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					grpBreak.XPosData = SameX
+					f.Points.AddXY(SameX, SameY)
 				Next i
 			End If
 		End If
@@ -584,7 +593,14 @@ Friend Class frmModelDataComparison
 				End If
 			Next i
 		Next J
-		
+
+		Chart1.Series.Add(s)
+		Chart1.Series.Add(e)
+		Chart1.Series.Add(f)
+
+
+		Chart1.ChartAreas(0).AxisY.Minimum = 0
+		Chart1.ChartAreas(0).AxisY.Maximum = (Int(Data_Max * 10.0# + 1)) / 10.0#
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisMax. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.YAxisMax = (Int(Data_Max * 10# + 1)) / 10#
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisTicks. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
