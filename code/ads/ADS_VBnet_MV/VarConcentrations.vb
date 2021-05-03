@@ -448,12 +448,20 @@ NoInfluent_Conc:
 		Me.Activate()
 	End Sub
 
-	Private Sub cmdOK_ClickEvent(sender As Object, e As EventArgs) Handles cmdOK.ClickEvent
-		Call cmdOK_Click()
+	Private Sub cmdOK_ClickEvent(sender As Object, e As EventArgs)
+
 	End Sub
 
-	Private Sub cmdCancel_ClickEvent(sender As Object, e As EventArgs) Handles cmdCancel.ClickEvent
+	Private Sub cmdCancel_ClickEvent(sender As Object, e As EventArgs)
+
+	End Sub
+
+	Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
 		cmdCancel_Click()
+	End Sub
+
+	Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
+		Call cmdOK_Click()
 	End Sub
 
 	'UPGRADE_WARNING: Form event frmVarConcentrations.Activate has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6BA9B8D2-2A32-4B6E-8D36-44949974A5B4"'

@@ -34,8 +34,6 @@
 	Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
 	Public WithEvents Command4 As System.Windows.Forms.Button
-    Public WithEvents cmdOK As AxThreed.AxSSCommand
-    Public WithEvents cmdCancel As AxThreed.AxSSCommand
 
     '    Public WithEvents Sheet1 As VCIF1Lib.F1Book
     Public WithEvents Sheet1DataGrid As DataGridView
@@ -91,8 +89,6 @@
         Me._mnuEditItem_1 = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuEditItem_2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
-        Me.cmdOK = New AxThreed.AxSSCommand()
-        Me.cmdCancel = New AxThreed.AxSSCommand()
         Me.Sheet1DataGrid = New System.Windows.Forms.DataGridView()
         Me.SSFrame1 = New AxThreed.AxSSFrame()
         Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
@@ -120,10 +116,10 @@
         Me.Label2 = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me.mnuEditItem = New Microsoft.VisualBasic.Compatibility.VB6.ToolStripMenuItemArray(Me.components)
         Me.mnuFileItem = New Microsoft.VisualBasic.Compatibility.VB6.ToolStripMenuItemArray(Me.components)
+        Me.cmdCancel = New System.Windows.Forms.Button()
+        Me.cmdOK = New System.Windows.Forms.Button()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdOK, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdCancel, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Sheet1DataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SSFrame1.SuspendLayout()
@@ -268,22 +264,6 @@
         Me.Picture1.TabIndex = 25
         Me.Picture1.TabStop = False
         Me.Picture1.Visible = False
-        '
-        'cmdOK
-        '
-        Me.cmdOK.Location = New System.Drawing.Point(108, 28)
-        Me.cmdOK.Name = "cmdOK"
-        Me.cmdOK.OcxState = CType(resources.GetObject("cmdOK.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdOK.Size = New System.Drawing.Size(100, 29)
-        Me.cmdOK.TabIndex = 0
-        '
-        'cmdCancel
-        '
-        Me.cmdCancel.Location = New System.Drawing.Point(6, 28)
-        Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.OcxState = CType(resources.GetObject("cmdCancel.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdCancel.Size = New System.Drawing.Size(100, 29)
-        Me.cmdCancel.TabIndex = 1
         '
         'Sheet1DataGrid
         '
@@ -649,6 +629,24 @@
         'mnuFileItem
         '
         '
+        'cmdCancel
+        '
+        Me.cmdCancel.Location = New System.Drawing.Point(24, 27)
+        Me.cmdCancel.Name = "cmdCancel"
+        Me.cmdCancel.Size = New System.Drawing.Size(87, 32)
+        Me.cmdCancel.TabIndex = 28
+        Me.cmdCancel.Text = "&Cancel"
+        Me.cmdCancel.UseVisualStyleBackColor = True
+        '
+        'cmdOK
+        '
+        Me.cmdOK.Location = New System.Drawing.Point(114, 27)
+        Me.cmdOK.Name = "cmdOK"
+        Me.cmdOK.Size = New System.Drawing.Size(86, 32)
+        Me.cmdOK.TabIndex = 29
+        Me.cmdOK.Text = "&OK"
+        Me.cmdOK.UseVisualStyleBackColor = True
+        '
         'frmVarConcentrations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -656,10 +654,10 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(537, 472)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.cmdOK)
         Me.Controls.Add(Me.cmdCancel)
+        Me.Controls.Add(Me.Picture1)
+        Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.Sheet1DataGrid)
         Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me._Label1_0)
@@ -696,8 +694,6 @@
         Me.MainMenu1.ResumeLayout(False)
         Me.MainMenu1.PerformLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdOK, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdCancel, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Sheet1DataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SSFrame1.ResumeLayout(False)
@@ -710,5 +706,8 @@
         Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents cmdCancel As Button
+    Friend WithEvents cmdOK As Button
 #End Region
 End Class
