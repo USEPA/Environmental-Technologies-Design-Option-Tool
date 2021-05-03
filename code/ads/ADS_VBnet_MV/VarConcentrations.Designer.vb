@@ -39,8 +39,6 @@
     Public WithEvents Sheet1DataGrid As DataGridView
 
     Public WithEvents excelsheet1 As Microsoft.Office.Interop.Excel.Worksheet
-    Public WithEvents CMDialog1 As AxMSComDlg.AxCommonDialog
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents _Label1_0 As System.Windows.Forms.Label
     Public WithEvents _Label2_0 As System.Windows.Forms.Label
     Public WithEvents _Label1_1 As System.Windows.Forms.Label
@@ -70,7 +68,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVarConcentrations))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip()
@@ -90,8 +87,6 @@
         Me._mnuEditItem_2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.Sheet1DataGrid = New System.Windows.Forms.DataGridView()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
         Me._Label1_0 = New System.Windows.Forms.Label()
         Me._Label2_0 = New System.Windows.Forms.Label()
         Me._Label1_1 = New System.Windows.Forms.Label()
@@ -118,12 +113,11 @@
         Me.mnuFileItem = New Microsoft.VisualBasic.Compatibility.VB6.ToolStripMenuItemArray(Me.components)
         Me.cmdCancel = New System.Windows.Forms.Button()
         Me.cmdOK = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Sheet1DataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SSFrame1.SuspendLayout()
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Label1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Label2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuEditItem, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -273,25 +267,6 @@
         Me.Sheet1DataGrid.RowHeadersWidth = 51
         Me.Sheet1DataGrid.Size = New System.Drawing.Size(324, 287)
         Me.Sheet1DataGrid.TabIndex = 26
-        '
-        'SSFrame1
-        '
-        Me.SSFrame1.Controls.Add(Me.CMDialog1)
-        Me.SSFrame1.Location = New System.Drawing.Point(349, 173)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(155, 67)
-        Me.SSFrame1.TabIndex = 23
-        Me.SSFrame1.Visible = False
-        '
-        'CMDialog1
-        '
-        Me.CMDialog1.Enabled = True
-        Me.CMDialog1.Location = New System.Drawing.Point(0, 0)
-        Me.CMDialog1.Name = "CMDialog1"
-        Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CMDialog1.Size = New System.Drawing.Size(32, 32)
-        Me.CMDialog1.TabIndex = 0
         '
         '_Label1_0
         '
@@ -647,6 +622,10 @@
         Me.cmdOK.Text = "&OK"
         Me.cmdOK.UseVisualStyleBackColor = True
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'frmVarConcentrations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -659,7 +638,6 @@
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.Sheet1DataGrid)
-        Me.Controls.Add(Me.SSFrame1)
         Me.Controls.Add(Me._Label1_0)
         Me.Controls.Add(Me._Label2_0)
         Me.Controls.Add(Me._Label1_1)
@@ -695,9 +673,6 @@
         Me.MainMenu1.PerformLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Sheet1DataGrid, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SSFrame1.ResumeLayout(False)
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Label1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Label2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mnuEditItem, System.ComponentModel.ISupportInitialize).EndInit()
@@ -709,5 +684,7 @@
 
     Friend WithEvents cmdCancel As Button
     Friend WithEvents cmdOK As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 #End Region
 End Class

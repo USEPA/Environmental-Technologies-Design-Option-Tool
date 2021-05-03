@@ -508,6 +508,8 @@ Friend Class frmMain
 						Next J
 					Next i
 				End If
+				frmVarConcentrations.Sheet1DataGrid.Rows.Clear()
+
 			Case 2 'EFFLUENT CONCENTRATIONS.
 				'---- Options--Effluent Concentrations
 				'-- Setup global variables to make the call
@@ -545,6 +547,7 @@ Friend Class frmMain
 						Next J
 					Next i
 				End If
+				frmVarConcentrations.Sheet1DataGrid.Rows.Clear()
 		End Select
 	End Sub
 	Public Sub mnuPhaseItem_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles mnuPhaseItem.Click
@@ -1471,4 +1474,6 @@ Friend Class frmMain
 	Private Sub _lblText_1_Click(sender As Object, e As EventArgs) Handles _lblText_1.Click
 
 	End Sub
+
+
 End Class

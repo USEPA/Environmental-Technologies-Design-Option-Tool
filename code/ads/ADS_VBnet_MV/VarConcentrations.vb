@@ -85,25 +85,34 @@ Exit_CountConc:
 		On Error GoTo Error_In_Reading
 		If (OverrideFilename = "") Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			CMDialog1.CancelError = True
+			'CMDialog1.CancelError = True
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			CMDialog1.DialogTitle = "Load Concentrations"
+			'CMDialog1.DialogTitle = "Load Concentrations"
+			OpenFileDialog1.Title = "Load Concentrations"
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
+			'CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
+			OpenFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			CMDialog1.FilterIndex = 2
+			'CMDialog1.FilterIndex = 2
+			OpenFileDialog1.FilterIndex = 2
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNFileMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			CMDialog1.flags = cdlOFNFileMustExist + cdlOFNPathMustExist
+			'CMDialog1.flags = cdlOFNFileMustExist + cdlOFNPathMustExist
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			CMDialog1.Action = 1
+			'CMDialog1.Action = 1
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			If CMDialog1.Filename = "" Then
+			'If CMDialog1.Filename = "" Then
+			'Exit Function
+			'End If
+			OpenFileDialog1.ShowDialog()
+			If OpenFileDialog1.FileName = "" Then
 				Exit Function
 			End If
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Filename_Concentration = CMDialog1.Filename
+			'Filename_Concentration = CMDialog1.Filename
+			Filename_Concentration = OpenFileDialog1.FileName
+
 		Else
 			Filename_Concentration = OverrideFilename
 		End If
@@ -243,22 +252,29 @@ Exit_Load_Points:
 		If (Trim(Filename_Concentration) <> "") And Not (saveas) Then GoTo Save_File
 		PreviousFilename_Concentration = Filename_Concentration
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.CancelError. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.CancelError = True
+		'CMDialog1.CancelError = True
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.DialogTitle = "Save Concentrations"
+		'CMDialog1.DialogTitle = "Save Concentrations"
+		SaveFileDialog1.Title = "Save Concentrations"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
+		'CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
+		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.FilterIndex = 2
+		'CMDialog1.FilterIndex = 2
+		SaveFileDialog1.FilterIndex = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
+		'CMDialog1.flags = cdlOFNOverwritePrompt + cdlOFNPathMustExist
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		CMDialog1.Action = 2
+		'CMDialog1.Action = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		temporaryname = CMDialog1.Filename
+		'temporaryname = CMDialog1.Filename
+
+		SaveFileDialog1.ShowDialog()
+		temporaryname = SaveFileDialog1.FileName
 		Filename_Concentration = temporaryname
+
 		'If IsValidPath(temporaryname, "C:") And CMDialog1.Filename <> "" Then
 		'  temporaryname = Mid$(temporaryname, 1, Len(temporaryname) - 1)
 		'  Filename_Concentration = temporaryname
