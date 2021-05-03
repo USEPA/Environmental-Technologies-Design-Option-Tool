@@ -22,7 +22,6 @@
     Public WithEvents cboGraphType As System.Windows.Forms.ComboBox
     Public WithEvents cboCompo As System.Windows.Forms.ComboBox
     Public WithEvents cboGrid As System.Windows.Forms.ComboBox
-    Public WithEvents grpBreak As AxGraphLib.AxGraph
     Public WithEvents cboTUnits As System.Windows.Forms.ComboBox
     Public WithEvents Label3 As System.Windows.Forms.Label
     Public WithEvents Label4 As System.Windows.Forms.Label
@@ -32,7 +31,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmModelDataComparison))
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
@@ -42,7 +40,6 @@
         Me.cboGraphType = New System.Windows.Forms.ComboBox()
         Me.cboCompo = New System.Windows.Forms.ComboBox()
         Me.cboGrid = New System.Windows.Forms.ComboBox()
-        Me.grpBreak = New AxGraphLib.AxGraph()
         Me.cboTUnits = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -53,7 +50,6 @@
         Me.cmdPrint = New System.Windows.Forms.Button()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,14 +121,6 @@
         Me.cboGrid.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cboGrid.Size = New System.Drawing.Size(89, 22)
         Me.cboGrid.TabIndex = 0
-        '
-        'grpBreak
-        '
-        Me.grpBreak.Location = New System.Drawing.Point(6, 111)
-        Me.grpBreak.Name = "grpBreak"
-        Me.grpBreak.OcxState = CType(resources.GetObject("grpBreak.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.grpBreak.Size = New System.Drawing.Size(680, 375)
-        Me.grpBreak.TabIndex = 3
         '
         'cboTUnits
         '
@@ -238,13 +226,13 @@
         Legend1.Name = "Legend1"
         Legend1.TextWrapThreshold = 13
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(735, 111)
+        Me.Chart1.Location = New System.Drawing.Point(12, 100)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(552, 375)
+        Me.Chart1.Size = New System.Drawing.Size(714, 473)
         Me.Chart1.TabIndex = 18
         Me.Chart1.Text = "Chart1"
         '
@@ -253,7 +241,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1299, 524)
+        Me.ClientSize = New System.Drawing.Size(740, 585)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.cmdClose)
@@ -263,7 +251,6 @@
         Me.Controls.Add(Me.cboGraphType)
         Me.Controls.Add(Me.cboCompo)
         Me.Controls.Add(Me.cboGrid)
-        Me.Controls.Add(Me.grpBreak)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label5)
@@ -275,7 +262,6 @@
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Data Comparison"
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grpBreak, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()

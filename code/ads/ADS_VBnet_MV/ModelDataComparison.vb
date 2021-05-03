@@ -106,15 +106,15 @@ Friend Class frmModelDataComparison
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					Chart1.Series(1).ChartType = SeriesChartType.Point
 					Chart1.Series(2).ChartType = SeriesChartType.Point
-					grpBreak.GraphStyle = 1
+					'grpBreak.GraphStyle = 1
 				Case 1 'Lines
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					Chart1.Series(1).ChartType = SeriesChartType.Line
 					Chart1.Series(2).ChartType = SeriesChartType.Line
-					grpBreak.GraphStyle = 4
+					'grpBreak.GraphStyle = 4
 			End Select
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.DrawMode. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.DrawMode = 2
+			'grpBreak.DrawMode = 2
 		End If
 	End Sub
 	'UPGRADE_WARNING: Event cboGrid.SelectedIndexChanged may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
@@ -249,8 +249,8 @@ Friend Class frmModelDataComparison
 				t_factor = 1# / 60# / 24# 'mn -> days
 				Bottom_Title = "Time(days)"
 			Case CBOTUNITS_BVF
-				t_factor = 60# * bed_data.Flowrate / bed_data.length / PI / (bed_data.Diameter / 2#) ^ 2
-				Bottom_Title = "Bed Volumes Treated"
+				t_factor = (60.0# * bed_data.Flowrate / bed_data.length / PI / (bed_data.Diameter / 2.0#) ^ 2) / 1000
+				Bottom_Title = "Bed Volumes Treated (Thousands)"
 			Case CBOTUNITS_VTM
 				t_factor = 60# * bed_data.Flowrate / bed_data.Weight
 				Bottom_Title = "m" & Chr(179) & " treated per kg of adsorbent"
@@ -271,23 +271,23 @@ Friend Class frmModelDataComparison
 		'Define Graph
 		If (Number_Influent_Points = 0) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumSets. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.NumSets = 2
+			'grpBreak.NumSets = 2
 			numsets = 2
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumSets. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.NumSets = 3
+			'grpBreak.NumSets = 3
 			numsets = 3
 		End If
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphType. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.GraphType = 6 'Lines/Symbols
+		'grpBreak.GraphType = 6 'Lines/Symbols
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.GraphStyle = 1 'Symbols
-		
+		'grpBreak.GraphStyle = 1 'Symbols
+
 		'   grpBreak.ThisSet = 1
 		'   grpBreak.NumPoints = Results.NPoints
 		'   grpBreak.ThisSet = 2
 		'   grpBreak.NumPoints = NData_Points
-		
+
 		' The following code where grpBreak.NumPoints is set is a rather
 		' unfortunate kludge, in my opinion.  I could find no other way to
 		' convince/force Visual Basic's graphical interface to accept two sets
@@ -307,63 +307,63 @@ Friend Class frmModelDataComparison
 		If (Number_Influent_Points > bigger) Then
 			bigger = Number_Influent_Points
 		End If
-		
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.ThisSet = 1
+		'grpBreak.ThisSet = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.NumPoints = bigger
+		'grpBreak.NumPoints = bigger
 		numpoints(0) = bigger
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.ThisSet = 2
+		'grpBreak.ThisSet = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.NumPoints = bigger
+		'grpBreak.NumPoints = bigger
 		numpoints(1) = bigger
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.ThisSet = 3
+			'grpBreak.ThisSet = 3
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.NumPoints = bigger
+			'grpBreak.NumPoints = bigger
 			numpoints(2) = bigger
 		End If
-		
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.SymbolData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.SymbolData = 2 'triangle
+		'grpBreak.SymbolData = 2 'triangle
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.SymbolData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.SymbolData = 6 'square
+		'grpBreak.SymbolData = 6 'square
 
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.SymbolData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.SymbolData = 8 'diamond
+			'grpBreak.SymbolData = 8 'diamond
 		End If
-		
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ColorData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.ColorData = 9 'Blue
+		'grpBreak.ColorData = 9 'Blue
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ColorData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.ColorData = 12 'Red
+		'grpBreak.ColorData = 12 'Red
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ColorData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.ColorData = 10 'Green
+			'grpBreak.ColorData = 10 'Green
 		End If
-		
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.PatternData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.PatternData = 1
+		'grpBreak.PatternData = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.PatternData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.PatternData = 1
+		'grpBreak.PatternData = 1
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.PatternData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.PatternData = 1
+			'grpBreak.PatternData = 1
 		End If
-		
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.AutoInc. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.AutoInc = 0 'No autoincrementation
+		'grpBreak.AutoInc = 0 'No autoincrementation
 
 		'**************************************************************
 		'   grpBreak.ThisSet = 1
@@ -387,26 +387,26 @@ Friend Class frmModelDataComparison
 		Dim s As New Series 'first
 		s.ChartType = SeriesChartType.Line
 
-		grpBreak.ThisSet = 1
+		'grpBreak.ThisSet = 1
 		Select Case frmCompareData_WhichSet
 			Case frmCompareData_WhichSet_PSDM
 				For i = 1 To num_model_points
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.ThisPoint = i
+					'grpBreak.ThisPoint = i
 
 					If (Results.CP(Component_Index, i) < 0) Then
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.GraphData = 0#
+						'grpBreak.GraphData = 0#
 						myY = 0
 
 					Else
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.GraphData = Results.CP(Component_Index, i) * c_factor
+						'grpBreak.GraphData = Results.CP(Component_Index, i) * c_factor
 						myY = Results.CP(Component_Index, i) * c_factor
 					End If
 					''''grpBreak.LabelText = ""
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.XPosData = Results.T(i) * t_factor 'X_Values(I)
+					'grpBreak.XPosData = Results.T(i) * t_factor 'X_Values(I)
 					myX = Results.T(i) * t_factor 'X_Values(I)
 					s.Points.AddXY(myX, myY)
 
@@ -414,19 +414,19 @@ Friend Class frmModelDataComparison
 			Case frmCompareData_WhichSet_CPHSDM
 				For i = 1 To num_model_points
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.ThisPoint = i
+					'grpBreak.ThisPoint = i
 					If (CPM_Results.C_Over_C0(i) < 0) Then
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.GraphData = 0#
+						'grpBreak.GraphData = 0#
 						myY = 0
 					Else
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.GraphData = CPM_Results.C_Over_C0(i) * c_factor
+						'grpBreak.GraphData = CPM_Results.C_Over_C0(i) * c_factor
 						myY = CPM_Results.C_Over_C0(i) * c_factor
 					End If
 					''''grpBreak.LabelText = ""
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.XPosData = CPM_Results.T(i) * 24.0# * 60.0# * t_factor
+					'grpBreak.XPosData = CPM_Results.T(i) * 24.0# * 60.0# * t_factor
 					myX = CPM_Results.T(i) * 24.0# * 60.0# * t_factor
 					s.Points.AddXY(myX, myY)
 
@@ -435,39 +435,39 @@ Friend Class frmModelDataComparison
 
 		s.LegendText = Trim$(Results.Component(Component_Index).Name) + " Prediction"
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.ThisPoint = 1
+		'grpBreak.ThisPoint = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.LegendText = "Effluent Prediction"
+		'grpBreak.LegendText = "Effluent Prediction"
 		'grpBreak.LegendText = Trim$(Results.Component(Component_Index).Name)
 
 		'---- II. Display Effluent Data
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		Dim e As New Series 'second
 		e.ChartType = SeriesChartType.Point
-		grpBreak.ThisSet = 2
+		'grpBreak.ThisSet = 2
 		For i = 1 To NData_Points
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.ThisPoint = i
+			'grpBreak.ThisPoint = i
 			If (C_Data_Points(Component_Index, i) < 0) Then
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.GraphData = 0#
+				'grpBreak.GraphData = 0#
 				myY = 0
 			Else
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.GraphData = C_Data_Points(Component_Index, i) * c_factor
+				'grpBreak.GraphData = C_Data_Points(Component_Index, i) * c_factor
 				myY = C_Data_Points(Component_Index, i) * c_factor
 			End If
 			''''grpBreak.LabelText = ""
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.XPosData = T_Data_Points(i) * 24.0# * 60.0# * t_factor
+			'grpBreak.XPosData = T_Data_Points(i) * 24.0# * 60.0# * t_factor
 			myX = T_Data_Points(i) * 24.0# * 60.0# * t_factor
 			e.Points.AddXY(myX, myY)
 
 		Next i
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.ThisPoint = 2
+		'grpBreak.ThisPoint = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.LegendText = "Effluent Data"
+		'grpBreak.LegendText = "Effluent Data"
 
 		e.LegendText = "Effluent Data"
 
@@ -479,29 +479,29 @@ Friend Class frmModelDataComparison
 			'Do nothing
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.ThisSet = 3
+			'grpBreak.ThisSet = 3
 			For i = 1 To Number_Influent_Points
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.ThisPoint = i
+				'grpBreak.ThisPoint = i
 				If (C_Influent(Component_Index, i) < 0) Then
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.GraphData = 0#
+					'grpBreak.GraphData = 0#
 					myY = 0
 				Else
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.GraphData = C_Influent(Component_Index, i) / comp_data.InitialConcentration * c_factor
+					'grpBreak.GraphData = C_Influent(Component_Index, i) / comp_data.InitialConcentration * c_factor
 					myY = C_Influent(Component_Index, i) / comp_data.InitialConcentration * c_factor
 				End If
 				''''grpBreak.LabelText = ""
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.XPosData = T_Influent(i) * t_factor
+				'grpBreak.XPosData = T_Influent(i) * t_factor
 				myX = T_Influent(i) * t_factor
 				f.Points.AddXY(myX, myY)
 			Next i
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.ThisPoint = 3
+			'grpBreak.ThisPoint = 3
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LegendText. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.LegendText = "Influent Data"
+			'grpBreak.LegendText = "Influent Data"
 		End If
 
 		f.LegendText = "Influent Data"
@@ -511,7 +511,7 @@ Friend Class frmModelDataComparison
 		'---- Run the kludge mentioned above.
 		If (bigger > NData_Points) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.ThisSet = 2
+			'grpBreak.ThisSet = 2
 			LastPointI = NData_Points
 
 			'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -519,13 +519,13 @@ Friend Class frmModelDataComparison
 			SameY = C_Data_Points(Component_Index, LastPointI) * c_factor
 			For i = LastPointI + 1 To bigger
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.ThisPoint = i
+				'grpBreak.ThisPoint = i
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.GraphData = SameY
+				'grpBreak.GraphData = SameY
 				''''grpBreak.ThisPoint = i
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.XPosData = SameX
+				'grpBreak.XPosData = SameX
 
 				e.Points.AddXY(SameX, SameY)
 
@@ -535,40 +535,40 @@ Friend Class frmModelDataComparison
 			Case frmCompareData_WhichSet_PSDM
 				If (bigger > num_model_points) Then
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.ThisSet = 1
+					'grpBreak.ThisSet = 1
 					LastPointI = num_model_points
 					'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					SameX = Results.T(LastPointI) * t_factor
 					SameY = Results.CP(Component_Index, LastPointI) * c_factor
 					For i = LastPointI + 1 To bigger
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.ThisPoint = i
+						'grpBreak.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.GraphData = SameY
+						'grpBreak.GraphData = SameY
 						''''grpBreak.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.XPosData = SameX
+						'grpBreak.XPosData = SameX
 						s.Points.AddXY(SameX, SameY)
 					Next i
 				End If
 			Case frmCompareData_WhichSet_CPHSDM
 				If (bigger > num_model_points) Then
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.ThisSet = 1
+					'grpBreak.ThisSet = 1
 					LastPointI = num_model_points
 					'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					SameX = CPM_Results.T(LastPointI) * 24# * 60# * t_factor
 					SameY = CPM_Results.C_Over_C0(LastPointI) * c_factor
 					For i = LastPointI + 1 To bigger
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.ThisPoint = i
+						'grpBreak.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.GraphData = SameY
+						'grpBreak.GraphData = SameY
 						''''grpBreak.ThisPoint = i
 						'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 						'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						grpBreak.XPosData = SameX
+						'grpBreak.XPosData = SameX
 						s.Points.AddXY(SameX, SameY)
 					Next i
 				End If
@@ -578,43 +578,29 @@ Friend Class frmModelDataComparison
 		Else
 			If (bigger > Number_Influent_Points) Then
 				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.ThisSet = 3
+				'grpBreak.ThisSet = 3
 				LastPointI = Number_Influent_Points
 				'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				SameX = T_Influent(LastPointI) * t_factor
 				SameY = C_Influent(Component_Index, LastPointI) / Component(Component_Index).InitialConcentration * c_factor
 				For i = LastPointI + 1 To bigger
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.ThisPoint = i
+					'grpBreak.ThisPoint = i
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.GraphData = SameY
+					'grpBreak.GraphData = SameY
 					''''grpBreak.ThisPoint = i
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.XPosData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'UPGRADE_WARNING: Couldn't resolve default property of object SameX. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					grpBreak.XPosData = SameX
+					'grpBreak.XPosData = SameX
 					f.Points.AddXY(SameX, SameY)
 				Next i
 			End If
 		End If
-		
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.PatternedLines. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.PatternedLines = 0
+		'grpBreak.PatternedLines = 0
 		Data_Max = 0
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumSets. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		For J = 1 To grpBreak.NumSets
-			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisSet. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			grpBreak.ThisSet = J
-			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.NumPoints. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			For i = 1 To grpBreak.NumPoints
-				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				grpBreak.ThisPoint = i
-				'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				If grpBreak.GraphData > Data_Max Then
-					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					Data_Max = grpBreak.GraphData
-				End If
-			Next i
-		Next J
 
 
 		Chart1.Series.Add(s)
@@ -628,23 +614,23 @@ Friend Class frmModelDataComparison
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisMax. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'grpBreak.YAxisMax = (Int(Data_Max * 10# + 1)) / 10#
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisTicks. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.YAxisTicks = 4
+		'grpBreak.YAxisTicks = 4
 		'grpBreak.GridStyle = 0
-		
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.YAxisStyle = 2
+		'grpBreak.YAxisStyle = 2
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisMin. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.YAxisMin = 0#
+		'grpBreak.YAxisMin = 0#
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.BottomTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.BottomTitle = Bottom_Title
+		'grpBreak.BottomTitle = Bottom_Title
 		Chart1.ChartAreas(0).AxisX.Title = Bottom_Title
 
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LeftTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.LeftTitle = Left_Title
+		'grpBreak.LeftTitle = Left_Title
 		Chart1.ChartAreas(0).AxisY.Title = Left_Title
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.DrawMode. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.DrawMode = 2
-		
+		'grpBreak.DrawMode = 2
+
 	End Sub
 	
 	
