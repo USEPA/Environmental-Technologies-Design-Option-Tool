@@ -390,6 +390,7 @@ Friend Class frmModelDataComparison
 					grpBreak.XPosData = Results.T(i) * t_factor 'X_Values(I)
 					myX = Results.T(i) * t_factor 'X_Values(I)
 					s.Points.AddXY(myX, myY)
+
 				Next i
 			Case frmCompareData_WhichSet_CPHSDM
 				For i = 1 To num_model_points
@@ -409,6 +410,7 @@ Friend Class frmModelDataComparison
 					grpBreak.XPosData = CPM_Results.T(i) * 24.0# * 60.0# * t_factor
 					myX = CPM_Results.T(i) * 24.0# * 60.0# * t_factor
 					s.Points.AddXY(myX, myY)
+
 				Next i
 		End Select
 
@@ -441,6 +443,7 @@ Friend Class frmModelDataComparison
 			grpBreak.XPosData = T_Data_Points(i) * 24.0# * 60.0# * t_factor
 			myX = T_Data_Points(i) * 24.0# * 60.0# * t_factor
 			e.Points.AddXY(myX, myY)
+
 		Next i
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.ThisPoint. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.ThisPoint = 2
@@ -594,15 +597,17 @@ Friend Class frmModelDataComparison
 			Next i
 		Next J
 
+
 		Chart1.Series.Add(s)
 		Chart1.Series.Add(e)
 		Chart1.Series.Add(f)
 
 
 		Chart1.ChartAreas(0).AxisY.Minimum = 0
-		Chart1.ChartAreas(0).AxisY.Maximum = (Int(Data_Max * 10.0# + 1)) / 10.0#
+		Chart1.ChartAreas(0).AxisX.Minimum = 0
+		'Chart1.ChartAreas(0).AxisY.Maximum = (Int(Data_Max * 10.0# + 1)) / 10.0#
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisMax. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		grpBreak.YAxisMax = (Int(Data_Max * 10# + 1)) / 10#
+		'grpBreak.YAxisMax = (Int(Data_Max * 10# + 1)) / 10#
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.YAxisTicks. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.YAxisTicks = 4
 		'grpBreak.GridStyle = 0
@@ -613,9 +618,11 @@ Friend Class frmModelDataComparison
 		grpBreak.YAxisMin = 0#
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.BottomTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.BottomTitle = Bottom_Title
-		
+		Chart1.ChartAreas(0).AxisX.Title = Bottom_Title
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.LeftTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.LeftTitle = Left_Title
+		Chart1.ChartAreas(0).AxisY.Title = Left_Title
 		'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.DrawMode. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		grpBreak.DrawMode = 2
 		
