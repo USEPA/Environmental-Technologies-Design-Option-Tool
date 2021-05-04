@@ -55,9 +55,6 @@
     Public WithEvents _lblText_2 As System.Windows.Forms.Label
     Public WithEvents _Label5_1 As System.Windows.Forms.Label
     Public WithEvents lblEstimationMethod As System.Windows.Forms.Label
-    Public WithEvents sspanel_Dirty As AxThreed.AxSSPanel
-    Public WithEvents sspanel_Status As AxThreed.AxSSPanel
-    Public WithEvents sspanel_StatusBar As AxThreed.AxSSPanel
     Public WithEvents Label5 As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     '   Public WithEvents cmdCancelOK As SSCommandArray
     '  Public WithEvents cmdFind As SSCommandArray
@@ -121,7 +118,6 @@
         Me.Line2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.lblWarning = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.sspanel_StatusBar = New AxThreed.AxSSPanel()
         Me.fraTwo = New AxThreed.AxSSFrame()
         Me.fraOne = New AxThreed.AxSSFrame()
         Me._optFreundlichSource_2 = New AxThreed.AxSSOption()
@@ -131,8 +127,6 @@
         Me.cmdCalculate = New AxThreed.AxSSCommand()
         Me.fraPolanyi = New AxThreed.AxSSFrame()
         Me.fraAdditional = New AxThreed.AxSSFrame()
-        Me.sspanel_Dirty = New AxThreed.AxSSPanel()
-        Me.sspanel_Status = New AxThreed.AxSSPanel()
         Me.grpSource = New System.Windows.Forms.GroupBox()
         Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
         Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
@@ -160,6 +154,9 @@
         Me.lblPhase = New System.Windows.Forms.Label()
         Me.lblComments = New System.Windows.Forms.Label()
         Me.grpIsothermDB = New System.Windows.Forms.GroupBox()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripDirty = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatus = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Label5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblInput, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,7 +164,6 @@
         CType(Me.lblValue, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lstRange, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_StatusBar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraTwo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraOne, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._optFreundlichSource_2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -177,8 +173,6 @@
         CType(Me.cmdCalculate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraPolanyi, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraAdditional, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpSource.SuspendLayout()
         Me.grpIPES.SuspendLayout()
         Me.grpAdditional.SuspendLayout()
@@ -187,6 +181,7 @@
         Me.grpOne.SuspendLayout()
         Me.grpTwo.SuspendLayout()
         Me.grpIsothermDB.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Command2
@@ -809,15 +804,6 @@
         Me.Label10.Text = "Adsorbent:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'sspanel_StatusBar
-        '
-        Me.sspanel_StatusBar.Location = New System.Drawing.Point(616, 593)
-        Me.sspanel_StatusBar.Name = "sspanel_StatusBar"
-        Me.sspanel_StatusBar.OcxState = CType(resources.GetObject("sspanel_StatusBar.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_StatusBar.Size = New System.Drawing.Size(149, 44)
-        Me.sspanel_StatusBar.TabIndex = 55
-        Me.sspanel_StatusBar.Visible = False
-        '
         'fraTwo
         '
         Me.fraTwo.Location = New System.Drawing.Point(294, 20)
@@ -889,22 +875,6 @@
         Me.fraAdditional.OcxState = CType(resources.GetObject("fraAdditional.OcxState"), System.Windows.Forms.AxHost.State)
         Me.fraAdditional.Size = New System.Drawing.Size(247, 63)
         Me.fraAdditional.TabIndex = 22
-        '
-        'sspanel_Dirty
-        '
-        Me.sspanel_Dirty.Location = New System.Drawing.Point(14, 593)
-        Me.sspanel_Dirty.Name = "sspanel_Dirty"
-        Me.sspanel_Dirty.OcxState = CType(resources.GetObject("sspanel_Dirty.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Dirty.Size = New System.Drawing.Size(142, 29)
-        Me.sspanel_Dirty.TabIndex = 56
-        '
-        'sspanel_Status
-        '
-        Me.sspanel_Status.Location = New System.Drawing.Point(147, 593)
-        Me.sspanel_Status.Name = "sspanel_Status"
-        Me.sspanel_Status.OcxState = CType(resources.GetObject("sspanel_Status.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Status.Size = New System.Drawing.Size(618, 29)
-        Me.sspanel_Status.TabIndex = 57
         '
         'grpSource
         '
@@ -1280,6 +1250,27 @@
         Me.grpIsothermDB.TabStop = False
         Me.grpIsothermDB.Text = "{What} PhaseIsotherm Database"
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDirty, Me.ToolStripStatus})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 635)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(783, 22)
+        Me.StatusStrip1.TabIndex = 83
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripDirty
+        '
+        Me.ToolStripDirty.Name = "ToolStripDirty"
+        Me.ToolStripDirty.Size = New System.Drawing.Size(78, 17)
+        Me.ToolStripDirty.Text = "ToolStripDirty"
+        '
+        'ToolStripStatus
+        '
+        Me.ToolStripStatus.Name = "ToolStripStatus"
+        Me.ToolStripStatus.Size = New System.Drawing.Size(85, 17)
+        Me.ToolStripStatus.Text = "ToolStripStatus"
+        '
         'frmFreundlich
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -1287,15 +1278,13 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(783, 657)
         Me.ControlBox = False
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.grpIsothermDB)
         Me.Controls.Add(Me.grpUserInput)
         Me.Controls.Add(Me.grpIPES)
         Me.Controls.Add(Me.grpSource)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Option1)
-        Me.Controls.Add(Me.sspanel_StatusBar)
-        Me.Controls.Add(Me.sspanel_Status)
-        Me.Controls.Add(Me.sspanel_Dirty)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -1313,7 +1302,6 @@
         CType(Me.lblValue, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lstRange, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_StatusBar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraTwo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraOne, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._optFreundlichSource_2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1323,8 +1311,6 @@
         CType(Me.cmdCalculate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraPolanyi, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraAdditional, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpSource.ResumeLayout(False)
         Me.grpIPES.ResumeLayout(False)
         Me.grpAdditional.ResumeLayout(False)
@@ -1336,7 +1322,10 @@
         Me.grpOne.ResumeLayout(False)
         Me.grpTwo.ResumeLayout(False)
         Me.grpIsothermDB.ResumeLayout(False)
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents grpSource As GroupBox
@@ -1376,5 +1365,8 @@
     Friend WithEvents _cmdFind_0 As Button
     Friend WithEvents _cmdFind_1 As Button
     Friend WithEvents cmdSelect As Button
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripDirty As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatus As ToolStripStatusLabel
 #End Region
 End Class

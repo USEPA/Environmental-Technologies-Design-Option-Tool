@@ -70,19 +70,19 @@ err_frmFreundlich_Run:
 
 	Sub frmFreundlich_GenericStatus_Set(ByRef fn_Text As String)
 		'UPGRADE_WARNING: Couldn't resolve default property of object Me.sspanel_Status. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Me.sspanel_Status.Caption = fn_Text
+		ToolStripStatus.Text = fn_Text
 	End Sub
 	Sub frmFreundlich_DirtyStatus_Set(ByRef newVal As Boolean)
 		If (newVal) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object Me.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.Caption = "Data Changed"
+			ToolStripDirty.Text = "Data Changed"
 			'UPGRADE_WARNING: Couldn't resolve default property of object Me.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
+			ToolStripDirty.ForeColor = Color.FromArgb(QBColor(12))
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object Me.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.Caption = "Unchanged"
+			ToolStripDirty.Text = "Unchanged"
 			'UPGRADE_WARNING: Couldn't resolve default property of object Me.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			Me.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(0))
+			ToolStripDirty.ForeColor = Color.FromArgb(QBColor(0))
 		End If
 	End Sub
 	Sub frmFreundlich_DirtyStatus_Set_Current()
@@ -786,7 +786,7 @@ err_populate_lblValue:
 					Find_String = Trim(Str(Component(0).CAS)) & "   "
 					If (Do_Search_For_Text(False) = True) Then
 						'SEARCH SUCEEDED; SELECT THIS ISOTHERM.
-						Call cmdSelect_Click()
+						Call lstCompo_SelectedIndexChanged(lstCompo, New System.EventArgs())
 						No_IsothermDBData = False
 					End If
 				End If
@@ -798,7 +798,7 @@ err_populate_lblValue:
 				Find_String = "   " & Trim(Component(0).Name)
 				If (Do_Search_For_Text(False) = True) Then
 					'SEARCH SUCEEDED; SELECT THIS ISOTHERM.
-					Call cmdSelect_Click()
+					Call lstCompo_SelectedIndexChanged(lstCompo, New System.EventArgs())
 					No_IsothermDBData = False
 				End If
 			End If

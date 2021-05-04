@@ -138,16 +138,6 @@
   <metadata name="txtInput.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>889, 17</value>
   </metadata>
-  <data name="sspanel_StatusBar.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAArAAAAAIB
-        AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAHkAAAAAAAEAZg8AAIwE
-        AAAPAAAAEXNzcGFuZWxfU3RhdHVzQmFyEgAAgPDw8AAAA1LjC5GPzhGd4wCqAEu4UQEAAACQAfgkAQAU
-        TWljcm9zb2Z0IFNhbnMgU2VyaWYBAAMAAgAAAAEAAAAAAP8AAAABAAAAAAcAAAAAAAH/Cw==
-</value>
-  </data>
   <data name="fraTwo.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
@@ -234,26 +224,9 @@
         AAAOAAAADWZyYUFkZGl0aW9uYWwSAACA/wAAAAAAAAAAAAAB/ws=
 </value>
   </data>
-  <data name="sspanel_Dirty.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAqAAAAAIB
-        AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAHUAAAAAAAEArQ4AAP8C
-        AAAPAAAADXNzcGFuZWxfRGlydHkSAACA8PDwAAADUuMLkY/OEZ3jAKoAS7hRAQAAAJAB+CQBABRNaWNy
-        b3NvZnQgU2FucyBTZXJpZgEAAwACAAAAAQAAAAAA/wAAAAEAAAAABwAAAAAAAf8L
-</value>
-  </data>
-  <data name="sspanel_Status.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAqQAAAAIB
-        AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAHYAAAAAAAEA3z8AAP8C
-        AAAPAAAADnNzcGFuZWxfU3RhdHVzEgAAgPDw8AAAA1LjC5GPzhGd4wCqAEu4UQEAAACQAfgkAQAUTWlj
-        cm9zb2Z0IFNhbnMgU2VyaWYBAAMAAgAAAAEAAAAAAP8AAAABAAAAAAcAAAAAAAH/Cw==
-</value>
-  </data>
+  <metadata name="StatusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

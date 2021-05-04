@@ -583,7 +583,7 @@ Module Refresh
 		Ctl_Inv2.Visible = False
 		'UPGRADE_ISSUE: Control fraSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		'UPGRADE_ISSUE: Control sspanel_StatusBar could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Avail_Height = Frm.sspanel_StatusBar.Top - (Frm.grpSource.Top + Frm.grpSource.Height)
+		Avail_Height = Frm.StatusStrip1.Top - (Frm.grpSource.Top + Frm.grpSource.Height)
 		Avail_Width = Frm.ClientRectangle.Width
 		XXX = (Avail_Width - Ctl.Width) / 2
 		'UPGRADE_ISSUE: Control fraSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
