@@ -31,8 +31,6 @@
     Public WithEvents _optFreundlichSource_2 As AxThreed.AxSSOption
     Public WithEvents _optFreundlichSource_1 As AxThreed.AxSSOption
     Public WithEvents _optFreundlichSource_0 As AxThreed.AxSSOption
-    Public WithEvents _cmdCancelOK_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdCancelOK_0 As AxThreed.AxSSCommand
     Public WithEvents lblWarning As System.Windows.Forms.Label
     Public WithEvents sspanel_Warning As AxThreed.AxSSPanel
     Public WithEvents cboMethod As System.Windows.Forms.ComboBox
@@ -41,7 +39,6 @@
     Public WithEvents _txtInput_0 As System.Windows.Forms.TextBox
     Public WithEvents _txtInput_1 As System.Windows.Forms.TextBox
     Public WithEvents _txtInput_10 As System.Windows.Forms.TextBox
-    Public WithEvents cmdEditPolanyi As AxThreed.AxSSCommand
     Public WithEvents Label10 As System.Windows.Forms.Label
     Public WithEvents _lblInput_0 As System.Windows.Forms.Label
     Public WithEvents _lblInput_1 As System.Windows.Forms.Label
@@ -125,14 +122,11 @@
         Me.lblWarning = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.sspanel_StatusBar = New AxThreed.AxSSPanel()
-        Me.cmdEditPolanyi = New AxThreed.AxSSCommand()
         Me.fraTwo = New AxThreed.AxSSFrame()
         Me.fraOne = New AxThreed.AxSSFrame()
         Me._optFreundlichSource_2 = New AxThreed.AxSSOption()
         Me._optFreundlichSource_1 = New AxThreed.AxSSOption()
         Me._optFreundlichSource_0 = New AxThreed.AxSSOption()
-        Me._cmdCancelOK_1 = New AxThreed.AxSSCommand()
-        Me._cmdCancelOK_0 = New AxThreed.AxSSCommand()
         Me.sspanel_Warning = New AxThreed.AxSSPanel()
         Me.cmdCalculate = New AxThreed.AxSSCommand()
         Me.fraPolanyi = New AxThreed.AxSSFrame()
@@ -140,16 +134,19 @@
         Me.sspanel_Dirty = New AxThreed.AxSSPanel()
         Me.sspanel_Status = New AxThreed.AxSSPanel()
         Me.grpSource = New System.Windows.Forms.GroupBox()
+        Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
+        Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
         Me.grpIPES = New System.Windows.Forms.GroupBox()
         Me.grpAdditional = New System.Windows.Forms.GroupBox()
         Me.grpPolanyi = New System.Windows.Forms.GroupBox()
+        Me.cmdEditPolanyi = New System.Windows.Forms.Button()
         Me.grpUserInput = New System.Windows.Forms.GroupBox()
-        Me.cmdSelect = New AxThreed.AxSSCommand()
-        Me._cmdFind_1 = New AxThreed.AxSSCommand()
-        Me._cmdFind_0 = New AxThreed.AxSSCommand()
         Me.grpOne = New System.Windows.Forms.GroupBox()
+        Me.cmdSelect = New System.Windows.Forms.Button()
         Me.lblEmpty_lstCompo = New System.Windows.Forms.Label()
+        Me._cmdFind_1 = New System.Windows.Forms.Button()
         Me.lstCompo = New System.Windows.Forms.ListBox()
+        Me._cmdFind_0 = New System.Windows.Forms.Button()
         Me.cboSortMethod = New System.Windows.Forms.ComboBox()
         Me.grpTwo = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -171,14 +168,11 @@
         CType(Me.lstRange, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_StatusBar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdEditPolanyi, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraTwo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraOne, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._optFreundlichSource_2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._optFreundlichSource_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._optFreundlichSource_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Warning, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdCalculate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraPolanyi, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -190,9 +184,6 @@
         Me.grpAdditional.SuspendLayout()
         Me.grpPolanyi.SuspendLayout()
         Me.grpUserInput.SuspendLayout()
-        CType(Me.cmdSelect, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdFind_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._cmdFind_0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpOne.SuspendLayout()
         Me.grpTwo.SuspendLayout()
         Me.grpIsothermDB.SuspendLayout()
@@ -827,14 +818,6 @@
         Me.sspanel_StatusBar.TabIndex = 55
         Me.sspanel_StatusBar.Visible = False
         '
-        'cmdEditPolanyi
-        '
-        Me.cmdEditPolanyi.Location = New System.Drawing.Point(0, 64)
-        Me.cmdEditPolanyi.Name = "cmdEditPolanyi"
-        Me.cmdEditPolanyi.OcxState = CType(resources.GetObject("cmdEditPolanyi.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdEditPolanyi.Size = New System.Drawing.Size(100, 23)
-        Me.cmdEditPolanyi.TabIndex = 68
-        '
         'fraTwo
         '
         Me.fraTwo.Location = New System.Drawing.Point(294, 20)
@@ -874,24 +857,6 @@
         Me._optFreundlichSource_0.OcxState = CType(resources.GetObject("_optFreundlichSource_0.OcxState"), System.Windows.Forms.AxHost.State)
         Me._optFreundlichSource_0.Size = New System.Drawing.Size(196, 25)
         Me._optFreundlichSource_0.TabIndex = 3
-        '
-        '_cmdCancelOK_1
-        '
-        Me._cmdCancelOK_1.Location = New System.Drawing.Point(534, 38)
-        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
-        Me._cmdCancelOK_1.OcxState = CType(resources.GetObject("_cmdCancelOK_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_1.Size = New System.Drawing.Size(87, 29)
-        Me._cmdCancelOK_1.TabIndex = 58
-        Me._cmdCancelOK_1.TabStop = False
-        '
-        '_cmdCancelOK_0
-        '
-        Me._cmdCancelOK_0.Location = New System.Drawing.Point(534, 11)
-        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
-        Me._cmdCancelOK_0.OcxState = CType(resources.GetObject("_cmdCancelOK_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdCancelOK_0.Size = New System.Drawing.Size(87, 26)
-        Me._cmdCancelOK_0.TabIndex = 59
-        Me._cmdCancelOK_0.TabStop = False
         '
         'sspanel_Warning
         '
@@ -946,9 +911,9 @@
         Me.grpSource.Controls.Add(Me._optFreundlichSource_0)
         Me.grpSource.Controls.Add(Me._optFreundlichSource_1)
         Me.grpSource.Controls.Add(Me._optFreundlichSource_2)
+        Me.grpSource.Controls.Add(Me.Command2)
         Me.grpSource.Controls.Add(Me._cmdCancelOK_0)
         Me.grpSource.Controls.Add(Me._cmdCancelOK_1)
-        Me.grpSource.Controls.Add(Me.Command2)
         Me.grpSource.Controls.Add(Me.lblWarning)
         Me.grpSource.Location = New System.Drawing.Point(3, 4)
         Me.grpSource.Name = "grpSource"
@@ -956,6 +921,24 @@
         Me.grpSource.TabIndex = 72
         Me.grpSource.TabStop = False
         Me.grpSource.Text = "Source of K and 1/n"
+        '
+        '_cmdCancelOK_0
+        '
+        Me._cmdCancelOK_0.Location = New System.Drawing.Point(513, 14)
+        Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
+        Me._cmdCancelOK_0.Size = New System.Drawing.Size(101, 22)
+        Me._cmdCancelOK_0.TabIndex = 83
+        Me._cmdCancelOK_0.Text = "&Cancel"
+        Me._cmdCancelOK_0.UseVisualStyleBackColor = True
+        '
+        '_cmdCancelOK_1
+        '
+        Me._cmdCancelOK_1.Location = New System.Drawing.Point(513, 40)
+        Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
+        Me._cmdCancelOK_1.Size = New System.Drawing.Size(101, 22)
+        Me._cmdCancelOK_1.TabIndex = 84
+        Me._cmdCancelOK_1.Text = "&Ok"
+        Me._cmdCancelOK_1.UseVisualStyleBackColor = True
         '
         'grpIPES
         '
@@ -993,8 +976,8 @@
         '
         Me.grpPolanyi.Controls.Add(Me.Label10)
         Me.grpPolanyi.Controls.Add(Me._txtInput_13)
-        Me.grpPolanyi.Controls.Add(Me.cmdEditPolanyi)
         Me.grpPolanyi.Controls.Add(Me._lblInput_0)
+        Me.grpPolanyi.Controls.Add(Me.cmdEditPolanyi)
         Me.grpPolanyi.Controls.Add(Me._lblInput_1)
         Me.grpPolanyi.Controls.Add(Me._lblInput_4)
         Me.grpPolanyi.Controls.Add(Me._txtInput_0)
@@ -1006,6 +989,15 @@
         Me.grpPolanyi.TabIndex = 13
         Me.grpPolanyi.TabStop = False
         Me.grpPolanyi.Text = "Polanyi Parameters"
+        '
+        'cmdEditPolanyi
+        '
+        Me.cmdEditPolanyi.Location = New System.Drawing.Point(6, 51)
+        Me.cmdEditPolanyi.Name = "cmdEditPolanyi"
+        Me.cmdEditPolanyi.Size = New System.Drawing.Size(90, 21)
+        Me.cmdEditPolanyi.TabIndex = 85
+        Me.cmdEditPolanyi.Text = "Edi&t Parameters"
+        Me.cmdEditPolanyi.UseVisualStyleBackColor = True
         '
         'grpUserInput
         '
@@ -1021,37 +1013,13 @@
         Me.grpUserInput.TabStop = False
         Me.grpUserInput.Text = "grpUserInput"
         '
-        'cmdSelect
-        '
-        Me.cmdSelect.Location = New System.Drawing.Point(30, 221)
-        Me.cmdSelect.Name = "cmdSelect"
-        Me.cmdSelect.OcxState = CType(resources.GetObject("cmdSelect.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdSelect.Size = New System.Drawing.Size(233, 24)
-        Me.cmdSelect.TabIndex = 30
-        '
-        '_cmdFind_1
-        '
-        Me._cmdFind_1.Location = New System.Drawing.Point(163, 184)
-        Me._cmdFind_1.Name = "_cmdFind_1"
-        Me._cmdFind_1.OcxState = CType(resources.GetObject("_cmdFind_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdFind_1.Size = New System.Drawing.Size(100, 31)
-        Me._cmdFind_1.TabIndex = 31
-        '
-        '_cmdFind_0
-        '
-        Me._cmdFind_0.Location = New System.Drawing.Point(30, 184)
-        Me._cmdFind_0.Name = "_cmdFind_0"
-        Me._cmdFind_0.OcxState = CType(resources.GetObject("_cmdFind_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._cmdFind_0.Size = New System.Drawing.Size(100, 31)
-        Me._cmdFind_0.TabIndex = 32
-        '
         'grpOne
         '
+        Me.grpOne.Controls.Add(Me.cmdSelect)
         Me.grpOne.Controls.Add(Me.lblEmpty_lstCompo)
+        Me.grpOne.Controls.Add(Me._cmdFind_1)
         Me.grpOne.Controls.Add(Me.lstCompo)
         Me.grpOne.Controls.Add(Me._cmdFind_0)
-        Me.grpOne.Controls.Add(Me._cmdFind_1)
-        Me.grpOne.Controls.Add(Me.cmdSelect)
         Me.grpOne.Controls.Add(Me._lblInput_8)
         Me.grpOne.Controls.Add(Me.cboSortMethod)
         Me.grpOne.Location = New System.Drawing.Point(11, 22)
@@ -1060,6 +1028,15 @@
         Me.grpOne.TabIndex = 80
         Me.grpOne.TabStop = False
         Me.grpOne.Text = "Select a Component:"
+        '
+        'cmdSelect
+        '
+        Me.cmdSelect.Location = New System.Drawing.Point(30, 221)
+        Me.cmdSelect.Name = "cmdSelect"
+        Me.cmdSelect.Size = New System.Drawing.Size(206, 23)
+        Me.cmdSelect.TabIndex = 88
+        Me.cmdSelect.Text = "Select Chemic&al"
+        Me.cmdSelect.UseVisualStyleBackColor = True
         '
         'lblEmpty_lstCompo
         '
@@ -1076,6 +1053,15 @@
         Me.lblEmpty_lstCompo.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.lblEmpty_lstCompo.Visible = False
         '
+        '_cmdFind_1
+        '
+        Me._cmdFind_1.Location = New System.Drawing.Point(136, 191)
+        Me._cmdFind_1.Name = "_cmdFind_1"
+        Me._cmdFind_1.Size = New System.Drawing.Size(100, 24)
+        Me._cmdFind_1.TabIndex = 87
+        Me._cmdFind_1.Text = "Find A&gain"
+        Me._cmdFind_1.UseVisualStyleBackColor = True
+        '
         'lstCompo
         '
         Me.lstCompo.BackColor = System.Drawing.SystemColors.Window
@@ -1089,6 +1075,15 @@
         Me.lstCompo.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lstCompo.Size = New System.Drawing.Size(277, 128)
         Me.lstCompo.TabIndex = 33
+        '
+        '_cmdFind_0
+        '
+        Me._cmdFind_0.Location = New System.Drawing.Point(30, 191)
+        Me._cmdFind_0.Name = "_cmdFind_0"
+        Me._cmdFind_0.Size = New System.Drawing.Size(100, 24)
+        Me._cmdFind_0.TabIndex = 86
+        Me._cmdFind_0.Text = "&Find"
+        Me._cmdFind_0.UseVisualStyleBackColor = True
         '
         'cboSortMethod
         '
@@ -1319,14 +1314,11 @@
         CType(Me.lstRange, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_StatusBar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdEditPolanyi, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraTwo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraOne, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._optFreundlichSource_2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._optFreundlichSource_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._optFreundlichSource_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdCancelOK_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Warning, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdCalculate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraPolanyi, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1341,9 +1333,6 @@
         Me.grpPolanyi.PerformLayout()
         Me.grpUserInput.ResumeLayout(False)
         Me.grpUserInput.PerformLayout()
-        CType(Me.cmdSelect, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdFind_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._cmdFind_0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpOne.ResumeLayout(False)
         Me.grpTwo.ResumeLayout(False)
         Me.grpIsothermDB.ResumeLayout(False)
@@ -1355,9 +1344,6 @@
     Friend WithEvents grpAdditional As GroupBox
     Friend WithEvents grpPolanyi As GroupBox
     Friend WithEvents grpUserInput As GroupBox
-    Public WithEvents cmdSelect As AxThreed.AxSSCommand
-    Public WithEvents _cmdFind_1 As AxThreed.AxSSCommand
-    Public WithEvents _cmdFind_0 As AxThreed.AxSSCommand
     Friend WithEvents grpOne As GroupBox
     Public WithEvents lblEmpty_lstCompo As Label
     Public WithEvents lstCompo As ListBox
@@ -1384,5 +1370,11 @@
     Public WithEvents lblComments As Label
     Public WithEvents _lblValue_3 As Label
     Friend WithEvents grpIsothermDB As GroupBox
+    Friend WithEvents _cmdCancelOK_0 As Button
+    Friend WithEvents _cmdCancelOK_1 As Button
+    Friend WithEvents cmdEditPolanyi As Button
+    Friend WithEvents _cmdFind_0 As Button
+    Friend WithEvents _cmdFind_1 As Button
+    Friend WithEvents cmdSelect As Button
 #End Region
 End Class

@@ -692,9 +692,6 @@ err_populate_lblValue:
 	End Sub
 
 
-	Private Sub cmdSelect_Click()
-		Call lstCompo_SelectedIndexChanged(lstCompo, New System.EventArgs())
-	End Sub
 
 
 	Private Sub Command2_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles Command2.Click
@@ -1112,33 +1109,35 @@ err_populate_lblValue:
 		Call optFreundlichSource_Click(2, 0)
 	End Sub
 
-	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.ClickEvent
-		Call cmdCancelOK_Click(0)
-	End Sub
 
-	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.ClickEvent
-		Call cmdCancelOK_Click(1)
-	End Sub
-
-	Private Sub cmdEditPolanyi_ClickEvent(sender As Object, e As EventArgs) Handles cmdEditPolanyi.ClickEvent
-		Call cmdEditPolanyi_Click()
-	End Sub
-
-	Private Sub _cmdFind_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdFind_0.ClickEvent
-		Call cmdFind_Click(0)
-	End Sub
-
-	Private Sub _cmdFind_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdFind_1.ClickEvent
-
-
-		Call cmdFind_Click(1)
-	End Sub
-
-	Private Sub cmdSelect_ClickEvent(sender As Object, e As EventArgs) Handles cmdSelect.ClickEvent
-		Call cmdSelect_Click()
-	End Sub
 
 	Private Sub cmdCalculate_ClickEvent(sender As Object, e As EventArgs) Handles cmdCalculate.ClickEvent
 		cmdCalculate_Click()
+	End Sub
+
+	Private Sub _cmdCancelOK_0_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
+		Call cmdCancelOK_Click(0)
+
+	End Sub
+
+	Private Sub _cmdCancelOK_1_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.Click
+		Call cmdCancelOK_Click(1)
+
+	End Sub
+
+	Private Sub cmdEditPolanyi_Click(sender As Object, e As EventArgs) Handles cmdEditPolanyi.Click
+		Call cmdEditPolanyi_Click()
+	End Sub
+
+	Private Sub _cmdFind_0_Click(sender As Object, e As EventArgs) Handles _cmdFind_0.Click
+		Call cmdFind_Click(0)
+	End Sub
+
+	Private Sub _cmdFind_1_Click(sender As Object, e As EventArgs) Handles _cmdFind_1.Click
+		Call cmdFind_Click(1)
+	End Sub
+
+	Private Sub cmdSelect_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
+		Call lstCompo_SelectedIndexChanged(lstCompo, New System.EventArgs())
 	End Sub
 End Class
