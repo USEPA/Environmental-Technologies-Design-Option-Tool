@@ -28,13 +28,9 @@
     Public WithEvents _lblText_5 As System.Windows.Forms.Label
     Public WithEvents _Label5_2 As System.Windows.Forms.Label
     Public WithEvents Command2 As System.Windows.Forms.Button
-    Public WithEvents _optFreundlichSource_2 As AxThreed.AxSSOption
-    Public WithEvents _optFreundlichSource_1 As AxThreed.AxSSOption
-    Public WithEvents _optFreundlichSource_0 As AxThreed.AxSSOption
     Public WithEvents lblWarning As System.Windows.Forms.Label
     Public WithEvents sspanel_Warning As AxThreed.AxSSPanel
     Public WithEvents cboMethod As System.Windows.Forms.ComboBox
-    Public WithEvents cmdCalculate As AxThreed.AxSSCommand
     Public WithEvents _txtInput_13 As System.Windows.Forms.TextBox
     Public WithEvents _txtInput_0 As System.Windows.Forms.TextBox
     Public WithEvents _txtInput_1 As System.Windows.Forms.TextBox
@@ -120,17 +116,17 @@
         Me.Label10 = New System.Windows.Forms.Label()
         Me.fraTwo = New AxThreed.AxSSFrame()
         Me.fraOne = New AxThreed.AxSSFrame()
-        Me._optFreundlichSource_2 = New AxThreed.AxSSOption()
-        Me._optFreundlichSource_1 = New AxThreed.AxSSOption()
-        Me._optFreundlichSource_0 = New AxThreed.AxSSOption()
         Me.sspanel_Warning = New AxThreed.AxSSPanel()
-        Me.cmdCalculate = New AxThreed.AxSSCommand()
         Me.fraPolanyi = New AxThreed.AxSSFrame()
         Me.fraAdditional = New AxThreed.AxSSFrame()
         Me.grpSource = New System.Windows.Forms.GroupBox()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me._cmdCancelOK_0 = New System.Windows.Forms.Button()
         Me._cmdCancelOK_1 = New System.Windows.Forms.Button()
         Me.grpIPES = New System.Windows.Forms.GroupBox()
+        Me.cmdCalculate = New System.Windows.Forms.Button()
         Me.grpAdditional = New System.Windows.Forms.GroupBox()
         Me.grpPolanyi = New System.Windows.Forms.GroupBox()
         Me.cmdEditPolanyi = New System.Windows.Forms.Button()
@@ -166,11 +162,7 @@
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraTwo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraOne, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optFreundlichSource_2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optFreundlichSource_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optFreundlichSource_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sspanel_Warning, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdCalculate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraPolanyi, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fraAdditional, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpSource.SuspendLayout()
@@ -820,30 +812,6 @@
         Me.fraOne.Size = New System.Drawing.Size(289, 255)
         Me.fraOne.TabIndex = 28
         '
-        '_optFreundlichSource_2
-        '
-        Me._optFreundlichSource_2.Location = New System.Drawing.Point(8, 75)
-        Me._optFreundlichSource_2.Name = "_optFreundlichSource_2"
-        Me._optFreundlichSource_2.OcxState = CType(resources.GetObject("_optFreundlichSource_2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optFreundlichSource_2.Size = New System.Drawing.Size(165, 17)
-        Me._optFreundlichSource_2.TabIndex = 1
-        '
-        '_optFreundlichSource_1
-        '
-        Me._optFreundlichSource_1.Location = New System.Drawing.Point(8, 45)
-        Me._optFreundlichSource_1.Name = "_optFreundlichSource_1"
-        Me._optFreundlichSource_1.OcxState = CType(resources.GetObject("_optFreundlichSource_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optFreundlichSource_1.Size = New System.Drawing.Size(209, 24)
-        Me._optFreundlichSource_1.TabIndex = 2
-        '
-        '_optFreundlichSource_0
-        '
-        Me._optFreundlichSource_0.Location = New System.Drawing.Point(8, 20)
-        Me._optFreundlichSource_0.Name = "_optFreundlichSource_0"
-        Me._optFreundlichSource_0.OcxState = CType(resources.GetObject("_optFreundlichSource_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optFreundlichSource_0.Size = New System.Drawing.Size(196, 25)
-        Me._optFreundlichSource_0.TabIndex = 3
-        '
         'sspanel_Warning
         '
         Me.sspanel_Warning.Location = New System.Drawing.Point(222, 10)
@@ -851,14 +819,6 @@
         Me.sspanel_Warning.OcxState = CType(resources.GetObject("sspanel_Warning.OcxState"), System.Windows.Forms.AxHost.State)
         Me.sspanel_Warning.Size = New System.Drawing.Size(271, 73)
         Me.sspanel_Warning.TabIndex = 66
-        '
-        'cmdCalculate
-        '
-        Me.cmdCalculate.Location = New System.Drawing.Point(309, 107)
-        Me.cmdCalculate.Name = "cmdCalculate"
-        Me.cmdCalculate.OcxState = CType(resources.GetObject("cmdCalculate.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdCalculate.Size = New System.Drawing.Size(310, 20)
-        Me.cmdCalculate.TabIndex = 5
         '
         'fraPolanyi
         '
@@ -878,9 +838,9 @@
         '
         'grpSource
         '
-        Me.grpSource.Controls.Add(Me._optFreundlichSource_0)
-        Me.grpSource.Controls.Add(Me._optFreundlichSource_1)
-        Me.grpSource.Controls.Add(Me._optFreundlichSource_2)
+        Me.grpSource.Controls.Add(Me.RadioButton3)
+        Me.grpSource.Controls.Add(Me.RadioButton2)
+        Me.grpSource.Controls.Add(Me.RadioButton1)
         Me.grpSource.Controls.Add(Me.Command2)
         Me.grpSource.Controls.Add(Me._cmdCancelOK_0)
         Me.grpSource.Controls.Add(Me._cmdCancelOK_1)
@@ -891,6 +851,39 @@
         Me.grpSource.TabIndex = 72
         Me.grpSource.TabStop = False
         Me.grpSource.Text = "Source of K and 1/n"
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(23, 78)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(77, 18)
+        Me.RadioButton3.TabIndex = 87
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "U&ser Input "
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(23, 53)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(177, 18)
+        Me.RadioButton2.TabIndex = 86
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "(Isotherm Parameter &Estimation)"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(23, 28)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(115, 18)
+        Me.RadioButton1.TabIndex = 85
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Isotherm &Database"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         '_cmdCancelOK_0
         '
@@ -912,22 +905,31 @@
         '
         'grpIPES
         '
+        Me.grpIPES.Controls.Add(Me.cmdCalculate)
         Me.grpIPES.Controls.Add(Me.grpAdditional)
         Me.grpIPES.Controls.Add(Me.grpPolanyi)
         Me.grpIPES.Controls.Add(Me.lblEstimationMethod)
         Me.grpIPES.Controls.Add(Me.cboMethod)
-        Me.grpIPES.Controls.Add(Me.cmdCalculate)
         Me.grpIPES.Controls.Add(Me._lblText_2)
         Me.grpIPES.Controls.Add(Me._lblValue_4)
         Me.grpIPES.Controls.Add(Me._lblText_3)
         Me.grpIPES.Controls.Add(Me._lblValue_5)
         Me.grpIPES.Controls.Add(Me._Label5_1)
-        Me.grpIPES.Location = New System.Drawing.Point(14, 120)
+        Me.grpIPES.Location = New System.Drawing.Point(669, 44)
         Me.grpIPES.Name = "grpIPES"
         Me.grpIPES.Size = New System.Drawing.Size(634, 182)
         Me.grpIPES.TabIndex = 73
         Me.grpIPES.TabStop = False
         Me.grpIPES.Text = "Isotherm Parameter Estimation (IPE)"
+        '
+        'cmdCalculate
+        '
+        Me.cmdCalculate.Location = New System.Drawing.Point(297, 108)
+        Me.cmdCalculate.Name = "cmdCalculate"
+        Me.cmdCalculate.Size = New System.Drawing.Size(239, 21)
+        Me.cmdCalculate.TabIndex = 84
+        Me.cmdCalculate.Text = "&Perform IPE Calculations"
+        Me.cmdCalculate.UseVisualStyleBackColor = True
         '
         'grpAdditional
         '
@@ -1255,7 +1257,7 @@
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDirty, Me.ToolStripStatus})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 635)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(783, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1264, 22)
         Me.StatusStrip1.TabIndex = 83
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -1276,7 +1278,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(783, 657)
+        Me.ClientSize = New System.Drawing.Size(1264, 657)
         Me.ControlBox = False
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.grpIsothermDB)
@@ -1304,14 +1306,11 @@
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraTwo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraOne, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optFreundlichSource_2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optFreundlichSource_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optFreundlichSource_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sspanel_Warning, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdCalculate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraPolanyi, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fraAdditional, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpSource.ResumeLayout(False)
+        Me.grpSource.PerformLayout()
         Me.grpIPES.ResumeLayout(False)
         Me.grpAdditional.ResumeLayout(False)
         Me.grpAdditional.PerformLayout()
@@ -1368,5 +1367,9 @@
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripDirty As ToolStripStatusLabel
     Friend WithEvents ToolStripStatus As ToolStripStatusLabel
+    Friend WithEvents cmdCalculate As Button
+    Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
 #End Region
 End Class

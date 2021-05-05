@@ -608,22 +608,22 @@ err_populate_lblValue:
 			Case 1 'OK.
 				'VERIFY THAT NEW K AND 1/N SOURCE IS VALID.
 				'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource(0). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				If CBool((_optFreundlichSource_0).Value) Then WhichSelected = 0
+				If CBool(RadioButton1.Checked) Then WhichSelected = 0
 				'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource(1). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				If CBool((_optFreundlichSource_1).Value) Then WhichSelected = 1
+				If CBool(RadioButton2.Checked) Then WhichSelected = 1
 				'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource(2). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-				If CBool((_optFreundlichSource_2).Value) Then WhichSelected = 2
+				If CBool(RadioButton3.Checked) Then WhichSelected = 2
 				Select Case WhichSelected
 					Case 0
 						'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource().Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						If (VB.Left(_optFreundlichSource_0.Caption, 1) = "(") Then
+						If (VB.Left(RadioButton1.Text, 1) = "(") Then
 							'FORCE SOURCE TO USER-INPUT.
 							Call Show_Error("Unable to validate isotherm " & "database as source of K and 1/n: reverting " & "to user-input as source of K and 1/n.")
 							Component(0).Source_KandOneOverN = KNSOURCE_USERINPUT
 						End If
 					Case 1
 						'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource().Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-						If (VB.Left(_optFreundlichSource_1.Caption, 1) = "(") Then
+						If (VB.Left(RadioButton2.Text, 1) = "(") Then
 							'FORCE SOURCE TO USER-INPUT.
 							Call Show_Error("Unable to validate IPES as " & "source of K and 1/n: reverting to user-input " & "as source of K and 1/n.")
 							Component(0).Source_KandOneOverN = KNSOURCE_USERINPUT
@@ -717,13 +717,16 @@ err_populate_lblValue:
 			Select Case Component(0).Source_KandOneOverN
 				Case KNSOURCE_ISOTHERMDB
 					'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource().Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					_optFreundlichSource_0.Value = True
+					'_optFreundlichSource_0.Value = True
+					RadioButton1.Checked = True
 				Case KNSOURCE_IPES
 					'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource().Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					_optFreundlichSource_1.Value = True
+					'_optFreundlichSource_1.Value = True
+					RadioButton2.Checked = True
 				Case KNSOURCE_USERINPUT
 					'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource().Value. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-					_optFreundlichSource_2.Value = True
+					'_optFreundlichSource_2.Value = True
+					RadioButton3.Checked = True
 			End Select
 			HALT_OPTFREUNDLICHSOURCE = False
 			'
@@ -817,11 +820,12 @@ err_populate_lblValue:
 			'REFRESH DISPLAY.
 			Call frmFreundlich_Refresh()
 			'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource().Enabled. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			_optFreundlichSource_0.Enabled = True
+			'_optFreundlichSource_0.Enabled = True
 			'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource().Enabled. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			_optFreundlichSource_0.Enabled = True
+			'_optFreundlichSource_0.Enabled = True
 			'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource().Enabled. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			_optFreundlichSource_0.Enabled = True
+			'_optFreundlichSource_0.Enabled = True
+			RadioButton1.Enabled = True
 			'
 			'CLEAR HOURGLASS MOUSE POINTER.
 			'
@@ -933,11 +937,11 @@ err_populate_lblValue:
 		If (HALT_OPTFREUNDLICHSOURCE) Then Exit Sub
 		'DETERMINE WHICH OPTION WAS SELECTED.
 		'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource(0). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If CBool((_optFreundlichSource_0.Value)) Then WhichSelected = 0
+		If CBool(RadioButton1.Checked) Then WhichSelected = 0
 		'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource(1). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If CBool((_optFreundlichSource_1.Value)) Then WhichSelected = 1
+		If CBool(RadioButton2.Checked) Then WhichSelected = 1
 		'UPGRADE_WARNING: Couldn't resolve default property of object optFreundlichSource(2). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If CBool((_optFreundlichSource_2.Value)) Then WhichSelected = 2
+		If CBool(RadioButton3.Checked) Then WhichSelected = 2
 		'Debug.Print "optFreundlichSource_Click; WhichSelected = " & _
 		'Trim$(Str$(WhichSelected))
 		'TRANSFER K AND 1/N TO "USED" VARIABLES IN COMPONENT STRUCTURE.
@@ -1090,30 +1094,6 @@ err_populate_lblValue:
 		Dim Ctl As System.Windows.Forms.Control : Ctl = UserOneOverN : Call UCtl_LostFocus(Ctl)
 	End Sub
 
-	Private Sub _optFreundlichSource_0_ClickEvent(sender As Object, e As AxThreed.ISSRBCtrlEvents_ClickEvent) Handles _optFreundlichSource_0.ClickEvent
-		_optFreundlichSource_1.Value = False
-		_optFreundlichSource_2.Value = False
-
-		Call optFreundlichSource_Click(0, 0)
-	End Sub
-
-	Private Sub _optFreundlichSource_1_ClickEvent(sender As Object, e As AxThreed.ISSRBCtrlEvents_ClickEvent) Handles _optFreundlichSource_1.ClickEvent
-		_optFreundlichSource_0.Value = False
-		_optFreundlichSource_2.Value = False
-		Call optFreundlichSource_Click(1, 0)
-	End Sub
-
-	Private Sub _optFreundlichSource_2_ClickEvent(sender As Object, e As AxThreed.ISSRBCtrlEvents_ClickEvent) Handles _optFreundlichSource_2.ClickEvent
-		_optFreundlichSource_0.Value = False
-		_optFreundlichSource_1.Value = False
-		Call optFreundlichSource_Click(2, 0)
-	End Sub
-
-
-
-	Private Sub cmdCalculate_ClickEvent(sender As Object, e As EventArgs) Handles cmdCalculate.ClickEvent
-		cmdCalculate_Click()
-	End Sub
 
 	Private Sub _cmdCancelOK_0_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
 		Call cmdCancelOK_Click(0)
@@ -1139,5 +1119,30 @@ err_populate_lblValue:
 
 	Private Sub cmdSelect_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
 		Call lstCompo_SelectedIndexChanged(lstCompo, New System.EventArgs())
+	End Sub
+
+	Private Sub cmdCalculate_Click(sender As Object, e As EventArgs) Handles cmdCalculate.Click
+		cmdCalculate_Click()
+	End Sub
+
+	Private Sub RadioButton1_Click(sender As Object, e As EventArgs) Handles RadioButton1.Click
+		RadioButton1.Checked = True
+		RadioButton2.Checked = False
+		RadioButton3.Checked = False
+		Call optFreundlichSource_Click(0, 0)
+	End Sub
+
+	Private Sub RadioButton2_Click(sender As Object, e As EventArgs) Handles RadioButton2.Click
+		RadioButton1.Checked = False
+		RadioButton2.Checked = True
+		RadioButton3.Checked = False
+		Call optFreundlichSource_Click(1, 0)
+	End Sub
+
+	Private Sub RadioButton3_Click(sender As Object, e As EventArgs) Handles RadioButton3.Click
+		RadioButton1.Checked = False
+		RadioButton2.Checked = False
+		RadioButton3.Checked = True
+		Call optFreundlichSource_Click(2, 0)
 	End Sub
 End Class

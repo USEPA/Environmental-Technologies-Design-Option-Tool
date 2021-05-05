@@ -542,7 +542,7 @@ Module Refresh
 		Dim XXX As Integer
 		Dim yyy As Integer
 		Dim WhichSelected As Short
-		Dim SelectedOption As AxThreed.AxSSOption
+		Dim SelectedOption As RadioButton
 		Dim temp As String
 		'Debug.Print "frmFreundlich_Refresh()"
 		'REDISPLAY ALL VALUES.
@@ -551,8 +551,16 @@ Module Refresh
 		'UPGRADE_ISSUE: Control fraSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		Frm.grpSource.Left = (Frm.ClientRectangle.Width - Frm.grpSource.Width) / 2
 		'SET UP FRAMES APPROPRIATELY.
+		'default to radio button 1 stuff
+		Ctl = Frm.grpIsothermDB
+		'UPGRADE_ISSUE: Control fraIPES could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		Ctl_Inv1 = Frm.grpIPES
+		'UPGRADE_ISSUE: Control fraUserInput could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		Ctl_Inv2 = Frm.grpUserInput
+
+
 		'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		If (Frm._optFreundlichSource_0.Value) Then
+		If (Frm.RadioButton1.Checked) Then
 			'UPGRADE_ISSUE: Control fraIsothermDB could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 			Ctl = Frm.grpIsothermDB
 			'UPGRADE_ISSUE: Control fraIPES could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
@@ -561,7 +569,7 @@ Module Refresh
 			Ctl_Inv2 = Frm.grpUserInput
 		End If
 		'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		If (Frm._optFreundlichSource_1.Value) Then
+		If (Frm.RadioButton2.Checked) Then
 			'UPGRADE_ISSUE: Control fraIsothermDB could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 			Ctl_Inv1 = Frm.grpIsothermDB
 			'UPGRADE_ISSUE: Control fraIPES could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
@@ -570,7 +578,7 @@ Module Refresh
 			Ctl_Inv2 = Frm.grpUserInput
 		End If
 		'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		If (Frm._optFreundlichSource_2.Value) Then
+		If (Frm.RadioButton3.Checked) Then
 			'UPGRADE_ISSUE: Control fraIsothermDB could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 			Ctl_Inv1 = Frm.grpIsothermDB
 			'UPGRADE_ISSUE: Control fraIPES could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
@@ -593,71 +601,71 @@ Module Refresh
 		If (Component(0).IsothermDB_K > 0#) And (Component(0).IsothermDB_OneOverN > 0#) Then
 			'VALIDATE ISOTHERM DB AS SOURCE.
 			'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optFreundlichSource_0.Caption = "Isotherm &Database"
+			Frm.RadioButton1.Text = "Isotherm &Database"
 		Else
 			'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optFreundlichSource_0.Caption = "(Isotherm &Database)"
+			Frm.RadioButton1.Text = "(Isotherm &Database)"
 		End If
 		If (Component(0).IPESResult_K > 0#) And (Component(0).IPESResult_OneOverN > 0#) Then
 			'VALIDATE IPE CALCULATION AS SOURCE.
 			'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optFreundlichSource_1.Caption = "Isotherm Parameter &Estimation"
+			Frm.RadioButton2.Text = "Isotherm Parameter &Estimation"
 		Else
 			'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optFreundlichSource_1.Caption = "(Isotherm Parameter &Estimation)"
+			Frm.RadioButton2.Text = "(Isotherm Parameter &Estimation)"
 		End If
 		'ENSURE PROPER SOURCE IS CHECKED.
 		'HALT_OPTFREUNDLICHSOURCE = True
 		Select Case Component(0).Source_KandOneOverN
 			Case KNSOURCE_ISOTHERMDB
 				'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-				Frm._optFreundlichSource_0.Value = True
+				Frm.RadioButton1.Checked = True
 			Case KNSOURCE_IPES
 				'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-				Frm._optFreundlichSource_1.Value = True
+				Frm.RadioButton2.Checked = True
 			Case KNSOURCE_USERINPUT
 				'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-				Frm._optFreundlichSource_2.Value = True
+				Frm.RadioButton3.Checked = True
 		End Select
 		'HALT_OPTFREUNDLICHSOURCE = False
 		'DETERMINE WHICH OPTION WAS SELECTED.
 		'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 
-		If (Frm._optFreundlichSource_0.Value) Then
+		If (Frm.RadioButton1.Checked) Then
 			WhichSelected = 0
-			SelectedOption = Frm._optFreundlichSource_0
+			SelectedOption = Frm.RadioButton1
 		End If
 		'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		If (Frm._optFreundlichSource_1.Value) Then
+		If (Frm.RadioButton2.Checked) Then
 			WhichSelected = 1
-			SelectedOption = Frm._optFreundlichSource_1
+			SelectedOption = Frm.RadioButton2
 		End If
 		'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		If (Frm._optFreundlichSource_2.Value) Then
+		If (Frm.RadioButton3.Checked) Then
 			WhichSelected = 2
-			SelectedOption = Frm._optFreundlichSource_2
+			SelectedOption = Frm.RadioButton3
 		End If
 		'DISPLAY WARNING IF NEEDED.
 		'UPGRADE_ISSUE: Control sspanel_Warning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		Frm.sspanel_Warning.Visible = False
-		'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		If (Left(SelectedOption.Caption, 1) = "(") Then
-			'UPGRADE_ISSUE: Control sspanel_Warning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm.sspanel_Warning.Visible = True
-			Select Case WhichSelected
-				Case 0
-					temp = "You must select an isotherm from the isotherm " & "database.  To do so, select a component on the left, " & "and then select an isotherm record " & "on the right.  " & "If you do not, K and 1/n source will " & "revert to user-input."
-					'UPGRADE_ISSUE: Control lblWarning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-					Frm.lblWarning.Text = temp
-				Case 1
-					temp = "You must calculate K and 1/n using IPE.  " & "To do so, click on the button marked " & Chr(34) & "Perform IPE Calculations" & Chr(34) & " from within this screen.  If you do not, " & "K and 1/n source will revert to user-input."
-					'UPGRADE_ISSUE: Control lblWarning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-					Frm.lblWarning.Text = temp
-			End Select
-		End If
-		'DISPLAY CURRENT POLANYI PARAMETERS.
-		'UPGRADE_ISSUE: Control txtInput could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm.txtInput(13).Text = Trim(Carbon.Name)
+			'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+			If (Left(SelectedOption.Text, 1) = "(") Then
+				'UPGRADE_ISSUE: Control sspanel_Warning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+				Frm.sspanel_Warning.Visible = True
+				Select Case WhichSelected
+					Case 0
+						temp = "You must select an isotherm from the isotherm " & "database.  To do so, select a component on the left, " & "and then select an isotherm record " & "on the right.  " & "If you do not, K and 1/n source will " & "revert to user-input."
+						'UPGRADE_ISSUE: Control lblWarning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+						Frm.lblWarning.Text = temp
+					Case 1
+						temp = "You must calculate K and 1/n using IPE.  " & "To do so, click on the button marked " & Chr(34) & "Perform IPE Calculations" & Chr(34) & " from within this screen.  If you do not, " & "K and 1/n source will revert to user-input."
+						'UPGRADE_ISSUE: Control lblWarning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+						Frm.lblWarning.Text = temp
+				End Select
+			End If
+			'DISPLAY CURRENT POLANYI PARAMETERS.
+			'UPGRADE_ISSUE: Control txtInput could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+			Frm.txtInput(13).Text = Trim(Carbon.Name)
 		'UPGRADE_ISSUE: Control txtInput could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		Frm.txtInput(0).Text = VB6.Format(Carbon.W0, "0.000E+00")
 		'UPGRADE_ISSUE: Control txtInput could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
