@@ -19,8 +19,6 @@
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
     Public WithEvents Line2 As Microsoft.VisualBasic.PowerPacks.LineShape
-    Public WithEvents fraTwo As AxThreed.AxSSFrame
-    Public WithEvents fraOne As AxThreed.AxSSFrame
     Public WithEvents Option1 As System.Windows.Forms.RadioButton
     Public WithEvents UserK As System.Windows.Forms.TextBox
     Public WithEvents UserOneOverN As System.Windows.Forms.TextBox
@@ -29,7 +27,6 @@
     Public WithEvents _Label5_2 As System.Windows.Forms.Label
     Public WithEvents Command2 As System.Windows.Forms.Button
     Public WithEvents lblWarning As System.Windows.Forms.Label
-    Public WithEvents sspanel_Warning As AxThreed.AxSSPanel
     Public WithEvents cboMethod As System.Windows.Forms.ComboBox
     Public WithEvents _txtInput_13 As System.Windows.Forms.TextBox
     Public WithEvents _txtInput_0 As System.Windows.Forms.TextBox
@@ -39,12 +36,10 @@
     Public WithEvents _lblInput_0 As System.Windows.Forms.Label
     Public WithEvents _lblInput_1 As System.Windows.Forms.Label
     Public WithEvents _lblInput_4 As System.Windows.Forms.Label
-    Public WithEvents fraPolanyi As AxThreed.AxSSFrame
     Public WithEvents _txtInput_12 As System.Windows.Forms.TextBox
     Public WithEvents _txtInput_11 As System.Windows.Forms.TextBox
     Public WithEvents _lblInput_6 As System.Windows.Forms.Label
     Public WithEvents _lblInput_5 As System.Windows.Forms.Label
-    Public WithEvents fraAdditional As AxThreed.AxSSFrame
     Public WithEvents _lblText_3 As System.Windows.Forms.Label
     Public WithEvents _lblValue_5 As System.Windows.Forms.Label
     Public WithEvents _lblValue_4 As System.Windows.Forms.Label
@@ -114,11 +109,6 @@
         Me.Line2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.lblWarning = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.fraTwo = New AxThreed.AxSSFrame()
-        Me.fraOne = New AxThreed.AxSSFrame()
-        Me.sspanel_Warning = New AxThreed.AxSSPanel()
-        Me.fraPolanyi = New AxThreed.AxSSFrame()
-        Me.fraAdditional = New AxThreed.AxSSFrame()
         Me.grpSource = New System.Windows.Forms.GroupBox()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
@@ -160,11 +150,6 @@
         CType(Me.lblValue, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lstRange, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.fraTwo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.fraOne, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Warning, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.fraPolanyi, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.fraAdditional, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpSource.SuspendLayout()
         Me.grpIPES.SuspendLayout()
         Me.grpAdditional.SuspendLayout()
@@ -795,47 +780,7 @@
         Me.Label10.TabIndex = 21
         Me.Label10.Text = "Adsorbent:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'fraTwo
-        '
-        Me.fraTwo.Location = New System.Drawing.Point(294, 20)
-        Me.fraTwo.Name = "fraTwo"
-        Me.fraTwo.OcxState = CType(resources.GetObject("fraTwo.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.fraTwo.Size = New System.Drawing.Size(309, 255)
-        Me.fraTwo.TabIndex = 35
-        '
-        'fraOne
-        '
-        Me.fraOne.Location = New System.Drawing.Point(6, 20)
-        Me.fraOne.Name = "fraOne"
-        Me.fraOne.OcxState = CType(resources.GetObject("fraOne.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.fraOne.Size = New System.Drawing.Size(289, 255)
-        Me.fraOne.TabIndex = 28
-        '
-        'sspanel_Warning
-        '
-        Me.sspanel_Warning.Location = New System.Drawing.Point(222, 10)
-        Me.sspanel_Warning.Name = "sspanel_Warning"
-        Me.sspanel_Warning.OcxState = CType(resources.GetObject("sspanel_Warning.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Warning.Size = New System.Drawing.Size(271, 73)
-        Me.sspanel_Warning.TabIndex = 66
-        '
-        'fraPolanyi
-        '
-        Me.fraPolanyi.Location = New System.Drawing.Point(298, 10)
-        Me.fraPolanyi.Name = "fraPolanyi"
-        Me.fraPolanyi.OcxState = CType(resources.GetObject("fraPolanyi.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.fraPolanyi.Size = New System.Drawing.Size(313, 95)
-        Me.fraPolanyi.TabIndex = 13
-        '
-        'fraAdditional
-        '
-        Me.fraAdditional.Location = New System.Drawing.Point(6, 72)
-        Me.fraAdditional.Name = "fraAdditional"
-        Me.fraAdditional.OcxState = CType(resources.GetObject("fraAdditional.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.fraAdditional.Size = New System.Drawing.Size(247, 63)
-        Me.fraAdditional.TabIndex = 22
-        '
+
         'grpSource
         '
         Me.grpSource.Controls.Add(Me.RadioButton3)
@@ -1304,11 +1249,6 @@
         CType(Me.lblValue, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lstRange, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.fraTwo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.fraOne, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Warning, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.fraPolanyi, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.fraAdditional, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpSource.ResumeLayout(False)
         Me.grpSource.PerformLayout()
         Me.grpIPES.ResumeLayout(False)

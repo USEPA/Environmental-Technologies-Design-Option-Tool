@@ -647,12 +647,12 @@ Module Refresh
 		End If
 		'DISPLAY WARNING IF NEEDED.
 		'UPGRADE_ISSUE: Control sspanel_Warning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm.sspanel_Warning.Visible = False
-			'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			If (Left(SelectedOption.Text, 1) = "(") Then
-				'UPGRADE_ISSUE: Control sspanel_Warning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-				Frm.sspanel_Warning.Visible = True
-				Select Case WhichSelected
+		'Frm.sspanel_Warning.Visible = False
+		'UPGRADE_ISSUE: Control optFreundlichSource could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		If (Left(SelectedOption.Text, 1) = "(") Then
+			'UPGRADE_ISSUE: Control sspanel_Warning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+			'Frm.sspanel_Warning.Visible = True
+			Select Case WhichSelected
 					Case 0
 						temp = "You must select an isotherm from the isotherm " & "database.  To do so, select a component on the left, " & "and then select an isotherm record " & "on the right.  " & "If you do not, K and 1/n source will " & "revert to user-input."
 						'UPGRADE_ISSUE: Control lblWarning could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
