@@ -19,16 +19,11 @@
     Public ToolTip1 As System.Windows.Forms.ToolTip
     Public chkSelect(7) As AxThreed.AxSSCheck
     Public WithEvents _chkSelect_6 As AxThreed.AxSSCheck
-    Public WithEvents _chkSelect_5 As AxThreed.AxSSCheck
     Public WithEvents _chkSelect_4 As AxThreed.AxSSCheck
     Public WithEvents _chkSelect_1 As AxThreed.AxSSCheck
     Public WithEvents _chkSelect_2 As AxThreed.AxSSCheck
     Public WithEvents _chkSelect_0 As AxThreed.AxSSCheck
     Public WithEvents _chkSelect_3 As AxThreed.AxSSCheck
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
-    Public WithEvents cmdPrint As AxThreed.AxSSCommand
-    Public WithEvents cmdCancel As AxThreed.AxSSCommand
-    Public WithEvents CMDialog1 As AxMSComDlg.AxCommonDialog
     '   Public WithEvents chkSelect As AxThreed.SSCheckArray
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
@@ -37,22 +32,13 @@
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrintInputs))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.CMDialog1 = New AxMSComDlg.AxCommonDialog()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me._chkSelect_5 = New AxThreed.AxSSCheck()
-        Me.cmdPrint = New AxThreed.AxSSCommand()
-        Me.cmdCancel = New AxThreed.AxSSCommand()
         Me._chkSelect_6 = New AxThreed.AxSSCheck()
         Me._chkSelect_4 = New AxThreed.AxSSCheck()
         Me._chkSelect_1 = New AxThreed.AxSSCheck()
         Me._chkSelect_2 = New AxThreed.AxSSCheck()
         Me._chkSelect_0 = New AxThreed.AxSSCheck()
         Me._chkSelect_3 = New AxThreed.AxSSCheck()
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._chkSelect_5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdPrint, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdCancel, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me._chkSelect_6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._chkSelect_4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._chkSelect_1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,47 +46,6 @@
         CType(Me._chkSelect_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._chkSelect_3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'CMDialog1
-        '
-        Me.CMDialog1.Enabled = True
-        Me.CMDialog1.Location = New System.Drawing.Point(0, 0)
-        Me.CMDialog1.Name = "CMDialog1"
-        Me.CMDialog1.OcxState = CType(resources.GetObject("CMDialog1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CMDialog1.Size = New System.Drawing.Size(40, 40)
-        Me.CMDialog1.TabIndex = 10
-        '
-        'SSFrame1
-        '
-        Me.SSFrame1.Location = New System.Drawing.Point(4, 10)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(283, 231)
-        Me.SSFrame1.TabIndex = 0
-        '
-        '_chkSelect_5
-        '
-        Me._chkSelect_5.Location = New System.Drawing.Point(0, 68)
-        Me._chkSelect_5.Name = "_chkSelect_5"
-        Me._chkSelect_5.OcxState = CType(resources.GetObject("_chkSelect_5.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._chkSelect_5.Size = New System.Drawing.Size(100, 50)
-        Me._chkSelect_5.TabIndex = 2
-        '
-        'cmdPrint
-        '
-        Me.cmdPrint.Location = New System.Drawing.Point(197, 247)
-        Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.OcxState = CType(resources.GetObject("cmdPrint.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdPrint.Size = New System.Drawing.Size(100, 50)
-        Me.cmdPrint.TabIndex = 8
-        '
-        'cmdCancel
-        '
-        Me.cmdCancel.Location = New System.Drawing.Point(12, 247)
-        Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.OcxState = CType(resources.GetObject("cmdCancel.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdCancel.Size = New System.Drawing.Size(100, 50)
-        Me.cmdCancel.TabIndex = 9
         '
         '_chkSelect_6
         '
@@ -150,18 +95,23 @@
         Me._chkSelect_3.Size = New System.Drawing.Size(100, 50)
         Me._chkSelect_3.TabIndex = 7
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(70, 43)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(128, 14)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Screen No Longer Active"
+        '
         'frmPrintInputs
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(489, 309)
         Me.ControlBox = False
-        Me.Controls.Add(Me.SSFrame1)
-        Me.Controls.Add(Me._chkSelect_5)
-        Me.Controls.Add(Me.cmdPrint)
-        Me.Controls.Add(Me.cmdCancel)
-        Me.Controls.Add(Me.CMDialog1)
+        Me.Controls.Add(Me.Label1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -172,11 +122,6 @@
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Print Model Inputs"
-        CType(Me.CMDialog1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._chkSelect_5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdPrint, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdCancel, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._chkSelect_6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._chkSelect_4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._chkSelect_1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -184,7 +129,10 @@
         CType(Me._chkSelect_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._chkSelect_3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents Label1 As Label
 #End Region
 End Class

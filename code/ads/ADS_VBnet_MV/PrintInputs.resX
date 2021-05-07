@@ -120,56 +120,6 @@
   <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="CMDialog1.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAhQAAAAIB
-        AAAAAQAAAAAkAAAAMjhDNEM4MjAtNDAxQS0xMDFCLUEzQzktMDgwMDJCMkY0OUZCAAAAAEwAAAAhQzQS
-        CAAAAE8DAABPAwAAhjwE+QAABgAAAAAAIAAAAAAAAAAAAAAAAQAAAAQBAAABAAAAAAAAAAAAAAAAAAAA
-        AAAAQQAAAAAAAAAACw==
-</value>
-  </data>
-  <data name="SSFrame1.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAjAAAAAIB
-        AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAFkAAAAAAAEAZhcAABoT
-        AAAOAAAACFNTRnJhbWUxEgAAgAADUuMLkY/OEZ3jAKoAS7hRAQAAAJABsDABABRNaWNyb3NvZnQgU2Fu
-        cyBTZXJpZgAAAAAAAAAAAAAB/ws=
-</value>
-  </data>
-  <data name="_chkSelect_5.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAjQAAAAIB
-        AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAFoAAAAAAAEARQgAACIE
-        AABOAAAADF9jaGtTZWxlY3RfNRIAAIAAA1LjC5GPzhGd4wCqAEu4UQEAAACQAbAwAQAUTWljcm9zb2Z0
-        IFNhbnMgU2VyaWYBAAAAAAAAAP8L
-</value>
-  </data>
-  <data name="cmdPrint.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAfwAAAAIB
-        AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAEwAAAAAAAEARQgAACIE
-        AABOAAAACGNtZFByaW50EgAAgAADUuMLkY/OEZ3jAKoAS7hRAQAAAJABsDABAAVBcmlhbAECAAAAAAEB
-        AAAAAP//Cw==
-</value>
-  </data>
-  <data name="cmdCancel.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAgAAAAAIB
-        AAAAAQAAAAAeAAAAMDQ3NDZFNjBDRTRGMTFDREIyM0MwMDAwQzA3NkZFAAAAAE0AAAAAAAEARQgAACIE
-        AABOAAAACWNtZENhbmNlbBIAAIAAA1LjC5GPzhGd4wCqAEu4UQEAAACQAbAwAQAFQXJpYWwBAgAAAAAB
-        AQAAAAD//ws=
-</value>
-  </data>
   <data name="_chkSelect_6.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
