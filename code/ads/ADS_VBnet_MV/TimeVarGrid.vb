@@ -64,19 +64,19 @@ Friend Class frmTimeVarGrid
 
     Sub frmTimeVarGrid_GenericStatus_Set(ByRef fn_Text As String)
         'UPGRADE_WARNING: Couldn't resolve default property of object Me.sspanel_Status. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        Me.sspanel_Status.Caption = fn_Text
+        '   Me.sspanel_Status.Caption = fn_Text
     End Sub
     Sub frmTimeVarGrid_DirtyStatus_Set(ByRef newVal As Boolean)
         If (newVal) Then
             'UPGRADE_WARNING: Couldn't resolve default property of object frmTimeVarGrid.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-            Me.sspanel_Dirty.Caption = "Data Changed"
+            '  Me.sspanel_Dirty.Caption = "Data Changed"
             'UPGRADE_WARNING: Couldn't resolve default property of object frmTimeVarGrid.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-            Me.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
+            '  Me.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
         Else
             'UPGRADE_WARNING: Couldn't resolve default property of object frmTimeVarGrid.sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-            Me.sspanel_Dirty.Caption = "Unchanged"
+            ' Me.sspanel_Dirty.Caption = "Unchanged"
             'UPGRADE_WARNING: Couldn't resolve default property of object frmTimeVarGrid.sspanel_Dirty.ForeColor. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-            Me.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(0))
+            ' Me.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(0))
         End If
     End Sub
     Sub frmTimeVarGrid_DirtyStatus_Set_Current()
@@ -526,7 +526,7 @@ err_ThisSub:
         frm_ActivatedYet = False
         Call frmTimeVarGrid_DirtyStatus_Clear()
         'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_Dirty. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-        sspanel_Dirty.Caption = "" 'DIRTY FUNCTIONALITY NOT ADDED YET.
+        'sspanel_Dirty.Caption = "" 'DIRTY FUNCTIONALITY NOT ADDED YET.
         Call frmTimeVarGrid_GenericStatus_Set("")
         Me.Text = FormCaption
         lblData(0).Text = lblUnitType(1)
@@ -591,5 +591,9 @@ err_ThisSub:
                 'UPGRADE_WARNING: Couldn't resolve default property of object foUser.EditPaste. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
                 ' foUser.EditPaste()
         End Select
+    End Sub
+
+    Private Sub _cmdCancelOK_0_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
+
     End Sub
 End Class
