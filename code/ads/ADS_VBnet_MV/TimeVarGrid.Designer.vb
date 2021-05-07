@@ -31,10 +31,10 @@
 	Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
 	Public WithEvents _cboUnits_1 As System.Windows.Forms.ComboBox
 	Public WithEvents _cboUnits_0 As System.Windows.Forms.ComboBox
-    Public WithEvents foUser As VCIF1Lib.F1Book
+    '  Public WithEvents foUser As VCIF1Lib.F1Book
     Public WithEvents _cmdCancelOK_1 As AxThreed.AxSSCommand
     Public WithEvents _cmdCancelOK_0 As AxThreed.AxSSCommand
-    Public WithEvents foHidden As VCIF1Lib.F1Book
+    ' Public WithEvents foHidden As VCIF1Lib.F1Book
     Public WithEvents sspanel_Status As AxThreed.AxSSPanel
     Public WithEvents sspanel_Holder As AxThreed.AxSSPanel
     Public WithEvents sspanel_Dirty As AxThreed.AxSSPanel
@@ -67,10 +67,10 @@
         Me._mnuEditItem_20 = New System.Windows.Forms.ToolStripMenuItem
         Me._cboUnits_1 = New System.Windows.Forms.ComboBox
         Me._cboUnits_0 = New System.Windows.Forms.ComboBox
-        Me.foUser = New VCIF1Lib.F1Book
+        '   Me.foUser = New VCIF1Lib.F1Book
         Me._cmdCancelOK_1 = New AxThreed.AxSSCommand
         Me._cmdCancelOK_0 = New AxThreed.AxSSCommand
-        Me.foHidden = New VCIF1Lib.F1Book
+        '   Me.foHidden = New VCIF1Lib.F1Book
         Me.sspanel_Holder = New AxThreed.AxSSPanel
         Me.sspanel_Status = New AxThreed.AxSSPanel
         Me.SSFrame1 = New AxThreed.AxSSFrame
@@ -196,11 +196,11 @@
         Me._cboUnits_0.Sorted = False
         Me._cboUnits_0.Visible = True
         Me._cboUnits_0.Name = "_cboUnits_0"
-        Me.foUser.Size = New System.Drawing.Size(399, 265)
-        Me.foUser.Location = New System.Drawing.Point(6, 88)
-        Me.foUser.OleObjectBlob = 0
-        Me.foUser.TabIndex = 0
-        Me.foUser.Name = "foUser"
+        'Me.foUser.Size = New System.Drawing.Size(399, 265)
+        '  Me.foUser.Location = New System.Drawing.Point(6, 88)
+        '  Me.foUser.OleObjectBlob = 0
+        ' Me.foUser.TabIndex = 0
+        '    Me.foUser.Name = "foUser"
         Me._cmdCancelOK_1.Size = New System.Drawing.Size(87, 27)
         Me._cmdCancelOK_1.Location = New System.Drawing.Point(6, 54)
         Me._cmdCancelOK_1.TabIndex = 5
@@ -213,12 +213,12 @@
         Me._cmdCancelOK_0.TabStop = 0
         Me._cmdCancelOK_0.Caption = "&Cancel"
         Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
-        Me.foHidden.Size = New System.Drawing.Size(399, 265)
-        Me.foHidden.Location = New System.Drawing.Point(426, 52)
-        Me.foHidden.OleObjectBlob = 0
-        Me.foHidden.TabIndex = 7
-        Me.foHidden.Visible = 0
-        Me.foHidden.Name = "foHidden"
+        '  Me.foHidden.Size = New System.Drawing.Size(399, 265)
+        ' Me.foHidden.Location = New System.Drawing.Point(426, 52)
+        ' Me.foHidden.OleObjectBlob = 0
+        ' Me.foHidden.TabIndex = 7
+        ' Me.foHidden.Visible = 0
+        ' Me.foHidden.Name = "foHidden"
         '  Me.sspanel_Holder.Align = 2
         Me.sspanel_Holder.Size = New System.Drawing.Size(506, 27)
         Me.sspanel_Holder.Location = New System.Drawing.Point(0, 376)
@@ -284,10 +284,10 @@
         Me._lblData_0.Name = "_lblData_0"
         Me.Controls.Add(_cboUnits_1)
         Me.Controls.Add(_cboUnits_0)
-        Me.Controls.Add(foUser)
+        '  Me.Controls.Add(foUser)
         Me.Controls.Add(_cmdCancelOK_1)
         Me.Controls.Add(_cmdCancelOK_0)
-        Me.Controls.Add(foHidden)
+        '  Me.Controls.Add(foHidden)
         Me.Controls.Add(sspanel_Holder)
         Me.Controls.Add(SSFrame1)
         Me.Controls.Add(_lblData_1)

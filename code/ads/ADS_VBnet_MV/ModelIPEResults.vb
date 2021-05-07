@@ -171,7 +171,79 @@ Friend Class frmModelIPEResults
 		'  End If
 	End Sub
 
-	Private Sub cmdClose_ClickEvent(sender As Object, e As EventArgs) Handles cmdClose.ClickEvent
+	Private Sub cmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
 		Call cmdClose_Click()
+	End Sub
+
+	Private Sub _lblDesc_4_Click(sender As Object, e As EventArgs) Handles _lblDesc_4.Click
+
+	End Sub
+
+	Private Sub _txtData_4_TextChanged(sender As Object, e As EventArgs) Handles _txtData_4.TextChanged
+
+	End Sub
+
+	Private Sub _lblDesc_5_Click(sender As Object, e As EventArgs) Handles _lblDesc_5.Click
+
+	End Sub
+
+	Private Sub _txtData_5_TextChanged(sender As Object, e As EventArgs) Handles _txtData_5.TextChanged
+
+	End Sub
+
+	Private Sub _lblDesc_6_Click(sender As Object, e As EventArgs) Handles _lblDesc_6.Click
+
+	End Sub
+
+	Private Sub _txtData_6_TextChanged(sender As Object, e As EventArgs) Handles _txtData_6.TextChanged
+
+	End Sub
+
+	Private Sub _lblDesc_7_Click(sender As Object, e As EventArgs) Handles _lblDesc_7.Click
+
+	End Sub
+
+	Private Sub _txtData_7_TextChanged(sender As Object, e As EventArgs) Handles _txtData_7.TextChanged
+
+	End Sub
+
+	Private Sub _lblDesc_8_Click(sender As Object, e As EventArgs) Handles _lblDesc_8.Click
+
+	End Sub
+
+	Private Sub _txtData_8_TextChanged(sender As Object, e As EventArgs) Handles _txtData_8.TextChanged
+
+	End Sub
+
+	Private Sub _lblDesc_9_Click(sender As Object, e As EventArgs) Handles _lblDesc_9.Click
+
+	End Sub
+
+	Private Sub _txtData_9_TextChanged(sender As Object, e As EventArgs) Handles _txtData_9.TextChanged
+
+	End Sub
+
+	Private Sub _lblDesc_10_Click(sender As Object, e As EventArgs) Handles _lblDesc_10.Click
+
+	End Sub
+
+	Private Sub _txtData_10_TextChanged(sender As Object, e As EventArgs) Handles _txtData_10.TextChanged
+
+	End Sub
+
+	Private Sub _lblDesc_11_Click(sender As Object, e As EventArgs) Handles _lblDesc_11.Click
+
+	End Sub
+
+	Private Sub _txtData_11_TextChanged(sender As Object, e As EventArgs) Handles _txtData_11.TextChanged
+
+	End Sub
+
+	Private Sub _lblDesc_12_Click(sender As Object, e As EventArgs) Handles _lblDesc_12.Click
+
+	End Sub
+
+	Private Sub _txtData_12_TextChanged(sender As Object, e As EventArgs) Handles _txtData_12.TextChanged
+
 	End Sub
 End Class
