@@ -52,6 +52,10 @@
         Me.lblDisclaimerTitle = New System.Windows.Forms.Label()
         Me.lblDisclaimer = New System.Windows.Forms.Label()
         Me._picLogos_2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         _picLogos_1 = New System.Windows.Forms.PictureBox()
         CType(_picLogos_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblCompany, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,14 +64,15 @@
         CType(Me.picLogos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._picLogos_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         '_picLogos_1
         '
         _picLogos_1.Image = CType(resources.GetObject("_picLogos_1.Image"), System.Drawing.Image)
-        _picLogos_1.Location = New System.Drawing.Point(233, 46)
+        _picLogos_1.Location = New System.Drawing.Point(28, 261)
         _picLogos_1.Name = "_picLogos_1"
-        _picLogos_1.Size = New System.Drawing.Size(145, 138)
+        _picLogos_1.Size = New System.Drawing.Size(133, 110)
         _picLogos_1.TabIndex = 21
         _picLogos_1.TabStop = False
         AddHandler _picLogos_1.Click, AddressOf Me._picLogos_1_Click
@@ -78,7 +83,7 @@
         Me.cmdExit.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdExit.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdExit.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdExit.Location = New System.Drawing.Point(516, 338)
+        Me.cmdExit.Location = New System.Drawing.Point(493, 491)
         Me.cmdExit.Name = "cmdExit"
         Me.cmdExit.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdExit.Size = New System.Drawing.Size(87, 35)
@@ -106,7 +111,7 @@
         Me.cmdButton1.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdButton1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdButton1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdButton1.Location = New System.Drawing.Point(6, 338)
+        Me.cmdButton1.Location = New System.Drawing.Point(28, 491)
         Me.cmdButton1.Name = "cmdButton1"
         Me.cmdButton1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdButton1.Size = New System.Drawing.Size(97, 35)
@@ -192,21 +197,72 @@
         Me._picLogos_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._picLogos_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me._picLogos_2.Image = CType(resources.GetObject("_picLogos_2.Image"), System.Drawing.Image)
-        Me._picLogos_2.Location = New System.Drawing.Point(201, 230)
+        Me._picLogos_2.Location = New System.Drawing.Point(28, 421)
         Me._picLogos_2.Name = "_picLogos_2"
         Me._picLogos_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._picLogos_2.Size = New System.Drawing.Size(218, 48)
+        Me._picLogos_2.Size = New System.Drawing.Size(217, 48)
         Me._picLogos_2.TabIndex = 22
         Me._picLogos_2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(28, 101)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(102, 102)
+        Me.PictureBox1.TabIndex = 23
+        Me.PictureBox1.TabStop = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.Color.Silver
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox1.Font = New System.Drawing.Font("Impact", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(119, 12)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(386, 26)
+        Me.TextBox1.TabIndex = 24
+        Me.TextBox1.Text = "Adsorption Design Software (AdDesignS™)"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.Silver
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(167, 54)
+        Me.TextBox2.Multiline = True
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(270, 365)
+        Me.TextBox2.TabIndex = 25
+        Me.TextBox2.Text = resources.GetString("TextBox2.Text")
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TextBox3
+        '
+        Me.TextBox3.BackColor = System.Drawing.Color.Silver
+        Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox3.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox3.Location = New System.Drawing.Point(443, 54)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(137, 353)
+        Me.TextBox3.TabIndex = 26
+        Me.TextBox3.Text = "Version 1.0.1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Open-Source Edition" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Michael Verma" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Version 1.0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Copyr" &
+    "ight 1994-2005" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "David R. Hokanson" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "David W. Hand" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "John C. Crittenden" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tony N. " &
+    "Rogers" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Eric J. Oman" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'frmSplash
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(607, 382)
-        Me.Controls.Add(Me._picLogos_2)
+        Me.BackColor = System.Drawing.Color.Silver
+        Me.ClientSize = New System.Drawing.Size(607, 538)
+        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(_picLogos_1)
+        Me.Controls.Add(Me._picLogos_2)
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.cmdButton2)
         Me.Controls.Add(Me.cmdButton1)
@@ -228,7 +284,9 @@
         CType(Me.picLogos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._picLogos_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._picLogos_2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -237,5 +295,9 @@
     End Sub
 
     Public WithEvents _picLogos_2 As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox3 As TextBox
 #End Region
 End Class

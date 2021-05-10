@@ -180,4 +180,8 @@ Friend Class frmSplash
 	Private Sub _picLogos_1_Click(sender As Object, e As EventArgs)
 
 	End Sub
+
+	Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+
+	End Sub
 End Class
