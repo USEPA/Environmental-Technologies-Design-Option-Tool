@@ -409,6 +409,7 @@ Friend Class frmCompoProp
 		Dim Was_Aborted As Boolean
 		Call Do_ImportClipboard(Was_Aborted)
 		If (Was_Aborted) Then
+			Call Show_Error("There is no valid StEPP data copied to the clipboard.")
 			Exit Sub
 		Else
 			'STORE ALL UNIT SETTINGS.
