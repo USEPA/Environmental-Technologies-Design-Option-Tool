@@ -38,8 +38,8 @@ Friend Class frmModelCPHSDMResults
 		Else
 			'UPGRADE_WARNING: Couldn't resolve default property of object optType(1). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			If CBool(_optType_1.Checked) Then 'BVF
-				factor = 24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (CPM_Results.Bed.Diameter / 2.0#) ^ 2
-				Bottom_Title = "Bed Volumes Treated"
+				factor = (24.0# * 3600.0# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.length / PI / (CPM_Results.Bed.Diameter / 2.0#) ^ 2) / 1000
+				Bottom_Title = "Bed Volumes Treated (Thousands)"
 			Else 'Treatment Capacity
 				factor = 24# * 3600# * CPM_Results.Bed.Flowrate / CPM_Results.Bed.Weight
 				Bottom_Title = "m" & Chr(179) & " treated per kg of adsorbent"
@@ -827,7 +827,7 @@ Exit_lblLegend_Click:
 		Dim i As Short
 
 		PopulatingScrollboxes = False
-		_optType_0.Checked = False
+		_optType_0.Checked = True  'default load
 		_optType_1.Checked = False
 		_optType_2.Checked = False
 

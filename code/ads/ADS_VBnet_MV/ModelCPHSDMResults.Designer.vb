@@ -64,9 +64,9 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
@@ -128,6 +128,7 @@
         CType(Me.lblPara, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblParaValue, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -203,9 +204,9 @@
         Me._lblData_6.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_6, CType(6, Short))
-        Me._lblData_6.Location = New System.Drawing.Point(370, 111)
+        Me._lblData_6.Location = New System.Drawing.Point(377, 111)
         Me._lblData_6.Name = "_lblData_6"
-        Me._lblData_6.Size = New System.Drawing.Size(86, 18)
+        Me._lblData_6.Size = New System.Drawing.Size(79, 18)
         Me._lblData_6.TabIndex = 73
         Me._lblData_6.Text = "  9999999   "
         '
@@ -214,9 +215,9 @@
         Me._lblData_3.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_3, CType(3, Short))
-        Me._lblData_3.Location = New System.Drawing.Point(309, 111)
+        Me._lblData_3.Location = New System.Drawing.Point(301, 111)
         Me._lblData_3.Name = "_lblData_3"
-        Me._lblData_3.Size = New System.Drawing.Size(62, 18)
+        Me._lblData_3.Size = New System.Drawing.Size(79, 18)
         Me._lblData_3.TabIndex = 72
         Me._lblData_3.Text = "   999    "
         '
@@ -227,7 +228,7 @@
         Me.lblData.SetIndex(Me._lblData_0, CType(0, Short))
         Me._lblData_0.Location = New System.Drawing.Point(226, 111)
         Me._lblData_0.Name = "_lblData_0"
-        Me._lblData_0.Size = New System.Drawing.Size(90, 18)
+        Me._lblData_0.Size = New System.Drawing.Size(77, 18)
         Me._lblData_0.TabIndex = 71
         Me._lblData_0.Text = "  99999999  "
         '
@@ -236,9 +237,9 @@
         Me._lblData_10.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_10, CType(10, Short))
-        Me._lblData_10.Location = New System.Drawing.Point(455, 130)
+        Me._lblData_10.Location = New System.Drawing.Point(455, 129)
         Me._lblData_10.Name = "_lblData_10"
-        Me._lblData_10.Size = New System.Drawing.Size(66, 18)
+        Me._lblData_10.Size = New System.Drawing.Size(66, 19)
         Me._lblData_10.TabIndex = 78
         Me._lblData_10.Text = " 999999 "
         '
@@ -247,9 +248,9 @@
         Me._lblData_7.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_7, CType(7, Short))
-        Me._lblData_7.Location = New System.Drawing.Point(370, 130)
+        Me._lblData_7.Location = New System.Drawing.Point(377, 129)
         Me._lblData_7.Name = "_lblData_7"
-        Me._lblData_7.Size = New System.Drawing.Size(86, 18)
+        Me._lblData_7.Size = New System.Drawing.Size(79, 19)
         Me._lblData_7.TabIndex = 77
         Me._lblData_7.Text = "  9999999   "
         '
@@ -258,9 +259,9 @@
         Me._lblData_4.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_4, CType(4, Short))
-        Me._lblData_4.Location = New System.Drawing.Point(309, 130)
+        Me._lblData_4.Location = New System.Drawing.Point(301, 129)
         Me._lblData_4.Name = "_lblData_4"
-        Me._lblData_4.Size = New System.Drawing.Size(62, 18)
+        Me._lblData_4.Size = New System.Drawing.Size(79, 19)
         Me._lblData_4.TabIndex = 76
         Me._lblData_4.Text = "   999    "
         '
@@ -269,9 +270,9 @@
         Me._lblData_1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_1, CType(1, Short))
-        Me._lblData_1.Location = New System.Drawing.Point(226, 130)
+        Me._lblData_1.Location = New System.Drawing.Point(214, 117)
         Me._lblData_1.Name = "_lblData_1"
-        Me._lblData_1.Size = New System.Drawing.Size(90, 18)
+        Me._lblData_1.Size = New System.Drawing.Size(77, 18)
         Me._lblData_1.TabIndex = 75
         Me._lblData_1.Text = "  99999999  "
         '
@@ -280,9 +281,9 @@
         Me._lblData_11.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_11, CType(11, Short))
-        Me._lblData_11.Location = New System.Drawing.Point(455, 148)
+        Me._lblData_11.Location = New System.Drawing.Point(455, 147)
         Me._lblData_11.Name = "_lblData_11"
-        Me._lblData_11.Size = New System.Drawing.Size(66, 18)
+        Me._lblData_11.Size = New System.Drawing.Size(66, 19)
         Me._lblData_11.TabIndex = 82
         Me._lblData_11.Text = " 999999 "
         '
@@ -291,9 +292,9 @@
         Me._lblData_8.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_8, CType(8, Short))
-        Me._lblData_8.Location = New System.Drawing.Point(370, 148)
+        Me._lblData_8.Location = New System.Drawing.Point(377, 147)
         Me._lblData_8.Name = "_lblData_8"
-        Me._lblData_8.Size = New System.Drawing.Size(86, 18)
+        Me._lblData_8.Size = New System.Drawing.Size(79, 19)
         Me._lblData_8.TabIndex = 81
         Me._lblData_8.Text = "  9999999   "
         '
@@ -302,9 +303,9 @@
         Me._lblData_5.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_5, CType(5, Short))
-        Me._lblData_5.Location = New System.Drawing.Point(309, 148)
+        Me._lblData_5.Location = New System.Drawing.Point(301, 147)
         Me._lblData_5.Name = "_lblData_5"
-        Me._lblData_5.Size = New System.Drawing.Size(62, 18)
+        Me._lblData_5.Size = New System.Drawing.Size(79, 19)
         Me._lblData_5.TabIndex = 80
         Me._lblData_5.Text = "   999    "
         '
@@ -313,9 +314,9 @@
         Me._lblData_2.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_2, CType(2, Short))
-        Me._lblData_2.Location = New System.Drawing.Point(226, 148)
+        Me._lblData_2.Location = New System.Drawing.Point(214, 135)
         Me._lblData_2.Name = "_lblData_2"
-        Me._lblData_2.Size = New System.Drawing.Size(90, 18)
+        Me._lblData_2.Size = New System.Drawing.Size(77, 18)
         Me._lblData_2.TabIndex = 79
         Me._lblData_2.Text = "  99999999  "
         '
@@ -335,9 +336,9 @@
         Me._lblData_17.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_17, CType(17, Short))
-        Me._lblData_17.Location = New System.Drawing.Point(370, 165)
+        Me._lblData_17.Location = New System.Drawing.Point(377, 165)
         Me._lblData_17.Name = "_lblData_17"
-        Me._lblData_17.Size = New System.Drawing.Size(86, 18)
+        Me._lblData_17.Size = New System.Drawing.Size(79, 18)
         Me._lblData_17.TabIndex = 85
         Me._lblData_17.Text = "  9999999   "
         '
@@ -346,9 +347,9 @@
         Me._lblData_16.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me._lblData_16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblData.SetIndex(Me._lblData_16, CType(16, Short))
-        Me._lblData_16.Location = New System.Drawing.Point(309, 165)
+        Me._lblData_16.Location = New System.Drawing.Point(301, 165)
         Me._lblData_16.Name = "_lblData_16"
-        Me._lblData_16.Size = New System.Drawing.Size(62, 18)
+        Me._lblData_16.Size = New System.Drawing.Size(79, 18)
         Me._lblData_16.TabIndex = 84
         Me._lblData_16.Text = "   999    "
         '
@@ -359,7 +360,7 @@
         Me.lblData.SetIndex(Me._lblData_15, CType(15, Short))
         Me._lblData_15.Location = New System.Drawing.Point(226, 165)
         Me._lblData_15.Name = "_lblData_15"
-        Me._lblData_15.Size = New System.Drawing.Size(90, 18)
+        Me._lblData_15.Size = New System.Drawing.Size(77, 18)
         Me._lblData_15.TabIndex = 83
         Me._lblData_15.Text = "  99999999  "
         '
@@ -381,7 +382,7 @@
         Me.lblLegend.SetIndex(Me._lblLegend_4, CType(4, Short))
         Me._lblLegend_4.Location = New System.Drawing.Point(37, 111)
         Me._lblLegend_4.Name = "_lblLegend_4"
-        Me._lblLegend_4.Size = New System.Drawing.Size(189, 18)
+        Me._lblLegend_4.Size = New System.Drawing.Size(190, 18)
         Me._lblLegend_4.TabIndex = 63
         Me._lblLegend_4.Text = "5% of Influent Concen.         "
         '
@@ -414,7 +415,7 @@
         Me.lblLegend.SetIndex(Me._lblLegend_1, CType(1, Short))
         Me._lblLegend_1.Location = New System.Drawing.Point(227, 93)
         Me._lblLegend_1.Name = "_lblLegend_1"
-        Me._lblLegend_1.Size = New System.Drawing.Size(88, 18)
+        Me._lblLegend_1.Size = New System.Drawing.Size(76, 18)
         Me._lblLegend_1.TabIndex = 67
         Me._lblLegend_1.Text = "Time(days)  "
         '
@@ -423,9 +424,9 @@
         Me._lblLegend_2.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me._lblLegend_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblLegend.SetIndex(Me._lblLegend_2, CType(2, Short))
-        Me._lblLegend_2.Location = New System.Drawing.Point(310, 93)
+        Me._lblLegend_2.Location = New System.Drawing.Point(301, 93)
         Me._lblLegend_2.Name = "_lblLegend_2"
-        Me._lblLegend_2.Size = New System.Drawing.Size(61, 18)
+        Me._lblLegend_2.Size = New System.Drawing.Size(79, 18)
         Me._lblLegend_2.TabIndex = 68
         Me._lblLegend_2.Text = "   BVT   "
         '
@@ -434,9 +435,9 @@
         Me._lblLegend_3.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me._lblLegend_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblLegend.SetIndex(Me._lblLegend_3, CType(3, Short))
-        Me._lblLegend_3.Location = New System.Drawing.Point(371, 93)
+        Me._lblLegend_3.Location = New System.Drawing.Point(377, 93)
         Me._lblLegend_3.Name = "_lblLegend_3"
-        Me._lblLegend_3.Size = New System.Drawing.Size(85, 18)
+        Me._lblLegend_3.Size = New System.Drawing.Size(79, 18)
         Me._lblLegend_3.TabIndex = 69
         Me._lblLegend_3.Text = "Tr. Capacity"
         '
@@ -637,6 +638,8 @@
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me._lblData_1)
+        Me.GroupBox2.Controls.Add(Me._lblData_2)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(513, 188)
@@ -646,16 +649,16 @@
         '
         'Chart1
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend2)
         Me.Chart1.Location = New System.Drawing.Point(12, 206)
         Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart1.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart1.Series.Add(Series2)
         Me.Chart1.Size = New System.Drawing.Size(523, 249)
         Me.Chart1.TabIndex = 100
         Me.Chart1.Text = "Chart1"
@@ -683,11 +686,9 @@
         Me.Controls.Add(Me._lblData_11)
         Me.Controls.Add(Me._lblData_8)
         Me.Controls.Add(Me._lblData_5)
-        Me.Controls.Add(Me._lblData_2)
         Me.Controls.Add(Me._lblData_10)
         Me.Controls.Add(Me._lblData_7)
         Me.Controls.Add(Me._lblData_4)
-        Me.Controls.Add(Me._lblData_1)
         Me.Controls.Add(Me._lblData_9)
         Me.Controls.Add(Me._lblData_6)
         Me.Controls.Add(Me._lblData_3)
@@ -730,6 +731,7 @@
         CType(Me.lblParaValue, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
