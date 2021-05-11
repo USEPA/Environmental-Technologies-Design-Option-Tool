@@ -446,26 +446,6 @@ Exit_Here:
 		'Call GenericStatus_Set("")
 	End Sub
 
-	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs)
-		Dim retval As Boolean
-		Dim flag As Short
-		retval = MsgBox("Are you sure you want to " & "save the database ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, AppName_For_Display_Short & " : Save Database ?")
-		If (retval = MsgBoxResult.No) Then Exit Sub
-		Call Store_Water_Correlations()
-		Me.Close()
-	End Sub
-
-	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs)
-		Dim retval As Boolean
-		Dim flag As Short
-		retval = MsgBox("Are you sure you want to exit without " & "saving the database ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, AppName_For_Display_Short & " : Exit Without Saving Database ?")
-		If (retval = MsgBoxResult.No) Then Exit Sub
-		Call Load_Water_Correlations(flag)
-		If flag Then Exit Sub
-		Me.Close()
-	End Sub
-
-
 	Private Sub _cmdRecord_0_Click(sender As Object, e As EventArgs) Handles _cmdRecord_0.Click
 		Call cmdRecord_Click(0)
 	End Sub
@@ -484,5 +464,24 @@ Exit_Here:
 
 	Private Sub _cmdRecord_4_Click(sender As Object, e As EventArgs) Handles _cmdRecord_4.Click
 		Call cmdRecord_Click(4)
+	End Sub
+
+	Private Sub _cmdCancelOK_1_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.Click
+		Dim retval As Boolean
+		Dim flag As Short
+		retval = MsgBox("Are you sure you want to " & "save the database ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, AppName_For_Display_Short & " : Save Database ?")
+		If (retval = MsgBoxResult.No) Then Exit Sub
+		Call Store_Water_Correlations()
+		Me.Close()
+	End Sub
+
+	Private Sub _cmdCancelOK_0_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
+		Dim retval As Boolean
+		Dim flag As Short
+		retval = MsgBox("Are you sure you want to exit without " & "saving the database ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, AppName_For_Display_Short & " : Exit Without Saving Database ?")
+		If (retval = MsgBoxResult.No) Then Exit Sub
+		Call Load_Water_Correlations(flag)
+		If flag Then Exit Sub
+		Me.Close()
 	End Sub
 End Class
