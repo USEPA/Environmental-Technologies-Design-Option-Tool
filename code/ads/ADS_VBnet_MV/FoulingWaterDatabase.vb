@@ -446,7 +446,7 @@ Exit_Here:
 		'Call GenericStatus_Set("")
 	End Sub
 
-	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.ClickEvent
+	Private Sub _cmdCancelOK_1_ClickEvent(sender As Object, e As EventArgs)
 		Dim retval As Boolean
 		Dim flag As Short
 		retval = MsgBox("Are you sure you want to " & "save the database ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, AppName_For_Display_Short & " : Save Database ?")
@@ -455,33 +455,34 @@ Exit_Here:
 		Me.Close()
 	End Sub
 
-	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.ClickEvent
+	Private Sub _cmdCancelOK_0_ClickEvent(sender As Object, e As EventArgs)
 		Dim retval As Boolean
 		Dim flag As Short
 		retval = MsgBox("Are you sure you want to exit without " & "saving the database ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, AppName_For_Display_Short & " : Exit Without Saving Database ?")
-		If (RetVal = MsgBoxResult.No) Then Exit Sub
+		If (retval = MsgBoxResult.No) Then Exit Sub
 		Call Load_Water_Correlations(flag)
 		If flag Then Exit Sub
 		Me.Close()
 	End Sub
 
-	Private Sub _cmdRecord_0_ClickEvent(sender As Object, e As EventArgs) Handles _cmdRecord_0.ClickEvent
+
+	Private Sub _cmdRecord_0_Click(sender As Object, e As EventArgs) Handles _cmdRecord_0.Click
 		Call cmdRecord_Click(0)
 	End Sub
 
-	Private Sub _cmdRecord_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdRecord_1.ClickEvent
+	Private Sub _cmdRecord_1_Click(sender As Object, e As EventArgs) Handles _cmdRecord_1.Click
 		Call cmdRecord_Click(1)
 	End Sub
 
-	Private Sub _cmdRecord_2_ClickEvent(sender As Object, e As EventArgs) Handles _cmdRecord_2.ClickEvent
+	Private Sub _cmdRecord_2_Click(sender As Object, e As EventArgs) Handles _cmdRecord_2.Click
 		Call cmdRecord_Click(2)
 	End Sub
 
-	Private Sub _cmdRecord_3_ClickEvent(sender As Object, e As EventArgs) Handles _cmdRecord_3.ClickEvent
+	Private Sub _cmdRecord_3_Click(sender As Object, e As EventArgs) Handles _cmdRecord_3.Click
 		Call cmdRecord_Click(3)
 	End Sub
 
-	Private Sub _cmdRecord_4_ClickEvent(sender As Object, e As EventArgs) Handles _cmdRecord_4.ClickEvent
+	Private Sub _cmdRecord_4_Click(sender As Object, e As EventArgs) Handles _cmdRecord_4.Click
 		Call cmdRecord_Click(4)
 	End Sub
 End Class
