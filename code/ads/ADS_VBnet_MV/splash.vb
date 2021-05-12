@@ -188,4 +188,9 @@ Friend Class frmSplash
 	Private Sub TextBox6_TextChanged(sender As Object, e As EventArgs) Handles TextBox6.TextChanged
 
 	End Sub
+
+	Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+		Call ShellExecute_URL("http://github.com/USEPA/Environmental-Technologies-Design-Option-Tool")
+
+	End Sub
 End Class

@@ -255,7 +255,9 @@
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.Label1.Location = New System.Drawing.Point(72, 442)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(470, 16)
