@@ -6,7 +6,7 @@ Friend Class frmAbout
 	
 	
 	Private Sub cmdLaunchWebSite_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdLaunchWebSite.Click
-		Call ShellExecute_URL("http://www.cpas.mtu.edu/etdot")
+		Call ShellExecute_URL("https://github.com/USEPA/Environmental-Technologies-Design-Option-Tool")
 	End Sub
 	Private Sub cmdOK_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdOK.Click
 		Me.Close()
