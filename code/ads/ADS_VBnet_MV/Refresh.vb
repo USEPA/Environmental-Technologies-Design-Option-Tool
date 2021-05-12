@@ -25,10 +25,16 @@ Module Refresh
 		'frmMain.txtNumberOfBeds = Format$(Bed.NumberOfBeds, "0")
 		'frmMain.txtNPoint(0) = Format$(MC, "0")
 		'frmMain.txtNPoint(1) = Format$(NC, "0")
+
+		'set components to save
+		frmMain.NumericUpDown1.Value = Format$(Bed.NumberOfBeds, "0")
+		frmMain.NumericUpDown2.Value = Format$(MC, "0")
+		frmMain.NumericUpDown3.Value = Format$(NC, "0")
+
 		'frmMain.txtTime(0) = Format_It(TimeP.End / 60# / 24#, 2)
 		'frmMain.txtTime(1) = Format_It(TimeP.Init / 60# / 24#, 2)
 		'frmMain.txtTime(2) = Format_It(TimeP.Step / 60# / 24#, 2)
-		
+
 		'FIXED BED PROPERTIES.
 		Call unitsys_set_number_in_base_units(frmMain.txtBedValue(0), Bed.length)
 		Call unitsys_set_number_in_base_units(frmMain.txtBedValue(1), Bed.Diameter)

@@ -58,9 +58,10 @@ Friend Class frmMain
 		Call unitsys_register(Me, lblTime(0), txtTime(0), txtTimeUnits(0), "time", "d", "min", "", "", 100#, True)
 		Call unitsys_register(Me, lblTime(1), txtTime(1), txtTimeUnits(1), "time", "d", "min", "", "", 100#, True)
 		Call unitsys_register(Me, lblTime(2), txtTime(2), txtTimeUnits(2), "time", "d", "min", "", "", 100#, True)
-		'Call unitsys_register(Me, lblAxialElementsDesc, txtNumberOfBeds, Nothing, "", "", "", "0", "0", 100.0#, False)
-		'Call unitsys_register(Me, lblText(0), txtNPoint(0), Nothing, "", "", "", "0", "0", 100.0#, False)
-		'Call unitsys_register(Me, lblText(1), txtNPoint(1), Nothing, "", "", "", "0", "0", 100.0#, False)
+		'unitsys w/ the spinners changed
+		Call unitsys_register(Me, lblAxialElementsDesc, NumericUpDown1, Nothing, "", "", "", "0", "0", 100.0#, False)
+		Call unitsys_register(Me, lblText(0), NumericUpDown2, Nothing, "", "", "", "0", "0", 100.0#, False)
+		Call unitsys_register(Me, lblText(1), NumericUpDown3, Nothing, "", "", "", "0", "0", 100.0#, False)
 		'BED PROPERTIES.
 		Call unitsys_register(Me, lblBed(0), txtBedValue(0), txtBedUnits(0), "length", "m", "m", "", "", 100.0#, True)
 		Call unitsys_register(Me, lblBed(1), txtBedValue(1), txtBedUnits(1), "length", "m", "m", "", "", 100.0#, True)
