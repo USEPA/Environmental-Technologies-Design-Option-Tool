@@ -4,6 +4,13 @@ AdDesignS/IAFM README.TXT file.
 
 VERSION HISTORY.
 ================
+---------------- Version 1.0.1 (2021) ---------------------------------------------------
+    First version compiled with Microsoft Visual Studio.
+    Converted to VBNET, and removed ActiveX controls and license.
+
+    Code Transfered from Mich. Tech. U. to USEPA (2019)
+    Ongoing code upkeep housed on GitHub.
+    https://github.com/USEPA/Environmental-Technologies-Design-Option-Tool
 
 ---------------- Version 1.0.0 ----------------------------------------------------------
     First version compiled with Microsoft Visual Basic 5.0.
