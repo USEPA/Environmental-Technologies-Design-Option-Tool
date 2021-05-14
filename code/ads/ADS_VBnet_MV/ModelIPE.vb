@@ -469,6 +469,7 @@ Module ModelIPE
 		Dim OkayToUse As Boolean
 		Dim EOFTESTMARKER As Double
 		'READ SUCCESS FLAG OUTPUT FILE.
+		MO.Initialize()   'Shang added
 		f = FreeFile
 		fn_This = Exe_Path & "\" & ModelIPE_OUT_SuccessFlag
 		If (Not FileExists(fn_This)) Then
@@ -550,16 +551,31 @@ Module ModelIPE
 		'PREPARE INPUTS.
 		'NOTE: IT IS ASSUMED THAT Component(0) CONTAINS THE
 		'CHEMICAL PROPERTIES OF INTEREST.
-		MI.IN_DATA(1) = Carbon.BB
-		MI.IN_DATA(2) = Carbon.W0
-		MI.IN_DATA(3) = Bed.Temperature + 273.15
-		MI.IN_DATA(4) = Component(0).InitialConcentration * 1000#
-		MI.IN_DATA(5) = Component(0).Liquid_Density
-		MI.IN_DATA(6) = Component(0).MW
-		MI.IN_DATA(7) = Component(0).Vapor_Pressure / 101325 * 760 'UNITS: mmHg.
-		MI.IN_DATA(8) = Component(0).Refractive_Index
-		MI.IN_DATA(9) = Carbon.PolanyiExponent
-		MI.IN_DATA(10) = 0.000001
+
+		'MI.IN_DATA(1) = Carbon.BB
+		'MI.IN_DATA(2) = Carbon.W0
+		'MI.IN_DATA(3) = Bed.Temperature + 273.15
+		'MI.IN_DATA(4) = Component(0).InitialConcentration * 1000#
+		'MI.IN_DATA(5) = Component(0).Liquid_Density
+		'MI.IN_DATA(6) = Component(0).MW
+		'MI.IN_DATA(7) = Component(0).Vapor_Pressure / 101325 * 760 'UNITS: mmHg.
+		'MI.IN_DATA(8) = Component(0).Refractive_Index
+		'MI.IN_DATA(9) = Carbon.PolanyiExponent
+		'MI.IN_DATA(10) = 0.000001
+
+		MI.BB = Carbon.BB
+		MI.W0 = Carbon.W0
+		MI.GM = Carbon.PolanyiExponent
+		MI.CBULK = Component(0).InitialConcentration * 1000.0#
+		MI.ORGDEN = Component(0).Liquid_Density
+		MI.TT = Bed.Temperature + 273.15
+		MI.FWT = Component(0).MW
+		MI.SOLUB = Component(0).Aqueous_Solubility
+		MI.NL = SHARED_NL
+		MI.OMAG = SHARED_OMAG
+		MI.VOLM_NBP = Component(0).MolarVolume
+
+
 		'WARNING: If IN_DATA(10) (the tolerance for the SPEQ()
 		'subroutine) is set to 1e-7, 1e-8, or lower, the SPEQ()
 		'routine will attempt to achieve a ridiculous number of

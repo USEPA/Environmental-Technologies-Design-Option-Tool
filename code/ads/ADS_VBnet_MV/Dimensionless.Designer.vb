@@ -401,7 +401,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1043, 436)
+        Me.ClientSize = New System.Drawing.Size(384, 436)
         Me.ControlBox = False
         Me.Controls.Add(Me.cmdclose)
         Me.Controls.Add(Me.GroupBox2)

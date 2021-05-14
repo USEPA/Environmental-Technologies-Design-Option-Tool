@@ -451,7 +451,7 @@
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_0, CType(0, Short))
         Me._mnuFileItem_0.Name = "_mnuFileItem_0"
         Me._mnuFileItem_0.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me._mnuFileItem_0.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_0.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_0.Text = "&New"
         '
         '_mnuFileItem_1
@@ -459,7 +459,7 @@
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_1, CType(1, Short))
         Me._mnuFileItem_1.Name = "_mnuFileItem_1"
         Me._mnuFileItem_1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me._mnuFileItem_1.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_1.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_1.Text = "&Open ..."
         '
         '_mnuFileItem_2
@@ -467,26 +467,26 @@
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_2, CType(2, Short))
         Me._mnuFileItem_2.Name = "_mnuFileItem_2"
         Me._mnuFileItem_2.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me._mnuFileItem_2.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_2.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_2.Text = "&Save"
         '
         '_mnuFileItem_3
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_3, CType(3, Short))
         Me._mnuFileItem_3.Name = "_mnuFileItem_3"
-        Me._mnuFileItem_3.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_3.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_3.Text = "Save &As ..."
         '
         '_mnuFileItem_5
         '
         Me._mnuFileItem_5.Name = "_mnuFileItem_5"
-        Me._mnuFileItem_5.Size = New System.Drawing.Size(155, 6)
+        Me._mnuFileItem_5.Size = New System.Drawing.Size(177, 6)
         '
         '_mnuFileItem_6
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_6, CType(6, Short))
         Me._mnuFileItem_6.Name = "_mnuFileItem_6"
-        Me._mnuFileItem_6.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_6.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_6.Text = "Select P&rinter"
         '
         '_mnuFileItem_7
@@ -494,7 +494,7 @@
         Me._mnuFileItem_7.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuPrintSubItem_0, Me._mnuPrintSubItem_1})
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_7, CType(7, Short))
         Me._mnuFileItem_7.Name = "_mnuFileItem_7"
-        Me._mnuFileItem_7.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_7.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_7.Text = "&Print ..."
         '
         '_mnuPrintSubItem_0
@@ -514,13 +514,13 @@
         '_mnuFileItem_190
         '
         Me._mnuFileItem_190.Name = "_mnuFileItem_190"
-        Me._mnuFileItem_190.Size = New System.Drawing.Size(155, 6)
+        Me._mnuFileItem_190.Size = New System.Drawing.Size(177, 6)
         '
         '_mnuFileItem_191
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_191, CType(191, Short))
         Me._mnuFileItem_191.Name = "_mnuFileItem_191"
-        Me._mnuFileItem_191.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_191.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_191.Text = "&1 Old File #1"
         Me._mnuFileItem_191.Visible = False
         '
@@ -528,7 +528,7 @@
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_192, CType(192, Short))
         Me._mnuFileItem_192.Name = "_mnuFileItem_192"
-        Me._mnuFileItem_192.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_192.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_192.Text = "&2 Old File #2"
         Me._mnuFileItem_192.Visible = False
         '
@@ -536,7 +536,7 @@
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_193, CType(193, Short))
         Me._mnuFileItem_193.Name = "_mnuFileItem_193"
-        Me._mnuFileItem_193.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_193.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_193.Text = "&3 Old File #3"
         Me._mnuFileItem_193.Visible = False
         '
@@ -544,21 +544,21 @@
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_194, CType(194, Short))
         Me._mnuFileItem_194.Name = "_mnuFileItem_194"
-        Me._mnuFileItem_194.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_194.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_194.Text = "&4 Old File #4"
         Me._mnuFileItem_194.Visible = False
         '
         '_mnuFileItem_199
         '
         Me._mnuFileItem_199.Name = "_mnuFileItem_199"
-        Me._mnuFileItem_199.Size = New System.Drawing.Size(155, 6)
+        Me._mnuFileItem_199.Size = New System.Drawing.Size(177, 6)
         Me._mnuFileItem_199.Visible = False
         '
         '_mnuFileItem_200
         '
         Me.mnuFileItem.SetIndex(Me._mnuFileItem_200, CType(200, Short))
         Me._mnuFileItem_200.Name = "_mnuFileItem_200"
-        Me._mnuFileItem_200.Size = New System.Drawing.Size(158, 22)
+        Me._mnuFileItem_200.Size = New System.Drawing.Size(180, 22)
         Me._mnuFileItem_200.Text = "E&xit"
         '
         'mnuPhase
@@ -2091,6 +2091,7 @@
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 476)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(733, 22)
+        Me.StatusStrip1.SizingGrip = False
         Me.StatusStrip1.TabIndex = 102
         Me.StatusStrip1.Text = "StatusStrip1"
         '

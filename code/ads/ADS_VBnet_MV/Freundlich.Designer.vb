@@ -61,7 +61,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFreundlich))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command2 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
@@ -780,7 +779,7 @@
         Me.Label10.TabIndex = 21
         Me.Label10.Text = "Adsorbent:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopRight
-
+        '
         'grpSource
         '
         Me.grpSource.Controls.Add(Me.RadioButton3)
@@ -1202,7 +1201,7 @@
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDirty, Me.ToolStripStatus})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 635)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1264, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(772, 22)
         Me.StatusStrip1.TabIndex = 83
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -1223,7 +1222,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1264, 657)
+        Me.ClientSize = New System.Drawing.Size(772, 657)
         Me.ControlBox = False
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.grpIsothermDB)

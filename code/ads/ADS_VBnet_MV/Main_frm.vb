@@ -1476,5 +1476,7 @@ Friend Class frmMain
 
 	End Sub
 
+	Private Sub _mnuFileItem_1_Click(sender As Object, e As EventArgs) Handles _mnuFileItem_1.Click
 
+	End Sub
 End Class
