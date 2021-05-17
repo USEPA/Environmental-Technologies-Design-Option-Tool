@@ -47,9 +47,10 @@ Module ModelIPE
 		Dim CEND As Double 'CORRELATION UPPER BOUND (ug/L).
 		Dim RSQD As Double 'REGRESSION R-SQUARED (dimless).
 		Dim RMSE As Double 'ROOT MEAN SQUARE ERROR (dimless?).
-		<VBFixedArray(30)> Dim ErrMat() As Short 'ERROR MATRIX.
+		'<VBFixedArray(30)> Dim ErrMat() As Short 'ERROR MATRIX.
+		Dim ErrMat() As Short
 		Dim ALERR As Short 'HAS ANY ERROR/WARNING OCCURRED?
-		
+
 		'UPGRADE_TODO: "Initialize" must be called to initialize instances of this structure. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="B4BFF9E0-8631-45CF-910E-62AB3970F27B"'
 		Public Sub Initialize()
 			'UPGRADE_WARNING: Lower bound of array ErrMat was changed from 1 to 0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
@@ -58,16 +59,17 @@ Module ModelIPE
 	End Structure
 	'UPGRADE_WARNING: Arrays in structure ModelIPE_ADLIQ_Outputs may need to be initialized before they can be used. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="814DF224-76BD-4BB4-BFFB-EA359CB9FC48"'
 	Dim ModelIPE_ADLIQ_Outputs As ModelIPE_ADLIQ_Outputs_Type
-	
-	
+
+
 	'
 	'///////////// HOFMAN INPUTS / OUTPUTS ////////////////////////////////////////////////////////////////////////////////////////////////
 	'
 	Private Structure ModelIPE_HOFMAN_Inputs_Type
-		<VBFixedArray(11)> Dim IN_DATA() As Double 'VARIOUS PARAMETERS.
+		'<VBFixedArray(11)> Dim IN_DATA() As Double 'VARIOUS PARAMETERS.
+		Dim IN_DATA() As Double
 		Dim NL As Short 'NUMBER OF REGRESSION POINTS (dimless).
 		Dim VOLM_NBP As Double 'MOLAR VOLUME AT NORMAL BOILING POINT (cm^3/gmol).  (new as of 1999-May-14)
-		
+
 		'UPGRADE_TODO: "Initialize" must be called to initialize instances of this structure. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="B4BFF9E0-8631-45CF-910E-62AB3970F27B"'
 		Public Sub Initialize()
 			'UPGRADE_WARNING: Lower bound of array IN_DATA was changed from 1 to 0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
@@ -86,9 +88,10 @@ Module ModelIPE
 		Dim CEND As Double 'CORRELATION UPPER BOUND (ug/L).
 		Dim RSQD As Double 'REGRESSION R-SQUARED (dimless).
 		Dim RMSE As Double 'ROOT MEAN SQUARE ERROR (dimless?).
-		<VBFixedArray(30)> Dim ErrMat() As Short 'ERROR MATRIX.
+		'<VBFixedArray(30)> Dim ErrMat() As Short 'ERROR MATRIX.
+		Dim ErrMat() As Short
 		Dim HOERR As Short 'HAS ANY ERROR/WARNING OCCURRED?
-		
+
 		'UPGRADE_TODO: "Initialize" must be called to initialize instances of this structure. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="B4BFF9E0-8631-45CF-910E-62AB3970F27B"'
 		Public Sub Initialize()
 			'UPGRADE_WARNING: Lower bound of array ErrMat was changed from 1 to 0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
@@ -97,16 +100,17 @@ Module ModelIPE
 	End Structure
 	'UPGRADE_WARNING: Arrays in structure ModelIPE_HOFMAN_Outputs may need to be initialized before they can be used. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="814DF224-76BD-4BB4-BFFB-EA359CB9FC48"'
 	Dim ModelIPE_HOFMAN_Outputs As ModelIPE_HOFMAN_Outputs_Type
-	
-	
+
+
 	'
 	'///////////// SPEQ INPUTS / OUTPUTS ////////////////////////////////////////////////////////////////////////////////////////////////
 	'
 	Private Structure ModelIPE_SPEQ_Inputs_Type
-		<VBFixedArray(10)> Dim IN_DATA() As Double 'VARIOUS PARAMETERS.
+		'<VBFixedArray(10)> Dim IN_DATA() As Double 'VARIOUS PARAMETERS.
+		Dim IN_DATA() As Double
 		Dim NL As Short 'NUMBER OF REGRESSION POINTS (dimless).
 		Dim XERR As Short '??? FORCING TO ZERO SEEMS ACCEPTABLE.
-		
+
 		'UPGRADE_TODO: "Initialize" must be called to initialize instances of this structure. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="B4BFF9E0-8631-45CF-910E-62AB3970F27B"'
 		Public Sub Initialize()
 			'UPGRADE_WARNING: Lower bound of array IN_DATA was changed from 1 to 0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
@@ -123,9 +127,10 @@ Module ModelIPE
 		Dim XNF As Double 'FREUNDLICH 1/N (dimless).
 		Dim CBEG As Double 'CORRELATION LOWER BOUND (ug/L).
 		Dim CEND As Double 'CORRELATION UPPER BOUND (ug/L).
-		<VBFixedArray(30)> Dim ErrMat() As Short 'ERROR MATRIX.
+		'<VBFixedArray(30)> Dim ErrMat() As Short 'ERROR MATRIX.
+		Dim ErrMat() As Short
 		Dim SQERR As Short 'HAS ANY ERROR/WARNING OCCURRED?
-		
+
 		'UPGRADE_TODO: "Initialize" must be called to initialize instances of this structure. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="B4BFF9E0-8631-45CF-910E-62AB3970F27B"'
 		Public Sub Initialize()
 			'UPGRADE_WARNING: Lower bound of array ErrMat was changed from 1 to 0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
@@ -134,14 +139,14 @@ Module ModelIPE
 	End Structure
 	'UPGRADE_WARNING: Arrays in structure ModelIPE_SPEQ_Outputs may need to be initialized before they can be used. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="814DF224-76BD-4BB4-BFFB-EA359CB9FC48"'
 	Dim ModelIPE_SPEQ_Outputs As ModelIPE_SPEQ_Outputs_Type
-	
-	
-	
-	
-	
+
+
+
+
+
 	Const ModelIPE_declarations_end As Boolean = True
-	
-	
+
+
 	Sub ModelIPE_Go(ByRef WhichModule As Short, ByRef INPUT_NL As Short, ByRef INPUT_OMAG As Double, ByRef Raise_Dirty_Flag As Boolean)
 		Dim Found As Boolean
 		SHARED_NL = INPUT_NL
@@ -161,10 +166,10 @@ Module ModelIPE
 				Exit Sub
 		End Select
 	End Sub
-	
-	
-	
-	
+
+
+
+
 	'//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	'////////////////    ADLIQ MODULE    //////////////////////////////////////////////////////////////////////////////////
 	'//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -182,7 +187,7 @@ Module ModelIPE
 		Dim EOFTESTMARKER As Double
 		'READ SUCCESS FLAG OUTPUT FILE.
 		MO.Initialize()   'Shang added
-		f = FreeFile
+		f = FreeFile()
 		fn_This = Exe_Path & "\" & ModelIPE_OUT_SuccessFlag
 		If (Not FileExists(fn_This)) Then
 			Call Show_Error("Unable to find output file: Calculations failed.")
@@ -229,15 +234,15 @@ Module ModelIPE
 		IPES_Data.Input_Renamed.W0 = MI.W0
 		IPES_Data.Input_Renamed.GM = MI.GM
 		'Conversion from ug/g to mg/g
-		IPES_Data.Output.QSAV = MO.QSAV / 1000#
+		IPES_Data.Output.QSAV = MO.QSAV / 1000.0#
 		'Conversion from ug/g to mg/g
-		IPES_Data.Output.CSAV = MO.CSAV / 1000#
-		IPES_Data.Output.CBEG = MO.CBEG / 1000#
-		IPES_Data.Output.CEND = MO.CEND / 1000#
+		IPES_Data.Output.CSAV = MO.CSAV / 1000.0#
+		IPES_Data.Output.CBEG = MO.CBEG / 1000.0#
+		IPES_Data.Output.CEND = MO.CEND / 1000.0#
 		'Conversion from (ug/g)x(l/ug)^(1/n) to (mg/g)x(l/mg)^(1/n)
-		IPES_Data.Output.XK1 = MO.XK1 * (1000#) ^ (MO.XNF - 1)
+		IPES_Data.Output.XK1 = MO.XK1 * (1000.0#) ^ (MO.XNF - 1)
 		'Conversion from (umol/g)x(l/umol)^(1/n) to (mmol/g)x(l/mmol)^(1/n)
-		IPES_Data.Output.XK2 = MO.XK2 * (1000#) ^ (MO.XNF - 1)
+		IPES_Data.Output.XK2 = MO.XK2 * (1000.0#) ^ (MO.XNF - 1)
 		IPES_Data.Output.XN = MO.XNF
 		IPES_Data.Output.RSQD = MO.RSQD
 		IPES_Data.Output.RMSE = MO.RMSE
@@ -261,7 +266,7 @@ Module ModelIPE
 		MI.BB = Carbon.BB
 		MI.W0 = Carbon.W0
 		MI.GM = Carbon.PolanyiExponent
-		MI.CBULK = Component(0).InitialConcentration * 1000#
+		MI.CBULK = Component(0).InitialConcentration * 1000.0#
 		MI.ORGDEN = Component(0).Liquid_Density
 		MI.TT = Bed.Temperature + 273.15
 		MI.FWT = Component(0).MW
@@ -272,7 +277,7 @@ Module ModelIPE
 		'
 		' WRITE INPUT FILE.
 		'
-		f = FreeFile
+		f = FreeFile()
 		fn_This = Exe_Path & "\" & ModelIPE_IN_Main
 		FileOpen(f, fn_This, OpenMode.Output)
 		Call WriteFortranInput(f, ModelIPE_Version, "MODULE_VERSION")
@@ -304,8 +309,8 @@ Module ModelIPE
 			Call ModelIPE_RemoveLinkFiles()
 		End If
 	End Sub
-	
-	
+
+
 	'//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	'////////////////    HOFMAN MODULE    /////////////////////////////////////////////////////////////////////////////////
 	'//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -323,7 +328,7 @@ Module ModelIPE
 		Dim OkayToUse As Boolean
 		Dim EOFTESTMARKER As Double
 		'READ SUCCESS FLAG OUTPUT FILE.
-		f = FreeFile
+		f = FreeFile()
 		fn_This = Exe_Path & "\" & ModelIPE_OUT_SuccessFlag
 		If (Not FileExists(fn_This)) Then
 			Call Show_Error("Unable to find output file: Calculations failed.")
@@ -370,15 +375,15 @@ Module ModelIPE
 		IPES_Data.Input_Renamed.W0 = MI.IN_DATA(2)
 		IPES_Data.Input_Renamed.GM = MI.IN_DATA(9)
 		'Conversion from ug/g to mg/g
-		IPES_Data.Output.QSAV = MO.QSAV / 1000#
+		IPES_Data.Output.QSAV = MO.QSAV / 1000.0#
 		'Conversion from ug/g to mg/g
-		IPES_Data.Output.CSAV = MO.CSAV / 1000#
-		IPES_Data.Output.CBEG = MO.CBEG / 1000#
-		IPES_Data.Output.CEND = MO.CEND / 1000#
+		IPES_Data.Output.CSAV = MO.CSAV / 1000.0#
+		IPES_Data.Output.CBEG = MO.CBEG / 1000.0#
+		IPES_Data.Output.CEND = MO.CEND / 1000.0#
 		'Conversion from (ug/g)x(l/ug)^(1/n) to (mg/g)x(l/mg)^(1/n)
-		IPES_Data.Output.XK1 = MO.XK1 * (1000#) ^ (MO.XNF - 1)
+		IPES_Data.Output.XK1 = MO.XK1 * (1000.0#) ^ (MO.XNF - 1)
 		'Conversion from (umol/g)x(l/umol)^(1/n) to (mmol/g)x(l/mmol)^(1/n)
-		IPES_Data.Output.XK2 = MO.XK2 * (1000#) ^ (MO.XNF - 1)
+		IPES_Data.Output.XK2 = MO.XK2 * (1000.0#) ^ (MO.XNF - 1)
 		IPES_Data.Output.XN = MO.XNF
 		IPES_Data.Output.RSQD = MO.RSQD
 		IPES_Data.Output.RMSE = MO.RMSE
@@ -400,10 +405,12 @@ Module ModelIPE
 		' NOTE: IT IS ASSUMED THAT Component(0) CONTAINS THE
 		' CHEMICAL PROPERTIES OF INTEREST.
 		'
+		MI.Initialize()
+
 		MI.IN_DATA(1) = Carbon.BB
 		MI.IN_DATA(2) = Carbon.W0
 		MI.IN_DATA(3) = Bed.Temperature + 273.15
-		MI.IN_DATA(4) = Component(0).InitialConcentration * 1000#
+		MI.IN_DATA(4) = Component(0).InitialConcentration * 1000.0#
 		MI.IN_DATA(5) = Component(0).Liquid_Density
 		MI.IN_DATA(6) = Component(0).MW
 		MI.IN_DATA(7) = Component(0).Vapor_Pressure / 101325 * 760 'UNITS: mmHg.
@@ -416,7 +423,7 @@ Module ModelIPE
 		'
 		' WRITE INPUT FILE.
 		'
-		f = FreeFile
+		f = FreeFile()
 		fn_This = Exe_Path & "\" & ModelIPE_IN_Main
 		FileOpen(f, fn_This, OpenMode.Output)
 		Call WriteFortranInput(f, ModelIPE_Version, "MODULE_VERSION")
@@ -450,8 +457,8 @@ Module ModelIPE
 			Call ModelIPE_RemoveLinkFiles()
 		End If
 	End Sub
-	
-	
+
+
 	'//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	'////////////////    SPEQ MODULE    ///////////////////////////////////////////////////////////////////////////////////
 	'//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -470,7 +477,7 @@ Module ModelIPE
 		Dim EOFTESTMARKER As Double
 		'READ SUCCESS FLAG OUTPUT FILE.
 		MO.Initialize()   'Shang added
-		f = FreeFile
+		f = FreeFile()
 		fn_This = Exe_Path & "\" & ModelIPE_OUT_SuccessFlag
 		If (Not FileExists(fn_This)) Then
 			Call Show_Error("Unable to find output file: Calculations failed.")
@@ -517,15 +524,15 @@ Module ModelIPE
 		IPES_Data.Input_Renamed.W0 = MI.IN_DATA(2)
 		IPES_Data.Input_Renamed.GM = MI.IN_DATA(9)
 		'---- Conversion from ug/g to mg/g
-		IPES_Data.Output.QSAV = MO.QSAV / 1000#
+		IPES_Data.Output.QSAV = MO.QSAV / 1000.0#
 		'---- Conversion from ug/g to mg/g
-		IPES_Data.Output.CSAV = MO.CSAV / 1000#
+		IPES_Data.Output.CSAV = MO.CSAV / 1000.0#
 		'IPES_Data.Output.CBEG = MO.CBEG / 1000#
 		'IPES_Data.Output.CEND = MO.CEND / 1000#
 		'---- Conversion from (ug/g)x(l/ug)^(1/n) to (mg/g)x(l/mg)^(1/n)
-		IPES_Data.Output.XK1 = MO.XK1 * (1000#) ^ (MO.XNF - 1)
+		IPES_Data.Output.XK1 = MO.XK1 * (1000.0#) ^ (MO.XNF - 1)
 		'---- Conversion from (umol/g)x(l/umol)^(1/n) to (mmol/g)x(l/mmol)^(1/n)
-		IPES_Data.Output.XK2 = MO.XK2 * (1000#) ^ (MO.XNF - 1)
+		IPES_Data.Output.XK2 = MO.XK2 * (1000.0#) ^ (MO.XNF - 1)
 		IPES_Data.Output.XN = MO.XNF
 		'IPES_Data.Output.RSQD = MO.RSQD
 		'IPES_Data.Output.RMSE = MO.RMSE
@@ -551,29 +558,30 @@ Module ModelIPE
 		'PREPARE INPUTS.
 		'NOTE: IT IS ASSUMED THAT Component(0) CONTAINS THE
 		'CHEMICAL PROPERTIES OF INTEREST.
+		MI.Initialize()
 
-		'MI.IN_DATA(1) = Carbon.BB
-		'MI.IN_DATA(2) = Carbon.W0
-		'MI.IN_DATA(3) = Bed.Temperature + 273.15
-		'MI.IN_DATA(4) = Component(0).InitialConcentration * 1000#
-		'MI.IN_DATA(5) = Component(0).Liquid_Density
-		'MI.IN_DATA(6) = Component(0).MW
-		'MI.IN_DATA(7) = Component(0).Vapor_Pressure / 101325 * 760 'UNITS: mmHg.
-		'MI.IN_DATA(8) = Component(0).Refractive_Index
-		'MI.IN_DATA(9) = Carbon.PolanyiExponent
-		'MI.IN_DATA(10) = 0.000001
+		MI.IN_DATA(1) = Carbon.BB
+		MI.IN_DATA(2) = Carbon.W0
+		MI.IN_DATA(3) = Bed.Temperature + 273.15
+		MI.IN_DATA(4) = Component(0).InitialConcentration * 1000.0#
+		MI.IN_DATA(5) = Component(0).Liquid_Density
+		MI.IN_DATA(6) = Component(0).MW
+		MI.IN_DATA(7) = Component(0).Vapor_Pressure / 101325 * 760 'UNITS: mmHg.
+		MI.IN_DATA(8) = Component(0).Refractive_Index
+		MI.IN_DATA(9) = Carbon.PolanyiExponent
+		MI.IN_DATA(10) = 0.000001
 
-		MI.BB = Carbon.BB
-		MI.W0 = Carbon.W0
-		MI.GM = Carbon.PolanyiExponent
-		MI.CBULK = Component(0).InitialConcentration * 1000.0#
-		MI.ORGDEN = Component(0).Liquid_Density
-		MI.TT = Bed.Temperature + 273.15
-		MI.FWT = Component(0).MW
-		MI.SOLUB = Component(0).Aqueous_Solubility
-		MI.NL = SHARED_NL
-		MI.OMAG = SHARED_OMAG
-		MI.VOLM_NBP = Component(0).MolarVolume
+		'MI.BB = Carbon.BB
+		'MI.W0 = Carbon.W0
+		'MI.GM = Carbon.PolanyiExponent
+		'MI.CBULK = Component(0).InitialConcentration * 1000.0#
+		'MI.ORGDEN = Component(0).Liquid_Density
+		'MI.TT = Bed.Temperature + 273.15
+		'MI.FWT = Component(0).MW
+		'MI.SOLUB = Component(0).Aqueous_Solubility
+		'MI.NL = SHARED_NL
+		'MI.OMAG = SHARED_OMAG
+		'MI.VOLM_NBP = Component(0).MolarVolume
 
 
 		'WARNING: If IN_DATA(10) (the tolerance for the SPEQ()
