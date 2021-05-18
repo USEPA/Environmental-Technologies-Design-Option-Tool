@@ -872,5 +872,7 @@ Exit_Print:
 
 	End Sub
 
+	Private Sub Command4_Click(sender As Object, e As EventArgs) Handles Command4.Click
 
+	End Sub
 End Class

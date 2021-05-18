@@ -110,8 +110,6 @@
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cmdExcel = New System.Windows.Forms.Button()
         Me.cmdSave = New System.Windows.Forms.Button()
-        Me.cmdSelect = New System.Windows.Forms.Button()
-        Me.cmdPrint = New System.Windows.Forms.Button()
         Me.cmdFile = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.cmdTreatA = New System.Windows.Forms.Button()
@@ -141,7 +139,7 @@
         Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Command4.Size = New System.Drawing.Size(174, 22)
         Me.Command4.TabIndex = 50
-        Me.Command4.Text = "Print Screen"
+        Me.Command4.Text = "Print Screen to File"
         Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
         Me.Command4.UseVisualStyleBackColor = False
         '
@@ -706,9 +704,9 @@
         'cmdExcel
         '
         Me.cmdExcel.BackColor = System.Drawing.Color.White
-        Me.cmdExcel.Location = New System.Drawing.Point(566, 188)
+        Me.cmdExcel.Location = New System.Drawing.Point(566, 201)
         Me.cmdExcel.Name = "cmdExcel"
-        Me.cmdExcel.Size = New System.Drawing.Size(174, 38)
+        Me.cmdExcel.Size = New System.Drawing.Size(174, 48)
         Me.cmdExcel.TabIndex = 63
         Me.cmdExcel.Text = "&Excel"
         Me.cmdExcel.UseVisualStyleBackColor = False
@@ -716,39 +714,19 @@
         'cmdSave
         '
         Me.cmdSave.BackColor = System.Drawing.Color.White
-        Me.cmdSave.Location = New System.Drawing.Point(566, 226)
+        Me.cmdSave.Location = New System.Drawing.Point(566, 255)
         Me.cmdSave.Name = "cmdSave"
-        Me.cmdSave.Size = New System.Drawing.Size(174, 39)
+        Me.cmdSave.Size = New System.Drawing.Size(174, 49)
         Me.cmdSave.TabIndex = 64
         Me.cmdSave.Text = "S&ave Curves"
         Me.cmdSave.UseVisualStyleBackColor = False
         '
-        'cmdSelect
-        '
-        Me.cmdSelect.BackColor = System.Drawing.Color.White
-        Me.cmdSelect.Location = New System.Drawing.Point(566, 265)
-        Me.cmdSelect.Name = "cmdSelect"
-        Me.cmdSelect.Size = New System.Drawing.Size(174, 42)
-        Me.cmdSelect.TabIndex = 65
-        Me.cmdSelect.Text = "&Select Printer"
-        Me.cmdSelect.UseVisualStyleBackColor = False
-        '
-        'cmdPrint
-        '
-        Me.cmdPrint.BackColor = System.Drawing.Color.White
-        Me.cmdPrint.Location = New System.Drawing.Point(566, 306)
-        Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(174, 38)
-        Me.cmdPrint.TabIndex = 66
-        Me.cmdPrint.Text = "&Print"
-        Me.cmdPrint.UseVisualStyleBackColor = False
-        '
         'cmdFile
         '
         Me.cmdFile.BackColor = System.Drawing.Color.White
-        Me.cmdFile.Location = New System.Drawing.Point(566, 345)
+        Me.cmdFile.Location = New System.Drawing.Point(566, 310)
         Me.cmdFile.Name = "cmdFile"
-        Me.cmdFile.Size = New System.Drawing.Size(174, 38)
+        Me.cmdFile.Size = New System.Drawing.Size(174, 49)
         Me.cmdFile.TabIndex = 67
         Me.cmdFile.Text = "Print to &File"
         Me.cmdFile.UseVisualStyleBackColor = False
@@ -855,9 +833,7 @@
         Me.Controls.Add(Me._lblLegend_2)
         Me.Controls.Add(Me.cmdFile)
         Me.Controls.Add(Me._lblLegend_3)
-        Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me._lblLegend_4)
-        Me.Controls.Add(Me.cmdSelect)
         Me.Controls.Add(Me._lblLegend_5)
         Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me._lblLegend_6)
@@ -916,8 +892,6 @@
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cmdExcel As Button
     Friend WithEvents cmdSave As Button
-    Friend WithEvents cmdSelect As Button
-    Friend WithEvents cmdPrint As Button
     Friend WithEvents cmdFile As Button
     Friend WithEvents cmdExit As Button
     Friend WithEvents cmdTreatA As Button

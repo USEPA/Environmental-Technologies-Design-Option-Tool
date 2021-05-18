@@ -1312,12 +1312,52 @@ Exit_lblLegend_Click:
 	End Sub
 
 	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles Command4.Click
-		Dim Printer As New Printer
-		Picture1.Image = CaptureActiveWindow()
-		PrintPictureToFitPage(Printer, (Picture1.Image))
-		Printer.EndDoc()
-		' Set focus back to form.
-		Me.Activate()
+
+		Dim currentScreen = Screen.FromHandle(Me.Handle).WorkingArea
+		Dim bmp As New Drawing.Bitmap(currentScreen.width, currentScreen.height)
+		'create a bitmap of the working area
+		Using bmp As New Drawing.Bitmap(currentScreen.Width, currentScreen.Height)
+
+			'copy the screen to the image
+			Using g = Graphics.FromImage(bmp)
+				g.CopyFromScreen(New Point(0, 0), New Point(0, 0), currentScreen.Size)
+			End Using
+
+			'save the image
+			Using sfd As New SaveFileDialog() With {.Filter = "PNG Image|*.png",
+													.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop}
+
+				If sfd.ShowDialog() = Windows.Forms.DialogResult.OK Then
+					bmp.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Png)
+				End If
+			End Using
+		End Using
+
+		'Dim Printer As New Printer
+		'Dim Filename_PFPSDM As String
+		'Dim f As Short
+
+		'Picture1.Image = CaptureActiveWindow()
+
+		'SaveFileDialog1.FileName = ""
+
+		'SaveFileDialog1.Title = "Print to File"
+
+		'SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+
+		'SaveFileDialog1.FilterIndex = 2
+
+		'SaveFileDialog1.ShowDialog()
+
+		'f = FreeFile()
+		'Filename_PFPSDM = SaveFileDialog1.FileName
+		'FileOpen(f, Filename_PFPSDM, OpenMode.Output)
+		'' Set focus back to form.
+		''Me.Activate()
+		'Picture1.Image = CaptureActiveWindow()
+		'PrintPictureToFitPage(f, (Picture1.Image))
+		'FileClose((f))
+
 	End Sub
 
 	Private Sub frmModelPSDMResults_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
@@ -1511,11 +1551,11 @@ err_FRMBREAK_UserPrefs_Load:
 		Call cmdExcel_Click()
 	End Sub
 
-	Private Sub Select_Printer_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
+	Private Sub Select_Printer_Click(sender As Object, e As EventArgs)
 		Call cmdSelect_Click()
 	End Sub
 
-	Private Sub Print_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
+	Private Sub Print_Click(sender As Object, e As EventArgs)
 		Call cmdPrint_Click()
 	End Sub
 
