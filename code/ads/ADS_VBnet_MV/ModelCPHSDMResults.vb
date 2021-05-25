@@ -404,9 +404,9 @@ Friend Class frmModelCPHSDMResults
 		SaveFileDialog1.FileName = ""
 		Exit Sub
 		
-File_Error: 
+File_Error:
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
+		If (Err.Number = 75) Then
 			'DO NOTHING.
 		Else
 			Call Show_Trapped_Error("cmdFile_Click")
@@ -748,9 +748,9 @@ Exit_Print:
 		'CMDialog1.FileName = ""
 		SaveFileDialog1.FileName = ""
 		Exit Sub
-Save_Results_CPM_Error: 
+Save_Results_CPM_Error:
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
+		If (Err.Number = 75) Then
 			'DO NOTHING.
 		Else
 			Call Show_Trapped_Error("cmdSave_Click")
@@ -1341,6 +1341,7 @@ Exit_Print:
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Action. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'CMDialog1.Action = 2
 		SaveFileDialog1.ShowDialog()
+
 		'f = FileNameIsValid(Filename_Input, CMDialog1)
 		'If Not (f) Then Exit Sub
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filename. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -1514,7 +1515,7 @@ Exit_Print:
 
 File_Error:
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
+		If (Err.Number = 75) Then
 			'DO NOTHING.
 		Else
 			Call Show_Trapped_Error("cmdFile_Click")

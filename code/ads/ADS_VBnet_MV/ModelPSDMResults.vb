@@ -466,7 +466,7 @@ Friend Class frmModelPSDMResults
 
 File_Error:
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
+		If (Err.Number = 75) Then
 			'DO NOTHING.
 		Else
 			Call Show_Trapped_Error("cmdFile_Click")
@@ -981,7 +981,7 @@ Exit_Print:
 
 Save_Results_PF_Error:
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
+		If (Err.Number = 75) Then
 			'DO NOTHING.
 		Else
 			Call Show_Trapped_Error("cmdSave_Click")
@@ -1313,48 +1313,35 @@ Exit_lblLegend_Click:
 
 	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles Command4.Click
 
-		Dim currentScreen = Screen.FromHandle(Me.Handle).WorkingArea
-		Dim bmp As New Drawing.Bitmap(currentScreen.width, currentScreen.height)
-		'create a bitmap of the working area
-		Using bmp As New Drawing.Bitmap(currentScreen.Width, currentScreen.Height)
 
-			'copy the screen to the image
-			Using g = Graphics.FromImage(bmp)
-				g.CopyFromScreen(New Point(0, 0), New Point(0, 0), currentScreen.Size)
-			End Using
+		Dim Filename_PFPSDM As String
 
-			'save the image
-			Using sfd As New SaveFileDialog() With {.Filter = "PNG Image|*.png",
-													.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop}
-
-				If sfd.ShowDialog() = Windows.Forms.DialogResult.OK Then
-					bmp.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Png)
-				End If
-			End Using
-		End Using
-
-		'Dim Printer As New Printer
-		'Dim Filename_PFPSDM As String
 		'Dim f As Short
 
-		'Picture1.Image = CaptureActiveWindow()
+		Picture1.Image = CaptureActiveWindow()
 
-		'SaveFileDialog1.FileName = ""
+		SaveFileDialog1.FileName = ""
 
-		'SaveFileDialog1.Title = "Print to File"
+		SaveFileDialog1.Title = "Print to File"
 
 		'SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
 
 		'SaveFileDialog1.FilterIndex = 2
 
-		'SaveFileDialog1.ShowDialog()
+		If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
+			Picture1.Image = CaptureActiveWindow()
+			SaveFileDialog1.OpenFile()
+			'Picture1.Image.Save = (SaveFileDialog1.FileName, Imaging.ImageFormat.Jpeg)
+		End If
 
 		'f = FreeFile()
-		'Filename_PFPSDM = SaveFileDialog1.FileName
+		Filename_PFPSDM = SaveFileDialog1.FileName
 		'FileOpen(f, Filename_PFPSDM, OpenMode.Output)
-		'' Set focus back to form.
-		''Me.Activate()
-		'Picture1.Image = CaptureActiveWindow()
+		' Set focus back to form.
+		'Me.Activate()
+
+
+
 		'PrintPictureToFitPage(f, (Picture1.Image))
 		'FileClose((f))
 
