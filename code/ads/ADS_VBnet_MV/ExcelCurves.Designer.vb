@@ -126,8 +126,8 @@
         '
         Me.mnuEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me._mnuEditItem_10, Me._mnuEditItem_20})
         Me.mnuEdit.Name = "mnuEdit"
-        Me.mnuEdit.Size = New System.Drawing.Size(39, 20)
-        Me.mnuEdit.Text = "&Edit"
+        Me.mnuEdit.Size = New System.Drawing.Size(47, 20)
+        Me.mnuEdit.Text = "&Copy"
         '
         '_mnuEditItem_10
         '

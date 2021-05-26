@@ -1329,9 +1329,8 @@ Exit_lblLegend_Click:
 		'SaveFileDialog1.FilterIndex = 2
 
 		If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-			Picture1.Image = CaptureActiveWindow()
-			SaveFileDialog1.OpenFile()
-			'Picture1.Image.Save = (SaveFileDialog1.FileName, Imaging.ImageFormat.Jpeg)
+			'SaveFileDialog1.OpenFile()
+			Picture1.Image.Save(SaveFileDialog1.FileName, Imaging.ImageFormat.Jpeg)
 		End If
 
 		'f = FreeFile()
