@@ -395,7 +395,7 @@ Friend Class frmKinetic
 		Dim Ctl As System.Windows.Forms.Control : Ctl = txtDP : Call UCtl_LostFocus(Ctl)
 	End Sub
 
-	Private Sub txtDS_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
+	Private Sub txtDS_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtDS.Enter
 		Dim Ctl As System.Windows.Forms.Control : Ctl = txtDS : Call UCtl_GotFocus(Ctl)
 	End Sub
 	Private Sub txtDS_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs)
@@ -406,11 +406,11 @@ Friend Class frmKinetic
 			eventArgs.Handled = True
 		End If
 	End Sub
-	Private Sub txtDS_Leave(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
+	Private Sub txtDS_Leave(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtDS.Leave
 		Dim Ctl As System.Windows.Forms.Control : Ctl = txtDS : Call UCtl_LostFocus(Ctl)
 	End Sub
 
-	Private Sub txtKF_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
+	Private Sub txtKF_Enter(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtKF.Enter
 		Dim Ctl As System.Windows.Forms.Control : Ctl = txtKF : Call UCtl_GotFocus(Ctl)
 	End Sub
 	Private Sub txtKF_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs)
@@ -421,7 +421,7 @@ Friend Class frmKinetic
 			eventArgs.Handled = True
 		End If
 	End Sub
-	Private Sub txtKF_Leave(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
+	Private Sub txtKF_Leave(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtKF.Leave
 		Dim Ctl As System.Windows.Forms.Control : Ctl = txtKF : Call UCtl_LostFocus(Ctl)
 	End Sub
 
@@ -511,4 +511,13 @@ Friend Class frmKinetic
 		'REFRESH WINDOW.
 		Call frmKinetic_Refresh()
 	End Sub
+
+	Private Sub txtDP_TextChanged(sender As Object, e As EventArgs) Handles txtDP.TextChanged
+
+	End Sub
+
+	Private Sub txtDS_TextChanged(sender As Object, e As EventArgs) Handles txtDS.TextChanged
+
+	End Sub
+
 End Class

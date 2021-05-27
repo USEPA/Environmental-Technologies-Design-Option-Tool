@@ -509,7 +509,7 @@
         Me.txtDS.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtDS.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDS.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtDS.Location = New System.Drawing.Point(51, 46)
+        Me.txtDS.Location = New System.Drawing.Point(51, 53)
         Me.txtDS.MaxLength = 0
         Me.txtDS.Name = "txtDS"
         Me.txtDS.RightToLeft = System.Windows.Forms.RightToLeft.No
