@@ -114,8 +114,6 @@
         Me._optType_0 = New System.Windows.Forms.RadioButton()
         Me.cmdExcel = New System.Windows.Forms.Button()
         Me.cmdSave = New System.Windows.Forms.Button()
-        Me.cmdSelect = New System.Windows.Forms.Button()
-        Me.cmdPrint = New System.Windows.Forms.Button()
         Me.cmdFile = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.cmdTreat = New System.Windows.Forms.Button()
@@ -575,7 +573,7 @@
         '
         'cmdExcel
         '
-        Me.cmdExcel.Location = New System.Drawing.Point(541, 206)
+        Me.cmdExcel.Location = New System.Drawing.Point(546, 234)
         Me.cmdExcel.Name = "cmdExcel"
         Me.cmdExcel.Size = New System.Drawing.Size(100, 44)
         Me.cmdExcel.TabIndex = 92
@@ -584,34 +582,16 @@
         '
         'cmdSave
         '
-        Me.cmdSave.Location = New System.Drawing.Point(541, 247)
+        Me.cmdSave.Location = New System.Drawing.Point(546, 293)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(100, 44)
         Me.cmdSave.TabIndex = 93
         Me.cmdSave.Text = "S&ave Curve"
         Me.cmdSave.UseVisualStyleBackColor = True
         '
-        'cmdSelect
-        '
-        Me.cmdSelect.Location = New System.Drawing.Point(541, 288)
-        Me.cmdSelect.Name = "cmdSelect"
-        Me.cmdSelect.Size = New System.Drawing.Size(100, 44)
-        Me.cmdSelect.TabIndex = 94
-        Me.cmdSelect.Text = "&Select Printer"
-        Me.cmdSelect.UseVisualStyleBackColor = True
-        '
-        'cmdPrint
-        '
-        Me.cmdPrint.Location = New System.Drawing.Point(541, 328)
-        Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(100, 44)
-        Me.cmdPrint.TabIndex = 95
-        Me.cmdPrint.Text = "&Print"
-        Me.cmdPrint.UseVisualStyleBackColor = True
-        '
         'cmdFile
         '
-        Me.cmdFile.Location = New System.Drawing.Point(541, 368)
+        Me.cmdFile.Location = New System.Drawing.Point(546, 353)
         Me.cmdFile.Name = "cmdFile"
         Me.cmdFile.Size = New System.Drawing.Size(100, 44)
         Me.cmdFile.TabIndex = 96
@@ -674,8 +654,6 @@
         Me.Controls.Add(Me.cmdTreat)
         Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.cmdFile)
-        Me.Controls.Add(Me.cmdPrint)
-        Me.Controls.Add(Me.cmdSelect)
         Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.cmdExcel)
         Me.Controls.Add(Me.GroupBox1)
@@ -743,8 +721,6 @@
     Friend WithEvents _optType_0 As RadioButton
     Friend WithEvents cmdExcel As Button
     Friend WithEvents cmdSave As Button
-    Friend WithEvents cmdSelect As Button
-    Friend WithEvents cmdPrint As Button
     Friend WithEvents cmdFile As Button
     Friend WithEvents cmdExit As Button
     Friend WithEvents cmdTreat As Button

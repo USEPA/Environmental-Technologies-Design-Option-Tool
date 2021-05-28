@@ -25,9 +25,9 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
@@ -46,7 +46,6 @@
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblData1 = New System.Windows.Forms.Label()
-        Me.cmdSelect = New System.Windows.Forms.Button()
         Me.cmdPrint = New System.Windows.Forms.Button()
         Me.cmdFile = New System.Windows.Forms.Button()
         Me.cmdClose = New System.Windows.Forms.Button()
@@ -302,18 +301,9 @@
         Me.lblData1.Text = " "
         Me.lblData1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'cmdSelect
-        '
-        Me.cmdSelect.Location = New System.Drawing.Point(594, 252)
-        Me.cmdSelect.Name = "cmdSelect"
-        Me.cmdSelect.Size = New System.Drawing.Size(95, 30)
-        Me.cmdSelect.TabIndex = 24
-        Me.cmdSelect.Text = "Select Printer"
-        Me.cmdSelect.UseVisualStyleBackColor = True
-        '
         'cmdPrint
         '
-        Me.cmdPrint.Location = New System.Drawing.Point(594, 288)
+        Me.cmdPrint.Location = New System.Drawing.Point(594, 256)
         Me.cmdPrint.Name = "cmdPrint"
         Me.cmdPrint.Size = New System.Drawing.Size(95, 30)
         Me.cmdPrint.TabIndex = 25
@@ -322,11 +312,11 @@
         '
         'cmdFile
         '
-        Me.cmdFile.Location = New System.Drawing.Point(594, 324)
+        Me.cmdFile.Location = New System.Drawing.Point(594, 309)
         Me.cmdFile.Name = "cmdFile"
         Me.cmdFile.Size = New System.Drawing.Size(95, 30)
         Me.cmdFile.TabIndex = 26
-        Me.cmdFile.Text = "Save"
+        Me.cmdFile.Text = "Save to File"
         Me.cmdFile.UseVisualStyleBackColor = True
         '
         'cmdClose
@@ -363,20 +353,20 @@
         '
         'Chart1
         '
-        ChartArea1.Area3DStyle.Enable3D = True
-        ChartArea1.Area3DStyle.IsClustered = True
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Font = New System.Drawing.Font("Agency FB", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend1.IsTextAutoFit = False
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        ChartArea2.Area3DStyle.Enable3D = True
+        ChartArea2.Area3DStyle.IsClustered = True
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea2)
+        Legend2.Font = New System.Drawing.Font("Agency FB", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend2.IsTextAutoFit = False
+        Legend2.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend2)
         Me.Chart1.Location = New System.Drawing.Point(12, 195)
         Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart1.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart1.Series.Add(Series2)
         Me.Chart1.Size = New System.Drawing.Size(560, 291)
         Me.Chart1.TabIndex = 31
         Me.Chart1.Text = "Chart1"
@@ -393,7 +383,6 @@
         Me.Controls.Add(Me.cmdClose)
         Me.Controls.Add(Me.cmdFile)
         Me.Controls.Add(Me.cmdPrint)
-        Me.Controls.Add(Me.cmdSelect)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.cboGlob)
@@ -428,7 +417,6 @@
     Public WithEvents Label1 As Label
     Public WithEvents Label3 As Label
     Public WithEvents lblData1 As Label
-    Friend WithEvents cmdSelect As Button
     Friend WithEvents cmdPrint As Button
     Friend WithEvents cmdFile As Button
     Friend WithEvents cmdClose As Button

@@ -1012,7 +1012,7 @@ Exit_lblLegend_Click:
 		frmExcelCurves.ShowDialog()
 	End Sub
 
-	Private Sub cmdSelect_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
+	Private Sub cmdSelect_Click(sender As Object, e As EventArgs)
 		Dim Error_Code As Short
 		Dim temp As String
 		On Error GoTo Select_Print_Error
@@ -1307,7 +1307,7 @@ Exit_Print:
 	End Sub
 
 
-	Private Sub cmdPrint_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
+	Private Sub cmdPrint_Click(sender As Object, e As EventArgs)
 		cmdPrint_Click()
 	End Sub
 

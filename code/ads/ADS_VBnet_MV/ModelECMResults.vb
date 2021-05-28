@@ -708,7 +708,7 @@ File_Error:
 Exit_Print_File:
 	End Sub
 
-	Private Sub cmdSelect_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
+	Private Sub cmdSelect_Click(sender As Object, e As EventArgs)
 		Dim Error_Code As Short
 		Dim temp As String
 		On Error GoTo Select_Print_Error
