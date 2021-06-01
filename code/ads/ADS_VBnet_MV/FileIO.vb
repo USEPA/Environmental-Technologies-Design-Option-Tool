@@ -296,9 +296,9 @@ err_file_open:
 		Call File_Open(fn_openas)
 exit_err_file_openas: 
 		Exit Sub
-err_file_openas: 
+err_file_openas:
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
+		If (Err.Number = 75) Then
 			'CANCEL BUTTON WAS SELECTED.
 			Resume exit_err_file_openas
 		End If
@@ -432,9 +432,9 @@ err_File_Save:
 exit_err_File_SaveAs: 
 		File_SaveAs = False
 		Exit Function
-err_File_SaveAs: 
+err_File_SaveAs:
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		If (Err.Number = cdlCancel) Then
+		If (Err.Number = 75) Then
 			'CANCEL BUTTON WAS SELECTED.
 			Resume exit_err_File_SaveAs
 		End If
