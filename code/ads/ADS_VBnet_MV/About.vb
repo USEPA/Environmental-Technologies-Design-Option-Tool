@@ -21,7 +21,8 @@ Friend Class frmAbout
 		Me.Text = "About " & AppName_For_Display_Short
 		lblProgramName.Text = AppName_For_Display_Long
 		''''lblVersionInfo(0).Caption = "Version " & get_program_version_with_build_info()
-		lblVersionInfo(0).Text = get_program_version_with_build_info_VB4(False)
+		'lblVersionInfo(0).Text = get_program_version_with_build_info_VB4(False)
+		lblVersionInfo(0).Text = "Version 1.0.50"
 		lblVersionInfo(1).Text = get_expiration_info(False)
 		lblVersionInfo(2).Text = "Copyright " & AppCopyrightYears
 		lblUserName.Text = Trim(lfd.Z_USERNAME)
