@@ -47,7 +47,6 @@
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cmdClose = New System.Windows.Forms.Button()
-        Me.cmdPrint = New System.Windows.Forms.Button()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -206,15 +205,6 @@
         Me.cmdClose.Text = "E&xit"
         Me.cmdClose.UseVisualStyleBackColor = True
         '
-        'cmdPrint
-        '
-        Me.cmdPrint.Location = New System.Drawing.Point(586, 29)
-        Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(100, 22)
-        Me.cmdPrint.TabIndex = 17
-        Me.cmdPrint.Text = "&Print File"
-        Me.cmdPrint.UseVisualStyleBackColor = True
-        '
         'Chart1
         '
         ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Garamond", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -243,7 +233,6 @@
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(740, 585)
         Me.Controls.Add(Me.Chart1)
-        Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.cmdClose)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -272,7 +261,6 @@
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents cmdClose As Button
-    Friend WithEvents cmdPrint As Button
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 #End Region
 End Class

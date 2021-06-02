@@ -27,9 +27,8 @@
 	Public WithEvents mnuAdsorbent As System.Windows.Forms.ToolStripMenuItem
 	Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-	Public WithEvents Command4 As System.Windows.Forms.Button
     Public WithEvents lstManu As System.Windows.Forms.ListBox
-	Public WithEvents lblEmpty_lstManu As System.Windows.Forms.Label
+    Public WithEvents lblEmpty_lstManu As System.Windows.Forms.Label
     Public WithEvents _lblDesc_0 As System.Windows.Forms.Label
     Public WithEvents _lblDesc_1 As System.Windows.Forms.Label
     Public WithEvents _lblDesc_2 As System.Windows.Forms.Label
@@ -65,7 +64,6 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip()
         Me.mnuManufacturer = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuManufacturerItem_1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -126,21 +124,6 @@
         Me.GroupBox3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(478, 368)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(139, 22)
-        Me.Command4.TabIndex = 32
-        Me.Command4.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'MainMenu1
         '
@@ -723,7 +706,6 @@
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

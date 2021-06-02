@@ -18,8 +18,7 @@
 	Private components As System.ComponentModel.IContainer
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-	Public WithEvents Command4 As System.Windows.Forms.Button
-	Public WithEvents txtData As System.Windows.Forms.TextBox
+    Public WithEvents txtData As System.Windows.Forms.TextBox
     Public cmdButton(6) As AxThreed.AxSSCommand    'Shang add control array
     Public WithEvents lblInstructions As System.Windows.Forms.Label
     '  Public WithEvents cmdButton As SSCommandArray
@@ -29,7 +28,6 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.txtData = New System.Windows.Forms.TextBox()
         Me.lblInstructions = New System.Windows.Forms.Label()
@@ -41,21 +39,6 @@
         Me._cmdButton_4 = New System.Windows.Forms.Button()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(200, 246)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(143, 22)
-        Me.Command4.TabIndex = 8
-        Me.Command4.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'Picture1
         '
@@ -176,7 +159,6 @@
         Me.Controls.Add(Me._cmdButton_1)
         Me.Controls.Add(Me._cmdButton_0)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.txtData)
         Me.Controls.Add(Me.lblInstructions)
         Me.Cursor = System.Windows.Forms.Cursors.Default

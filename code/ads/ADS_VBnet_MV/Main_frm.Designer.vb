@@ -82,7 +82,6 @@
 	Public WithEvents mnuUnused As System.Windows.Forms.ToolStripMenuItem
 	Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
     Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-    Public WithEvents Command4 As System.Windows.Forms.Button
     Public WithEvents cmdViewDimensionless As System.Windows.Forms.Button
     Public WithEvents _txtCarbon_0 As System.Windows.Forms.TextBox
     Public WithEvents _txtCarbonUnits_2 As System.Windows.Forms.ComboBox
@@ -191,7 +190,6 @@
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip()
         Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuFileItem_0 = New System.Windows.Forms.ToolStripMenuItem()
@@ -414,21 +412,6 @@
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(86, 195)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(97, 22)
-        Me.Command4.TabIndex = 98
-        Me.Command4.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'MainMenu1
         '
@@ -2270,7 +2253,6 @@
         Me.GroupBox2.Controls.Add(Me.lblAxialElementsDesc)
         Me.GroupBox2.Controls.Add(Me._txtTime_2)
         Me.GroupBox2.Controls.Add(Me._lblTime_2)
-        Me.GroupBox2.Controls.Add(Me.Command4)
         Me.GroupBox2.Controls.Add(Me.NumericUpDown1)
         Me.GroupBox2.Controls.Add(Me._lblTime_1)
         Me.GroupBox2.Controls.Add(Me._txtTimeUnits_1)

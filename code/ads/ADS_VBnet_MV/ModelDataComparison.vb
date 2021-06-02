@@ -712,7 +712,7 @@ err_DATAPRED_UserPrefs_Load:
 		Me.Dispose()   'Shang 
 	End Sub
 
-	Private Sub cmdPrint_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
+	Private Sub cmdPrint_Click(sender As Object, e As EventArgs) 
 		Dim Printer As New Printer
 		Picture1.Image = CaptureActiveWindow()
 		PrintPictureToFitPage(Printer, (Picture1.Image))

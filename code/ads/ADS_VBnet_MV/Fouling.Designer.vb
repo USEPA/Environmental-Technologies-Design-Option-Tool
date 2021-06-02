@@ -20,8 +20,7 @@
     'Public chkUse(10) As AxThreed.AxSSCheck
     Public chkUse(10) As System.Windows.Forms.CheckBox
     Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-	Public WithEvents Command4 As System.Windows.Forms.Button
-	Public WithEvents cboType As System.Windows.Forms.ComboBox
+    Public WithEvents cboType As System.Windows.Forms.ComboBox
     Public WithEvents _cboCorrel_9 As System.Windows.Forms.ComboBox
     Public WithEvents _cboCorrel_8 As System.Windows.Forms.ComboBox
     Public WithEvents _cboCorrel_7 As System.Windows.Forms.ComboBox
@@ -55,7 +54,6 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.cboCorrel = New Microsoft.VisualBasic.Compatibility.VB6.ComboBoxArray(Me.components)
         Me._cboCorrel_9 = New System.Windows.Forms.ComboBox()
@@ -105,21 +103,6 @@
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(158, 436)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(165, 22)
-        Me.Command4.TabIndex = 40
-        Me.Command4.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'Picture1
         '
@@ -513,7 +496,6 @@
         Me._chkUse_0.TabIndex = 46
         Me._chkUse_0.Text = "Apply"
         Me._chkUse_0.UseVisualStyleBackColor = True
-        chkUse(0) = _chkUse_0
         '
         '_chkUse_1
         '
@@ -524,7 +506,6 @@
         Me._chkUse_1.TabIndex = 47
         Me._chkUse_1.Text = "Apply"
         Me._chkUse_1.UseVisualStyleBackColor = True
-        chkUse(1) = _chkUse_1
         '
         '_chkUse_2
         '
@@ -535,7 +516,6 @@
         Me._chkUse_2.TabIndex = 48
         Me._chkUse_2.Text = "Apply"
         Me._chkUse_2.UseVisualStyleBackColor = True
-        chkUse(2) = _chkUse_2
         '
         '_chkUse_3
         '
@@ -546,7 +526,6 @@
         Me._chkUse_3.TabIndex = 49
         Me._chkUse_3.Text = "Apply"
         Me._chkUse_3.UseVisualStyleBackColor = True
-        chkUse(3) = _chkUse_3
         '
         '_chkUse_4
         '
@@ -557,7 +536,6 @@
         Me._chkUse_4.TabIndex = 50
         Me._chkUse_4.Text = "Apply"
         Me._chkUse_4.UseVisualStyleBackColor = True
-        chkUse(4) = _chkUse_4
         '
         '_chkUse_5
         '
@@ -568,7 +546,6 @@
         Me._chkUse_5.TabIndex = 51
         Me._chkUse_5.Text = "Apply"
         Me._chkUse_5.UseVisualStyleBackColor = True
-        chkUse(5) = _chkUse_5
         '
         '_chkUse_6
         '
@@ -579,7 +556,6 @@
         Me._chkUse_6.TabIndex = 52
         Me._chkUse_6.Text = "Apply"
         Me._chkUse_6.UseVisualStyleBackColor = True
-        chkUse(6) = _chkUse_6
         '
         '_chkUse_7
         '
@@ -590,7 +566,6 @@
         Me._chkUse_7.TabIndex = 53
         Me._chkUse_7.Text = "Apply"
         Me._chkUse_7.UseVisualStyleBackColor = True
-        chkUse(7) = _chkUse_7
         '
         '_chkUse_8
         '
@@ -601,7 +576,6 @@
         Me._chkUse_8.TabIndex = 54
         Me._chkUse_8.Text = "Apply"
         Me._chkUse_8.UseVisualStyleBackColor = True
-        chkUse(8) = _chkUse_8
         '
         '_chkUse_9
         '
@@ -612,7 +586,6 @@
         Me._chkUse_9.TabIndex = 55
         Me._chkUse_9.Text = "Apply"
         Me._chkUse_9.UseVisualStyleBackColor = True
-        chkUse(9) = _chkUse_9
         '
         'cmdEditCompo
         '
@@ -697,7 +670,6 @@
         Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me._cmdCancelOK_1)
-        Me.Controls.Add(Me.Command4)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog

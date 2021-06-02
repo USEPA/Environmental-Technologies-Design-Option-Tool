@@ -25,7 +25,6 @@
     Public WithEvents _lblText_4 As System.Windows.Forms.Label
     Public WithEvents _lblText_5 As System.Windows.Forms.Label
     Public WithEvents _Label5_2 As System.Windows.Forms.Label
-    Public WithEvents Command2 As System.Windows.Forms.Button
     Public WithEvents lblWarning As System.Windows.Forms.Label
     Public WithEvents cboMethod As System.Windows.Forms.ComboBox
     Public WithEvents _txtInput_13 As System.Windows.Forms.TextBox
@@ -62,7 +61,6 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command2 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.Option1 = New System.Windows.Forms.RadioButton()
         Me.Label5 = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
@@ -159,21 +157,6 @@
         Me.grpIsothermDB.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Command2
-        '
-        Me.Command2.BackColor = System.Drawing.SystemColors.Control
-        Me.Command2.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command2.Location = New System.Drawing.Point(500, 68)
-        Me.Command2.Name = "Command2"
-        Me.Command2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command2.Size = New System.Drawing.Size(127, 22)
-        Me.Command2.TabIndex = 72
-        Me.Command2.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command2, "Click here to print current screen to selected printer")
-        Me.Command2.UseVisualStyleBackColor = False
         '
         'Picture1
         '
@@ -785,7 +768,6 @@
         Me.grpSource.Controls.Add(Me.RadioButton3)
         Me.grpSource.Controls.Add(Me.RadioButton2)
         Me.grpSource.Controls.Add(Me.RadioButton1)
-        Me.grpSource.Controls.Add(Me.Command2)
         Me.grpSource.Controls.Add(Me._cmdCancelOK_0)
         Me.grpSource.Controls.Add(Me._cmdCancelOK_1)
         Me.grpSource.Controls.Add(Me.lblWarning)

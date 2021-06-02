@@ -33,7 +33,6 @@
 	Public WithEvents mnuEdit As System.Windows.Forms.ToolStripMenuItem
 	Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-	Public WithEvents Command4 As System.Windows.Forms.Button
 
     '    Public WithEvents Sheet1 As VCIF1Lib.F1Book
     Public WithEvents Sheet1DataGrid As DataGridView
@@ -69,7 +68,6 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip()
         Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuFileItem_0 = New System.Windows.Forms.ToolStripMenuItem()
@@ -123,21 +121,6 @@
         CType(Me.mnuEditItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mnuFileItem, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(273, 32)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(197, 22)
-        Me.Command4.TabIndex = 24
-        Me.Command4.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'MainMenu1
         '
@@ -636,7 +619,6 @@
         Me.Controls.Add(Me.cmdOK)
         Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.Sheet1DataGrid)
         Me.Controls.Add(Me._Label1_0)
         Me.Controls.Add(Me._Label2_0)

@@ -29,8 +29,7 @@
 	Public WithEvents mnuExit As System.Windows.Forms.ToolStripMenuItem
 	Public WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-	Public WithEvents Command4 As System.Windows.Forms.Button
-	Public WithEvents lstCompo As System.Windows.Forms.ListBox
+    Public WithEvents lstCompo As System.Windows.Forms.ListBox
     Public WithEvents lblEmpty_lstCompo As System.Windows.Forms.Label
     Public WithEvents _lstRange_1 As System.Windows.Forms.ListBox
     Public WithEvents _lstRange_0 As System.Windows.Forms.ListBox
@@ -65,7 +64,6 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip()
         Me.mnuChemical = New System.Windows.Forms.ToolStripMenuItem()
         Me._mnuChemicalItem_1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -106,12 +104,12 @@
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lblComments = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmdSelect = New System.Windows.Forms.Button()
         Me._optSort_1 = New System.Windows.Forms.RadioButton()
+        Me._cmdFind_1 = New System.Windows.Forms.Button()
+        Me._cmdFind_0 = New System.Windows.Forms.Button()
         Me._optSort_0 = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me._cmdFind_0 = New System.Windows.Forms.Button()
-        Me._cmdFind_1 = New System.Windows.Forms.Button()
-        Me.cmdSelect = New System.Windows.Forms.Button()
         Me.MainMenu1.SuspendLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Label5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,21 +121,6 @@
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(394, 529)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(136, 22)
-        Me.Command4.TabIndex = 28
-        Me.Command4.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'MainMenu1
         '
@@ -563,6 +546,16 @@
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "fraOne"
         '
+        'cmdSelect
+        '
+        Me.cmdSelect.BackColor = System.Drawing.Color.White
+        Me.cmdSelect.Location = New System.Drawing.Point(12, 383)
+        Me.cmdSelect.Name = "cmdSelect"
+        Me.cmdSelect.Size = New System.Drawing.Size(249, 32)
+        Me.cmdSelect.TabIndex = 36
+        Me.cmdSelect.Text = "Select Chemic&al"
+        Me.cmdSelect.UseVisualStyleBackColor = False
+        '
         '_optSort_1
         '
         Me._optSort_1.AutoSize = True
@@ -572,6 +565,26 @@
         Me._optSort_1.TabIndex = 33
         Me._optSort_1.Text = "Sort by CAS Number"
         Me._optSort_1.UseVisualStyleBackColor = True
+        '
+        '_cmdFind_1
+        '
+        Me._cmdFind_1.BackColor = System.Drawing.Color.White
+        Me._cmdFind_1.Location = New System.Drawing.Point(150, 347)
+        Me._cmdFind_1.Name = "_cmdFind_1"
+        Me._cmdFind_1.Size = New System.Drawing.Size(98, 30)
+        Me._cmdFind_1.TabIndex = 35
+        Me._cmdFind_1.Text = "Find &Again"
+        Me._cmdFind_1.UseVisualStyleBackColor = False
+        '
+        '_cmdFind_0
+        '
+        Me._cmdFind_0.BackColor = System.Drawing.Color.White
+        Me._cmdFind_0.Location = New System.Drawing.Point(24, 347)
+        Me._cmdFind_0.Name = "_cmdFind_0"
+        Me._cmdFind_0.Size = New System.Drawing.Size(103, 30)
+        Me._cmdFind_0.TabIndex = 34
+        Me._cmdFind_0.Text = "&Find"
+        Me._cmdFind_0.UseVisualStyleBackColor = False
         '
         '_optSort_0
         '
@@ -613,36 +626,6 @@
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "fraTwo"
         '
-        '_cmdFind_0
-        '
-        Me._cmdFind_0.BackColor = System.Drawing.Color.White
-        Me._cmdFind_0.Location = New System.Drawing.Point(24, 347)
-        Me._cmdFind_0.Name = "_cmdFind_0"
-        Me._cmdFind_0.Size = New System.Drawing.Size(103, 30)
-        Me._cmdFind_0.TabIndex = 34
-        Me._cmdFind_0.Text = "&Find"
-        Me._cmdFind_0.UseVisualStyleBackColor = False
-        '
-        '_cmdFind_1
-        '
-        Me._cmdFind_1.BackColor = System.Drawing.Color.White
-        Me._cmdFind_1.Location = New System.Drawing.Point(150, 347)
-        Me._cmdFind_1.Name = "_cmdFind_1"
-        Me._cmdFind_1.Size = New System.Drawing.Size(98, 30)
-        Me._cmdFind_1.TabIndex = 35
-        Me._cmdFind_1.Text = "Find &Again"
-        Me._cmdFind_1.UseVisualStyleBackColor = False
-        '
-        'cmdSelect
-        '
-        Me.cmdSelect.BackColor = System.Drawing.Color.White
-        Me.cmdSelect.Location = New System.Drawing.Point(12, 383)
-        Me.cmdSelect.Name = "cmdSelect"
-        Me.cmdSelect.Size = New System.Drawing.Size(249, 32)
-        Me.cmdSelect.TabIndex = 36
-        Me.cmdSelect.Text = "Select Chemic&al"
-        Me.cmdSelect.UseVisualStyleBackColor = False
-        '
         'frmEditIsotherm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -653,7 +636,6 @@
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

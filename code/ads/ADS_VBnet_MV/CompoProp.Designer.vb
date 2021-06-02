@@ -17,8 +17,7 @@
 	'Required by the Windows Form Designer
 	Private components As System.ComponentModel.IContainer
 	Public ToolTip1 As System.Windows.Forms.ToolTip
-	Public WithEvents Command4 As System.Windows.Forms.Button
-	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
+    Public WithEvents Picture1 As System.Windows.Forms.PictureBox
 
     Public WithEvents cboSource As System.Windows.Forms.ComboBox
 	Public WithEvents _txtPropUnits_5 As System.Windows.Forms.ComboBox
@@ -73,7 +72,6 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmdCancelOld = New System.Windows.Forms.Button()
@@ -137,20 +135,6 @@
         Me.steppframe.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(12, 279)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(123, 22)
-        Me.Command4.TabIndex = 55
-        Me.Command4.Text = "Print Screen"
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'Picture1
         '
@@ -908,7 +892,6 @@
         Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.cmdCancelOld)
-        Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Picture1)
         Me.Controls.Add(Me._txtDataComponentProperty_0)

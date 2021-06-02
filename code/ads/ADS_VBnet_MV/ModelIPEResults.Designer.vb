@@ -18,9 +18,8 @@
 	Private components As System.ComponentModel.IContainer
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-	Public WithEvents Command4 As System.Windows.Forms.Button
-	Public WithEvents _txtData_3 As System.Windows.Forms.TextBox
-	Public WithEvents _txtData_2 As System.Windows.Forms.TextBox
+    Public WithEvents _txtData_3 As System.Windows.Forms.TextBox
+    Public WithEvents _txtData_2 As System.Windows.Forms.TextBox
 	Public WithEvents _txtData_1 As System.Windows.Forms.TextBox
 	Public WithEvents _txtData_0 As System.Windows.Forms.TextBox
 	Public WithEvents _lblDesc_3 As System.Windows.Forms.Label
@@ -53,7 +52,6 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me._txtData_3 = New System.Windows.Forms.TextBox()
         Me._txtData_2 = New System.Windows.Forms.TextBox()
@@ -92,21 +90,6 @@
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(64, 407)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(120, 22)
-        Me.Command4.TabIndex = 29
-        Me.Command4.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'Picture1
         '
@@ -632,7 +615,6 @@
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cmdClose)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.Command4)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog

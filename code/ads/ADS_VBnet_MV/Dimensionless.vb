@@ -47,7 +47,7 @@ Friend Class frmDimensionless
 
 
 
-	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles Command4.Click
+	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) 
 		Dim Printer As New Printer
 		Picture2.Image = CaptureActiveWindow()
 		PrintPictureToFitPage(Printer, (Picture2.Image))

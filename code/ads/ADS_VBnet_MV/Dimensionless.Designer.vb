@@ -18,7 +18,6 @@
 	Private components As System.ComponentModel.IContainer
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents Picture2 As System.Windows.Forms.PictureBox
-	Public WithEvents Command4 As System.Windows.Forms.Button
     Public WithEvents cboSelectCompo As System.Windows.Forms.ComboBox
     Public WithEvents lblDimless As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
     Public WithEvents txtDimless As Microsoft.VisualBasic.Compatibility.VB6.TextBoxArray
@@ -29,7 +28,6 @@
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDimensionless))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture2 = New System.Windows.Forms.PictureBox()
         Me.lblDimless = New Microsoft.VisualBasic.Compatibility.VB6.LabelArray(Me.components)
         Me._lblDimless_6 = New System.Windows.Forms.Label()
@@ -59,21 +57,6 @@
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.Color.White
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(17, 369)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(120, 34)
-        Me.Command4.TabIndex = 20
-        Me.Command4.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'Picture2
         '
@@ -406,7 +389,6 @@
         Me.Controls.Add(Me.cmdclose)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Picture2)
-        Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.Picture1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

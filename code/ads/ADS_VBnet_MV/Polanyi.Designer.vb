@@ -18,9 +18,8 @@
 	Private components As System.ComponentModel.IContainer
 	Public ToolTip1 As System.Windows.Forms.ToolTip
 	Public WithEvents Picture1 As System.Windows.Forms.PictureBox
-	Public WithEvents Command4 As System.Windows.Forms.Button
-	Public WithEvents txtPolanyi As System.Windows.Forms.TextBox
-	Public WithEvents _txtInput_2 As System.Windows.Forms.TextBox
+    Public WithEvents txtPolanyi As System.Windows.Forms.TextBox
+    Public WithEvents _txtInput_2 As System.Windows.Forms.TextBox
 	Public WithEvents _txtInput_1 As System.Windows.Forms.TextBox
 	Public WithEvents _txtInput_0 As System.Windows.Forms.TextBox
     Public WithEvents _lblInput_2 As System.Windows.Forms.Label
@@ -36,7 +35,6 @@
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
         Me.txtPolanyi = New System.Windows.Forms.TextBox()
         Me._txtInput_2 = New System.Windows.Forms.TextBox()
@@ -54,21 +52,6 @@
         CType(Me.lblInput, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtInput, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Command4
-        '
-        Me.Command4.BackColor = System.Drawing.SystemColors.Control
-        Me.Command4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Command4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Command4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Command4.Location = New System.Drawing.Point(128, 95)
-        Me.Command4.Name = "Command4"
-        Me.Command4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Command4.Size = New System.Drawing.Size(113, 22)
-        Me.Command4.TabIndex = 10
-        Me.Command4.Text = "Print Screen"
-        Me.ToolTip1.SetToolTip(Me.Command4, "Click here to print current screen to selected printer")
-        Me.Command4.UseVisualStyleBackColor = False
         '
         'Picture1
         '
@@ -250,7 +233,6 @@
         Me.Controls.Add(Me._cmdCancelOK_0)
         Me.Controls.Add(Me._cmdCancelOK_1)
         Me.Controls.Add(Me.Picture1)
-        Me.Controls.Add(Me.Command4)
         Me.Controls.Add(Me.txtPolanyi)
         Me.Controls.Add(Me._txtInput_2)
         Me.Controls.Add(Me._txtInput_1)
