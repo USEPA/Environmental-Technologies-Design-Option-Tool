@@ -354,7 +354,6 @@ Module Refresh
 			''Frm.sspContaminantProps.Caption = "No Contaminants Defined"
 		End If
 		'UPGRADE_ISSUE: Control sspContaminantProps could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm.sspContaminantProps.Caption = ""
 		'
 		' LOOK UP INDEX FOR THIS CHEMICAL.
 		'
@@ -386,23 +385,23 @@ Module Refresh
 		Frm.HALT_ALL_CONTROLS = True
 		'UPGRADE_ISSUE: Control optTimeVarConc could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		If intNewTag = 0 Then
-			Frm._optTimeVarConc_0.Value = True
+			'Frm._optTimeVarConc_0.Value = True
 			'UPGRADE_ISSUE: Control optTimeVarConc could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optTimeVarConc_1.Value = False
+			'Frm._optTimeVarConc_1.Value = False
 			'UPGRADE_ISSUE: Control optTimeVarConc could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		Else
-			Frm._optTimeVarConc_1.Value = True
-			Frm._optTimeVarConc_0.Value = False
+			'Frm._optTimeVarConc_1.Value = True
+			'Frm._optTimeVarConc_0.Value = False
 		End If
 
 
-		Frm._optTimeVarConc_0.Enabled = True
-			'UPGRADE_ISSUE: Control optTimeVarConc could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optTimeVarConc_1.Enabled = True
+		'Frm._optTimeVarConc_0.Enabled = True
 		'UPGRADE_ISSUE: Control optTimeVarConc could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm._optTimeVarConc_0.Tag = Trim(Str(intNewTag))
+		'Frm._optTimeVarConc_1.Enabled = True
+		'UPGRADE_ISSUE: Control optTimeVarConc could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		'Frm._optTimeVarConc_0.Tag = Trim(Str(intNewTag))
 		'UPGRADE_ISSUE: Control cmdTimeVarConc could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm.cmdTimeVarConc.Enabled = boolNewSetting
+		'Frm.cmdTimeVarConc.Enabled = boolNewSetting
 		'UPGRADE_ISSUE: Control HALT_ALL_CONTROLS could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		Frm.HALT_ALL_CONTROLS = False
 		'
@@ -414,23 +413,23 @@ Module Refresh
 		Frm.HALT_ALL_CONTROLS = True
 		'UPGRADE_ISSUE: Control optTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		If intNewTag = 0 Then
-			Frm._optTimeVarEmit_0.Value = True
+			'Frm._optTimeVarEmit_0.Value = True
 			'UPGRADE_ISSUE: Control optTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optTimeVarEmit_1.Value = False
+			'Frm._optTimeVarEmit_1.Value = False
 		Else
-			Frm._optTimeVarEmit_1.Value = True
+			'Frm._optTimeVarEmit_1.Value = True
 			'UPGRADE_ISSUE: Control optTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optTimeVarEmit_0.Value = False
+			'Frm._optTimeVarEmit_0.Value = False
 		End If
 
 		'UPGRADE_ISSUE: Control optTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm._optTimeVarEmit_0.Enabled = True
-		'UPGRADE_ISSUE: Control optTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm._optTimeVarEmit_1.Enabled = True
-		'UPGRADE_ISSUE: Control optTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm._optTimeVarEmit_0.Tag = Trim(Str(intNewTag))
-		'UPGRADE_ISSUE: Control cmdTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm.cmdTimeVarEmit.Enabled = boolNewSetting
+		'Frm._optTimeVarEmit_0.Enabled = True
+		''UPGRADE_ISSUE: Control optTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		'Frm._optTimeVarEmit_1.Enabled = True
+		''UPGRADE_ISSUE: Control optTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		'Frm._optTimeVarEmit_0.Tag = Trim(Str(intNewTag))
+		''UPGRADE_ISSUE: Control cmdTimeVarEmit could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		'Frm.cmdTimeVarEmit.Enabled = boolNewSetting
 		'UPGRADE_ISSUE: Control HALT_ALL_CONTROLS could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		Frm.HALT_ALL_CONTROLS = False
 		'
@@ -442,23 +441,23 @@ Module Refresh
 		Frm.HALT_ALL_CONTROLS = True
 		'UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		If intNewTag = 0 Then
-			Frm._optTimeVarK_0.Value = True
-			'UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optTimeVarK_1.Value = False
-			'UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+			'Frm._optTimeVarK_0.Value = True
+			''UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+			'Frm._optTimeVarK_1.Value = False
+			''UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		Else
-			Frm._optTimeVarK_1.Value = True
-			'UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optTimeVarK_0.Value = False
+			'Frm._optTimeVarK_1.Value = True
+			''UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+			'Frm._optTimeVarK_0.Value = False
 		End If
 
-		Frm._optTimeVarK_0.Enabled = True
-			'UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm._optTimeVarK_1.Enabled = True
-		'UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm._optTimeVarK_0.Tag = Trim(Str(intNewTag))
-		'UPGRADE_ISSUE: Control cmdTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-		Frm.cmdTimeVarK.Enabled = boolNewSetting
+		'Frm._optTimeVarK_0.Enabled = True
+		'	'UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		'	Frm._optTimeVarK_1.Enabled = True
+		''UPGRADE_ISSUE: Control optTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		'Frm._optTimeVarK_0.Tag = Trim(Str(intNewTag))
+		''UPGRADE_ISSUE: Control cmdTimeVarK could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
+		'Frm.cmdTimeVarK.Enabled = boolNewSetting
 		'UPGRADE_ISSUE: Control HALT_ALL_CONTROLS could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
 		Frm.HALT_ALL_CONTROLS = False
 	End Sub

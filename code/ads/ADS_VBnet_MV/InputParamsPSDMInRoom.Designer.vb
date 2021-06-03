@@ -35,21 +35,10 @@
     Public WithEvents cbo_RXN_PRODUCT As System.Windows.Forms.ComboBox
     Public WithEvents _txtData_3 As System.Windows.Forms.TextBox
     Public WithEvents _cboUnits_3 As System.Windows.Forms.ComboBox
-    Public WithEvents _optTimeVarEmit_0 As AxThreed.AxSSOption
-    Public WithEvents _optTimeVarEmit_1 As AxThreed.AxSSOption
-    Public WithEvents cmdTimeVarEmit As AxThreed.AxSSCommand
-    Public WithEvents SSFrame5 As AxThreed.AxSSFrame
     Public WithEvents _cboUnits_2 As System.Windows.Forms.ComboBox
     Public WithEvents _txtData_2 As System.Windows.Forms.TextBox
-    Public WithEvents _optTimeVarConc_1 As AxThreed.AxSSOption
-    Public WithEvents cmdTimeVarConc As AxThreed.AxSSCommand
-    Public WithEvents SSFrame4 As AxThreed.AxSSFrame
     Public WithEvents _txtData_7 As System.Windows.Forms.TextBox
     Public WithEvents _cboUnits_7 As System.Windows.Forms.ComboBox
-    Public WithEvents _optTimeVarK_0 As AxThreed.AxSSOption
-    Public WithEvents _optTimeVarK_1 As AxThreed.AxSSOption
-    Public WithEvents cmdTimeVarK As AxThreed.AxSSCommand
-    Public WithEvents SSFrame6 As AxThreed.AxSSFrame
     Public WithEvents _lblData_4 As System.Windows.Forms.Label
     Public WithEvents _lblDesc_5 As System.Windows.Forms.Label
     Public WithEvents lblSSValue As System.Windows.Forms.Label
@@ -57,11 +46,8 @@
     Public WithEvents _lblData_5 As System.Windows.Forms.Label
     Public WithEvents _lblData_6 As System.Windows.Forms.Label
     Public WithEvents lbl_cbo_RXN_PRODUCT As System.Windows.Forms.Label
-    Public WithEvents sspContaminantProps As AxThreed.AxSSPanel
     Public WithEvents lblDesc_cboChemical As System.Windows.Forms.Label
-    Public WithEvents sspanel_Status As AxThreed.AxSSPanel
     Public WithEvents _cboUnits_6 As System.Windows.Forms.ComboBox
-    Public WithEvents ssframe_ContaminantProps As AxThreed.AxSSFrame
     Public WithEvents _lblData_3 As System.Windows.Forms.Label
     Public WithEvents _lblData_2 As System.Windows.Forms.Label
     Public WithEvents cboUnits As Microsoft.VisualBasic.Compatibility.VB6.ComboBoxArray
@@ -116,38 +102,10 @@
         Me._txtData_2 = New System.Windows.Forms.TextBox()
         Me._txtData_7 = New System.Windows.Forms.TextBox()
         Me._cboUnits_7 = New System.Windows.Forms.ComboBox()
-        Me.ssframe_ContaminantProps = New AxThreed.AxSSFrame()
-        Me.sspContaminantProps = New AxThreed.AxSSPanel()
-        Me.sspanel_Status = New AxThreed.AxSSPanel()
-        Me.SSFrame5 = New AxThreed.AxSSFrame()
-        Me.SSFrame4 = New AxThreed.AxSSFrame()
-        Me.SSFrame6 = New AxThreed.AxSSFrame()
-        Me.cmdTimeVarEmit = New AxThreed.AxSSCommand()
-        Me.cmdTimeVarConc = New AxThreed.AxSSCommand()
-        Me.cmdTimeVarK = New AxThreed.AxSSCommand()
-        Me._optTimeVarEmit_0 = New AxThreed.AxSSOption()
-        Me._optTimeVarEmit_1 = New AxThreed.AxSSOption()
-        Me._optTimeVarConc_1 = New AxThreed.AxSSOption()
-        Me._optTimeVarK_0 = New AxThreed.AxSSOption()
-        Me._optTimeVarK_1 = New AxThreed.AxSSOption()
         CType(Me.cboUnits, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ssframe_ContaminantProps, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspContaminantProps, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdTimeVarEmit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdTimeVarConc, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmdTimeVarK, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optTimeVarEmit_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optTimeVarEmit_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optTimeVarConc_1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optTimeVarK_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optTimeVarK_1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cboUnits
@@ -640,121 +598,7 @@
         Me._cboUnits_7.Size = New System.Drawing.Size(85, 22)
         Me._cboUnits_7.TabIndex = 50
         Me._cboUnits_7.TabStop = False
-        '
-        'ssframe_ContaminantProps
-        '
-        Me.ssframe_ContaminantProps.Location = New System.Drawing.Point(14, 92)
-        Me.ssframe_ContaminantProps.Name = "ssframe_ContaminantProps"
-        Me.ssframe_ContaminantProps.OcxState = CType(resources.GetObject("ssframe_ContaminantProps.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.ssframe_ContaminantProps.Size = New System.Drawing.Size(124, 23)
-        Me.ssframe_ContaminantProps.TabIndex = 48
-        '
-        'sspContaminantProps
-        '
-        Me.sspContaminantProps.Location = New System.Drawing.Point(10, 38)
-        Me.sspContaminantProps.Name = "sspContaminantProps"
-        Me.sspContaminantProps.OcxState = CType(resources.GetObject("sspContaminantProps.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspContaminantProps.Size = New System.Drawing.Size(511, 289)
-        Me.sspContaminantProps.TabIndex = 22
-        '
-        'sspanel_Status
-        '
-        Me.sspanel_Status.Location = New System.Drawing.Point(148, 4)
-        Me.sspanel_Status.Name = "sspanel_Status"
-        Me.sspanel_Status.OcxState = CType(resources.GetObject("sspanel_Status.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Status.Size = New System.Drawing.Size(100, 50)
-        Me.sspanel_Status.TabIndex = 17
-        '
-        'SSFrame5
-        '
-        Me.SSFrame5.Location = New System.Drawing.Point(16, 62)
-        Me.SSFrame5.Name = "SSFrame5"
-        Me.SSFrame5.OcxState = CType(resources.GetObject("SSFrame5.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame5.Size = New System.Drawing.Size(100, 50)
-        Me.SSFrame5.TabIndex = 23
-        '
-        'SSFrame4
-        '
-        Me.SSFrame4.Location = New System.Drawing.Point(16, 16)
-        Me.SSFrame4.Name = "SSFrame4"
-        Me.SSFrame4.OcxState = CType(resources.GetObject("SSFrame4.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame4.Size = New System.Drawing.Size(100, 50)
-        Me.SSFrame4.TabIndex = 29
-        '
-        'SSFrame6
-        '
-        Me.SSFrame6.Location = New System.Drawing.Point(16, 108)
-        Me.SSFrame6.Name = "SSFrame6"
-        Me.SSFrame6.OcxState = CType(resources.GetObject("SSFrame6.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame6.Size = New System.Drawing.Size(100, 50)
-        Me.SSFrame6.TabIndex = 49
-        '
-        'cmdTimeVarEmit
-        '
-        Me.cmdTimeVarEmit.Location = New System.Drawing.Point(414, 18)
-        Me.cmdTimeVarEmit.Name = "cmdTimeVarEmit"
-        Me.cmdTimeVarEmit.OcxState = CType(resources.GetObject("cmdTimeVarEmit.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdTimeVarEmit.Size = New System.Drawing.Size(100, 50)
-        Me.cmdTimeVarEmit.TabIndex = 28
-        Me.cmdTimeVarEmit.TabStop = False
-        '
-        'cmdTimeVarConc
-        '
-        Me.cmdTimeVarConc.Location = New System.Drawing.Point(414, 18)
-        Me.cmdTimeVarConc.Name = "cmdTimeVarConc"
-        Me.cmdTimeVarConc.OcxState = CType(resources.GetObject("cmdTimeVarConc.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdTimeVarConc.Size = New System.Drawing.Size(100, 50)
-        Me.cmdTimeVarConc.TabIndex = 34
-        Me.cmdTimeVarConc.TabStop = False
-        '
-        'cmdTimeVarK
-        '
-        Me.cmdTimeVarK.Location = New System.Drawing.Point(414, 18)
-        Me.cmdTimeVarK.Name = "cmdTimeVarK"
-        Me.cmdTimeVarK.OcxState = CType(resources.GetObject("cmdTimeVarK.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.cmdTimeVarK.Size = New System.Drawing.Size(100, 50)
-        Me.cmdTimeVarK.TabIndex = 54
-        Me.cmdTimeVarK.TabStop = False
-        '
-        '_optTimeVarEmit_0
-        '
-        Me._optTimeVarEmit_0.Location = New System.Drawing.Point(8, 20)
-        Me._optTimeVarEmit_0.Name = "_optTimeVarEmit_0"
-        Me._optTimeVarEmit_0.OcxState = CType(resources.GetObject("_optTimeVarEmit_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optTimeVarEmit_0.Size = New System.Drawing.Size(100, 50)
-        Me._optTimeVarEmit_0.TabIndex = 26
-        '
-        '_optTimeVarEmit_1
-        '
-        Me._optTimeVarEmit_1.Location = New System.Drawing.Point(288, 20)
-        Me._optTimeVarEmit_1.Name = "_optTimeVarEmit_1"
-        Me._optTimeVarEmit_1.OcxState = CType(resources.GetObject("_optTimeVarEmit_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optTimeVarEmit_1.Size = New System.Drawing.Size(100, 50)
-        Me._optTimeVarEmit_1.TabIndex = 27
-        '
-        '_optTimeVarConc_1
-        '
-        Me._optTimeVarConc_1.Location = New System.Drawing.Point(288, 20)
-        Me._optTimeVarConc_1.Name = "_optTimeVarConc_1"
-        Me._optTimeVarConc_1.OcxState = CType(resources.GetObject("_optTimeVarConc_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optTimeVarConc_1.Size = New System.Drawing.Size(100, 50)
-        Me._optTimeVarConc_1.TabIndex = 33
-        '
-        '_optTimeVarK_0
-        '
-        Me._optTimeVarK_0.Location = New System.Drawing.Point(8, 20)
-        Me._optTimeVarK_0.Name = "_optTimeVarK_0"
-        Me._optTimeVarK_0.OcxState = CType(resources.GetObject("_optTimeVarK_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optTimeVarK_0.Size = New System.Drawing.Size(100, 50)
-        Me._optTimeVarK_0.TabIndex = 52
-        '
-        '_optTimeVarK_1
-        '
-        Me._optTimeVarK_1.Location = New System.Drawing.Point(288, 20)
-        Me._optTimeVarK_1.Name = "_optTimeVarK_1"
-        Me._optTimeVarK_1.OcxState = CType(resources.GetObject("_optTimeVarK_1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optTimeVarK_1.Size = New System.Drawing.Size(100, 50)
-        Me._optTimeVarK_1.TabIndex = 53
+
         '
         'frmInputParamsPSDMInRoom
         '
@@ -778,22 +622,12 @@
         CType(Me.lblData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblDesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtData, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ssframe_ContaminantProps, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspContaminantProps, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Status, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdTimeVarEmit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdTimeVarConc, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmdTimeVarK, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optTimeVarEmit_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optTimeVarEmit_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optTimeVarConc_1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optTimeVarK_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optTimeVarK_1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
+    End Sub
+
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
     End Sub
 #End Region
 End Class

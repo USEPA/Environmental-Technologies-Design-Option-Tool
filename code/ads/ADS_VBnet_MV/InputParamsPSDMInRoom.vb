@@ -45,7 +45,7 @@ Friend Class frmInputParamsPSDMInRoom
 	Sub LOCAL___Reset_DemoVersionDisablings()
 		If (IsThisADemo() = True) Then
 			'UPGRADE_WARNING: Couldn't resolve default property of object cmdCancelOK().Enabled. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-			CancelButton.Enabled = False
+			'CancelButton.Enabled = False
 		End If
 	End Sub
 	
@@ -117,21 +117,21 @@ Friend Class frmInputParamsPSDMInRoom
 	
 	Sub frmInputParamsPSDMInRoom_GenericStatus_Set(ByRef fn_Text As String)
 		'UPGRADE_WARNING: Couldn't resolve default property of object Me.sspanel_Status. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		Me.sspanel_Status.Caption = fn_Text
+		'Me.sspanel_Status.Caption = fn_Text
 	End Sub
 	Sub frmInputParamsPSDMInRoom_DirtyStatus_Set(ByRef newVal As Boolean)
 		Dim Frm As frmInputParamsPSDMInRoom
 		Frm = Me
 		If (newVal) Then
 			'UPGRADE_ISSUE: Control sspanel_Dirty could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm.sspanel_Dirty.Caption = "Data Changed"
+			'Frm.sspanel_Dirty.Caption = "Data Changed"
 			'UPGRADE_ISSUE: Control sspanel_Dirty could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
+			'Frm.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(12))
 		Else
 			'UPGRADE_ISSUE: Control sspanel_Dirty could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm.sspanel_Dirty.Caption = "Unchanged"
+			'Frm.sspanel_Dirty.Caption = "Unchanged"
 			'UPGRADE_ISSUE: Control sspanel_Dirty could not be resolved because it was within the generic namespace Form. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="084D22AD-ECB1-400F-B4C7-418ECEC5E36E"'
-			Frm.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(0))
+			'Frm.sspanel_Dirty.ForeColor = Color.FromArgb(QBColor(0))
 		End If
 	End Sub
 	Sub frmInputParamsPSDMInRoom_DirtyStatus_Set_Current()
@@ -446,8 +446,8 @@ Friend Class frmInputParamsPSDMInRoom
 	Private Sub optTimeVarConc_Click(ByRef Index As Short, ByRef Value As Short)
 		Dim Ctl0 As AxThreed.AxSSOption
 		Dim Ctl1 As AxThreed.AxSSOption
-		Ctl0 = _optTimeVarConc_0
-		Ctl1 = _optTimeVarConc_1
+		'	Ctl0 = _optTimeVarConc_0
+		'	Ctl1 = _optTimeVarConc_1
 		Dim NewTag As Short
 		Dim NewSetting As Short
 		If (HALT_ALL_CONTROLS = True) Then Exit Sub
@@ -463,8 +463,8 @@ Friend Class frmInputParamsPSDMInRoom
 	Private Sub optTimeVarEmit_Click(ByRef Index As Short, ByRef Value As Short)
 		Dim Ctl0 As AxThreed.AxSSOption
 		Dim Ctl1 As AxThreed.AxSSOption
-		Ctl0 = _optTimeVarEmit_0
-		Ctl1 = _optTimeVarEmit_1
+		'	Ctl0 = _optTimeVarEmit_0
+		'	Ctl1 = _optTimeVarEmit_1
 		Dim NewTag As Short
 		Dim NewSetting As Short
 		If (HALT_ALL_CONTROLS = True) Then Exit Sub
@@ -480,8 +480,8 @@ Friend Class frmInputParamsPSDMInRoom
 	Private Sub optTimeVarK_Click(ByRef Index As Short, ByRef Value As Short)
 		Dim Ctl0 As AxThreed.AxSSOption
 		Dim Ctl1 As AxThreed.AxSSOption
-		Ctl0 = _optTimeVarK_0
-		Ctl1 = _optTimeVarK_1
+		'	Ctl0 = _optTimeVarK_0
+		'	Ctl1 = _optTimeVarK_1
 		Dim NewTag As Short
 		Dim NewSetting As Short
 		If (HALT_ALL_CONTROLS = True) Then Exit Sub
@@ -605,7 +605,7 @@ Friend Class frmInputParamsPSDMInRoom
 		End If
 	End Sub
 
-	Private Sub OKButton_Click(sender As Object, e As EventArgs) 
+	Private Sub OKButton_Click(sender As Object, e As EventArgs)
 		'STORE ALL UNIT SETTINGS.
 		Call Store_Unit_Settings()
 		'EXIT OUT OF HERE.
@@ -615,7 +615,7 @@ Friend Class frmInputParamsPSDMInRoom
 		Exit Sub
 	End Sub
 
-	Private Sub CancelButton_Click(sender As Object, e As EventArgs) 
+	Private Sub CancelButton_Click(sender As Object, e As EventArgs)
 		USER_HIT_CANCEL = True
 		USER_HIT_OK = False
 		Me.Close()
