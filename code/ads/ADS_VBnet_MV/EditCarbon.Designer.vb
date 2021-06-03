@@ -675,7 +675,7 @@
         '
         'cmdCancel
         '
-        Me.cmdCancel.BackColor = System.Drawing.Color.White
+        Me.cmdCancel.BackColor = System.Drawing.SystemColors.Control
         Me.cmdCancel.Location = New System.Drawing.Point(542, 411)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(75, 41)
@@ -685,7 +685,7 @@
         '
         'cmdOK
         '
-        Me.cmdOK.BackColor = System.Drawing.Color.White
+        Me.cmdOK.BackColor = System.Drawing.SystemColors.Control
         Me.cmdOK.Location = New System.Drawing.Point(284, 411)
         Me.cmdOK.Name = "cmdOK"
         Me.cmdOK.Size = New System.Drawing.Size(238, 41)

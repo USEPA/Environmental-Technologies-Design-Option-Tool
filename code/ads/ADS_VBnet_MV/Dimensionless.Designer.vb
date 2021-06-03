@@ -371,7 +371,7 @@
         '
         'cmdclose
         '
-        Me.cmdclose.BackColor = System.Drawing.Color.White
+        Me.cmdclose.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdclose.Location = New System.Drawing.Point(207, 362)
         Me.cmdclose.Name = "cmdclose"
         Me.cmdclose.Size = New System.Drawing.Size(98, 49)

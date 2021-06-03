@@ -304,66 +304,73 @@
         '
         '_cmdRecord_0
         '
+        Me._cmdRecord_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_0.Location = New System.Drawing.Point(14, 175)
         Me._cmdRecord_0.Name = "_cmdRecord_0"
         Me._cmdRecord_0.Size = New System.Drawing.Size(75, 30)
         Me._cmdRecord_0.TabIndex = 28
         Me._cmdRecord_0.Text = "&New"
-        Me._cmdRecord_0.UseVisualStyleBackColor = True
+        Me._cmdRecord_0.UseVisualStyleBackColor = False
         '
         '_cmdRecord_1
         '
+        Me._cmdRecord_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_1.Location = New System.Drawing.Point(89, 175)
         Me._cmdRecord_1.Name = "_cmdRecord_1"
         Me._cmdRecord_1.Size = New System.Drawing.Size(75, 30)
         Me._cmdRecord_1.TabIndex = 29
         Me._cmdRecord_1.Text = "&Edit"
-        Me._cmdRecord_1.UseVisualStyleBackColor = True
+        Me._cmdRecord_1.UseVisualStyleBackColor = False
         '
         '_cmdRecord_2
         '
+        Me._cmdRecord_2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_2.Location = New System.Drawing.Point(163, 175)
         Me._cmdRecord_2.Name = "_cmdRecord_2"
         Me._cmdRecord_2.Size = New System.Drawing.Size(75, 30)
         Me._cmdRecord_2.TabIndex = 30
         Me._cmdRecord_2.Text = "&Delete"
-        Me._cmdRecord_2.UseVisualStyleBackColor = True
+        Me._cmdRecord_2.UseVisualStyleBackColor = False
         '
         '_cmdRecord_3
         '
+        Me._cmdRecord_3.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_3.Location = New System.Drawing.Point(237, 175)
         Me._cmdRecord_3.Name = "_cmdRecord_3"
         Me._cmdRecord_3.Size = New System.Drawing.Size(75, 30)
         Me._cmdRecord_3.TabIndex = 31
         Me._cmdRecord_3.Text = "&Save"
-        Me._cmdRecord_3.UseVisualStyleBackColor = True
+        Me._cmdRecord_3.UseVisualStyleBackColor = False
         '
         '_cmdRecord_4
         '
+        Me._cmdRecord_4.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_4.Location = New System.Drawing.Point(311, 175)
         Me._cmdRecord_4.Name = "_cmdRecord_4"
         Me._cmdRecord_4.Size = New System.Drawing.Size(75, 30)
         Me._cmdRecord_4.TabIndex = 32
         Me._cmdRecord_4.Text = "Cancel Edit"
-        Me._cmdRecord_4.UseVisualStyleBackColor = True
+        Me._cmdRecord_4.UseVisualStyleBackColor = False
         '
         '_cmdCancelOK_1
         '
+        Me._cmdCancelOK_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdCancelOK_1.Location = New System.Drawing.Point(73, 420)
         Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
         Me._cmdCancelOK_1.Size = New System.Drawing.Size(99, 43)
         Me._cmdCancelOK_1.TabIndex = 33
         Me._cmdCancelOK_1.Text = "OK"
-        Me._cmdCancelOK_1.UseVisualStyleBackColor = True
+        Me._cmdCancelOK_1.UseVisualStyleBackColor = False
         '
         '_cmdCancelOK_0
         '
+        Me._cmdCancelOK_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdCancelOK_0.Location = New System.Drawing.Point(245, 420)
         Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
         Me._cmdCancelOK_0.Size = New System.Drawing.Size(97, 43)
         Me._cmdCancelOK_0.TabIndex = 34
         Me._cmdCancelOK_0.Text = "Cancel"
-        Me._cmdCancelOK_0.UseVisualStyleBackColor = True
+        Me._cmdCancelOK_0.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '

@@ -765,21 +765,23 @@
         '
         'CancelButton
         '
+        Me.CancelButton.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.CancelButton.Location = New System.Drawing.Point(23, 307)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(99, 23)
         Me.CancelButton.TabIndex = 56
         Me.CancelButton.Text = "Cancel"
-        Me.CancelButton.UseVisualStyleBackColor = True
+        Me.CancelButton.UseVisualStyleBackColor = False
         '
         'OKButton
         '
+        Me.OKButton.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.OKButton.Location = New System.Drawing.Point(23, 336)
         Me.OKButton.Name = "OKButton"
         Me.OKButton.Size = New System.Drawing.Size(99, 23)
         Me.OKButton.TabIndex = 57
         Me.OKButton.Text = "OK"
-        Me.OKButton.UseVisualStyleBackColor = True
+        Me.OKButton.UseVisualStyleBackColor = False
         '
         'cboSource
         '
@@ -797,7 +799,7 @@
         '
         'cmdFreundlich
         '
-        Me.cmdFreundlich.BackColor = System.Drawing.Color.White
+        Me.cmdFreundlich.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdFreundlich.Location = New System.Drawing.Point(8, 219)
         Me.cmdFreundlich.Name = "cmdFreundlich"
         Me.cmdFreundlich.Size = New System.Drawing.Size(145, 47)
@@ -807,7 +809,7 @@
         '
         'cmdKinetics
         '
-        Me.cmdKinetics.BackColor = System.Drawing.Color.White
+        Me.cmdKinetics.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdKinetics.Location = New System.Drawing.Point(8, 170)
         Me.cmdKinetics.Name = "cmdKinetics"
         Me.cmdKinetics.Size = New System.Drawing.Size(145, 47)
@@ -817,7 +819,7 @@
         '
         'cmdImportClipboard
         '
-        Me.cmdImportClipboard.BackColor = System.Drawing.Color.White
+        Me.cmdImportClipboard.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdImportClipboard.Location = New System.Drawing.Point(1, 108)
         Me.cmdImportClipboard.Name = "cmdImportClipboard"
         Me.cmdImportClipboard.Size = New System.Drawing.Size(145, 30)
@@ -827,7 +829,7 @@
         '
         'cmdImportFromFile
         '
-        Me.cmdImportFromFile.BackColor = System.Drawing.Color.White
+        Me.cmdImportFromFile.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdImportFromFile.Location = New System.Drawing.Point(1, 71)
         Me.cmdImportFromFile.Name = "cmdImportFromFile"
         Me.cmdImportFromFile.Size = New System.Drawing.Size(145, 31)

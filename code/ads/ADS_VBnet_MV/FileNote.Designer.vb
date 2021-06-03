@@ -87,7 +87,7 @@
         '
         '_cmdButton_0
         '
-        Me._cmdButton_0.BackColor = System.Drawing.Color.White
+        Me._cmdButton_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdButton_0.Location = New System.Drawing.Point(8, 278)
         Me._cmdButton_0.Name = "_cmdButton_0"
         Me._cmdButton_0.Size = New System.Drawing.Size(80, 39)
@@ -97,7 +97,7 @@
         '
         '_cmdButton_1
         '
-        Me._cmdButton_1.BackColor = System.Drawing.Color.White
+        Me._cmdButton_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdButton_1.Location = New System.Drawing.Point(87, 278)
         Me._cmdButton_1.Name = "_cmdButton_1"
         Me._cmdButton_1.Size = New System.Drawing.Size(82, 39)
@@ -107,7 +107,7 @@
         '
         '_cmdButton_2
         '
-        Me._cmdButton_2.BackColor = System.Drawing.Color.White
+        Me._cmdButton_2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdButton_2.Location = New System.Drawing.Point(169, 278)
         Me._cmdButton_2.Name = "_cmdButton_2"
         Me._cmdButton_2.Size = New System.Drawing.Size(81, 39)
@@ -117,7 +117,7 @@
         '
         '_cmdButton_5
         '
-        Me._cmdButton_5.BackColor = System.Drawing.Color.White
+        Me._cmdButton_5.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdButton_5.Location = New System.Drawing.Point(275, 278)
         Me._cmdButton_5.Name = "_cmdButton_5"
         Me._cmdButton_5.Size = New System.Drawing.Size(133, 40)
@@ -127,7 +127,7 @@
         '
         '_cmdButton_3
         '
-        Me._cmdButton_3.BackColor = System.Drawing.Color.White
+        Me._cmdButton_3.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdButton_3.Location = New System.Drawing.Point(408, 278)
         Me._cmdButton_3.Name = "_cmdButton_3"
         Me._cmdButton_3.Size = New System.Drawing.Size(76, 40)
@@ -137,7 +137,7 @@
         '
         '_cmdButton_4
         '
-        Me._cmdButton_4.BackColor = System.Drawing.Color.White
+        Me._cmdButton_4.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdButton_4.Location = New System.Drawing.Point(484, 278)
         Me._cmdButton_4.Name = "_cmdButton_4"
         Me._cmdButton_4.Size = New System.Drawing.Size(96, 40)
@@ -149,7 +149,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(598, 331)
         Me.ControlBox = False
         Me.Controls.Add(Me._cmdButton_4)

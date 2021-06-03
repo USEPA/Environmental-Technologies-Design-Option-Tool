@@ -605,7 +605,7 @@ Friend Class frmInputParamsPSDMInRoom
 		End If
 	End Sub
 
-	Private Sub OKButton_Click(sender As Object, e As EventArgs) Handles OKButton.ClickEvent
+	Private Sub OKButton_Click(sender As Object, e As EventArgs) 
 		'STORE ALL UNIT SETTINGS.
 		Call Store_Unit_Settings()
 		'EXIT OUT OF HERE.
@@ -615,7 +615,7 @@ Friend Class frmInputParamsPSDMInRoom
 		Exit Sub
 	End Sub
 
-	Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.ClickEvent
+	Private Sub CancelButton_Click(sender As Object, e As EventArgs) 
 		USER_HIT_CANCEL = True
 		USER_HIT_OK = False
 		Me.Close()

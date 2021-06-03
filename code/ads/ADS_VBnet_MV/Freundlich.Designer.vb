@@ -813,21 +813,23 @@
         '
         '_cmdCancelOK_0
         '
+        Me._cmdCancelOK_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdCancelOK_0.Location = New System.Drawing.Point(513, 14)
         Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
         Me._cmdCancelOK_0.Size = New System.Drawing.Size(101, 22)
         Me._cmdCancelOK_0.TabIndex = 83
         Me._cmdCancelOK_0.Text = "&Cancel"
-        Me._cmdCancelOK_0.UseVisualStyleBackColor = True
+        Me._cmdCancelOK_0.UseVisualStyleBackColor = False
         '
         '_cmdCancelOK_1
         '
+        Me._cmdCancelOK_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdCancelOK_1.Location = New System.Drawing.Point(513, 40)
         Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
         Me._cmdCancelOK_1.Size = New System.Drawing.Size(101, 22)
         Me._cmdCancelOK_1.TabIndex = 84
         Me._cmdCancelOK_1.Text = "&Ok"
-        Me._cmdCancelOK_1.UseVisualStyleBackColor = True
+        Me._cmdCancelOK_1.UseVisualStyleBackColor = False
         '
         'grpIPES
         '
@@ -929,12 +931,13 @@
         '
         'cmdSelect
         '
+        Me.cmdSelect.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdSelect.Location = New System.Drawing.Point(30, 221)
         Me.cmdSelect.Name = "cmdSelect"
         Me.cmdSelect.Size = New System.Drawing.Size(206, 23)
         Me.cmdSelect.TabIndex = 88
         Me.cmdSelect.Text = "Select Chemic&al"
-        Me.cmdSelect.UseVisualStyleBackColor = True
+        Me.cmdSelect.UseVisualStyleBackColor = False
         '
         'lblEmpty_lstCompo
         '
@@ -953,12 +956,13 @@
         '
         '_cmdFind_1
         '
+        Me._cmdFind_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdFind_1.Location = New System.Drawing.Point(136, 191)
         Me._cmdFind_1.Name = "_cmdFind_1"
         Me._cmdFind_1.Size = New System.Drawing.Size(100, 24)
         Me._cmdFind_1.TabIndex = 87
         Me._cmdFind_1.Text = "Find A&gain"
-        Me._cmdFind_1.UseVisualStyleBackColor = True
+        Me._cmdFind_1.UseVisualStyleBackColor = False
         '
         'lstCompo
         '
@@ -976,12 +980,13 @@
         '
         '_cmdFind_0
         '
+        Me._cmdFind_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdFind_0.Location = New System.Drawing.Point(30, 191)
         Me._cmdFind_0.Name = "_cmdFind_0"
         Me._cmdFind_0.Size = New System.Drawing.Size(100, 24)
         Me._cmdFind_0.TabIndex = 86
         Me._cmdFind_0.Text = "&Find"
-        Me._cmdFind_0.UseVisualStyleBackColor = True
+        Me._cmdFind_0.UseVisualStyleBackColor = False
         '
         'cboSortMethod
         '
@@ -1203,7 +1208,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(772, 657)
         Me.ControlBox = False
         Me.Controls.Add(Me.StatusStrip1)

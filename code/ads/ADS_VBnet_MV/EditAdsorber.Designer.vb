@@ -666,7 +666,7 @@
         '
         'cmdCancel
         '
-        Me.cmdCancel.BackColor = System.Drawing.Color.White
+        Me.cmdCancel.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdCancel.Location = New System.Drawing.Point(535, 410)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(94, 51)
@@ -676,7 +676,7 @@
         '
         'cmdOK
         '
-        Me.cmdOK.BackColor = System.Drawing.Color.White
+        Me.cmdOK.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdOK.Location = New System.Drawing.Point(277, 410)
         Me.cmdOK.Name = "cmdOK"
         Me.cmdOK.Size = New System.Drawing.Size(233, 51)
@@ -688,7 +688,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(669, 473)
         Me.ControlBox = False
         Me.Controls.Add(Me.cmdOK)

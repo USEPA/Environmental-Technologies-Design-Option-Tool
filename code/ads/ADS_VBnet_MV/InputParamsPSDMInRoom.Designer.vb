@@ -26,7 +26,6 @@
 	Public WithEvents _lblDesc_4 As System.Windows.Forms.Label
 	Public WithEvents lblAirRate As System.Windows.Forms.Label
 	Public WithEvents lblAirRateUnits As System.Windows.Forms.Label
-    Public WithEvents SSFrame1 As AxThreed.AxSSFrame
     Public WithEvents cboChemical As System.Windows.Forms.ComboBox
     Public WithEvents _cboUnits_4 As System.Windows.Forms.ComboBox
     Public WithEvents _txtData_4 As System.Windows.Forms.TextBox
@@ -42,7 +41,6 @@
     Public WithEvents SSFrame5 As AxThreed.AxSSFrame
     Public WithEvents _cboUnits_2 As System.Windows.Forms.ComboBox
     Public WithEvents _txtData_2 As System.Windows.Forms.TextBox
-    Public WithEvents _optTimeVarConc_0 As AxThreed.AxSSOption
     Public WithEvents _optTimeVarConc_1 As AxThreed.AxSSOption
     Public WithEvents cmdTimeVarConc As AxThreed.AxSSCommand
     Public WithEvents SSFrame4 As AxThreed.AxSSFrame
@@ -61,17 +59,11 @@
     Public WithEvents lbl_cbo_RXN_PRODUCT As System.Windows.Forms.Label
     Public WithEvents sspContaminantProps As AxThreed.AxSSPanel
     Public WithEvents lblDesc_cboChemical As System.Windows.Forms.Label
-    Public WithEvents SSFrame2 As AxThreed.AxSSFrame
-    Public WithEvents CancelButton As AxThreed.AxSSCommand
-    Public WithEvents OKButton As AxThreed.AxSSCommand
-    Public WithEvents sspanel_Dirty As AxThreed.AxSSPanel
     Public WithEvents sspanel_Status As AxThreed.AxSSPanel
-    Public WithEvents SSPanel2 As AxThreed.AxSSPanel
     Public WithEvents _cboUnits_6 As System.Windows.Forms.ComboBox
     Public WithEvents ssframe_ContaminantProps As AxThreed.AxSSFrame
     Public WithEvents _lblData_3 As System.Windows.Forms.Label
     Public WithEvents _lblData_2 As System.Windows.Forms.Label
-    Public WithEvents SSFrame3 As AxThreed.AxSSFrame
     Public WithEvents cboUnits As Microsoft.VisualBasic.Compatibility.VB6.ComboBoxArray
     '  Public WithEvents cmdCancelOK As AxThreed.AxSSCommandArray
     Public WithEvents lblData As Microsoft.VisualBasic.Compatibility.VB6.LabelArray
@@ -133,14 +125,6 @@
         Me.cmdTimeVarEmit = New AxThreed.AxSSCommand()
         Me.cmdTimeVarConc = New AxThreed.AxSSCommand()
         Me.cmdTimeVarK = New AxThreed.AxSSCommand()
-        Me.sspanel_Dirty = New AxThreed.AxSSPanel()
-        Me.SSFrame1 = New AxThreed.AxSSFrame()
-        Me.SSFrame2 = New AxThreed.AxSSFrame()
-        Me._optTimeVarConc_0 = New AxThreed.AxSSOption()
-        Me.CancelButton = New AxThreed.AxSSCommand()
-        Me.OKButton = New AxThreed.AxSSCommand()
-        Me.SSPanel2 = New AxThreed.AxSSPanel()
-        Me.SSFrame3 = New AxThreed.AxSSFrame()
         Me._optTimeVarEmit_0 = New AxThreed.AxSSOption()
         Me._optTimeVarEmit_1 = New AxThreed.AxSSOption()
         Me._optTimeVarConc_1 = New AxThreed.AxSSOption()
@@ -159,14 +143,6 @@
         CType(Me.cmdTimeVarEmit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdTimeVarConc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmdTimeVarK, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._optTimeVarConc_0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CancelButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.OKButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._optTimeVarEmit_0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._optTimeVarEmit_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._optTimeVarConc_1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -190,7 +166,7 @@
         Me._cboUnits_0.Location = New System.Drawing.Point(350, 16)
         Me._cboUnits_0.Name = "_cboUnits_0"
         Me._cboUnits_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboUnits_0.Size = New System.Drawing.Size(85, 24)
+        Me._cboUnits_0.Size = New System.Drawing.Size(85, 22)
         Me._cboUnits_0.TabIndex = 5
         Me._cboUnits_0.TabStop = False
         '
@@ -206,7 +182,7 @@
         Me._txtData_0.MaxLength = 0
         Me._txtData_0.Name = "_txtData_0"
         Me._txtData_0.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_0.Size = New System.Drawing.Size(81, 23)
+        Me._txtData_0.Size = New System.Drawing.Size(81, 20)
         Me._txtData_0.TabIndex = 0
         Me._txtData_0.Text = "txtData(0)"
         Me._txtData_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -221,7 +197,7 @@
         Me._cboUnits_1.Location = New System.Drawing.Point(350, 40)
         Me._cboUnits_1.Name = "_cboUnits_1"
         Me._cboUnits_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboUnits_1.Size = New System.Drawing.Size(85, 24)
+        Me._cboUnits_1.Size = New System.Drawing.Size(85, 22)
         Me._cboUnits_1.TabIndex = 4
         Me._cboUnits_1.TabStop = False
         '
@@ -237,7 +213,7 @@
         Me._txtData_1.MaxLength = 0
         Me._txtData_1.Name = "_txtData_1"
         Me._txtData_1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_1.Size = New System.Drawing.Size(81, 23)
+        Me._txtData_1.Size = New System.Drawing.Size(81, 20)
         Me._txtData_1.TabIndex = 1
         Me._txtData_1.Text = "txtData(1)"
         Me._txtData_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -321,7 +297,7 @@
         Me.cboChemical.Location = New System.Drawing.Point(220, 14)
         Me.cboChemical.Name = "cboChemical"
         Me.cboChemical.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cboChemical.Size = New System.Drawing.Size(223, 24)
+        Me.cboChemical.Size = New System.Drawing.Size(223, 22)
         Me.cboChemical.TabIndex = 11
         Me.cboChemical.TabStop = False
         '
@@ -349,7 +325,7 @@
         Me._cboUnits_6.Location = New System.Drawing.Point(20, 26)
         Me._cboUnits_6.Name = "_cboUnits_6"
         Me._cboUnits_6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboUnits_6.Size = New System.Drawing.Size(85, 24)
+        Me._cboUnits_6.Size = New System.Drawing.Size(85, 22)
         Me._cboUnits_6.TabIndex = 19
         Me._cboUnits_6.TabStop = False
         '
@@ -391,7 +367,7 @@
         Me._cboUnits_4.Location = New System.Drawing.Point(346, 184)
         Me._cboUnits_4.Name = "_cboUnits_4"
         Me._cboUnits_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboUnits_4.Size = New System.Drawing.Size(85, 24)
+        Me._cboUnits_4.Size = New System.Drawing.Size(85, 22)
         Me._cboUnits_4.TabIndex = 40
         Me._cboUnits_4.TabStop = False
         '
@@ -407,7 +383,7 @@
         Me._txtData_4.MaxLength = 0
         Me._txtData_4.Name = "_txtData_4"
         Me._txtData_4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_4.Size = New System.Drawing.Size(81, 23)
+        Me._txtData_4.Size = New System.Drawing.Size(81, 20)
         Me._txtData_4.TabIndex = 39
         Me._txtData_4.Text = "txtData(4)"
         Me._txtData_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -424,7 +400,7 @@
         Me._txtData_5.MaxLength = 0
         Me._txtData_5.Name = "_txtData_5"
         Me._txtData_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_5.Size = New System.Drawing.Size(81, 23)
+        Me._txtData_5.Size = New System.Drawing.Size(81, 20)
         Me._txtData_5.TabIndex = 38
         Me._txtData_5.Text = "txtData(5)"
         Me._txtData_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -439,7 +415,7 @@
         Me._cboUnits_5.Location = New System.Drawing.Point(346, 210)
         Me._cboUnits_5.Name = "_cboUnits_5"
         Me._cboUnits_5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboUnits_5.Size = New System.Drawing.Size(85, 24)
+        Me._cboUnits_5.Size = New System.Drawing.Size(85, 22)
         Me._cboUnits_5.TabIndex = 37
         Me._cboUnits_5.TabStop = False
         '
@@ -455,7 +431,7 @@
         Me._txtData_6.MaxLength = 0
         Me._txtData_6.Name = "_txtData_6"
         Me._txtData_6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_6.Size = New System.Drawing.Size(81, 23)
+        Me._txtData_6.Size = New System.Drawing.Size(81, 20)
         Me._txtData_6.TabIndex = 36
         Me._txtData_6.Text = "txtData(6)"
         Me._txtData_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -470,7 +446,7 @@
         Me.cbo_RXN_PRODUCT.Location = New System.Drawing.Point(208, 264)
         Me.cbo_RXN_PRODUCT.Name = "cbo_RXN_PRODUCT"
         Me.cbo_RXN_PRODUCT.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cbo_RXN_PRODUCT.Size = New System.Drawing.Size(223, 24)
+        Me.cbo_RXN_PRODUCT.Size = New System.Drawing.Size(223, 22)
         Me.cbo_RXN_PRODUCT.TabIndex = 35
         Me.cbo_RXN_PRODUCT.TabStop = False
         '
@@ -583,7 +559,7 @@
         Me._txtData_3.MaxLength = 0
         Me._txtData_3.Name = "_txtData_3"
         Me._txtData_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_3.Size = New System.Drawing.Size(81, 23)
+        Me._txtData_3.Size = New System.Drawing.Size(81, 20)
         Me._txtData_3.TabIndex = 25
         Me._txtData_3.Text = "txtData(3)"
         Me._txtData_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -598,7 +574,7 @@
         Me._cboUnits_3.Location = New System.Drawing.Point(184, 18)
         Me._cboUnits_3.Name = "_cboUnits_3"
         Me._cboUnits_3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboUnits_3.Size = New System.Drawing.Size(85, 24)
+        Me._cboUnits_3.Size = New System.Drawing.Size(85, 22)
         Me._cboUnits_3.TabIndex = 24
         Me._cboUnits_3.TabStop = False
         '
@@ -612,7 +588,7 @@
         Me._cboUnits_2.Location = New System.Drawing.Point(184, 18)
         Me._cboUnits_2.Name = "_cboUnits_2"
         Me._cboUnits_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboUnits_2.Size = New System.Drawing.Size(85, 24)
+        Me._cboUnits_2.Size = New System.Drawing.Size(85, 22)
         Me._cboUnits_2.TabIndex = 31
         Me._cboUnits_2.TabStop = False
         '
@@ -628,7 +604,7 @@
         Me._txtData_2.MaxLength = 0
         Me._txtData_2.Name = "_txtData_2"
         Me._txtData_2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_2.Size = New System.Drawing.Size(81, 23)
+        Me._txtData_2.Size = New System.Drawing.Size(81, 20)
         Me._txtData_2.TabIndex = 30
         Me._txtData_2.Text = "txtData(2)"
         Me._txtData_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -646,7 +622,7 @@
         Me._txtData_7.Name = "_txtData_7"
         Me._txtData_7.ReadOnly = True
         Me._txtData_7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._txtData_7.Size = New System.Drawing.Size(81, 23)
+        Me._txtData_7.Size = New System.Drawing.Size(81, 20)
         Me._txtData_7.TabIndex = 51
         Me._txtData_7.Text = "txtData(7)"
         Me._txtData_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -661,7 +637,7 @@
         Me._cboUnits_7.Location = New System.Drawing.Point(184, 18)
         Me._cboUnits_7.Name = "_cboUnits_7"
         Me._cboUnits_7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me._cboUnits_7.Size = New System.Drawing.Size(85, 24)
+        Me._cboUnits_7.Size = New System.Drawing.Size(85, 22)
         Me._cboUnits_7.TabIndex = 50
         Me._cboUnits_7.TabStop = False
         '
@@ -740,73 +716,6 @@
         Me.cmdTimeVarK.TabIndex = 54
         Me.cmdTimeVarK.TabStop = False
         '
-        'sspanel_Dirty
-        '
-        Me.sspanel_Dirty.Location = New System.Drawing.Point(12, 452)
-        Me.sspanel_Dirty.Name = "sspanel_Dirty"
-        Me.sspanel_Dirty.OcxState = CType(resources.GetObject("sspanel_Dirty.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.sspanel_Dirty.Size = New System.Drawing.Size(100, 50)
-        Me.sspanel_Dirty.TabIndex = 16
-        '
-        'SSFrame1
-        '
-        Me.SSFrame1.Location = New System.Drawing.Point(6, 5)
-        Me.SSFrame1.Name = "SSFrame1"
-        Me.SSFrame1.OcxState = CType(resources.GetObject("SSFrame1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame1.Size = New System.Drawing.Size(531, 89)
-        Me.SSFrame1.TabIndex = 2
-        '
-        'SSFrame2
-        '
-        Me.SSFrame2.Location = New System.Drawing.Point(6, 100)
-        Me.SSFrame2.Name = "SSFrame2"
-        Me.SSFrame2.OcxState = CType(resources.GetObject("SSFrame2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame2.Size = New System.Drawing.Size(531, 333)
-        Me.SSFrame2.TabIndex = 3
-        '
-        '_optTimeVarConc_0
-        '
-        Me._optTimeVarConc_0.Location = New System.Drawing.Point(179, 154)
-        Me._optTimeVarConc_0.Name = "_optTimeVarConc_0"
-        Me._optTimeVarConc_0.OcxState = CType(resources.GetObject("_optTimeVarConc_0.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._optTimeVarConc_0.Size = New System.Drawing.Size(100, 50)
-        Me._optTimeVarConc_0.TabIndex = 32
-        '
-        'CancelButton
-        '
-        Me.CancelButton.Location = New System.Drawing.Point(305, 438)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.OcxState = CType(resources.GetObject("CancelButton.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.CancelButton.Size = New System.Drawing.Size(100, 50)
-        Me.CancelButton.TabIndex = 13
-        Me.CancelButton.TabStop = False
-        '
-        'OKButton
-        '
-        Me.OKButton.Location = New System.Drawing.Point(427, 438)
-        Me.OKButton.Name = "OKButton"
-        Me.OKButton.OcxState = CType(resources.GetObject("OKButton.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.OKButton.Size = New System.Drawing.Size(100, 50)
-        Me.OKButton.TabIndex = 14
-        Me.OKButton.TabStop = False
-        '
-        'SSPanel2
-        '
-        Me.SSPanel2.Location = New System.Drawing.Point(7, 565)
-        Me.SSPanel2.Name = "SSPanel2"
-        Me.SSPanel2.OcxState = CType(resources.GetObject("SSPanel2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSPanel2.Size = New System.Drawing.Size(100, 50)
-        Me.SSPanel2.TabIndex = 15
-        '
-        'SSFrame3
-        '
-        Me.SSFrame3.Location = New System.Drawing.Point(26, 432)
-        Me.SSFrame3.Name = "SSFrame3"
-        Me.SSFrame3.OcxState = CType(resources.GetObject("SSFrame3.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.SSFrame3.Size = New System.Drawing.Size(222, 127)
-        Me.SSFrame3.TabIndex = 18
-        Me.SSFrame3.Visible = False
-        '
         '_optTimeVarEmit_0
         '
         Me._optTimeVarEmit_0.Location = New System.Drawing.Point(8, 20)
@@ -849,19 +758,11 @@
         '
         'frmInputParamsPSDMInRoom
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(558, 627)
+        Me.ClientSize = New System.Drawing.Size(526, 332)
         Me.ControlBox = False
-        Me.Controls.Add(Me.sspanel_Dirty)
-        Me.Controls.Add(Me.SSFrame1)
-        Me.Controls.Add(Me.SSFrame2)
-        Me.Controls.Add(Me._optTimeVarConc_0)
-        Me.Controls.Add(Me.CancelButton)
-        Me.Controls.Add(Me.OKButton)
-        Me.Controls.Add(Me.SSPanel2)
-        Me.Controls.Add(Me.SSFrame3)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -886,14 +787,6 @@
         CType(Me.cmdTimeVarEmit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdTimeVarConc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmdTimeVarK, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sspanel_Dirty, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._optTimeVarConc_0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CancelButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.OKButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSPanel2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SSFrame3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._optTimeVarEmit_0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._optTimeVarEmit_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._optTimeVarConc_1, System.ComponentModel.ISupportInitialize).EndInit()

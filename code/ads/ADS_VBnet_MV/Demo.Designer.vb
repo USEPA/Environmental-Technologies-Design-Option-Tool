@@ -25,7 +25,6 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDemo))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmdButton1 = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
@@ -34,7 +33,7 @@
         '
         'cmdButton1
         '
-        Me.cmdButton1.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdButton1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdButton1.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdButton1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdButton1.ForeColor = System.Drawing.SystemColors.ControlText
@@ -48,7 +47,7 @@
         '
         'cmdExit
         '
-        Me.cmdExit.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdExit.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdExit.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdExit.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdExit.ForeColor = System.Drawing.SystemColors.ControlText
@@ -59,7 +58,6 @@
         Me.cmdExit.TabIndex = 1
         Me.cmdExit.Text = "E&xit"
         Me.cmdExit.UseVisualStyleBackColor = False
-
         '
         'lblDisclaimer
         '

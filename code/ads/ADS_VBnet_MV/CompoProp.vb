@@ -516,9 +516,9 @@ err_cmdImportFromFile_Click:
 			Call frmCompoProp_DirtyStatus_Throw()
 		End If
 	End Sub
-	
-	
-	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) 
+
+
+	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
 		Dim Printer As New Printer
 		Picture1.Image = CaptureActiveWindow()
 		PrintPictureToFitPage(Printer, (Picture1.Image))
@@ -526,7 +526,7 @@ err_cmdImportFromFile_Click:
 		' Set focus back to form.
 		Me.Activate()
 	End Sub
-	
+
 	Private Sub frmCompoProp_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim i As Short
 		'MISC INITS.

@@ -62,6 +62,7 @@
         Me._pnl_titleX_5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me._pnl_titleX_5.Size = New System.Drawing.Size(347, 49)
         Me._pnl_titleX_5.TabIndex = 0
+        Me._pnl_titleX_5.TabStop = False
         Me._pnl_titleX_5.Visible = False
         '
         '_pnl_title_3
@@ -77,7 +78,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.CancelButton = Me.cmdOK
         Me.ClientSize = New System.Drawing.Size(355, 198)
         Me.Controls.Add(Me._pnl_title_3)

@@ -208,7 +208,7 @@
         '
         '_cmdCancelOK_1
         '
-        Me._cmdCancelOK_1.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdCancelOK_1.Location = New System.Drawing.Point(83, 363)
         Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
         Me._cmdCancelOK_1.Size = New System.Drawing.Size(104, 34)
@@ -218,7 +218,7 @@
         '
         '_cmdCancelOK_0
         '
-        Me._cmdCancelOK_0.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdCancelOK_0.Location = New System.Drawing.Point(228, 363)
         Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
         Me._cmdCancelOK_0.Size = New System.Drawing.Size(104, 34)
@@ -228,7 +228,7 @@
         '
         '_cmdRecord_0
         '
-        Me._cmdRecord_0.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_0.Location = New System.Drawing.Point(10, 112)
         Me._cmdRecord_0.Name = "_cmdRecord_0"
         Me._cmdRecord_0.Size = New System.Drawing.Size(67, 31)
@@ -238,7 +238,7 @@
         '
         '_cmdRecord_1
         '
-        Me._cmdRecord_1.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_1.Location = New System.Drawing.Point(83, 112)
         Me._cmdRecord_1.Name = "_cmdRecord_1"
         Me._cmdRecord_1.Size = New System.Drawing.Size(72, 31)
@@ -248,7 +248,7 @@
         '
         '_cmdRecord_2
         '
-        Me._cmdRecord_2.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_2.Location = New System.Drawing.Point(161, 112)
         Me._cmdRecord_2.Name = "_cmdRecord_2"
         Me._cmdRecord_2.Size = New System.Drawing.Size(72, 31)
@@ -258,7 +258,7 @@
         '
         '_cmdRecord_3
         '
-        Me._cmdRecord_3.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_3.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_3.Location = New System.Drawing.Point(239, 112)
         Me._cmdRecord_3.Name = "_cmdRecord_3"
         Me._cmdRecord_3.Size = New System.Drawing.Size(72, 31)
@@ -268,7 +268,7 @@
         '
         '_cmdRecord_4
         '
-        Me._cmdRecord_4.BackColor = System.Drawing.Color.White
+        Me._cmdRecord_4.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdRecord_4.Location = New System.Drawing.Point(317, 112)
         Me._cmdRecord_4.Name = "_cmdRecord_4"
         Me._cmdRecord_4.Size = New System.Drawing.Size(73, 31)
@@ -309,7 +309,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(427, 412)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox2)

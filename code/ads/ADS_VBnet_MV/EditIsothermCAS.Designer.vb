@@ -188,7 +188,7 @@
         '
         '_cmdSaveCancel_0
         '
-        Me._cmdSaveCancel_0.BackColor = System.Drawing.Color.White
+        Me._cmdSaveCancel_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdSaveCancel_0.Location = New System.Drawing.Point(109, 155)
         Me._cmdSaveCancel_0.Name = "_cmdSaveCancel_0"
         Me._cmdSaveCancel_0.Size = New System.Drawing.Size(116, 46)
@@ -198,7 +198,7 @@
         '
         '_cmdSaveCancel_1
         '
-        Me._cmdSaveCancel_1.BackColor = System.Drawing.Color.White
+        Me._cmdSaveCancel_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdSaveCancel_1.Location = New System.Drawing.Point(298, 155)
         Me._cmdSaveCancel_1.Name = "_cmdSaveCancel_1"
         Me._cmdSaveCancel_1.Size = New System.Drawing.Size(116, 46)
@@ -230,7 +230,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(502, 224)
         Me.ControlBox = False
         Me.Controls.Add(Me._chkData_1)

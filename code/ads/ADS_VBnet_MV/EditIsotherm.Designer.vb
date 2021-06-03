@@ -548,7 +548,7 @@
         '
         'cmdSelect
         '
-        Me.cmdSelect.BackColor = System.Drawing.Color.White
+        Me.cmdSelect.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdSelect.Location = New System.Drawing.Point(12, 383)
         Me.cmdSelect.Name = "cmdSelect"
         Me.cmdSelect.Size = New System.Drawing.Size(249, 32)
@@ -568,7 +568,7 @@
         '
         '_cmdFind_1
         '
-        Me._cmdFind_1.BackColor = System.Drawing.Color.White
+        Me._cmdFind_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdFind_1.Location = New System.Drawing.Point(150, 347)
         Me._cmdFind_1.Name = "_cmdFind_1"
         Me._cmdFind_1.Size = New System.Drawing.Size(98, 30)
@@ -578,7 +578,7 @@
         '
         '_cmdFind_0
         '
-        Me._cmdFind_0.BackColor = System.Drawing.Color.White
+        Me._cmdFind_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdFind_0.Location = New System.Drawing.Point(24, 347)
         Me._cmdFind_0.Name = "_cmdFind_0"
         Me._cmdFind_0.Size = New System.Drawing.Size(103, 30)
@@ -630,7 +630,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(731, 576)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox2)
