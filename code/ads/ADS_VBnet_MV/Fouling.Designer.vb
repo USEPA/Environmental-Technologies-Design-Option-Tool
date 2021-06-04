@@ -496,7 +496,8 @@
         Me._chkUse_0.TabIndex = 46
         Me._chkUse_0.Text = "Apply"
         Me._chkUse_0.UseVisualStyleBackColor = True
-        '
+
+        chkUse(0) = Me._chkUse_0
         '_chkUse_1
         '
         Me._chkUse_1.AutoSize = True
@@ -506,6 +507,8 @@
         Me._chkUse_1.TabIndex = 47
         Me._chkUse_1.Text = "Apply"
         Me._chkUse_1.UseVisualStyleBackColor = True
+
+        chkUse(1) = Me._chkUse_1
         '
         '_chkUse_2
         '
@@ -516,6 +519,8 @@
         Me._chkUse_2.TabIndex = 48
         Me._chkUse_2.Text = "Apply"
         Me._chkUse_2.UseVisualStyleBackColor = True
+
+        chkUse(2) = Me._chkUse_2
         '
         '_chkUse_3
         '
@@ -526,6 +531,8 @@
         Me._chkUse_3.TabIndex = 49
         Me._chkUse_3.Text = "Apply"
         Me._chkUse_3.UseVisualStyleBackColor = True
+
+        chkUse(3) = Me._chkUse_3
         '
         '_chkUse_4
         '
@@ -536,6 +543,8 @@
         Me._chkUse_4.TabIndex = 50
         Me._chkUse_4.Text = "Apply"
         Me._chkUse_4.UseVisualStyleBackColor = True
+
+        chkUse(4) = Me._chkUse_4
         '
         '_chkUse_5
         '
@@ -546,6 +555,8 @@
         Me._chkUse_5.TabIndex = 51
         Me._chkUse_5.Text = "Apply"
         Me._chkUse_5.UseVisualStyleBackColor = True
+
+        chkUse(5) = Me._chkUse_5
         '
         '_chkUse_6
         '
@@ -556,6 +567,8 @@
         Me._chkUse_6.TabIndex = 52
         Me._chkUse_6.Text = "Apply"
         Me._chkUse_6.UseVisualStyleBackColor = True
+
+        chkUse(6) = Me._chkUse_6
         '
         '_chkUse_7
         '
@@ -566,6 +579,8 @@
         Me._chkUse_7.TabIndex = 53
         Me._chkUse_7.Text = "Apply"
         Me._chkUse_7.UseVisualStyleBackColor = True
+
+        chkUse(7) = Me._chkUse_7
         '
         '_chkUse_8
         '
@@ -576,6 +591,8 @@
         Me._chkUse_8.TabIndex = 54
         Me._chkUse_8.Text = "Apply"
         Me._chkUse_8.UseVisualStyleBackColor = True
+
+        chkUse(8) = Me._chkUse_8
         '
         '_chkUse_9
         '
@@ -586,6 +603,8 @@
         Me._chkUse_9.TabIndex = 55
         Me._chkUse_9.Text = "Apply"
         Me._chkUse_9.UseVisualStyleBackColor = True
+
+        chkUse(9) = Me._chkUse_9
         '
         'cmdEditCompo
         '
