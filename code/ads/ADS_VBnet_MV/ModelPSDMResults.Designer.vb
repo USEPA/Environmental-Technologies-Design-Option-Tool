@@ -703,7 +703,7 @@
         '
         'cmdExcel
         '
-        Me.cmdExcel.BackColor = System.Drawing.Color.White
+        Me.cmdExcel.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdExcel.Location = New System.Drawing.Point(566, 201)
         Me.cmdExcel.Name = "cmdExcel"
         Me.cmdExcel.Size = New System.Drawing.Size(174, 48)
@@ -713,7 +713,7 @@
         '
         'cmdSave
         '
-        Me.cmdSave.BackColor = System.Drawing.Color.White
+        Me.cmdSave.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdSave.Location = New System.Drawing.Point(566, 255)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(174, 49)
@@ -723,7 +723,7 @@
         '
         'cmdFile
         '
-        Me.cmdFile.BackColor = System.Drawing.Color.White
+        Me.cmdFile.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdFile.Location = New System.Drawing.Point(566, 310)
         Me.cmdFile.Name = "cmdFile"
         Me.cmdFile.Size = New System.Drawing.Size(174, 49)
@@ -733,7 +733,7 @@
         '
         'cmdExit
         '
-        Me.cmdExit.BackColor = System.Drawing.Color.White
+        Me.cmdExit.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdExit.Location = New System.Drawing.Point(566, 28)
         Me.cmdExit.Name = "cmdExit"
         Me.cmdExit.Size = New System.Drawing.Size(122, 33)
@@ -803,7 +803,7 @@
         '
         'cmdTreat
         '
-        Me.cmdTreat.BackColor = System.Drawing.Color.White
+        Me.cmdTreat.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdTreat.Font = New System.Drawing.Font("Arial Rounded MT Bold", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdTreat.Location = New System.Drawing.Point(17, 123)
         Me.cmdTreat.Name = "cmdTreat"
@@ -817,7 +817,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(757, 566)
         Me.ControlBox = False
         Me.Controls.Add(Me.cmdTreat)

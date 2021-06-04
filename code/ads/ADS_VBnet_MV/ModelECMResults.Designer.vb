@@ -286,30 +286,33 @@
         '
         'cmdPrint
         '
+        Me.cmdPrint.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdPrint.Location = New System.Drawing.Point(594, 256)
         Me.cmdPrint.Name = "cmdPrint"
         Me.cmdPrint.Size = New System.Drawing.Size(95, 30)
         Me.cmdPrint.TabIndex = 25
         Me.cmdPrint.Text = "Print"
-        Me.cmdPrint.UseVisualStyleBackColor = True
+        Me.cmdPrint.UseVisualStyleBackColor = False
         '
         'cmdFile
         '
+        Me.cmdFile.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdFile.Location = New System.Drawing.Point(594, 309)
         Me.cmdFile.Name = "cmdFile"
         Me.cmdFile.Size = New System.Drawing.Size(95, 30)
         Me.cmdFile.TabIndex = 26
         Me.cmdFile.Text = "Save to File"
-        Me.cmdFile.UseVisualStyleBackColor = True
+        Me.cmdFile.UseVisualStyleBackColor = False
         '
         'cmdClose
         '
+        Me.cmdClose.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdClose.Location = New System.Drawing.Point(594, 360)
         Me.cmdClose.Name = "cmdClose"
         Me.cmdClose.Size = New System.Drawing.Size(95, 30)
         Me.cmdClose.TabIndex = 27
         Me.cmdClose.Text = "Close"
-        Me.cmdClose.UseVisualStyleBackColor = True
+        Me.cmdClose.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -358,7 +361,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(711, 516)
         Me.ControlBox = False
         Me.Controls.Add(Me.Chart1)

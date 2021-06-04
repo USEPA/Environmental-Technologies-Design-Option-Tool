@@ -253,7 +253,7 @@
         '
         '_Label1_0
         '
-        Me._Label1_0.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_0.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_0.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_0.ForeColor = System.Drawing.SystemColors.WindowText
@@ -286,7 +286,7 @@
         '
         '_Label1_1
         '
-        Me._Label1_1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_1.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_1.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_1.ForeColor = System.Drawing.SystemColors.WindowText
@@ -302,7 +302,7 @@
         '
         '_Label1_2
         '
-        Me._Label1_2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_2.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_2.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_2.ForeColor = System.Drawing.SystemColors.WindowText
@@ -318,7 +318,7 @@
         '
         '_Label1_3
         '
-        Me._Label1_3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_3.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_3.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_3.ForeColor = System.Drawing.SystemColors.WindowText
@@ -334,7 +334,7 @@
         '
         '_Label1_4
         '
-        Me._Label1_4.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_4.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_4.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_4.ForeColor = System.Drawing.SystemColors.WindowText
@@ -350,7 +350,7 @@
         '
         '_Label1_5
         '
-        Me._Label1_5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_5.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_5.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_5.ForeColor = System.Drawing.SystemColors.WindowText
@@ -366,7 +366,7 @@
         '
         '_Label1_6
         '
-        Me._Label1_6.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_6.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_6.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_6.ForeColor = System.Drawing.SystemColors.WindowText
@@ -382,7 +382,7 @@
         '
         '_Label1_7
         '
-        Me._Label1_7.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_7.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_7.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_7.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_7.ForeColor = System.Drawing.SystemColors.WindowText
@@ -398,7 +398,7 @@
         '
         '_Label1_8
         '
-        Me._Label1_8.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_8.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_8.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_8.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_8.ForeColor = System.Drawing.SystemColors.WindowText
@@ -414,7 +414,7 @@
         '
         '_Label1_9
         '
-        Me._Label1_9.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me._Label1_9.BackColor = System.Drawing.SystemColors.Control
         Me._Label1_9.Cursor = System.Windows.Forms.Cursors.Default
         Me._Label1_9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Label1_9.ForeColor = System.Drawing.SystemColors.WindowText
@@ -589,21 +589,23 @@
         '
         'cmdCancel
         '
+        Me.cmdCancel.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdCancel.Location = New System.Drawing.Point(24, 27)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(87, 32)
         Me.cmdCancel.TabIndex = 28
         Me.cmdCancel.Text = "&Cancel"
-        Me.cmdCancel.UseVisualStyleBackColor = True
+        Me.cmdCancel.UseVisualStyleBackColor = False
         '
         'cmdOK
         '
+        Me.cmdOK.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdOK.Location = New System.Drawing.Point(114, 27)
         Me.cmdOK.Name = "cmdOK"
         Me.cmdOK.Size = New System.Drawing.Size(86, 32)
         Me.cmdOK.TabIndex = 29
         Me.cmdOK.Text = "&OK"
-        Me.cmdOK.UseVisualStyleBackColor = True
+        Me.cmdOK.UseVisualStyleBackColor = False
         '
         'OpenFileDialog1
         '

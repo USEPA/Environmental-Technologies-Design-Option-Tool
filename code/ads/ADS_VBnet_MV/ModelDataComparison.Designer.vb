@@ -198,12 +198,13 @@
         '
         'cmdClose
         '
+        Me.cmdClose.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdClose.Location = New System.Drawing.Point(586, 3)
         Me.cmdClose.Name = "cmdClose"
         Me.cmdClose.Size = New System.Drawing.Size(100, 22)
         Me.cmdClose.TabIndex = 16
         Me.cmdClose.Text = "E&xit"
-        Me.cmdClose.UseVisualStyleBackColor = True
+        Me.cmdClose.UseVisualStyleBackColor = False
         '
         'Chart1
         '

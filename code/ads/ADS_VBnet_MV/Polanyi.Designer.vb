@@ -205,7 +205,7 @@
         '
         '_cmdCancelOK_1
         '
-        Me._cmdCancelOK_1.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdCancelOK_1.Location = New System.Drawing.Point(78, 142)
         Me._cmdCancelOK_1.Name = "_cmdCancelOK_1"
         Me._cmdCancelOK_1.Size = New System.Drawing.Size(99, 50)
@@ -215,7 +215,7 @@
         '
         '_cmdCancelOK_0
         '
-        Me._cmdCancelOK_0.BackColor = System.Drawing.Color.White
+        Me._cmdCancelOK_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdCancelOK_0.Location = New System.Drawing.Point(182, 142)
         Me._cmdCancelOK_0.Name = "_cmdCancelOK_0"
         Me._cmdCancelOK_0.Size = New System.Drawing.Size(99, 50)

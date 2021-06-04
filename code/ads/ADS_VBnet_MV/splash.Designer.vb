@@ -83,7 +83,7 @@
         '
         'cmdExit
         '
-        Me.cmdExit.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdExit.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdExit.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdExit.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdExit.ForeColor = System.Drawing.SystemColors.ControlText
@@ -111,7 +111,7 @@
         '
         'cmdButton1
         '
-        Me.cmdButton1.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdButton1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdButton1.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdButton1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdButton1.ForeColor = System.Drawing.SystemColors.ControlText
@@ -219,7 +219,7 @@
         '
         'TextBox1
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.Silver
+        Me.TextBox1.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox1.Font = New System.Drawing.Font("Impact", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(119, 12)
@@ -230,7 +230,7 @@
         '
         'TextBox2
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.Silver
+        Me.TextBox2.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.Location = New System.Drawing.Point(182, 54)
@@ -242,7 +242,7 @@
         '
         'TextBox3
         '
-        Me.TextBox3.BackColor = System.Drawing.Color.Silver
+        Me.TextBox3.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox3.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox3.Location = New System.Drawing.Point(443, 79)
@@ -266,7 +266,7 @@
         '
         'TextBox4
         '
-        Me.TextBox4.BackColor = System.Drawing.Color.Silver
+        Me.TextBox4.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox4.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox4.Location = New System.Drawing.Point(443, 234)
@@ -279,7 +279,7 @@
         '
         'TextBox5
         '
-        Me.TextBox5.BackColor = System.Drawing.Color.Silver
+        Me.TextBox5.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox5.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox5.Location = New System.Drawing.Point(443, 54)
@@ -291,7 +291,7 @@
         '
         'TextBox6
         '
-        Me.TextBox6.BackColor = System.Drawing.Color.Silver
+        Me.TextBox6.BackColor = System.Drawing.SystemColors.Control
         Me.TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox6.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox6.Location = New System.Drawing.Point(443, 209)
@@ -305,7 +305,7 @@
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Silver
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(607, 538)
         Me.Controls.Add(Me.TextBox6)
         Me.Controls.Add(Me.TextBox5)

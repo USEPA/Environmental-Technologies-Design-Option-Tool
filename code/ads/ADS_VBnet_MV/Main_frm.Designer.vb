@@ -907,7 +907,7 @@
         '
         'cmdViewDimensionless
         '
-        Me.cmdViewDimensionless.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdViewDimensionless.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdViewDimensionless.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdViewDimensionless.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdViewDimensionless.ForeColor = System.Drawing.SystemColors.ControlText
@@ -1024,7 +1024,7 @@
         '
         'cmdCarbon
         '
-        Me.cmdCarbon.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdCarbon.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdCarbon.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdCarbon.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdCarbon.ForeColor = System.Drawing.SystemColors.ControlText
@@ -1039,7 +1039,7 @@
         '
         'cmdpolanyi
         '
-        Me.cmdpolanyi.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdpolanyi.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdpolanyi.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdpolanyi.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdpolanyi.ForeColor = System.Drawing.SystemColors.ControlText
@@ -1342,7 +1342,7 @@
         '
         'cmdAdsorberDB
         '
-        Me.cmdAdsorberDB.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdAdsorberDB.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdAdsorberDB.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdAdsorberDB.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdAdsorberDB.ForeColor = System.Drawing.SystemColors.ControlText
@@ -1832,7 +1832,7 @@
         '
         '_cmdADEComponent_2
         '
-        Me._cmdADEComponent_2.BackColor = System.Drawing.SystemColors.Control
+        Me._cmdADEComponent_2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdADEComponent_2.Cursor = System.Windows.Forms.Cursors.Default
         Me._cmdADEComponent_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._cmdADEComponent_2.ForeColor = System.Drawing.SystemColors.ControlText
@@ -1848,7 +1848,7 @@
         '
         '_cmdADEComponent_1
         '
-        Me._cmdADEComponent_1.BackColor = System.Drawing.SystemColors.Control
+        Me._cmdADEComponent_1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdADEComponent_1.Cursor = System.Windows.Forms.Cursors.Default
         Me._cmdADEComponent_1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._cmdADEComponent_1.ForeColor = System.Drawing.SystemColors.ControlText
@@ -1864,7 +1864,7 @@
         '
         '_cmdADEComponent_0
         '
-        Me._cmdADEComponent_0.BackColor = System.Drawing.SystemColors.Control
+        Me._cmdADEComponent_0.BackColor = System.Drawing.SystemColors.ButtonFace
         Me._cmdADEComponent_0.Cursor = System.Windows.Forms.Cursors.Default
         Me._cmdADEComponent_0.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._cmdADEComponent_0.ForeColor = System.Drawing.SystemColors.ControlText
@@ -2003,7 +2003,7 @@
         '
         'cmdWaterCorrelations
         '
-        Me.cmdWaterCorrelations.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdWaterCorrelations.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdWaterCorrelations.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdWaterCorrelations.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdWaterCorrelations.ForeColor = System.Drawing.SystemColors.ControlText

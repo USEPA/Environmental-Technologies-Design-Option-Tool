@@ -556,48 +556,53 @@
         '
         'cmdExcel
         '
+        Me.cmdExcel.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdExcel.Location = New System.Drawing.Point(546, 234)
         Me.cmdExcel.Name = "cmdExcel"
         Me.cmdExcel.Size = New System.Drawing.Size(100, 44)
         Me.cmdExcel.TabIndex = 92
         Me.cmdExcel.Text = "&Excel"
-        Me.cmdExcel.UseVisualStyleBackColor = True
+        Me.cmdExcel.UseVisualStyleBackColor = False
         '
         'cmdSave
         '
+        Me.cmdSave.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdSave.Location = New System.Drawing.Point(546, 293)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(100, 44)
         Me.cmdSave.TabIndex = 93
         Me.cmdSave.Text = "S&ave Curve"
-        Me.cmdSave.UseVisualStyleBackColor = True
+        Me.cmdSave.UseVisualStyleBackColor = False
         '
         'cmdFile
         '
+        Me.cmdFile.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdFile.Location = New System.Drawing.Point(546, 353)
         Me.cmdFile.Name = "cmdFile"
         Me.cmdFile.Size = New System.Drawing.Size(100, 44)
         Me.cmdFile.TabIndex = 96
         Me.cmdFile.Text = "Print to &File"
-        Me.cmdFile.UseVisualStyleBackColor = True
+        Me.cmdFile.UseVisualStyleBackColor = False
         '
         'cmdExit
         '
+        Me.cmdExit.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdExit.Location = New System.Drawing.Point(546, 12)
         Me.cmdExit.Name = "cmdExit"
         Me.cmdExit.Size = New System.Drawing.Size(85, 57)
         Me.cmdExit.TabIndex = 97
         Me.cmdExit.Text = "&Close"
-        Me.cmdExit.UseVisualStyleBackColor = True
+        Me.cmdExit.UseVisualStyleBackColor = False
         '
         'cmdTreat
         '
+        Me.cmdTreat.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmdTreat.Location = New System.Drawing.Point(37, 165)
         Me.cmdTreat.Name = "cmdTreat"
         Me.cmdTreat.Size = New System.Drawing.Size(189, 18)
         Me.cmdTreat.TabIndex = 98
         Me.cmdTreat.Text = "Treatment Objective"
-        Me.cmdTreat.UseVisualStyleBackColor = True
+        Me.cmdTreat.UseVisualStyleBackColor = False
         '
         'GroupBox2
         '
