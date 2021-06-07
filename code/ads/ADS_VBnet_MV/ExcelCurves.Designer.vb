@@ -67,7 +67,7 @@
         Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuEdit})
         Me.MainMenu1.Location = New System.Drawing.Point(0, 0)
         Me.MainMenu1.Name = "MainMenu1"
-        Me.MainMenu1.Size = New System.Drawing.Size(592, 24)
+        Me.MainMenu1.Size = New System.Drawing.Size(796, 24)
         Me.MainMenu1.TabIndex = 2
         '
         'mnuFile
@@ -147,11 +147,15 @@
         '
         'f1bookDataGrid
         '
+        Me.f1bookDataGrid.AllowUserToOrderColumns = True
+        Me.f1bookDataGrid.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.f1bookDataGrid.ColumnHeadersHeight = 29
-        Me.f1bookDataGrid.Location = New System.Drawing.Point(12, 92)
+        Me.f1bookDataGrid.Location = New System.Drawing.Point(12, 37)
         Me.f1bookDataGrid.Name = "f1bookDataGrid"
         Me.f1bookDataGrid.RowHeadersWidth = 51
-        Me.f1bookDataGrid.Size = New System.Drawing.Size(423, 235)
+        Me.f1bookDataGrid.Size = New System.Drawing.Size(772, 511)
         Me.f1bookDataGrid.TabIndex = 0
         '
         'mnuEditItem
@@ -165,7 +169,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(592, 445)
+        Me.ClientSize = New System.Drawing.Size(796, 560)
         Me.Controls.Add(Me.f1bookDataGrid)
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default

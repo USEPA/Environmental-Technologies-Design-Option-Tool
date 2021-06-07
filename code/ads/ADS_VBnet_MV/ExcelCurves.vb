@@ -259,7 +259,7 @@ err_filesaveas:
 	Private Sub frmExcelCurves_Activated(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Activated
 		If (frmExcelCurves_loading_now) Then
 			frmExcelCurves_loading_now = False
-			Call frmExcelCurves_Resize(Me, New System.EventArgs())
+			'Call frmExcelCurves_Resize(Me, New System.EventArgs())
 		End If
 	End Sub
 	Private Sub frmExcelCurves_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
@@ -275,8 +275,8 @@ err_filesaveas:
 		'  msg = msg & NowProj.Filename
 		'End If
 		Me.Text = msg
-		Me.Width = VB6.TwipsToPixelsX(600)
-		Me.Height = VB6.TwipsToPixelsY(450)
+		'Me.Width = VB6.TwipsToPixelsX(600)
+		'Me.Height = VB6.TwipsToPixelsY(450)
 		Call CenterOnForm(Me, frmMain)
 		Me.WindowState = System.Windows.Forms.FormWindowState.Maximized 'maximized
 		frmExcelCurves_loading_now = True
@@ -290,20 +290,20 @@ err_filesaveas:
 			'CANNOT RESIZE WHEN MINIMIZED; EXIT OUTTA HERE.
 			Exit Sub
 		End If
-		If (Me.Width < 500) Then Me.Width = 500
-		If (Me.Height < 200) Then Me.Height = 200
+		'If (Me.Width < 500) Then Me.Width = 500
+		'If (Me.Height < 200) Then Me.Height = 200
 		'UPGRADE_WARNING: Couldn't resolve default property of object f1book.Left. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		XXX = VB6.PixelsToTwipsX(Me.Width) - (VB6.PixelsToTwipsX(Me.Width) - VB6.PixelsToTwipsX(Me.ClientRectangle.Width)) - 2 * f1bookDataGrid.Left
-		If (XXX < 1000) Then
-			XXX = 1000
-		End If
+		'XXX = VB6.PixelsToTwipsX(Me.Width) - (VB6.PixelsToTwipsX(Me.Width) - VB6.PixelsToTwipsX(Me.ClientRectangle.Width)) - 2 * f1bookDataGrid.Left
+		'If (XXX < 1000) Then
+		'XXX = 1000
+		'End If
 		'UPGRADE_WARNING: Couldn't resolve default property of object f1book.Width. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		f1bookDataGrid.Width = 450
+		'f1bookDataGrid.Width = 450
 		'UPGRADE_WARNING: Couldn't resolve default property of object f1book.Top. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		XXX = VB6.PixelsToTwipsY(Me.Height) - (VB6.PixelsToTwipsY(Me.Height) - VB6.PixelsToTwipsY(Me.ClientRectangle.Height)) - 2 * f1bookDataGrid.Top
+		'XXX = VB6.PixelsToTwipsY(Me.Height) - (VB6.PixelsToTwipsY(Me.Height) - VB6.PixelsToTwipsY(Me.ClientRectangle.Height)) - 2 * f1bookDataGrid.Top
 		'		If (XXX > 1000) Then
 		'UPGRADE_WARNING: Couldn't resolve default property of object f1book.Height. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
-		f1bookDataGrid.Height = 300
+		'f1bookDataGrid.Height = 300
 		'End If
 	End Sub
 	
@@ -362,4 +362,5 @@ err_mnuFileItem_Click:
 		'PROBABLY A CANCEL FROM f1book.FilePrint.
 		Resume exit_err_mnuFileItem_Click
 	End Sub
+
 End Class

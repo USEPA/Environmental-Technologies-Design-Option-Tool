@@ -87,7 +87,7 @@
         Me.cmdExit.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdExit.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdExit.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdExit.Location = New System.Drawing.Point(493, 491)
+        Me.cmdExit.Location = New System.Drawing.Point(483, 491)
         Me.cmdExit.Name = "cmdExit"
         Me.cmdExit.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdExit.Size = New System.Drawing.Size(87, 35)
@@ -115,7 +115,7 @@
         Me.cmdButton1.Cursor = System.Windows.Forms.Cursors.Default
         Me.cmdButton1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdButton1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdButton1.Location = New System.Drawing.Point(28, 491)
+        Me.cmdButton1.Location = New System.Drawing.Point(33, 491)
         Me.cmdButton1.Name = "cmdButton1"
         Me.cmdButton1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmdButton1.Size = New System.Drawing.Size(97, 35)
