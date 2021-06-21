@@ -766,7 +766,7 @@
         Me.mnuHelpItem.SetIndex(Me._mnuHelpItem_20, CType(20, Short))
         Me._mnuHelpItem_20.Name = "_mnuHelpItem_20"
         Me._mnuHelpItem_20.Size = New System.Drawing.Size(259, 22)
-        Me._mnuHelpItem_20.Text = "Online Manual ..."
+        Me._mnuHelpItem_20.Text = "Manual ..."
         '
         '_mnuHelpItem_22
         '
