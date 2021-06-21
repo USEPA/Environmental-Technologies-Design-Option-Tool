@@ -105,12 +105,12 @@ Friend Class frmModelDataComparison
 				Case 0 'Dots
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					Chart1.Series(1).ChartType = SeriesChartType.Point
-					Chart1.Series(2).ChartType = SeriesChartType.Point
+					'Chart1.Series(2).ChartType = SeriesChartType.Point
 					'grpBreak.GraphStyle = 1
 				Case 1 'Lines
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					Chart1.Series(1).ChartType = SeriesChartType.Line
-					Chart1.Series(2).ChartType = SeriesChartType.Line
+					'Chart1.Series(2).ChartType = SeriesChartType.Line
 					'grpBreak.GraphStyle = 4
 			End Select
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.DrawMode. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -474,7 +474,9 @@ Friend Class frmModelDataComparison
 
 		'---- III. Display Influent Data
 		Dim f As New Series 'third
-		f.ChartType = SeriesChartType.Point
+		f.ChartType = SeriesChartType.Line
+		f.BorderDashStyle = ChartDashStyle.Dash
+		'f.ChartType = SeriesChartType.Point
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
 		Else

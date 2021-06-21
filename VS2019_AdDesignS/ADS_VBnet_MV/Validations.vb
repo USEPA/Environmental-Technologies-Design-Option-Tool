@@ -86,7 +86,9 @@ Module Validations
 			Exit Sub
 		End If
 		If (New_TimeStep < ((New_LastPoint - New_FirstPoint) / (Number_Points_Max - 1))) Then
-			ForceAbort = True
+			'set timestep to max value
+			TimeP.Step_Renamed = (New_LastPoint - New_FirstPoint) / (Number_Points_Max - 1)
+			'ForceAbort = True
 			Call Show_Error("The time step is too small.  The maximum " & "number of points is " & Trim(Str(Number_Points_Max)) & ".")
 			Exit Sub
 		End If
