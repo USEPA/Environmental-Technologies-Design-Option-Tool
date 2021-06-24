@@ -1,0 +1,71 @@
+Input data for the Constant Pattern Model
+
+From Data File :            
+
+Chemical:New Component
+    Molecular weight:      131.39 g/mol
+    Normal Boiling Point:  87.00 C
+    Molar Volume @ NBP:    1.02E+02 cm³/mol
+    Initial Concentration: 50.00 mg/L
+    K:                     98.000 (mg/g)(L/mg)^(1/n)
+    1/n:                   0.430
+
+Bed Data:
+    Bed Length:            2.765E+00 m
+    Bed Diameter:          3.048E+00 m
+    Weight of GAC:         9.072E+03 kg
+    Inlet Flowrate:        3.577E-02 m³/s
+    EBCT:                  9.400E+00 mn
+
+    Temperature:           15.00 C
+    Water Density:         0.9992 g/cm³
+    Water Viscosity:       1.15E-02 g/cm.s
+
+Carbon Properties:
+    Name:                  Calgon F 400
+    Apparent Density:      0.803 g/cm³
+    Particle Radius:       0.051300 cm
+    Porosity:              0.641
+    Shape Factor:          1.000
+
+Kinetic parameters:
+    kf                     3.39E-03 cm/s
+    Ds                     2.81E-09 cm²/s
+    SPDFR                  5.00
+    St                     20.88
+    Eds                    2.85
+
+Fouling correlations:
+
+
+ Water type : Organic Free Water
+K(t)/K0 = 1.00
+(t in minutes)
+
+New Component:
+         Correlation type: 
+         K/K0 = K/K0
+
+
+Constant Pattern Model Results for New Component:
+
+Minimum Stanton number:      5.04
+Minimum EBCT:                2.27 min
+Minimum Column Length:       66.76 cm
+Throughput at 95% of the MTZ:1.56
+Throughput at 5% of the MTZ: 0.64
+EBCT of the MTZ:             2.07 min
+Length of the MTZ:           60.90 cm
+
+                             Time(days)BVT       TC        C (mg/L)
+5% of the influent conc.     28.29     4.33E+03  9.64      2.50
+50% of the influent conc.    30.60     4.69E+03  10.43     25.00
+95% of the influent conc.    35.10     5.38E+03  11.96     47.50
+
+TC (Treatment Capacity) is in m³  / kg of GAC
+
+Treatment Objective: 2.50 mg/L
+
+Time (days):       28.29
+BVT:               4.33E+03
+Tr. Capacity:      9.64

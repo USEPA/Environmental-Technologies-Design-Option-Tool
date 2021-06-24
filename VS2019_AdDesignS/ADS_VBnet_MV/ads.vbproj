@@ -1,0 +1,682 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3AA4DF54-4D9D-4D15-88F1-AA9F9463455E}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>AdDesignS_Proj</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>AdDesignS_Proj.MainProgram</StartupObject>
+    <AssemblyMajorVersion>1</AssemblyMajorVersion>
+    <AssemblyMinorVersion>0</AssemblyMinorVersion>
+    <AssemblyRevisionNumber>45</AssemblyRevisionNumber>
+    <GenerateRevisionNumber>False</GenerateRevisionNumber>
+    <AssemblyCompanyName>CenCITT</AssemblyCompanyName>
+    <StartWithIE>False</StartWithIE>
+    <ApplicationIcon>ads.ico</ApplicationIcon>
+    <RootNamespace>AdDesignS_Proj</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\bin\</OutputPath>
+    <DocumentationFile>AdDesignS_Proj.xml</DocumentationFile>
+    <DebugSymbols>True</DebugSymbols>
+    <DefineDebug>True</DefineDebug>
+    <DefineTrace>True</DefineTrace>
+    <DefineConstants>Win32=True</DefineConstants>
+    <PlatformTarget>x86</PlatformTarget>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\bin\</OutputPath>
+    <DocumentationFile>AdDesignS_Proj.xml</DocumentationFile>
+    <DebugSymbols>False</DebugSymbols>
+    <DefineDebug>False</DefineDebug>
+    <DefineTrace>True</DefineTrace>
+    <DefineConstants>Win32=True</DefineConstants>
+    <PlatformTarget>x86</PlatformTarget>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>Win32=True</DefineConstants>
+    <DocumentationFile>AdDesignS_Proj.xml</DocumentationFile>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>Win32=True</DefineConstants>
+    <DocumentationFile>AdDesignS_Proj.xml</DocumentationFile>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.GraphLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AxInterop.GraphLib.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.MSComDlg, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AxInterop.MSComDlg.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.Spin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AxInterop.Spin.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.Threed">
+      <HintPath>bin\AxInterop.Threed.dll</HintPath>
+    </Reference>
+    <Reference Include="dao, Version=10.0.4504.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.GraphLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Interop.GraphLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.MSComDlg, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Interop.MSComDlg.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Spin, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Interop.Spin.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Threed, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Interop.Threed.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.Compatibility">
+      <Name>Microsoft.VisualBasic.Compatibility</Name>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks">
+      <Name>Microsoft.VisualBasic.PowerPacks</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.XML">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="VCIF1Lib">
+      <HintPath>obj\Debug\VCIF1Lib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="AdDesignS_Proj" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="Microsoft.VisualBasic.Compatibility" />
+    <Import Include="MSComDlg" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="Threed" />
+    <Import Include="VCIF1Lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>About.vb</DependentUpon>
+    </Compile>
+    <Compile Include="About.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb" />
+    <Compile Include="CompoProp.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>CompoProp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CompoProp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Correlations.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CorrelationsDimless.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataEntry.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Demo.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>Demo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Demo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dimensionless.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>Dimensionless.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dimensionless.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAdsorber.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>EditAdsorber.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditAdsorber.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAdsorberData.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>EditAdsorberData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditAdsorberData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCarbon.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>EditCarbon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditCarbon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCarbonData.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>EditCarbonData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditCarbonData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditIsotherm.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>EditIsotherm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditIsotherm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditIsothermCAS.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>EditIsothermCAS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditIsothermCAS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditIsothermData.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>EditIsothermData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditIsothermData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExcelCurves.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>ExcelCurves.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelCurves.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileIO.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileIO_LatestMDB.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileIO_Legacy.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileIO_Legacy2.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileNote.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>FileNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FileNote.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FluidProps.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>FluidProps.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FluidProps.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FortranLink.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fouling.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>Fouling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Fouling.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoulingCompoundDatabase.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>FoulingCompoundDatabase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FoulingCompoundDatabase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoulingWaterDatabase.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>FoulingWaterDatabase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FoulingWaterDatabase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Freundlich.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>Freundlich.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Freundlich.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmabout.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>frmabout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmabout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Go_away.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>Go_away.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Go_away.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridFunc.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="inifiles.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InputParamsPSDMInRoom.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>InputParamsPSDMInRoom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InputParamsPSDMInRoom.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kinetic.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>Kinetic.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Kinetic.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaunchFileVia.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="licdata.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main_bas.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Main_frm.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>Main_frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main_frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdb_stuff.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="miscui.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelCPHSDM.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelCPHSDMResults.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>ModelCPHSDMResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCPHSDMResults.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModelDataComparison.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>ModelDataComparison.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModelDataComparison.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModelECM.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelECMResults.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>ModelECMResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModelECMResults.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModelIPE.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelIPEResults.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>ModelIPEResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModelIPEResults.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModelPSDM.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelPSDMInRoom.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelPSDMResults.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>ModelPSDMResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPSDMResults.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Polanyi.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>Polanyi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Polanyi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintInputs.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>PrintInputs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintInputs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintScreen.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Refresh.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="splash.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>splash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StEPP_Clipboard.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Structs.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Structs2.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StructsDo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Structs_PSDMInRoom.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TimeVarGrid.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>TimeVarGrid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TimeVarGrid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="unitsys0.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="units_local.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Validations.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VarConcentrations.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>VarConcentrations.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VarConcentrations.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_NewName.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>_NewName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="_NewName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="About.resX">
+      <DependentUpon>About.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompoProp.resX">
+      <DependentUpon>CompoProp.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo.resX">
+      <DependentUpon>Demo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dimensionless.resX">
+      <DependentUpon>Dimensionless.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAdsorber.resX">
+      <DependentUpon>EditAdsorber.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAdsorberData.resX">
+      <DependentUpon>EditAdsorberData.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCarbon.resX">
+      <DependentUpon>EditCarbon.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCarbonData.resX">
+      <DependentUpon>EditCarbonData.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditIsotherm.resX">
+      <DependentUpon>EditIsotherm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditIsothermCAS.resX">
+      <DependentUpon>EditIsothermCAS.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditIsothermData.resX">
+      <DependentUpon>EditIsothermData.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExcelCurves.resX">
+      <DependentUpon>ExcelCurves.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileNote.resX">
+      <DependentUpon>FileNote.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FluidProps.resX">
+      <DependentUpon>FluidProps.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fouling.resX">
+      <DependentUpon>Fouling.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoulingCompoundDatabase.resX">
+      <DependentUpon>FoulingCompoundDatabase.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoulingWaterDatabase.resX">
+      <DependentUpon>FoulingWaterDatabase.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Freundlich.resX">
+      <DependentUpon>Freundlich.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmabout.resX">
+      <DependentUpon>frmabout.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Go_away.resX">
+      <DependentUpon>Go_away.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputParamsPSDMInRoom.resX">
+      <DependentUpon>InputParamsPSDMInRoom.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kinetic.resX">
+      <DependentUpon>Kinetic.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_frm.resX">
+      <DependentUpon>Main_frm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModelCPHSDMResults.resX">
+      <DependentUpon>ModelCPHSDMResults.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModelDataComparison.resX">
+      <DependentUpon>ModelDataComparison.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModelECMResults.resX">
+      <DependentUpon>ModelECMResults.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModelIPEResults.resX">
+      <DependentUpon>ModelIPEResults.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModelPSDMResults.resX">
+      <DependentUpon>ModelPSDMResults.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polanyi.resX">
+      <DependentUpon>Polanyi.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintInputs.resX">
+      <DependentUpon>PrintInputs.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="splash.resX">
+      <DependentUpon>splash.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeVarGrid.resX">
+      <DependentUpon>TimeVarGrid.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VarConcentrations.resX">
+      <DependentUpon>VarConcentrations.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_NewName.resX">
+      <DependentUpon>_NewName.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="ads.ico" />
+    <None Include="_UpgradeReport.htm">
+      <SubType>Preview</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

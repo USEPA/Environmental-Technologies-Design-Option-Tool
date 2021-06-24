@@ -1,5 +1,0 @@
-The cab file for your application has been built as 'X:\etdot10\code\ads\vb6\install_notes\981109_first_vb6_setupwiz\ads.CAB'.
-
-There is also a batch file in the support directory (X:\etdot10\code\ads\vb6\install_notes\981109_first_vb6_setupwiz\Support\ads.BAT) that will allow you to recreate the cab file in case you make changes to some of the files.
-
-You have included mdac_typ.exe in your installation package.  If you will be installing this package on a Windows 95/98 system, it will require DCOM98 to install properly.

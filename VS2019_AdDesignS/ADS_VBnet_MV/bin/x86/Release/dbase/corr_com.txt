@@ -1,0 +1,9 @@
+8
+"Trihalomethanes",1,0
+"Aromatics",0.9,0.1
+"Nitro Compounds",0.75,0.25
+"Chlorinated Hydrocarbons",0.59,0.41
+"Acids",0.65,0.35
+"PNAs",0.32,0.68
+"Pesticides",0,0.05
+"New Compound Correlation",1,0

@@ -1,0 +1,50 @@
+Input data for the Equilibrium Colum Model
+
+From Data File : 
+Date/time stamp: 05-28-2021 16:38:11
+
+Component                    K*      1/n    Init. Conc.   MW
+                                      -        mg/L      g/mol
+New Component               98.000  0.430      50.00     131.39
+
+* K in (mg/g)*(L/mg)^(1/n)
+
+Bed Data:
+    Bed Length:            2.765E+00 m
+    Bed Diameter:          3.048E+00 m
+    Weight of GAC:         9.072E+03 kg
+    Inlet Flowrate:        3.577E-02 m³/s
+    EBCT:                  9.400E+00 mn
+
+    Temperature:           15.00 C
+    Water Density:         0.9992 g/cm³
+    Water Viscosity:       1.15E-02 g/cm.s
+
+Carbon Properties:
+    Name:                  Calgon F 400
+    Apparent Density:      0.803 g/cm³
+    Particle Radius:       0.051300 cm
+    Porosity:              0.641
+    Shape Factor:          1.000
+
+
+Results for the Equilibrium Column Model
+
+Zone    Component                 BVF      Wave Vel. TC       Breakthrough
+                                            cm/s     m3/kg    days
+Zone 1  New Component             4.74E+03  1.03E-04 10.54    30.94
+
+TC (Treatment Capacity) is in m³  / kg of GAC
+
+New Component
+Zone    C/Co      C (mg/L)  Q (mg/L)
+Zone 1  1.00      50.00     5.27E+02
+
+
+
+Mass Balance Results
+
+Component                    Percent Err.
+                             (%)
+New Component                3.679E-04
+

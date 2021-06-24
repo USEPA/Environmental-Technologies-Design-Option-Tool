@@ -1,0 +1,129 @@
+1234567890:START_OF_STEPP_CLIPBOARD_EXPORT
+Operating Pressure, Pa
+101325
+Operating Pressure, degC
+10
+Number Components On Clipboard
+4
+Chemical Name, -
+TOLUENE
+Chemical CAS, -
+108883
+VaporPressure, Pa
+1.66E+03
+ActivityCoefficient, -
+1.32E+04
+HenrysConstant, -
+0.167
+MolecularWeight, kg/kmol
+92.14
+NormalBoilingPoint, C
+111
+LiquidDensity, kg/m3
+878
+MolarVolumeAtOpT, m3/kmol
+0.105
+MolarVolumeAtNBP, m3/kmol
+0.119
+RefractiveIndex, -
+1.4940
+AqueousSolubility, PPMw
+419
+LogKOW, -
+2.81
+LiquidDiffusivity, m2/s
+5.86E-10
+GasDiffusivity, m2/s
+7.57E-06
+Chemical Name, -
+1,1,1-TRICHLOROETHANE
+Chemical CAS, -
+71556
+VaporPressure, Pa
+8.23E+03
+ActivityCoefficient, -
+6.34E+03
+HenrysConstant, -
+0.410
+MolecularWeight, kg/kmol
+133.40
+NormalBoilingPoint, C
+74.1
+LiquidDensity, kg/m3
+1.35E+03
+MolarVolumeAtOpT, m3/kmol
+0.0985
+MolarVolumeAtNBP, m3/kmol
+0.109
+RefractiveIndex, -
+1.4313
+AqueousSolubility, PPMw
+2.11E+03
+LogKOW, -
+2.60
+LiquidDiffusivity, m2/s
+6.19E-10
+GasDiffusivity, m2/s
+7.73E-06
+Chemical Name, -
+TRICHLOROETHYLENE
+Chemical CAS, -
+79016
+VaporPressure, Pa
+4.69E+03
+ActivityCoefficient, -
+8.12E+03
+HenrysConstant, -
+0.230
+MolecularWeight, kg/kmol
+131.39
+NormalBoilingPoint, C
+87.0
+LiquidDensity, kg/m3
+1.48E+03
+MolarVolumeAtOpT, m3/kmol
+0.0886
+MolarVolumeAtNBP, m3/kmol
+0.102
+RefractiveIndex, -
+1.4750
+AqueousSolubility, PPMw
+821
+LogKOW, -
+2.38
+LiquidDiffusivity, m2/s
+6.44E-10
+GasDiffusivity, m2/s
+7.89E-06
+Chemical Name, -
+TETRACHLOROETHYLENE
+Chemical CAS, -
+127184
+VaporPressure, Pa
+1.06E+03
+ActivityCoefficient, -
+4.18E+04
+HenrysConstant, -
+0.361
+MolecularWeight, kg/kmol
+165.83
+NormalBoilingPoint, C
+121
+LiquidDensity, kg/m3
+1.64E+03
+MolarVolumeAtOpT, m3/kmol
+0.101
+MolarVolumeAtNBP, m3/kmol
+0.119
+RefractiveIndex, -
+1.5055
+AqueousSolubility, PPMw
+66.0
+LogKOW, -
+2.60
+LiquidDiffusivity, m2/s
+5.86E-10
+GasDiffusivity, m2/s
+7.13E-06
+1234567890:END_OF_STEPP_CLIPBOARD_EXPORT
+
