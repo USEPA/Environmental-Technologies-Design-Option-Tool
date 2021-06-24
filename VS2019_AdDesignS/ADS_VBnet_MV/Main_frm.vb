@@ -3,15 +3,15 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmMain
 	Inherits System.Windows.Forms.Form
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	Const frmMain_declarations_end As Boolean = True
-	
-	
+
+
 	Sub frmMain_Reset_DemoVersionDisablings()
 		If (IsThisADemo() = True) Then
 			mnuFileItem(0).Enabled = False
@@ -28,14 +28,14 @@ Friend Class frmMain
 			cmdADEComponent(1).Enabled = False
 		End If
 	End Sub
-	
-	
+
+
 	Sub Avoid_Weird_Focus_Problem()
 		Call unitsys_control_MostRecent_Force_lostfocus()
 		Me.lstComponents.Focus()
 	End Sub
-	
-	
+
+
 	Sub Populate_frmMain_Units()
 		'  'Fixed Bed Properties:
 		'  Call Populate_Length_Units(txtBedUnits(0), LENGTH_M)
@@ -50,14 +50,14 @@ Friend Class frmMain
 		'  'Adsorbent Properties:
 		'  Call Populate_Density_Units(txtCarbonUnits(1), APPARENT_DENSITY_G_per_ML)
 		'  Call Populate_Length_Units(txtCarbonUnits(2), LENGTH_M)
-		
+
 		'WATER/AIR PROPERTIES.
-		Call unitsys_register(Me, lblWater(1), txtWater(1), Nothing, "", "", "", "", "", 100#, False)
-		Call unitsys_register(Me, lblWater(0), txtWater(0), Nothing, "", "", "", "", "", 100#, False)
+		Call unitsys_register(Me, lblWater(1), txtWater(1), Nothing, "", "", "", "", "", 100.0#, False)
+		Call unitsys_register(Me, lblWater(0), txtWater(0), Nothing, "", "", "", "", "", 100.0#, False)
 		'PSDM PARAMETERS.
-		Call unitsys_register(Me, lblTime(0), txtTime(0), txtTimeUnits(0), "time", "d", "min", "", "", 100#, True)
-		Call unitsys_register(Me, lblTime(1), txtTime(1), txtTimeUnits(1), "time", "d", "min", "", "", 100#, True)
-		Call unitsys_register(Me, lblTime(2), txtTime(2), txtTimeUnits(2), "time", "d", "min", "", "", 100#, True)
+		Call unitsys_register(Me, lblTime(0), txtTime(0), txtTimeUnits(0), "time", "d", "min", "", "", 100.0#, True)
+		Call unitsys_register(Me, lblTime(1), txtTime(1), txtTimeUnits(1), "time", "d", "min", "", "", 100.0#, True)
+		Call unitsys_register(Me, lblTime(2), txtTime(2), txtTimeUnits(2), "time", "d", "min", "", "", 100.0#, True)
 		'unitsys w/ the spinners changed
 		Call unitsys_register(Me, lblAxialElementsDesc, NumericUpDown1, Nothing, "", "", "", "0", "0", 100.0#, False)
 		Call unitsys_register(Me, lblText(0), NumericUpDown2, Nothing, "", "", "", "0", "0", 100.0#, False)
@@ -1358,7 +1358,7 @@ Friend Class frmMain
 				'  frmPrint.Show 1
 			Case 191 To 194 'Last-few-files list
 				If (file_query_unload()) Then
-					If (mnuFileItem(Index).Visible) Then
+					If (True) Then
 						Call File_OpenAs(OldFiles(1, Index - 190))
 					End If
 				End If
