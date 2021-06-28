@@ -1684,6 +1684,7 @@
         Me._txtTime_2.BackColor = System.Drawing.SystemColors.Window
         Me._txtTime_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me._txtTime_2.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me._txtTime_2.Enabled = False
         Me._txtTime_2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._txtTime_2.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtTime.SetIndex(Me._txtTime_2, CType(2, Short))
