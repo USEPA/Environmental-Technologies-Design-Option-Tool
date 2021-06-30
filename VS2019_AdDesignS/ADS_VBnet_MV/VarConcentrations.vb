@@ -480,6 +480,10 @@ NoInfluent_Conc:
 		Call cmdOK_Click()
 	End Sub
 
+	Private Sub Sheet1DataGrid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Sheet1DataGrid.CellContentClick
+
+	End Sub
+
 	'UPGRADE_WARNING: Form event frmVarConcentrations.Activate has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6BA9B8D2-2A32-4B6E-8D36-44949974A5B4"'
 	Private Sub frmVarConcentrations_Activated(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Activated
 		'UPGRADE_WARNING: Couldn't resolve default property of object Sheet1.SetFocus. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
