@@ -2290,7 +2290,6 @@
         Me.Name = "frmMain"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "{Caption set in Form_Load}"
         Me.MainMenu1.ResumeLayout(False)
         Me.MainMenu1.PerformLayout()
         CType(Me.Picture1, System.ComponentModel.ISupportInitialize).EndInit()
