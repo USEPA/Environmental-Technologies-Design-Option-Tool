@@ -137,9 +137,9 @@ Friend Class frmFouling
 				End If
 				'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				chkUse(Index).Checked = False
-					Exit Sub
-				End If
+				Exit Sub
 			End If
+		End If
 	End Sub
 
 
