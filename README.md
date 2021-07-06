@@ -35,6 +35,8 @@ The United States Environmental Protection Agency (EPA) GitHub project code is p
 
 # Installation Instructions
 
+## ETDOT Suite
+
 This software requires *Administrator Rights* to a computer to install and to run. Files are installed directly to a folder X:\ETDOT10\... where X is the system main drive.
 
 1. Download zip file ('etdot_1-0.zip') under [Releases](https://github.com/USEPA/Environmental-Technologies-Design-Option-Tool/releases/tag/1.0).
