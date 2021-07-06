@@ -10,6 +10,10 @@ Version 1.0: Copyright 1994–2005
 * Tony N. Rogers
 * Eric J. Oman
 
+Version 1.0.50 - Updated AdDesignS
+* Michael Verma
+* Feng Shang
+
 This GitHub repository includes FORTRAN and VisualBasic Code associated with the suite of programs distributed within ETDOT.
 
 Software that is included:
