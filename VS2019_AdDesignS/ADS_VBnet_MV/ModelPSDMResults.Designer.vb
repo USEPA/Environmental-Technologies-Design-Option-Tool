@@ -591,7 +591,7 @@
         Me.Label2.Location = New System.Drawing.Point(279, 34)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label2.Size = New System.Drawing.Size(175, 20)
+        Me.Label2.Size = New System.Drawing.Size(165, 20)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Length of the MTZ (cm):"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight

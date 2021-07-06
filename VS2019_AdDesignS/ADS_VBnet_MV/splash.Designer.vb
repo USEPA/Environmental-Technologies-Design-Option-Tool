@@ -330,7 +330,7 @@
         Me.Name = "frmSplash"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Program Information"
+        Me.Text = "AdDesignS"
         CType(_picLogos_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblCompany, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lblVersionInfo, System.ComponentModel.ISupportInitialize).EndInit()
