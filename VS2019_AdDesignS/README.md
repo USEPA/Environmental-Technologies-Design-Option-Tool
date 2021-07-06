@@ -25,9 +25,9 @@ Adsorption Design Software for Windows (AdDesignS) Version 1.0.50
 * AdDesignS_Proj.exe - Compiled from Visual Studio
 
 DLLs: - In main running folder
-*AxInterop.Threed.dll
-*Interop.Threed.dll
-*Microsoft.VisualBasic.PowerPacks.dll
+* AxInterop.Threed.dll
+* Interop.Threed.dll
+* Microsoft.VisualBasic.PowerPacks.dll
 
 DBASE: - in dbase subfolder
 * 4gacliq.exp
