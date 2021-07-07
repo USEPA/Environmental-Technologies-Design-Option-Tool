@@ -10,6 +10,10 @@ Version 1.0: Copyright 1994–2005
 * Tony N. Rogers
 * Eric J. Oman
 
+Version 1.0.50 - Updated AdDesignS
+* Michael Verma
+* Feng Shang
+
 This GitHub repository includes FORTRAN and VisualBasic Code associated with the suite of programs distributed within ETDOT.
 
 Software that is included:
@@ -34,6 +38,16 @@ The United States Environmental Protection Agency (EPA) GitHub project code is p
 
 
 # Installation Instructions
+## AdDesignS - Updated Version
+The updated version of AdDesignS can be run without installation and is compatible with Windows 10.
+
+1. Download zip file ('AdDesignS_updated.zip') under [Releases](https://github.com/USEPA/Environmental-Technologies-Design-Option-Tool/releases/tag/1.0.50).
+2. Unzip/Unpack zip file to desired location. Select an easily accesible location, as this will be the location where executables will be accessed when needed. 
+3. Navigate to unzipped folder. 
+4. Select "ads.exe" to run AdDesignS
+5. If desired, users can select "Create Shortcut" by right-clicking on 'ads.exe'. A shortcut file will be created in that folder, and users can move this to the Desktop or into another location for more convenient access.
+
+## ETDOT Suite
 
 This software requires *Administrator Rights* to a computer to install and to run. Files are installed directly to a folder X:\ETDOT10\... where X is the system main drive.
 

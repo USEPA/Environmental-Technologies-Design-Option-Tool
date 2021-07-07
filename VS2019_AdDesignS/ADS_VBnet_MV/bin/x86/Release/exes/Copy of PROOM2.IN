@@ -1,0 +1,51 @@
+0                          NOTE1: 
+0                          NOTE2: 
+0                          NOTE3: 
+0                          NOTE4: 
+---------------------------------------------------------------------------
+0.031750063500127          ADS_PROP(1), length, m
+0.45745491490983           ADS_PROP(2), diameter, m
+1.2                        ADS_PROP(3), weight of adsorbent, kg
+0.106665345207587          ADS_PROP(4), influent flow rate, m^3/s
+0.6                        C_PROP(1), void fraction of particle, -
+0.803                      C_PROP(2), apparent density, g/cm^3
+0.245                      C_PROP(3), particle radius, cm
+16                         MXX: number of axial collocation points
+7                          NXX: number of radial collocation points
+1                          NUMB: number of chemicals
+0                          NINI: number of influent points
+1                          NUMBED: current axial element number in series to simulate
+1                          BEDSIMTYPE: 0=simulate only this axial element, 1=simulate NUMBED number of axial elements all at once
+0                          ISDBUG: debug setting, 0=no debugging
+100                        TT(1), time to end simulation, min
+0.0001                     TT(2), time to begin simulation, min
+0.3                        TT(3), time step, min
+---------------------------------------------------------------------------
+1                          IS_IN_ROOM: equal to 1 if the filter is within a room (treated as a CSTR); extra parameters below if equal to 1.
+31546100                   ROOM_VOL, volume of room, cm^3
+31546100                   ROOM_FLOWRATE, volumetric flow through room, cm^3/s
+0                          ROOM_C0(1), component #1 concentration influent to room, ug/L
+0                          ROOM_EMIT(1), component #1 emission rate in room, ug/s
+"proom_massbal.out"        FN_MASSBAL_OUT, filename of mass balance output file
+"proom_cr.out"             FN_CR_OUT, filename of room concentration vs time output file
+"proom_cb.out"             FN_CB_OUT, filename of bed effluent concentration vs time output file
+---------------------------------------------------------------------------
+30.03                      CHEMICALS(1,1), molecular weight, g/gmol
+1                          CHEMICALS(1,2), influent concentration, ug/L
+36.9                       CHEMICALS(1,3), molar volume, cm^3/gmol
+45.4990083113048           CHEMICALS(1,4), Freundlich K, (umol/g)*(L/umol)^(1/n)
+0.1                        CHEMICALS(1,5), Freundlich 1/n, dimless
+2.64850383182624           CHEMICALS(1,6), film transfer coefficient (kf), cm/s 
+1.30032578624896E-27       CHEMICALS(1,7), surface diffusion coefficient (Ds), cm^2/s
+0.169206950980607          CHEMICALS(1,8), pore diffusion coefficient (Dp), cm^2/s
+1                          CHEMICALS(1,9) = RK1(1), fouling correlation coef. #1, dimless
+0                          CHEMICALS(1,10) = RK2(1), fouling correlation coef. #2, 1/min
+0                          CHEMICALS(1,11) = RK3(1), fouling correlation coef. #3, dimless
+0                          CHEMICALS(1,12) = RK4(1), fouling correlation coef. #4, 1/min
+1                          CHEMICALS(1,13) = TORTU(1), tortuosity (never used?), dimless
+2                          CHEMICALS(1,14) = TOR(1), tortuosity coef., dimless
+0                          CHEMICALS(1,15) = PART(1), part. coef., dimless
+100000                     CHEMICALS(1,16) = TTORTU(1), time parameter, min
+1.23                       INITIAL_ROOM_CONC(1), initial concentration in room, ug/L
+---------------------------------------------------------------------------
+123456                     EOFTESTMARKER
