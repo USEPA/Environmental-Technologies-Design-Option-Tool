@@ -1020,7 +1020,7 @@ Exit_Select_Print:
 		Dim temp, Tr_Obj As Double
 		Dim J, i As Short
 
-		Objective = InputBox("Enter your treatment objective in mg/L for " & Trim(Results.Component(cboCompo.SelectedIndex + 1).Name) & ":", AppName_For_Display_Long, lblData(9).Text)
+		Objective = InputBox("Enter your treatment objective in mg/L for " & Trim(Results.Component(cboCompo.SelectedIndex + 1).Name) & ":", AppName_For_Display_Long, lblData(15).Text)
 		On Error GoTo Bad_Treament_Objective
 		temp = CDbl(Objective)
 		i = cboCompo.SelectedIndex + 1
