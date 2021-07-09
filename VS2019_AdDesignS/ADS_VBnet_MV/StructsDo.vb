@@ -150,7 +150,8 @@ Module StructsDo
 		Filename = ""
 		frmMain.Text = AppName_For_Display_Short & "  -  (Untitled)"
 		FileNote = ""
-		
+
+
 		'Set Default PFPSDM Simulation Data:
 		Number_Influent_Points = 0
 		MC = 8
