@@ -31,7 +31,7 @@
     Public WithEvents _lblWarning_2 As System.Windows.Forms.Label
     Public WithEvents _lblWarning_1 As System.Windows.Forms.Label
     Public WithEvents _lblWarning_0 As System.Windows.Forms.Label
-    Public WithEvents Line1 As Microsoft.VisualBasic.PowerPacks.LineShape
+    ' Public WithEvents Line1 As Microsoft.VisualBasic.PowerPacks.LineShape
     Public WithEvents _lbldesc_0 As System.Windows.Forms.Label
     Public WithEvents _lblVersionInfo_4 As System.Windows.Forms.Label
     Public WithEvents _lblVersionInfo_3 As System.Windows.Forms.Label
@@ -51,7 +51,6 @@
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAbout))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.Line1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.cmdLaunchWebSite = New System.Windows.Forms.Button()
         Me.cmdOK = New System.Windows.Forms.Button()
         Me.picIcon = New System.Windows.Forms.PictureBox()
@@ -89,20 +88,9 @@
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.Line1})
         Me.ShapeContainer1.Size = New System.Drawing.Size(650, 446)
         Me.ShapeContainer1.TabIndex = 22
         Me.ShapeContainer1.TabStop = False
-        '
-        'Line1
-        '
-        Me.Line1.BorderColor = System.Drawing.SystemColors.WindowText
-        Me.Line1.BorderWidth = 2
-        Me.Line1.Name = "Line1"
-        Me.Line1.X1 = 4
-        Me.Line1.X2 = 370
-        Me.Line1.Y1 = 206
-        Me.Line1.Y2 = 206
         '
         'cmdLaunchWebSite
         '
@@ -443,6 +431,7 @@
         Me.Location = New System.Drawing.Point(52, 214)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(666, 485)
         Me.Name = "frmAbout"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

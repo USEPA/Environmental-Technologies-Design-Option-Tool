@@ -111,6 +111,7 @@ Public Class Resizer
                         '-- Get the current control's info from the control info dictionary
                         If ctl.Name = "" Then
                             ret = False
+                            'class had problem with confusing names that were "", normally parts of larger object
                             ' ret = ctrlDict.TryGetValue(ctl.Parent.Name, c)
                         Else
                             ret = ctrlDict.TryGetValue(ctl.Name, c)
