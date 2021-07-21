@@ -2101,32 +2101,35 @@
         '
         'NumericUpDown1
         '
+        Me.NumericUpDown1.Font = New System.Drawing.Font("Courier New", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown1.Location = New System.Drawing.Point(171, 90)
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(116, 20)
+        Me.NumericUpDown1.Size = New System.Drawing.Size(116, 21)
         Me.NumericUpDown1.TabIndex = 5
         Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'NumericUpDown2
         '
+        Me.NumericUpDown2.Font = New System.Drawing.Font("Courier New", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown2.Location = New System.Drawing.Point(142, 22)
         Me.NumericUpDown2.Maximum = New Decimal(New Integer() {18, 0, 0, 0})
         Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(82, 20)
+        Me.NumericUpDown2.Size = New System.Drawing.Size(82, 21)
         Me.NumericUpDown2.TabIndex = 6
         Me.NumericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.NumericUpDown2.Value = New Decimal(New Integer() {8, 0, 0, 0})
         '
         'NumericUpDown3
         '
+        Me.NumericUpDown3.Font = New System.Drawing.Font("Courier New", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumericUpDown3.Location = New System.Drawing.Point(142, 41)
         Me.NumericUpDown3.Maximum = New Decimal(New Integer() {18, 0, 0, 0})
         Me.NumericUpDown3.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
-        Me.NumericUpDown3.Size = New System.Drawing.Size(82, 20)
+        Me.NumericUpDown3.Size = New System.Drawing.Size(82, 21)
         Me.NumericUpDown3.TabIndex = 7
         Me.NumericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.NumericUpDown3.Value = New Decimal(New Integer() {3, 0, 0, 0})
@@ -2283,7 +2286,6 @@
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Location = New System.Drawing.Point(116, 144)
         Me.MaximizeBox = False
