@@ -711,7 +711,6 @@
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Location = New System.Drawing.Point(28, 83)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(682, 503)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(682, 503)
         Me.Name = "frmEditCarbon"
