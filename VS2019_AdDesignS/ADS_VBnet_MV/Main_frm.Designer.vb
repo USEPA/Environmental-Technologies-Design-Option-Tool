@@ -2092,8 +2092,9 @@
         '
         Me.ToolStripStatusLabelStatus.AutoSize = False
         Me.ToolStripStatusLabelStatus.Name = "ToolStripStatusLabelStatus"
-        Me.ToolStripStatusLabelStatus.Size = New System.Drawing.Size(400, 17)
+        Me.ToolStripStatusLabelStatus.Size = New System.Drawing.Size(1500, 17)
         Me.ToolStripStatusLabelStatus.Text = "ToolStripStatusLabelStatus"
+        Me.ToolStripStatusLabelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'OpenFileDialog1
         '

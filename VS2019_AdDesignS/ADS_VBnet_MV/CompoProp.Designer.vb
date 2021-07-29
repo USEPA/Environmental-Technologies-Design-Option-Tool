@@ -861,6 +861,7 @@
         'DirtyLabel
         '
         Me.DirtyLabel.AutoSize = False
+        Me.DirtyLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DirtyLabel.Name = "DirtyLabel"
         Me.DirtyLabel.Size = New System.Drawing.Size(90, 17)
         Me.DirtyLabel.Text = "DirtyLabel"
@@ -868,9 +869,12 @@
         'StatusLabel
         '
         Me.StatusLabel.AutoSize = False
+        Me.StatusLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StatusLabel.Name = "StatusLabel"
-        Me.StatusLabel.Size = New System.Drawing.Size(400, 17)
+        Me.StatusLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always
+        Me.StatusLabel.Size = New System.Drawing.Size(475, 17)
         Me.StatusLabel.Text = "StatusLabel"
+        Me.StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'frmCompoProp
         '
