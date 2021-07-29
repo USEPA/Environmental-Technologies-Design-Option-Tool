@@ -2,7 +2,9 @@ Option Strict Off
 Option Explicit On
 Friend Class frmFoulingCompoundDatabase
 	Inherits System.Windows.Forms.Form
-	
+
+	Dim rs As New Resizer
+
 	'UPGRADE_WARNING: Array Local_Correlation may need to have individual elements initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="B97B714D-9338-48AC-B03F-345B617E2B02"'
 	Dim Local_Correlation(Max_Number_Correlation_Compo) As Correlation_Compound_Type
 
@@ -306,6 +308,9 @@ Exit_Here:
 	
 	
 	Private Sub frmFoulingCompoundDatabase_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+
+		rs.FindAllControls(Me)
+
 		Dim i, j As Short
 		Call CenterOnForm(Me, frmFouling)
 		i = False
@@ -506,5 +511,9 @@ Exit_Here:
 
 	Private Sub CancelEdit_Click(sender As Object, e As EventArgs) Handles _cmdRecord_4.Click
 		Call cmdRecord_Click(4)
+	End Sub
+
+	Private Sub frmFoulingCompoundDatabase_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
 	End Sub
 End Class

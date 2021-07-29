@@ -852,7 +852,7 @@
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirtyLabel, Me.StatusLabel})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 511)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 534)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(581, 22)
         Me.StatusStrip1.TabIndex = 74
@@ -877,7 +877,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(581, 533)
+        Me.ClientSize = New System.Drawing.Size(581, 556)
         Me.ControlBox = False
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.steppframe)
@@ -928,8 +928,6 @@
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Location = New System.Drawing.Point(30, 70)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(597, 572)
         Me.Name = "frmCompoProp"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No

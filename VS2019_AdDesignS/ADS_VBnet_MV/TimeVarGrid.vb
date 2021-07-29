@@ -2,6 +2,7 @@ Option Strict Off
 Option Explicit On
 Friend Class frmTimeVarGrid
     Inherits System.Windows.Forms.Form
+    Dim rs As New Resizer
 
     Dim FormCaption As String
     'UPGRADE_WARNING: Lower bound of array UnitType was changed from 1 to 0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
@@ -519,6 +520,8 @@ err_ThisSub:
         End If
     End Sub
     Private Sub frmTimeVarGrid_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+        rs.FindAllControls(Me)
+
         Dim i As Short
         '
         ' MISC INITS.
@@ -560,6 +563,8 @@ err_ThisSub:
     End Sub
     'UPGRADE_WARNING: Event frmTimeVarGrid.Resize may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
     Private Sub frmTimeVarGrid_Resize(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Resize
+        rs.ResizeAllControls(Me)
+
         Dim USE_MARGIN As Integer
         Dim XXX As Integer
         If (Me.WindowState = 1) Then
@@ -594,6 +599,10 @@ err_ThisSub:
     End Sub
 
     Private Sub _cmdCancelOK_0_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_0.Click
+
+    End Sub
+
+    Private Sub frmTimeVarGrid_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles Me.MouseDoubleClick
 
     End Sub
 End Class

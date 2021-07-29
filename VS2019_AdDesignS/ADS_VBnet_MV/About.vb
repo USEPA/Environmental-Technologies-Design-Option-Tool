@@ -31,9 +31,9 @@ Friend Class frmAbout
 		lblVersionInfo(0).Text = "Version 1.0.50"
 		lblVersionInfo(1).Text = get_expiration_info(False)
 		lblVersionInfo(2).Text = "Copyright " & AppCopyrightYears
-		lblUserName.Text = Trim(lfd.Z_USERNAME)
-		lblUserCompany.Text = Trim(lfd.Z_USERCOMPANY)
-		lblSerialNumber.Text = Trim(lfd.Z_SERIALNUMBER)
+		'lblUserName.Text = Trim(lfd.Z_USERNAME)
+		'lblUserCompany.Text = Trim(lfd.Z_USERCOMPANY)
+		'lblSerialNumber.Text = Trim(lfd.Z_SERIALNUMBER)
 		'lblSerialNumber.Caption = "WWWWWW-WWWWW-WWWWW-WWWWW-WWWWW"
 		''''lblVersionInfo(5).Caption = "(Build Code " & get_program_version_with_build_info_VB4(False) & ")"
 		lblVersionInfo(5).Text = ""
@@ -42,5 +42,9 @@ Friend Class frmAbout
 
 	Private Sub frmAbout_Resize(sender As Object, e As EventArgs) Handles Me.Resize
 		rs.ResizeAllControls(Me)
+	End Sub
+
+	Private Sub _lblWarning_1_Click(sender As Object, e As EventArgs) Handles _lblWarning_1.Click
+
 	End Sub
 End Class

@@ -3,7 +3,8 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmPolanyi
 	Inherits System.Windows.Forms.Form
-	
+	Dim rs As New Resizer
+
 	Dim frmPolanyi_ParentForm As System.Windows.Forms.Form
 	
 	Dim USER_HIT_OK As Boolean
@@ -69,6 +70,8 @@ Friend Class frmPolanyi
 	End Sub
 	
 	Private Sub frmPolanyi_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+		rs.FindAllControls(Me)
+
 		'MISC INITS.
 		Me.Height = VB6.TwipsToPixelsY(3150)
 		Me.Width = VB6.TwipsToPixelsX(5445)
@@ -158,5 +161,10 @@ Friend Class frmPolanyi
 
 	Private Sub OK_Click(sender As Object, e As EventArgs) Handles _cmdCancelOK_1.Click
 		Call cmdCancelOK_Click(1)
+	End Sub
+
+	Private Sub frmPolanyi_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
+
 	End Sub
 End Class

@@ -4,7 +4,9 @@ Imports VB = Microsoft.VisualBasic
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmVarConcentrations
 	Inherits System.Windows.Forms.Form
-	
+	Dim rs As New Resizer
+
+
 	Dim Y1, X1, Shifting, X2, Y2 As Short
 	Dim TempStr, Filename_Concentration As String
 	Dim saveas As Short
@@ -73,6 +75,7 @@ Exit_CountConc:
 	
 	
 	Private Function Load_Concentrations(ByRef OverrideFilename As String) As Boolean
+
 		Dim cdlCancel As Object
 		Dim cdlOFNPathMustExist As Object
 		Dim cdlOFNFileMustExist As Object
@@ -490,6 +493,9 @@ NoInfluent_Conc:
 		Sheet1DataGrid.Refresh()
 	End Sub
 	Private Sub frmVarConcentrations_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+		rs.FindAllControls(Me)
+
+
 		Dim i, J As Short
 		Dim TB, CB As String
 		Dim temp, LF As String
@@ -576,6 +582,8 @@ NoInfluent_Conc:
 	End Sub
 	'UPGRADE_WARNING: Event frmVarConcentrations.Resize may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub frmVarConcentrations_Resize(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Resize
+
+		rs.ResizeAllControls(Me)
 		Dim XXX As Integer
 		Dim USE_MARGIN As Integer
 		If (Me.WindowState = 1) Then
