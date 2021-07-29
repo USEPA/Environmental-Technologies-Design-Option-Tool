@@ -911,7 +911,7 @@
         Me.grpUserInput.Size = New System.Drawing.Size(376, 50)
         Me.grpUserInput.TabIndex = 81
         Me.grpUserInput.TabStop = False
-        Me.grpUserInput.Text = "grpUserInput"
+        Me.grpUserInput.Text = "User Input:"
         '
         'grpOne
         '
