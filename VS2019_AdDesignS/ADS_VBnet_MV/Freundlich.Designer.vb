@@ -911,7 +911,7 @@
         Me.grpUserInput.Size = New System.Drawing.Size(376, 50)
         Me.grpUserInput.TabIndex = 81
         Me.grpUserInput.TabStop = False
-        Me.grpUserInput.Text = "grpUserInput"
+        Me.grpUserInput.Text = "User Input:"
         '
         'grpOne
         '
@@ -1188,7 +1188,7 @@
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDirty, Me.ToolStripStatus})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 635)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(772, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(771, 22)
         Me.StatusStrip1.TabIndex = 83
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -1209,7 +1209,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(772, 657)
+        Me.ClientSize = New System.Drawing.Size(771, 657)
         Me.ControlBox = False
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.grpIsothermDB)
