@@ -3,7 +3,9 @@ Option Explicit On
 Imports VB = Microsoft.VisualBasic
 Friend Class frmEditIsothermCAS
 	Inherits System.Windows.Forms.Form
-	
+	Dim rs As New Resizer
+
+
 	Dim USER_HIT_CANCEL As Boolean
 	Dim USER_HIT_OK As Boolean
 	
@@ -88,6 +90,8 @@ Friend Class frmEditIsothermCAS
 	
 	
 	Private Sub frmEditIsothermCAS_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+		rs.FindAllControls(Me)
+
 		'MISC INITS.
 		Me.Text = Use_Title
 		'UPGRADE_WARNING: Couldn't resolve default property of object cmdSaveCancel().Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -185,5 +189,10 @@ Friend Class frmEditIsothermCAS
 
 	Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles _cmdSaveCancel_1.Click
 		Call cmdSaveCancel_Click(1)
+	End Sub
+
+	Private Sub frmEditIsothermCAS_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
+
 	End Sub
 End Class

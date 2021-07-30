@@ -11,12 +11,13 @@ Module MiscUI
 	Public Const CBOYAXISTYPE_G_L As Short = 4
 	Public Const CBOYAXISTYPE_PPB As Short = 5
 	Public Const CBOYAXISTYPE_PPM As Short = 6
-	
-	
-	
-	
-	
-	
+	Public Const CBOYAXISTYPE_NG_L As Short = 7
+
+
+
+
+
+
 	Const MiscUI_declarations_end As Boolean = True
 	
 	
@@ -114,6 +115,9 @@ Module MiscUI
 			Case CBOYAXISTYPE_PPM
 				OUT_strYAxisTitle = strConcName & ", ppm"
 				dblRetVal = dbl_ConvertTo_ug_L * dbl_ConvertFrom_ug_L_To_ppm
+			Case CBOYAXISTYPE_NG_L
+				OUT_strYAxisTitle = strConcName & ", ng/L"
+				dblRetVal = dbl_ConvertTo_ug_L * 1000.0#
 		End Select
 		CBOYAXISTYPE_GetUnitConversion = dblRetVal
 	End Function

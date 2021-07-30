@@ -4,7 +4,8 @@ Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Imports System.Windows.Forms.DataVisualization.Charting
 Friend Class frmModelDataComparison
 	Inherits System.Windows.Forms.Form
-	
+	Dim rs As New Resizer
+
 	Dim Cin() As Double
 	Dim Td() As Double
 	Dim Cd() As Double
@@ -105,12 +106,12 @@ Friend Class frmModelDataComparison
 				Case 0 'Dots
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					Chart1.Series(1).ChartType = SeriesChartType.Point
-					Chart1.Series(2).ChartType = SeriesChartType.Point
+					'Chart1.Series(2).ChartType = SeriesChartType.Point
 					'grpBreak.GraphStyle = 1
 				Case 1 'Lines
 					'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.GraphStyle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					Chart1.Series(1).ChartType = SeriesChartType.Line
-					Chart1.Series(2).ChartType = SeriesChartType.Line
+					'Chart1.Series(2).ChartType = SeriesChartType.Line
 					'grpBreak.GraphStyle = 4
 			End Select
 			'UPGRADE_WARNING: Couldn't resolve default property of object grpBreak.DrawMode. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -474,7 +475,9 @@ Friend Class frmModelDataComparison
 
 		'---- III. Display Influent Data
 		Dim f As New Series 'third
-		f.ChartType = SeriesChartType.Point
+		f.ChartType = SeriesChartType.Line
+		f.BorderDashStyle = ChartDashStyle.Dash
+		'f.ChartType = SeriesChartType.Point
 		If (Number_Influent_Points = 0) Then
 			'Do nothing
 		Else
@@ -639,6 +642,8 @@ Friend Class frmModelDataComparison
 		If UnloadMe Then Me.Close()
 	End Sub
 	Private Sub frmModelDataComparison_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+		rs.FindAllControls(Me)
+
 		Dim J, i As Short
 		Me.Text = frmCompareData_caption
 		Call Populate_Scrollboxes()
@@ -659,6 +664,9 @@ Friend Class frmModelDataComparison
 	End Sub
 	'UPGRADE_WARNING: Event frmModelDataComparison.Resize may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub frmModelDataComparison_Resize(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Resize
+
+		rs.ResizeAllControls(Me)
+
 		'If WindowState = 1 Then
 		'  frmPFPSDM.WindowState = 1
 		'  frmPlantData.WindowState = 1

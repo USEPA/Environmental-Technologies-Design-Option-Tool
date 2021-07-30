@@ -3,7 +3,9 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmFouling
 	Inherits System.Windows.Forms.Form
-	
+
+	Dim rs As New Resizer
+
 	Dim Raise_Dirty_Flag As Boolean
 	
 	
@@ -131,9 +133,11 @@ Friend Class frmFouling
 				End If
 			End If
 			If (Is_Invalid) Then
+
 				If chkUse(Index).Checked = True Then
 					Call Show_Error("You must select a correlation " & "type before you can apply fouling for this chemical.")
-				End If              'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
+				End If
+				'UPGRADE_WARNING: Couldn't resolve default property of object chkUse(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 				chkUse(Index).Checked = False
 				Exit Sub
 			End If
@@ -220,6 +224,9 @@ Friend Class frmFouling
 	Private Sub frmFouling_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim i As Short
 		Dim J As Short
+
+		rs.FindAllControls(Me)
+
 		'If (DemoMode) Then
 		'  cmdEdit.Enabled = False
 		'  cmdEditCompo.Enabled = False
@@ -599,6 +606,11 @@ Exit_Corr_Water:
 	End Sub
 
 	Private Sub Picture1_Click(sender As Object, e As EventArgs) Handles Picture1.Click
+
+	End Sub
+
+	Private Sub frmFouling_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
 
 	End Sub
 End Class
