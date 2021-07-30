@@ -76,14 +76,16 @@ err_File_IsExists:
 		Bed.Phase = 0
 		Call Initialize_All_Data(0)
 		frmMain.Text = AppName_For_Display_Short & "  -  (Untitled)"
+		frmMain.OpenFileDialog1.FileName = ""
+
 		'
 		' CLEAR DIRTY (CHANGES) FLAG.
 		'
 		Project_Is_Dirty = False
 		Call DirtyStatus_Set_Current()
 	End Sub
-	
-	
+
+
 	Sub File_Open(ByRef fn_Open As String)
 		'	Dim OpenDatabase As Object
 		Dim f As Short
@@ -187,7 +189,7 @@ err_File_IsExists:
 			ShowLegacyWarning = True
 			OpenedOkay = True
 			Select Case ThisVersion
-				Case 1# : Call File_Open_Legacy_v1_00(f)
+				Case 1.0# : Call File_Open_Legacy_v1_00(f)
 				Case 1.2 : Call File_Open_Legacy_v1_20(f)
 				Case 1.3 : Call File_Open_Legacy_v1_30(f)
 				Case 1.42
@@ -233,14 +235,14 @@ err_File_IsExists:
 		'MOVE THIS FILENAME TO TOP OF LAST-FEW-FILES LIST.
 		Call OldFileList_Promote(Filename, 1, frmMain._mnuFileItem_199, frmMain.mnuFileItem(191), frmMain.mnuFileItem(192), frmMain.mnuFileItem(193), frmMain.mnuFileItem(194))
 		GoTo exit_sub
-exit_sub: 
+exit_sub:
 		frmMain.Cursor = System.Windows.Forms.Cursors.Default
 		Exit Sub
-exit_err_file_open: 
+exit_err_file_open:
 		Call file_new()
 		GoTo exit_sub
-err_file_open: 
-		Call Show_Trapped_Error("file_open")
+err_file_open:
+		'Call Show_Trapped_Error("file_open")
 		On Error Resume Next
 		FileClose(f)
 		Resume exit_err_file_open
