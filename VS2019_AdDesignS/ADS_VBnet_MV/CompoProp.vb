@@ -4,7 +4,9 @@ Imports VB = Microsoft.VisualBasic
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmCompoProp
 	Inherits System.Windows.Forms.Form
-	
+
+	Dim rs As New Resizer
+
 	Dim FORM_MODE As Short
 	Const FORM_MODE_ADDNEW As Short = 1
 	Const FORM_MODE_EDIT As Short = 2
@@ -528,6 +530,9 @@ err_cmdImportFromFile_Click:
 	End Sub
 
 	Private Sub frmCompoProp_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+
+		rs.FindAllControls(Me)
+
 		Dim i As Short
 		'MISC INITS.
 		'	Me.Height = VB6.TwipsToPixelsY(6885)
@@ -984,5 +989,9 @@ err_cmdImportFromFile_Click:
 
 	Private Sub _txtPropUnits_2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles _txtPropUnits_2.SelectedIndexChanged
 
+	End Sub
+
+	Private Sub frmCompoProp_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
 	End Sub
 End Class

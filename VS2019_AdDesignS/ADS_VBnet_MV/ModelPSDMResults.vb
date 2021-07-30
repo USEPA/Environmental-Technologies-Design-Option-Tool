@@ -6,6 +6,8 @@ Imports System.Math
 Friend Class frmModelPSDMResults
 	Inherits System.Windows.Forms.Form
 
+	Dim rs As New Resizer
+
 	'UPGRADE_WARNING: Lower bound of array Flag_TO was changed from 1 to 0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
 	Dim Flag_TO(Number_Compo_Max_PFPSDM) As Short
 
@@ -68,6 +70,11 @@ Friend Class frmModelPSDMResults
 		'UPGRADE_WARNING: Couldn't resolve default property of object Ctl.NewIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object Ctl.ItemData. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		VB6.SetItemData(Ctl, newindex, CBOYAXISTYPE_PPM)
+
+		'nanograms addition MV
+		newindex = Ctl.Items.Add("ng/L")
+		VB6.SetItemData(Ctl, newindex, CBOYAXISTYPE_NG_L)
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object Ctl.ListIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		Ctl.SelectedIndex = 0
 		HALT_ALL_CONTROLS = False
@@ -925,11 +932,11 @@ Exit_Print:
 
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
-		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel File(*.csv)|*.csv"
 
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'CMDialog1.FilterIndex = 2
-		SaveFileDialog1.FilterIndex = 2
+		SaveFileDialog1.FilterIndex = 3
 
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'CMDialog1.DialogTitle = "Save curves from PSDM"
@@ -1015,7 +1022,7 @@ Exit_Select_Print:
 		Dim temp, Tr_Obj As Double
 		Dim J, i As Short
 
-		Objective = InputBox("Enter your treatment objective in mg/L for " & Trim(Results.Component(cboCompo.SelectedIndex + 1).Name) & ":", AppName_For_Display_Long, lblData(9).Text)
+		Objective = InputBox("Enter your treatment objective in mg/L for " & Trim(Results.Component(cboCompo.SelectedIndex + 1).Name) & ":", AppName_For_Display_Long, lblData(15).Text)
 		On Error GoTo Bad_Treament_Objective
 		temp = CDbl(Objective)
 		i = cboCompo.SelectedIndex + 1
@@ -1347,6 +1354,9 @@ Exit_lblLegend_Click:
 	End Sub
 
 	Private Sub frmModelPSDMResults_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+
+		rs.FindAllControls(Me)
+
 		Dim J, i As Short
 		'Set Window
 		'
@@ -1557,4 +1567,8 @@ err_FRMBREAK_UserPrefs_Load:
 		Call cmdTreat_Click()
 	End Sub
 
+	Private Sub frmModelPSDMResults_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
+
+	End Sub
 End Class

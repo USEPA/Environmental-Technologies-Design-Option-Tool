@@ -75,10 +75,12 @@ err_File_IsExists:
 		'
 		Bed.Phase = 0
 		Call Initialize_All_Data(0)
+		frmMain.OpenFileDialog1.FileName = ""
 		frmMain.Text = AppName_For_Display_Short & "  -  (Untitled)"
 		'
 		' CLEAR DIRTY (CHANGES) FLAG.
 		'
+
 		Project_Is_Dirty = False
 		Call DirtyStatus_Set_Current()
 	End Sub
@@ -239,8 +241,8 @@ exit_sub:
 exit_err_file_open: 
 		Call file_new()
 		GoTo exit_sub
-err_file_open: 
-		Call Show_Trapped_Error("file_open")
+err_file_open:
+		'Call Show_Trapped_Error("file_open")
 		On Error Resume Next
 		FileClose(f)
 		Resume exit_err_file_open

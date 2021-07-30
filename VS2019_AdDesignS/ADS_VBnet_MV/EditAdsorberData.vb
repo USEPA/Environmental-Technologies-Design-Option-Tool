@@ -3,12 +3,14 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmEditAdsorberData
 	Inherits System.Windows.Forms.Form
-	
+
+	Dim rs As New Resizer
+
 	'Dim frmEditAdsorber_Cancelled As Integer
 	'Dim frmEditAdsorber_RunMode As Integer
 	'Const frmEditAdsorber_RunMode_QUERY_DATABASE = 1
 	'Const frmEditAdsorber_RunMode_EDIT_DATABASE = 2
-	
+
 	'Dim frmEditAdsorberData_Cancelled As Integer
 	Dim frmEditAdsorberData_RunMode As Short
 	Const frmEditAdsorberData_RunMode_NEW As Short = 1
@@ -108,6 +110,9 @@ Friend Class frmEditAdsorberData
 	End Sub
 	
 	Private Sub frmEditAdsorberData_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+
+		rs.FindAllControls(Me)
+
 		Dim now_phase As Short
 		Dim i As Short
 		'MISC INITS.
@@ -308,5 +313,9 @@ Friend Class frmEditAdsorberData
 
 	Private Sub Save_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
 		Call cmdSave_Click()
+	End Sub
+
+	Private Sub frmEditAdsorberData_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
 	End Sub
 End Class

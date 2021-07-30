@@ -2,7 +2,9 @@ Option Strict Off
 Option Explicit On
 Friend Class frmEditAdsorber
 	Inherits System.Windows.Forms.Form
-	
+
+	Dim rs As New Resizer
+
 	Dim frmEditAdsorber_Cancelled As Short
 	Dim frmEditAdsorber_RunMode As Short
 	Const frmEditAdsorber_RunMode_QUERY_DATABASE As Short = 1
@@ -273,6 +275,7 @@ err_adsorber_db_saveall:
 	
 	
 	Private Sub frmEditAdsorber_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+		rs.FindAllControls(Me)
 		'MISC INITS.
 		'		Me.Height = VB6.TwipsToPixelsY(7290)
 		'		Me.Width = VB6.TwipsToPixelsX(9255)
@@ -562,5 +565,9 @@ err_adsorber_db_saveall:
 
 	Private Sub OK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
 		Call cmdOK_Click()
+	End Sub
+
+	Private Sub frmEditAdsorber_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
 	End Sub
 End Class

@@ -85,9 +85,24 @@ Module Validations
 			Call Show_Error("The first time cannot be greater than the " & "final time.")
 			Exit Sub
 		End If
-		If (New_TimeStep < ((New_LastPoint - New_FirstPoint) / (Number_Points_Max - 1))) Then
+		'If (New_TimeStep < ((New_LastPoint - New_FirstPoint) / (Number_Points_Max - 1))) Then
+		If (New_FirstPoint < New_LastPoint) Then
+			'upon legit times entered, execute to adjust time step
+
+			'set timestep to max value
+			'New_TimeStep = (New_LastPoint - New_FirstPoint) / (Number_Points_Max - 1)
 			ForceAbort = True
-			Call Show_Error("The time step is too small.  The maximum " & "number of points is " & Trim(Str(Number_Points_Max)) & ".")
+			'Call Show_Error("The time step is too small.  The maximum " & "number of points is " & Trim(Str(Number_Points_Max)) & ".")
+			Old_TimeStep = New_TimeStep
+			Force_New_TimeStep = (New_LastPoint - New_FirstPoint) / (Number_Points_Max - 1)
+			'If (New_TimeStep < Force_New_TimeStep) Then
+			New_TimeStep = Force_New_TimeStep
+				TimeP.Step_Renamed = New_TimeStep
+				TimeP.Init = New_FirstPoint
+				TimeP.End_Renamed = New_LastPoint
+				UserMsg = UserMsg & "  In addition, the time step was adjusted from " & Format_It(Old_TimeStep, 3) & " minutes to " & Format_It(New_TimeStep, 3) & " minutes."
+			'End If
+			'Call Show_Message(UserMsg)
 			Exit Sub
 		End If
 		If ((Bed.NumberOfBeds = 1) Or (New_FirstPoint < 0.00011)) Then

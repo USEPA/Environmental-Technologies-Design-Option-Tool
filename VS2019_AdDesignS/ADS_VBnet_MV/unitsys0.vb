@@ -393,8 +393,9 @@ err_unitsys_control_txtx_lostfocus_validate:
 			If (un = "g/l") Then X = 1.0# * 1000.0# * 1000.0#
 			If (un = "mg/l") Then X = 1.0# * 1000.0#
 			If (un = "µg/l") Then X = 1.0#
+			If (un = "ng/l") Then X = 1.0# / 1000
 		End If
-		If (ut = "PRESSURE") Then
+			If (ut = "PRESSURE") Then
 			''If (un = "N/M²") Then X = 1#
 			'If (un = "PA") Then x = 1#
 			'If (un = "LBF/IN²") Then x = 1# * 6894.75729
@@ -723,6 +724,8 @@ err_unitsys_control_txtx_lostfocus_validate:
 			Cbc.Items.Add("mg/L")
 			'UPGRADE_WARNING: Couldn't resolve default property of object Cbc.AddItem. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			Cbc.Items.Add("g/L")
+
+			Cbc.Items.Add("ng/L")
 		End If
 		If (u = "pressure") Then
 			Found = True

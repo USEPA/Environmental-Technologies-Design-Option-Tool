@@ -911,7 +911,7 @@
         Me.grpUserInput.Size = New System.Drawing.Size(376, 50)
         Me.grpUserInput.TabIndex = 81
         Me.grpUserInput.TabStop = False
-        Me.grpUserInput.Text = "grpUserInput"
+        Me.grpUserInput.Text = "User Input:"
         '
         'grpOne
         '
@@ -1220,7 +1220,6 @@
         Me.Controls.Add(Me.Option1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Location = New System.Drawing.Point(272, 45)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
