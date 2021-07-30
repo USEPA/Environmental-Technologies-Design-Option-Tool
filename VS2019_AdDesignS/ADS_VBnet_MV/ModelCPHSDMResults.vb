@@ -6,7 +6,9 @@ Imports System.Math
 
 Friend Class frmModelCPHSDMResults
 	Inherits System.Windows.Forms.Form
-	
+
+	Dim rs As New Resizer
+
 	Dim Treatment_Objective As Throughput
 	Dim Flag_TO As Short
 	
@@ -705,10 +707,10 @@ Exit_Print:
 		SaveFileDialog1.FileName = ""
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
-		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Data Files (*.dat)|*.dat"
+		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel File (*.csv)|*.csv"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'CMDialog1.FilterIndex = 2
-		SaveFileDialog1.FilterIndex = 2
+		SaveFileDialog1.FilterIndex = 3
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.DialogTitle. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'CMDialog1.DialogTitle = "Save curve from Constant Pattern Model"
 		SaveFileDialog1.Title = "Save curve from Constant Pattern Model"
@@ -825,6 +827,7 @@ Exit_lblLegend_Click:
 	
 	Private Sub frmModelCPHSDMResults_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim i As Short
+		rs.FindAllControls(Me)
 
 		PopulatingScrollboxes = False
 		_optType_0.Checked = True  'default load
@@ -1530,5 +1533,10 @@ Exit_Print_File:
 
 	Private Sub cmdTreat_Click(sender As Object, e As EventArgs) Handles cmdTreat.Click
 		Call cmdTreat_Click()
+	End Sub
+
+	Private Sub frmModelCPHSDMResults_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
+
 	End Sub
 End Class

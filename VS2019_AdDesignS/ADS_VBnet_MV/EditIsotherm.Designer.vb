@@ -639,10 +639,10 @@
         Me.Controls.Add(Me.MainMenu1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Location = New System.Drawing.Point(129, 129)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(747, 615)
         Me.Name = "frmEditIsotherm"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

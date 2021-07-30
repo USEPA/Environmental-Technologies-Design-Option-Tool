@@ -602,10 +602,10 @@
         Me.Controls.Add(Me.GroupBox1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Location = New System.Drawing.Point(419, 132)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(537, 508)
         Me.Name = "frmEditIsothermData"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ShowInTaskbar = False

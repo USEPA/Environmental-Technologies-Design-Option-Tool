@@ -4,7 +4,9 @@ Imports VB = Microsoft.VisualBasic
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmVarConcentrations
 	Inherits System.Windows.Forms.Form
-	
+	Dim rs As New Resizer
+
+
 	Dim Y1, X1, Shifting, X2, Y2 As Short
 	Dim TempStr, Filename_Concentration As String
 	Dim saveas As Short
@@ -73,6 +75,7 @@ Exit_CountConc:
 	
 	
 	Private Function Load_Concentrations(ByRef OverrideFilename As String) As Boolean
+
 		Dim cdlCancel As Object
 		Dim cdlOFNPathMustExist As Object
 		Dim cdlOFNFileMustExist As Object
@@ -91,10 +94,10 @@ Exit_CountConc:
 			OpenFileDialog1.Title = "Load Concentrations"
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
-			OpenFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
+			OpenFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel File (*.csv)|*.csv"
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'CMDialog1.FilterIndex = 2
-			OpenFileDialog1.FilterIndex = 2
+			OpenFileDialog1.FilterIndex = 3
 			'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 			'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNFileMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -258,10 +261,10 @@ Exit_Load_Points:
 		SaveFileDialog1.Title = "Save Concentrations"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.Filter. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
-		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel 4.0 (*.xls)|*.xls"
+		SaveFileDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Excel File (*.csv)|*.csv"
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.FilterIndex. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'CMDialog1.FilterIndex = 2
-		SaveFileDialog1.FilterIndex = 2
+		SaveFileDialog1.FilterIndex = 3
 		'UPGRADE_WARNING: Couldn't resolve default property of object CMDialog1.flags. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNPathMustExist. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlOFNOverwritePrompt. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -480,12 +483,19 @@ NoInfluent_Conc:
 		Call cmdOK_Click()
 	End Sub
 
+	Private Sub Sheet1DataGrid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Sheet1DataGrid.CellContentClick
+
+	End Sub
+
 	'UPGRADE_WARNING: Form event frmVarConcentrations.Activate has a new behavior. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6BA9B8D2-2A32-4B6E-8D36-44949974A5B4"'
 	Private Sub frmVarConcentrations_Activated(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Activated
 		'UPGRADE_WARNING: Couldn't resolve default property of object Sheet1.SetFocus. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		Sheet1DataGrid.Refresh()
 	End Sub
 	Private Sub frmVarConcentrations_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+		rs.FindAllControls(Me)
+
+
 		Dim i, J As Short
 		Dim TB, CB As String
 		Dim temp, LF As String
@@ -572,6 +582,8 @@ NoInfluent_Conc:
 	End Sub
 	'UPGRADE_WARNING: Event frmVarConcentrations.Resize may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub frmVarConcentrations_Resize(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Resize
+
+		rs.ResizeAllControls(Me)
 		Dim XXX As Integer
 		Dim USE_MARGIN As Integer
 		If (Me.WindowState = 1) Then

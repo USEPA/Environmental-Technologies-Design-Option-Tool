@@ -2,8 +2,10 @@ Option Strict Off
 Option Explicit On
 Friend Class frmFoulingWaterDatabase
 	Inherits System.Windows.Forms.Form
+	Dim rs As New Resizer
+
 	'Dim New_Correlation As Integer
-	
+
 	Dim FORM_MODE As Short
 	Const FORM_MODE_VIEW As Short = 1
 	Const FORM_MODE_EDIT As Short = 2
@@ -319,6 +321,9 @@ Exit_Here:
 	
 	
 	Private Sub frmFoulingWaterDatabase_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+
+		rs.FindAllControls(Me)
+
 		Dim i, j As Short
 		Call CenterOnForm(Me, frmFouling)
 		i = False
@@ -483,5 +488,13 @@ Exit_Here:
 		Call Load_Water_Correlations(flag)
 		If flag Then Exit Sub
 		Me.Close()
+	End Sub
+
+	Private Sub frmFoulingWaterDatabase_MouseCaptureChanged(sender As Object, e As EventArgs) Handles Me.MouseCaptureChanged
+
+	End Sub
+
+	Private Sub frmFoulingWaterDatabase_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
 	End Sub
 End Class

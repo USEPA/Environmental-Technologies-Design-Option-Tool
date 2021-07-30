@@ -4,10 +4,7 @@ Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmMain
 	Inherits System.Windows.Forms.Form
 
-
-
-
-
+	Dim rs As New Resizer
 
 	Const frmMain_declarations_end As Boolean = True
 
@@ -254,6 +251,8 @@ Friend Class frmMain
 		'
 		' MISC INITS.
 		'
+		rs.FindAllControls(Me)
+
 		'UPGRADE_WARNING: Couldn't resolve default property of object sspanel_Dirty.Caption. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'sspanel_Dirty.Caption = ""
 		ToolStripStatusLabelDirty.Text = ""
@@ -1358,6 +1357,7 @@ Friend Class frmMain
 				'  frmPrint.Show 1
 			Case 191 To 194 'Last-few-files list
 				If (file_query_unload()) Then
+					'If (mnuFileItem(Index).Visible) Then
 					If (True) Then
 						Call File_OpenAs(OldFiles(1, Index - 190))
 					End If
@@ -1477,6 +1477,11 @@ Friend Class frmMain
 	End Sub
 
 	Private Sub _mnuFileItem_1_Click(sender As Object, e As EventArgs) Handles _mnuFileItem_1.Click
+
+	End Sub
+
+	Private Sub frmMain_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
 
 	End Sub
 End Class

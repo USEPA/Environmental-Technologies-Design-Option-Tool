@@ -3,7 +3,8 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmPrintInputs
 	Inherits System.Windows.Forms.Form
-	
+	Dim rs As New Resizer
+
 	Dim Filename_Input As String
 
 
@@ -526,6 +527,8 @@ Exit_Print:
 	
 	
 	Private Sub frmPrintInputs_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+		rs.FindAllControls(Me)
+
 		Dim temp As String
 		Dim temp2 As String
 		Dim temp3 As String
@@ -630,5 +633,10 @@ err_FRMPRINT_UserPrefs_Load:
 			X = CInt(chkSelect(i).Value)
 			Call INI_PutSetting(varname, Trim(CStr(X)))
 		Next i
+	End Sub
+
+	Private Sub frmPrintInputs_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+		rs.ResizeAllControls(Me)
+
 	End Sub
 End Class
