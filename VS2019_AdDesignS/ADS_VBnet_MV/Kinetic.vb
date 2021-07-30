@@ -3,9 +3,7 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmKinetic
 	Inherits System.Windows.Forms.Form
-
-	Dim rs As New Resizer
-
+	
 	Dim USER_HIT_CANCEL As Boolean
 	Dim USER_HIT_OK As Boolean
 	Dim frmKinetic_Is_Dirty As Boolean
@@ -230,8 +228,6 @@ Friend Class frmKinetic
 	
 	Private Sub frmKinetic_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim i As Short
-		rs.FindAllControls(Me)
-
 		'MISC INITS.
 		'	Me.Height = VB6.TwipsToPixelsY(6450)
 		'	Me.Width = VB6.TwipsToPixelsX(8535)
@@ -524,8 +520,4 @@ Friend Class frmKinetic
 
 	End Sub
 
-	Private Sub frmKinetic_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
-
-	End Sub
 End Class

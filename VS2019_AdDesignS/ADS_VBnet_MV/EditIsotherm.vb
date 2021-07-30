@@ -5,8 +5,6 @@ Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmEditIsotherm
 	Inherits System.Windows.Forms.Form
 
-	Dim rs As New Resizer
-
 	Dim FORM_MODE As Short
 	Const FORM_MODE_EDIT_DATABASE As Short = 2
 
@@ -434,8 +432,6 @@ err_populate_lblValue:
 	End Sub
 	
 	Private Sub frmEditIsotherm_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
-		rs.FindAllControls(Me)
-
 		'MISC INITS.
 		'	Me.Height = VB6.TwipsToPixelsY(7395)
 		'	Me.Width = VB6.TwipsToPixelsX(9500)
@@ -1306,9 +1302,5 @@ err_mnuIsothermItem_Click:
 
 	Private Sub Select_Click(sender As Object, e As EventArgs) Handles cmdSelect.Click
 		Call Do_Select_Component(lstCompo.SelectedIndex)
-	End Sub
-
-	Private Sub frmEditIsotherm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
 	End Sub
 End Class

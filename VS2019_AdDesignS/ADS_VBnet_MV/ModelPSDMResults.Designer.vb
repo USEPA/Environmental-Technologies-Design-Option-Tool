@@ -62,9 +62,9 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Command4 = New System.Windows.Forms.Button()
         Me.Picture1 = New System.Windows.Forms.PictureBox()
@@ -767,26 +767,26 @@
         '
         'Chart1
         '
-        ChartArea2.AxisX.LabelAutoFitMaxFontSize = 12
-        ChartArea2.AxisX.TitleFont = New System.Drawing.Font("Garamond", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea2.AxisY.TitleFont = New System.Drawing.Font("Garamond", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.BackwardDiagonal
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea2)
-        Legend2.AutoFitMinFontSize = 5
-        Legend2.Font = New System.Drawing.Font("Agency FB", 8.0!)
-        Legend2.IsTextAutoFit = False
-        Legend2.Name = "Legend1"
-        Legend2.TextWrapThreshold = 10
-        Me.Chart1.Legends.Add(Legend2)
+        ChartArea1.AxisX.LabelAutoFitMaxFontSize = 12
+        ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Garamond", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea1.AxisY.TitleFont = New System.Drawing.Font("Garamond", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.BackwardDiagonal
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.AutoFitMinFontSize = 5
+        Legend1.Font = New System.Drawing.Font("Agency FB", 8.0!)
+        Legend1.IsTextAutoFit = False
+        Legend1.Name = "Legend1"
+        Legend1.TextWrapThreshold = 10
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(12, 160)
         Me.Chart1.Name = "Chart1"
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Me.Chart1.Series.Add(Series2)
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(548, 302)
         Me.Chart1.TabIndex = 71
         Me.Chart1.Text = "Chart1"
@@ -866,8 +866,10 @@
         Me.Controls.Add(Me._lblData_15)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Location = New System.Drawing.Point(218, 258)
-        Me.MinimumSize = New System.Drawing.Size(773, 605)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmModelPSDMResults"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ShowInTaskbar = False

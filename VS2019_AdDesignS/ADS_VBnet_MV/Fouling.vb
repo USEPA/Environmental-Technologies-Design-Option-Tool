@@ -3,9 +3,7 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmFouling
 	Inherits System.Windows.Forms.Form
-
-	Dim rs As New Resizer
-
+	
 	Dim Raise_Dirty_Flag As Boolean
 	
 	
@@ -224,9 +222,6 @@ Friend Class frmFouling
 	Private Sub frmFouling_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim i As Short
 		Dim J As Short
-
-		rs.FindAllControls(Me)
-
 		'If (DemoMode) Then
 		'  cmdEdit.Enabled = False
 		'  cmdEditCompo.Enabled = False
@@ -606,11 +601,6 @@ Exit_Corr_Water:
 	End Sub
 
 	Private Sub Picture1_Click(sender As Object, e As EventArgs) Handles Picture1.Click
-
-	End Sub
-
-	Private Sub frmFouling_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
 
 	End Sub
 End Class

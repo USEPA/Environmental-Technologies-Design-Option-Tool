@@ -2,8 +2,7 @@ Option Strict Off
 Option Explicit On
 Friend Class frmExcelCurves
 	Inherits System.Windows.Forms.Form
-	Dim rs As New Resizer
-
+	
 	Dim frmExcelCurves_loading_now As Boolean
 	
 	
@@ -264,8 +263,6 @@ err_filesaveas:
 		End If
 	End Sub
 	Private Sub frmExcelCurves_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
-		rs.FindAllControls(Me)
-
 		Dim msg As String
 		If (CPHSDM_Excel) Then
 			msg = "Pre-Print of CPHSDM Results"
@@ -287,8 +284,6 @@ err_filesaveas:
 	End Sub
 	'UPGRADE_WARNING: Event frmExcelCurves.Resize may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub frmExcelCurves_Resize(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Resize
-		'rs.ResizeAllControls(Me)
-
 		Dim XXX As Integer
 		If (frmExcelCurves_loading_now) Then Exit Sub
 		If (Me.WindowState = 1) Then

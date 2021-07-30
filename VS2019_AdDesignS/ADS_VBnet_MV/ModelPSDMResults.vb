@@ -6,8 +6,6 @@ Imports System.Math
 Friend Class frmModelPSDMResults
 	Inherits System.Windows.Forms.Form
 
-	Dim rs As New Resizer
-
 	'UPGRADE_WARNING: Lower bound of array Flag_TO was changed from 1 to 0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
 	Dim Flag_TO(Number_Compo_Max_PFPSDM) As Short
 
@@ -1354,9 +1352,6 @@ Exit_lblLegend_Click:
 	End Sub
 
 	Private Sub frmModelPSDMResults_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
-
-		rs.FindAllControls(Me)
-
 		Dim J, i As Short
 		'Set Window
 		'
@@ -1567,8 +1562,4 @@ err_FRMBREAK_UserPrefs_Load:
 		Call cmdTreat_Click()
 	End Sub
 
-	Private Sub frmModelPSDMResults_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
-
-	End Sub
 End Class

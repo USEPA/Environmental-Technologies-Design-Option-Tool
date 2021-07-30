@@ -3,10 +3,8 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmDimensionless
 	Inherits System.Windows.Forms.Form
-
-
-	Dim rs As New Resizer
-
+	
+	
 	Sub populate_cboSelectCompo()
 		Dim i As Short
 		cboSelectCompo.Items.Clear()
@@ -61,8 +59,6 @@ Friend Class frmDimensionless
 	
 	Private Sub frmDimensionless_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		'MISC INITS.
-		rs.FindAllControls(Me)
-
 		Call CenterOnForm(Me, frmMain)
 		Call populate_cboSelectCompo()
 		Call Display_Component(frmMain.cboSelectCompo.SelectedIndex + 1)
@@ -95,15 +91,5 @@ Friend Class frmDimensionless
 
 	Private Sub Close_Click(sender As Object, e As EventArgs) Handles cmdclose.Click
 		Me.Close()
-	End Sub
-
-	Private Sub frmDimensionless_RegionChanged(sender As Object, e As EventArgs) Handles Me.RegionChanged
-
-	End Sub
-
-	Private Sub frmDimensionless_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
-
-
 	End Sub
 End Class

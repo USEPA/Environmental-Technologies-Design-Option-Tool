@@ -3,9 +3,7 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmFileNote
 	Inherits System.Windows.Forms.Form
-	Dim rs As New Resizer
-
-
+	
 	Dim NoteText As String
 	Dim Rollback_NoteText As String
 	Dim RaiseDirtyFlag As Boolean
@@ -125,8 +123,6 @@ Friend Class frmFileNote
 
 	Private Sub frmFileNote_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		'MISC INITS.
-		rs.FindAllControls(Me)
-
 		Call CenterOnForm(Me, frmMain)
 		FORM_MODE = FORM_MODE_VIEW
 		Call frmFileNote_Refresh()
@@ -238,15 +234,6 @@ Friend Class frmFileNote
 
 	Private Sub _cmdButton_4_Click(sender As Object, e As EventArgs) Handles _cmdButton_4.Click
 		Call cmdButton_Click(4)
-	End Sub
-
-	Private Sub frmFileNote_RegionChanged(sender As Object, e As EventArgs) Handles Me.RegionChanged
-
-	End Sub
-
-	Private Sub frmFileNote_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
-
 	End Sub
 
 	'	Private Sub _cmdButton_1_ClickEvent(sender As Object, e As EventArgs) Handles _cmdButton_1.ClickEvent

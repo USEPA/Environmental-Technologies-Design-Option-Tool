@@ -6,9 +6,7 @@ Imports System.Math
 
 Friend Class frmModelCPHSDMResults
 	Inherits System.Windows.Forms.Form
-
-	Dim rs As New Resizer
-
+	
 	Dim Treatment_Objective As Throughput
 	Dim Flag_TO As Short
 	
@@ -827,7 +825,6 @@ Exit_lblLegend_Click:
 	
 	Private Sub frmModelCPHSDMResults_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim i As Short
-		rs.FindAllControls(Me)
 
 		PopulatingScrollboxes = False
 		_optType_0.Checked = True  'default load
@@ -1533,10 +1530,5 @@ Exit_Print_File:
 
 	Private Sub cmdTreat_Click(sender As Object, e As EventArgs) Handles cmdTreat.Click
 		Call cmdTreat_Click()
-	End Sub
-
-	Private Sub frmModelCPHSDMResults_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
-
 	End Sub
 End Class

@@ -4,9 +4,7 @@ Imports VB = Microsoft.VisualBasic
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmVarConcentrations
 	Inherits System.Windows.Forms.Form
-	Dim rs As New Resizer
-
-
+	
 	Dim Y1, X1, Shifting, X2, Y2 As Short
 	Dim TempStr, Filename_Concentration As String
 	Dim saveas As Short
@@ -75,7 +73,6 @@ Exit_CountConc:
 	
 	
 	Private Function Load_Concentrations(ByRef OverrideFilename As String) As Boolean
-
 		Dim cdlCancel As Object
 		Dim cdlOFNPathMustExist As Object
 		Dim cdlOFNFileMustExist As Object
@@ -126,7 +123,7 @@ Exit_CountConc:
 			'			Sheet1.ReadFile = Filename_Concentration
 		Else
 			'OPEN TEXT FORMAT.
-			f = FreeFile
+			f = FreeFile()
 			FileOpen(f, Filename_Concentration, OpenMode.Input)
 			Input(f, npoints)
 			For i = 1 To npoints
@@ -235,7 +232,7 @@ Error_In_Reading:
 		End If
 		FileClose(f)
 		Resume Exit_Load_Points
-Exit_Load_Points: 
+Exit_Load_Points:
 	End Function
 	Private Function SaveConcentrations() As Short
 		Dim cdlCancel As Object
@@ -287,7 +284,7 @@ Exit_Load_Points:
 		'  MsgBox "No data has been saved.", 64, AppName_For_Display_long
 		'  Exit Function
 		'End If
-Save_File: 
+Save_File:
 		If VB.Right(Filename_Concentration, 4) = ".XLS" Then
 			'EXCEL FORMAT.
 			'UPGRADE_WARNING: Couldn't resolve default property of object Sheet1.Write. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -296,7 +293,7 @@ Save_File:
 		Else
 			'TEXT FORMAT.
 			mnuFileItem(2).Enabled = True
-			f = FreeFile
+			f = FreeFile()
 			'Sheet1.Col = 1
 			'Sheet1.Row = 1
 			FileOpen(f, Filename_Concentration, OpenMode.Output)
@@ -317,7 +314,7 @@ Save_File:
 			SaveConcentrations = True
 		End If
 		Exit Function
-Error_In_SaveConcentrations: 
+Error_In_SaveConcentrations:
 		SaveConcentrations = False
 		'UPGRADE_WARNING: Couldn't resolve default property of object cdlCancel. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		If (Err.Number = 75) Then
@@ -330,10 +327,10 @@ Error_In_SaveConcentrations:
 		End If
 		FileClose(f)
 		Resume Exit_Save_Points
-Exit_Save_Points: 
+Exit_Save_Points:
 	End Function
-	
-	
+
+
 	Private Sub cmdCancel_Click()
 		frmConcentrations_cancelled = True
 		Me.Close()
@@ -361,9 +358,9 @@ Exit_Save_Points:
 			If Sheet1DataGrid.Rows(0).Cells(i).Value = "" Then No_Var_Influent = True
 		Next i
 		If (No_Var_Influent) Then
-			response = MsgBox("There is no data for the first row." & vbCrLf & "It will be assumed that there is no concentration data.", MsgBoxStyle.Exclamation + MsgBoxStyle.OKCancel, AppName_For_Display_Long)
+			response = MsgBox("There is no data for the first row." & vbCrLf & "It will be assumed that there is no concentration data.", MsgBoxStyle.Exclamation + MsgBoxStyle.OkCancel, AppName_For_Display_Long)
 			Select Case response
-				Case MsgBoxResult.OK
+				Case MsgBoxResult.Ok
 					GoTo NoInfluent_Conc
 				Case MsgBoxResult.Cancel
 					'UPGRADE_WARNING: Couldn't resolve default property of object Sheet1.SetFocus. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
@@ -399,9 +396,9 @@ Exit_Save_Points:
 			Next J
 		Next i
 		If (DFlag) Then
-			response = MsgBox("There is not the same number of data in each column." & vbCrLf & "It will be assumed that there is no concentration data.", MsgBoxStyle.Exclamation + MsgBoxStyle.OKCancel, AppName_For_Display_Short)
+			response = MsgBox("There is not the same number of data in each column." & vbCrLf & "It will be assumed that there is no concentration data.", MsgBoxStyle.Exclamation + MsgBoxStyle.OkCancel, AppName_For_Display_Short)
 			Select Case response
-				Case MsgBoxResult.OK
+				Case MsgBoxResult.Ok
 				Case MsgBoxResult.Cancel
 					'UPGRADE_WARNING: Couldn't resolve default property of object Sheet1.SetFocus. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 					'	Sheet1.SetFocus()
@@ -434,14 +431,14 @@ Exit_Save_Points:
 			Next i
 		Next J
 		Me.Close()
-Exit_This_OK: 
+Exit_This_OK:
 		frmConcentrations_cancelled = False
 		Exit Sub
 Time_Error:
 		'UPGRADE_WARNING: Couldn't resolve default property of object Sheet1.EntryRC. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		Call Show_Error("At least one value in time input (Row #" & VB6.Format(i, "0") & ") is not a real number." & vbCrLf & "Change this cell (currently `" & Sheet1DataGrid.Rows(i).Cells(1).Value & "`) to a number.")
 		Resume Exit_This_OK
-Time_Error2: 
+Time_Error2:
 		Call Show_Error("Time in row #" & VB6.Format(i, "0") & " is less than time in row #" & VB6.Format(i - 1, "0") & "." & vbCrLf & "Change your times to be in chronological order.")
 		'UPGRADE_WARNING: Couldn't resolve default property of object Sheet1.SetFocus. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'	Sheet1.SetFocus()
@@ -452,13 +449,13 @@ Conc_Error:
 		Resume Exit_This_OK
 		'UPGRADE_WARNING: Couldn't resolve default property of object Sheet1.SetFocus. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		'	Sheet1.SetFocus()
-NoInfluent_Conc: 
+NoInfluent_Conc:
 		Number_Influent_Points = 0
 		Me.Close()
 	End Sub
-	
-	
-	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) 
+
+
+	Private Sub Command4_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs)
 		Dim Printer As New Printer
 		Picture1.Image = CaptureActiveWindow()
 		PrintPictureToFitPage(Printer, (Picture1.Image))
@@ -493,9 +490,6 @@ NoInfluent_Conc:
 		Sheet1DataGrid.Refresh()
 	End Sub
 	Private Sub frmVarConcentrations_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
-		rs.FindAllControls(Me)
-
-
 		Dim i, J As Short
 		Dim TB, CB As String
 		Dim temp, LF As String
@@ -582,8 +576,6 @@ NoInfluent_Conc:
 	End Sub
 	'UPGRADE_WARNING: Event frmVarConcentrations.Resize may fire when form is initialized. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="88B12AE1-6DE0-48A0-86F1-60C0686C026A"'
 	Private Sub frmVarConcentrations_Resize(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Resize
-
-		rs.ResizeAllControls(Me)
 		Dim XXX As Integer
 		Dim USE_MARGIN As Integer
 		If (Me.WindowState = 1) Then

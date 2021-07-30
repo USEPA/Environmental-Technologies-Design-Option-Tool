@@ -4,8 +4,7 @@ Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Imports Microsoft.VisualBasic.PowerPacks
 Friend Class frmModelIPEResults
 	Inherits System.Windows.Forms.Form
-	Dim rs As New Resizer
-
+	
 	Dim WHICH_MODEL As Short
 	
 	
@@ -88,8 +87,6 @@ Friend Class frmModelIPEResults
 	
 	Private Sub frmModelIPEResults_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		'MISC INITS.
-		rs.FindAllControls(Me)
-
 		Call CenterOnForm(Me, frmFreundlich)
 		Select Case WHICH_MODEL
 			Case MODULECODE_ADLIQ
@@ -247,11 +244,6 @@ Friend Class frmModelIPEResults
 	End Sub
 
 	Private Sub _txtData_12_TextChanged(sender As Object, e As EventArgs) Handles _txtData_12.TextChanged
-
-	End Sub
-
-	Private Sub frmModelIPEResults_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
 
 	End Sub
 End Class

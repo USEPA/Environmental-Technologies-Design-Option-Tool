@@ -265,7 +265,6 @@
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Location = New System.Drawing.Point(64, 132)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(512, 368)
         Me.Name = "frmTimeVarGrid"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

@@ -636,7 +636,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(658, 555)
+        Me.ClientSize = New System.Drawing.Size(658, 532)
         Me.ControlBox = False
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.cmdTreat)
@@ -681,8 +681,10 @@
         Me.Controls.Add(Me.GroupBox2)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Location = New System.Drawing.Point(157, 58)
-        Me.MinimumSize = New System.Drawing.Size(674, 571)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmModelCPHSDMResults"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

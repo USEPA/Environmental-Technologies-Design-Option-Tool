@@ -2,12 +2,11 @@ Option Strict Off
 Option Explicit On
 Friend Class frmSplash
 	Inherits System.Windows.Forms.Form
-
-	Dim rs As New Resizer
-
-
-
-
+	
+	
+	
+	
+	
 	Const frmSplash_decl_end As Boolean = True
 	
 	
@@ -28,9 +27,6 @@ Friend Class frmSplash
 	Private Sub frmSplash_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim ctr_location As Short
 		Dim s As String
-
-		rs.FindAllControls(Me)
-
 		'Call debug_output("L1")
 		'	Me.Height = VB6.TwipsToPixelsY(6165)
 		'		Me.Width = VB6.TwipsToPixelsX(9300)'
@@ -195,11 +191,6 @@ Friend Class frmSplash
 
 	Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 		Call ShellExecute_URL("http://github.com/USEPA/Environmental-Technologies-Design-Option-Tool")
-
-	End Sub
-
-	Private Sub frmSplash_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
 
 	End Sub
 End Class

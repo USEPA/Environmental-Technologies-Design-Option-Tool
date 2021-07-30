@@ -852,7 +852,7 @@
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DirtyLabel, Me.StatusLabel})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 534)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 511)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(581, 22)
         Me.StatusStrip1.TabIndex = 74
@@ -861,7 +861,6 @@
         'DirtyLabel
         '
         Me.DirtyLabel.AutoSize = False
-        Me.DirtyLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DirtyLabel.Name = "DirtyLabel"
         Me.DirtyLabel.Size = New System.Drawing.Size(90, 17)
         Me.DirtyLabel.Text = "DirtyLabel"
@@ -869,19 +868,16 @@
         'StatusLabel
         '
         Me.StatusLabel.AutoSize = False
-        Me.StatusLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StatusLabel.Name = "StatusLabel"
-        Me.StatusLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always
-        Me.StatusLabel.Size = New System.Drawing.Size(475, 17)
+        Me.StatusLabel.Size = New System.Drawing.Size(400, 17)
         Me.StatusLabel.Text = "StatusLabel"
-        Me.StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'frmCompoProp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(581, 556)
+        Me.ClientSize = New System.Drawing.Size(581, 533)
         Me.ControlBox = False
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.steppframe)
@@ -931,8 +927,10 @@
         Me.Controls.Add(Me._lblUnit_0)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Location = New System.Drawing.Point(30, 70)
-        Me.MinimumSize = New System.Drawing.Size(597, 572)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmCompoProp"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

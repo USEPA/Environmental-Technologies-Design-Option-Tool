@@ -2,9 +2,7 @@ Option Strict Off
 Option Explicit On
 Friend Class frmEditCarbonData
 	Inherits System.Windows.Forms.Form
-
-	Dim rs As New Resizer
-
+	
 	Dim FORM_MODE As Short
 	Const FORM_MODE_ADDNEW As Short = 1
 	Const FORM_MODE_EDIT As Short = 2
@@ -76,8 +74,6 @@ Friend Class frmEditCarbonData
 	
 	
 	Private Sub frmEditCarbonData_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
-		rs.FindAllControls(Me)
-
 		'MISC INITS.
 		'	Me.Height = VB6.TwipsToPixelsY(6045)
 		'	Me.Width = VB6.TwipsToPixelsX(4995)
@@ -290,9 +286,5 @@ Friend Class frmEditCarbonData
 
 	Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles _cmdSaveCancel_2.Click
 		Call cmdSaveCancel_Click(2)
-	End Sub
-
-	Private Sub frmEditCarbonData_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
 	End Sub
 End Class

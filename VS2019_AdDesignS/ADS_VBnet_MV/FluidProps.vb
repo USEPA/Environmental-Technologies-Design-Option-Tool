@@ -3,8 +3,7 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmFluidProps
 	Inherits System.Windows.Forms.Form
-	Dim rs As New Resizer
-
+	
 	Dim USER_HIT_OK As Boolean
 	Dim USER_HIT_CANCEL As Boolean
 	
@@ -89,8 +88,6 @@ Friend Class frmFluidProps
 	End Sub
 	
 	Private Sub frmFluidProps_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
-		rs.FindAllControls(Me)
-
 		'MISC INITS.
 		'   Me.Height = VB6.TwipsToPixelsY(3210)
 		'	Me.Width = VB6.TwipsToPixelsX(5235)
@@ -250,10 +247,5 @@ Friend Class frmFluidProps
 
 		'REFRESH DISPLAY.
 		Call frmFluidProps_Refresh()
-	End Sub
-
-	Private Sub frmFluidProps_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
-
 	End Sub
 End Class

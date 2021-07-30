@@ -247,7 +247,6 @@
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Location = New System.Drawing.Point(23, 123)
-        Me.MinimumSize = New System.Drawing.Size(756, 624)
         Me.Name = "frmModelDataComparison"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

@@ -5,9 +5,7 @@ Imports System.Windows.Forms.DataVisualization.Charting
 
 Friend Class frmModelECMResults
 	Inherits System.Windows.Forms.Form
-	Dim rs As New Resizer
-
-
+	
 	Dim length As Double
 	Dim NumW As Short
 	'UPGRADE_WARNING: Lower bound of array Solid_ConcW was changed from 1,1 to 0,0. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="0F1C9BE1-AF9D-476E-83B1-17D43BECFF20"'
@@ -434,8 +432,7 @@ Exit_Select_Print:
 	
 	Private Sub frmModelECMResults_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
 		Dim i, J As Short
-		rs.FindAllControls(Me)
-
+		
 		'Move frmPFPSDM.Left + (frmPFPSDM.Width / 2) - (frmGlobal.Width / 2), frmPFPSDM.Top + (frmPFPSDM.Height / 2) - (frmGlobal.Height / 2)
 		Call CenterOnForm(Me, frmMain)
 		
@@ -876,11 +873,6 @@ Exit_Print:
 	End Sub
 
 	Private Sub Command4_Click(sender As Object, e As EventArgs)
-
-	End Sub
-
-	Private Sub frmModelECMResults_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
 
 	End Sub
 End Class

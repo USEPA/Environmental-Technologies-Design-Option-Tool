@@ -362,7 +362,7 @@
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(711, 539)
+        Me.ClientSize = New System.Drawing.Size(711, 516)
         Me.ControlBox = False
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.GroupBox1)
@@ -373,8 +373,10 @@
         Me.Controls.Add(Me.cboGlob)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Location = New System.Drawing.Point(64, 96)
-        Me.MinimumSize = New System.Drawing.Size(727, 555)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmModelECMResults"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

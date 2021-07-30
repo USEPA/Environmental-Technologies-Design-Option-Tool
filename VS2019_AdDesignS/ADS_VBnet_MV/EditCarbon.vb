@@ -3,8 +3,7 @@ Option Explicit On
 Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
 Friend Class frmEditCarbon
 	Inherits System.Windows.Forms.Form
-	Dim rs As New Resizer
-
+	
 	Dim FORM_MODE As Short
 	Const FORM_MODE_QUERY_DATABASE As Short = 1
 	Const FORM_MODE_EDIT_DATABASE As Short = 2
@@ -400,8 +399,6 @@ err_populate_lblData:
 	End Sub
 	
 	Private Sub frmEditCarbon_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
-		rs.FindAllControls(Me)
-
 		'MISC INITS.
 		'		Me.Height = VB6.TwipsToPixelsY(7290)
 		'		Me.Width = VB6.TwipsToPixelsX(9600)
@@ -878,9 +875,5 @@ err_mnuManufacturerItem_Click:
 
 	Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
 		Call cmdOK_Click()
-	End Sub
-
-	Private Sub frmEditCarbon_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
 	End Sub
 End Class

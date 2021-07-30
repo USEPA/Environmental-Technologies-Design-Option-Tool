@@ -5,7 +5,6 @@ Imports VB = Microsoft.VisualBasic
 Friend Class frmFreundlich
 	Inherits System.Windows.Forms.Form
 
-	Dim rs As New Resizer
 
 	'Dim FORM_MODE As Integer
 	'Const FORM_MODE_ADDNEW = 1
@@ -835,8 +834,6 @@ err_populate_lblValue:
 		End If
 	End Sub
 	Private Sub frmFreundlich_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
-		rs.FindAllControls(Me)
-
 		'SAVE OLD COMPONENT FOR CANCEL ROLLBACK.
 		'UPGRADE_WARNING: Couldn't resolve default property of object SaveOldComponent. Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
 		SaveOldComponent = Component(0)
@@ -1147,10 +1144,5 @@ err_populate_lblValue:
 		RadioButton2.Checked = False
 		RadioButton3.Checked = True
 		Call optFreundlichSource_Click(2, 0)
-	End Sub
-
-	Private Sub frmFreundlich_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-		rs.ResizeAllControls(Me)
-
 	End Sub
 End Class
