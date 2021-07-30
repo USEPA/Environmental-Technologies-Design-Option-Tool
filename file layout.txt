@@ -1,0 +1,9 @@
+VS2019_AdDesignS 
+New VS files 
+Digitalfortrancode
+*ActiveX controls removed from VS code for compatibility with current Windows/VB.Net version
+
+ 
+VB6_ETDOT_Files 
+Complete ETDOT library
+Non-updated AdDesignS
