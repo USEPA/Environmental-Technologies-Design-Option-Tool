@@ -1,8 +1,8 @@
-﻿# ETDOT
+# ETDOT
 
 The **Environmental Technologies Design Option Tool** (ETDOT) was developed by National Center for Clean Industrial and Treatment Technologies (CenCITT) at Michigan Technological University (MTU).
 
-Version 1.0: Copyright 1994–2005
+Version 1.0: Copyright 1994�2005
 
 * David R. Hokanson
 * David W. Hand
@@ -49,7 +49,7 @@ The updated version of AdDesignS can be run without installation and is compatib
 
 ## ETDOT Suite
 
-This software requires *Administrator Rights* to a computer to install and to run. Files are installed directly to a folder X:\ETDOT10\... where X is the system main drive.
+This software requires *Administrator Rights* to a computer to install and to run. Files are installed directly to a folder X:\ETDOT10\... where X is the system main drive. [To ensure that a user can continue to use ETDOT if a user does not have "Administrator Rights", the user must be provided with "Full Control Access" (read/write) rights to the folder X:\ETDOT10.]
 
 1. Download zip file ('etdot_1-0.zip') under [Releases](https://github.com/USEPA/Environmental-Technologies-Design-Option-Tool/releases/tag/1.0.50).
 2. Unzip/Unpack zip file
