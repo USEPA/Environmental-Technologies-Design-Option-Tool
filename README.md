@@ -22,7 +22,6 @@ Software that is included:
 * Aeration System Analysis Program (ASAP) Version 1.0
 * Biofilter Design Software Version 1.0.27
 * Continuous Flow Pore Surface Diffusion Model for Modeling Powdered Activated Carbon
-* Adsorption Version 1.0
 * Dye Study Program (DyeStudy) Version 1.0.0
 * Predictive Software for the Fate of Volatile Organics in Municipal Wastewater Treatment Plants (FaVOr) Version 1.0.11
 * Ion Exchange Design Software (IonExDesign) Version 1.0.0
