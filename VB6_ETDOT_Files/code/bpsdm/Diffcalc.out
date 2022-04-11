@@ -1,0 +1,175 @@
+
+
+
+ COMPOUND          cis                           
+ MOLAL VOLUME (ml/gmol)                  86.300
+ SURFACE DIFFUSION COEFFICIENT (cm**2/sec)           0.13000E-08
+ FREUNDLICH K (mg/g)(L/mg)**1/n           11.660
+ FREUNDLICH 1/n                              0.5870
+ INITIAL CONCENTRATION (ug/L)            300.000
+ FINAL CONCENTRATION (ug/L)              180.000
+ VOLUME OF SYSTEM (L)                     21.000
+ FLOW RATE (L/min)                          2.00
+ RADIUS OF PARTICLE (cm)                     0.0525
+ WEIGHT OF CARBON NEEDED (gm)               0.59137
+ LIQUID DIFFUSIVITY (cm**2/sec)            0.9777296352E-05
+ SCHMIDT NUMBER                           1008.4
+ SURFACE SOLUTE DISTRIBUTION PARAMETER      23384.50543    
+
+
+ COLUMN DIA (cm)   Bed Depth (cm) Kf (cm/sec)    STANTON        BIOT
+
+   0.800            2.503           0.02241     0.0197         47.31
+   1.100            1.324           0.01805     0.0159         38.10
+   1.500            0.712           0.01462     0.0128         30.86
+   2.500            0.256           0.01033     0.0091         21.80
+
+
+
+ COMPOUND          cis                           
+ MOLAL VOLUME (ml/gmol)                  86.300
+ SURFACE DIFFUSION COEFFICIENT (cm**2/sec)           0.13000E-08
+ FREUNDLICH K (mg/g)(L/mg)**1/n           11.660
+ FREUNDLICH 1/n                              0.5870
+ INITIAL CONCENTRATION (ug/L)            300.000
+ FINAL CONCENTRATION (ug/L)              180.000
+ VOLUME OF SYSTEM (L)                     21.000
+ FLOW RATE (L/min)                          2.50
+ RADIUS OF PARTICLE (cm)                     0.0525
+ WEIGHT OF CARBON NEEDED (gm)               0.59137
+ LIQUID DIFFUSIVITY (cm**2/sec)            0.9777296352E-05
+ SCHMIDT NUMBER                           1008.4
+ SURFACE SOLUTE DISTRIBUTION PARAMETER      23384.50543    
+
+
+ COLUMN DIA (cm)   Bed Depth (cm) Kf (cm/sec)    STANTON        BIOT
+
+   0.800            2.503           0.02418     0.0170         51.04
+   1.100            1.324           0.01947     0.0137         41.10
+   1.500            0.712           0.01577     0.0111         33.29
+   2.500            0.256           0.01114     0.0078         23.52
+
+
+
+ COMPOUND          cis                           
+ MOLAL VOLUME (ml/gmol)                  86.300
+ SURFACE DIFFUSION COEFFICIENT (cm**2/sec)           0.13000E-08
+ FREUNDLICH K (mg/g)(L/mg)**1/n           11.660
+ FREUNDLICH 1/n                              0.5870
+ INITIAL CONCENTRATION (ug/L)            200.000
+ FINAL CONCENTRATION (ug/L)               90.000
+ VOLUME OF SYSTEM (L)                     21.000
+ FLOW RATE (L/min)                          2.00
+ RADIUS OF PARTICLE (cm)                     0.0525
+ WEIGHT OF CARBON NEEDED (gm)               0.81428
+ LIQUID DIFFUSIVITY (cm**2/sec)            0.9777296352E-05
+ SCHMIDT NUMBER                           1008.4
+ SURFACE SOLUTE DISTRIBUTION PARAMETER      27647.37347    
+
+
+ COLUMN DIA (cm)   Bed Depth (cm) Kf (cm/sec)    STANTON        BIOT
+
+   0.800            3.447           0.02241     0.0271         40.02
+   1.100            1.823           0.01805     0.0218         32.23
+   1.500            0.980           0.01462     0.0177         26.10
+   2.500            0.353           0.01033     0.0125         18.44
+
+
+
+ COMPOUND          cis                           
+ MOLAL VOLUME (ml/gmol)                  86.300
+ SURFACE DIFFUSION COEFFICIENT (cm**2/sec)           0.13000E-08
+ FREUNDLICH K (mg/g)(L/mg)**1/n           11.660
+ FREUNDLICH 1/n                              0.5870
+ INITIAL CONCENTRATION (ug/L)            100.000
+ FINAL CONCENTRATION (ug/L)               50.000
+ VOLUME OF SYSTEM (L)                     21.000
+ FLOW RATE (L/min)                          2.50
+ RADIUS OF PARTICLE (cm)                     0.0525
+ WEIGHT OF CARBON NEEDED (gm)               0.52263
+ LIQUID DIFFUSIVITY (cm**2/sec)            0.9777296352E-05
+ SCHMIDT NUMBER                           1008.4
+ SURFACE SOLUTE DISTRIBUTION PARAMETER      36811.14001    
+
+
+ COLUMN DIA (cm)   Bed Depth (cm) Kf (cm/sec)    STANTON        BIOT
+
+   0.800            2.212           0.02418     0.0150         32.42
+   1.100            1.170           0.01947     0.0121         26.11
+   1.500            0.629           0.01577     0.0098         21.15
+   2.500            0.227           0.01114     0.0069         14.94
+
+
+
+ COMPOUND          cis                           
+ MOLAL VOLUME (ml/gmol)                  86.300
+ SURFACE DIFFUSION COEFFICIENT (cm**2/sec)           0.13000E-08
+ FREUNDLICH K (mg/g)(L/mg)**1/n           11.660
+ FREUNDLICH 1/n                              0.5870
+ INITIAL CONCENTRATION (ug/L)            100.000
+ FINAL CONCENTRATION (ug/L)               50.000
+ VOLUME OF SYSTEM (L)                     21.000
+ FLOW RATE (L/min)                          2.00
+ RADIUS OF PARTICLE (cm)                     0.0525
+ WEIGHT OF CARBON NEEDED (gm)               0.52263
+ LIQUID DIFFUSIVITY (cm**2/sec)            0.9777296352E-05
+ SCHMIDT NUMBER                           1008.4
+ SURFACE SOLUTE DISTRIBUTION PARAMETER      36811.14001    
+
+
+ COLUMN DIA (cm)   Bed Depth (cm) Kf (cm/sec)    STANTON        BIOT
+
+   0.800            2.212           0.02241     0.0174         30.05
+   1.100            1.170           0.01805     0.0140         24.20
+   1.500            0.629           0.01462     0.0114         19.60
+   2.500            0.227           0.01033     0.0080         13.85
+
+
+
+ COMPOUND          cis                           
+ MOLAL VOLUME (ml/gmol)                  86.300
+ SURFACE DIFFUSION COEFFICIENT (cm**2/sec)           0.13000E-08
+ FREUNDLICH K (mg/g)(L/mg)**1/n           11.660
+ FREUNDLICH 1/n                              0.5870
+ INITIAL CONCENTRATION (ug/L)             10.000
+ FINAL CONCENTRATION (ug/L)                4.000
+ VOLUME OF SYSTEM (L)                     21.000
+ FLOW RATE (L/min)                          2.50
+ RADIUS OF PARTICLE (cm)                     0.0525
+ WEIGHT OF CARBON NEEDED (gm)               0.27622
+ LIQUID DIFFUSIVITY (cm**2/sec)            0.9777296352E-05
+ SCHMIDT NUMBER                           1008.4
+ SURFACE SOLUTE DISTRIBUTION PARAMETER      95275.06800    
+
+
+ COLUMN DIA (cm)   Bed Depth (cm) Kf (cm/sec)    STANTON        BIOT
+
+   0.800            1.169           0.02418     0.0079         12.53
+   1.100            0.618           0.01947     0.0064         10.09
+   1.500            0.333           0.01577     0.0052          8.17
+   2.500            0.120           0.01114     0.0037          5.77
+
+
+
+ COMPOUND          cis                           
+ MOLAL VOLUME (ml/gmol)                  86.300
+ SURFACE DIFFUSION COEFFICIENT (cm**2/sec)           0.13000E-08
+ FREUNDLICH K (mg/g)(L/mg)**1/n           11.660
+ FREUNDLICH 1/n                              0.5870
+ INITIAL CONCENTRATION (ug/L)            100.000
+ FINAL CONCENTRATION (ug/L)               40.000
+ VOLUME OF SYSTEM (L)                     21.000
+ FLOW RATE (L/min)                          2.50
+ RADIUS OF PARTICLE (cm)                     0.0525
+ WEIGHT OF CARBON NEEDED (gm)               0.71493
+ LIQUID DIFFUSIVITY (cm**2/sec)            0.9777296352E-05
+ SCHMIDT NUMBER                           1008.4
+ SURFACE SOLUTE DISTRIBUTION PARAMETER      36811.14001    
+
+
+ COLUMN DIA (cm)   Bed Depth (cm) Kf (cm/sec)    STANTON        BIOT
+
+   0.800            3.026           0.02418     0.0206         32.42
+   1.100            1.601           0.01947     0.0166         26.11
+   1.500            0.861           0.01577     0.0134         21.15
+   2.500            0.310           0.01114     0.0095         14.94
