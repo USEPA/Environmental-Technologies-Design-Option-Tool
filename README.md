@@ -24,7 +24,7 @@ Software that is included:
 * Continuous Flow Pore Surface Diffusion Model for Modeling Powdered Activated Carbon
 * Dye Study Program (DyeStudy) Version 1.0.0
 * Predictive Software for the Fate of Volatile Organics in Municipal Wastewater Treatment Plants (FaVOr) Version 1.0.11
-* Ion Exchange Design Software (IonExDesign) Version 1.0.0
+* Ion Exchange Design Software (IonExDesignS) Version 1.0.0 [See notes below]
 * Software to Estimate Physical Properties (StEPP) Version 1.0
 
 
@@ -62,3 +62,5 @@ Available Users manuals will be located in the modules subfolder within the help
 # Notes on current software
 
 The **ETDOT** suite of software packages consists of a FORTRAN engine with a Visual Basic (version 6) graphical user interface. The VB6 portion of the code relies on ActiveX control files which are located in the repository, however, these are an older coding standard and no longer supported with current versions of Visual Studio 20##. Precompiled engine files are included.
+
+IonExDesignS within **ETDOT** is currently non-functional with no current plans to update. Please refer to [HSDM-IX](https://github.com/USEPA/Water_Treatment_Models/tree/master/ShinyApp) for Ion Exchange modeling needs. HSDM-IX is a R Shiny app that uses an updated ion exchange model. The corresponding Python version of the same model can be found along with an updated PSDM model for modeling granular activated carbon (GAC) at [Water Treatment Models](https://github.com/USEPA/Water_Treatment_Models).
