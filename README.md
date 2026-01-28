@@ -1,8 +1,10 @@
+As of January 2026, this repository is Archived with no further plan on development. Future development of AdDesignS will occur at [https://github.com/USEPA/AdDesignS](https://github.com/USEPA/AdDesignS)
+
 # ETDOT
 
 The **Environmental Technologies Design Option Tool** (ETDOT) was developed by National Center for Clean Industrial and Treatment Technologies (CenCITT) at Michigan Technological University (MTU).
 
-Version 1.0: Copyright 1994–2005
+Version 1.0: Copyright 1994â€“2005
 
 * David R. Hokanson
 * David W. Hand
@@ -66,3 +68,4 @@ The **ETDOT** suite of software packages consists of a FORTRAN engine with a Vis
 IonExDesignS within **ETDOT** is currently non-functional with no current plans to update. Please refer to the [Ion Exchange Model](https://github.com/USEPA/Water_Treatment_Models/tree/master/Shiny-IEX) for Ion Exchange modeling needs. The Ion Exchange Model is a R Shiny app that uses an updated ion exchange model for both gel-type and macroporous ion exchange resins. The corresponding Python version of the same model can be found along with an updated PSDM model for modeling granular activated carbon (GAC) at [Water Treatment Models](https://github.com/USEPA/Water_Treatment_Models). 
 
 A training video for AdDesignS can be found at [Training Video](https://www.youtube.com/watch?v=gewrnDPhTnM)
+
