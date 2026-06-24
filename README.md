@@ -1,3 +1,5 @@
+DEPRECATED - This repository has been archived and is no longer maintained. The code is provided for historical reference and may contain unpatched or unknown vulnerabilities. It should not be used in production systems.
+
 As of January 2026, this repository is Archived with no further plan on development. Future development of AdDesignS will occur at [https://github.com/USEPA/AdDesignS](https://github.com/USEPA/AdDesignS)
 
 # ETDOT
